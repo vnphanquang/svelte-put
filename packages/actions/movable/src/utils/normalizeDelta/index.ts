@@ -1,0 +1,1 @@
+export { normalizeDelta } from './normalizeDelta';

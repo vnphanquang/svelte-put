@@ -4,15 +4,15 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier',
     'plugin:import/typescript',
+    'plugin:prettier/recommended',
   ],
   env: {
     browser: true,
     amd: true,
     node: true,
   },
-  plugins: ['import', '@typescript-eslint'],
+  plugins: ['import', '@typescript-eslint', 'prettier'],
   rules: {
     // semi-colon override for typescript
     semi: 'off',

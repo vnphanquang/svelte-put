@@ -3,5 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "author": "Quang Phan",
-  "main": "index.js"
+  "main": "index.js",
+  "peerDependencies": {
+    "prettier": "^2.6.2"
+  }
 }
