@@ -83,10 +83,7 @@ import { input } from './utils';
  * ```
  *
  */
-export function movable(
-  node: HTMLElement,
-  parameters: Partial<MovableParameters> = { enabled: true },
-) {
+export function movable(node: HTMLElement, parameters: MovableParameters = { enabled: true }) {
   let { parent, normalizedDelta, trigger, enabled } = input(node, parameters);
 
   const lastMousePosition = { x: 0, y: 0 };

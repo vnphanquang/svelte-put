@@ -9,7 +9,7 @@ Trigger node displacement on mousedown (via position.left &amp; position.top)
 <b>Signature:</b>
 
 ```typescript
-export declare function movable(node: HTMLElement, parameters?: Partial<MovableParameters>): {
+export declare function movable(node: HTMLElement, parameters?: MovableParameters): {
     update(parameters: Partial<MovableParameters>): void;
     destroy(): void;
 };
@@ -20,7 +20,7 @@ export declare function movable(node: HTMLElement, parameters?: Partial<MovableP
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  node | HTMLElement | HTMLElement to be moved |
-|  parameters | Partial&lt;[MovableParameters](./movable.movableparameters.md)<!-- -->&gt; | <i>(Optional)</i> svelte action parameters |
+|  parameters | [MovableParameters](./movable.movableparameters.md) | <i>(Optional)</i> svelte action parameters |
 
 <b>Returns:</b>
 

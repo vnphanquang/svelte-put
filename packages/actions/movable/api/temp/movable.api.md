@@ -5,7 +5,7 @@
 ```ts
 
 // @public
-export function movable(node: HTMLElement, parameters?: Partial<MovableParameters>): {
+export function movable(node: HTMLElement, parameters?: MovableParameters): {
     update(parameters: Partial<MovableParameters>): void;
     destroy(): void;
 };

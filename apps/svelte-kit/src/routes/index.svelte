@@ -21,7 +21,7 @@
   }
 </script>
 
-<title>dev | svelte-movable</title>
+<title>dev | @svelte-put</title>
 
 <main class="flex flex-1 flex-col p-4">
   <h1 class="mt-10 text-center text-4xl font-bold">Development Environment</h1>
