@@ -41,9 +41,9 @@ For those reasons, a monorepo seems like a good fit, hence this project.
 
 ### Svelte Actions
 
-| Package | Short Description | Version |
-| --- | --- | --- |
-| [svelte-movable][github.movable] | move node around on mousedown | [![npm.movable.badge]][npm.movable] |
+| Package | Short Description | Version | Changelog |
+| --- | --- | --- | --- |
+| [svelte-movable][github.movable] | move node on mousedown | [![npm.movable.badge]][npm.movable] | [CHANGELOG][github.movable.changelog] |
 ## Contributing
 
 [Read Contribution Guide][github.contributing]
@@ -75,6 +75,7 @@ For those reasons, a monorepo seems like a good fit, hence this project.
 [github.contributing]: ./CONTRIBUTING.md
 [github.issues]: https://github.com/vnphanquang/svelte-action-movable/issues?q=
 [github.movable]: https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/movable
+[github.movable.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/CHANGELOG.md
 
 <!-- heading badge -->
 [semantic-release]: https://github.com/semantic-release/semantic-release
@@ -84,4 +85,4 @@ For those reasons, a monorepo seems like a good fit, hence this project.
 
 <!-- npm -->
 [npm.movable.badge]: https://img.shields.io/npm/v/@svelte-put/movable
-[npm.movbale]: https://www.npmjs.com/package/@svelte-put/movable
+[npm.movable]: https://www.npmjs.com/package/@svelte-put/movable
