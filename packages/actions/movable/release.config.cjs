@@ -1,3 +1,3 @@
 module.exports = {
-  extends: '@svelte-put/releaserc',
+  extends: ['@svelte-put/releaserc', 'semantic-release-monorepo'],
 };

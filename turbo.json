@@ -19,7 +19,7 @@
       "dependsOn": ["build"]
     },
     "semantic-release": {
-      "dependsOn": ["lint", "build", "api"]
+      "dependsOn": ["build"]
     }
   }
 }
