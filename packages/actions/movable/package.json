@@ -13,8 +13,8 @@
     "lib"
   ],
   "scripts": {
-    "lint": "eslint --ignore-path .gitignore \"./**/*/*{ts,js,cjs,json}\"",
-    "format": "prettier --check --ignore-path .gitignore --plugin-search-dir=. \"./**/*.{ts,js,cjs,json,css}\"",
+    "lint": "eslint --ignore-path .gitignore \"./**/*/*{ts,js,cjs}\"",
+    "format": "prettier --check --ignore-path .gitignore --plugin-search-dir=. \"./**/*.{ts,js,cjs}\"",
     "build": "rollup -c",
     "semantic-release": "semantic-release",
     "api:extract": "api-extractor run --local --verbose",
@@ -41,7 +41,7 @@
   "bugs": {
     "url": "https://github.com/vnphanquang/svelte-put/issues"
   },
-  "homepage": "https://github.com/vnphanquang/svelte-put/packages/actions/movable",
+  "homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/movable",
   "devDependencies": {
     "@microsoft/api-documenter": "^7.17.12",
     "@microsoft/api-extractor": "^7.23.1",

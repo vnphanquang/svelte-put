@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply h-full bg-bg bg-paper text-fg;
+
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply relative h-full w-full;
+  }
+
+  svg {
+    fill: currentColor;
+  }
+
+  *:disabled {
+    cursor: not-allowed;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px theme('colors.bg.DEFAULT') inset !important;
+    -webkit-text-fill-color: theme('colors.fg') !important;
+  }
+}
+
+@layer utilities {
+  .inset-center {
+    @apply top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2;
+  }
+}

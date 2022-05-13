@@ -4,6 +4,11 @@
   "private": true,
   "main": ".eslintrc.cjs",
   "author": "Quang Phan",
+  "files": [
+    "base.cjs",
+    ".eslintrc.cjs",
+    "svelte-kit.cjs"
+  ],
   "scripts": {
     "lint": "eslint **/*.js",
     "format": "prettier --check \"./**/*.{ts,js,cjs,json}\""

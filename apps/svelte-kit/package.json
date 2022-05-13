@@ -1,0 +1,36 @@
+{
+  "name": "@svelte-put/svelte-kit",
+  "version": "0.0.0",
+  "description": "Development env & field test kit for packages",
+  "type": "module",
+  "main": "build/index.js",
+  "scripts": {
+    "dev": "svelte-kit dev",
+    "lint": "eslint --ignore-path .gitignore \"./**/*/*{ts,js,cjs,json,svelte}\"",
+    "format": "prettier --check --ignore-path .gitignore --plugin-search-dir=. \"./**/*.{ts,js,cjs,json,svelte,css}\""
+  },
+  "author": "Quang Phan",
+  "license": "MIT",
+  "devDependencies": {
+    "@svelte-put/eslint-config": "workspace:^",
+    "@svelte-put/movable": "workspace:^",
+    "@svelte-put/prettierrc": "workspace:^",
+    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/kit": "1.0.0-next.326",
+    "eslint": "^8.15.0",
+    "eslint-plugin-svelte3": "^3.2.1",
+    "postcss": "^8.4.12",
+    "postcss-import": "^14.1.0",
+    "postcss-load-config": "^3.1.4",
+    "postcss-nesting": "^10.1.4",
+    "prettier": "^2.6.2",
+    "prettier-plugin-tailwindcss": "^0.1.10",
+    "svelte": "^3.44.0",
+    "svelte-awesome": "^3.0.0",
+    "svelte-check": "^2.2.6",
+    "svelte-preprocess": "^4.10.5",
+    "tailwindcss": "^3.0.23",
+    "tslib": "^2.4.0",
+    "typescript": "^4.6.4"
+  }
+}
