@@ -1,5 +1,12 @@
 # Changelog
 
+## [@svelte-put/movable-v1.1.3](https://github.com/vnphanquang/svelte-put/compare/@svelte-put/movable-v1.1.2...@svelte-put/movable-v1.1.3) (2022-05-13)
+
+
+### Documentation
+
+* **README:** migration from svelte-action-movable to @svelte-put/movable ([50cc819](https://github.com/vnphanquang/svelte-put/commit/50cc8198eb39a5ba845ea46358c16b77ae522396))
+
 ### [1.1.2](https://github.com/vnphanquang/svelte-action-movable/compare/v1.1.1...v1.1.2) (2022-05-11)
 
 
