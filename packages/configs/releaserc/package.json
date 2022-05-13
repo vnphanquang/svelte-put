@@ -23,10 +23,10 @@
     "@semantic-release/github": "^8.0.4",
     "@semantic-release/npm": "^9.0.1",
     "@semantic-release/release-notes-generator": "^10.0.3",
-    "conventional-changelog-conventionalcommits": "^4.6.3",
-    "semantic-release-monorepo": "^7.0.5"
+    "conventional-changelog-conventionalcommits": "^4.6.3"
   },
   "peerDependencies": {
-    "semantic-release": "^19.0.2"
+    "semantic-release": "^19.0.2",
+    "semantic-release-monorepo": "^7.0.5"
   }
 }

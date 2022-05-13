@@ -23,7 +23,6 @@ const conventionalcommits = {
 
 /** @type {import('semantic-release').Options} */
 const options = {
-  extends: 'semantic-release-monorepo',
   ci: true,
   branches: [
     '+([0-9])?(.{+([0-9]),x}).x',
