@@ -1,5 +1,12 @@
 # Changelog
 
+## [@svelte-put/movable-v1.1.5](https://github.com/vnphanquang/svelte-put/compare/@svelte-put/movable-v1.1.4...@svelte-put/movable-v1.1.5) (2022-05-13)
+
+
+### Documentation
+
+* **README:** fix ref link to example ([52866ac](https://github.com/vnphanquang/svelte-put/commit/52866ac225a0a84f0f95ea81e7c83ba018c2597e))
+
 ## [@svelte-put/movable-v1.1.4](https://github.com/vnphanquang/svelte-put/compare/@svelte-put/movable-v1.1.3...@svelte-put/movable-v1.1.4) (2022-05-13)
 
 

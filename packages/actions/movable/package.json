@@ -1,6 +1,6 @@
 {
   "name": "@svelte-put/movable",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Action to move node on mousedown & mousemove",
   "main": "lib/index.js",
   "module": "lib/index.js",
