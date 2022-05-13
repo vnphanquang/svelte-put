@@ -2,6 +2,18 @@
 
 Thank you for stopping by. [svelte-put][github] welcomes and appreciates your contribution.
 
+## Table of Contents
+
+- [Contributing to svelte-put](#contributing-to-svelte-put)
+  - [Table of Contents](#table-of-contents)
+  - [Reporting Issues](#reporting-issues)
+    - [Bug Report](#bug-report)
+    - [Feature Request](#feature-request)
+  - [Pull Requests](#pull-requests)
+  - [Consistent Code Style](#consistent-code-style)
+  - [Development Setup](#development-setup)
+    - [Recommended VSCode Extensions](#recommended-vscode-extensions)
+
 ## Reporting Issues
 
 Before opening a new issue, [first search for existing issues][github.issues] to avoid duplications.
@@ -55,6 +67,17 @@ pnpm build
 # to generate api analysis & docs
 pnpm api
 ```
+
+### Recommended VSCode Extensions
+
+Some extensions that are well suited for this project:
+
+| Extension                                                                                                  | Author         |
+| ---------------------------------------------------------------------------------------------------------- | -------------- |
+| [Monorepo Workspace](https://marketplace.visualstudio.com/items?itemName=folke.vscode-monorepo-workspace)  | Folke Lemaitre |
+| [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)             | Svelte         |
+| [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) | Brad Cornes    |
+| [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)                | stylelint      |
 
 [turborepo]: https://turborepo.org/
 [github]: https://github.com/vnphanquang/svelte-put
