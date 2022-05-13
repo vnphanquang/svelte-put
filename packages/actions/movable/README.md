@@ -84,8 +84,8 @@ Quick access to the parameter interface accepted by the action: [MovableParamete
 <!-- github specifics -->
 
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
-[github.actions.release.badge]: https://github.com/vnphanquang/svelte-put/actions/workflows/release.yaml/badge.svg
-[github.actions.release]: https://github.com/vnphanquang/svelte-put/actions/workflows/release.yaml
+[github.actions.release.badge]: https://github.com/vnphanquang/svelte-put/actions/workflows/movable.release.yaml/badge.svg
+[github.actions.release]: https://github.com/vnphanquang/svelte-put/actions/workflows/movable.release.yaml
 [github.release.badge]: https://img.shields.io/github/v/release/vnphanquang/svelte-put
 [github.release]: https://github.com/vnphanquang/svelte-put/releases
 [github.changelog]: ./CHANGELOG
