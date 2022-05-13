@@ -35,9 +35,7 @@ declare namespace svelte.JSX {
       event: CustomEvent<import('@svelte-put/movable').MovableEventDetails>,
     ) => void;
     // on:movableend
-    onmovableend?: (
-      event: CustomEvent<import('@svelte-put/movable').MovableEventDetails>,
-    ) => void;
+    onmovableend?: (event: CustomEvent<import('@svelte-put/movable').MovableEventDetails>) => void;
   }
 }
 
