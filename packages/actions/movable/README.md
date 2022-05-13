@@ -44,7 +44,7 @@ pnpm add -D @svelte-put/movable
 
 ## Usage
 
-See [example for typical usage here](./api/docs/movable.movable.md#example).
+See [example for typical usage here](https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/api/docs/movable.movable.md#example).
 
 </details>
 
