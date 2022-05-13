@@ -1,0 +1,7 @@
+{
+  "name": "@svelte-put/prettierrc",
+  "version": "0.0.0",
+  "private": true,
+  "author": "Quang Phan",
+  "main": "index.js"
+}

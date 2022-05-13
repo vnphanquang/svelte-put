@@ -1,0 +1,11 @@
+{
+  "name": "@svelte-put/tsconfig",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.js",
+  "author": "Quang Phan",
+  "files": [
+    "base.json",
+    "base.build.json"
+  ]
+}

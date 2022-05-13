@@ -1,0 +1,31 @@
+{
+  "name": "@svelte-put/eslintrc",
+  "version": "0.0.0",
+  "private": true,
+  "main": ".eslintrc.js",
+  "author": "Quang Phan",
+  "scripts": {
+    "lint": "eslint **/*.js",
+    "format": "prettier --check  \"./**/*.{ts,js,cjs,json}\""
+  },
+  "dependencies": {
+    "@typescript-eslint/parser": "^5.23.0"
+  },
+  "devDependencies": {
+    "@svelte-put/prettierrc": "workspace:^",
+    "@typescript-eslint/eslint-plugin": "^5.23.0",
+    "eslint": "^8.15.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "prettier": "^2.6.2",
+    "typescript": "^4.6.4"
+  },
+  "peerDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.23.0",
+    "eslint": "^8.15.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "prettier": "^2.6.2",
+    "typescript": "^4.6.4"
+  }
+}
