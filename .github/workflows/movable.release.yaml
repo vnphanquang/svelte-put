@@ -27,7 +27,7 @@ jobs:
         run: pnpm build --filter=@svelte-put/movable
         continue-on-error: false
       - name: Release
-        run: pnpm semantic-release --filter=@svelte-put/movable -- --dry-run
+        run: pnpm semantic-release --filter=@svelte-put/movable
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
