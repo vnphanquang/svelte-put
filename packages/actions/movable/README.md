@@ -2,9 +2,7 @@
 
 # `@svelte-put/movable`
 
-[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia] [![github.release.badge]][github.release]
-
-[![github.actions.release.badge]][github.actions.release]
+[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia] [![github.actions.release.badge]][github.actions.release]
 
 Svelte action `use:movable`
 
@@ -85,12 +83,10 @@ Quick access to the parameter interface accepted by the action: [MovableParamete
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
 [github.actions.release.badge]: https://github.com/vnphanquang/svelte-put/actions/workflows/movable.release.yaml/badge.svg
 [github.actions.release]: https://github.com/vnphanquang/svelte-put/actions/workflows/movable.release.yaml
-[github.release.badge]: https://img.shields.io/github/v/release/vnphanquang/svelte-put
-[github.release]: https://github.com/vnphanquang/svelte-put/releases
 [github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/CHANGELOG.md
 [github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
 [github.api]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/api/docs/index.md
-[github.api.movableparameters]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/api/docs//movable.movableparameters.md
+[github.api.movableparameters]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/api/docs/movable.movableparameters.md
 [github.api.movable]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/api/docs/movable.movable.md
 
 <!-- heading badge -->
