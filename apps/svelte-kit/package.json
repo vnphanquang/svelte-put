@@ -13,6 +13,7 @@
   "license": "MIT",
   "devDependencies": {
     "@svelte-put/eslint-config": "workspace:^",
+    "@svelte-put/intersect": "workspace:^",
     "@svelte-put/movable": "workspace:^",
     "@svelte-put/prettierrc": "workspace:^",
     "@sveltejs/adapter-auto": "next",

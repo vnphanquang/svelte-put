@@ -13,6 +13,7 @@ importers:
   apps/svelte-kit:
     specifiers:
       '@svelte-put/eslint-config': workspace:^
+      '@svelte-put/intersect': workspace:^
       '@svelte-put/movable': workspace:^
       '@svelte-put/prettierrc': workspace:^
       '@sveltejs/adapter-auto': next
@@ -34,9 +35,10 @@ importers:
       typescript: ^4.6.4
     devDependencies:
       '@svelte-put/eslint-config': link:../../packages/configs/eslint-config
+      '@svelte-put/intersect': link:../../packages/actions/intersect
       '@svelte-put/movable': link:../../packages/actions/movable
       '@svelte-put/prettierrc': link:../../packages/configs/prettierrc
-      '@sveltejs/adapter-auto': 1.0.0-next.40
+      '@sveltejs/adapter-auto': 1.0.0-next.42
       '@sveltejs/kit': 1.0.0-next.326_svelte@3.48.0
       eslint: 8.15.0
       eslint-plugin-svelte3: 3.4.1_usjo443ynfgvutifl4ot2fkxzy
@@ -51,6 +53,44 @@ importers:
       svelte-check: 2.7.0_lhgjd277matnne4wn224wtgbie
       svelte-preprocess: 4.10.6_j5vltbetf5b3hvn3gkit4y4tee
       tailwindcss: 3.0.24
+      tslib: 2.4.0
+      typescript: 4.6.4
+
+  packages/actions/intersect:
+    specifiers:
+      '@microsoft/api-documenter': ^7.17.12
+      '@microsoft/api-extractor': ^7.23.1
+      '@rollup/plugin-typescript': ^8.3.2
+      '@svelte-put/apirc': workspace:^
+      '@svelte-put/eslint-config': workspace:^
+      '@svelte-put/prettierrc': workspace:^
+      '@svelte-put/releaserc': workspace:^
+      '@svelte-put/tsconfig': workspace:^
+      eslint: ^8.15.0
+      npm-run-all: ^4.1.5
+      prettier: ^2.6.2
+      rollup: ^2.72.1
+      rollup-plugin-filesize: ^9.1.2
+      semantic-release: ^19.0.2
+      semantic-release-monorepo: ^7.0.5
+      tslib: ^2.4.0
+      typescript: ^4.6.4
+    devDependencies:
+      '@microsoft/api-documenter': 7.17.13
+      '@microsoft/api-extractor': 7.23.2
+      '@rollup/plugin-typescript': 8.3.2_dsrqihoegvzgycupzno43pt4sq
+      '@svelte-put/apirc': link:../../configs/apirc
+      '@svelte-put/eslint-config': link:../../configs/eslint-config
+      '@svelte-put/prettierrc': link:../../configs/prettierrc
+      '@svelte-put/releaserc': link:../../configs/releaserc
+      '@svelte-put/tsconfig': link:../../configs/tsconfig
+      eslint: 8.15.0
+      npm-run-all: 4.1.5
+      prettier: 2.6.2
+      rollup: 2.72.1
+      rollup-plugin-filesize: 9.1.2
+      semantic-release: 19.0.2
+      semantic-release-monorepo: 7.0.5_semantic-release@19.0.2
       tslib: 2.4.0
       typescript: 4.6.4
 
@@ -650,12 +690,12 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@sveltejs/adapter-auto/1.0.0-next.40:
-    resolution: {integrity: sha512-TT6YJUF3asJ/2RbviEpcDJQ/TixPcvmH0L2266fGNT7+KfAf9wbbVdegPWRODk2E2hTN0X+h5YS9l+lap+BK9w==}
+  /@sveltejs/adapter-auto/1.0.0-next.42:
+    resolution: {integrity: sha512-AMTrR0A2Uss1FQkpYDV/7lYgQtRHyTrvwGCrll1lwZNPexb9MZGU4+x8csGKTNgf29Dg3lCEc9JBQti89rHZbw==}
     dependencies:
       '@sveltejs/adapter-cloudflare': 1.0.0-next.19
-      '@sveltejs/adapter-netlify': 1.0.0-next.56
-      '@sveltejs/adapter-vercel': 1.0.0-next.50
+      '@sveltejs/adapter-netlify': 1.0.0-next.57
+      '@sveltejs/adapter-vercel': 1.0.0-next.51
     dev: true
 
   /@sveltejs/adapter-cloudflare/1.0.0-next.19:
@@ -665,16 +705,16 @@ packages:
       worktop: 0.8.0-next.13
     dev: true
 
-  /@sveltejs/adapter-netlify/1.0.0-next.56:
-    resolution: {integrity: sha512-fM3aBHsr7syCGfIJcuB1mEoZwynqyOxVijvmyrd9OWHi6MP3bXSP+GhKDMtDpQRwejJJiwuZNTx2PUbV3uirvA==}
+  /@sveltejs/adapter-netlify/1.0.0-next.57:
+    resolution: {integrity: sha512-rqvOr488+7NGkEHw/D6v1Y8Fg0MbiUP/YI1uSYjKy+tA8/4FOdBgU8Nk8daPTxWEU+CpsgzvA4X8IVonuML9SA==}
     dependencies:
       '@iarna/toml': 2.2.5
       esbuild: 0.14.39
       tiny-glob: 0.2.9
     dev: true
 
-  /@sveltejs/adapter-vercel/1.0.0-next.50:
-    resolution: {integrity: sha512-yta0AkuWEr7qrm8LB34F4ZdCtMxj+cHD4huwrRYCgjv+PSJHLPwe7aH53+Mhrv6La0TgeyQ/f2lTyhBMXZXn9Q==}
+  /@sveltejs/adapter-vercel/1.0.0-next.51:
+    resolution: {integrity: sha512-U4GSe1tYcWq90XCQfLK4qmEEVA1MyWgnT6i7LhbLVOoNP8bf3ict3xKjGrHcx/CY4jNUBA80DXSkj/hpFkweAg==}
     dependencies:
       esbuild: 0.14.39
     dev: true

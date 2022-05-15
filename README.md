@@ -16,6 +16,7 @@ Useful svelte stuff to put in your projects
 - [@svelte-put](#svelte-put)
   - [Table of Contents](#table-of-contents)
   - [Inspiration & Acknowledgement](#inspiration--acknowledgement)
+  - [Playground](#playground)
   - [Packages](#packages)
     - [Svelte Actions](#svelte-actions)
   - [Contributing](#contributing)
@@ -31,9 +32,56 @@ There is already a great pool of [svelte actions collected by Shawn and other co
 
 - Shawn's project aims to be a source for RFCs into `svelte`; I believe the stuff I am putting here should stay in user land.
 - I prefer having separate packages for their dedicated purposes (instead of one package that exports everything).
-- I want to include more than just actions in this collection.
+- I want to incrementally include more than just actions in this collection.
 
 For those reasons, a monorepo seems like a good fit, hence this project.
+
+<details>
+  <summary>Why the name "svelte-put"?</summary>
+
+Because I needed to come up quickly with a name short enough & easy to remember, and it was late at night as my creativity was running low. `use` was the first option but no longer available in the npm registry. `put` came up next in mind and I stuck with it...
+
+</details>
+
+## Playground
+
+If you want to play around to see what's available before trying anything. Follow these steps:
+
+1. Clone repo
+
+    ```bash
+    git clone https://github.com/vnphanquang/svelte-put.git
+    ```
+
+    or with ssh
+
+    ```bash
+    git clone git@github.com:vnphanquang/svelte-put.git
+    ```
+
+2. Make sure you have [pnpm] and node compatible with what is specified in the `engines` section of the root [package.json](./package.json#engines)
+3. Install dependencies
+
+    ```bash
+    pnpm install
+    ```
+
+4. Run playground (svelte-kit)
+
+    run at root:
+
+    ```bash
+    pnpm dev --filter=@svelte-put/svelte-kit
+    ```
+
+    or run at project directory
+
+    ```bash
+    cd apps/svelte-kit
+    pnpm dev
+    ```
+
+5. See playground at `localhost:3000`
 
 ## Packages
 
@@ -43,7 +91,8 @@ For those reasons, a monorepo seems like a good fit, hence this project.
 
 | Package | Short Description | Version | Changelog |
 | --- | --- | --- | --- |
-| [svelte-movable][github.movable] | move node on mousedown | [![npm.movable.badge]][npm.movable] | [CHANGELOG][github.movable.changelog] |
+| [@svelte-put/movable][github.movable] | move node on mousedown | [![npm.movable.badge]][npm.movable] | [CHANGELOG][github.movable.changelog] |
+| [@svelte-put/intersect][github.intersect] | wrapper for IntersectionObserver | [![npm.intersect.badge]][npm.intersect] | [CHANGELOG][github.intersect.changelog] |
 ## Contributing
 
 [Read Contribution Guide][github.contributing]
@@ -76,6 +125,8 @@ For those reasons, a monorepo seems like a good fit, hence this project.
 [github.issues]: https://github.com/vnphanquang/svelte-action-movable/issues?q=
 [github.movable]: https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/movable
 [github.movable.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/CHANGELOG.md
+[github.intersect]: https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/intersect
+[github.intersect.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/intersect/CHANGELOG.md
 
 <!-- heading badge -->
 [semantic-release]: https://github.com/semantic-release/semantic-release
@@ -86,3 +137,7 @@ For those reasons, a monorepo seems like a good fit, hence this project.
 <!-- npm -->
 [npm.movable.badge]: https://img.shields.io/npm/v/@svelte-put/movable
 [npm.movable]: https://www.npmjs.com/package/@svelte-put/movable
+[npm.intersect.badge]: https://img.shields.io/npm/v/@svelte-put/intersect
+[npm.intersect]: https://www.npmjs.com/package/@svelte-put/intersect
+
+[pnpm]: https://pnpm.io/

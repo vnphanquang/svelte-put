@@ -36,6 +36,10 @@ declare namespace svelte.JSX {
     ) => void;
     // on:movableend
     onmovableend?: (event: CustomEvent<import('@svelte-put/movable').MovableEventDetails>) => void;
+    // on:intersect
+    onintersect?: (event: CustomEvent<import('@svelte-put/intersect').IntersectDetail>) => void;
+    // on:intersectonce
+    onintersectonce?: (event: CustomEvent<import('@svelte-put/intersect').IntersectDetail>) => void;
   }
 }
 
