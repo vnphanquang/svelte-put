@@ -18,16 +18,22 @@ Svelte action `use:intersect`
 - [`@svelte-put/intersect`](#svelte-putintersect)
   - [Table of Contents](#table-of-contents)
   - [`svelte-put`](#svelte-put)
+  - [Acknowledgement](#acknowledgement)
   - [Changelog](#changelog)
   - [Installation](#installation)
   - [Usage](#usage)
   - [Documentation](#documentation)
+    - [Typescript support](#typescript-support)
 
 </details>
 
 ## `svelte-put`
 
 This package is part of the [@svelte-put][github.monorepo] family. For contributing guideline and more, refer to its [readme][github.monorepo].
+
+## Acknowledgement
+
+This packages employ [svelte action strategy](https://svelte.dev/docs#template-syntax-element-directives-use-action). If you are looking for a more html declarative solution, checkout [metonym's implementation](https://github.com/metonym/svelte-intersection-observer).
 
 ## [Changelog][github.changelog]
 
