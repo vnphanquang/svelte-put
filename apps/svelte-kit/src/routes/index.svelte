@@ -1,13 +1,12 @@
 <script lang="ts">
-
 </script>
 
 <title>@svelte-put</title>
 
-<main class="flex-1 w-full grid place-items-center">
+<main class="grid w-full flex-1 place-items-center">
   <ul>
     <h1 class="text-2xl font-bold">Packages</h1>
-    <p class="italic mb-4 mt-2">Click to navigate</p>
+    <p class="mb-4 mt-2 italic">Click to navigate</p>
     <li>
       <a href="/movable" class="hover:text-primary">@svelte-put/movable</a>
     </li>
