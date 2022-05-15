@@ -41,7 +41,7 @@ pnpm add -D @svelte-put/intersect
 
 ## Usage
 
-See [example for typical usage here](https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/interesct/api/docs/interesct.intersect.md#example).
+See [example for typical usage here](https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/intersect/api/docs/intersect.intersect.md#example-1).
 
 </details>
 
