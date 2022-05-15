@@ -1,5 +1,12 @@
 # Changelog
 
+## [@svelte-put/intersect-v1.0.2](https://github.com/vnphanquang/svelte-put/compare/@svelte-put/intersect-v1.0.1...@svelte-put/intersect-v1.0.2) (2022-05-15)
+
+
+### Documentation
+
+* **README:** add short description ([32ecf87](https://github.com/vnphanquang/svelte-put/commit/32ecf87dce1a7c6d74fc717c5723304bb6dd5157))
+
 ## [@svelte-put/intersect-v1.0.1](https://github.com/vnphanquang/svelte-put/compare/@svelte-put/intersect-v1.0.0...@svelte-put/intersect-v1.0.1) (2022-05-15)
 
 
