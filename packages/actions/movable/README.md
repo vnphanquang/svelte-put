@@ -4,7 +4,7 @@
 
 [![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia] [![github.actions.release.badge]][github.actions.release]
 
-Svelte action `use:movable`
+Svelte action `use:movable` - make a node move on mousedown & mousemove
 
 ![demo](https://raw.githubusercontent.com/vnphanquang/svelte-put/main/packages/actions/movable/static/images/demo.gif)
 

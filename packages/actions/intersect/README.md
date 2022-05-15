@@ -4,7 +4,7 @@
 
 [![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia] [![github.actions.release.badge]][github.actions.release]
 
-Svelte action `use:intersect`
+Svelte action `use:intersect` - wrapper for [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
 
 ![demo](https://raw.githubusercontent.com/vnphanquang/svelte-put/main/packages/actions/intersect/static/images/demo.gif)
 
