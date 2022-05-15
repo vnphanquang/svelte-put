@@ -53,9 +53,8 @@ export interface MovableLimit {
 }
 
 /**
+ * svelte action parameters to config behavior of `movable`
  * @public
- *
- * svelte action parameters to config behavior of movable
  *
  * @remarks
  *

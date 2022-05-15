@@ -439,7 +439,7 @@
         {
           "kind": "Interface",
           "canonicalReference": "@svelte-put/movable!MovableParameters:interface",
-          "docComment": "/**\n * svelte action parameters to config behavior of movable\n *\n * @remarks\n *\n * `movable` support reactive parameters. That means they can be updated after initialization.\n *\n * @public\n */\n",
+          "docComment": "/**\n * svelte action parameters to config behavior of `movable`\n *\n * @remarks\n *\n * `movable` support reactive parameters. That means they can be updated after initialization.\n *\n * @public\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",

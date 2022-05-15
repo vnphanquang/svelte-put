@@ -4,7 +4,7 @@
 
 ## MovableParameters interface
 
-svelte action parameters to config behavior of movable
+svelte action parameters to config behavior of `movable`
 
 <b>Signature:</b>
 
