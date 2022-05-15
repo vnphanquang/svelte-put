@@ -35,8 +35,8 @@
 <title>intersect | @svelte-put</title>
 
 <main class="grid flex-1 flex-col gap-y-10 p-4">
-  <h1 class="t-10 text-center text-4xl font-bold">@svelte-put/intersect</h1>
-  <div class="grid flex-1 gap-y-10 text-center">
+  <h1 class="text-center text-4xl font-bold">@svelte-put/intersect</h1>
+  <div class="grid gap-y-10 text-center">
     <section class="grid h-screen place-items-center bg-bg-accent p-8">
       <p>A static section</p>
     </section>

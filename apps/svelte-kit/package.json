@@ -12,6 +12,7 @@
   "author": "Quang Phan",
   "license": "MIT",
   "devDependencies": {
+    "@svelte-put/clickoutside": "workspace:^",
     "@svelte-put/eslint-config": "workspace:^",
     "@svelte-put/intersect": "workspace:^",
     "@svelte-put/movable": "workspace:^",

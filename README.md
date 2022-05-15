@@ -89,10 +89,12 @@ If you want to play around to see what's available before trying anything. Follo
 
 ### Svelte Actions
 
-| Package | Short Description | Version | Changelog |
-| --- | --- | --- | --- |
-| [@svelte-put/movable][github.movable] | move node on mousedown | [![npm.movable.badge]][npm.movable] | [CHANGELOG][github.movable.changelog] |
-| [@svelte-put/intersect][github.intersect] | wrapper for IntersectionObserver | [![npm.intersect.badge]][npm.intersect] | [CHANGELOG][github.intersect.changelog] |
+| Package | Category | Short Description | Version | Changelog |
+| --- | --- | --- | --- | --- |
+| [@svelte-put/movable][github.movable] | action | move node on mousedown | [![npm.movable.badge]][npm.movable] | [CHANGELOG][github.movable.changelog] |
+| [@svelte-put/intersect][github.intersect] | action |wrapper for IntersectionObserver | [![npm.intersect.badge]][npm.intersect] | [CHANGELOG][github.intersect.changelog] |
+| [@svelte-put/clickoutside][github.clickoutside] | action | event for clicking outside node | [![npm.clickoutside.badge]][npm.clickoutside] | [CHANGELOG][github.clickoutside.changelog] |
+
 ## Contributing
 
 [Read Contribution Guide][github.contributing]
@@ -127,6 +129,8 @@ If you want to play around to see what's available before trying anything. Follo
 [github.movable.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/CHANGELOG.md
 [github.intersect]: https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/intersect
 [github.intersect.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/intersect/CHANGELOG.md
+[github.clickoutside]: https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/clickoutside
+[github.clickoutside.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/clickoutside/CHANGELOG.md
 
 <!-- heading badge -->
 [semantic-release]: https://github.com/semantic-release/semantic-release
@@ -139,5 +143,7 @@ If you want to play around to see what's available before trying anything. Follo
 [npm.movable]: https://www.npmjs.com/package/@svelte-put/movable
 [npm.intersect.badge]: https://img.shields.io/npm/v/@svelte-put/intersect
 [npm.intersect]: https://www.npmjs.com/package/@svelte-put/intersect
+[npm.clickoutside.badge]: https://img.shields.io/npm/v/@svelte-put/clickoutside
+[npm.clickoutside]: https://www.npmjs.com/package/@svelte-put/clickoutside
 
 [pnpm]: https://pnpm.io/

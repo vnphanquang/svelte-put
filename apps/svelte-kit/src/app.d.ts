@@ -29,7 +29,7 @@ declare namespace svelte.JSX {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface, @typescript-eslint/no-unused-vars
   interface HTMLAttributes<T> {
     // on:clickoutside
-    onclickoutside?: (event: CustomEvent<HTMLElement>) => void;
+    onclickoutside?: (event: CustomEvent<MouseEvent>) => void;
     // on:movablestart
     onmovablestart?: (
       event: CustomEvent<import('@svelte-put/movable').MovableEventDetails>,

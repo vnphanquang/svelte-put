@@ -13,5 +13,8 @@
     <li>
       <a href="/intersect" class="hover:text-primary">@svelte-put/intersect</a>
     </li>
+    <li>
+      <a href="/clickoutside" class="hover:text-primary">@svelte-put/clickoutside</a>
+    </li>
   </ul>
 </main>
