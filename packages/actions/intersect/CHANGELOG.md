@@ -1,5 +1,12 @@
 # Changelog
 
+## [@svelte-put/intersect-v1.0.1](https://github.com/vnphanquang/svelte-put/compare/@svelte-put/intersect-v1.0.0...@svelte-put/intersect-v1.0.1) (2022-05-15)
+
+
+### Documentation
+
+* **README:** intersect - add acknowledgement section ([6c89805](https://github.com/vnphanquang/svelte-put/commit/6c89805ecfd9b488ccdbf8386f43dcc2716f4a43))
+
 ## @svelte-put/intersect-v1.0.0 (2022-05-15)
 
 
