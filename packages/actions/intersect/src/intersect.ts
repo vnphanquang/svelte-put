@@ -82,13 +82,16 @@ export interface IntersectDetail {
  * </script>
  *
  * <section
+ *  use:intersect={{ threshold: 0.4 }}
+ *  on:intersect={onIntersect}
+ * >
  * >
  *  <p>
  *    A section that reacts to when scrolling in view (intersecting === true)
  *    and scrolling out of view (intersecting === false)
  *  </p>
  *  {#if intersecting !== undefined}
- *    <p class="self-end">Scrolling {intersecting ? 'into view' : 'out of view'}...</p>
+ *    <p>Scrolling {intersecting ? 'into view' : 'out of view'}...</p>
  *  {/if}
  * </section
  * ```
