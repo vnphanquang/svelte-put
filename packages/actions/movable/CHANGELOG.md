@@ -1,5 +1,14 @@
 # Changelog
 
+## [@svelte-put/movable-v1.1.6](https://github.com/vnphanquang/svelte-put/compare/@svelte-put/movable-v1.1.5...@svelte-put/movable-v1.1.6) (2022-05-15)
+
+
+### Documentation
+
+* **movable:** adjust some docs styling ([4c19434](https://github.com/vnphanquang/svelte-put/commit/4c19434c8f5a97c4a1bf3cba4bbfc9563fdb8e9a))
+* **README:** add short description ([32ecf87](https://github.com/vnphanquang/svelte-put/commit/32ecf87dce1a7c6d74fc717c5723304bb6dd5157))
+* remove badge github release for movable ([e485549](https://github.com/vnphanquang/svelte-put/commit/e485549754c9088937d4efd1937ce60c0027055b))
+
 ## [@svelte-put/movable-v1.1.5](https://github.com/vnphanquang/svelte-put/compare/@svelte-put/movable-v1.1.4...@svelte-put/movable-v1.1.5) (2022-05-13)
 
 
