@@ -43,6 +43,7 @@ import { input } from './utils';
  * ```svelte
  * <script lang="ts">
  *   import { fade } from 'svelte/transition'
+ *   import { movable } from '@svelte-put/movable';
  *   import arrows from 'svelte-awesome/icons/arrows';
  *   import Icon from 'svelte-awesome/components/Icon.svelte';
  *

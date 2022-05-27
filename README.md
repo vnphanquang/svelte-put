@@ -94,6 +94,7 @@ If you want to play around to see what's available before trying anything. Follo
 | [@svelte-put/movable][github.movable] | action | move node on mousedown | [![npm.movable.badge]][npm.movable] | [CHANGELOG][github.movable.changelog] |
 | [@svelte-put/intersect][github.intersect] | action |wrapper for IntersectionObserver | [![npm.intersect.badge]][npm.intersect] | [CHANGELOG][github.intersect.changelog] |
 | [@svelte-put/clickoutside][github.clickoutside] | action | event for clicking outside node | [![npm.clickoutside.badge]][npm.clickoutside] | [CHANGELOG][github.clickoutside.changelog] |
+| [@svelte-put/shortcut][github.shortcut] | action | add keyboard shortcuts to node | [![npm.shortcut.badge]][npm.shortcut] | [CHANGELOG][github.shortcut.changelog] |
 
 ## Contributing
 
@@ -131,6 +132,8 @@ If you want to play around to see what's available before trying anything. Follo
 [github.intersect.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/intersect/CHANGELOG.md
 [github.clickoutside]: https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/clickoutside
 [github.clickoutside.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/clickoutside/CHANGELOG.md
+[github.shortcut]: https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/shortcut
+[github.shortcut.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/shortcut/CHANGELOG.md
 
 <!-- heading badge -->
 [semantic-release]: https://github.com/semantic-release/semantic-release
@@ -145,5 +148,7 @@ If you want to play around to see what's available before trying anything. Follo
 [npm.intersect]: https://www.npmjs.com/package/@svelte-put/intersect
 [npm.clickoutside.badge]: https://img.shields.io/npm/v/@svelte-put/clickoutside
 [npm.clickoutside]: https://www.npmjs.com/package/@svelte-put/clickoutside
+[npm.shortcut.badge]: https://img.shields.io/npm/v/@svelte-put/shortcut
+[npm.shortcut]: https://www.npmjs.com/package/@svelte-put/shortcut
 
 [pnpm]: https://pnpm.io/
