@@ -15,14 +15,36 @@ Useful svelte stuff to put in your projects
 
 - [@svelte-put](#svelte-put)
   - [Table of Contents](#table-of-contents)
+  - [Packages](#packages)
+    - [In the Pipeline](#in-the-pipeline)
   - [Inspiration & Acknowledgement](#inspiration--acknowledgement)
   - [Playground](#playground)
-  - [Packages](#packages)
-    - [Svelte Actions](#svelte-actions)
   - [Contributing](#contributing)
   - [Todos](#todos)
 
 </details>
+
+## Packages
+
+`@svelte-put` includes several packages that have self-managed release cycles, listed below. Check out their corresponding README for more details.
+
+| Package | Category | Short Description | Version | Changelog |
+| --- | --- | --- | --- | --- |
+| [@svelte-put/movable][github.movable] | action | move node on mousedown | [![npm.movable.badge]][npm.movable] | [CHANGELOG][github.movable.changelog] |
+| [@svelte-put/intersect][github.intersect] | action |wrapper for IntersectionObserver | [![npm.intersect.badge]][npm.intersect] | [CHANGELOG][github.intersect.changelog] |
+| [@svelte-put/clickoutside][github.clickoutside] | action | event for clicking outside node | [![npm.clickoutside.badge]][npm.clickoutside] | [CHANGELOG][github.clickoutside.changelog] |
+| [@svelte-put/shortcut][github.shortcut] | action | add keyboard shortcuts to node | [![npm.shortcut.badge]][npm.shortcut] | [CHANGELOG][github.shortcut.changelog] |
+
+### In the Pipeline
+
+These are some packages that will be added in the future (as soon as I found the time and the implementation has matured & become generic enough from my daily usage).
+
+| Package | Category | Short Description |
+| --- | --- | --- |
+| @svelte-put/tooltip | action | trigger tooltip, using [popperjs](https://popper.js.org/) |
+| @svelte-put/inputcache | action | cache & restore value of input into/from local/session storage |
+
+Names for those packages may change.
 
 ## Inspiration & Acknowledgement
 
@@ -82,19 +104,6 @@ If you want to play around to see what's available before trying anything. Follo
     ```
 
 5. See playground at `localhost:3000`
-
-## Packages
-
-`@svelte-put` includes several packages that have self-managed release cycles, listed below. Check out their corresponding README for more details.
-
-### Svelte Actions
-
-| Package | Category | Short Description | Version | Changelog |
-| --- | --- | --- | --- | --- |
-| [@svelte-put/movable][github.movable] | action | move node on mousedown | [![npm.movable.badge]][npm.movable] | [CHANGELOG][github.movable.changelog] |
-| [@svelte-put/intersect][github.intersect] | action |wrapper for IntersectionObserver | [![npm.intersect.badge]][npm.intersect] | [CHANGELOG][github.intersect.changelog] |
-| [@svelte-put/clickoutside][github.clickoutside] | action | event for clicking outside node | [![npm.clickoutside.badge]][npm.clickoutside] | [CHANGELOG][github.clickoutside.changelog] |
-| [@svelte-put/shortcut][github.shortcut] | action | add keyboard shortcuts to node | [![npm.shortcut.badge]][npm.shortcut] | [CHANGELOG][github.shortcut.changelog] |
 
 ## Contributing
 
