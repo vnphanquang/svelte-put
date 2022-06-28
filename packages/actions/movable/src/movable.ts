@@ -32,14 +32,6 @@ import { input } from './utils';
  *
  * @example Typical usage
  *
- * 1. `mousedown` of the trigger `button` element, a `CustomEvent` `movablestart`is dispatched,
- *
- * 2. `mousemove` will trigger `div` to move accordingly;
- *
- * 3. movement will be limited to the border of the `containerNode`, plus and minus 20% of the width & height of the `div` that the action is being used on,
- *
- * 4. `mouseup` will stop the movement; a `CustomEvent` `movableend` is dispatched.
- *
  * ```svelte
  * <script lang="ts">
  *   import { fade } from 'svelte/transition'
@@ -82,6 +74,16 @@ import { input } from './utils';
  *
  * </container>
  * ```
+ *
+ * Things that will happen
+ *
+ * 1. on `mousedown` of the trigger `button` element, a `movablestart` `CustomEvent` is dispatched,
+ *
+ * 2. `mousemove` will trigger `div` to move accordingly;
+ *
+ * 3. movement will be limited to the border of the `containerNode`, plus and minus 20% of the width & height of the `div` that the action is being used on,
+ *
+ * 4. `mouseup` will stop the movement; a `CustomEvent` `movableend` is dispatched.
  *
  */
 export function movable(node: HTMLElement, parameters: MovableParameters = { enabled: true }) {
