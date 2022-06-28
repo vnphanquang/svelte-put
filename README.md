@@ -39,7 +39,7 @@ Note: REPLs are copies from playground code. See the [Playground](#playground) s
 
 ### In the Pipeline
 
-These are some packages that will be added in the future (as soon as I found the time and the implementation has matured & become generic enough from my daily usage).
+These are some packages that will be added in the future (as soon as I find time, and the implementation has matured & become generic enough).
 
 | Package | Category | Short Description |
 | --- | --- | --- |
