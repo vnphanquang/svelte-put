@@ -33,7 +33,7 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 
 ## Acknowledgement
 
-This packages employ [svelte action strategy](https://svelte.dev/docs#template-syntax-element-directives-use-action). If you are looking for a more html declarative solution, checkout [metonym's implementation](https://github.com/metonym/svelte-intersection-observer).
+This package employs [svelte action strategy](https://svelte.dev/docs#template-syntax-element-directives-use-action). If you are looking for a more declarative html solution, check out [metonym's implementation](https://github.com/metonym/svelte-intersection-observer).
 
 ## [Changelog][github.changelog]
 
