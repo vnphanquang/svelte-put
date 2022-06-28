@@ -28,12 +28,14 @@ Useful svelte stuff to put in your projects
 
 `@svelte-put` includes several packages that have self-managed release cycles, listed below. Check out their corresponding README for more details.
 
-| Package | Category | Short Description | Version | Changelog |
-| --- | --- | --- | --- | --- |
-| [@svelte-put/movable][github.movable] | action | move node on mousedown | [![npm.movable.badge]][npm.movable] | [CHANGELOG][github.movable.changelog] |
-| [@svelte-put/intersect][github.intersect] | action |wrapper for IntersectionObserver | [![npm.intersect.badge]][npm.intersect] | [CHANGELOG][github.intersect.changelog] |
-| [@svelte-put/clickoutside][github.clickoutside] | action | event for clicking outside node | [![npm.clickoutside.badge]][npm.clickoutside] | [CHANGELOG][github.clickoutside.changelog] |
+| Package | Category | Short Description | Version | Changelog | REPL |
+| --- | --- | --- | --- | --- | --- |
+| [@svelte-put/movable][github.movable] | action | move node on mousedown | [![npm.movable.badge]][npm.movable] | [CHANGELOG][github.movable.changelog] | [REPL][repl.movable] |
+| [@svelte-put/intersect][github.intersect] | action |wrapper for IntersectionObserver | [![npm.intersect.badge]][npm.intersect] | [CHANGELOG][github.intersect.changelog] | [REPL][repl.intersect] |
+| [@svelte-put/clickoutside][github.clickoutside] | action | event for clicking outside node | [![npm.clickoutside.badge]][npm.clickoutside] | [CHANGELOG][github.clickoutside.changelog] | [REPL][repl.clickoutside] |
 | [@svelte-put/shortcut][github.shortcut] | action | add keyboard shortcuts to node | [![npm.shortcut.badge]][npm.shortcut] | [CHANGELOG][github.shortcut.changelog] |
+
+Note: REPLs are copies from playground code. See the [Playground](#playground) section for more info.
 
 ### In the Pipeline
 
@@ -159,5 +161,10 @@ If you want to play around to see what's available before trying anything. Follo
 [npm.clickoutside]: https://www.npmjs.com/package/@svelte-put/clickoutside
 [npm.shortcut.badge]: https://img.shields.io/npm/v/@svelte-put/shortcut
 [npm.shortcut]: https://www.npmjs.com/package/@svelte-put/shortcut
+
+<!-- svelte REPL -->
+[repl.movable]: https://svelte.dev/repl/88a7c1fc2e134db7b58786d5f385fc5d
+[repl.clickoutside]: https://svelte.dev/repl/9e5f9ee41c2c45aa8523993e357f6e78
+[repl.intersect]: https://svelte.dev/repl/835eacce6ac44aff95a7cb0bb5ca200d
 
 [pnpm]: https://pnpm.io/

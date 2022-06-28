@@ -19,6 +19,7 @@
     "@svelte-put/prettierrc": "workspace:^",
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "1.0.0-next.326",
+    "cssnano": "^5.1.12",
     "eslint": "^8.15.0",
     "eslint-plugin-svelte3": "^3.2.1",
     "postcss": "^8.4.12",
