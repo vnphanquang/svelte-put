@@ -4,6 +4,8 @@
 
 ## ShortcutTrigger.callback property
 
+callback for when the trigger is matched
+
 <b>Signature:</b>
 
 ```typescript

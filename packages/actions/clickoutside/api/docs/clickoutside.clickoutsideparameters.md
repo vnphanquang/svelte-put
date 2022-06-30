@@ -16,6 +16,6 @@ export interface ClickOutsideParameters
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [enabled](./clickoutside.clickoutsideparameters.enabled.md) | boolean | whether to dispatch the <code>clickoutside</code> event or not |
+|  [enabled](./clickoutside.clickoutsideparameters.enabled.md) | boolean | whether to activate the action. Default to <code>true</code> |
 |  [limit?](./clickoutside.clickoutsideparameters.limit.md) | [ClickOutsideLimit](./clickoutside.clickoutsidelimit.md) | <i>(Optional)</i> limit to which the click event will trigger <code>clickoutside</code> |
 

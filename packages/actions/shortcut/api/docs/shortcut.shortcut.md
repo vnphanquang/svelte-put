@@ -4,7 +4,7 @@
 
 ## shortcut() function
 
-Listen for keyboard event and trigger 'shortcut' event
+Listen for keyboard event and trigger `shortcut` [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent)
 
 <b>Signature:</b>
 
@@ -30,7 +30,22 @@ svelte action interface
 
 ## Remarks
 
-You can either pass multiple callbacks to their associated triggers, or pass one single handler to the `on:shortcut` event, in which case you should provide an ID to each trigger to be able to distinguish what trigger was activated in the event handler. Either way, only use `callback` or `on:shortcut` and not both to avoid handler duplication.
+As with any svelte action, `shortcut` should be use with element and not component.
+
+```svelte
+<-- correct usage-->
+ <div use:intersect />
+
+<-- incorrect usage-->
+<Component use:intersect/>
+```
+You can either:
+
+- pass multiple callbacks to their associated triggers, or
+
+- pass one single handler to the `on:shortcut` event, in which case you should provide an ID to each trigger to be able to distinguish what trigger was activated in the event handler.
+
+Either way, only use `callback` or `on:shortcut` and not both to avoid handler duplication.
 
 ## Example
 
@@ -55,7 +70,7 @@ Typical usage
  }
 
  function onShortcut(event: CustomEvent<ShortcutEventDetails>) {
-   if (event.detail.trigger === 'do-something-else') {
+   if (event.detail.trigger.id === 'do-something-else') {
      console.log('Same as doSomethingElse()');
      // be careful here doSomethingElse would have been called too
   }

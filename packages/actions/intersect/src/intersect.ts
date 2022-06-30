@@ -1,9 +1,14 @@
 /**
  * svelte action parameters to config behavior of `movable`
  * @public
+ *
+ * @remarks
+ *
+ * parameters for `intersect` extends {@link https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver | IntersectionObserverInit }
+ * (second parameter passed to IntersectionObserver constructor)
  */
 export interface IntersectParameters extends IntersectionObserverInit {
-  /** whether the IntersectionObserver should observer the node */
+  /** whether to activate the action. Default to `true` */
   enabled?: boolean;
 }
 
@@ -94,6 +99,18 @@ export interface IntersectDetail {
  *    <p>Scrolling {intersecting ? 'into view' : 'out of view'}...</p>
  *  {/if}
  * </section
+ * ```
+ *
+ * @remarks
+ *
+ * As with any svelte action, `intersect` should be use with element and not component.
+ *
+ * ```svelte
+ * <-- correct usage-->
+ *  <div use:intersect />
+ *
+ * <-- incorrect usage-->
+ * <Component use:intersect/>
  * ```
  *
  * @param node - HTMLElement to observe

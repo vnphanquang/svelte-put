@@ -4,7 +4,7 @@
 
 ## ShortcutTrigger.enabled property
 
-whether to enable this triggered
+whether to enable this triggered. Default to `true`
 
 <b>Signature:</b>
 

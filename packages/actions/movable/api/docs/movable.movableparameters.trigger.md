@@ -14,13 +14,13 @@ trigger?: HTMLElement;
 
 ## Remarks
 
-Trigger should be an HTMLElement not a Svelte component.
+`trigger` should be an HTMLElement not a Svelte component.
 
 ```svelte
 <div use:movable={{ trigger }}/>
 
 <-- correct usage-->
- <div bind:this={trigger} />
+<div bind:this={trigger} />
 
 <-- incorrect usage-->
 <Component bind:this={trigger} />

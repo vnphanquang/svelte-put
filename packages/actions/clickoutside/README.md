@@ -36,13 +36,19 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 
 ```bash
 npm install -D @svelte-put/clickoutside
+```
+
+```bash
 yarn add -D @svelte-put/clickoutside
+```
+
+```bash
 pnpm add -D @svelte-put/clickoutside
 ```
 
 ## Usage
 
-See [example for typical usage here](https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/clickoutside/api/docs/clickoutside.clickoutside.md#example).
+See [examples here](https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/clickoutside/api/docs/clickoutside.clickoutside.md#example). Also check out the [Svelte REPL][repl].
 
 </details>
 
@@ -88,3 +94,5 @@ For detailed documentation, see the [extracted API][github.api].
 [npm]: https://www.npmjs.com/package/@svelte-put/clickoutside
 [bundlephobia.badge]: https://img.shields.io/bundlephobia/minzip/@svelte-put/clickoutside?label=minzipped
 [bundlephobia]: https://bundlephobia.com/package/@svelte-put/intersect
+
+[repl]: https://svelte.dev/repl/9e5f9ee41c2c45aa8523993e357f6e78

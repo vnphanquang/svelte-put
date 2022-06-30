@@ -4,7 +4,7 @@
 
 ## ShortcutEventDetails interface
 
-`detail` payload for 'shortcut' CustomEvent
+`detail` payload for 'shortcut' [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent)
 
 <b>Signature:</b>
 

@@ -4,7 +4,7 @@
 
 ## ShortcutParameters.type property
 
-event type to place on node
+event type to place on node. Default to `keydown`
 
 <b>Signature:</b>
 

@@ -16,7 +16,7 @@ export interface ShortcutParameters
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [enabled?](./shortcut.shortcutparameters.enabled.md) | boolean | <i>(Optional)</i> whether to activate the action |
-|  [trigger](./shortcut.shortcutparameters.trigger.md) | Array&lt;[ShortcutTrigger](./shortcut.shortcuttrigger.md)<!-- -->&gt; \| [ShortcutTrigger](./shortcut.shortcuttrigger.md) | Either a single ShortcutTrigger definition or multiple ones |
-|  [type?](./shortcut.shortcutparameters.type.md) | 'keydown' \| 'keyup' | <i>(Optional)</i> event type to place on node |
+|  [enabled?](./shortcut.shortcutparameters.enabled.md) | boolean | <i>(Optional)</i> whether to activate the action. Default to <code>true</code> |
+|  [trigger](./shortcut.shortcutparameters.trigger.md) | Array&lt;[ShortcutTrigger](./shortcut.shortcuttrigger.md)<!-- -->&gt; \| [ShortcutTrigger](./shortcut.shortcuttrigger.md) | Either a single [ShortcutTrigger](./shortcut.shortcuttrigger.md) definition or an array of multiple ones |
+|  [type?](./shortcut.shortcutparameters.type.md) | 'keydown' \| 'keyup' | <i>(Optional)</i> event type to place on node. Default to <code>keydown</code> |
 

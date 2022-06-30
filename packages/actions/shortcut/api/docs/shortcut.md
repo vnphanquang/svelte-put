@@ -10,13 +10,13 @@ svelte action - `use:shortcut` add keyboard shortcut to node
 
 |  Function | Description |
 |  --- | --- |
-|  [shortcut(node, params)](./shortcut.shortcut.md) | Listen for keyboard event and trigger 'shortcut' event |
+|  [shortcut(node, params)](./shortcut.shortcut.md) | Listen for keyboard event and trigger <code>shortcut</code> [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) |
 
 ## Interfaces
 
 |  Interface | Description |
 |  --- | --- |
-|  [ShortcutEventDetails](./shortcut.shortcuteventdetails.md) | <code>detail</code> payload for 'shortcut' CustomEvent |
+|  [ShortcutEventDetails](./shortcut.shortcuteventdetails.md) | <code>detail</code> payload for 'shortcut' [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) |
 |  [ShortcutParameters](./shortcut.shortcutparameters.md) | svelte action parameters to config behavior of <code>shortcut</code> |
 |  [ShortcutTrigger](./shortcut.shortcuttrigger.md) | A definition of a shortcut trigger |
 
@@ -24,6 +24,6 @@ svelte action - `use:shortcut` add keyboard shortcut to node
 
 |  Type Alias | Description |
 |  --- | --- |
-|  [ShortcutModifier](./shortcut.shortcutmodifier.md) | Supported modifier keys, map to event's altKey, ctrlKey, shiftKey, metaKey. |
+|  [ShortcutModifier](./shortcut.shortcutmodifier.md) | Supported modifier keys, map to [KeyboardEvent](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)<!-- -->'s [altkey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/altKey)<!-- -->, [ctrlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/ctrlKey)<!-- -->, [shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/shiftKey)<!-- -->, [metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/metaKey)<!-- -->. |
 |  [ShortcutModifierDefinition](./shortcut.shortcutmodifierdefinition.md) | Possible variations for modifier definition |
 

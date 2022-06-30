@@ -15,9 +15,7 @@ export declare type ShortcutModifierDefinition = ShortcutModifier | ShortcutModi
 
 ## Example 1
 
-Single key
-
-A single key as modifier is checked.
+Listen for a single modifier
 
 ```svelte
 <script>
@@ -26,8 +24,8 @@ A single key as modifier is checked.
 
 <window use:shortcut={{
   trigger: {
-   key: 'k ,
-   modifier: ['ctrl'],
+   key: 'k' ,
+   modifier: 'ctrl',
   },
 }}
 />
@@ -35,9 +33,7 @@ A single key as modifier is checked.
 
 ## Example 2
 
-Multiple possible keys (or)
-
-Multiple keys are checked, if any key is pressed, the trigger is activated.
+Listen for one of many modifiers (or)
 
 ```svelte
 <script>
@@ -46,7 +42,7 @@ Multiple keys are checked, if any key is pressed, the trigger is activated.
 
 <window use:shortcut={{
   trigger: {
-   key: 'k ,
+   key: 'k' ,
    modifier: ['ctrl', 'meta'],
   },
 }}
@@ -55,9 +51,7 @@ Multiple keys are checked, if any key is pressed, the trigger is activated.
 
 ## Example 3
 
-Key combinations (and)
-
-A combination of keys are checked, if all are pressed, the trigger is activated.
+Listen for a combination of multiple modifiers (and)
 
 ```svelte
 <script>
@@ -66,16 +60,15 @@ A combination of keys are checked, if all are pressed, the trigger is activated.
 
 <window use:shortcut={{
   trigger: {
-   key: 'k ,
+   key: 'k' ,
    modifier: [['ctrl', 'shift']],
   },
 }}
 />
+
 ```
 
 ## Example 4
-
-Mix &amp; Match
 
 A mix of the 3 previous examples
 
@@ -86,9 +79,9 @@ A mix of the 3 previous examples
 
 <window use:shortcut={{
   trigger: {
-   key: 'k ,
+   key: 'k' ,
    modifier: [
-     ['ctrl', 'shift'], // ctrl & shift
+     ['ctrl', 'shift'], // ctrl and shift
                         // or
      ['meta'],          // meta
    ],

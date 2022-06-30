@@ -34,13 +34,19 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 
 ```bash
 npm install -D @svelte-put/shortcut
+```
+
+```bash
 yarn add -D @svelte-put/shortcut
+```
+
+```bash
 pnpm add -D @svelte-put/shortcut
 ```
 
 ## Usage
 
-See [example for typical usage here](https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/shortcut/api/docs/shortcut.shortcut.md#example).
+See [examples here](https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/shortcut/api/docs/shortcut.shortcut.md#example)
 
 </details>
 

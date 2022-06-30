@@ -4,7 +4,7 @@
 
 ## ShortcutParameters.enabled property
 
-whether to activate the action
+whether to activate the action. Default to `true`
 
 <b>Signature:</b>
 

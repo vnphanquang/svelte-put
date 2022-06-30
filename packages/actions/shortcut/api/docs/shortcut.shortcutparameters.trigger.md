@@ -4,7 +4,7 @@
 
 ## ShortcutParameters.trigger property
 
-Either a single ShortcutTrigger definition or multiple ones
+Either a single [ShortcutTrigger](./shortcut.shortcuttrigger.md) definition or an array of multiple ones
 
 <b>Signature:</b>
 

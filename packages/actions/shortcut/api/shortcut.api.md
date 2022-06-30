@@ -31,16 +31,11 @@ export interface ShortcutParameters {
 
 // @public
 export interface ShortcutTrigger {
-    // (undocumented)
     callback?: (detail: ShortcutEventDetails) => void;
     enabled?: boolean;
-    // (undocumented)
     id?: string;
-    // (undocumented)
     key: string;
-    // (undocumented)
-    modifier?: ShortcutModifier | ShortcutModifier[] | ShortcutModifier[][];
-    // (undocumented)
+    modifier?: ShortcutModifierDefinition;
     preventDefault?: boolean;
 }
 

@@ -41,13 +41,19 @@ This package employs [svelte action strategy](https://svelte.dev/docs#template-s
 
 ```bash
 npm install -D @svelte-put/intersect
+```
+
+```bash
 yarn add -D @svelte-put/intersect
+```
+
+```bash
 pnpm add -D @svelte-put/intersect
 ```
 
 ## Usage
 
-See [example for typical usage here](https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/intersect/api/docs/intersect.intersect.md#example-1).
+See [examples here](https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/intersect/api/docs/intersect.intersect.md#example-1). Also check out the [Svelte REPL][repl].
 
 </details>
 
@@ -95,3 +101,5 @@ For detailed documentation, see the [extracted API][github.api].
 [npm]: https://www.npmjs.com/package/@svelte-put/intersect
 [bundlephobia.badge]: https://img.shields.io/bundlephobia/minzip/@svelte-put/intersect?label=minzipped
 [bundlephobia]: https://bundlephobia.com/package/@svelte-put/intersect
+
+[repl]: https://svelte.dev/repl/835eacce6ac44aff95a7cb0bb5ca200d

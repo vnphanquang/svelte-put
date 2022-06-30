@@ -4,7 +4,7 @@
 
 ## MovableParameters.enabled property
 
-whether to trigger the action
+whether to activate the action. Default to `true`
 
 <b>Signature:</b>
 

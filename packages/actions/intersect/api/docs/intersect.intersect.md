@@ -28,6 +28,18 @@ export declare function intersect(node: HTMLElement, parameters?: IntersectParam
 
 svelte action interface
 
+## Remarks
+
+As with any svelte action, `intersect` should be use with element and not component.
+
+```svelte
+<-- correct usage-->
+ <div use:intersect />
+
+<-- incorrect usage-->
+<Component use:intersect/>
+```
+
 ## Example 1
 
 Typical use to observe the first time the node intersects with viewport for transition effect (like fade-in)

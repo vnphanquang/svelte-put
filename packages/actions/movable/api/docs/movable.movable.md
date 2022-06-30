@@ -10,7 +10,7 @@ Trigger node displacement on mousedown (via position.left &amp; position.top)
 
 ```typescript
 export declare function movable(node: HTMLElement, parameters?: MovableParameters): {
-    update(parameters: Partial<MovableParameters>): void;
+    update(parameters?: MovableParameters): void;
     destroy(): void;
 };
 ```
@@ -24,13 +24,13 @@ export declare function movable(node: HTMLElement, parameters?: MovableParameter
 
 <b>Returns:</b>
 
-{ update(parameters: Partial&lt;[MovableParameters](./movable.movableparameters.md)<!-- -->&gt;): void; destroy(): void; }
+{ update(parameters?: [MovableParameters](./movable.movableparameters.md)<!-- -->): void; destroy(): void; }
 
 svelte action interface
 
 ## Remarks
 
-`movable` should be use with element not svelte component
+As with any svelte action, `movable` should be use with element and not component.
 
 ```svelte
 <-- correct usage-->
@@ -47,29 +47,38 @@ Be aware of side effects:
 
 - document.body.cursor is set to `move` after `mousedown` and restored on `mouseup`
 
-## Example
+## Example 1
 
-Typical usage
+Minimal usage
+
+```svelte
+<script>
+  import { movable } from '@svelte-put/movable';
+</script>
+
+<div use:movable>
+  <!-- drag this div and move it freely around the screen -->
+</div>
+```
+
+## Example 2
+
+A more typical &amp; complex usage of `movable`<!-- -->: move a node when user clicks and on a trigger; and limit the movement within a certain boundary.
 
 ```svelte
 <script lang="ts">
-  import { fade } from 'svelte/transition'
   import { movable } from '@svelte-put/movable';
-  import arrows from 'svelte-awesome/icons/arrows';
-  import Icon from 'svelte-awesome/components/Icon.svelte';
 
   let modal = false;
   let triggerNode: HTMLElement;
   let containerNode: HTMLElement;
 </script>
 
-<container>
-  <!-- ... some other content ... -->
+<section bind:this={containerNode}>
+  <!-- ... some content ... -->
 
   {#if modal}
     <div
-      transition:fade={{ duration: 200 }}
-      class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-full max-w-sm"
       use:movable={{
         limit: {
           delta: '20%',
@@ -80,26 +89,23 @@ Typical usage
       on:movablestart={(event) => console.log('movable:start', event.detail.node, event.detail.position)}
       on:movableend={(event) => console.log('movable:end', event.detail.node, event.detail.position)}
     >
-      <button
-        bind:this={triggerNode}
-        class="c-btn-icon absolute top-2 right-10 hover:cursor-move"
-      >
-        <Icon data={arrows} />
+      <button bind:this={triggerNode}>
+         likely some 'move' icon
       </button>
 
       <!-- ... some other modal content ... -->
     </div>
-{/if}
+  {/if}
 
-</container>
+</section>
 ```
-Things that will happen
+Things that will happen in the above example:
 
-1. on `mousedown` of the trigger `button` element, a `movablestart` `CustomEvent` is dispatched,
+1. on `mousedown` of the trigger (`button` element), a `movablestart` [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) is dispatched,
 
-2. `mousemove` will trigger `div` to move accordingly;
+2. any `mousemove` event will tell `div` to move accordingly;
 
-3. movement will be limited to the border of the `containerNode`<!-- -->, plus and minus 20% of the width &amp; height of the `div` that the action is being used on,
+3. movement will be limited to the border of the `containerNode`<!-- -->, ±20% of the width &amp; height of the `div` that the action is being used on,
 
-4. `mouseup` will stop the movement; a `CustomEvent` `movableend` is dispatched.
+4. `mouseup` event will stop the movement; a `movableend` [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) is dispatched.
 

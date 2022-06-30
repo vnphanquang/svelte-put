@@ -4,7 +4,7 @@
 
 ## clickoutside() function
 
-Dispatch a `clickoutside` CustomEvent on click outside of node
+Dispatch a `clickoutside` [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) on click outside of node
 
 <b>Signature:</b>
 
@@ -19,13 +19,25 @@ export declare function clickoutside(node: HTMLElement, parameters?: Partial<Cli
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  node | HTMLElement |  |
+|  node | HTMLElement | node outside of which <code>click</code> event will trigger <code>clickoutside</code> |
 |  parameters | Partial&lt;[ClickOutsideParameters](./clickoutside.clickoutsideparameters.md)<!-- -->&gt; | <i>(Optional)</i> |
 
 <b>Returns:</b>
 
 { update(update: [ClickOutsideParameters](./clickoutside.clickoutsideparameters.md)<!-- -->): void; destroy(): void; }
 
+
+## Remarks
+
+As with any svelte action, `clickoutside` should be use with element and not component.
+
+```svelte
+<-- correct usage-->
+ <div use:clickoutside />
+
+<-- incorrect usage-->
+<Component use:clickoutside/>
+```
 
 ## Example
 

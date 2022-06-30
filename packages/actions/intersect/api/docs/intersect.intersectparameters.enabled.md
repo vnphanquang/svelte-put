@@ -4,7 +4,7 @@
 
 ## IntersectParameters.enabled property
 
-whether the IntersectionObserver should observer the node
+whether to activate the action. Default to `true`
 
 <b>Signature:</b>
 

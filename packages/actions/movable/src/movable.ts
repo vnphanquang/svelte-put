@@ -5,52 +5,40 @@ import { input } from './utils';
  * Trigger node displacement on mousedown (via position.left & position.top)
  * @public
  *
- * @param node - HTMLElement to be moved
- * @param parameters - svelte action parameters
- * @returns svelte action interface
+ * @example
  *
- * @remarks
- *
- * `movable` should be use with element not svelte component
+ * Minimal usage
  *
  * ```svelte
- * <-- correct usage-->
- *  <div use:movable />
+ * <script>
+ *   import { movable } from '@svelte-put/movable';
+ * </script>
  *
- * <-- incorrect usage-->
- * <Component use:movable/>
+ * <div use:movable>
+ *   <!-- drag this div and move it freely around the screen -->
+ * </div>
  * ```
  *
+ * @example
  *
- * Be aware of side effects:
- *
- * - element.style.position is set to `relative` (if not already 'absolute' / 'relative') the first time mousedown is triggered
- *
- * - document.body.userSelect is set to `none` after `mousedown` and restored on `mouseup`
- *
- * - document.body.cursor is set to `move` after `mousedown` and restored on `mouseup`
- *
- * @example Typical usage
+ * A more typical & complex usage of `movable`: move a node
+ * when user clicks and on a trigger; and limit the movement within
+ * a certain boundary.
  *
  * ```svelte
  * <script lang="ts">
- *   import { fade } from 'svelte/transition'
  *   import { movable } from '@svelte-put/movable';
- *   import arrows from 'svelte-awesome/icons/arrows';
- *   import Icon from 'svelte-awesome/components/Icon.svelte';
  *
  *   let modal = false;
  *   let triggerNode: HTMLElement;
  *   let containerNode: HTMLElement;
  * </script>
  *
- * <container>
- *   <!-- ... some other content ... -->
+ * <section bind:this={containerNode}>
+ *   <!-- ... some content ... -->
  *
  *   {#if modal}
  *     <div
- *       transition:fade={{ duration: 200 }}
- *       class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-full max-w-sm"
  *       use:movable={{
  *         limit: {
  *           delta: '20%',
@@ -61,29 +49,50 @@ import { input } from './utils';
  *       on:movablestart={(event) => console.log('movable:start', event.detail.node, event.detail.position)}
  *       on:movableend={(event) => console.log('movable:end', event.detail.node, event.detail.position)}
  *     >
- *       <button
- *         bind:this={triggerNode}
- *         class="c-btn-icon absolute top-2 right-10 hover:cursor-move"
- *       >
- *         <Icon data={arrows} />
+ *       <button bind:this={triggerNode}>
+ *          likely some 'move' icon
  *       </button>
  *
  *       <!-- ... some other modal content ... -->
  *     </div>
- * {/if}
+ *   {/if}
  *
- * </container>
+ * </section>
  * ```
  *
- * Things that will happen
+ * Things that will happen in the above example:
  *
- * 1. on `mousedown` of the trigger `button` element, a `movablestart` `CustomEvent` is dispatched,
+ * 1. on `mousedown` of the trigger (`button` element), a `movablestart` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent } is dispatched,
  *
- * 2. `mousemove` will trigger `div` to move accordingly;
+ * 2. any `mousemove` event will tell `div` to move accordingly;
  *
- * 3. movement will be limited to the border of the `containerNode`, plus and minus 20% of the width & height of the `div` that the action is being used on,
+ * 3. movement will be limited to the border of the `containerNode`, ±20% of the width & height of the `div` that the action is being used on,
  *
- * 4. `mouseup` will stop the movement; a `CustomEvent` `movableend` is dispatched.
+ * 4. `mouseup` event will stop the movement; a `movableend` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent } is dispatched.
+ *
+ * @remarks
+ *
+ * As with any svelte action, `movable` should be use with element and not component.
+ *
+ * ```svelte
+ * <-- correct usage-->
+ *  <div use:movable />
+ *
+ * <-- incorrect usage-->
+ * <Component use:movable/>
+ * ```
+ *
+ * Be aware of side effects:
+ *
+ * - element.style.position is set to `relative` (if not already 'absolute' / 'relative') the first time mousedown is triggered
+ *
+ * - document.body.userSelect is set to `none` after `mousedown` and restored on `mouseup`
+ *
+ * - document.body.cursor is set to `move` after `mousedown` and restored on `mouseup`
+ *
+ * @param node - HTMLElement to be moved
+ * @param parameters - svelte action parameters
+ * @returns svelte action interface
  *
  */
 export function movable(node: HTMLElement, parameters: MovableParameters = { enabled: true }) {
@@ -223,7 +232,7 @@ export function movable(node: HTMLElement, parameters: MovableParameters = { ena
     trigger.addEventListener('mousedown', onMouseDown, true);
   }
   return {
-    update(parameters: Partial<MovableParameters>) {
+    update(parameters: MovableParameters = { enabled: true }) {
       const update = input(node, parameters);
 
       trigger.removeEventListener('mousedown', onMouseDown, true);

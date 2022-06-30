@@ -4,8 +4,10 @@
 
 ## ShortcutTrigger.modifier property
 
+modifier key to listen to in conjunction of `key`
+
 <b>Signature:</b>
 
 ```typescript
-modifier?: ShortcutModifier | ShortcutModifier[] | ShortcutModifier[][];
+modifier?: ShortcutModifierDefinition;
 ```

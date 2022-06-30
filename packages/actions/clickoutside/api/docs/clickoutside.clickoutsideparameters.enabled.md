@@ -4,7 +4,7 @@
 
 ## ClickOutsideParameters.enabled property
 
-whether to dispatch the `clickoutside` event or not
+whether to activate the action. Default to `true`
 
 <b>Signature:</b>
 

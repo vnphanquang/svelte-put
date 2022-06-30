@@ -4,6 +4,8 @@
 
 ## ShortcutTrigger.id property
 
+id to distinguish this trigger from others
+
 <b>Signature:</b>
 
 ```typescript

@@ -4,6 +4,8 @@
 
 ## ShortcutTrigger.preventDefault property
 
+whether to call `event.preventDefault` before firing callback. Default to \`<!-- -->false
+
 <b>Signature:</b>
 
 ```typescript

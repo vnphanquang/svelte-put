@@ -15,14 +15,14 @@ export interface ClickOutsideLimit {
  * @public
  */
 export interface ClickOutsideParameters {
-  /** whether to dispatch the `clickoutside` event or not */
+  /** whether to activate the action. Default to `true` */
   enabled: boolean;
   /** limit to which the click event will trigger `clickoutside` */
   limit?: ClickOutsideLimit;
 }
 
 /**
- * Dispatch a `clickoutside` CustomEvent on click outside of node
+ * Dispatch a `clickoutside` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent } on click outside of node
  * @public
  *
  * @example
@@ -61,7 +61,19 @@ export interface ClickOutsideParameters {
  * </section
  * ```
  *
- * @param node
+ * @remarks
+ *
+ * As with any svelte action, `clickoutside` should be use with element and not component.
+ *
+ * ```svelte
+ * <-- correct usage-->
+ *  <div use:clickoutside />
+ *
+ * <-- incorrect usage-->
+ * <Component use:clickoutside/>
+ * ```
+ *
+ * @param node node outside of which `click` event will trigger `clickoutside`
  * @param parameters
  * @returns
  */

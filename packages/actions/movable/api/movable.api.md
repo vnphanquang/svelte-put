@@ -6,7 +6,7 @@
 
 // @public
 export function movable(node: HTMLElement, parameters?: MovableParameters): {
-    update(parameters: Partial<MovableParameters>): void;
+    update(parameters?: MovableParameters): void;
     destroy(): void;
 };
 

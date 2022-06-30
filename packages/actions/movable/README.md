@@ -36,13 +36,19 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 
 ```bash
 npm install -D @svelte-put/movable
+```
+
+```bash
 yarn add -D @svelte-put/movable
+```
+
+```bash
 pnpm add -D @svelte-put/movable
 ```
 
 ## Usage
 
-See [example for typical usage here](https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/api/docs/movable.movable.md#example).
+See [examples here](https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/api/docs/movable.movable.md#example-1). Also check out the [Svelte REPL][repl].
 
 </details>
 
@@ -94,3 +100,5 @@ Quick access to the parameter interface accepted by the action: [MovableParamete
 [npm]: https://www.npmjs.com/package/@svelte-put/movable
 [bundlephobia.badge]: https://img.shields.io/bundlephobia/minzip/@svelte-put/movable?label=minzipped
 [bundlephobia]: https://bundlephobia.com/package/@svelte-put/movable
+
+[repl]: https://svelte.dev/repl/88a7c1fc2e134db7b58786d5f385fc5d

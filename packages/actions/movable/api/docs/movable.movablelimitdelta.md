@@ -4,7 +4,7 @@
 
 ## MovableLimitDelta type
 
-Limit by creating a bounding box of movable area \[-delta, +delta\] in both axes
+Limit by creating a bounding box of movable area `[-delta, +delta]` in both axes
 
 <b>Signature:</b>
 
@@ -14,7 +14,13 @@ export declare type MovableLimitDelta = `${number}px` | `${number}%`;
 
 ## Remarks
 
-- If a single value is provided, it will be applied to both axes. - If parent is set, the delta value is additive. It will be added beyond the parent bounds. For example, for y-axis \[-delta + parent.top, parent.bottom + delta\]. - If percentage is used, it will be relative to the width / height of the \*\*node\*\* itself. - Currently only `px` and `%` are supported. See example for usage.
+- If a single value is provided, it will be applied to both axes.
+
+- If parent is set, the delta value is additive. It will be added beyond the parent bounds. For example, y-axis limit: `[-delta + parent.top, parent.bottom + delta]`
+
+- If percentage is used, it will be relative to the width / height of the \*\*node\*\* itself. For example, y-axis limit: `[-percentage * node.height + parent.top, parent.bottom + percentage * node.height]`
+
+- Currently only `px` and `%` are supported. See example for usage.
 
 ## Example
 
@@ -30,9 +36,15 @@ export declare type MovableLimitDelta = `${number}px` | `${number}%`;
    delta: '200px',
 }} />
 
-<-- mix pixel and percentage -->
+<-- mix pixel and percentage & specific to each axis -->
 <div use:movable={{
    delta: { x: 20%, y: '400px' },
+}} />
+
+<-- mix complex use, added to parent border -->
+<div use:movable={{
+   delta: { x: 20%, y: '400px' },
+   parent: someParentNode,
 }} />
 
 ```
