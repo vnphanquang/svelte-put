@@ -11,7 +11,7 @@ env:
   CI: true
 jobs:
   Publish:
-    if: github.event_name == 'workflow_dispatch' || (startsWith(github.head_ref, 'changeset-release') && github.event.pull_request.merged)
+    if: github.event_name == 'workflow_dispatch'
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
