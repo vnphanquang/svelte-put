@@ -1,11 +1,11 @@
-name: changesets
+name: changesets:version
 on:
   workflow_dispatch:
 
 env:
   CI: true
 jobs:
-  Changesets:
+  Version:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
@@ -24,14 +24,13 @@ jobs:
           cache: pnpm
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - name: Create and publish versions
+      - name: Update versions
         uses: changesets/action@v1
         with:
           version: pnpm ci:version
-          publish: pnpm ci:publish
           commit: "chore(release): changesets versioning & publication [skip ci]"
           title: "Changesets: Versioning & Publication"
-          createGithubReleases: true
+          createGithubReleases: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
