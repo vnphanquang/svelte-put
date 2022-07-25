@@ -21,8 +21,8 @@
     "turbo": "latest"
   },
   "engines": {
-    "pnpm": ">=7.0.0",
+    "pnpm": ">=7.5.0",
     "node": ">=16.14.2"
   },
-  "packageManager": "pnpm@7.0.0"
+  "packageManager": "pnpm@7.6.0"
 }
