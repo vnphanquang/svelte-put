@@ -1,4 +1,5 @@
 packages:
   - "packages/actions/*"
   - "packages/configs/*"
+  - "packages/misc/*"
   - "apps/*"

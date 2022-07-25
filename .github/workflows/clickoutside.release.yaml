@@ -26,6 +26,8 @@ jobs:
       - name: Build package
         run: pnpm build --filter=@svelte-put/clickoutside
         continue-on-error: false
+      - name: Generate api tsdoc metadata
+        run: pnpm api --filter=@svelte-put/clickoutside
       - name: Release
         run: pnpm semantic-release --filter=@svelte-put/clickoutside
         env:

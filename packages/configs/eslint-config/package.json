@@ -19,11 +19,14 @@
     "@typescript-eslint/parser": "^5.23.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-prettier": "^4.0.0"
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-svelte3": "^4.0.0"
   },
   "devDependencies": {
     "eslint": "^8.15.0",
+    "eslint-plugin-tsdoc": "^0.2.16",
     "prettier": "^2.6.2",
+    "svelte": "^3.49.0",
     "typescript": "^4.6.4"
   },
   "peerDependencies": {

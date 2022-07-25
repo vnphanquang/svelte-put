@@ -5,11 +5,13 @@
   "workspaces": [
     "apps/*",
     "packages/actions/*",
-    "packages/configs/*"
+    "packages/configs/*",
+    "packages/misc/*"
   ],
   "scripts": {
     "turbo": "turbo",
     "build": "turbo run build",
+    "package": "turbo run package",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint --parallel",
     "format": "turbo run format --parallel",

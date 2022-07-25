@@ -1,4 +1,4 @@
-name: intersect:release
+name: avatar:release
 
 on:
   workflow_dispatch:
@@ -12,9 +12,9 @@ jobs:
         with:
           fetch-depth: 0
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v2.2.1
         with:
-          version: 7.6.0
+          version: 7.0.0
       - name: Setup node
         uses: actions/setup-node@v3
         with:
@@ -24,12 +24,12 @@ jobs:
         run: pnpm install --frozen-lockfile
         continue-on-error: false
       - name: Build package
-        run: pnpm build --filter=@svelte-put/intersect
+        run: pnpm package --filter=@svelte-put/avatar
         continue-on-error: false
       - name: Generate api tsdoc metadata
-        run: pnpm api --filter=@svelte-put/intersect
+        run: pnpm api --filter=@svelte-put/avatar
       - name: Release
-        run: pnpm semantic-release --filter=@svelte-put/intersect
+        run: pnpm semantic-release --filter=@svelte-put/avatar
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

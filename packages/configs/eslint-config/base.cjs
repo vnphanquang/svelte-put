@@ -11,7 +11,7 @@ module.exports = {
     amd: true,
     node: true,
   },
-  plugins: ['import', '@typescript-eslint'],
+  plugins: ['import', '@typescript-eslint', 'eslint-plugin-tsdoc'],
   rules: {
     // semi-colon override for typescript
     semi: 'off',

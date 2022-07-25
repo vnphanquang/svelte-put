@@ -26,6 +26,8 @@ jobs:
       - name: Build package
         run: pnpm build --filter=@svelte-put/movable
         continue-on-error: false
+      - name: Generate api tsdoc metadata
+        run: pnpm api --filter=@svelte-put/movable
       - name: Release
         run: pnpm semantic-release --filter=@svelte-put/movable
         env:
