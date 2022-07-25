@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1
+
+### Patch Changes
+
+- [`3477c86`](https://github.com/vnphanquang/svelte-put/commit/3477c8630ee2d6a4fe52959a8c4689cde94e97ff) Thanks [@vnphanquang](https://github.com/vnphanquang)! - Explicit "typesVersions" to support subpath exports in typescript
+
 ## 1.0.0
 
 ### Major Changes
