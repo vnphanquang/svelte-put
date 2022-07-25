@@ -15,19 +15,19 @@
   },
   "dependencies": {
     "@svelte-put/prettierrc": "workspace:^",
-    "@typescript-eslint/eslint-plugin": "^5.23.0",
-    "@typescript-eslint/parser": "^5.23.0",
+    "@typescript-eslint/eslint-plugin": "^5.30.7",
+    "@typescript-eslint/parser": "^5.30.7",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-svelte3": "^4.0.0"
   },
   "devDependencies": {
-    "eslint": "^8.15.0",
+    "eslint": "^8.20.0",
     "eslint-plugin-tsdoc": "^0.2.16",
-    "prettier": "^2.6.2",
+    "prettier": "^2.7.1",
     "svelte": "^3.49.0",
-    "typescript": "^4.6.4"
+    "typescript": "^4.7.4"
   },
   "peerDependencies": {
     "eslint": "^8.15.0",
