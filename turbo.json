@@ -6,9 +6,6 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", "lib/**"]
     },
-    "package": {
-      "outputs": ["lib/**"]
-    },
     "lint": {
       "outputs": []
     },
@@ -19,9 +16,6 @@
       "cache": false
     },
     "api": {
-      "dependsOn": ["build"]
-    },
-    "semantic-release": {
       "dependsOn": ["build"]
     }
   }

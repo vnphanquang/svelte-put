@@ -11,12 +11,10 @@
   "scripts": {
     "turbo": "turbo",
     "build": "turbo run build",
-    "package": "turbo run package",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint --parallel",
     "format": "turbo run format --parallel",
     "api": "turbo run api",
-    "semantic-release": "turbo run semantic-release",
     "ci:version": "changeset version",
     "ci:publish": "pnpm build && changeset publish"
   },
