@@ -1,6 +1,6 @@
 {
   "name": "@svelte-put/avatar",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Component and utils for handling avatar",
   "type": "module",
   "types": "lib/index.d.ts",
