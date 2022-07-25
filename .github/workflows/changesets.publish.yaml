@@ -1,0 +1,40 @@
+name: changesets:publish
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  CI: true
+jobs:
+  Publish:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || (startsWith(github.head_ref, 'changeset-release') && github.event.pull_request.merged)
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7.6.0
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Publish
+        uses: changesets/action@v1
+        with:
+          publish: pnpm ci:publish
+          createGithubReleases: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
