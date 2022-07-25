@@ -9,7 +9,6 @@ env:
   CI: true
 jobs:
   Publish:
-    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && startsWith(github.ref, 'changeset-release'))
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
