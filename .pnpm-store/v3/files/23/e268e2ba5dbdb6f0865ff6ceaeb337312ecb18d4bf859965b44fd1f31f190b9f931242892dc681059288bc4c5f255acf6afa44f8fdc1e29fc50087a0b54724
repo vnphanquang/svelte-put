@@ -1,0 +1,1 @@
+const a = require('worktop/cache');const { isCacheable:o } = require('worktop/cache');var s=caches.default,e=a.save.bind(0,s),c=a.lookup.bind(0,s),r=a.sync.bind(0,s);exports.isCacheable=o;exports.lookup=c;exports.save=e;exports.sync=r;

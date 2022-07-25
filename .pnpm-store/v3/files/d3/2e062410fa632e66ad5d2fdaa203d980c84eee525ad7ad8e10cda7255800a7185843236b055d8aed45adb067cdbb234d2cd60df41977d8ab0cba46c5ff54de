@@ -1,0 +1,75 @@
+{
+  "name": "rollup-plugin-filesize",
+  "version": "9.1.2",
+  "description": "A rollup plugin to show filesize in the cli",
+  "main": "dist/index.js",
+  "module": "src/index.js",
+  "files": [
+    "src",
+    "dist",
+    "index.d.ts",
+    "README",
+    "!.DS_Store",
+    "!.nyc_output"
+  ],
+  "typings": "./index.d.ts",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "nyc ava --serial test/index.test.js",
+    "remove-dist": "rimraf dist/*",
+    "pretest": "rollup -c",
+    "prepare": "npm run remove-dist && npm run test"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ritz078/rollup-plugin-filesize.git"
+  },
+  "keywords": [
+    "rollup-plugin"
+  ],
+  "author": "Ritesh Kumar",
+  "contributors": [],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ritz078/rollup-plugin-filesize/issues"
+  },
+  "homepage": "https://github.com/ritz078/rollup-plugin-filesize#readme",
+  "dependencies": {
+    "@babel/runtime": "^7.13.8",
+    "boxen": "^5.0.0",
+    "brotli-size": "4.0.0",
+    "colors": "1.4.0",
+    "filesize": "^6.1.0",
+    "gzip-size": "^6.0.0",
+    "pacote": "^11.2.7",
+    "terser": "^5.6.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.8",
+    "@babel/eslint-parser": "^7.13.8",
+    "@babel/plugin-syntax-import-meta": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.13.8",
+    "@babel/preset-env": "^7.13.8",
+    "@babel/register": "^7.13.8",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "ava": "^3.15.0",
+    "eslint": "^7.20.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "esm": "^3.2.25",
+    "nyc": "^15.1.0",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.40.0"
+  },
+  "ava": {
+    "require": [
+      "esm",
+      "./test/bootstrap/register.js"
+    ]
+  }
+}

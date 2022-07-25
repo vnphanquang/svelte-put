@@ -1,0 +1,40 @@
+{
+    "name": "@types/md5",
+    "version": "2.3.2",
+    "description": "TypeScript definitions for md5",
+    "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/md5",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Bill Sourour",
+            "url": "https://github.com/arcdev1",
+            "githubUsername": "arcdev1"
+        },
+        {
+            "name": "Cameron Crothers",
+            "url": "https://github.com/jprogrammer",
+            "githubUsername": "jprogrammer"
+        },
+        {
+            "name": "Piotr Błażejewicz",
+            "url": "https://github.com/peterblazejewicz",
+            "githubUsername": "peterblazejewicz"
+        },
+        {
+            "name": "Ruslan Arkhipau",
+            "url": "https://github.com/DethAriel",
+            "githubUsername": "DethAriel"
+        }
+    ],
+    "main": "",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/md5"
+    },
+    "scripts": {},
+    "dependencies": {},
+    "typesPublisherContentHash": "f520419e88f9aca900c72d265a0c71d27d7fbbebf265079d8d518349bd06af29",
+    "typeScriptVersion": "3.8"
+}

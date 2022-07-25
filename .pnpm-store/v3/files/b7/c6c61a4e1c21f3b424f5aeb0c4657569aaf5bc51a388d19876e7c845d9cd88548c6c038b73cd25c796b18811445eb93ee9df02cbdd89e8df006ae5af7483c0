@@ -1,0 +1,1 @@
+import{start as t}from"worktop/sw";function n(t){return t}function i(t){return{fetch:(n,i,s)=>t(n,{bindings:i,waitUntil:s.waitUntil.bind(s),passThroughOnException:s.passThroughOnException.bind(s)})}}export{n as define,t as listen,i as start};

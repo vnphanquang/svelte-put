@@ -1,0 +1,43 @@
+{
+  "name": "eslint-plugin-svelte3",
+  "version": "4.0.0",
+  "description": "An ESLint plugin for Svelte v3 components.",
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "svelte",
+    "sveltejs"
+  ],
+  "files": [
+    "index.js"
+  ],
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sveltejs/eslint-plugin-svelte3.git"
+  },
+  "author": "Conduitry",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sveltejs/eslint-plugin-svelte3/issues"
+  },
+  "peerDependencies": {
+    "eslint": ">=8.0.0",
+    "svelte": "^3.2.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "@typescript-eslint/eslint-plugin": "^5.18.0",
+    "@typescript-eslint/parser": "^5.18.0",
+    "eslint": ">=8.0.0",
+    "rollup": "^2",
+    "sourcemap-codec": "1.4.8",
+    "svelte": "^3.2.0",
+    "typescript": "^4.6.3"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -cw",
+    "test": "npm run build && node test"
+  }
+}

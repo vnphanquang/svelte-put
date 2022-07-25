@@ -1,0 +1,135 @@
+{
+  "name": "worktop",
+  "version": "0.8.0-next.14",
+  "repository": "lukeed/worktop",
+  "description": "The next generation web framework for Cloudflare Workers",
+  "types": "router/index.d.ts",
+  "main": "router/index.mjs",
+  "license": "MIT",
+  "author": {
+    "name": "Luke Edwards",
+    "email": "luke.edwards05@gmail.com",
+    "url": "https://lukeed.com"
+  },
+  "exports": {
+    ".": {
+      "import": "./router/index.mjs",
+      "require": "./router/index.js"
+    },
+    "./cfw": {
+      "import": "./cfw/index.mjs",
+      "require": "./cfw/index.js"
+    },
+    "./cfw.cache": {
+      "import": "./cfw.cache/index.mjs",
+      "require": "./cfw.cache/index.js"
+    },
+    "./cfw.durable": {
+      "import": "./cfw.durable/index.mjs",
+      "require": "./cfw.durable/index.js"
+    },
+    "./cfw.kv": {
+      "import": "./cfw.kv/index.mjs",
+      "require": "./cfw.kv/index.js"
+    },
+    "./cfw.kv.assets": {
+      "import": "./cfw.kv.assets/index.mjs",
+      "require": "./cfw.kv.assets/index.js"
+    },
+    "./cfw.ws": {
+      "import": "./cfw.ws/index.mjs",
+      "require": "./cfw.ws/index.js"
+    },
+    "./cors": {
+      "import": "./cors/index.mjs",
+      "require": "./cors/index.js"
+    },
+    "./jwt": {
+      "import": "./jwt/index.mjs",
+      "require": "./jwt/index.js"
+    },
+    "./cache": {
+      "import": "./cache/index.mjs",
+      "require": "./cache/index.js"
+    },
+    "./buffer": {
+      "import": "./buffer/index.mjs",
+      "require": "./buffer/index.js"
+    },
+    "./cookie": {
+      "import": "./cookie/index.mjs",
+      "require": "./cookie/index.js"
+    },
+    "./crypto": {
+      "import": "./crypto/index.mjs",
+      "require": "./crypto/index.js"
+    },
+    "./response": {
+      "import": "./response/index.mjs",
+      "require": "./response/index.js"
+    },
+    "./base64": {
+      "import": "./base64/index.mjs",
+      "require": "./base64/index.js"
+    },
+    "./utils": {
+      "import": "./utils/index.mjs",
+      "require": "./utils/index.js"
+    },
+    "./deno": {
+      "import": "./deno/index.mjs",
+      "require": "./deno/index.js"
+    },
+    "./deno.ws": {
+      "import": "./deno.ws/index.mjs",
+      "require": "./deno.ws/index.js"
+    },
+    "./sw": {
+      "import": "./sw/index.mjs",
+      "require": "./sw/index.js"
+    },
+    "./ws": {
+      "import": "./ws/index.mjs",
+      "require": "./ws/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "base64",
+    "buffer",
+    "cache",
+    "cfw",
+    "cfw.cache",
+    "cfw.durable",
+    "cfw.kv",
+    "cfw.kv.assets",
+    "cfw.ws",
+    "crypto",
+    "cookie",
+    "cors",
+    "deno",
+    "deno.ws",
+    "response",
+    "router",
+    "sw",
+    "utils",
+    "jwt",
+    "ws"
+  ],
+  "engines": {
+    "node": ">=12"
+  },
+  "dependencies": {
+    "mrmime": "^1.0.0",
+    "regexparam": "^2.0.0"
+  },
+  "keywords": [
+    "serviceworker",
+    "cloudflare",
+    "framework",
+    "workers",
+    "worker",
+    "http",
+    "api"
+  ]
+}

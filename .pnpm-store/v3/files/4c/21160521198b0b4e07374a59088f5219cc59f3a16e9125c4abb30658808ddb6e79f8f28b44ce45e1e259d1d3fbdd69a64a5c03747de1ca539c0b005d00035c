@@ -1,0 +1,45 @@
+{
+  "name": "@sveltejs/adapter-cloudflare",
+  "version": "1.0.0-next.30",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sveltejs/kit",
+    "directory": "packages/adapter-cloudflare"
+  },
+  "license": "MIT",
+  "homepage": "https://kit.svelte.dev",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "types": "index.d.ts",
+  "files": [
+    "files",
+    "index.js",
+    "index.d.ts"
+  ],
+  "main": "index.js",
+  "dependencies": {
+    "@cloudflare/workers-types": "^3.14.0",
+    "esbuild": "^0.14.48",
+    "worktop": "0.8.0-next.14"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.36",
+    "@types/ws": "^8.5.3",
+    "typescript": "^4.7.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "esbuild src/worker.js --bundle --outfile=files/worker.js --external:SERVER --external:MANIFEST --format=esm",
+    "lint": "prettier --check . --config ../../.prettierrc --ignore-path .gitignore",
+    "format": "npm run check-format -- --write",
+    "check": "tsc --skipLibCheck"
+  }
+}

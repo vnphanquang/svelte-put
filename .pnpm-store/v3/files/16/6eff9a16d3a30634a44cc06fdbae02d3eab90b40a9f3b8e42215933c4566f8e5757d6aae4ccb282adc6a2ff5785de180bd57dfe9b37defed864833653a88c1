@@ -1,0 +1,52 @@
+{
+  "name": "prettier-plugin-tailwindcss",
+  "version": "0.1.12",
+  "description": "A Prettier plugin for sorting Tailwind CSS classes.",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tailwindlabs/prettier-plugin-tailwindcss"
+  },
+  "bugs": {
+    "url": "https://github.com/tailwindlabs/prettier-plugin-tailwindcss/issues"
+  },
+  "scripts": {
+    "_pre": "rimraf dist && cpy node_modules/tailwindcss/lib/css dist/css",
+    "_esbuild": "node build.js",
+    "prebuild": "npm run _pre",
+    "build": "npm run _esbuild -- --minify",
+    "predev": "npm run _pre",
+    "dev": "npm run _esbuild -- --watch",
+    "test": "jest",
+    "prepublishOnly": "npm run build && npm test && node scripts/copy-licenses.js",
+    "format": "prettier \"src/**/*.js\" \"scripts/**/*.js\" \"tests/test.js\" --write --print-width 100 --single-quote --no-semi --plugin-search-dir ./tests"
+  },
+  "devDependencies": {
+    "@tailwindcss/line-clamp": "^0.3.0",
+    "cpy-cli": "^3.1.1",
+    "esbuild": "^0.14.11",
+    "escalade": "^3.1.1",
+    "import-fresh": "^3.3.0",
+    "import-from": "^4.0.0",
+    "jest": "^27.4.7",
+    "jsesc": "^2.5.2",
+    "license-checker": "^25.0.1",
+    "line-column": "^1.0.2",
+    "object-hash": "^2.2.0",
+    "prettier": "^2.5.1",
+    "prettier-plugin-svelte": "^2.7.0",
+    "recast": "^0.20.5",
+    "rimraf": "^3.0.2",
+    "svelte": "^3.46.4",
+    "tailwindcss": "^3.0.23"
+  },
+  "peerDependencies": {
+    "prettier": ">=2.2.0"
+  },
+  "engines": {
+    "node": ">=12.17.0"
+  }
+}

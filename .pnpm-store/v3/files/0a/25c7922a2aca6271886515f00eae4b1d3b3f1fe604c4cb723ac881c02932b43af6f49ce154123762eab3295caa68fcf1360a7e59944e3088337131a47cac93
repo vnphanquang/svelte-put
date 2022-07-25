@@ -1,0 +1,1 @@
+var e=btoa,a=atob;function r(e){return btoa(e).replace(/\+/g,"-").replace(/\//g,"_").replace(/\=/g,"")}export{r as base64url,a as decode,e as encode};

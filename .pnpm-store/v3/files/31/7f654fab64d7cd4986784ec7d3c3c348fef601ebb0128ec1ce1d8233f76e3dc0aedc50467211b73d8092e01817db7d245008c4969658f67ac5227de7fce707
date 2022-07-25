@@ -1,0 +1,1 @@
+import*as a from"worktop/cache";import{isCacheable as o}from"worktop/cache";var s=caches.default,e=a.save.bind(0,s),c=a.lookup.bind(0,s),r=a.sync.bind(0,s);export{o as isCacheable,c as lookup,e as save,r as sync};

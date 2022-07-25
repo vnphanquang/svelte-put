@@ -1,0 +1,1 @@
+function e(e){addEventListener("fetch",(t=>{let r=t.request;delete t.request,t.respondWith(e(r,t))}))}export{e as start};

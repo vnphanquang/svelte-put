@@ -1,0 +1,1 @@
+var e=btoa,a=atob;function r(e){return btoa(e).replace(/\+/g,"-").replace(/\//g,"_").replace(/\=/g,"")}exports.base64url=r;exports.decode=a;exports.encode=e;

@@ -1,0 +1,52 @@
+{
+  "name": "@sveltejs/adapter-netlify",
+  "version": "1.0.0-next.70",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sveltejs/kit",
+    "directory": "packages/adapter-netlify"
+  },
+  "license": "MIT",
+  "homepage": "https://kit.svelte.dev",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "files",
+    "index.d.ts"
+  ],
+  "dependencies": {
+    "@iarna/toml": "^2.2.5",
+    "esbuild": "^0.14.48",
+    "set-cookie-parser": "^2.4.8",
+    "tiny-glob": "^0.2.9"
+  },
+  "devDependencies": {
+    "@netlify/functions": "^1.0.0",
+    "@rollup/plugin-commonjs": "^22.0.1",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@sveltejs/kit": "1.0.0-next.380",
+    "@types/node": "^16.11.36",
+    "@types/set-cookie-parser": "^2.4.2",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.75.7",
+    "typescript": "^4.7.4",
+    "uvu": "^0.5.3"
+  },
+  "scripts": {
+    "dev": "rimraf files && rollup -cw",
+    "build": "rimraf files && rollup -c && cp src/edge.js files/edge.js",
+    "test": "uvu src \"(spec\\.js|test[\\\\/]index\\.js)\"",
+    "check": "tsc",
+    "lint": "prettier --check . --config ../../.prettierrc --ignore-path .gitignore",
+    "format": "npm run check-format -- --write"
+  }
+}

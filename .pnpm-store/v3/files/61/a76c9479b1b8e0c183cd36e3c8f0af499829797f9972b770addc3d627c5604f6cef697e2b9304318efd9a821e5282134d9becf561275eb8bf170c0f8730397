@@ -1,0 +1,1 @@
+const { connect:e } = require('worktop/ws');function n(n){return function(o,t){let r=e(o);if(r)return r;let s={},{websocket:c,response:i}=Deno.upgradeWebSocket(o);function a(e){return n(o,t,{send:c.send.bind(c),close:c.close.bind(c),state:s,event:e})}return c.onopen=c.onmessage=a,c.onclose=c.onerror=async function(e){try{await a(e)}finally{c.close()}},i}}exports.listen=n;

@@ -1,0 +1,41 @@
+{
+  "name": "@sveltejs/adapter-auto",
+  "version": "1.0.0-next.63",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sveltejs/kit",
+    "directory": "packages/adapter-auto"
+  },
+  "license": "MIT",
+  "homepage": "https://kit.svelte.dev",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "files",
+    "index.js",
+    "index.d.ts",
+    "adapters.js"
+  ],
+  "dependencies": {
+    "@sveltejs/adapter-cloudflare": "1.0.0-next.30",
+    "@sveltejs/adapter-netlify": "1.0.0-next.70",
+    "@sveltejs/adapter-vercel": "1.0.0-next.65"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.36",
+    "typescript": "^4.7.4"
+  },
+  "scripts": {
+    "lint": "prettier --check . --config ../../.prettierrc --ignore-path .gitignore",
+    "format": "npm run check-format -- --write",
+    "check": "tsc"
+  }
+}

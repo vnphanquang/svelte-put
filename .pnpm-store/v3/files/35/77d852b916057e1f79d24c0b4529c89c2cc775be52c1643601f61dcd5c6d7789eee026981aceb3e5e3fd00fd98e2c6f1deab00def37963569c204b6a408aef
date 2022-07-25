@@ -1,0 +1,33 @@
+{
+  "name": "@cloudflare/workers-types",
+  "version": "3.14.1",
+  "description": "TypeScript typings for Cloudflare Workers",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloudflare/workers-types"
+  },
+  "types": "./index.d.ts",
+  "files": [
+    "index.d.ts"
+  ],
+  "scripts": {
+    "export:docs": "node -r esbuild-register export/docs.ts",
+    "export:overrides": "node -r esbuild-register export/overrides.ts",
+    "prettier:check": "prettier --check '**/*.{md,ts}'",
+    "prettier": "prettier --write '**/*.{md,ts}'",
+    "test": "tsc"
+  },
+  "author": "Cloudflare Workers Team <workers@cloudflare.com> (https://workers.cloudflare.com)",
+  "license": "BSD-3-Clause",
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.4.2",
+    "@changesets/cli": "^2.18.1",
+    "@types/marked": "^4.0.1",
+    "@types/node": "^16.6.1",
+    "esbuild": "^0.12.22",
+    "esbuild-register": "^3.0.0",
+    "marked": "^4.0.10",
+    "prettier": "^2.5.1",
+    "typescript": "^4.3.5"
+  }
+}

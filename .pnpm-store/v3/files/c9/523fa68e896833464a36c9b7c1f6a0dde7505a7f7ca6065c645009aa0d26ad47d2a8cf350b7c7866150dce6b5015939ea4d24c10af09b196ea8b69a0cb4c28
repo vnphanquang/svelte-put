@@ -1,0 +1,1 @@
+const { start:t } = require('worktop/sw');function n(t){return t}function i(t){return{fetch:(n,i,s)=>t(n,{bindings:i,waitUntil:s.waitUntil.bind(s),passThroughOnException:s.passThroughOnException.bind(s)})}}exports.define=n;exports.listen=t;exports.start=i;

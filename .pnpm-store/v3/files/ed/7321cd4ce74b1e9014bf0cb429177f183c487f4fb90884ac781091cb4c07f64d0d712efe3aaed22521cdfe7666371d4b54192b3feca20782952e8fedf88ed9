@@ -1,0 +1,107 @@
+{
+  "name": "@semantic-release/release-notes-generator",
+  "description": "semantic-release plugin to generate changelog content with conventional-changelog",
+  "version": "10.0.3",
+  "author": "Pierre Vanduynslager (https://twitter.com/@pvdlg_)",
+  "bugs": {
+    "url": "https://github.com/semantic-release/release-notes-generator/issues"
+  },
+  "contributors": [
+    "Stephan Bönnemann <stephan@boennemann.me> (http://boennemann.me)",
+    "Gregor Martynus (https://twitter.com/gr2m)"
+  ],
+  "dependencies": {
+    "conventional-changelog-angular": "^5.0.0",
+    "conventional-changelog-writer": "^5.0.0",
+    "conventional-commits-filter": "^2.0.0",
+    "conventional-commits-parser": "^3.2.3",
+    "debug": "^4.0.0",
+    "get-stream": "^6.0.0",
+    "import-from": "^4.0.0",
+    "into-stream": "^6.0.0",
+    "lodash": "^4.17.4",
+    "read-pkg-up": "^7.0.0"
+  },
+  "devDependencies": {
+    "ava": "3.15.0",
+    "conventional-changelog-atom": "2.0.8",
+    "conventional-changelog-conventionalcommits": "4.6.1",
+    "conventional-changelog-ember": "2.0.9",
+    "conventional-changelog-eslint": "3.0.9",
+    "conventional-changelog-express": "2.0.6",
+    "conventional-changelog-jshint": "2.0.9",
+    "escape-string-regexp": "4.0.0",
+    "fs-extra": "10.0.0",
+    "nyc": "15.1.0",
+    "proxyquire": "2.1.3",
+    "semantic-release": "18.0.1",
+    "sinon": "12.0.1",
+    "tempy": "1.0.1",
+    "xo": "0.28.3"
+  },
+  "engines": {
+    "node": ">=14.17"
+  },
+  "files": [
+    "lib",
+    "index.js"
+  ],
+  "homepage": "https://github.com/semantic-release/release-notes-generator#readme",
+  "keywords": [
+    "changelog",
+    "conventional-changelog",
+    "conventional-commits",
+    "github",
+    "publish",
+    "release",
+    "release-note-generator",
+    "semantic-release"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "nyc": {
+    "include": [
+      "lib/**/*.js",
+      "index.js"
+    ],
+    "reporter": [
+      "json",
+      "text",
+      "html"
+    ],
+    "all": true
+  },
+  "peerDependencies": {
+    "semantic-release": ">=18.0.0-beta.1"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "trailingComma": "es5"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/semantic-release/release-notes-generator.git"
+  },
+  "scripts": {
+    "lint": "xo",
+    "pretest": "npm run lint",
+    "semantic-release": "semantic-release",
+    "test": "nyc ava -v",
+    "test:ci": "nyc ava -v"
+  },
+  "xo": {
+    "prettier": true,
+    "space": true,
+    "rules": {
+      "unicorn/string-content": "off"
+    }
+  },
+  "renovate": {
+    "extends": [
+      "github>semantic-release/.github"
+    ]
+  }
+}

@@ -1,0 +1,328 @@
+{
+  "name": "eslint-plugin-tsdoc",
+  "entries": [
+    {
+      "version": "0.2.16",
+      "tag": "eslint-plugin-tsdoc_v0.2.16",
+      "date": "Sat, 09 Apr 2022 02:28:41 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Rename the \"master\" branch to \"main.\""
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc\" from `0.14.0` to `0.14.1`"
+          },
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc-config\" from `0.16.0` to `0.16.1`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.2.15",
+      "tag": "eslint-plugin-tsdoc_v0.2.15",
+      "date": "Thu, 07 Apr 2022 22:51:07 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc\" from `0.13.2` to `0.14.0`"
+          },
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc-config\" from `0.15.2` to `0.16.0`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.2.14",
+      "tag": "eslint-plugin-tsdoc_v0.2.14",
+      "date": "Tue, 20 Apr 2021 04:25:13 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc\" from `0.13.1` to `0.13.2`"
+          },
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc-config\" from `0.15.1` to `0.15.2`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.2.13",
+      "tag": "eslint-plugin-tsdoc_v0.2.13",
+      "date": "Mon, 19 Apr 2021 21:22:32 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc\" from `0.13.0` to `0.13.1`"
+          },
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc-config\" from `0.15.0` to `0.15.1`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.2.12",
+      "tag": "eslint-plugin-tsdoc_v0.2.12",
+      "date": "Fri, 16 Apr 2021 23:22:26 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc-config\" from `0.14.0` to `0.15.0`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.2.11",
+      "tag": "eslint-plugin-tsdoc_v0.2.11",
+      "date": "Fri, 22 Jan 2021 18:07:19 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc\" from `0.12.24` to `0.13.0`"
+          },
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc-config\" from `0.13.9` to `0.14.0`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.2.10",
+      "tag": "eslint-plugin-tsdoc_v0.2.10",
+      "date": "Thu, 03 Dec 2020 08:07:55 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc\" from `0.12.23` to `0.12.24`"
+          },
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc-config\" from `0.13.8` to `0.13.9`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.2.9",
+      "tag": "eslint-plugin-tsdoc_v0.2.9",
+      "date": "Thu, 03 Dec 2020 04:31:52 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc\" from `0.12.22` to `0.12.23`"
+          },
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc-config\" from `0.13.7` to `0.13.8`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.2.8",
+      "tag": "eslint-plugin-tsdoc_v0.2.8",
+      "date": "Mon, 30 Nov 2020 06:16:21 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Update documentation to reference the new website URL"
+          },
+          {
+            "comment": "Upgrade build tools and configuration"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc\" from `0.12.21` to `0.12.22`"
+          },
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc-config\" from `0.13.6` to `0.13.7`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.2.7",
+      "tag": "eslint-plugin-tsdoc_v0.2.7",
+      "date": "Fri, 04 Sep 2020 15:53:27 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Update build system"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc\" from `0.12.20` to `0.12.21`"
+          },
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc-config\" from `0.13.5` to `0.13.6`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.2.6",
+      "tag": "eslint-plugin-tsdoc_v0.2.6",
+      "date": "Sun, 19 Jul 2020 01:22:35 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc-config\" from `0.13.4` to `0.13.5`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.2.5",
+      "tag": "eslint-plugin-tsdoc_v0.2.5",
+      "date": "Wed, 20 May 2020 22:33:27 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc\" from `0.12.19` to `0.12.20`"
+          },
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc-config\" from `0.13.3` to `0.13.4`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.2.4",
+      "tag": "eslint-plugin-tsdoc_v0.2.4",
+      "date": "Fri, 27 Mar 2020 23:14:53 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Improve plugin documentation URL in ESLint metadata"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc\" from `0.12.18` to `0.12.19`"
+          },
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc-config\" from `0.13.2` to `0.13.3`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.2.3",
+      "tag": "eslint-plugin-tsdoc_v0.2.3",
+      "date": "Sat, 22 Feb 2020 20:44:16 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc\" from `0.12.17` to `0.12.18`"
+          },
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc-config\" from `0.13.1` to `0.13.2`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.2.2",
+      "tag": "eslint-plugin-tsdoc_v0.2.2",
+      "date": "Sat, 22 Feb 2020 02:55:07 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc\" from `0.12.16` to `0.12.17`"
+          },
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc-config\" from `0.13.0` to `0.13.1`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.2.1",
+      "tag": "eslint-plugin-tsdoc_v0.2.1",
+      "date": "Tue, 21 Jan 2020 21:26:36 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Use a cache to avoid repeatedly reloading tsdoc.json during linting"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc-config\" from `0.12.16` to `0.13.0`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.2.0",
+      "tag": "eslint-plugin-tsdoc_v0.2.0",
+      "date": "Tue, 19 Nov 2019 22:01:56 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Add support for defining your own custom tags using tsdoc.json"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc\" from `0.12.15` to `0.12.16`"
+          },
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc-config\" from `0.12.15` to `0.12.16`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.1.2",
+      "tag": "eslint-plugin-tsdoc_v0.1.2",
+      "date": "Sat, 09 Nov 2019 05:55:42 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Improve lint rule to check every doc comment in a source file"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@microsoft/tsdoc\" from `0.12.14` to `0.12.15`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.1.1",
+      "tag": "eslint-plugin-tsdoc_v0.1.1",
+      "date": "Sat, 09 Nov 2019 04:57:59 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Improve error location accuracy"
+          },
+          {
+            "comment": "Generalize the TSDoc parser configuration to allow any standard tag"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.1.0",
+      "tag": "eslint-plugin-tsdoc_v0.1.0",
+      "date": "Wed, 06 Nov 2019 00:40:51 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Initial release of plugin"
+          }
+        ]
+      }
+    }
+  ]
+}
