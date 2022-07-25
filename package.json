@@ -16,9 +16,13 @@
     "lint": "turbo run lint --parallel",
     "format": "turbo run format --parallel",
     "api": "turbo run api",
-    "semantic-release": "turbo run semantic-release"
+    "semantic-release": "turbo run semantic-release",
+    "ci:version": "changeset version",
+    "ci:release": "pnpm build && changeset publish"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "^0.4.6",
+    "@changesets/cli": "^2.24.0",
     "prettier": "latest",
     "turbo": "latest"
   },
