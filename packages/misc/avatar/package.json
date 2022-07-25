@@ -3,14 +3,20 @@
   "version": "1.0.0",
   "description": "Component and utils for handling avatar",
   "type": "module",
-  "types": "lib/index.d.ts",
+  "svelte": "./lib/Avatar.svelte",
   "exports": {
     "./package.json": "./package.json",
     "./Avatar.svelte": "./lib/Avatar.svelte",
     "./avatar": "./lib/avatar.js",
     ".": "./lib/index.js"
   },
-  "svelte": "./lib/Avatar.svelte",
+  "types": "lib/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "avatar": ["./lib/avatar.d.ts"],
+      "Avatar.svelte": ["./lib/Avatar.svelte.d.ts"]
+    }
+  },
   "publishConfig": {
     "access": "public"
   },
