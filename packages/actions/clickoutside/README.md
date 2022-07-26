@@ -2,7 +2,7 @@
 
 # `@svelte-put/clickoutside`
 
-[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia] [![github.actions.release.badge]][github.actions.release]
+[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia]
 
 Svelte action `use:clickoutside` - event for clicking outside a node
 
@@ -81,8 +81,6 @@ For detailed documentation, see the [extracted API][github.api].
 <!-- github specifics -->
 
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
-[github.actions.release.badge]: https://github.com/vnphanquang/svelte-put/actions/workflows/clickoutside.release.yaml/badge.svg
-[github.actions.release]: https://github.com/vnphanquang/svelte-put/actions/workflows/clickoutside.release.yaml
 [github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/clickoutside/CHANGELOG.md
 [github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
 [github.api]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/clickoutside/api/docs/index.md

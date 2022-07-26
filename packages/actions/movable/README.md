@@ -2,7 +2,7 @@
 
 # `@svelte-put/movable`
 
-[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia] [![github.actions.release.badge]][github.actions.release]
+[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia]
 
 Svelte action `use:movable` - make a node move on mousedown & mousemove
 
@@ -87,8 +87,6 @@ Quick access to the parameter interface accepted by the action: [MovableParamete
 <!-- github specifics -->
 
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
-[github.actions.release.badge]: https://github.com/vnphanquang/svelte-put/actions/workflows/movable.release.yaml/badge.svg
-[github.actions.release]: https://github.com/vnphanquang/svelte-put/actions/workflows/movable.release.yaml
 [github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/CHANGELOG.md
 [github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
 [github.api]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/api/docs/index.md

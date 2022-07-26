@@ -2,7 +2,7 @@
 
 # `@svelte-put/intersect`
 
-[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia] [![github.actions.release.badge]][github.actions.release]
+[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia]
 
 Svelte action `use:intersect` - wrapper for [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
 
@@ -88,8 +88,6 @@ For detailed documentation, see the [extracted API][github.api].
 <!-- github specifics -->
 
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
-[github.actions.release.badge]: https://github.com/vnphanquang/svelte-put/actions/workflows/intersect.release.yaml/badge.svg
-[github.actions.release]: https://github.com/vnphanquang/svelte-put/actions/workflows/intersect.release.yaml
 [github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/intersect/CHANGELOG.md
 [github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
 [github.api]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/intersect/api/docs/index.md

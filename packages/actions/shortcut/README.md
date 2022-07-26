@@ -2,7 +2,7 @@
 
 # `@svelte-put/shortcut`
 
-[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia] [![github.actions.release.badge]][github.actions.release]
+[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia]
 
 Svelte action `use:shortcut` - add event listener for keyboard shortcuts
 
@@ -81,8 +81,6 @@ Quick access to the parameter interface accepted by the action: [ShortcutParamet
 <!-- github specifics -->
 
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
-[github.actions.release.badge]: https://github.com/vnphanquang/svelte-put/actions/workflows/shortcut.release.yaml/badge.svg
-[github.actions.release]: https://github.com/vnphanquang/svelte-put/actions/workflows/shortcut.release.yaml
 [github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/shortcut/CHANGELOG.md
 [github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
 [github.api]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/shortcut/api/docs/index.md
