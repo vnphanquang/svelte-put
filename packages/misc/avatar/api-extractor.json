@@ -1,5 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/api-extractor/v7/api-extractor.schema.json",
   "extends": "@svelte-put/apirc/base.json",
-  "projectFolder": "."
+  "projectFolder": ".",
+  "messages": {
+    "extractorMessageReporting": {
+      "ae-wrong-input-file-type": {
+        "logLevel": "warning"
+      }
+    }
+  }
 }

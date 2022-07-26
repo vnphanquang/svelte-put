@@ -4,6 +4,8 @@
   "description": "Component and utils for handling avatar",
   "type": "module",
   "svelte": "./lib/index.js",
+  "main": "./lib/index.js",
+  "module": "./lib/index.js",
   "exports": {
     "./package.json": "./package.json",
     "./Avatar.svelte": "./lib/Avatar.svelte",

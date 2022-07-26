@@ -10,7 +10,7 @@ Svelte component and utilities for handling avatar
 
 |  Class | Description |
 |  --- | --- |
-|  [Avatar](./avatar.avatar.md) |  |
+|  [Avatar](./avatar.avatar.md) | Svelte <code>&lt;img&gt;</code> wrapper component for displaying avatar |
 
 ## Functions
 
@@ -23,6 +23,8 @@ Svelte component and utilities for handling avatar
 
 |  Interface | Description |
 |  --- | --- |
+|  [AvatarProps](./avatar.avatarprops.md) | Props to Avatar component |
+|  [AvatarSlots](./avatar.avatarslots.md) | Slots of Avatar component |
 |  [GravatarOptions](./avatar.gravataroptions.md) | Options for building [Gravatar](https://en.gravatar.com/site/implement/images) url. Each option should map to a supported Gravatar query param |
 |  [UIAvatarOptions](./avatar.uiavataroptions.md) | Options for building [UIAvatar](https://ui-avatars.com) url. Each option should map to a supported UIAvatar setting item |
 

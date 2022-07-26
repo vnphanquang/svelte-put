@@ -6,12 +6,27 @@
 
 import { SvelteComponentTyped } from 'svelte';
 
-// Warning: (ae-forgotten-export) The symbol "AvatarProps" needs to be exported by the entry point index.d.ts
 // Warning: (ae-forgotten-export) The symbol "AvatarEvents" needs to be exported by the entry point index.d.ts
-// Warning: (ae-forgotten-export) The symbol "AvatarSlots" needs to be exported by the entry point index.d.ts
 //
-// @public (undocumented)
-export class Avatar extends SvelteComponentTyped<AvatarProps, AvatarEvents, AvatarSlots> {
+// @public
+export class Avatar extends SvelteComponentTyped<AvatarProps, AvatarEvents, AvatarSlots> {}
+
+// @public
+export interface AvatarProps {
+    alt?: string;
+    fallback?: string;
+    gravatar?: GravatarOptions | string;
+    size?: number;
+    src?: string;
+    uiAvatar?: string | UIAvatarOptions;
+}
+
+// @public
+export interface AvatarSlots {
+    // (undocumented)
+    default: {
+        src: string;
+    };
 }
 
 // @public

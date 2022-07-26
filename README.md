@@ -38,6 +38,12 @@ Useful svelte stuff to put in your projects
 | [@svelte-put/clickoutside][github.clickoutside] | event for clicking outside node | [![npm.clickoutside.badge]][npm.clickoutside] | [Changelog][github.clickoutside.changelog] | [Docs][github.clickoutside.docs] | [REPL][repl.clickoutside] |
 | [@svelte-put/shortcut][github.shortcut] | add keyboard shortcuts to node | [![npm.shortcut.badge]][npm.shortcut] | [Changelog][github.shortcut.changelog] | [Docs][github.shortcut.docs] |
 
+### Miscellaneous
+
+| Package | Short Description | Version | Changelog | Docs | REPL |
+| --- | --- | --- | --- | --- | --- |
+| [@svelte-put/avatar][github.avatar] | component & utilities for avatar  | [![npm.avatar.badge]][npm.avatar] | [Changelog][github.avatar.changelog] | [Docs][github.avatar.docs] | |
+
 Note:
 
 - REPLs are copies from playground code. See the [Playground](#playground) section for more info.
@@ -49,6 +55,7 @@ These are some packages that will be added in the future (as soon as I find time
 
 | Package | Category | Short Description |
 | --- | --- | --- |
+| @svelte-put/toc | action & component | table of contents builder |
 | @svelte-put/popover | action | trigger tooltip & detailed popover, using [popperjs](https://popper.js.org/) |
 | @svelte-put/modal | utility | open async modal (that you can call programmatically and `await`) |
 | @svelte-put/noti | utility | fire async toast-like notification |
@@ -176,6 +183,10 @@ pnpm turbo
 [github.shortcut.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/shortcut/CHANGELOG.md
 [github.shortcut.docs]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/shortcut/api/docs/index.md
 
+[github.avatar]: https://github.com/vnphanquang/svelte-put/tree/main/packages/misc/avatar
+[github.avatar.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/avatar/CHANGELOG.md
+[github.avatar.docs]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/avatar/api/docs/index.md
+
 <!-- heading badge -->
 [semantic-release]: https://github.com/semantic-release/semantic-release
 [semantic-release.badge]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
@@ -191,11 +202,14 @@ pnpm turbo
 [npm.clickoutside]: https://www.npmjs.com/package/@svelte-put/clickoutside
 [npm.shortcut.badge]: https://img.shields.io/npm/v/@svelte-put/shortcut
 [npm.shortcut]: https://www.npmjs.com/package/@svelte-put/shortcut
+[npm.avatar.badge]: https://img.shields.io/npm/v/@svelte-put/avatar
+[npm.avatar]: https://www.npmjs.com/package/@svelte-put/avatar
 
 <!-- svelte REPL -->
 [repl.movable]: https://svelte.dev/repl/88a7c1fc2e134db7b58786d5f385fc5d
 [repl.clickoutside]: https://svelte.dev/repl/9e5f9ee41c2c45aa8523993e357f6e78
 [repl.intersect]: https://svelte.dev/repl/835eacce6ac44aff95a7cb0bb5ca200d
+<!-- [repl.avatar]: https://svelte.dev/repl/ -->
 
 [@microsoft/api-extractor]: https://www.npmjs.com/package/@microsoft/api-extractor
 [@microsoft/api-documenter]: https://www.npmjs.com/package/@microsoft/api-documenter
