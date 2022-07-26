@@ -6,7 +6,9 @@
 
   const DEFINITIVE_FALLBACK = 'https://www.gravatar.com/avatar?d=mp';
 
-  /** Highest priority, src attribute */
+  /**
+   * Highest priority, src attribute
+   */
   export let src: string | undefined = undefined;
   /**
    * Second priority, see {@link https://en.gravatar.com/site/implement/images | Gravatar }
@@ -20,13 +22,11 @@
    * Lowest priority
    */
   export let fallback = DEFINITIVE_FALLBACK;
-
   /**
    * value for "width" & "height" attribute of <img>.
    * Will have no effect if default slot is overridden
    */
   export let size = 32;
-
   /**
    * value for "alt" attribute of <img>.
    * Default to uiAvatar.name or gravatar.email if any.

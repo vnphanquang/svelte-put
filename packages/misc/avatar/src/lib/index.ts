@@ -7,3 +7,4 @@
  */
 
 export * from './avatar';
+export { default as Avatar } from './Avatar.svelte';
