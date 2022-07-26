@@ -19,7 +19,7 @@ parameters for `intersect` extends [IntersectionObserverInit](https://developer.
 
 ## Properties
 
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [enabled?](./intersect.intersectparameters.enabled.md) | boolean | <i>(Optional)</i> whether to activate the action. Default to <code>true</code> |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [enabled?](./intersect.intersectparameters.enabled.md) |  | boolean | <i>(Optional)</i> whether to activate the action. Default to <code>true</code> |
 

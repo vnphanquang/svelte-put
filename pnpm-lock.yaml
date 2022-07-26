@@ -46,7 +46,7 @@ importers:
       '@svelte-put/movable': link:../../packages/actions/movable
       '@svelte-put/prettierrc': link:../../packages/configs/prettierrc
       '@sveltejs/adapter-auto': 1.0.0-next.63
-      '@sveltejs/kit': 1.0.0-next.392_svelte@3.49.0+vite@3.0.2
+      '@sveltejs/kit': 1.0.0-next.394_svelte@3.49.0+vite@3.0.2
       cssnano: 5.1.12_postcss@8.4.14
       eslint: 8.20.0
       postcss: 8.4.14
@@ -651,6 +651,7 @@ packages:
 
   /@microsoft/api-documenter/7.19.0:
     resolution: {integrity: sha512-ijiO9Kg9U+mgtynrn9HlUi3svZsuiiqzaa9QxBf0Tzftpg2pCJH/WKSirfdBc3z14a5Ip5OICKrXsDLWSgh/tg==}
+    hasBin: true
     dependencies:
       '@microsoft/api-extractor-model': 7.22.1
       '@microsoft/tsdoc': 0.14.1
@@ -671,6 +672,7 @@ packages:
 
   /@microsoft/api-extractor/7.28.6:
     resolution: {integrity: sha512-RNUokJTlBGD0ax/Jo8xLPWv4s6IboqrYrcabEEh6rFadO/tVPoV/R5YHtEeZ2q4ubvwhHTtX3sRm+p4fJo/3Sg==}
+    hasBin: true
     dependencies:
       '@microsoft/api-extractor-model': 7.22.1
       '@microsoft/tsdoc': 0.14.1
@@ -1094,7 +1096,7 @@ packages:
     dependencies:
       '@iarna/toml': 2.2.5
       esbuild: 0.14.50
-      set-cookie-parser: 2.5.0
+      set-cookie-parser: 2.5.1
       tiny-glob: 0.2.9
     dev: true
 
@@ -1110,6 +1112,24 @@ packages:
 
   /@sveltejs/kit/1.0.0-next.392_svelte@3.49.0+vite@3.0.2:
     resolution: {integrity: sha512-od4rDJ/Soq0I7mda7sTbAnNKERHSDEGNa7QBpLA859xgBkwC1JnEIymYOh9dm+hMyHhB0bUoRoaur0qxKLqOOw==}
+    engines: {node: '>=16.9'}
+    hasBin: true
+    peerDependencies:
+      svelte: ^3.44.0
+      vite: ^3.0.0
+    dependencies:
+      '@sveltejs/vite-plugin-svelte': 1.0.1_svelte@3.49.0+vite@3.0.2
+      chokidar: 3.5.3
+      sade: 1.8.1
+      svelte: 3.49.0
+      vite: 3.0.2
+    transitivePeerDependencies:
+      - diff-match-patch
+      - supports-color
+    dev: true
+
+  /@sveltejs/kit/1.0.0-next.394_svelte@3.49.0+vite@3.0.2:
+    resolution: {integrity: sha512-YfRNSKdbvihHFvmQodaMlChcyf9dfU36FwK8WYQF5jqEmiRajLBb/ooU6RqPA0Z6j5okJHDSYBwxW8TP+nc+gg==}
     engines: {node: '>=16.9'}
     hasBin: true
     peerDependencies:
@@ -1143,7 +1163,7 @@ packages:
       kleur: 4.1.5
       magic-string: 0.26.2
       svelte: 3.49.0
-      svelte-hmr: 0.14.12
+      svelte-hmr: 0.14.12_svelte@3.49.0
       vite: 3.0.2
     transitivePeerDependencies:
       - supports-color
@@ -4347,6 +4367,13 @@ packages:
       yallist: 4.0.0
     dev: true
 
+  /minipass/3.3.4:
+    resolution: {integrity: sha512-I9WPbWHCGu8W+6k1ZiGpPu0GkoKBeorkfKNuAFBNS1HNFJvke82sxvI5bzcCNpWPorkOO5QQ+zomzzwRxejXiw==}
+    engines: {node: '>=8'}
+    dependencies:
+      yallist: 4.0.0
+    dev: true
+
   /minizlib/2.1.2:
     resolution: {integrity: sha512-bAxsR8BVfj60DWXHE3u30oHzfl4G7khkSuPW+qvpd7jFRHm7dLxOjUk1EHACJ/hxLY8phGJ0YhYHZo7jil7Qdg==}
     engines: {node: '>= 8'}
@@ -5779,8 +5806,8 @@ packages:
     resolution: {integrity: sha512-KiKBS8AnWGEyLzofFfmvKwpdPzqiy16LvQfK3yv/fVH7Bj13/wl3JSR1J+rfgRE9q7xUJK4qvgS8raSOeLUehw==}
     dev: true
 
-  /set-cookie-parser/2.5.0:
-    resolution: {integrity: sha512-cHMAtSXilfyBePduZEBVPTCftTQWz6ehWJD5YNUg4mqvRosrrjKbo4WS8JkB0/RxonMoohHm7cOGH60mDkRQ9w==}
+  /set-cookie-parser/2.5.1:
+    resolution: {integrity: sha512-1jeBGaKNGdEq4FgIrORu/N570dwoPYio8lSoYLWmX7sQ//0JY08Xh9o5pBcgmHQ/MbsYp/aZnOe1s1lIsbLprQ==}
     dev: true
 
   /shebang-command/1.2.0:
@@ -6176,11 +6203,13 @@ packages:
       - sugarss
     dev: true
 
-  /svelte-hmr/0.14.12:
+  /svelte-hmr/0.14.12_svelte@3.49.0:
     resolution: {integrity: sha512-4QSW/VvXuqVcFZ+RhxiR8/newmwOCTlbYIezvkeN6302YFRE8cXy0naamHcjz8Y9Ce3ITTZtrHrIL0AGfyo61w==}
     engines: {node: ^12.20 || ^14.13.1 || >= 16}
+    peerDependencies:
+      svelte: '>=3.19.0'
     dependencies:
-      svelte: 3.48.0
+      svelte: 3.49.0
     dev: true
 
   /svelte-preprocess/4.10.7_nyu6umbehu4wjk4fztvoy55uia:
@@ -6358,7 +6387,7 @@ packages:
     dependencies:
       chownr: 2.0.0
       fs-minipass: 2.1.0
-      minipass: 3.1.6
+      minipass: 3.3.4
       minizlib: 2.1.2
       mkdirp: 1.0.4
       yallist: 4.0.0

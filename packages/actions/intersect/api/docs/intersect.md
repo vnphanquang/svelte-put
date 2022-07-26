@@ -16,6 +16,6 @@ svelte action - `use:intersect` svelte action that wraps IntersectionObserver
 
 |  Interface | Description |
 |  --- | --- |
-|  [IntersectDetail](./intersect.intersectdetail.md) | <code>detail</code> payload for <code>intersect</code> and <code>intersectonce</code> CustomEvent<!-- -->\`\`\` |
+|  [IntersectDetail](./intersect.intersectdetail.md) | <p><code>detail</code> payload for <code>intersect</code> and <code>intersectonce</code> CustomEvent</p><p>\`\`\`</p> |
 |  [IntersectParameters](./intersect.intersectparameters.md) | svelte action parameters to config behavior of <code>movable</code> |
 

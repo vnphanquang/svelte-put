@@ -33,8 +33,8 @@ export interface MovableEventDetails
 
 ## Properties
 
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [node](./movable.movableeventdetails.node.md) | HTMLElement | the node that the action was placed on |
-|  [position](./movable.movableeventdetails.position.md) | { left: number; top: number; } | last known position, as in styles.position |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [node](./movable.movableeventdetails.node.md) |  | HTMLElement | the node that the action was placed on |
+|  [position](./movable.movableeventdetails.position.md) |  | { left: number; top: number; } | last known position, as in styles.position |
 

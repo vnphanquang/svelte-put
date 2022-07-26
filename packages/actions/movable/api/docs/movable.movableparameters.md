@@ -18,9 +18,9 @@ export interface MovableParameters
 
 ## Properties
 
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [enabled?](./movable.movableparameters.enabled.md) | boolean | <i>(Optional)</i> whether to activate the action. Default to <code>true</code> |
-|  [limit?](./movable.movableparameters.limit.md) | [MovableLimit](./movable.movablelimit.md) | <i>(Optional)</i> Set a limit within which node can be moved |
-|  [trigger?](./movable.movableparameters.trigger.md) | HTMLElement | <i>(Optional)</i> A node that triggers mousedown event, otherwise the node itself is the trigger |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [enabled?](./movable.movableparameters.enabled.md) |  | boolean | <i>(Optional)</i> whether to activate the action. Default to <code>true</code> |
+|  [limit?](./movable.movableparameters.limit.md) |  | [MovableLimit](./movable.movablelimit.md) | <i>(Optional)</i> Set a limit within which node can be moved |
+|  [trigger?](./movable.movableparameters.trigger.md) |  | HTMLElement | <i>(Optional)</i> A node that triggers mousedown event, otherwise the node itself is the trigger |
 

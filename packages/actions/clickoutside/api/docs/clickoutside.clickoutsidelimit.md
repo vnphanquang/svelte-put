@@ -18,7 +18,7 @@ Currently only the parent option is supported
 
 ## Properties
 
-|  Property | Type | Description |
-|  --- | --- | --- |
-|  [parent](./clickoutside.clickoutsidelimit.parent.md) | HTMLElement | Click event beyond the <code>boundingRect</code> of this parent node will not trigger <code>clickoutside</code> |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [parent](./clickoutside.clickoutsidelimit.parent.md) |  | HTMLElement | Click event beyond the <code>boundingRect</code> of this parent node will not trigger <code>clickoutside</code> |
 
