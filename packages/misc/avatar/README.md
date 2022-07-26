@@ -2,7 +2,7 @@
 
 # `@svelte-put/avatar`
 
-[![npm.badge]][npm]
+[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia]
 
 Svelte `Avatar` component and utilities for building avatar urls
 
@@ -119,6 +119,8 @@ For detailed documentation, see the [extracted API][github.api]. It is recommend
 <!-- heading badge -->
 [npm.badge]: https://img.shields.io/npm/v/@svelte-put/avatar
 [npm]: https://www.npmjs.com/package/@svelte-put/avatar
+[bundlephobia.badge]: https://img.shields.io/bundlephobia/minzip/@svelte-put/avatar?label=minzipped
+[bundlephobia]: https://bundlephobia.com/package/@svelte-put/avatar
 
 <!-- external resources -->
 [gravatar]: https://en.gravatar.com/site/implement/images
