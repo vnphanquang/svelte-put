@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.8
+
+### Patch Changes
+
+- [`1e138bc`](https://github.com/vnphanquang/svelte-put/commit/1e138bce9c925fcae6daab1bcae22110635ba5c3) Thanks [@vnphanquang](https://github.com/vnphanquang)! - Remove github release badge
+
 ## 1.1.7
 
 ### Patch Changes
