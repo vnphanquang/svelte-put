@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.0.2
+
+### Patch Changes
+
+- [`af07a83`](https://github.com/vnphanquang/svelte-put/commit/af07a8342e514063dd710c4fac8a998529605c14) Thanks [@vnphanquang](https://github.com/vnphanquang)! - Better documentation & README
+
+* [`00b6696`](https://github.com/vnphanquang/svelte-put/commit/00b66966eb44b431be7d9d9ce1365f834f076e96) Thanks [@vnphanquang](https://github.com/vnphanquang)! - .
+
+  - Manual type declaration for `Avatar` svelte component
+  - export Avatar component in `index.js` & set "svelte" prop accordingly in `package.json`
+
 ## 1.0.1
 
 ### Patch Changes
