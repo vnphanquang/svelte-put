@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.3
+
+### Patch Changes
+
+- [`1945ea2`](https://github.com/vnphanquang/svelte-put/commit/1945ea2be178b67c182d1ca40d3d53d15dba2048) Thanks [@vnphanquang](https://github.com/vnphanquang)! - Correct npm homepage
+
 ## 1.0.2
 
 ### Patch Changes
