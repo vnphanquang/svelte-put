@@ -37,12 +37,13 @@ Useful svelte stuff to put in your projects
 | [@svelte-put/intersect][github.intersect] | wrapper for IntersectionObserver | [![npm.intersect.badge]][npm.intersect] | [Changelog][github.intersect.changelog] | [Docs][github.intersect.docs] | [REPL][repl.intersect] |
 | [@svelte-put/clickoutside][github.clickoutside] | event for clicking outside node | [![npm.clickoutside.badge]][npm.clickoutside] | [Changelog][github.clickoutside.changelog] | [Docs][github.clickoutside.docs] | [REPL][repl.clickoutside] |
 | [@svelte-put/shortcut][github.shortcut] | add keyboard shortcuts to node | [![npm.shortcut.badge]][npm.shortcut] | [Changelog][github.shortcut.changelog] | [Docs][github.shortcut.docs] |
+| [@svelte-put/toc][github.toc] | action & component for building table of contents | [![npm.toc.badge]][npm.toc] | [Changelog][github.toc.changelog] | [Docs][github.toc.docs] |
 
 ### Miscellaneous
 
 | Package | Short Description | Version | Changelog | Docs | REPL |
 | --- | --- | --- | --- | --- | --- |
-| [@svelte-put/avatar][github.avatar] | component & utilities for avatar  | [![npm.avatar.badge]][npm.avatar] | [Changelog][github.avatar.changelog] | [Docs][github.avatar.docs] | |
+| [@svelte-put/avatar][github.avatar] | component & utilities for avatar | [![npm.avatar.badge]][npm.avatar] | [Changelog][github.avatar.changelog] | [Docs][github.avatar.docs] | |
 
 Note:
 
@@ -55,7 +56,6 @@ These are some packages that will be added in the future (as soon as I find time
 
 | Package | Category | Short Description |
 | --- | --- | --- |
-| @svelte-put/toc | action & component | table of contents builder |
 | @svelte-put/popover | action | trigger tooltip & detailed popover, using [popperjs](https://popper.js.org/) |
 | @svelte-put/modal | utility | open async modal (that you can call programmatically and `await`) |
 | @svelte-put/noti | utility | fire async toast-like notification |
@@ -187,6 +187,10 @@ pnpm turbo
 [github.avatar.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/avatar/CHANGELOG.md
 [github.avatar.docs]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/avatar/api/docs/index.md
 
+[github.toc]: https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/toc
+[github.toc.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/toc/CHANGELOG.md
+[github.toc.docs]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/toc/api/docs/index.md
+
 <!-- heading badge -->
 [semantic-release]: https://github.com/semantic-release/semantic-release
 [semantic-release.badge]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
@@ -204,6 +208,8 @@ pnpm turbo
 [npm.shortcut]: https://www.npmjs.com/package/@svelte-put/shortcut
 [npm.avatar.badge]: https://img.shields.io/npm/v/@svelte-put/avatar
 [npm.avatar]: https://www.npmjs.com/package/@svelte-put/avatar
+[npm.toc.badge]: https://img.shields.io/npm/v/@svelte-put/toc
+[npm.toc]: https://www.npmjs.com/package/@svelte-put/toc
 
 <!-- svelte REPL -->
 [repl.movable]: https://svelte.dev/repl/88a7c1fc2e134db7b58786d5f385fc5d

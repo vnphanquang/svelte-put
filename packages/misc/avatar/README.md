@@ -17,6 +17,7 @@ Svelte `Avatar` component and utilities for building avatar urls
   - [Table of Contents](#table-of-contents)
   - [`svelte-put`](#svelte-put)
   - [Installation](#installation)
+  - [Changelog](#changelog)
   - [Usage](#usage)
   - [Documentation](#documentation)
 
@@ -39,6 +40,8 @@ yarn add -D @svelte-put/avatar
 ```bash
 pnpm add -D @svelte-put/avatar
 ```
+
+## [Changelog][github.changelog]
 
 ## Usage
 
