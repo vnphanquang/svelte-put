@@ -45,8 +45,8 @@ importers:
       '@svelte-put/intersect': link:../../packages/actions/intersect
       '@svelte-put/movable': link:../../packages/actions/movable
       '@svelte-put/prettierrc': link:../../packages/configs/prettierrc
-      '@sveltejs/adapter-auto': 1.0.0-next.63
-      '@sveltejs/kit': 1.0.0-next.394_svelte@3.49.0+vite@3.0.2
+      '@sveltejs/adapter-auto': 1.0.0-next.64
+      '@sveltejs/kit': 1.0.0-next.396_svelte@3.49.0+vite@3.0.2
       cssnano: 5.1.12_postcss@8.4.14
       eslint: 8.20.0
       postcss: 8.4.14
@@ -192,6 +192,48 @@ importers:
       tslib: 2.4.0
       typescript: 4.7.4
 
+  packages/actions/toc:
+    specifiers:
+      '@microsoft/api-documenter': ^7.19.0
+      '@microsoft/api-extractor': ^7.28.6
+      '@svelte-put/apirc': workspace:^
+      '@svelte-put/eslint-config': workspace:^
+      '@svelte-put/prettierrc': workspace:^
+      '@svelte-put/tsconfig': workspace:^
+      '@sveltejs/adapter-auto': next
+      '@sveltejs/kit': 1.0.0-next.392
+      eslint: ^8.20.0
+      npm-run-all: ^4.1.5
+      prettier: ^2.7.1
+      prettier-plugin-svelte: ^2.7.0
+      svelte: ^3.49.0
+      svelte-check: ^2.8.0
+      svelte-preprocess: ^4.10.7
+      svelte2tsx: ^0.5.12
+      tslib: ^2.4.0
+      typescript: ^4.7.4
+      vite: ^3.0.2
+    devDependencies:
+      '@microsoft/api-documenter': 7.19.0
+      '@microsoft/api-extractor': 7.28.6
+      '@svelte-put/apirc': link:../../configs/apirc
+      '@svelte-put/eslint-config': link:../../configs/eslint-config
+      '@svelte-put/prettierrc': link:../../configs/prettierrc
+      '@svelte-put/tsconfig': link:../../configs/tsconfig
+      '@sveltejs/adapter-auto': 1.0.0-next.64
+      '@sveltejs/kit': 1.0.0-next.392_svelte@3.49.0+vite@3.0.2
+      eslint: 8.20.0
+      npm-run-all: 4.1.5
+      prettier: 2.7.1
+      prettier-plugin-svelte: 2.7.0
+      svelte: 3.49.0
+      svelte-check: 2.8.0_svelte@3.49.0
+      svelte-preprocess: 4.10.7_uslzfc62di2n2otc2tvfklnwji
+      svelte2tsx: 0.5.12_uslzfc62di2n2otc2tvfklnwji
+      tslib: 2.4.0
+      typescript: 4.7.4
+      vite: 3.0.2
+
   packages/configs/apirc:
     specifiers: {}
 
@@ -293,7 +335,7 @@ importers:
       '@svelte-put/eslint-config': link:../../configs/eslint-config
       '@svelte-put/prettierrc': link:../../configs/prettierrc
       '@svelte-put/tsconfig': link:../../configs/tsconfig
-      '@sveltejs/adapter-auto': 1.0.0-next.63
+      '@sveltejs/adapter-auto': 1.0.0-next.64
       '@sveltejs/kit': 1.0.0-next.392_svelte@3.49.0+vite@3.0.2
       '@types/md5': 2.3.2
       eslint: 8.20.0
@@ -1072,27 +1114,27 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@sveltejs/adapter-auto/1.0.0-next.63:
-    resolution: {integrity: sha512-9KguXwROEJMyyoKrsizAilVSmtfWxEDn2Hbxk44SP8Kj5cgN7tFCxzbL2kmmqyV1CO1tOh5iNC2oWbyTfikXmw==}
+  /@sveltejs/adapter-auto/1.0.0-next.64:
+    resolution: {integrity: sha512-Q8DwcS6wl1GovzS9JJzaD/WL/Lfk1ur4nAF1HtmsUvZDpsPBVDqnK2AhYU4G3oFNiuHstrjAogMy5th8ptSFGw==}
     dependencies:
-      '@sveltejs/adapter-cloudflare': 1.0.0-next.30
-      '@sveltejs/adapter-netlify': 1.0.0-next.70
-      '@sveltejs/adapter-vercel': 1.0.0-next.65
+      '@sveltejs/adapter-cloudflare': 1.0.0-next.31
+      '@sveltejs/adapter-netlify': 1.0.0-next.71
+      '@sveltejs/adapter-vercel': 1.0.0-next.66
     transitivePeerDependencies:
       - encoding
       - supports-color
     dev: true
 
-  /@sveltejs/adapter-cloudflare/1.0.0-next.30:
-    resolution: {integrity: sha512-jIclgb58n3Uoo8TTudXSa7wmLP7Rn/ESLQS+zOUe0xsti5DG/eDhELTnSvkoSa2lJY21ym5rej/GSERRyeuBVw==}
+  /@sveltejs/adapter-cloudflare/1.0.0-next.31:
+    resolution: {integrity: sha512-HhEFZP72GJ8AZGgFECKIiayDcLaAWi65pI0AnBfiNhCifYSlH/mPNWNVD4AWRDnXnH6XU+FLwhGDnIDwytTyYg==}
     dependencies:
       '@cloudflare/workers-types': 3.14.1
       esbuild: 0.14.50
       worktop: 0.8.0-next.14
     dev: true
 
-  /@sveltejs/adapter-netlify/1.0.0-next.70:
-    resolution: {integrity: sha512-lIXY6KIgIFBz4+mdvilx9Ny8oFV7T2iVTKLirJayoI/SqPWGAcxklvWvjGfS4QT8rS9pWKDaKRUQM4M/gl8LlA==}
+  /@sveltejs/adapter-netlify/1.0.0-next.71:
+    resolution: {integrity: sha512-la1CGtWO1xul1L3zEoFAoc4EX2uxZjrZcOMS3tkKB8drxhbQsNbnTE6fmSSMFiZXhxaikczrBgQwqIaDkLTmZg==}
     dependencies:
       '@iarna/toml': 2.2.5
       esbuild: 0.14.50
@@ -1100,10 +1142,10 @@ packages:
       tiny-glob: 0.2.9
     dev: true
 
-  /@sveltejs/adapter-vercel/1.0.0-next.65:
-    resolution: {integrity: sha512-RV3HL7Ic7pGgIoBSHPwN1pBX96Km1X683oHImPHAKX9h/WOvJZ3bY5+IWNRcR8tx9rPB5gfMRg+msvPSBr3RVw==}
+  /@sveltejs/adapter-vercel/1.0.0-next.66:
+    resolution: {integrity: sha512-s3Hcxu9nCG/rR3C3cFbdQGjTa5W4K2kRcc6S5Xefx7itbrw+4v3KpO8ZPB6qM55XDwVxuG7260NMHVI6MUGmSA==}
     dependencies:
-      '@vercel/nft': 0.20.1
+      '@vercel/nft': 0.21.0
       esbuild: 0.14.50
     transitivePeerDependencies:
       - encoding
@@ -1128,8 +1170,8 @@ packages:
       - supports-color
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.394_svelte@3.49.0+vite@3.0.2:
-    resolution: {integrity: sha512-YfRNSKdbvihHFvmQodaMlChcyf9dfU36FwK8WYQF5jqEmiRajLBb/ooU6RqPA0Z6j5okJHDSYBwxW8TP+nc+gg==}
+  /@sveltejs/kit/1.0.0-next.396_svelte@3.49.0+vite@3.0.2:
+    resolution: {integrity: sha512-bKFpuzp9QxPkOIOEIeNeedvxEMORNqBPxUmoJXDP/Se7MrSfcxYiamjBcKrG+bgGNWmV39nD3EvUox+CXno/Ig==}
     engines: {node: '>=16.9'}
     hasBin: true
     peerDependencies:
@@ -1365,12 +1407,13 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: false
 
-  /@vercel/nft/0.20.1:
-    resolution: {integrity: sha512-hSLcr64KHOkcNiTAlv154K4p4faEFBwYIi2eIgu1QCDhB1qyQYvFuEhtw3eaapNjA4/7x/2jcclfCAjILua/ag==}
+  /@vercel/nft/0.21.0:
+    resolution: {integrity: sha512-hFCAETfI5cG8l5iAiLhMC2bReC5K7SIybzrxGorv+eGspIbIFsVw7Vg85GovXm/LxA08pIDrAlrhR6GN36XB/Q==}
     hasBin: true
     dependencies:
       '@mapbox/node-pre-gyp': 1.0.9
       acorn: 8.8.0
+      async-sema: 3.1.1
       bindings: 1.5.0
       estree-walker: 2.0.2
       glob: 7.2.3
@@ -1594,6 +1637,10 @@ packages:
   /assert-plus/1.0.0:
     resolution: {integrity: sha1-8S4PPF13sLHN2RRpQuTpbB5N1SU=}
     engines: {node: '>=0.8'}
+    dev: true
+
+  /async-sema/3.1.1:
+    resolution: {integrity: sha512-tLRNUXati5MFePdAk8dw7Qt7DpxPB60ofAgn8WRhW6a2rcimZnYBP9oxHiv0OHy+Wz7kPMG+t4LGdt31+4EmGg==}
     dev: true
 
   /asynckit/0.4.0:
