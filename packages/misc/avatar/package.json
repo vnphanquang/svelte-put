@@ -61,7 +61,7 @@
   "bugs": {
     "url": "https://github.com/vnphanquang/svelte-put/issues"
   },
-  "homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/avatar",
+  "homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/misc/avatar",
   "devDependencies": {
     "@microsoft/api-documenter": "^7.19.0",
     "@microsoft/api-extractor": "^7.28.6",
