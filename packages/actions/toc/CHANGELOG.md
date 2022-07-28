@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.0.1
+
+### Patch Changes
+
+- [`6565e46`](https://github.com/vnphanquang/svelte-put/commit/6565e46625dd19cc1c217991ad5e0afaa9965298) Thanks [@vnphanquang](https://github.com/vnphanquang)! - .
+
+  - Fixed broken imports from `Toc.svelte`
+  - Better caching: only return cache when parameters are the same
+  - Temporarily fix the onMount issue where action doesn't run if page is loaded / navigated to from client side
+  - Added playground page for `svelte-put/toc`
+
 ## 1.0.0
 
 ### Major Changes
