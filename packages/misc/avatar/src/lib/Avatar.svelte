@@ -56,14 +56,16 @@
     let rUIAvatar = _uiAvatar ? constructUIAvatarUrl(_uiAvatar) : null;
     let rGravatar: string | null = null;
     let rFallback: string | null = _fallback === DEFINITIVE_FALLBACK ? null : _fallback;
-    if (_gravatar && (rUIAvatar || rFallback)) {
-      if (typeof _gravatar === 'object') {
-        _gravatar.default = '404';
-      } else {
-        _gravatar = {
-          email: _gravatar,
-          default: '404',
-        };
+    if (_gravatar) {
+      if (rUIAvatar || rFallback) {
+        if (typeof _gravatar === 'object' && !_gravatar.default) {
+          _gravatar.default = '404';
+        } else {
+          _gravatar = {
+            email: _gravatar,
+            default: '404',
+          } as typeof _gravatar;
+        }
       }
       rGravatar = constructGravatarUrl(_gravatar);
     }

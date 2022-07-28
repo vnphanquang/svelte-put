@@ -17,6 +17,7 @@ export interface AvatarProps
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
 |  [alt?](./avatar.avatarprops.alt.md) |  | string | <i>(Optional)</i> value for "alt" attribute of <img>. Default to uiAvatar.name or gravatar.email if any. Will have no effect if default slot is overridden |
+|  [class?](./avatar.avatarprops.class.md) |  | string | <i>(Optional)</i> |
 |  [fallback?](./avatar.avatarprops.fallback.md) |  | string | <i>(Optional)</i> The fallback url string. This option takes lowest priority. It defaults to the internal fallback (https://www.gravatar.com/avatar?d=mp). If you provide a different url that is not a valid resource, the internal fallback will be used. |
 |  [gravatar?](./avatar.avatarprops.gravatar.md) |  | [GravatarOptions](./avatar.gravataroptions.md) \| string | <i>(Optional)</i> Either the email for [Gravatar](https://en.gravatar.com/site/implement/images) or [GravatarOptions](./avatar.gravataroptions.md) object. This option take second priority. |
 |  [size?](./avatar.avatarprops.size.md) |  | number | <i>(Optional)</i> value for "width" &amp; "height" attribute of <img>. Will have no effect if default slot is overridden |

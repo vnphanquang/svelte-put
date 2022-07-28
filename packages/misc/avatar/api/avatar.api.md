@@ -14,6 +14,8 @@ export class Avatar extends SvelteComponentTyped<AvatarProps, AvatarEvents, Avat
 // @public
 export interface AvatarProps {
     alt?: string;
+    // (undocumented)
+    class?: string;
     fallback?: string;
     gravatar?: GravatarOptions | string;
     size?: number;

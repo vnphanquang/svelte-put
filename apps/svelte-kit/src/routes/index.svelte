@@ -16,5 +16,8 @@
     <li>
       <a href="/toc" class="hover:text-primary">@svelte-put/toc</a>
     </li>
+    <li>
+      <a href="/avatar" class="hover:text-primary">@svelte-put/avatar</a>
+    </li>
   </ul>
 </main>

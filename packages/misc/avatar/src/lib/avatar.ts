@@ -55,6 +55,7 @@ export interface AvatarProps {
    * Will have no effect if default slot is overridden
    */
   alt?: string;
+  class?: string;
 }
 
 /**
@@ -158,9 +159,9 @@ export function gravatar(input: string | GravatarOptions): string {
   } else {
     ({ email, ...options } = input);
   }
-  email = md5(email);
+  const hash = md5(email.trim().toLowerCase());
 
-  let output = `https://www.gravatar.com/avatar/${email.trim().toLowerCase()}?`;
+  let output = `https://www.gravatar.com/avatar/${hash}?`;
   for (const [parameter, value] of Object.entries(options)) {
     output += `&${parameter.charAt(0)}=${value.toString()}`;
   }

@@ -37,13 +37,13 @@ Useful svelte stuff to put in your projects
 | [@svelte-put/intersect][github.intersect] | wrapper for IntersectionObserver | [![npm.intersect.badge]][npm.intersect] | [Changelog][github.intersect.changelog] | [Docs][github.intersect.docs] | [REPL][repl.intersect] |
 | [@svelte-put/clickoutside][github.clickoutside] | event for clicking outside node | [![npm.clickoutside.badge]][npm.clickoutside] | [Changelog][github.clickoutside.changelog] | [Docs][github.clickoutside.docs] | [REPL][repl.clickoutside] |
 | [@svelte-put/shortcut][github.shortcut] | add keyboard shortcuts to node | [![npm.shortcut.badge]][npm.shortcut] | [Changelog][github.shortcut.changelog] | [Docs][github.shortcut.docs] |
-| [@svelte-put/toc][github.toc] | action & component for building table of contents | [![npm.toc.badge]][npm.toc] | [Changelog][github.toc.changelog] | [Docs][github.toc.docs] |
+| [@svelte-put/toc][github.toc] | action & component for building table of contents | [![npm.toc.badge]][npm.toc] | [Changelog][github.toc.changelog] | [Docs][github.toc.docs] | [REPL][repl.toc] |
 
 ### Miscellaneous
 
 | Package | Short Description | Version | Changelog | Docs | REPL |
 | --- | --- | --- | --- | --- | --- |
-| [@svelte-put/avatar][github.avatar] | component & utilities for avatar | [![npm.avatar.badge]][npm.avatar] | [Changelog][github.avatar.changelog] | [Docs][github.avatar.docs] | |
+| [@svelte-put/avatar][github.avatar] | component & utilities for avatar | [![npm.avatar.badge]][npm.avatar] | [Changelog][github.avatar.changelog] | [Docs][github.avatar.docs] | [REPL][repl.avatar] |
 
 Note:
 
@@ -215,7 +215,8 @@ pnpm turbo
 [repl.movable]: https://svelte.dev/repl/88a7c1fc2e134db7b58786d5f385fc5d
 [repl.clickoutside]: https://svelte.dev/repl/9e5f9ee41c2c45aa8523993e357f6e78
 [repl.intersect]: https://svelte.dev/repl/835eacce6ac44aff95a7cb0bb5ca200d
-<!-- [repl.avatar]: https://svelte.dev/repl/ -->
+[repl.toc]: https://svelte.dev/repl/d9c896ac62cd41d49f80ffa249d292e6
+[repl.avatar]: https://svelte.dev/repl/d54381946b1c4ebd8e612e4568fbbbd0
 
 [@microsoft/api-extractor]: https://www.npmjs.com/package/@microsoft/api-extractor
 [@microsoft/api-documenter]: https://www.npmjs.com/package/@microsoft/api-documenter
