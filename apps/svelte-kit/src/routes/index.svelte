@@ -1,6 +1,3 @@
-<script lang="ts">
-</script>
-
 <title>@svelte-put</title>
 
 <main class="grid w-full flex-1 place-items-center">
@@ -15,6 +12,9 @@
     </li>
     <li>
       <a href="/clickoutside" class="hover:text-primary">@svelte-put/clickoutside</a>
+    </li>
+    <li>
+      <a href="/toc" class="hover:text-primary">@svelte-put/toc</a>
     </li>
   </ul>
 </main>

@@ -3,6 +3,20 @@ import type { TocParameters, TocEventItemDetails, ResolvedTocParameters } from '
 import { slugify } from './toc.utils';
 
 /**
+ * Compare two ResolvedTocParameters
+ * @internal
+ * @param p1 first parameters object to compare
+ * @param p2 second parameters object to compare
+ * @returns whether 2 parameters objects have the same properties
+ */
+export function compareParameters(p1: ResolvedTocParameters, p2: ResolvedTocParameters) {
+  return Object.keys(p1).every((key) => {
+    const typedKey = key as keyof ResolvedTocParameters;
+    return p1[typedKey] === p2[typedKey];
+  });
+}
+
+/**
  * Resolve the raw {@link TocParameters} object from `toc` input
  * @internal
  * @param parameters - parameters taken from `toc` input

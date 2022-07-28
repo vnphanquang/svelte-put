@@ -1,8 +1,8 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
 
-  import { toc } from './toc';
-  import type { TocEventDetails, TocEventItemDetails, TocParameters } from './toc.types';
+  import { toc } from '../action';
+  import type { TocEventDetails, TocEventItemDetails, TocParameters } from '../action';
 
   export let parameters: Partial<TocParameters> = {};
   export let ulClass = '';

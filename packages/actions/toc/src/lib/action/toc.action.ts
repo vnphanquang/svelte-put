@@ -1,9 +1,12 @@
-import { onMount, tick } from 'svelte';
+import { tick } from 'svelte';
 
-import { resolveParameters, restoreTocItems, transformTocItems } from './toc.operations';
-import type { TocParameters, TocEventDetails, TocEventItemDetails } from './toc.types';
+import { compareParameters, resolveParameters, restoreTocItems, transformTocItems } from './toc.operations';
+import type { TocParameters, TocEventDetails, TocEventItemDetails, ResolvedTocParameters } from './toc.types';
 
-const cache: Record<string, TocEventItemDetails[]> = {};
+const cache: Record<string, {
+  parameters: ResolvedTocParameters;
+  items: TocEventItemDetails[];
+}> = {};
 
 /**
  * Find matching DOM elements for building table of contents
@@ -29,35 +32,40 @@ const cache: Record<string, TocEventItemDetails[]> = {};
 export function toc(node: HTMLElement, parameters: Partial<TocParameters> = {}) {
   let resolved = resolveParameters(parameters);
 
-  let elements: Element[];
+  let elements: Element[] = [];
 
   function extract() {
     let id = node.getAttribute('data-toc-id') || '';
     let items: TocEventItemDetails[];
     elements = Array.from(node.querySelectorAll(resolved.selector));
-    if (id) {
-      // FIXME: potential problem: parameters might change => need to rerun
-      // solution: also compare the resolved parameters
-      items = cache[id];
+    if (id && cache[id] && compareParameters(cache[id].parameters, resolved)) {
+      items = cache[id].items;
     } else {
       id = crypto.randomUUID();
       items = transformTocItems(elements as HTMLElement[], resolved);
-      cache[id] = items;
+      cache[id] = { items, parameters: resolved };
       node.setAttribute('data-toc-id', id);
     }
 
     const detail: TocEventDetails = { items, id };
-    setTimeout(() => {
-      node.dispatchEvent(new CustomEvent('toc', { detail }));
-    }, 0);
+    node.dispatchEvent(new CustomEvent('toc', { detail }));
     return detail;
   }
 
   function cleanup() {
+    const id = node.getAttribute('data-toc-id') || '';
+    if (id) {
+      delete cache[id];
+    }
     restoreTocItems(elements as HTMLElement[], resolved);
   }
 
-  onMount(async () => {
+  // svelte's onMount is more appropriate here instead of setTimeout.
+  // But currently, due to this bug: https://github.com/sveltejs/svelte/issues/7735
+  // it is not working as intended, setTimeout here is a temporary solution
+  // it might not work if a large-contented page takes too long to render?
+  setTimeout(async () => {
+    await tick();
     const { items } = extract();
     if (resolved.stimulateHashNavigation) {
       const hash = location.hash?.substring(1);
@@ -74,7 +82,7 @@ export function toc(node: HTMLElement, parameters: Partial<TocParameters> = {}) 
         }
       }
     }
-  });
+  }, 50);
 
   return {
     update(update: Partial<TocParameters>) {

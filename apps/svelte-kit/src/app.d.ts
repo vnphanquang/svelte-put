@@ -40,6 +40,8 @@ declare namespace svelte.JSX {
     onintersect?: (event: CustomEvent<import('@svelte-put/intersect').IntersectDetail>) => void;
     // on:intersectonce
     onintersectonce?: (event: CustomEvent<import('@svelte-put/intersect').IntersectDetail>) => void;
+    // on:toc
+    ontoc?: (event: CustomEvent<import('@svelte-put/toc').TocEventDetails>) => void;
   }
 }
 

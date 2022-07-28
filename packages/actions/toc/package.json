@@ -16,10 +16,10 @@
   "typesVersions": {
     "*": {
       "toc": [
-        "./lib/toc.d.ts"
+        "./lib/action/index.d.ts"
       ],
       "Toc.svelte": [
-        "./lib/Toc.svelte.d.ts"
+        "./lib/component/Toc.svelte.d.ts"
       ]
     }
   },
