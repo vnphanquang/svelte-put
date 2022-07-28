@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.4
+
+### Patch Changes
+
+- [`83c3734`](https://github.com/vnphanquang/svelte-put/commit/83c37341a2a2625fb42604306e6d40cadabd6912) Thanks [@vnphanquang](https://github.com/vnphanquang)! - .
+
+  - setup REPL and playground
+  - correctly resolve gravatar url
+  - export "class" prop type
+
 ## 1.0.3
 
 ### Patch Changes
