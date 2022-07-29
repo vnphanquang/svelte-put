@@ -60,12 +60,11 @@ export function toc(node: HTMLElement, parameters: Partial<TocParameters> = {}) 
     restoreTocItems(elements as HTMLElement[], resolved);
   }
 
-  // svelte's onMount is more appropriate here instead of setTimeout.
+  // svelte's onMount is more idiomatic here instead of tick/setTimeout?
   // But currently, due to this bug: https://github.com/sveltejs/svelte/issues/7735
-  // it is not working as intended, setTimeout here is a temporary solution
-  // it might not work if a large-contented page takes too long to render?
-  setTimeout(async () => {
-    await tick();
+  // it is not working as intended, tick here is a temporary solution
+  // will it work in all cases?
+  tick().then(async () => {
     const { items } = extract();
     if (resolved.stimulateHashNavigation) {
       const hash = location.hash?.substring(1);
@@ -82,7 +81,7 @@ export function toc(node: HTMLElement, parameters: Partial<TocParameters> = {}) 
         }
       }
     }
-  }, 50);
+  });
 
   return {
     update(update: Partial<TocParameters>) {
