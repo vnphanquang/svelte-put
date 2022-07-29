@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.2
+
+### Patch Changes
+
+- [`b5133df`](https://github.com/vnphanquang/svelte-put/commit/b5133dfade440e2f279d59709767bf45d945f18b) Thanks [@vnphanquang](https://github.com/vnphanquang)! - Better async handling - remove excessive setTimeout
+
 ## 1.0.1
 
 ### Patch Changes
