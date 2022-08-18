@@ -1,7 +1,11 @@
 <script lang="ts" context="module">
-  import { toc } from '@svelte-put/toc';
-  import type { TocEventDetails } from '@svelte-put/toc';
-  import Toc from '@svelte-put/toc/Toc.svelte';
+  throw new Error(
+    '@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)',
+  );
+
+  // import { toc } from '@svelte-put/toc';
+  // import type { TocEventDetails } from '@svelte-put/toc';
+  // import Toc from '@svelte-put/toc/Toc.svelte';
 </script>
 
 <script lang="ts">
@@ -10,7 +14,7 @@
   }
 </script>
 
-<main class="p-20 flex flex-col gap-y-10">
+<main class="flex flex-col gap-y-10 p-20">
   <h1 class="text-center text-6xl">H1. Example Blog</h1>
   <p class="text-center italic">Some subtitle / summary / description</p>
   <h2>h2.1 Table of Contents</h2>

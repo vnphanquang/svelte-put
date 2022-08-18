@@ -6,7 +6,7 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "lib": ["es2020", "DOM"],
-    "moduleResolution": "node",
+    "moduleResolution": "NodeNext",
     "module": "es2020",
     "resolveJsonModule": true,
     "skipLibCheck": true,

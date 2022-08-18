@@ -1,12 +1,25 @@
 import { tick } from 'svelte';
 
-import { compareParameters, resolveParameters, restoreTocItems, transformTocItems } from './toc.operations';
-import type { TocParameters, TocEventDetails, TocEventItemDetails, ResolvedTocParameters } from './toc.types';
+import {
+  compareParameters,
+  resolveParameters,
+  restoreTocItems,
+  transformTocItems,
+} from './toc.operations';
+import type {
+  TocParameters,
+  TocEventDetails,
+  TocEventItemDetails,
+  ResolvedTocParameters,
+} from './toc.types';
 
-const cache: Record<string, {
-  parameters: ResolvedTocParameters;
-  items: TocEventItemDetails[];
-}> = {};
+const cache: Record<
+  string,
+  {
+    parameters: ResolvedTocParameters;
+    items: TocEventItemDetails[];
+  }
+> = {};
 
 /**
  * Find matching DOM elements for building table of contents

@@ -3,6 +3,6 @@ module.exports = {
     'postcss-import': {},
     'tailwindcss/nesting': 'postcss-nesting',
     tailwindcss: {},
-    'cssnano': {},
+    cssnano: {},
   },
 };

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { SvelteComponentTyped } from 'svelte';
 
 import type { TocParameters, TocEventItemDetails, TocEventDetails } from '../action/toc.types';

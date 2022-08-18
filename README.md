@@ -85,14 +85,21 @@ If you want to play around to see what's available. Follow these steps:
     pnpm env use --global lts
     ```
 
-
 3. Install dependencies
 
     ```bash
     pnpm install
     ```
 
-4. Run playground (svelte-kit)
+4. Build all packages
+
+    run at root:
+
+    ```bash
+    pnpm build
+    ```
+
+5. Run playground (svelte-kit)
 
     run at root:
 
@@ -107,7 +114,7 @@ If you want to play around to see what's available. Follow these steps:
     pnpm dev
     ```
 
-5. See playground at `localhost:3000`
+6. See playground at `localhost:3000`
 
 ## Inspiration & Acknowledgement
 

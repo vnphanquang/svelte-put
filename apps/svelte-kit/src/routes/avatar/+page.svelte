@@ -15,17 +15,9 @@
 
   <Avatar class="rounded-full" size={50} />
 
-  <Avatar
-    gravatar={user.email}
-    class="rounded-full"
-    size={50}
-  />
+  <Avatar gravatar={user.email} class="rounded-full" size={50} />
 
-  <Avatar
-    gravatar={{ email: invalidEmail, default: 'monsterid' }}
-    class="rounded-full"
-    size={50}
-  />
+  <Avatar gravatar={{ email: invalidEmail, default: 'monsterid' }} class="rounded-full" size={50} />
 
   <Avatar
     gravatar={invalidEmail}
@@ -34,17 +26,12 @@
     size={50}
   />
 
-  <Avatar
-    src={invalidImageSrc}
-    gravatar={invalidEmail}
-    uiAvatar="John+Doe"
-  >
+  <Avatar src={invalidImageSrc} gravatar={invalidEmail} uiAvatar="John+Doe">
     <svelte:fragment let:src>
       Overriding slot default. "src" is resolved to: {src}
     </svelte:fragment>
   </Avatar>
 </main>
-
 
 <style>
   main {

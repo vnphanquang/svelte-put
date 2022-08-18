@@ -7,11 +7,12 @@ const config = {
   // for more information about preprocessors
   preprocess: preprocess(),
 
+  package: {
+    dir: 'lib',
+  },
+
   kit: {
     adapter: adapter(),
-    package: {
-      dir: 'lib',
-    },
   },
 };
 
