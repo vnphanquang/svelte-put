@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.3
+
+### Patch Changes
+
+- [`edd30a0`](https://github.com/vnphanquang/svelte-put/commit/edd30a066c52baa62273c8562e26cc58ebc2325a) Thanks [@vnphanquang](https://github.com/vnphanquang)! - add style tag only if not already added
+
 ## 1.0.2
 
 ### Patch Changes
