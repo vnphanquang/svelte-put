@@ -59,10 +59,12 @@ export function resolveParameters(parameters: Partial<TocParameters> = {}): Reso
  * @param styleString - inline style string
  */
 function addStyle(id: string, styleString: string) {
-  const style = document.createElement('style');
-  style.id = id;
-  style.textContent = styleString;
-  document.head.append(style);
+  if (!document.getElementById(id)) {
+    const style = document.createElement('style');
+    style.id = id;
+    style.textContent = styleString;
+    document.head.append(style);
+  }
 }
 
 /**
