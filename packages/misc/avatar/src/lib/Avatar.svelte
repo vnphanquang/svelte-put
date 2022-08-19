@@ -31,7 +31,7 @@
   onMount(async () => {
     for (const url of trials) {
       try {
-        const response = await fetch(url);
+        const response = await fetch(url, { mode: 'cors' });
         if (response.status.toString().startsWith('2')) {
           resolvedSrc = url;
           break;
