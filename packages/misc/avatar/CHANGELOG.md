@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.5
+
+### Patch Changes
+
+- [`19fe3e1`](https://github.com/vnphanquang/svelte-put/commit/19fe3e11832fd0895194d2063642f3a46f278b14) Thanks [@vnphanquang](https://github.com/vnphanquang)! - enable cors during avatar fetch
+
 ## 1.0.4
 
 ### Patch Changes
