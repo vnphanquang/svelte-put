@@ -32,7 +32,7 @@ svelte action interface
 
 As with any svelte action, `intersect` should be use with element and not component.
 
-```svelte
+```html
 <-- correct usage-->
  <div use:intersect />
 
@@ -44,7 +44,7 @@ As with any svelte action, `intersect` should be use with element and not compon
 
 Typical use to observe the first time the node intersects with viewport for transition effect (like fade-in)
 
-```svelte
+```html
 <script lang="ts">
  import { intersect, type IntersectDetail } from '@svelte-put/intersect';
 
@@ -83,7 +83,7 @@ Typical use to observe the first time the node intersects with viewport for tran
 
 Typical use to observe intersection
 
-```svelte
+```html
 <script lang="ts">
  import { intersect, type IntersectDetail } from '@svelte-put/intersect';
 

@@ -31,7 +31,7 @@ export declare function clickoutside(node: HTMLElement, parameters?: Partial<Cli
 
 As with any svelte action, `clickoutside` should be use with element and not component.
 
-```svelte
+```html
 <-- correct usage-->
  <div use:clickoutside />
 
@@ -43,7 +43,7 @@ As with any svelte action, `clickoutside` should be use with element and not com
 
 Typical usage to close a modal / overlay when backdrop is clicked on
 
-```svelte
+```html
 <script lang="ts">
  import { clickoutside } from '@svelte-put/clickoutside';
 

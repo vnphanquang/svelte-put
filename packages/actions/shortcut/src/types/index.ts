@@ -18,7 +18,7 @@ export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
  *
  * Listen for a single modifier
  *
- * ```svelte
+ * ```html
  * <script>
  *  import { shortcut } from '@svelte-put/shortcut';
  * </script>
@@ -36,7 +36,7 @@ export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
  *
  * Listen for one of many modifiers (or)
  *
- * ```svelte
+ * ```html
  * <script>
  *  import { shortcut } from '@svelte-put/shortcut';
  * </script>
@@ -54,7 +54,7 @@ export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
  *
  * Listen for a combination of multiple modifiers (and)
  *
- * ```svelte
+ * ```html
  * <script>
  *  import { shortcut } from '@svelte-put/shortcut';
  * </script>
@@ -73,7 +73,7 @@ export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
  *
  * A mix of the 3 previous examples
  *
- * ```svelte
+ * ```html
  * <script>
  *  import { shortcut } from '@svelte-put/shortcut';
  * </script>
@@ -151,7 +151,7 @@ export interface ShortcutParameters {
  *
  * @example
  *
- * ```svelte
+ * ```html
  * <script>
  *  import { shortcut, type ShortcutEventDetails } from '@svelte-put/shortcut';
  *

@@ -25,7 +25,7 @@ export declare type MovableLimitDelta = `${number}px` | `${number}%`;
 ## Example
 
 
-```svelte
+```html
 <-- limit movement to [- 20% * width, + 20% * width] in x-axis and [- 20% * height, + 20% * height] in y-axis -->
 <div use:movable={{
    delta: '20%',

@@ -14,7 +14,7 @@
  *
  * @example
  *
- * ```svelte
+ * ```html
  * <-- limit movement to [- 20% * width, + 20% * width] in x-axis and [- 20% * height, + 20% * height] in y-axis -->
  * <div use:movable={{
  *    delta: '20%',
@@ -81,7 +81,7 @@ export interface MovableParameters {
    *
    * `trigger` should be an HTMLElement not a Svelte component.
    *
-   * ```svelte
+   * ```html
    * <div use:movable={{ trigger }}/>
    *
    * <-- correct usage-->
@@ -101,7 +101,7 @@ export interface MovableParameters {
  *
  * @example
  *
- * ```svelte
+ * ```html
  * <script>
  *  function handler(event) {
  *    const { position, node } = event.detail;

@@ -32,7 +32,7 @@ svelte action interface
 
 As with any svelte action, `movable` should be use with element and not component.
 
-```svelte
+```html
 <-- correct usage-->
  <div use:movable />
 
@@ -51,7 +51,7 @@ Be aware of side effects:
 
 Minimal usage
 
-```svelte
+```html
 <script>
   import { movable } from '@svelte-put/movable';
 </script>
@@ -65,7 +65,7 @@ Minimal usage
 
 A more typical &amp; complex usage of `movable`<!-- -->: move a node when user clicks and on a trigger; and limit the movement within a certain boundary.
 
-```svelte
+```html
 <script lang="ts">
   import { movable } from '@svelte-put/movable';
 

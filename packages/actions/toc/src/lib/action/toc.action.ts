@@ -30,7 +30,7 @@ const cache: Record<
  * `toc` will search for DOM elements that are descendants of the HTMLElement that
  * `toc` is used on. Typically you want that to be `<body>`.
  *
- * ```svelte
+ * ```html
  * <script>
  *   import { toc } from '@svelte-put/toc';
  * </script>

@@ -17,7 +17,7 @@ export declare type ShortcutModifierDefinition = ShortcutModifier | ShortcutModi
 
 Listen for a single modifier
 
-```svelte
+```html
 <script>
  import { shortcut } from '@svelte-put/shortcut';
 </script>
@@ -35,7 +35,7 @@ Listen for a single modifier
 
 Listen for one of many modifiers (or)
 
-```svelte
+```html
 <script>
  import { shortcut } from '@svelte-put/shortcut';
 </script>
@@ -53,7 +53,7 @@ Listen for one of many modifiers (or)
 
 Listen for a combination of multiple modifiers (and)
 
-```svelte
+```html
 <script>
  import { shortcut } from '@svelte-put/shortcut';
 </script>
@@ -72,7 +72,7 @@ Listen for a combination of multiple modifiers (and)
 
 A mix of the 3 previous examples
 
-```svelte
+```html
 <script>
  import { shortcut } from '@svelte-put/shortcut';
 </script>

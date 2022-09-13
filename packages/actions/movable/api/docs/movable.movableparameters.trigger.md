@@ -16,7 +16,7 @@ trigger?: HTMLElement;
 
 `trigger` should be an HTMLElement not a Svelte component.
 
-```svelte
+```html
 <div use:movable={{ trigger }}/>
 
 <-- correct usage-->

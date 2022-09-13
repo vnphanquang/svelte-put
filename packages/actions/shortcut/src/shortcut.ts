@@ -6,7 +6,7 @@ import type { ShortcutEventDetails, ShortcutModifier, ShortcutParameters } from 
  *
  * @example Typical usage
  *
- * ```svelte
+ * ```html
  * <script lang="ts">
  *  import { shortcut, type ShortcutEventDetails } from '@svelte-put/shortcut';
  *
@@ -72,7 +72,7 @@ import type { ShortcutEventDetails, ShortcutModifier, ShortcutParameters } from 
  *
  * As with any svelte action, `shortcut` should be use with element and not component.
  *
- * ```svelte
+ * ```html
  * <-- correct usage-->
  *  <div use:intersect />
  *

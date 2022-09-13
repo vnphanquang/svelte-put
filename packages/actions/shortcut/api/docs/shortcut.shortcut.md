@@ -32,7 +32,7 @@ svelte action interface
 
 As with any svelte action, `shortcut` should be use with element and not component.
 
-```svelte
+```html
 <-- correct usage-->
  <div use:intersect />
 
@@ -51,7 +51,7 @@ Either way, only use `callback` or `on:shortcut` and not both to avoid handler d
 
 Typical usage
 
-```svelte
+```html
 <script lang="ts">
  import { shortcut, type ShortcutEventDetails } from '@svelte-put/shortcut';
 

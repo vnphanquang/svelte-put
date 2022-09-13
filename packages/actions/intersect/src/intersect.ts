@@ -31,7 +31,7 @@ export interface IntersectDetail {
  * @example
  * Typical use to observe the first time the node intersects with viewport for transition effect (like fade-in)
  *
- * ```svelte
+ * ```html
  * <script lang="ts">
  *  import { intersect, type IntersectDetail } from '@svelte-put/intersect';
  *
@@ -69,7 +69,7 @@ export interface IntersectDetail {
  * @example
  * Typical use to observe intersection
  *
- * ```svelte
+ * ```html
  * <script lang="ts">
  *  import { intersect, type IntersectDetail } from '@svelte-put/intersect';
  *
@@ -105,7 +105,7 @@ export interface IntersectDetail {
  *
  * As with any svelte action, `intersect` should be use with element and not component.
  *
- * ```svelte
+ * ```html
  * <-- correct usage-->
  *  <div use:intersect />
  *

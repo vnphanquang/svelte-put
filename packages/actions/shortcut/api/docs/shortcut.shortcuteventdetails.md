@@ -9,13 +9,13 @@
 <b>Signature:</b>
 
 ```typescript
-export interface ShortcutEventDetails 
+export interface ShortcutEventDetails
 ```
 
 ## Example
 
 
-```svelte
+```html
 <script>
  import { shortcut, type ShortcutEventDetails } from '@svelte-put/shortcut';
 

@@ -50,7 +50,7 @@ Currently, [gravatar] and [UIAvatar][uiavatar] are supported. If you find that a
 <details open>
   <summary>Show / hide</summary>
 
-```svelte
+```html
 <script>
   import Avatar from '@svelte-put/avatar/Avatar.svelte';
   import { gravatar, uiAvatar } from '@svelte-put/avatar';

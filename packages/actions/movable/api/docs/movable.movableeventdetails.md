@@ -9,13 +9,13 @@
 <b>Signature:</b>
 
 ```typescript
-export interface MovableEventDetails 
+export interface MovableEventDetails
 ```
 
 ## Example
 
 
-```svelte
+```html
 <script>
  function handler(event) {
    const { position, node } = event.detail;

@@ -9,7 +9,7 @@ import { input } from './utils';
  *
  * Minimal usage
  *
- * ```svelte
+ * ```html
  * <script>
  *   import { movable } from '@svelte-put/movable';
  * </script>
@@ -25,7 +25,7 @@ import { input } from './utils';
  * when user clicks and on a trigger; and limit the movement within
  * a certain boundary.
  *
- * ```svelte
+ * ```html
  * <script lang="ts">
  *   import { movable } from '@svelte-put/movable';
  *
@@ -74,7 +74,7 @@ import { input } from './utils';
  *
  * As with any svelte action, `movable` should be use with element and not component.
  *
- * ```svelte
+ * ```html
  * <-- correct usage-->
  *  <div use:movable />
  *

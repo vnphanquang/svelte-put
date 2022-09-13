@@ -62,7 +62,7 @@ with the action parameters [TocParameters][github.api.TocParameters]
 <details open>
   <summary>Show / hide</summary>
 
-```svelte
+```html
 <script>
   import { toc } from '@svelte-put/toc';
   import type { TocEventDetails } from '@svelte-put/toc';
@@ -155,7 +155,7 @@ Consider the same example as in the previous section but now we use the componen
 <details open>
   <summary>Show / hide</summary>
 
-```svelte
+```html
 <script>
   import Toc from '@svelte-put/toc/Toc.svelte';
 </script>
