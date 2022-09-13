@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - ".changeset/**"
+      - ".github/workflows/changeset.yaml"
   workflow_dispatch:
 
 env:
