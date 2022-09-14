@@ -61,7 +61,7 @@ importers:
       svelte-awesome: 3.0.0_svelte@3.50.1
       svelte-check: 2.9.0_ip6t7gbsntalqsv24txi5sqe6u
       svelte-preprocess: 4.10.7_snqnsttluzgwj6kbxzouwakc4q
-      tailwindcss: 3.1.8_postcss@8.4.16
+      tailwindcss: 3.1.8
       tslib: 2.4.0
       typescript: 4.8.3
       vite: 3.1.0
@@ -361,11 +361,11 @@ importers:
       '@microsoft/api-documenter': ^7.19.12
       '@microsoft/api-extractor': ^7.31.0
       '@svelte-put/apirc': workspace:^0.0.0
-      '@svelte-put/clickoutside': workspace:^1.0.1
+      '@svelte-put/clickoutside': ^1.0.2
       '@svelte-put/eslint-config': workspace:^0.0.0
-      '@svelte-put/movable': workspace:^1.1.8
+      '@svelte-put/movable': ^1.1.9
       '@svelte-put/prettierrc': workspace:^0.0.0
-      '@svelte-put/shortcut': workspace:^1.0.1
+      '@svelte-put/shortcut': ^1.0.2
       '@svelte-put/tsconfig': workspace:^0.0.0
       '@sveltejs/adapter-auto': 1.0.0-next.73
       '@sveltejs/kit': 1.0.0-next.481
@@ -6374,12 +6374,10 @@ packages:
       stable: 0.1.8
     dev: true
 
-  /tailwindcss/3.1.8_postcss@8.4.16:
+  /tailwindcss/3.1.8:
     resolution: {integrity: sha512-YSneUCZSFDYMwk+TGq8qYFdCA3yfBRdBlS7txSq0LUmzyeqRe3a8fBQzbz9M3WS/iFT4BNf/nmw9mEzrnSaC0g==}
     engines: {node: '>=12.13.0'}
     hasBin: true
-    peerDependencies:
-      postcss: ^8.0.9
     dependencies:
       arg: 5.0.2
       chokidar: 3.5.3
