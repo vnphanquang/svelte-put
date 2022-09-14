@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.1
+
+### Patch Changes
+
+- [`9af62e8`](https://github.com/vnphanquang/svelte-put/commit/9af62e87621ca93def91dee05e760c621229b1e9) Thanks [@vnphanquang](https://github.com/vnphanquang)! - add svelte-put dependencies as main deps
+
 ## 0.1.0
 
 ### Minor Changes
