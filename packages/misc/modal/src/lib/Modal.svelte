@@ -148,7 +148,7 @@
 </slot>
 
 <style>
-  :global(.s-modal-backdrop) {
+  :global(:where(.s-modal-backdrop)) {
     position: absolute;
     top: 0;
     left: 0;
@@ -158,7 +158,7 @@
     z-index: 0;
   }
 
-  :global(.s-modal-container) {
+  :global(:where(.s-modal-container)) {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -166,7 +166,7 @@
     z-index: 1;
   }
 
-  :global(.s-modal-x) {
+  :global(:where(.s-modal-x)) {
     position: absolute;
     top: 0;
     right: 0;
@@ -176,11 +176,11 @@
     transition-duration: 150ms;
   }
 
-  :global(.s-modal-x:hover) {
+  :global(:where(.s-modal-x):hover) {
     scale: 1.05;
   }
 
-  :global(.s-modal-x:active) {
+  :global(:where(.s-modal-x):active) {
     scale: 0.95;
   }
 </style>
