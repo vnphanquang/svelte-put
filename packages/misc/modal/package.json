@@ -69,15 +69,17 @@
     "url": "https://github.com/vnphanquang/svelte-put/issues"
   },
   "homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/misc/modal",
+  "dependencies": {
+    "@svelte-put/clickoutside": "^1.0.2",
+    "@svelte-put/movable": "^1.1.9",
+    "@svelte-put/shortcut": "^1.0.2"
+  },
   "devDependencies": {
     "@microsoft/api-documenter": "^7.19.12",
     "@microsoft/api-extractor": "^7.31.0",
     "@svelte-put/apirc": "workspace:^0.0.0",
-    "@svelte-put/clickoutside": "^1.0.2",
     "@svelte-put/eslint-config": "workspace:^0.0.0",
-    "@svelte-put/movable": "^1.1.9",
     "@svelte-put/prettierrc": "workspace:^0.0.0",
-    "@svelte-put/shortcut": "^1.0.2",
     "@svelte-put/tsconfig": "workspace:^0.0.0",
     "@sveltejs/adapter-auto": "1.0.0-next.73",
     "@sveltejs/kit": "1.0.0-next.481",
