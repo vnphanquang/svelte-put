@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2
+
+### Patch Changes
+
+- [`37b2867`](https://github.com/vnphanquang/svelte-put/commit/37b286748f9ad8887b39eee003d1e4efed5ccee2) Thanks [@vnphanquang](https://github.com/vnphanquang)! - style(modal): use where to reduce specificity for easier customization
+
 ## 0.1.1
 
 ### Patch Changes
