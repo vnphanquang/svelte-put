@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.2.0
+
+### Minor Changes
+
+- [`0eb3dee`](https://github.com/vnphanquang/svelte-put/commit/0eb3deea4f30d432f9c7edf981ee8188196c2660) Thanks [@vnphanquang](https://github.com/vnphanquang)! - simplify push output and pop mechanism
+
+### Patch Changes
+
+- [`866c520`](https://github.com/vnphanquang/svelte-put/commit/866c520a59a2cf4db22e802d4eb839dc9c97b9a6) Thanks [@vnphanquang](https://github.com/vnphanquang)! - bootstrap documentation
+
 ## 0.1.2
 
 ### Patch Changes
