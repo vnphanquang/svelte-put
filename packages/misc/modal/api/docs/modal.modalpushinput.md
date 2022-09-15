@@ -4,12 +4,12 @@
 
 ## ModalPushInput type
 
-Same interface as in [PushedModal](./modal.pushedmodal.md) but all optional except for `component`
+Either the Svelte modal component or an interface as in [PushedModal](./modal.pushedmodal.md) with all optional props except for `component`
 
 <b>Signature:</b>
 
 ```typescript
-export declare type ModalPushInput<Component extends ModalComponentBase> = Partial<PushedModal<Component>> & Pick<PushedModal<Component>, 'component'>;
+export declare type ModalPushInput<Component extends ModalComponentBase> = ComponentType<Component> | Partial<PushedModal<Component>> & Pick<PushedModal<Component>, 'component'>;
 ```
 <b>References:</b> [ModalComponentBase](./modal.modalcomponentbase.md)<!-- -->, [PushedModal](./modal.pushedmodal.md)
 

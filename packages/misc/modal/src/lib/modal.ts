@@ -45,18 +45,28 @@ export function createModalStore() {
       _resolve = resolve;
     });
 
-    const modal: PushedModal<Component> = {
-      id: crypto.randomUUID(),
-      props: {} as ComponentProps<Component>,
-      ...input,
-    };
-    modals.push(modal);
-    resolveMap[modal.id] = _resolve;
+    let pushed: PushedModal<Component>;
+    if (typeof input === 'function') {
+      pushed = {
+        id: crypto.randomUUID(),
+        component: input,
+        props: {} as ComponentProps<Component>,
+      };
+    } else {
+      pushed = {
+        id: crypto.randomUUID(),
+        props: {} as ComponentProps<Component>,
+        ...input,
+      };
+    }
+
+    modals.push(pushed);
+    resolveMap[pushed.id] = _resolve;
 
     set([...modals]);
 
     return {
-      id: modal.id,
+      id: pushed.id,
       resolve: () => promise,
     };
   }

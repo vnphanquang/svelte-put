@@ -35,5 +35,5 @@ Svelte stackable async modal solution
 |  [ModalComponentBaseProps](./modal.modalcomponentbaseprops.md) | The base events for modal |
 |  [ModalComponentBaseResolved](./modal.modalcomponentbaseresolved.md) | The base interface when modal is resolved |
 |  [ModalComponentBaseSlots](./modal.modalcomponentbaseslots.md) | The base slots for modal |
-|  [ModalPushInput](./modal.modalpushinput.md) | Same interface as in [PushedModal](./modal.pushedmodal.md) but all optional except for <code>component</code> |
+|  [ModalPushInput](./modal.modalpushinput.md) | Either the Svelte modal component or an interface as in [PushedModal](./modal.pushedmodal.md) with all optional props except for <code>component</code> |
 

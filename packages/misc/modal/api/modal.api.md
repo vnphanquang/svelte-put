@@ -56,7 +56,7 @@ export class ModalPortal extends SvelteComponentTyped<ModalPortalProps, ModalPor
 }
 
 // @public
-export type ModalPushInput<Component extends ModalComponentBase> = Partial<PushedModal<Component>> & Pick<PushedModal<Component>, 'component'>;
+export type ModalPushInput<Component extends ModalComponentBase> = ComponentType<Component> | Partial<PushedModal<Component>> & Pick<PushedModal<Component>, 'component'>;
 
 // @public
 export interface ModalPushOutput<Component extends ModalComponentBase, Resolved extends ModalComponentBaseResolved = ComponentEvents<Component>['resolve']['detail']> {

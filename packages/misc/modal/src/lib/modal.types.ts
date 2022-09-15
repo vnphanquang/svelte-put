@@ -55,11 +55,13 @@ export interface PushedModal<Component extends ModalComponentBase> {
 }
 
 /**
- * Same interface as in {@link PushedModal} but all optional except for `component`
+ * Either the Svelte modal component or an interface as in {@link PushedModal}
+ * with all optional props except for `component`
  * @public
  */
-export type ModalPushInput<Component extends ModalComponentBase> = Partial<PushedModal<Component>> &
-  Pick<PushedModal<Component>, 'component'>;
+export type ModalPushInput<Component extends ModalComponentBase> =
+  | ComponentType<Component>
+  | Partial<PushedModal<Component>> & Pick<PushedModal<Component>, 'component'> ;
 
 /**
  * The return of the `push` method of modal store
