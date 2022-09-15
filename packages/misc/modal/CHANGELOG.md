@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.1
+
+### Patch Changes
+
+- [`95a20ab`](https://github.com/vnphanquang/svelte-put/commit/95a20abb6858c74959d7c15bb70acfff7760047b) Thanks [@vnphanquang](https://github.com/vnphanquang)! - allow push input to be either object or the component itself
+
 ## 0.2.0
 
 ### Minor Changes
