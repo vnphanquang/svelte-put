@@ -2,7 +2,13 @@
 import type { ComponentEvents, ComponentProps } from 'svelte';
 import { writable } from 'svelte/store';
 
-import type { PushedModal, ModalPushInput, ModalComponentBase, ModalPushOutput, ModalComponentBaseResolved } from './modal.types';
+import type {
+  PushedModal,
+  ModalPushInput,
+  ModalComponentBase,
+  ModalPushOutput,
+  ModalComponentBaseResolved,
+} from './modal.types';
 
 type ApplicableModal = PushedModal<ModalComponentBase>;
 
@@ -33,9 +39,7 @@ export function createModalStore() {
   function push<
     Component extends ModalComponentBase,
     Resolved extends ModalComponentBaseResolved = ComponentEvents<Component>['resolve']['detail'],
-  >(
-    input: ModalPushInput<Component>,
-  ): ModalPushOutput<Component> {
+  >(input: ModalPushInput<Component>): ModalPushOutput<Component> {
     let _resolve: ((value: Resolved) => void) | undefined;
     const promise = new Promise<Resolved>((resolve) => {
       _resolve = resolve;

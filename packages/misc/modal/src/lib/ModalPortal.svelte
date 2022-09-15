@@ -4,11 +4,17 @@
   import type { createModalStore } from './modal';
   import type { PushedModal, ModalComponentBase, ModalComponentBaseResolved } from './modal.types';
 
+  /**
+   * a modal store, one created from {@link createModalStore}
+   */
   export let store: ReturnType<typeof createModalStore>;
 
   let isOpenModal = false;
 
-  function onResolve<Component extends ModalComponentBase, Resolved extends ModalComponentBaseResolved = ComponentEvents<Component>['resolve']['detail']>(modal: PushedModal<Component>, event: CustomEvent<Resolved>) {
+  function onResolve<
+    Component extends ModalComponentBase,
+    Resolved extends ModalComponentBaseResolved = ComponentEvents<Component>['resolve']['detail'],
+  >(modal: PushedModal<Component>, event: CustomEvent<Resolved>) {
     store.pop(modal.id, event.detail);
   }
 
@@ -16,6 +22,15 @@
     isOpenModal = Boolean($store.length);
   });
 </script>
+
+<!--
+  @component
+
+  Register this 'portal' where you want to render the modal stack, ideally as
+  the direct descendant of the root element of your app.
+
+  @public
+-->
 
 {#if isOpenModal}
   <aside class="s-modal-portal {$$props.class}">
@@ -35,7 +50,7 @@
 {/if}
 
 <style>
-  .s-modal-portal {
+  :where(.s-modal-portal) {
     position: fixed;
     top: 0;
     right: 0;

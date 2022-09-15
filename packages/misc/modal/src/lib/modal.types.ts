@@ -3,6 +3,7 @@
 import type { ComponentEvents, ComponentProps, ComponentType, SvelteComponentTyped } from 'svelte';
 
 /**
+ * The base interface when modal is resolved
  * @public
  */
 export type ModalComponentBaseResolved = {
@@ -10,21 +11,28 @@ export type ModalComponentBaseResolved = {
 } | null;
 
 /**
+ * The base events for modal
  * @public
  */
 export type ModalComponentBaseProps = {};
 
 /**
+ * The base events for modal
  * @public
  */
-export type ModalComponentBaseEvents<Resolved extends ModalComponentBaseResolved> = { resolve: CustomEvent<Resolved> };
+export type ModalComponentBaseEvents<Resolved extends ModalComponentBaseResolved> = {
+  resolve: CustomEvent<Resolved>;
+};
 
 /**
+ * The base slots for modal
  * @public
  */
 export type ModalComponentBaseSlots = {};
 
 /**
+ * The base component for modal. Modals extending this component needs to
+ * meet the specified constraints
  * @public
  */
 export type ModalComponentBase = SvelteComponentTyped<
@@ -34,6 +42,7 @@ export type ModalComponentBase = SvelteComponentTyped<
 >;
 
 /**
+ * A modal pushed to the modal store
  * @public
  */
 export interface PushedModal<Component extends ModalComponentBase> {
@@ -49,9 +58,7 @@ export interface PushedModal<Component extends ModalComponentBase> {
  * Same interface as in {@link PushedModal} but all optional except for `component`
  * @public
  */
-export type ModalPushInput<Component extends ModalComponentBase> = Partial<
-  PushedModal<Component>
-> &
+export type ModalPushInput<Component extends ModalComponentBase> = Partial<PushedModal<Component>> &
   Pick<PushedModal<Component>, 'component'>;
 
 /**

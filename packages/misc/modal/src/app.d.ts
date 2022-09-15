@@ -1,4 +1,5 @@
 /// <reference types="@sveltejs/kit" />
+/// <reference types="svelte" />
 
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
@@ -9,5 +10,9 @@ declare namespace App {
   // interface Session {}
   // interface Stuff {}
 }
-
-declare module '*.svelte';
+declare namespace svelte.JSX {
+  interface HTMLAttributes<T> {
+    // on:clickoutside
+    onclickoutside?: (event: CustomEvent<MouseEvent>) => void;
+  }
+}
