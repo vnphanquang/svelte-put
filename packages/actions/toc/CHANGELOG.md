@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.5
+
+### Patch Changes
+
+- [`feaf0be`](https://github.com/vnphanquang/svelte-put/commit/feaf0be9e782d54cf0c95385e27149dd40cadfc5) Thanks [@vnphanquang](https://github.com/vnphanquang)! - fix svelte kit migration build step, should use separate svelte-package
+
 ## 1.0.4
 
 ### Patch Changes
