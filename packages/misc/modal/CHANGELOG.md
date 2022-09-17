@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.0
+
+### Minor Changes
+
+- [`02d97df`](https://github.com/vnphanquang/svelte-put/commit/02d97df0ff1b1552f837574f3c72ea2b8b63bd89) Thanks [@vnphanquang](https://github.com/vnphanquang)! - more typesafety for custom events and props
+
 ## 0.2.1
 
 ### Patch Changes
