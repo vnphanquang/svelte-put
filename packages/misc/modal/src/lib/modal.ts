@@ -83,7 +83,7 @@ export function createModalStore() {
    * @returns the popped {@link PushedModal} or `undefined` in the
    * case no modal was found that matches the specified input
    */
-  function pop<Resolved>(id?: string, resolved: Resolved | null = null) {
+  function pop<Resolved extends Record<string, any>>(id?: string, resolved: Resolved | null = null) {
     let popped: ApplicableModal | undefined;
     if (id) {
       modals = modals.filter((modal) => {
