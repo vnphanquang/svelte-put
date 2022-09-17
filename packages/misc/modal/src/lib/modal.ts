@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/ban-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { ComponentEvents, ComponentProps } from 'svelte';
+import { createEventDispatcher, type ComponentEvents, type ComponentProps } from 'svelte';
 import { writable } from 'svelte/store';
 
 import type {
@@ -8,6 +9,8 @@ import type {
   ModalComponentBase,
   ModalPushOutput,
   ModalComponentBaseResolved,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  ExtendedModalEvents,
 } from './modal.types';
 
 type ApplicableModal = PushedModal<ModalComponentBase>;
@@ -107,4 +110,16 @@ export function createModalStore() {
     push,
     pop,
   };
+}
+
+/**
+ * Helper that wraps svelte `createEventDispatcher` for creating typesafe
+ * event dispatcher from the `$$Events` type. See {@link ExtendedModalEvents}
+ *
+ * @returns svelte event dispatcher
+ */
+export function createModalEventDispatcher<Events extends Record<string, CustomEvent<any>>>() {
+  return createEventDispatcher<{
+    [key in keyof Events]: Events[key]['detail'];
+  }>();
 }

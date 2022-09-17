@@ -4,10 +4,10 @@
   import { movable as movableAction } from '@svelte-put/movable';
   import type { MovableParameters } from '@svelte-put/movable';
   import { shortcut } from '@svelte-put/shortcut';
-  import { createEventDispatcher } from 'svelte';
   import { fade } from 'svelte/transition';
 
-  import type { ModalComponentBaseSlots } from './modal.types';
+  import { createModalEventDispatcher } from './modal';
+  import type { ModalComponentBaseEvents, ModalComponentBaseSlots } from './modal.types';
 
   interface $$Slots extends ModalComponentBaseSlots {
     /** content of the modal */
@@ -91,6 +91,13 @@
    */
   export let classes: Partial<Classes> = {};
 
+  /**
+   * svelte event dispatcher. Should only pass this prop if extending the events.
+   * For simple no-action modal, just forward the resolve event.
+   */
+  type $$Events = ModalComponentBaseEvents;
+  const dispatch = createModalEventDispatcher();
+
   // resolving classes prop
   const DEFAULT_CLASSES: Record<keyof Classes, string> = {
     backdrop: 's-modal-backdrop',
@@ -127,9 +134,6 @@
     return typeof movable === 'boolean' ? { ...DEFAULT_MOVABLE, enabled: movable } : movable;
   }
   $: rMovable = resolveMovable();
-
-  type BaseTrigger = 'backdrop' | 'x' | 'escape' | 'clickoutside';
-  const dispatch = createEventDispatcher<{ resolve: { trigger: BaseTrigger } | null }>();
 
   function onClickX() {
     dispatch('resolve', { trigger: 'x' });
@@ -171,11 +175,7 @@
 
 <slot name="backdrop" class={rClasses.backdrop} onClick={onClickBackdrop}>
   {#if backdrop}
-    <div
-      class={rClasses.backdrop}
-      on:click={onClickBackdrop}
-      transition:fade={{ duration: 75 }}
-    />
+    <div class={rClasses.backdrop} on:click={onClickBackdrop} transition:fade={{ duration: 75 }} />
   {/if}
 </slot>
 

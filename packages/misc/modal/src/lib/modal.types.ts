@@ -2,13 +2,38 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import type { ComponentEvents, ComponentProps, ComponentType, SvelteComponentTyped } from 'svelte';
 
+import type Modal from './Modal.svelte';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import type { createModalEventDispatcher } from './modal';
+
+/**
+ * The trigger that resolves the modal
+ *
+ * - `backdrop`: non-static backdrop was clicked
+ *
+ * - `x`: `x` button was clicked
+ *
+ * - `escape`: `escape` key was pressed
+ *
+ * - `clickoutside`: click outside of modal was detected
+ *
+ * - `pop`: modal was resolved from by calling the `pop` method of the modal store
+ *
+ * - `custom`: modal was resolved by a custom dispatch. Use this in your
+ * custom modal when extending the `resolve` event with additional props.
+ * See {@link ExtendedModalEvents}
+ *
+ * @public
+ */
+export type ResolveTrigger = 'backdrop' | 'x' | 'escape' | 'clickoutside' | 'pop' | 'custom';
+
 /**
  * The base interface when modal is resolved
  * @public
  */
 export type ModalComponentBaseResolved = {
-  trigger?: string;
-} | null;
+  trigger: ResolveTrigger;
+};
 
 /**
  * The base events for modal
@@ -20,7 +45,9 @@ export type ModalComponentBaseProps = {};
  * The base events for modal
  * @public
  */
-export type ModalComponentBaseEvents<Resolved extends ModalComponentBaseResolved> = {
+export type ModalComponentBaseEvents<
+  Resolved extends ModalComponentBaseResolved = ModalComponentBaseResolved,
+> = {
   resolve: CustomEvent<Resolved>;
 };
 
@@ -61,7 +88,7 @@ export interface PushedModal<Component extends ModalComponentBase> {
  */
 export type ModalPushInput<Component extends ModalComponentBase> =
   | ComponentType<Component>
-  | Partial<PushedModal<Component>> & Pick<PushedModal<Component>, 'component'> ;
+  | (Partial<PushedModal<Component>> & Pick<PushedModal<Component>, 'component'>);
 
 /**
  * The return of the `push` method of modal store
@@ -99,3 +126,121 @@ export interface ModalPushOutput<
    */
   resolve: () => Promise<Resolved>;
 }
+
+/**
+ * Utility type for building custom props type from the base Modal component
+ * @public
+ *
+ * @example
+ *
+ * ```html
+ * <script lang="ts">
+ *   import Modal from '@svelte-put/modal/Modal.svelte';
+ *   import type { ExtendedModalProps } from '@svelte-put/modal';
+ *
+ *   $$Props = ExtendedModalProps<{ anotherProp: string }>;
+ *
+ *   export let anotherProp: string;
+ * </script>
+ *
+ * <Modal {...$$restProps} on:resolve>
+ *   <p>{anotherProp}</p>
+ * </Modal>
+ * ```
+ */
+export type ExtendedModalProps<ExtendedProps extends Record<string, any> = {}> =
+  ComponentProps<Modal> & ExtendedProps;
+
+/**
+ * Utility type for building custom events type from the base Modal component.
+ * Use in conjunction with {@link createModalEventDispatcher}
+ * @public
+ *
+ * @remarks
+ *
+ * When extending events, we need to create a new `dispatch` function.
+ * Remember to pass this new `dispatch` as prop to the `Modal` component.
+ *
+ * When dispatching your extended `resolve` event, you will also need to pass
+ * the `trigger` prop to the event detail. Any {@link ResolveTrigger} is valid,
+ * but in this context `custom` is recommended (see example below).
+ *
+ * For simple no-action modal, just forward the resolve event.
+ *
+ * ```html
+ * <script lang="ts">
+ *   import Modal from '@svelte-put/modal/Modal.svelte';
+ *   import type { ExtendedModalEvents, ExtendedModalProps } from '@svelte-put/modal';
+ *
+ *   $$Props = ExtendedModalProps;
+ *   $$Events = ExtendedModalEvents;
+ * </script
+ * <Modal {...$$props} on:resolve>
+ * ```
+ *
+ * @example
+ *
+ * Custom the base `resolve` event.
+ *
+ * ```html
+ * <script lang="ts">
+ *   import Modal from '@svelte-put/modal/Modal.svelte';
+ *   import { createModalEventDispatcher } from '@svelte-put/modal;
+ *   import type { ExtendedModalEvents, ExtendedModalProps } from '@svelte-put/modal';
+ *
+ *   $$Props = ExtendedModalProps;
+ *   $$Events = ExtendedModalEvents<{
+ *      confirmed: boolean;
+ *   }>
+ *
+ *   // create type-safe dispatch function
+ *   const dispatch = createModalEventDispatcher<$$Events>();
+ *
+ *   function resolve() {
+ *     dispatch('resolve', {
+ *       trigger: 'custom',
+ *       confirmed: true,
+ *     });
+ *   }
+ * </script>
+ *
+ * <Modal {...$$props} {dispatch}>
+ *   <button type="button" on:click={() => resolve(true)}>Confirm</button>
+ *   <button type="button" on:click={() => resolve(false)}>Cancel</button>
+ * </Modal>
+ * ```
+ *
+ * @example
+ *
+ * Add other events.
+ *
+ * ```html
+ * <script lang="ts">
+ *   import Modal from '@svelte-put/modal/Modal.svelte';
+ *   import { createModalEventDispatcher } from '@svelte-put/modal;
+ *   import type { ExtendedModalEvents, ExtendedModalProps } from '@svelte-put/modal';
+ *
+ *   $$Props = ExtendedModalProps;
+ *   $$Events = ExtendedModalEvents<{}, {
+ *     anotherEvent: string;
+ *   }>
+ *
+ *   // create type-safe dispatch function
+ *   const dispatch = createModalEventDispatcher<$$Events>();
+ *
+ *   function handleClick() {
+ *     dispatch('anotherEvent', 'detail');
+ *   }
+ * </script>
+ *
+ * <Modal {...$$props} {dispatch}>
+ *   <button type="button" on:click={handleClick}>Another Event</button>
+ * </Modal>
+ * ```
+ */
+export type ExtendedModalEvents<
+  ExtendedResolved extends Record<string, any> = {},
+  ExtendedEvents extends Record<string, CustomEvent<any>> = {},
+> = {
+  resolve: CustomEvent<ModalComponentBaseResolved & ExtendedResolved>;
+} & ExtendedEvents;

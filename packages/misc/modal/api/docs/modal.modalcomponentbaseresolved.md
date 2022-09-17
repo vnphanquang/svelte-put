@@ -10,6 +10,8 @@ The base interface when modal is resolved
 
 ```typescript
 export declare type ModalComponentBaseResolved = {
-    trigger?: string;
-} | null;
+    trigger: ResolveTrigger;
+};
 ```
+<b>References:</b> [ResolveTrigger](./modal.resolvetrigger.md)
+
