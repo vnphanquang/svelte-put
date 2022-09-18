@@ -21,7 +21,7 @@ export function createModalEventDispatcher<Events extends Record<string, CustomE
 export function createModalStore(): {
     subscribe: (this: void, run: Subscriber<ApplicableModal[]>, invalidate?: ((value?: ApplicableModal[] | undefined) => void) | undefined) => Unsubscriber;
     push: <Component extends ModalComponentBase, Resolved extends ModalComponentBaseResolved = ComponentEvents<Component>["resolve"]["detail"]>(input: ModalPushInput<Component>) => ModalPushOutput<Component, ComponentEvents<Component>["resolve"]["detail"]>;
-    pop: <Resolved_1>(id?: string, resolved?: Resolved_1 | null) => ApplicableModal | undefined;
+    pop: <Resolved_1 extends ModalComponentBaseResolved>(id?: string, resolved?: Resolved_1 | undefined) => ApplicableModal | undefined;
 };
 
 // @public
@@ -41,7 +41,7 @@ export class Modal extends SvelteComponentTyped<ModalProps, ModalEvents, ModalSl
 }
 
 // @public
-export type ModalComponentBase = SvelteComponentTyped<ModalComponentBaseProps, ModalComponentBaseEvents<ModalComponentBaseResolved>, ModalComponentBaseSlots>;
+export type ModalComponentBase = SvelteComponentTyped<{}, ModalComponentBaseEvents<ModalComponentBaseResolved>, {}>;
 
 // @public
 export type ModalComponentBaseEvents<Resolved extends ModalComponentBaseResolved = ModalComponentBaseResolved> = {
@@ -49,7 +49,18 @@ export type ModalComponentBaseEvents<Resolved extends ModalComponentBaseResolved
 };
 
 // @public
-export type ModalComponentBaseProps = {};
+export interface ModalComponentBaseProps {
+    backdrop?: 'static' | boolean;
+    classes?: Partial<Record<Exclude<keyof ModalComponentBaseSlots, 'default' | 'x-content'>, string | {
+        override: string;
+    }>>;
+    clickoutside?: boolean | ClickOutsideParameters;
+    dispatch?: ReturnType<typeof createModalEventDispatcher>;
+    escape?: boolean;
+    movable?: boolean | MovableParameters;
+    topmost?: boolean;
+    xBtn?: boolean;
+}
 
 // @public
 export type ModalComponentBaseResolved = {
@@ -57,7 +68,27 @@ export type ModalComponentBaseResolved = {
 };
 
 // @public
-export type ModalComponentBaseSlots = {};
+export interface ModalComponentBaseSlots {
+    'x-content': Record<string, never>;
+    backdrop: {
+        class: string;
+        onClick: () => void;
+    };
+    container: {
+        class: string;
+    };
+    default: Record<string, never>;
+    x: {
+        class: string;
+        onClick: () => void;
+        xBtn: boolean;
+    };
+}
+
+// Warning: (ae-internal-missing-underscore) The name "ModalInternalResolver" should be prefixed with an underscore because the declaration is marked as @internal
+//
+// @internal (undocumented)
+export type ModalInternalResolver<Resolved extends ModalComponentBaseResolved = ModalComponentBaseResolved> = (resolved: Resolved) => void;
 
 // Warning: (ae-forgotten-export) The symbol "ModalPortalProps" needs to be exported by the entry point index.d.ts
 // Warning: (ae-forgotten-export) The symbol "ModalPortalEvents" needs to be exported by the entry point index.d.ts

@@ -2,12 +2,23 @@
 
 [Home](./index.md) &gt; [@svelte-put/modal](./modal.md) &gt; [ModalComponentBaseSlots](./modal.modalcomponentbaseslots.md)
 
-## ModalComponentBaseSlots type
+## ModalComponentBaseSlots interface
 
 The base slots for modal
 
 <b>Signature:</b>
 
 ```typescript
-export declare type ModalComponentBaseSlots = {};
+export interface ModalComponentBaseSlots 
 ```
+
+## Properties
+
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  ["x-content"](./modal.modalcomponentbaseslots._x-content_.md) |  | Record&lt;string, never&gt; | content of <code>x</code> button |
+|  [backdrop](./modal.modalcomponentbaseslots.backdrop.md) |  | { class: string; onClick: () =&gt; void; } | backdrop of the modal |
+|  [container](./modal.modalcomponentbaseslots.container.md) |  | { class: string; } | modal container |
+|  [default](./modal.modalcomponentbaseslots.default.md) |  | Record&lt;string, never&gt; | content of the modal |
+|  [x](./modal.modalcomponentbaseslots.x.md) |  | { class: string; onClick: () =&gt; void; xBtn: boolean; } | x<!-- -->\` button |
+

@@ -4,12 +4,12 @@
 
 ## ModalComponentBase type
 
-The base component for modal. Modals extending this component needs to meet the specified constraints
+The base component for building modal. Modals extending this component needs to meet these specified constraints
 
 <b>Signature:</b>
 
 ```typescript
-export declare type ModalComponentBase = SvelteComponentTyped<ModalComponentBaseProps, ModalComponentBaseEvents<ModalComponentBaseResolved>, ModalComponentBaseSlots>;
+export declare type ModalComponentBase = SvelteComponentTyped<{}, ModalComponentBaseEvents<ModalComponentBaseResolved>, {}>;
 ```
-<b>References:</b> [ModalComponentBaseProps](./modal.modalcomponentbaseprops.md)<!-- -->, [ModalComponentBaseEvents](./modal.modalcomponentbaseevents.md)<!-- -->, [ModalComponentBaseResolved](./modal.modalcomponentbaseresolved.md)<!-- -->, [ModalComponentBaseSlots](./modal.modalcomponentbaseslots.md)
+<b>References:</b> [ModalComponentBaseEvents](./modal.modalcomponentbaseevents.md)<!-- -->, [ModalComponentBaseResolved](./modal.modalcomponentbaseresolved.md)
 

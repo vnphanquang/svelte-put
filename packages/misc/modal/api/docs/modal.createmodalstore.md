@@ -12,12 +12,12 @@ Create a svelte store for handling modal
 export declare function createModalStore(): {
     subscribe: (this: void, run: import("svelte/store").Subscriber<ApplicableModal[]>, invalidate?: ((value?: ApplicableModal[] | undefined) => void) | undefined) => import("svelte/store").Unsubscriber;
     push: <Component extends ModalComponentBase, Resolved extends ModalComponentBaseResolved = ComponentEvents<Component>["resolve"]["detail"]>(input: ModalPushInput<Component>) => ModalPushOutput<Component, ComponentEvents<Component>["resolve"]["detail"]>;
-    pop: <Resolved_1>(id?: string, resolved?: Resolved_1 | null) => ApplicableModal | undefined;
+    pop: <Resolved_1 extends ModalComponentBaseResolved>(id?: string, resolved?: Resolved_1 | undefined) => ApplicableModal | undefined;
 };
 ```
 <b>Returns:</b>
 
-{ subscribe: (this: void, run: import("svelte/store").Subscriber&lt;ApplicableModal\[\]&gt;, invalidate?: ((value?: ApplicableModal\[\] \| undefined) =&gt; void) \| undefined) =&gt; import("svelte/store").Unsubscriber; push: &lt;Component extends [ModalComponentBase](./modal.modalcomponentbase.md)<!-- -->, Resolved extends [ModalComponentBaseResolved](./modal.modalcomponentbaseresolved.md) = ComponentEvents&lt;Component&gt;\["resolve"\]\["detail"\]&gt;(input: [ModalPushInput](./modal.modalpushinput.md)<!-- -->&lt;Component&gt;) =&gt; [ModalPushOutput](./modal.modalpushoutput.md)<!-- -->&lt;Component, ComponentEvents&lt;Component&gt;\["resolve"\]\["detail"\]&gt;; pop: &lt;Resolved\_1&gt;(id?: string, resolved?: Resolved\_1 \| null) =&gt; ApplicableModal \| undefined; }
+{ subscribe: (this: void, run: import("svelte/store").Subscriber&lt;ApplicableModal\[\]&gt;, invalidate?: ((value?: ApplicableModal\[\] \| undefined) =&gt; void) \| undefined) =&gt; import("svelte/store").Unsubscriber; push: &lt;Component extends [ModalComponentBase](./modal.modalcomponentbase.md)<!-- -->, Resolved extends [ModalComponentBaseResolved](./modal.modalcomponentbaseresolved.md) = ComponentEvents&lt;Component&gt;\["resolve"\]\["detail"\]&gt;(input: [ModalPushInput](./modal.modalpushinput.md)<!-- -->&lt;Component&gt;) =&gt; [ModalPushOutput](./modal.modalpushoutput.md)<!-- -->&lt;Component, ComponentEvents&lt;Component&gt;\["resolve"\]\["detail"\]&gt;; pop: &lt;Resolved\_1 extends [ModalComponentBaseResolved](./modal.modalcomponentbaseresolved.md)<!-- -->&gt;(id?: string, resolved?: Resolved\_1 \| undefined) =&gt; ApplicableModal \| undefined; }
 
 extended svelte store
 

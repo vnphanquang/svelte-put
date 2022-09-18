@@ -24,6 +24,8 @@ Svelte stackable async modal solution
 
 |  Interface | Description |
 |  --- | --- |
+|  [ModalComponentBaseProps](./modal.modalcomponentbaseprops.md) | The base events for modal |
+|  [ModalComponentBaseSlots](./modal.modalcomponentbaseslots.md) | The base slots for modal |
 |  [ModalPushOutput](./modal.modalpushoutput.md) | The return of the <code>push</code> method of modal store |
 |  [PushedModal](./modal.pushedmodal.md) | A modal pushed to the modal store |
 
@@ -33,11 +35,9 @@ Svelte stackable async modal solution
 |  --- | --- |
 |  [ExtendedModalEvents](./modal.extendedmodalevents.md) | Utility type for building custom events type from the base Modal component. Use in conjunction with [createModalEventDispatcher()](./modal.createmodaleventdispatcher.md) |
 |  [ExtendedModalProps](./modal.extendedmodalprops.md) | Utility type for building custom props type from the base Modal component |
-|  [ModalComponentBase](./modal.modalcomponentbase.md) | The base component for modal. Modals extending this component needs to meet the specified constraints |
+|  [ModalComponentBase](./modal.modalcomponentbase.md) | The base component for building modal. Modals extending this component needs to meet these specified constraints |
 |  [ModalComponentBaseEvents](./modal.modalcomponentbaseevents.md) | The base events for modal |
-|  [ModalComponentBaseProps](./modal.modalcomponentbaseprops.md) | The base events for modal |
 |  [ModalComponentBaseResolved](./modal.modalcomponentbaseresolved.md) | The base interface when modal is resolved |
-|  [ModalComponentBaseSlots](./modal.modalcomponentbaseslots.md) | The base slots for modal |
 |  [ModalPushInput](./modal.modalpushinput.md) | Either the Svelte modal component or an interface as in [PushedModal](./modal.pushedmodal.md) with all optional props except for <code>component</code> |
-|  [ResolveTrigger](./modal.resolvetrigger.md) | <p>The trigger that resolves the modal</p><p>- <code>backdrop</code>: non-static backdrop was clicked</p><p>- <code>x</code>: <code>x</code> button was clicked</p><p>- <code>escape</code>: <code>escape</code> key was pressed</p><p>- <code>clickoutside</code>: click outside of modal was detected</p><p>- <code>pop</code>: modal was resolved from by calling the <code>pop</code> method of the modal store</p><p>- <code>custom</code>: modal was resolved by a custom dispatch. Use this in your custom modal when extending the <code>resolve</code> event with additional props. See [ExtendedModalEvents](./modal.extendedmodalevents.md)</p> |
+|  [ResolveTrigger](./modal.resolvetrigger.md) | <p>The trigger that resolves the modal</p><p>- <code>backdrop</code>: non-static backdrop was clicked</p><p>- <code>x</code>: <code>x</code> button was clicked</p><p>- <code>escape</code>: <code>escape</code> key was pressed</p><p>- <code>clickoutside</code>: click outside of modal was detected</p><p>- <code>pop</code>: modal was resolved from by calling the <code>pop</code> method \*\*manually\*\* from the modal store</p><p>- <code>custom</code>: modal was resolved by a custom dispatch. Use this in your custom modal when extending the <code>resolve</code> event with additional props. See [ExtendedModalEvents](./modal.extendedmodalevents.md)</p> |
 
