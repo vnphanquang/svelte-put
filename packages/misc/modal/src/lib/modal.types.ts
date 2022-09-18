@@ -19,7 +19,7 @@ import type { createModalEventDispatcher } from './modal';
  *
  * - `clickoutside`: click outside of modal was detected
  *
- * - `pop`: modal was resolved from by calling the `pop` method of the modal store
+ * - `pop`: modal was resolved from by calling the `pop` method **manually** from the modal store
  *
  * - `custom`: modal was resolved by a custom dispatch. Use this in your
  * custom modal when extending the `resolve` event with additional props.
@@ -51,7 +51,7 @@ export type ModalComponentBaseEvents<
  * The base slots for modal
  * @public
  */
-export type ModalComponentBaseSlots = {
+export interface ModalComponentBaseSlots {
   /** content of the modal */
   default: Record<string, never>;
   /** backdrop of the modal */
@@ -72,19 +72,22 @@ export type ModalComponentBaseSlots = {
     class: string;
     /** default click handler for x button (dismiss with (trigger) as `x`) */
     onClick: () => void;
+    /** the forwarded `xBtn` prop, see {@link ModalComponentBaseProps} */
+    xBtn: boolean;
   };
   /** content of `x` button */
   'x-content': Record<string, never>;
-};
+}
 
 /**
  * The base events for modal
  * @public
  */
-export type ModalComponentBaseProps = {
+export interface ModalComponentBaseProps {
   /**
    * whether the modal is at topmost position (last pushed),
-   * this prop is handled by the `ModalPortal` component
+   * this prop is handled by the `ModalPortal` component and
+   * you don't have to touch this
    */
   topmost?: boolean;
   /**
@@ -99,6 +102,9 @@ export type ModalComponentBaseProps = {
   backdrop?: 'static' | boolean;
   /**
    * whether to render the `x` button (for dismissing modal). Defaults to `true`
+   *
+   * if you are overriding the `x` slot, this prop is forwarded to the slot template.
+   * See {@link ModalComponentBaseSlots}
    */
   xBtn?: boolean;
   /**
@@ -115,7 +121,8 @@ export type ModalComponentBaseProps = {
   clickoutside?: boolean | ClickOutsideParameters;
   /**
    * whether to make the modal "movable" (drag around).
-   * Can be provided as boolean or the parameter object to `@svelte-put/movable`
+   * Can be provided as boolean or the parameter object to `@svelte-put/movable`.
+   * Defaults to `false`
    */
   movable?: boolean | MovableParameters;
   /**
@@ -128,7 +135,46 @@ export type ModalComponentBaseProps = {
    * @remarks
    *
    * As Svelte style is component-scoped. You will need to use either a global
-   * styling system like Tailwind or the `:global()` selector (example below)
+   * styling system like Tailwind or the `:global()` selector (example below).
+   *
+   * When overriding slots, the classes provided here will be merged with the default
+   * class names and passed to the slot template. See {@link ModalComponentBaseSlots}
+   *
+   * @example
+   *
+   * ```html
+   * <script lang="ts">
+   *   import Modal from '@svelte-put/modal/Modal.svelte';
+   *   import type { ExtendedModalProps } from '@svelte-put/modal';
+   *
+   *   type $$Props = ExtendedModalProps;
+   * </script>
+   *
+   * <Modal
+   *   classes={{
+   *     backdrop: 'bg-gray-500 bg-opacity-50',
+   *     container: { override: 'custom-modal-container' },
+   *     x: 'a-global-class',
+   *   }}
+   *   {...$$props}
+   *   on:resolve
+   * >
+   *  <svelte:fragment slot="x" let:class={className} let:xBtn let:onClick>
+   *     {#if xBtn}
+   *       <button type="button" class={className} on:click={onClick}>
+   *         some custom svg here perhaps
+   *       </button>
+   *     {/if}
+   *   </svelte:fragment>
+   * </Modal>
+   *
+   * <style>
+   *   :global(.custom-modal-container) {
+   *     background-color: #fff;
+   *     with: 80%;
+   *   }
+   * </style>
+   * ```
    *
    */
   classes?: Partial<Record<
@@ -137,10 +183,10 @@ export type ModalComponentBaseProps = {
   >>;
   /**
    * svelte event dispatcher. Should only pass this prop if extending the events.
-   * For simple no-action modal, just forward the resolve event.
+   * See {@link ExtendedModalEvents} for more details an dexamples
    */
   dispatch?: ReturnType<typeof createModalEventDispatcher>;
-};
+}
 
 /**
  * The base component for building modal. Modals extending this component needs to
@@ -325,3 +371,9 @@ export type ExtendedModalEvents<
 > = {
   resolve: CustomEvent<ModalComponentBaseResolved & ExtendedResolved>;
 } & ExtendedEvents;
+
+/**
+ *
+ * @internal
+ */
+export type ModalInternalResolver<Resolved extends ModalComponentBaseResolved = ModalComponentBaseResolved> = (resolved: Resolved) => void;
