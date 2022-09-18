@@ -12,6 +12,7 @@ import type {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ExtendedModalEvents,
   ModalInternalResolver,
+  ModalComponentBaseEvents,
 } from './modal.types';
 
 type ApplicableModal = PushedModal<ModalComponentBase>;
@@ -127,7 +128,10 @@ export function createModalStore() {
  *
  * @returns svelte event dispatcher
  */
-export function createModalEventDispatcher<Events extends Record<string, CustomEvent<any>>>() {
+export function createModalEventDispatcher<
+  Events extends ModalComponentBaseEvents<ModalComponentBaseResolved<ExtendedResolved>> & Record<string, CustomEvent<any>>,
+  ExtendedResolved extends Record<string, any> = Omit<Events['resolve']['detail'], 'trigger'>,
+>() {
   return createEventDispatcher<{
     [key in keyof Events]: Events[key]['detail'];
   }>();

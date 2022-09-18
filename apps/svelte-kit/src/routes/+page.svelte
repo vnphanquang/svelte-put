@@ -19,5 +19,8 @@
     <li>
       <a href="/avatar" class="hover:text-primary">@svelte-put/avatar</a>
     </li>
+    <li>
+      <a href="/modal" class="hover:text-primary">@svelte-put/modal</a>
+    </li>
   </ul>
 </main>

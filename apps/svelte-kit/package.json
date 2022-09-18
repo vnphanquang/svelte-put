@@ -17,6 +17,7 @@
     "@svelte-put/clickoutside": "workspace:*",
     "@svelte-put/eslint-config": "workspace:*",
     "@svelte-put/intersect": "workspace:*",
+    "@svelte-put/modal": "workspace:*",
     "@svelte-put/movable": "workspace:*",
     "@svelte-put/prettierrc": "workspace:*",
     "@svelte-put/toc": "workspace:*",

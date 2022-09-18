@@ -24,7 +24,7 @@
   export let clickoutside: NonNullable<$$Props['clickoutside']> = true;
   export let movable: NonNullable<$$Props['movable']> = false;
   export let classes: NonNullable<$$Props['classes']> = {};
-  export let dispatch: NonNullable<$$Props['dispatch']> = createModalEventDispatcher();
+  export let dispatch = createModalEventDispatcher();
 
   // resolving classes prop
   type Classes = Required<NonNullable<ModalComponentBaseProps['classes']>>;

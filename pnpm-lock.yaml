@@ -20,6 +20,7 @@ importers:
       '@svelte-put/clickoutside': workspace:*
       '@svelte-put/eslint-config': workspace:*
       '@svelte-put/intersect': workspace:*
+      '@svelte-put/modal': workspace:*
       '@svelte-put/movable': workspace:*
       '@svelte-put/prettierrc': workspace:*
       '@svelte-put/toc': workspace:*
@@ -45,6 +46,7 @@ importers:
       '@svelte-put/clickoutside': link:../../packages/actions/clickoutside
       '@svelte-put/eslint-config': link:../../packages/configs/eslint-config
       '@svelte-put/intersect': link:../../packages/actions/intersect
+      '@svelte-put/modal': link:../../packages/misc/modal
       '@svelte-put/movable': link:../../packages/actions/movable
       '@svelte-put/prettierrc': link:../../packages/configs/prettierrc
       '@svelte-put/toc': link:../../packages/actions/toc
@@ -61,7 +63,7 @@ importers:
       svelte-awesome: 3.0.0_svelte@3.50.1
       svelte-check: 2.9.0_ip6t7gbsntalqsv24txi5sqe6u
       svelte-preprocess: 4.10.7_snqnsttluzgwj6kbxzouwakc4q
-      tailwindcss: 3.1.8
+      tailwindcss: 3.1.8_postcss@8.4.16
       tslib: 2.4.0
       typescript: 4.8.3
       vite: 3.1.0
@@ -6375,10 +6377,12 @@ packages:
       stable: 0.1.8
     dev: true
 
-  /tailwindcss/3.1.8:
+  /tailwindcss/3.1.8_postcss@8.4.16:
     resolution: {integrity: sha512-YSneUCZSFDYMwk+TGq8qYFdCA3yfBRdBlS7txSq0LUmzyeqRe3a8fBQzbz9M3WS/iFT4BNf/nmw9mEzrnSaC0g==}
     engines: {node: '>=12.13.0'}
     hasBin: true
+    peerDependencies:
+      postcss: ^8.0.9
     dependencies:
       arg: 5.0.2
       chokidar: 3.5.3

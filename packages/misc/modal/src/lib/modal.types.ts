@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import type { ClickOutsideParameters } from '@svelte-put/clickoutside';
 import type { MovableParameters } from '@svelte-put/movable';
-import type { ComponentEvents, ComponentProps, ComponentType, SvelteComponentTyped } from 'svelte';
+import type { ComponentEvents, ComponentProps, ComponentType, createEventDispatcher, SvelteComponentTyped } from 'svelte';
 
 import type Modal from './Modal.svelte';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -33,9 +33,9 @@ export type ResolveTrigger = 'backdrop' | 'x' | 'escape' | 'clickoutside' | 'pop
  * The base interface when modal is resolved
  * @public
  */
-export type ModalComponentBaseResolved = {
+export type ModalComponentBaseResolved<ExtendedResolved extends Record<string, any> = {}> = {
   trigger: ResolveTrigger;
-};
+} & ExtendedResolved;
 
 /**
  * The base events for modal
@@ -185,7 +185,7 @@ export interface ModalComponentBaseProps {
    * svelte event dispatcher. Should only pass this prop if extending the events.
    * See {@link ExtendedModalEvents} for more details an dexamples
    */
-  dispatch?: ReturnType<typeof createModalEventDispatcher>;
+  dispatch?: ReturnType<typeof createEventDispatcher>;
 }
 
 /**
