@@ -14,7 +14,7 @@ The trigger that resolves the modal
 
 - `clickoutside`<!-- -->: click outside of modal was detected
 
-- `pop`<!-- -->: modal was resolved from by calling the `pop` method of the modal store
+- `pop`<!-- -->: modal was resolved from by calling the `pop` method \*\*manually\*\* from the modal store
 
 - `custom`<!-- -->: modal was resolved by a custom dispatch. Use this in your custom modal when extending the `resolve` event with additional props. See [ExtendedModalEvents](./modal.extendedmodalevents.md)
 

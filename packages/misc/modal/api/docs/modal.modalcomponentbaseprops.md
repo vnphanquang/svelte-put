@@ -2,12 +2,26 @@
 
 [Home](./index.md) &gt; [@svelte-put/modal](./modal.md) &gt; [ModalComponentBaseProps](./modal.modalcomponentbaseprops.md)
 
-## ModalComponentBaseProps type
+## ModalComponentBaseProps interface
 
 The base events for modal
 
 <b>Signature:</b>
 
 ```typescript
-export declare type ModalComponentBaseProps = {};
+export interface ModalComponentBaseProps 
 ```
+
+## Properties
+
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [backdrop?](./modal.modalcomponentbaseprops.backdrop.md) |  | 'static' \| boolean | <p><i>(Optional)</i> how the backdrop should render or behave. Defaults to <code>true</code></p><p>- <code>false</code> - no backdrop</p><p>- <code>true</code> - backdrop that when clicked on will dismiss modal</p><p>- <code>static</code> - backdrop that does not dismiss modal</p> |
+|  [classes?](./modal.modalcomponentbaseprops.classes.md) |  | Partial&lt;Record&lt;Exclude&lt;keyof [ModalComponentBaseSlots](./modal.modalcomponentbaseslots.md)<!-- -->, 'default' \| 'x-content'&gt;, string \| { override: string; }&gt;&gt; | <p><i>(Optional)</i> custom class names for the modal elements.</p><p>- If property is provided as <code>string</code>, it'll be added to the default class name of that element.</p><p>- If property is provided as <code>{ override: string }</code>, it'll override the default class name of that element.</p> |
+|  [clickoutside?](./modal.modalcomponentbaseprops.clickoutside.md) |  | boolean \| ClickOutsideParameters | <p><i>(Optional)</i> whether to dismiss modal when clicking outside. Most useful when you want to not have a backdrop but still dismiss modal when clicking outside the modal.</p><p>Can be provided as boolean or the parameter object to [@svelte-put/clickoutside](https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/clickoutside/api/docs/clickoutside.clickoutsideparameters.md)</p> |
+|  [dispatch?](./modal.modalcomponentbaseprops.dispatch.md) |  | ReturnType&lt;typeof createModalEventDispatcher&gt; | <i>(Optional)</i> svelte event dispatcher. Should only pass this prop if extending the events. See [ExtendedModalEvents](./modal.extendedmodalevents.md) for more details an dexamples |
+|  [escape?](./modal.modalcomponentbaseprops.escape.md) |  | boolean | <i>(Optional)</i> whether to dismiss modal when <code>esc</code> key is pressed. Defaults to <code>true</code> |
+|  [movable?](./modal.modalcomponentbaseprops.movable.md) |  | boolean \| MovableParameters | <i>(Optional)</i> whether to make the modal "movable" (drag around). Can be provided as boolean or the parameter object to [@svelte-put/movable](https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/api/docs/movable.movableparameters.md) Defaults to <code>false</code>. |
+|  [topmost?](./modal.modalcomponentbaseprops.topmost.md) |  | boolean | <i>(Optional)</i> whether the modal is at topmost position (last pushed), this prop is handled by the <code>ModalPortal</code> component and you don't have to touch this |
+|  [xBtn?](./modal.modalcomponentbaseprops.xbtn.md) |  | boolean | <p><i>(Optional)</i> whether to render the <code>x</code> button (for dismissing modal). Defaults to <code>true</code></p><p>if you are overriding the <code>x</code> slot, this prop is forwarded to the slot template. See [ModalComponentBaseSlots](./modal.modalcomponentbaseslots.md)</p> |
+
