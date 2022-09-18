@@ -11,6 +11,7 @@ import type {
   ModalComponentBaseResolved,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ExtendedModalEvents,
+  ModalInternalResolver,
 } from './modal.types';
 
 type ApplicableModal = PushedModal<ModalComponentBase>;
@@ -31,7 +32,7 @@ type ApplicableModal = PushedModal<ModalComponentBase>;
 export function createModalStore() {
   const { subscribe, set } = writable<ApplicableModal[]>([]);
   let modals: ApplicableModal[] = [];
-  const resolveMap: Record<string, undefined | ((args?: any) => any)> = {};
+  const resolveMap: Record<string, undefined | ModalInternalResolver> = {};
 
   /**
    * Push a new modal to the stack
@@ -43,7 +44,7 @@ export function createModalStore() {
     Component extends ModalComponentBase,
     Resolved extends ModalComponentBaseResolved = ComponentEvents<Component>['resolve']['detail'],
   >(input: ModalPushInput<Component>): ModalPushOutput<Component> {
-    let _resolve: ((value: Resolved) => void) | undefined;
+    let _resolve: ModalInternalResolver<Resolved> | undefined;
     const promise = new Promise<Resolved>((resolve) => {
       _resolve = resolve;
     });
@@ -64,7 +65,7 @@ export function createModalStore() {
     }
 
     modals.push(pushed);
-    resolveMap[pushed.id] = _resolve;
+    resolveMap[pushed.id] = _resolve as unknown as ModalInternalResolver;
 
     set([...modals]);
 
@@ -78,12 +79,17 @@ export function createModalStore() {
    * Pop the modal with given id.
    * If `id` is not provided, pop the topmost modal
    *
+   * @remarks
+   *
+   * When calling this manually (rather than being called from the `ModalPortal` component),
+   * the trigger is expected to be `pop`;
+   *
    * @param id - from the return of `push` method
-   * @param resolved - custom resolved value. Defaults to `null`
+   * @param resolved - custom resolved value, if any
    * @returns the popped {@link PushedModal} or `undefined` in the
    * case no modal was found that matches the specified input
    */
-  function pop<Resolved extends Record<string, any>>(id?: string, resolved: Resolved | null = null) {
+  function pop<Resolved extends ModalComponentBaseResolved>(id?: string, resolved?: Resolved) {
     let popped: ApplicableModal | undefined;
     if (id) {
       modals = modals.filter((modal) => {
@@ -99,7 +105,10 @@ export function createModalStore() {
       set([...modals]);
     }
     if (popped) {
-      resolveMap[popped.id]?.(resolved);
+      resolveMap[popped.id]?.({
+        trigger: 'pop',
+        ...(resolved ?? {})
+      });
       resolveMap[popped.id] = undefined;
     }
     return popped;

@@ -116,7 +116,7 @@
     on:clickoutside={onClickOutside}
     use:movableAction={rMovable}
   >
-    <slot name="x" class={rClasses.x} onClick={onClickX}>
+    <slot name="x" class={rClasses.x} onClick={onClickX} {xBtn}>
       {#if xBtn}
         <button class={rClasses.x} on:click={onClickX}>
           <slot name="x-content">
