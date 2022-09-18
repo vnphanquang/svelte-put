@@ -34,18 +34,14 @@
 
 {#if isOpenModal}
   <aside class="s-modal-portal {$$props.class}">
-    <ul>
-      {#each $store as modal, index (modal.id)}
-        <li>
-          <svelte:component
-            this={modal.component}
-            {...modal.props}
-            topmost={index === $store.length - 1}
-            on:resolve={(event) => onResolve(modal, event)}
-          />
-        </li>
-      {/each}
-    </ul>
+    {#each $store as modal, index (modal.id)}
+      <svelte:component
+        this={modal.component}
+        {...modal.props}
+        topmost={index === $store.length - 1}
+        on:resolve={(event) => onResolve(modal, event)}
+      />
+    {/each}
   </aside>
 {/if}
 
