@@ -112,6 +112,17 @@ Currently, [gravatar] and [UIAvatar][uiavatar] are supported. If you find that a
 
 For detailed documentation, see the [extracted API][github.api]. It is recommended to skim through at least the [AvatarProps][github.api.AvatarProps] page so that you know what options are available.
 
+<p align="center">
+  <a href="https://www.buymeacoffee.com/vnphanquang" target="_blank">
+    <img
+      src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+      height="60"
+      width="217"
+      alt="buy vnphanquang a coffee"
+    />
+  </a>
+</p>
+
 <!-- github specifics -->
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
 [github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/avatar/CHANGELOG.md

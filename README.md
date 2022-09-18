@@ -155,10 +155,6 @@ pnpm turbo
 
 <br />
 
-<div align="center">
-
-</div>
-
 <p align="center">
   <a href="https://www.buymeacoffee.com/vnphanquang" target="_blank">
     <img
