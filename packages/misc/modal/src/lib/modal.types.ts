@@ -66,7 +66,7 @@ export interface ModalComponentBaseSlots {
     /** the resolved class name, merged from the default and the `classes` prop */
     class: string;
   };
-  /** x` button */
+  /** `x` button */
   x: {
     /** the resolved class name, merged from the default and the `classes` prop */
     class: string;

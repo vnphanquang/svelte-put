@@ -60,6 +60,8 @@ This document assumes you are using [svelte-kit], so components are imported dir
 
 You will notice that [typescript] is used throughout this document. [typescript] is recommended as it provides type safety and an overall better development experience, especially when awaiting for modal resolution and inferring the types of its carrying payload.
 
+Throughout the document, you will see usage of the `$$Props` and `$$Events` special types (check out [this github thread](https://github.com/sveltejs/language-tools/issues/442)). If you are not familiar with these, check out [this article](https://www.viget.com/articles/typing-components-in-svelte/) by Andrew Lester before continuing.
+
 ### 1. Global Modal Store Setup
 
 Expose a global modal store singleton where it makes sense for you. This store is
@@ -74,9 +76,11 @@ import { createModalStore } from '@svelte-put/modal';
 export const appModal = createModalStore();
 ```
 
+</details>
+
 ### 2. [ModalPortal](github.ModalPortal) Registration
 
-Register the [ModalPortal](github.ModalPortal) where you want to render the modal stack, ideally as the direct descendant of the root element of your site.
+Register the [ModalPortal][github.ModalPortal] where you want to render the modal stack, ideally as the direct descendant of the root element of your site.
 
 Here the `store` created in [step (1)](#1-global-modal-store-setup) is passed as prop.
 
@@ -102,6 +106,8 @@ Here the `store` created in [step (1)](#1-global-modal-store-setup) is passed as
 
 The example below shows how a confirmation modal might be implemented. See [Building Compatible Modal Components](#building-compatible-modal-components) for more details about customization possibilities.
 
+> Notice that [createModalEventDispatcher][github.createModalEventDispatcher] used here is just a type-safe version of svelte's built-in [createEventDispatcher][svelte.createEventDispatcher]
+
 <details open>
   <summary>Example: show / hide</summary>
 
@@ -117,12 +123,11 @@ The example below shows how a confirmation modal might be implemented. See [Buil
   // extending the `resolve` event
   type $$Events = ExtendedModalEvents<{ confirmed: boolean }>;
 
+  // use NonNullable type utility here to exclude the `undefined` case
   export let disabled: NonNullable<$$Props['disabled']> = false;
 
-  // create a custom modal
+  // create a custom event dispatcher with built-in helper
   const dispatch = createModalEventDispatcher<$$Events>();
-  // `createModalEventDispatcher` is just a type-safe version of
-  //  svelte's built-in `createEventDispatcher`
 
   function resolve(confirmed: boolean) {
     // should get type autocompletion for dispatch here
@@ -165,10 +170,11 @@ for more details about the push&pop mechanism.
   <summary>Example: show / hide</summary>
 
 ```typescript
+import type { ModalPushOutput } from '@svelte-put/modal';
 import { appModal } from '$lib/services/modal';
 import ConfirmationModal from '$lib/modals/ConfirmationModal.svelte';
 
-let pushed:
+let pushed: ModalPushOutput<ConfirmationModal>;
 
 function open() {
   // should get type autocompletion for pushed here
@@ -198,7 +204,7 @@ can be used with the modal store from the example in the [Usage](#usage) section
 
 > It is recommended to use `@svelte-put/modal`'s base [Modal][github.Modal] and its helpers for building type-safe custom modals.
 
-The following sub-sections lay out different customizable parts of the base [Modal][github.Modal]
+The following sub-sections lay out different customizable parts of the base [Modal][github.Modal].
 
 ### UI, Styling, Interaction
 
@@ -370,8 +376,8 @@ One scenario where this is especially helpful is when you are migrating from an 
 [github.api]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/modal/api/docs/index.md
 [github.ModalPortal]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/modal/src/lib/ModalPortal.svelte
 [github.Modal]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/modal/src/lib/Modal.svelte
+[github.createModalEventDispatcher]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/modal/api/docs/modal.createmodaleventdispatcher.md
 [github.ModalComponentBase]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/modal/api/docs/modal.modalcomponentbase.md
-[github.createModalStore]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/modal/api/docs/modal.createmodalstore.md
 [github.ModalComponentBaseResolved]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/modal/api/docs/modal.modalcomponentbaseresolved.md
 [github.ModalComponentBaseSlots]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/modal/api/docs/modal.modalcomponentbaseslots.md
 [github.ModalComponentBaseProps]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/modal/api/docs/modal.modalcomponentbaseprops.md
