@@ -38,3 +38,35 @@
     </div>
   </div>
 </Modal>
+
+<style>
+  :global(.confirmation-modal) {
+    background-color: #fff;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.25);
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .modal-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  button {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    background-color: #fff;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: tomato;
+  }
+</style>
