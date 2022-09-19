@@ -1,5 +1,32 @@
 # Changelog
 
+## 0.4.0
+
+### Minor Changes
+
+- [`870f156`](https://github.com/vnphanquang/svelte-put/commit/870f156a8e3d5564691886c4dab0053ea15e0d93) Thanks [@vnphanquang](https://github.com/vnphanquang)! - - set default `clickoutside` to false in favor of backdrop
+  - better typing for modal store `pop`
+  - consistent typing of `push` output and modal stack item, merge `PushedModal` into `ModalPushOutput`
+  - add `resolved` to `ModalPushOutput`
+  - let the `ModalPortal` fixed container click-through-able with `pointer-events` set to `none`
+
+### Patch Changes
+
+- [`35d6ba5`](https://github.com/vnphanquang/svelte-put/commit/35d6ba53a1d1e1de74ae384743e2299bd033a64a) Thanks [@vnphanquang](https://github.com/vnphanquang)! - add svelte REPL badge to top of README
+
+- [#37](https://github.com/vnphanquang/svelte-put/pull/37) [`78f5837`](https://github.com/vnphanquang/svelte-put/commit/78f5837940dec5582af080e7d21b872cbdea4c14) Thanks [@vnphanquang](https://github.com/vnphanquang)! - - forward `xBtn` prop to the `x` slot template
+
+  - better typing for the internal promise resolve function
+  - fix: manual `pop` invocation should have trigger set to `pop`
+
+- [#37](https://github.com/vnphanquang/svelte-put/pull/37) [`6821ef9`](https://github.com/vnphanquang/svelte-put/commit/6821ef97536b9360831457234729094b353af017) Thanks [@vnphanquang](https://github.com/vnphanquang)! - avoid using ul and li in ModalPortal because they might have some unexpected built-in styling
+
+- [#37](https://github.com/vnphanquang/svelte-put/pull/37) [`18a52c0`](https://github.com/vnphanquang/svelte-put/commit/18a52c0a955105aceeaeb5b0833caaf5cd062a31) Thanks [@vnphanquang](https://github.com/vnphanquang)! - full documentation
+
+- Updated dependencies [[`35d6ba5`](https://github.com/vnphanquang/svelte-put/commit/35d6ba53a1d1e1de74ae384743e2299bd033a64a)]:
+  - @svelte-put/clickoutside@1.0.3
+  - @svelte-put/movable@1.1.10
+
 ## 0.3.0
 
 ### Minor Changes
