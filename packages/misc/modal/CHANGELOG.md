@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.1
+
+### Patch Changes
+
+- [`037c3bd`](https://github.com/vnphanquang/svelte-put/commit/037c3bdba6fa75ddcc4409e21ffac83090bf6ab2) Thanks [@vnphanquang](https://github.com/vnphanquang)! - republish to npm
+
 ## 0.4.0
 
 ### Minor Changes
