@@ -1,6 +1,6 @@
 {
   "name": "@svelte-put/modal",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Svelte async modal",
   "type": "module",
   "svelte": "./lib/index.js",
@@ -70,8 +70,8 @@
   },
   "homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/misc/modal",
   "dependencies": {
-    "@svelte-put/clickoutside": "^1.0.2",
-    "@svelte-put/movable": "^1.1.9",
+    "@svelte-put/clickoutside": "^1.0.3",
+    "@svelte-put/movable": "^1.1.10",
     "@svelte-put/shortcut": "^1.0.2"
   },
   "devDependencies": {
