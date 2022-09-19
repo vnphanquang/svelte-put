@@ -225,7 +225,7 @@ The following image illustrates the slots of the base [Modal][github.Modal].
 
 <div align="center">
 
-![base slots](./static/modal-base-slots.svg)
+![base slots](https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/modal/static/modal-base-slots.svg)
 
 </div>
 
