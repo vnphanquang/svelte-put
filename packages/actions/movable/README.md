@@ -2,7 +2,7 @@
 
 # `@svelte-put/movable`
 
-[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia]
+[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia] [![repl.badge]][repl]
 
 Svelte action `use:movable` - make a node move on mousedown & mousemove
 
@@ -111,3 +111,4 @@ Quick access to the parameter interface accepted by the action: [MovableParamete
 [bundlephobia]: https://bundlephobia.com/package/@svelte-put/movable
 
 [repl]: https://svelte.dev/repl/88a7c1fc2e134db7b58786d5f385fc5d
+[repl.badge]: https://img.shields.io/static/v1?label=&message=Svelte+REPL&logo=svelte&logoColor=fff&color=ff3e00

@@ -2,7 +2,7 @@
 
 # `@svelte-put/clickoutside`
 
-[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia]
+[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia] [![repl.badge]][repl]
 
 Svelte action `use:clickoutside` - event for clicking outside a node
 
@@ -105,3 +105,4 @@ For detailed documentation, see the [extracted API][github.api].
 [bundlephobia]: https://bundlephobia.com/package/@svelte-put/intersect
 
 [repl]: https://svelte.dev/repl/9e5f9ee41c2c45aa8523993e357f6e78
+[repl.badge]: https://img.shields.io/static/v1?label=&message=Svelte+REPL&logo=svelte&logoColor=fff&color=ff3e00

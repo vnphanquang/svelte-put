@@ -2,7 +2,7 @@
 
 # `@svelte-put/toc`
 
-[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia]
+[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia] [![repl.badge]][repl]
 
 Svelte `<Toc>` component and `use:toc` action for building table of contents
 
@@ -273,3 +273,7 @@ For detailed documentation, see the [extracted API][github.api].
 <!-- external resources -->
 [svelte-toc]: https://github.com/janosh/svelte-toc
 [janosh]: https://github.com/janosh
+
+<!-- repl -->
+[repl]: https://svelte.dev/repl/0a68001337544b8ab55995fb3d02d1f6
+[repl.badge]: https://img.shields.io/static/v1?label=&message=Svelte+REPL&logo=svelte&logoColor=fff&color=ff3e00

@@ -2,7 +2,7 @@
 
 # `@svelte-put/modal`
 
-[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia]
+[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia] [![repl.badge]][repl]
 
 Solution to async, declarative, type-safe modals in Svelte.
 
@@ -413,8 +413,6 @@ One scenario where this is especially helpful is when you are migrating from an 
 [github.ExtendedModalEvents]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/modal/api/docs/modal.extendedmodalevents.md
 [github.ExtendedModalProps]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/modal/api/docs/modal.extendedmodalprops.md
 
-[repl]: https://svelte.dev/repl/0a68001337544b8ab55995fb3d02d1f6
-
 [@svelte-put/shortcut]: https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/shortcut
 [@svelte-put/clickoutside]: https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/clickoutside
 [@svelte-put/movable]: https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/movable
@@ -431,3 +429,7 @@ One scenario where this is especially helpful is when you are migrating from an 
 [svelte.store]: https://svelte.dev/docs#run-time-svelte-store
 [typescript]: https://www.typescriptlang.org/
 [customevent]: https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent
+
+<!-- repl -->
+[repl]: https://svelte.dev/repl/d9c896ac62cd41d49f80ffa249d292e6
+[repl.badge]: https://img.shields.io/static/v1?label=&message=Svelte+REPL&logo=svelte&logoColor=fff&color=ff3e00

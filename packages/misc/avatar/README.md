@@ -2,7 +2,7 @@
 
 # `@svelte-put/avatar`
 
-[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia]
+[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia] [![repl.badge]][repl]
 
 Svelte `Avatar` component and utilities for building avatar urls
 
@@ -139,3 +139,7 @@ For detailed documentation, see the [extracted API][github.api]. It is recommend
 <!-- external resources -->
 [gravatar]: https://en.gravatar.com/site/implement/images
 [uiavatar]: https://ui-avatars.com
+
+<!-- repl -->
+[repl]: https://svelte.dev/repl/d54381946b1c4ebd8e612e4568fbbbd0
+[repl.badge]: https://img.shields.io/static/v1?label=&message=Svelte+REPL&logo=svelte&logoColor=fff&color=ff3e00

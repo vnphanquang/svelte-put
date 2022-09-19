@@ -2,7 +2,7 @@
 
 # `@svelte-put/intersect`
 
-[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia]
+[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia] [![repl.badge]][repl]
 
 Svelte action `use:intersect` - wrapper for [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
 
@@ -112,3 +112,4 @@ For detailed documentation, see the [extracted API][github.api].
 [bundlephobia]: https://bundlephobia.com/package/@svelte-put/intersect
 
 [repl]: https://svelte.dev/repl/835eacce6ac44aff95a7cb0bb5ca200d
+[repl.badge]: https://img.shields.io/static/v1?label=&message=Svelte+REPL&logo=svelte&logoColor=fff&color=ff3e00
