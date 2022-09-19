@@ -431,5 +431,5 @@ One scenario where this is especially helpful is when you are migrating from an 
 [customevent]: https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent
 
 <!-- repl -->
-[repl]: https://svelte.dev/repl/d9c896ac62cd41d49f80ffa249d292e6
+[repl]: https://svelte.dev/repl/0a68001337544b8ab55995fb3d02d1f6
 [repl.badge]: https://img.shields.io/static/v1?label=&message=Svelte+REPL&logo=svelte&logoColor=fff&color=ff3e00
