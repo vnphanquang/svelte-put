@@ -19,6 +19,6 @@ id: string;
 import { createModalStore } from '@svelte-put/modal';
 const store = createModalStore();
 const pushed = store.push({ component: SomeComponent, props: { someProp: 'value' } });
-store.pop(pushed.id);
+store.pop(pushed);
 ```
 

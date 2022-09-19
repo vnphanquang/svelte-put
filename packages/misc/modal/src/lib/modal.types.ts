@@ -2,7 +2,13 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import type { ClickOutsideParameters } from '@svelte-put/clickoutside';
 import type { MovableParameters } from '@svelte-put/movable';
-import type { ComponentEvents, ComponentProps, ComponentType, createEventDispatcher, SvelteComponentTyped } from 'svelte';
+import type {
+  ComponentEvents,
+  ComponentProps,
+  ComponentType,
+  createEventDispatcher,
+  SvelteComponentTyped,
+} from 'svelte';
 
 import type Modal from './Modal.svelte';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -114,7 +120,7 @@ export interface ModalComponentBaseProps {
   /**
    * whether to dismiss modal when clicking outside. Most useful when
    * you want to not have a backdrop but still dismiss modal when clicking
-   * outside the modal.
+   * outside the modal. Defaults to `false`.
    *
    * Can be provided as boolean or the parameter object to {@link https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/clickoutside/api/docs/clickoutside.clickoutsideparameters.md | @svelte-put/clickoutside}
    */
@@ -177,10 +183,12 @@ export interface ModalComponentBaseProps {
    * ```
    *
    */
-  classes?: Partial<Record<
-    Exclude<keyof ModalComponentBaseSlots, 'default' | 'x-content'>,
-    string | { override: string }
-  >>;
+  classes?: Partial<
+    Record<
+      Exclude<keyof ModalComponentBaseSlots, 'default' | 'x-content'>,
+      string | { override: string }
+    >
+  >;
   /**
    * svelte event dispatcher. Should only pass this prop if extending the events.
    * See {@link ExtendedModalEvents} for more details an dexamples
@@ -193,36 +201,31 @@ export interface ModalComponentBaseProps {
  * meet these specified constraints
  * @public
  */
-export type ModalComponentBase = SvelteComponentTyped<{}, ModalComponentBaseEvents<ModalComponentBaseResolved>, {}>;
+export type ModalComponentBase = SvelteComponentTyped<
+  {},
+  ModalComponentBaseEvents<ModalComponentBaseResolved>,
+  {}
+>;
 
 /**
- * A modal pushed to the modal store
- * @public
- */
-export interface PushedModal<Component extends ModalComponentBase> {
-  /** default to new uuid */
-  id: string;
-  /** component to render in modal layout */
-  component: ComponentType<Component>;
-  /** props passed to modal component */
-  props: ComponentProps<Component>;
-}
-
-/**
- * Either the Svelte modal component or an interface as in {@link PushedModal}
- * with all optional props except for `component`
+ * Either the Svelte modal component or an option object that specifies how
+ * to push the modal onto the stack
  * @public
  */
 export type ModalPushInput<Component extends ModalComponentBase> =
   | ComponentType<Component>
-  | (Partial<PushedModal<Component>> & Pick<PushedModal<Component>, 'component'>);
+  | {
+      id?: string;
+      component: ComponentType<Component>;
+      props?: ComponentProps<Component>;
+    };
 
 /**
  * The return of the `push` method of modal store
  * @public
  */
 export interface ModalPushOutput<
-  Component extends ModalComponentBase,
+  Component extends ModalComponentBase = ModalComponentBase,
   Resolved extends ModalComponentBaseResolved = ComponentEvents<Component>['resolve']['detail'],
 > {
   /**
@@ -234,10 +237,14 @@ export interface ModalPushOutput<
    * import { createModalStore } from '@svelte-put/modal';
    * const store = createModalStore();
    * const pushed = store.push({ component: SomeComponent, props: { someProp: 'value' } });
-   * store.pop(pushed.id);
+   * store.pop(pushed);
    * ```
    */
   id: string;
+  /** component to render in modal layout */
+  component: ComponentType<Component>;
+  /** props passed to modal component */
+  props: ComponentProps<Component>;
   /**
    * wait for the modal to resolve, and return the promise wrapping the resolved value
    *
@@ -252,6 +259,10 @@ export interface ModalPushOutput<
    * ```
    */
   resolve: () => Promise<Resolved>;
+  /**
+   * whether the modal has been resolved
+   */
+  resolved: boolean;
 }
 
 /**
@@ -369,11 +380,13 @@ export type ExtendedModalEvents<
   ExtendedResolved extends Record<string, any> = {},
   ExtendedEvents extends Record<string, CustomEvent<any>> = {},
 > = {
-  resolve: CustomEvent<ModalComponentBaseResolved & ExtendedResolved>;
+  resolve: CustomEvent<ModalComponentBaseResolved & Partial<ExtendedResolved>>;
 } & ExtendedEvents;
 
 /**
  *
  * @internal
  */
-export type ModalInternalResolver<Resolved extends ModalComponentBaseResolved = ModalComponentBaseResolved> = (resolved: Resolved) => void;
+export type ModalInternalResolver<
+  Resolved extends ModalComponentBaseResolved = ModalComponentBaseResolved,
+> = (resolved: Resolved) => void;

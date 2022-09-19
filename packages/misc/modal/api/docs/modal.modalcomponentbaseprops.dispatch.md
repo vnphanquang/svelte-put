@@ -9,5 +9,5 @@ svelte event dispatcher. Should only pass this prop if extending the events. See
 <b>Signature:</b>
 
 ```typescript
-dispatch?: ReturnType<typeof createModalEventDispatcher>;
+dispatch?: ReturnType<typeof createEventDispatcher>;
 ```

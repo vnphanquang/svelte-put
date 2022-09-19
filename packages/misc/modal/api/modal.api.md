@@ -8,6 +8,7 @@ import type { ClickOutsideParameters } from '@svelte-put/clickoutside';
 import { ComponentEvents } from 'svelte';
 import type { ComponentProps } from 'svelte';
 import type { ComponentType } from 'svelte';
+import type { createEventDispatcher } from 'svelte';
 import { DispatchOptions } from 'svelte/internal';
 import type { MovableParameters } from '@svelte-put/movable';
 import { Subscriber } from 'svelte/store';
@@ -15,18 +16,28 @@ import { SvelteComponentTyped } from 'svelte';
 import { Unsubscriber } from 'svelte/store';
 
 // @public
-export function createModalEventDispatcher<Events extends Record<string, CustomEvent<any>>>(): <EventKey extends Extract<keyof Events, string>>(type: EventKey, detail?: { [key in keyof Events]: Events[key]["detail"]; }[EventKey] | undefined, options?: DispatchOptions | undefined) => boolean;
+export function createModalEventDispatcher<Events extends ModalComponentBaseEvents<ModalComponentBaseResolved<ExtendedResolved>> & Record<string, CustomEvent<any>>, ExtendedResolved extends Record<string, any> = Omit<Events['resolve']['detail'], 'trigger'>>(): <EventKey extends Extract<keyof Events, string>>(type: EventKey, detail?: { [key in keyof Events]: Events[key]["detail"]; }[EventKey] | undefined, options?: DispatchOptions | undefined) => boolean;
 
 // @public
 export function createModalStore(): {
-    subscribe: (this: void, run: Subscriber<ApplicableModal[]>, invalidate?: ((value?: ApplicableModal[] | undefined) => void) | undefined) => Unsubscriber;
-    push: <Component extends ModalComponentBase, Resolved extends ModalComponentBaseResolved = ComponentEvents<Component>["resolve"]["detail"]>(input: ModalPushInput<Component>) => ModalPushOutput<Component, ComponentEvents<Component>["resolve"]["detail"]>;
-    pop: <Resolved_1 extends ModalComponentBaseResolved>(id?: string, resolved?: Resolved_1 | undefined) => ApplicableModal | undefined;
+    subscribe: (this: void, run: Subscriber<ModalPushOutput<ModalComponentBase, {
+    trigger: ResolveTrigger;
+    }>[]>, invalidate?: ((value?: ModalPushOutput<ModalComponentBase, {
+        trigger: ResolveTrigger;
+    }>[] | undefined) => void) | undefined) => Unsubscriber;
+    push: <Component extends ModalComponentBase, Resolved extends {
+        trigger: ResolveTrigger;
+    } = ComponentEvents<Component>["resolve"]["detail"]>(input: ModalPushInput<Component>) => ModalPushOutput<Component, ComponentEvents<Component>["resolve"]["detail"]>;
+    pop: <Component_1 extends ModalComponentBase, Resolved_1 extends {
+        trigger: ResolveTrigger;
+    } = ComponentEvents<Component_1>["resolve"]["detail"], Pushed extends ModalPushOutput<Component_1, Resolved_1> | undefined = ModalPushOutput<Component_1, Resolved_1>>(pushed?: Pushed | undefined, resolved?: Resolved_1 | undefined) => (Pushed extends undefined ? ModalPushOutput<ModalComponentBase, {
+        trigger: ResolveTrigger;
+    }> : ModalPushOutput<Component_1, Resolved_1>) | undefined;
 };
 
 // @public
 export type ExtendedModalEvents<ExtendedResolved extends Record<string, any> = {}, ExtendedEvents extends Record<string, CustomEvent<any>> = {}> = {
-    resolve: CustomEvent<ModalComponentBaseResolved & ExtendedResolved>;
+    resolve: CustomEvent<ModalComponentBaseResolved & Partial<ExtendedResolved>>;
 } & ExtendedEvents;
 
 // @public
@@ -55,7 +66,7 @@ export interface ModalComponentBaseProps {
         override: string;
     }>>;
     clickoutside?: boolean | ClickOutsideParameters;
-    dispatch?: ReturnType<typeof createModalEventDispatcher>;
+    dispatch?: ReturnType<typeof createEventDispatcher>;
     escape?: boolean;
     movable?: boolean | MovableParameters;
     topmost?: boolean;
@@ -63,9 +74,9 @@ export interface ModalComponentBaseProps {
 }
 
 // @public
-export type ModalComponentBaseResolved = {
+export type ModalComponentBaseResolved<ExtendedResolved extends Record<string, any> = {}> = {
     trigger: ResolveTrigger;
-};
+} & ExtendedResolved;
 
 // @public
 export interface ModalComponentBaseSlots {
@@ -99,26 +110,22 @@ export class ModalPortal extends SvelteComponentTyped<ModalPortalProps, ModalPor
 }
 
 // @public
-export type ModalPushInput<Component extends ModalComponentBase> = ComponentType<Component> | (Partial<PushedModal<Component>> & Pick<PushedModal<Component>, 'component'>);
+export type ModalPushInput<Component extends ModalComponentBase> = ComponentType<Component> | {
+    id?: string;
+    component: ComponentType<Component>;
+    props?: ComponentProps<Component>;
+};
 
 // @public
-export interface ModalPushOutput<Component extends ModalComponentBase, Resolved extends ModalComponentBaseResolved = ComponentEvents<Component>['resolve']['detail']> {
-    id: string;
-    resolve: () => Promise<Resolved>;
-}
-
-// @public
-export interface PushedModal<Component extends ModalComponentBase> {
+export interface ModalPushOutput<Component extends ModalComponentBase = ModalComponentBase, Resolved extends ModalComponentBaseResolved = ComponentEvents<Component>['resolve']['detail']> {
     component: ComponentType<Component>;
     id: string;
     props: ComponentProps<Component>;
+    resolve: () => Promise<Resolved>;
+    resolved: boolean;
 }
 
 // @public
 export type ResolveTrigger = 'backdrop' | 'x' | 'escape' | 'clickoutside' | 'pop' | 'custom';
-
-// Warnings were encountered during analysis:
-//
-// lib/modal.d.ts:18:5 - (ae-forgotten-export) The symbol "ApplicableModal" needs to be exported by the entry point index.d.ts
 
 ```

@@ -187,7 +187,7 @@ function open() {
 
 function close() {
   if (pushed) {
-    appModal.pop(pushed.id);
+    appModal.pop(pushed);
     // if the modal is successfully popped by this operation,
     // the `await` expression in the `open` method above will resolve
     // the `trigger` will be `pop`
@@ -245,22 +245,32 @@ Shown bellow is a simple example of an information modal without any call-to-act
 
 ```html
 <script lang="ts">
-  import Modal from '@svelte-put/modal/Modal.svelte';
   import type { ExtendedModalProps } from '@svelte-put/modal';
+  import Modal from '@svelte-put/modal/Modal.svelte';
 
   // just reexporting props here
   type $$Props = ExtendedModalProps;
 </script>
 
 <Modal classes={{ container: 'custom-modal-container' }} {...$$props} on:resolve>
-  <h2>Information For You</h2>
-  <p>Content</p>
+  <h2>An Information Modal Without Any Actions</h2>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo commodi maxime nemo quibusdam
+    quas, ab adipisci eum distinctio cum dolorum dolores sit dolorem unde officia odio. Quibusdam,
+    earum? Eaque, dolor.
+  </p>
 </Modal>
 
 <style>
   :global(.custom-modal-container) {
     padding: 80px;
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
   }
 </style>
 ```
@@ -304,12 +314,14 @@ By understanding this, you are not limited to use the [Modal][github.Modal] base
   <summary>Example: show / hide</summary>
 
 ```html
-<!-- BareModal.svelte -->
+<!-- FullCustomModal.svelte -->
 <!-- notice this component is just a normal svelte component -->
 <!-- without anything from @svelte-put -->
 <script lang="ts">
   import type { ResolveTrigger } from '@svelte-put/modal';
   import { createEventDispatcher } from 'svelte';
+
+  export let prop = 'Prop should work as usual';
 
   const dispatch = createEventDispatcher<{
     resolve: {
@@ -327,6 +339,7 @@ By understanding this, you are not limited to use the [Modal][github.Modal] base
   <button type="button" on:click={resolve}>
     Resolve
   </button>
+  <p>{prop}</p>
 </div>
 
 <style>
@@ -337,6 +350,10 @@ By understanding this, you are not limited to use the [Modal][github.Modal] base
     top: 50%;
     left: 50%;
     translate: -50% -50%;
+    background-color: #fff;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.25);
+    display: grid;
+    place-items: center;
   }
 </style>
 ```
@@ -346,15 +363,15 @@ By understanding this, you are not limited to use the [Modal][github.Modal] base
 <script lang="ts">
   import { createModalStore } from '@svelte-put/modal';
   import ModalPortal from '@svelte-put/modal/ModalPortal.svelte';
-  import BareModal from './BareModal.svelte';
+  import FullCustomModal from './FullCustomModal.svelte';
 
   const appModal = createModalStore();
 
   async function open() {
-    const pushed = appModal.push(BareModal);
+    const pushed = appModal.push(FullCustomModal);
     // should get type autocomplete for `trigger` and `payload` here
-    const resolved = await pushed.resolve();
-    console.log(resolved.payload);
+    const { trigger, payload } = await pushed.resolve();
+    console.log('Modal);
   }
 </script>
 

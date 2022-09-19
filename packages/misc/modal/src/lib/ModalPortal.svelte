@@ -2,7 +2,11 @@
   import { afterUpdate, type ComponentEvents } from 'svelte';
 
   import type { createModalStore } from './modal';
-  import type { PushedModal, ModalComponentBase, ModalComponentBaseResolved } from './modal.types';
+  import type {
+    ModalComponentBase,
+    ModalComponentBaseResolved,
+    ModalPushOutput,
+  } from './modal.types';
 
   /**
    * a modal store, one created from {@link createModalStore}
@@ -14,8 +18,8 @@
   function onResolve<
     Component extends ModalComponentBase,
     Resolved extends ModalComponentBaseResolved = ComponentEvents<Component>['resolve']['detail'],
-  >(modal: PushedModal<Component>, event: CustomEvent<Resolved>) {
-    store.pop(modal.id, event.detail);
+  >(modal: ModalPushOutput<Component, Resolved>, event: CustomEvent<Resolved>) {
+    store.pop(modal, event.detail);
   }
 
   afterUpdate(() => {
@@ -47,10 +51,14 @@
 
 <style>
   :where(.s-modal-portal) {
+    pointer-events: none;
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+  }
+  :global(.s-modal-portal *) {
+    pointer-events: auto;
   }
 </style>

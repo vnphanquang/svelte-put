@@ -4,7 +4,7 @@
 
 ## ModalComponentBaseProps.clickoutside property
 
-whether to dismiss modal when clicking outside. Most useful when you want to not have a backdrop but still dismiss modal when clicking outside the modal.
+whether to dismiss modal when clicking outside. Most useful when you want to not have a backdrop but still dismiss modal when clicking outside the modal. Defaults to `false`<!-- -->.
 
 Can be provided as boolean or the parameter object to [@svelte-put/clickoutside](https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/clickoutside/api/docs/clickoutside.clickoutsideparameters.md)
 

@@ -10,14 +10,24 @@ Create a svelte store for handling modal
 
 ```typescript
 export declare function createModalStore(): {
-    subscribe: (this: void, run: import("svelte/store").Subscriber<ApplicableModal[]>, invalidate?: ((value?: ApplicableModal[] | undefined) => void) | undefined) => import("svelte/store").Unsubscriber;
-    push: <Component extends ModalComponentBase, Resolved extends ModalComponentBaseResolved = ComponentEvents<Component>["resolve"]["detail"]>(input: ModalPushInput<Component>) => ModalPushOutput<Component, ComponentEvents<Component>["resolve"]["detail"]>;
-    pop: <Resolved_1 extends ModalComponentBaseResolved>(id?: string, resolved?: Resolved_1 | undefined) => ApplicableModal | undefined;
+    subscribe: (this: void, run: import("svelte/store").Subscriber<ModalPushOutput<ModalComponentBase, {
+        trigger: import("./modal.types").ResolveTrigger;
+    }>[]>, invalidate?: ((value?: ModalPushOutput<ModalComponentBase, {
+        trigger: import("./modal.types").ResolveTrigger;
+    }>[] | undefined) => void) | undefined) => import("svelte/store").Unsubscriber;
+    push: <Component extends ModalComponentBase, Resolved extends {
+        trigger: import("./modal.types").ResolveTrigger;
+    } = ComponentEvents<Component>["resolve"]["detail"]>(input: ModalPushInput<Component>) => ModalPushOutput<Component, ComponentEvents<Component>["resolve"]["detail"]>;
+    pop: <Component_1 extends ModalComponentBase, Resolved_1 extends {
+        trigger: import("./modal.types").ResolveTrigger;
+    } = ComponentEvents<Component_1>["resolve"]["detail"], Pushed extends ModalPushOutput<Component_1, Resolved_1> | undefined = ModalPushOutput<Component_1, Resolved_1>>(pushed?: Pushed | undefined, resolved?: Resolved_1 | undefined) => (Pushed extends undefined ? ModalPushOutput<ModalComponentBase, {
+        trigger: import("./modal.types").ResolveTrigger;
+    }> : ModalPushOutput<Component_1, Resolved_1>) | undefined;
 };
 ```
 <b>Returns:</b>
 
-{ subscribe: (this: void, run: import("svelte/store").Subscriber&lt;ApplicableModal\[\]&gt;, invalidate?: ((value?: ApplicableModal\[\] \| undefined) =&gt; void) \| undefined) =&gt; import("svelte/store").Unsubscriber; push: &lt;Component extends [ModalComponentBase](./modal.modalcomponentbase.md)<!-- -->, Resolved extends [ModalComponentBaseResolved](./modal.modalcomponentbaseresolved.md) = ComponentEvents&lt;Component&gt;\["resolve"\]\["detail"\]&gt;(input: [ModalPushInput](./modal.modalpushinput.md)<!-- -->&lt;Component&gt;) =&gt; [ModalPushOutput](./modal.modalpushoutput.md)<!-- -->&lt;Component, ComponentEvents&lt;Component&gt;\["resolve"\]\["detail"\]&gt;; pop: &lt;Resolved\_1 extends [ModalComponentBaseResolved](./modal.modalcomponentbaseresolved.md)<!-- -->&gt;(id?: string, resolved?: Resolved\_1 \| undefined) =&gt; ApplicableModal \| undefined; }
+{ subscribe: (this: void, run: import("svelte/store").Subscriber&lt;[ModalPushOutput](./modal.modalpushoutput.md)<!-- -->&lt;[ModalComponentBase](./modal.modalcomponentbase.md)<!-- -->, { trigger: import("./modal.types").[ResolveTrigger](./modal.resolvetrigger.md)<!-- -->; }&gt;\[\]&gt;, invalidate?: ((value?: [ModalPushOutput](./modal.modalpushoutput.md)<!-- -->&lt;[ModalComponentBase](./modal.modalcomponentbase.md)<!-- -->, { trigger: import("./modal.types").[ResolveTrigger](./modal.resolvetrigger.md)<!-- -->; }&gt;\[\] \| undefined) =&gt; void) \| undefined) =&gt; import("svelte/store").Unsubscriber; push: &lt;Component extends [ModalComponentBase](./modal.modalcomponentbase.md)<!-- -->, Resolved extends { trigger: import("./modal.types").[ResolveTrigger](./modal.resolvetrigger.md)<!-- -->; } = ComponentEvents&lt;Component&gt;\["resolve"\]\["detail"\]&gt;(input: [ModalPushInput](./modal.modalpushinput.md)<!-- -->&lt;Component&gt;) =&gt; [ModalPushOutput](./modal.modalpushoutput.md)<!-- -->&lt;Component, ComponentEvents&lt;Component&gt;\["resolve"\]\["detail"\]&gt;; pop: &lt;Component\_1 extends [ModalComponentBase](./modal.modalcomponentbase.md)<!-- -->, Resolved\_1 extends { trigger: import("./modal.types").[ResolveTrigger](./modal.resolvetrigger.md)<!-- -->; } = ComponentEvents&lt;Component\_1&gt;\["resolve"\]\["detail"\], Pushed extends [ModalPushOutput](./modal.modalpushoutput.md)<!-- -->&lt;Component\_1, Resolved\_1&gt; \| undefined = [ModalPushOutput](./modal.modalpushoutput.md)<!-- -->&lt;Component\_1, Resolved\_1&gt;&gt;(pushed?: Pushed \| undefined, resolved?: Resolved\_1 \| undefined) =&gt; (Pushed extends undefined ? [ModalPushOutput](./modal.modalpushoutput.md)<!-- -->&lt;[ModalComponentBase](./modal.modalcomponentbase.md)<!-- -->, { trigger: import("./modal.types").[ResolveTrigger](./modal.resolvetrigger.md)<!-- -->; }&gt; : [ModalPushOutput](./modal.modalpushoutput.md)<!-- -->&lt;Component\_1, Resolved\_1&gt;) \| undefined; }
 
 extended svelte store
 

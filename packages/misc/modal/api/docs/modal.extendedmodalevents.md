@@ -10,7 +10,7 @@ Utility type for building custom events type from the base Modal component. Use 
 
 ```typescript
 export declare type ExtendedModalEvents<ExtendedResolved extends Record<string, any> = {}, ExtendedEvents extends Record<string, CustomEvent<any>> = {}> = {
-    resolve: CustomEvent<ModalComponentBaseResolved & ExtendedResolved>;
+    resolve: CustomEvent<ModalComponentBaseResolved & Partial<ExtendedResolved>>;
 } & ExtendedEvents;
 ```
 <b>References:</b> [ModalComponentBaseResolved](./modal.modalcomponentbaseresolved.md)

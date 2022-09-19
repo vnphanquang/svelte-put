@@ -20,5 +20,5 @@ export interface ModalComponentBaseSlots
 |  [backdrop](./modal.modalcomponentbaseslots.backdrop.md) |  | { class: string; onClick: () =&gt; void; } | backdrop of the modal |
 |  [container](./modal.modalcomponentbaseslots.container.md) |  | { class: string; } | modal container |
 |  [default](./modal.modalcomponentbaseslots.default.md) |  | Record&lt;string, never&gt; | content of the modal |
-|  [x](./modal.modalcomponentbaseslots.x.md) |  | { class: string; onClick: () =&gt; void; xBtn: boolean; } | x<!-- -->\` button |
+|  [x](./modal.modalcomponentbaseslots.x.md) |  | { class: string; onClick: () =&gt; void; xBtn: boolean; } | <code>x</code> button |
 

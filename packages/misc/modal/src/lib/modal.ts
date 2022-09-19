@@ -1,10 +1,14 @@
 /* eslint-disable @typescript-eslint/ban-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { createEventDispatcher, type ComponentEvents, type ComponentProps } from 'svelte';
+import {
+  createEventDispatcher,
+  type ComponentEvents,
+  type ComponentProps,
+  type ComponentType,
+} from 'svelte';
 import { writable } from 'svelte/store';
 
 import type {
-  PushedModal,
   ModalPushInput,
   ModalComponentBase,
   ModalPushOutput,
@@ -14,8 +18,6 @@ import type {
   ModalInternalResolver,
   ModalComponentBaseEvents,
 } from './modal.types';
-
-type ApplicableModal = PushedModal<ModalComponentBase>;
 
 /**
  * Create a svelte store for handling modal
@@ -31,8 +33,8 @@ type ApplicableModal = PushedModal<ModalComponentBase>;
  * @returns extended svelte store
  */
 export function createModalStore() {
-  const { subscribe, set } = writable<ApplicableModal[]>([]);
-  let modals: ApplicableModal[] = [];
+  const { subscribe, set } = writable<ModalPushOutput[]>([]);
+  let modals: ModalPushOutput[] = [];
   const resolveMap: Record<string, undefined | ModalInternalResolver> = {};
 
   /**
@@ -46,34 +48,40 @@ export function createModalStore() {
     Resolved extends ModalComponentBaseResolved = ComponentEvents<Component>['resolve']['detail'],
   >(input: ModalPushInput<Component>): ModalPushOutput<Component> {
     let _resolve: ModalInternalResolver<Resolved> | undefined;
+    let resolved = false;
     const promise = new Promise<Resolved>((resolve) => {
-      _resolve = resolve;
+      _resolve = (value) => {
+        resolved = true;
+        resolve(value);
+      };
     });
 
-    let pushed: PushedModal<Component>;
+    let id: string = crypto.randomUUID();
+    let props: ComponentProps<Component>;
+    let component: ComponentType<Component>;
     if (typeof input === 'function') {
-      pushed = {
-        id: crypto.randomUUID(),
-        component: input,
-        props: {} as ComponentProps<Component>,
-      };
+      component = input;
+      props = {} as ComponentProps<Component>;
     } else {
-      pushed = {
-        id: crypto.randomUUID(),
-        props: {} as ComponentProps<Component>,
-        ...input,
-      };
+      id = input.id ?? id;
+      props = input.props ?? ({} as ComponentProps<Component>);
+      component = input.component;
     }
+
+    const pushed: ModalPushOutput<Component> = {
+      id,
+      props,
+      component,
+      resolve: () => promise,
+      resolved,
+    };
 
     modals.push(pushed);
     resolveMap[pushed.id] = _resolve as unknown as ModalInternalResolver;
 
     set([...modals]);
 
-    return {
-      id: pushed.id,
-      resolve: () => promise,
-    };
+    return pushed;
   }
 
   /**
@@ -85,30 +93,42 @@ export function createModalStore() {
    * When calling this manually (rather than being called from the `ModalPortal` component),
    * the trigger is expected to be `pop`;
    *
-   * @param id - from the return of `push` method
+   * @param pushed - the returned {@link ModalPushOutput} output from `push`
    * @param resolved - custom resolved value, if any
-   * @returns the popped {@link PushedModal} or `undefined` in the
+   * @returns the popped {@link ModalPushOutput} or `undefined` in the
    * case no modal was found that matches the specified input
    */
-  function pop<Resolved extends ModalComponentBaseResolved>(id?: string, resolved?: Resolved) {
-    let popped: ApplicableModal | undefined;
-    if (id) {
+  function pop<
+    Component extends ModalComponentBase,
+    Resolved extends ModalComponentBaseResolved = ComponentEvents<Component>['resolve']['detail'],
+    Pushed extends ModalPushOutput<Component, Resolved> | undefined = ModalPushOutput<
+      Component,
+      Resolved
+    >,
+  >(
+    pushed?: Pushed,
+    resolved?: Resolved,
+  ):
+    | (Pushed extends undefined ? ModalPushOutput : ModalPushOutput<Component, Resolved>)
+    | undefined {
+    let popped: ModalPushOutput<Component, Resolved> | undefined;
+    if (pushed?.id) {
       modals = modals.filter((modal) => {
-        if (modal.id === id) {
-          popped = modal;
+        if (modal.id === pushed.id) {
+          popped = modal as ModalPushOutput<Component, Resolved>;
           return false;
         }
         return true;
       });
       set(modals);
     } else {
-      popped = modals.pop();
+      popped = modals.pop() as ModalPushOutput<Component, Resolved>;
       set([...modals]);
     }
     if (popped) {
       resolveMap[popped.id]?.({
         trigger: 'pop',
-        ...(resolved ?? {})
+        ...(resolved ?? {}),
       });
       resolveMap[popped.id] = undefined;
     }
@@ -129,7 +149,8 @@ export function createModalStore() {
  * @returns svelte event dispatcher
  */
 export function createModalEventDispatcher<
-  Events extends ModalComponentBaseEvents<ModalComponentBaseResolved<ExtendedResolved>> & Record<string, CustomEvent<any>>,
+  Events extends ModalComponentBaseEvents<ModalComponentBaseResolved<ExtendedResolved>> &
+    Record<string, CustomEvent<any>>,
   ExtendedResolved extends Record<string, any> = Omit<Events['resolve']['detail'], 'trigger'>,
 >() {
   return createEventDispatcher<{

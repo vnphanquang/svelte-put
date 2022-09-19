@@ -4,7 +4,7 @@
 
 ## ModalComponentBaseSlots.x property
 
-x<!-- -->\` button
+`x` button
 
 <b>Signature:</b>
 

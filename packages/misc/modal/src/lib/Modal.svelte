@@ -21,7 +21,7 @@
   export let backdrop: NonNullable<$$Props['backdrop']> = true;
   export let xBtn: NonNullable<$$Props['xBtn']> = true;
   export let escape: NonNullable<$$Props['escape']> = true;
-  export let clickoutside: NonNullable<$$Props['clickoutside']> = true;
+  export let clickoutside: NonNullable<$$Props['clickoutside']> = false;
   export let movable: NonNullable<$$Props['movable']> = false;
   export let classes: NonNullable<$$Props['classes']> = {};
   export let dispatch = createModalEventDispatcher();
@@ -47,9 +47,8 @@
   $: rClasses = resolveClasses();
 
   // resolving clickoutside prop
-  const DEFAULT_CLICKOUTSIDE: ClickOutsideParameters = { enabled: true };
+  const DEFAULT_CLICKOUTSIDE: ClickOutsideParameters = { enabled: false };
   function resolveClickoutside(): ClickOutsideParameters {
-    if (!clickoutside) return DEFAULT_CLICKOUTSIDE;
     return typeof clickoutside === 'boolean'
       ? { ...DEFAULT_CLICKOUTSIDE, enabled: clickoutside }
       : clickoutside;
@@ -59,7 +58,6 @@
   // resolving movable prop
   const DEFAULT_MOVABLE: MovableParameters = { enabled: false };
   function resolveMovable(): MovableParameters {
-    if (!movable) return DEFAULT_MOVABLE;
     return typeof movable === 'boolean' ? { ...DEFAULT_MOVABLE, enabled: movable } : movable;
   }
   $: rMovable = resolveMovable();
@@ -111,7 +109,7 @@
 <slot name="container" class={rClasses.container}>
   <div
     class={rClasses.container}
-    transition:fade={{ duration: 200 }}
+    transition:fade={{ duration: 100 }}
     use:clickoutsideAction={rClickoutside}
     on:clickoutside={onClickOutside}
     use:movableAction={rMovable}
