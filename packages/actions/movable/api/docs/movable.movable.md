@@ -41,7 +41,7 @@ As with any svelte action, `movable` should be use with element and not componen
 ```
 Be aware of side effects:
 
-- element.style.position is set to `relative` (if not already 'absolute' / 'relative') the first time mousedown is triggered
+- element.style.position is set to `relative` (if not already 'absolute', 'relative', or 'fixed) the first time mousedown is triggered
 
 - document.body.userSelect is set to `none` after `mousedown` and restored on `mouseup`
 

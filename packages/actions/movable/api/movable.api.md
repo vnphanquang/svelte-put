@@ -25,7 +25,7 @@ export interface MovableLimit {
         x: MovableLimitDelta;
         y: MovableLimitDelta;
     } | MovableLimitDelta;
-    parent?: HTMLElement;
+    parent?: HTMLElement | 'screen';
 }
 
 // @public

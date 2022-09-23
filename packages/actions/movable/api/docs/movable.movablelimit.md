@@ -17,5 +17,5 @@ export interface MovableLimit
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
 |  [delta?](./movable.movablelimit.delta.md) |  | { x: [MovableLimitDelta](./movable.movablelimitdelta.md)<!-- -->; y: [MovableLimitDelta](./movable.movablelimitdelta.md)<!-- -->; } \| [MovableLimitDelta](./movable.movablelimitdelta.md) | <i>(Optional)</i> Bounding box limit in both axes |
-|  [parent?](./movable.movablelimit.parent.md) |  | HTMLElement | <i>(Optional)</i> Move node within this parent node |
+|  [parent?](./movable.movablelimit.parent.md) |  | HTMLElement \| 'screen' | <i>(Optional)</i> Move node within this parent node or within screen |
 

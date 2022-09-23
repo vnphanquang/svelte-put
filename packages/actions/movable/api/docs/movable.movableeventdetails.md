@@ -9,7 +9,7 @@
 <b>Signature:</b>
 
 ```typescript
-export interface MovableEventDetails
+export interface MovableEventDetails 
 ```
 
 ## Example

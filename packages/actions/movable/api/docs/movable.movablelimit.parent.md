@@ -4,10 +4,10 @@
 
 ## MovableLimit.parent property
 
-Move node within this parent node
+Move node within this parent node or within screen
 
 <b>Signature:</b>
 
 ```typescript
-parent?: HTMLElement;
+parent?: HTMLElement | 'screen';
 ```
