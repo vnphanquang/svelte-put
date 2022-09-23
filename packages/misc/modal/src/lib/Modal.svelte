@@ -150,7 +150,7 @@
     z-index: 1;
   }
 
-  :global(:where(.s-modal-x)) {
+  :global(button:where(.s-modal-x)) {
     position: absolute;
     top: 0;
     right: 0;
