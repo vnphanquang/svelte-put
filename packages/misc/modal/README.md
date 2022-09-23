@@ -31,6 +31,7 @@ This solution employs [svelte store][svelte.store] for handling stack-able modal
     - [Extending Props](#extending-props)
     - [Modal Resolution & Extending Events](#modal-resolution--extending-events)
     - [Building Your Own Modal](#building-your-own-modal)
+  - [Accessibility](#accessibility)
 
 </details>
 
@@ -371,7 +372,8 @@ By understanding this, you are not limited to use the [Modal][github.Modal] base
     const pushed = appModal.push(FullCustomModal);
     // should get type autocomplete for `trigger` and `payload` here
     const { trigger, payload } = await pushed.resolve();
-    console.log('Modal);
+    console.log('Modal resolves with payload', payload);
+    console.log('Modal resolves with trigger', trigger);
   }
 </script>
 
@@ -385,6 +387,13 @@ By understanding this, you are not limited to use the [Modal][github.Modal] base
 </details>
 
 One scenario where this is especially helpful is when you are migrating from an old system, there are already a bunch of modals, and rewriting all of them is not an option.
+
+## Accessibility
+
+This package does not use [dialog][mdn.dialog] because it cannot assume what browsers to support.
+However, as seen in [Building Your Own Modal](#building-your-own-modal), you can build a modal component that uses [dialog][mdn.dialog] inherently.
+
+Using the base [Modal][github.Modal], the [accessibility][github.ModalComponentBaseProps.accessibility] prop can be provided to set `role` and `aria` attributes [as discussed here in MDN - dialog role][mdn.dialog_role]. See more details and example in the [documentation for accessibility prop][github.ModalComponentBaseProps.accessibility].
 
 <p align="center">
   <a href="https://www.buymeacoffee.com/vnphanquang" target="_blank">
@@ -409,6 +418,7 @@ One scenario where this is especially helpful is when you are migrating from an 
 [github.ModalComponentBaseResolved]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/modal/api/docs/modal.modalcomponentbaseresolved.md
 [github.ModalComponentBaseSlots]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/modal/api/docs/modal.modalcomponentbaseslots.md
 [github.ModalComponentBaseProps]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/modal/api/docs/modal.modalcomponentbaseprops.md
+[github.ModalComponentBaseProps.accessibility]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/modal/api/docs/modal.modalcomponentbaseprops.accessibility.md
 [github.ResolveTrigger]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/modal/api/docs/modal.resolvetrigger.md
 [github.ExtendedModalEvents]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/modal/api/docs/modal.extendedmodalevents.md
 [github.ExtendedModalProps]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/modal/api/docs/modal.extendedmodalprops.md
@@ -433,3 +443,6 @@ One scenario where this is especially helpful is when you are migrating from an 
 <!-- repl -->
 [repl]: https://svelte.dev/repl/0a68001337544b8ab55995fb3d02d1f6
 [repl.badge]: https://img.shields.io/static/v1?label=&message=Svelte+REPL&logo=svelte&logoColor=fff&color=ff3e00
+[accessibility.w3]: https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/
+[mdn.dialog_role]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role
+[mdn.dialog]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog

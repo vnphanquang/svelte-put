@@ -26,12 +26,12 @@ For simple no-action modal, just forward the resolve event.
 ```html
 <script lang="ts">
   import Modal from '@svelte-put/modal/Modal.svelte';
-  import type { ExtendedModalEvents, ExtendedModalProps } from '@svelte-put/modal';
+  import type { ExtendedModalProps } from '@svelte-put/modal';
 
   $$Props = ExtendedModalProps;
-  $$Events = ExtendedModalEvents;
 </script
-<Modal {...$$props} on:resolve>
+
+<Modal {...$$props} on:resolve />
 ```
 
 ## Example 1

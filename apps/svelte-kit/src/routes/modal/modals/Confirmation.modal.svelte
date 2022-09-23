@@ -28,10 +28,19 @@
 
 <!-- props is forwarded to the base Modal component -->
 <!-- and the custom dispatch is also passed down -->
-<Modal classes={{ container: 'confirmation-modal' }} {...$$restProps} dispatch={dispatch}>
+<Modal
+  classes={{ container: 'confirmation-modal' }}
+  {...$$restProps}
+  dispatch={dispatch}
+  accessibility={{
+    role: 'dialog',
+    labelledBy: 'confirmation-dialog-title',
+    describedBy: 'confirmation-dialog-description',
+  }}
+>
   <div class="modal-content">
-    <h2>Confirmation Modal</h2>
-    <p>Are you sure you want to proceed?</p>
+    <h2 id="confirmation-dialog-title">Confirmation Modal</h2>
+    <p id="confirmation-dialog-description">Are you sure you want to proceed?</p>
     <div>
       <button type="button" on:click={confirm} {disabled}>Confirm</button>
       <button type="button" on:click={cancel} {disabled}>Cancel</button>

@@ -190,6 +190,62 @@ export interface ModalComponentBaseProps {
     >
   >;
   /**
+   * Some accessibility attributes passed to the modal container element as discussed
+   * in {@link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role | MDN Accessibility - Dialog}
+   *
+   * @remarks
+   *
+   * Since the base `Modal` does not know beforehand its content (passed by slots),
+   * responsibility for accessibility is delegated to you.
+   *
+   * By default, the `role` attribute is set to `dialog` without any aria attribute
+   *
+   * @example
+   *
+   * ```html
+   * <script lang="ts">
+   *   import Modal from '@svelte-put/modal/Modal.svelte';
+   *   import type { ExtendedModalProps } from '@svelte-put/modal';
+   *
+   *   $$Props = ExtendedModalProps;
+   *   $$Events = ExtendedModalEvents<{
+   *      confirmed: boolean;
+   *   }>
+   *
+   *   // create type-safe dispatch function
+   *   const dispatch = createModalEventDispatcher<$$Events>();
+   *   function resolve() {
+   *     dispatch('resolve', {
+   *       trigger: 'custom',
+   *       confirmed: true,
+   *     });
+   *   }
+   * </script
+   *
+   * <Modal
+   *    {...$$props}
+   *    accessibility={{
+   *      role: 'dialog',
+   *      labelledBy: 'confirmation-dialog-title',
+   *      describedBy: 'confirmation-dialog-description',
+   *    }}
+   *    on:resolve
+   * >
+   *    <h2 id="confirmation-dialog-title">Submission Confirmation</h2>
+   *    <p id="confirmation-dialog-description">Are you sure you want to submit?</p>
+   *    <button type="button" on:click={() => resolve(true)}>Yes</button>
+   *    <button type="button" on:click={() => resolve(false)}>No</button>
+   * </Modal>
+   * ```
+   */
+  accessibility?: {
+    role: 'dialog' | 'alertdialog';
+    /** id of the element for `aria-labelledby` */
+    labelledBy?: string;
+    /** id of the element for `aria-describedby` */
+    describedBy?: string;
+  };
+  /**
    * svelte event dispatcher. Should only pass this prop if extending the events.
    * See {@link ExtendedModalEvents} for more details an dexamples
    */
@@ -308,12 +364,12 @@ export type ExtendedModalProps<ExtendedProps extends Record<string, any> = {}> =
  * ```html
  * <script lang="ts">
  *   import Modal from '@svelte-put/modal/Modal.svelte';
- *   import type { ExtendedModalEvents, ExtendedModalProps } from '@svelte-put/modal';
+ *   import type { ExtendedModalProps } from '@svelte-put/modal';
  *
  *   $$Props = ExtendedModalProps;
- *   $$Events = ExtendedModalEvents;
  * </script
- * <Modal {...$$props} on:resolve>
+ *
+ * <Modal {...$$props} on:resolve />
  * ```
  *
  * @example

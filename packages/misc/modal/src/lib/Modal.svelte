@@ -24,6 +24,7 @@
   export let clickoutside: NonNullable<$$Props['clickoutside']> = false;
   export let movable: NonNullable<$$Props['movable']> = false;
   export let classes: NonNullable<$$Props['classes']> = {};
+  export let accessibility: NonNullable<$$Props['accessibility']> = { role: 'dialog' };
   export let dispatch = createModalEventDispatcher();
 
   // resolving classes prop
@@ -113,10 +114,12 @@
     use:clickoutsideAction={rClickoutside}
     on:clickoutside={onClickOutside}
     use:movableAction={rMovable}
+    {...accessibility}
   >
     <slot name="x" class={rClasses.x} onClick={onClickX} {xBtn}>
       {#if xBtn}
-        <button class={rClasses.x} on:click={onClickX}>
+        <!-- svelte-ignore a11y-autofocus -->
+        <button class={rClasses.x} on:click={onClickX} autofocus>
           <slot name="x-content">
             <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 48 48">
               <path

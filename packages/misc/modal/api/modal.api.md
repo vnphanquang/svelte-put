@@ -61,6 +61,11 @@ export type ModalComponentBaseEvents<Resolved extends ModalComponentBaseResolved
 
 // @public
 export interface ModalComponentBaseProps {
+    accessibility?: {
+        role: 'dialog' | 'alertdialog';
+        labelledBy?: string;
+        describedBy?: string;
+    };
     backdrop?: 'static' | boolean;
     classes?: Partial<Record<Exclude<keyof ModalComponentBaseSlots, 'default' | 'x-content'>, string | {
         override: string;
