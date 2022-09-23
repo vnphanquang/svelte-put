@@ -1,4 +1,4 @@
-import type { MovableEventDetails, MovableParameters } from './types';
+import type { MovableEventDetails, MovableParameters } from './movable.types';
 import { input } from './utils';
 
 /**
@@ -82,9 +82,13 @@ import { input } from './utils';
  * <Component use:movable/>
  * ```
  *
+ * It is recommended to use the `trigger` option in {@link MovableParameters } to avoid unintended behavior.
+ * If no `trigger` is provided, the whole node is the trigger and it might be difficult for
+ * user to copy texts within the node.
+ *
  * Be aware of side effects:
  *
- * - element.style.position is set to `relative` (if not already 'absolute', 'relative', or 'fixed) the first time mousedown is triggered
+ * - element.style.position is set to `relative` if not already 'absolute', 'relative', or 'fixed during the first time mousedown is triggered
  *
  * - document.body.userSelect is set to `none` after `mousedown` and restored on `mouseup`
  *

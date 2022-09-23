@@ -1,4 +1,4 @@
-import type { MovableLimit } from '../../types';
+import type { MovableLimit } from '../../movable.types';
 
 /**
  * @internal

@@ -7,4 +7,4 @@
  */
 
 export { movable } from './movable';
-export * from './types';
+export * from './movable.types';

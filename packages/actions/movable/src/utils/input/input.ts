@@ -1,4 +1,4 @@
-import type { MovableParameters } from '../../types';
+import type { MovableParameters } from '../../movable.types';
 import { normalizeDelta } from '../normalizeDelta';
 
 /**
