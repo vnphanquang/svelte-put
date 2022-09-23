@@ -9,7 +9,8 @@ import { SvelteComponentTyped } from 'svelte';
 // Warning: (ae-forgotten-export) The symbol "AvatarEvents" needs to be exported by the entry point index.d.ts
 //
 // @public
-export class Avatar extends SvelteComponentTyped<AvatarProps, AvatarEvents, AvatarSlots> {}
+export class Avatar extends SvelteComponentTyped<AvatarProps, AvatarEvents, AvatarSlots> {
+}
 
 // @public
 export interface AvatarProps {

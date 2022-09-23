@@ -1,10 +1,15 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
-  import type { GravatarOptions, UIAvatarOptions } from '$lib/avatar';
+  import type { AvatarSlots, GravatarOptions, UIAvatarOptions } from '$lib/avatar';
   import { gravatar as constructGravatarUrl, uiAvatar as constructUIAvatarUrl } from '$lib/avatar';
 
+  import type { AvatarProps } from './avatar';
+
   const DEFINITIVE_FALLBACK = 'https://www.gravatar.com/avatar?d=mp';
+
+  type $$Props = AvatarProps;
+  type $$Slots = AvatarSlots;
 
   export let src: string | undefined = undefined;
   export let gravatar: GravatarOptions | string | undefined = undefined;
@@ -73,7 +78,11 @@
     return [_src, rGravatar, rUIAvatar, rFallback].filter(nonNullableFilter);
   }
 </script>
-
+<!--
+  @component
+  Svelte `<img>` wrapper component for displaying avatar
+  @public
+-->
 <slot src={resolvedSrc}>
   <img src={resolvedSrc} {alt} height={size} width={size} class={$$props.class} />
 </slot>

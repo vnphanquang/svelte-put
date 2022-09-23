@@ -11,5 +11,5 @@ Svelte `<img>` wrapper component for displaying avatar
 ```typescript
 export default class Avatar extends SvelteComponentTyped<AvatarProps, AvatarEvents, AvatarSlots> 
 ```
-<b>Extends:</b> SvelteComponentTyped&lt;[AvatarProps](./avatar.avatarprops.md)<!-- -->, AvatarEvents, [AvatarSlots](./avatar.avatarslots.md)
+<b>Extends:</b> SvelteComponentTyped&lt;[AvatarProps](./avatar.avatarprops.md)<!-- -->, AvatarEvents, [AvatarSlots](./avatar.avatarslots.md)<!-- -->&gt;
 
