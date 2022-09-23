@@ -25,10 +25,7 @@ Svelte action `use:toc` and component `<Toc>` for building table of contents
 |  --- | --- |
 |  [TocEventDetails](./toc.toceventdetails.md) | <code>detail</code> payload for <code>toc</code> CustomEvent |
 |  [TocEventItemDetails](./toc.toceventitemdetails.md) | Details about each DOM element transformed during the operation of the <code>toc</code> action |
-|  [TocEvents](./toc.tocevents.md) | Custom events dispatched from <code>Toc</code> component |
 |  [TocParameters](./toc.tocparameters.md) | svelte action parameters to config behavior of <code>toc</code> |
-|  [TocProps](./toc.tocprops.md) | Props to <code>Toc</code> component |
-|  [TocSlots](./toc.tocslots.md) | Slots to <code>Toc</code> component |
 
 ## Variables
 

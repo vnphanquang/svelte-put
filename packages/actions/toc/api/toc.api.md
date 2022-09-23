@@ -34,8 +34,13 @@ export interface ResolvedTocParameters {
 // @public
 export function slugify(text: string): string;
 
+// Warning: (ae-forgotten-export) The symbol "TocProps" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "TocEvents" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "TocSlots" needs to be exported by the entry point index.d.ts
+//
 // @public
-export class Toc extends SvelteComponentTyped<TocProps, TocEvents, TocSlots> {}
+export class Toc extends SvelteComponentTyped<TocProps, TocEvents, TocSlots> {
+}
 
 // @public
 export function toc(node: HTMLElement, parameters?: Partial<TocParameters>): {
@@ -59,12 +64,6 @@ export interface TocEventItemDetails {
 }
 
 // @public
-export interface TocEvents {
-    // (undocumented)
-    toc: CustomEvent<TocEventDetails>;
-}
-
-// @public
 export interface TocParameters {
     anchored: number | boolean;
     ignoreSelector: string[] | string;
@@ -75,28 +74,6 @@ export interface TocParameters {
     itemClass: string;
     selector: string;
     stimulateHashNavigation: boolean;
-}
-
-// @public
-export interface TocProps {
-    // (undocumented)
-    liClass?: string;
-    // (undocumented)
-    parameters?: Partial<TocParameters>;
-    // (undocumented)
-    ulClass?: string;
-}
-
-// @public
-export interface TocSlots {
-    // (undocumented)
-    anchor: {
-        item: TocEventItemDetails[];
-    };
-    // (undocumented)
-    default: {
-        items: TocEventItemDetails[];
-    };
 }
 
 ```

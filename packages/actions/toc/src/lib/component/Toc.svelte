@@ -4,8 +4,11 @@
   import { toc } from '../action';
   import type { TocEventDetails, TocEventItemDetails, TocParameters } from '../action';
 
+  /** The {@link TocParameters} to pass to the `toc` action */
   export let parameters: Partial<TocParameters> = {};
+  /** Custom class names passed to `ul` */
   export let ulClass = '';
+  /** Custom class names passed to `li` */
   export let liClass = '';
 
   const dispatch = createEventDispatcher<{
@@ -34,6 +37,13 @@
     dispatch('toc', e.detail);
   }
 </script>
+
+<!--
+  @component
+  Svelte `<Toc>` component that internally use `toc` action and display
+  a basic table of contents with ul
+  @public
+-->
 
 <svelte:body use:toc={{ ...parameters, stimulateHashNavigation: false }} on:toc={onToc} />
 
