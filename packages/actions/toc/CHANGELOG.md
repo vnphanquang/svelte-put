@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.7
+
+### Patch Changes
+
+- [`57c5582`](https://github.com/vnphanquang/svelte-put/commit/57c5582d854ba926017aecde0ce5c4b0f96538fc) Thanks [@vnphanquang](https://github.com/vnphanquang)! - Avoid manual d.ts typing, let svelte generates component type
+
 ## 1.0.6
 
 ### Patch Changes

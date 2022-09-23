@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.0
+
+### Minor Changes
+
+- [`0b69be1`](https://github.com/vnphanquang/svelte-put/commit/0b69be1334f54664f2be5ad9420639d6a9772aed) Thanks [@vnphanquang](https://github.com/vnphanquang)! - Add 'screen' variant for limit parent
+
+- [`0582876`](https://github.com/vnphanquang/svelte-put/commit/05828766f109109a990e00a4a52436c0f45e3992) Thanks [@vnphanquang](https://github.com/vnphanquang)! - add 'ignore' option (css selector within `trigger` node)
+
 ## 1.1.10
 
 ### Patch Changes

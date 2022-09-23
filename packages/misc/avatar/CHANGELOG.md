@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.8
+
+### Patch Changes
+
+- [`5245bb7`](https://github.com/vnphanquang/svelte-put/commit/5245bb7fdb0fffa77c2b5adb50bbe3f94cef114e) Thanks [@vnphanquang](https://github.com/vnphanquang)! - use $Props and $Slots instead of manual typings
+
 ## 1.0.7
 
 ### Patch Changes
