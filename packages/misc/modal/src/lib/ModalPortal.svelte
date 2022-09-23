@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { afterUpdate, type ComponentEvents } from 'svelte';
+  import type { ComponentEvents } from 'svelte';
 
   import type { createModalStore } from './modal';
   import type {
@@ -13,18 +13,12 @@
    */
   export let store: ReturnType<typeof createModalStore>;
 
-  let isOpenModal = false;
-
   function onResolve<
     Component extends ModalComponentBase,
     Resolved extends ModalComponentBaseResolved = ComponentEvents<Component>['resolve']['detail'],
   >(modal: ModalPushOutput<Component, Resolved>, event: CustomEvent<Resolved>) {
     store.pop(modal, event.detail);
   }
-
-  afterUpdate(() => {
-    isOpenModal = Boolean($store.length);
-  });
 </script>
 
 <!--
@@ -36,18 +30,16 @@
   @public
 -->
 
-{#if isOpenModal}
-  <aside class="s-modal-portal {$$props.class}">
-    {#each $store as modal, index (modal.id)}
-      <svelte:component
-        this={modal.component}
-        {...modal.props}
-        topmost={index === $store.length - 1}
-        on:resolve={(event) => onResolve(modal, event)}
-      />
-    {/each}
-  </aside>
-{/if}
+<aside class="s-modal-portal {$$props.class ?? ''}">
+  {#each $store as modal, index (modal.id)}
+    <svelte:component
+      this={modal.component}
+      {...modal.props}
+      topmost={index === $store.length - 1}
+      on:resolve={(event) => onResolve(modal, event)}
+    />
+  {/each}
+</aside>
 
 <style>
   :where(.s-modal-portal) {
