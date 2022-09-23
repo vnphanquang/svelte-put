@@ -84,7 +84,7 @@ import { input } from './utils';
  *
  * Be aware of side effects:
  *
- * - element.style.position is set to `relative` (if not already 'absolute' / 'relative') the first time mousedown is triggered
+ * - element.style.position is set to `relative` (if not already 'absolute', 'relative', or 'fixed) the first time mousedown is triggered
  *
  * - document.body.userSelect is set to `none` after `mousedown` and restored on `mouseup`
  *
@@ -143,7 +143,17 @@ export function movable(node: HTMLElement, parameters: MovableParameters = { ena
     }
 
     if (parent) {
-      const insideBoundingRect = parent.getBoundingClientRect();
+      let insideBoundingRect: Record<'top' | 'bottom' | 'left' | 'right', number>;
+      if (parent === 'screen') {
+        insideBoundingRect = {
+          top: 0,
+          bottom: window.innerHeight,
+          left: 0,
+          right: window.innerWidth,
+        };
+      } else {
+        insideBoundingRect = parent.getBoundingClientRect();
+      }
 
       const newAbsTop = nodeBoundingRect.top + Δy + boundY;
       if (newAbsTop < insideBoundingRect.top) {
@@ -216,7 +226,7 @@ export function movable(node: HTMLElement, parameters: MovableParameters = { ena
 
     // init position style
     const position = computedStyles.getPropertyValue('position');
-    if (position !== 'relative' && position !== 'absolute') {
+    if (position !== 'relative' && position !== 'absolute' && position !== 'fixed') {
       node.style.position = 'relative';
     }
 

@@ -46,9 +46,9 @@ export type MovableLimitDelta = `${number}px` | `${number}%`;
  */
 export interface MovableLimit {
   /**
-   * Move node within this parent node
+   * Move node within this parent node or within screen
    */
-  parent?: HTMLElement;
+  parent?: HTMLElement | 'screen';
   /**
    * Bounding box limit in both axes
    */
