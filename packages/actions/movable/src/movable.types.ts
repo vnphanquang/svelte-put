@@ -93,6 +93,11 @@ export interface MovableParameters {
    *
    */
   trigger?: HTMLElement;
+  /**
+   * CSS selectors within the `trigger` node to exclude from triggering `movable`.
+   * Use this options with caution because it might affect performance.
+   */
+  ignore?: string | string[];
 }
 
 /**

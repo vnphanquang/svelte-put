@@ -39,9 +39,11 @@ As with any svelte action, `movable` should be use with element and not componen
 <-- incorrect usage-->
 <Component use:movable/>
 ```
+It is recommended to use the `trigger` option in [MovableParameters](./movable.movableparameters.md) to avoid unintended behavior. If no `trigger` is provided, the whole node is the trigger and it might be difficult for user to copy texts within the node.
+
 Be aware of side effects:
 
-- element.style.position is set to `relative` (if not already 'absolute', 'relative', or 'fixed) the first time mousedown is triggered
+- element.style.position is set to `relative` if not already 'absolute', 'relative', or 'fixed during the first time mousedown is triggered
 
 - document.body.userSelect is set to `none` after `mousedown` and restored on `mouseup`
 

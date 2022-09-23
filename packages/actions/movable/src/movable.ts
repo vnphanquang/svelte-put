@@ -100,7 +100,7 @@ import { input } from './utils';
  *
  */
 export function movable(node: HTMLElement, parameters: MovableParameters = { enabled: true }) {
-  let { parent, normalizedDelta, trigger, enabled } = input(node, parameters);
+  let { parent, normalizedDelta, trigger, enabled, ignore } = input(node, parameters);
 
   const lastMousePosition = { x: 0, y: 0 };
   const lastNodePosition = { top: 0, left: 0 };
@@ -217,6 +217,11 @@ export function movable(node: HTMLElement, parameters: MovableParameters = { ena
   };
 
   const onMouseDown = (event: MouseEvent) => {
+    const excludedNodes = Array.from(trigger.querySelectorAll(ignore.join(', ')));
+    if (excludedNodes.some((node) => node.isSameNode(event.target as HTMLElement))) {
+      return;
+    }
+
     const computedStyles = getComputedStyle(node);
 
     // init position
@@ -258,7 +263,7 @@ export function movable(node: HTMLElement, parameters: MovableParameters = { ena
         trigger.removeEventListener('mousedown', onMouseDown, true);
       }
 
-      ({ parent, normalizedDelta, trigger, enabled } = update);
+      ({ parent, normalizedDelta, trigger, enabled, ignore } = update);
     },
     destroy() {
       trigger.removeEventListener('mousedown', onMouseDown, true);

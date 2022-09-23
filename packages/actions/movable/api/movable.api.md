@@ -34,6 +34,7 @@ export type MovableLimitDelta = `${number}px` | `${number}%`;
 // @public
 export interface MovableParameters {
     enabled?: boolean;
+    ignore?: string | string[];
     limit?: MovableLimit;
     trigger?: HTMLElement;
 }

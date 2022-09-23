@@ -15,5 +15,10 @@ export function input(node: HTMLElement, parameters: MovableParameters) {
     parent: parameters.limit?.parent,
     normalizedDelta: normalizeDelta(parameters.limit?.delta),
     trigger: parameters.trigger ?? node,
+    ignore: parameters.ignore
+      ? typeof parameters.ignore === 'string'
+        ? [parameters.ignore]
+        : parameters.ignore
+      : [],
   };
 }
