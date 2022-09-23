@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.5.0
+
+### Minor Changes
+
+- [`c5de673`](https://github.com/vnphanquang/svelte-put/commit/c5de6733c3c7df21d8232b59e2bd3560ea1ada24) Thanks [@vnphanquang](https://github.com/vnphanquang)! - add minimal accessbility support and docs
+
+### Patch Changes
+
+- [`eb6fb23`](https://github.com/vnphanquang/svelte-put/commit/eb6fb23b643720b20b64e714e65d49f1073b10a9) Thanks [@vnphanquang](https://github.com/vnphanquang)! - increase specificity of x button with `button` to override browser default
+
+- [`5901994`](https://github.com/vnphanquang/svelte-put/commit/59019948662c9403c3acb79a8d70c22af7f884dd) Thanks [@vnphanquang](https://github.com/vnphanquang)! - fix unmount transition by always displaying ModalPortal aside element
+
 ## 0.4.1
 
 ### Patch Changes
