@@ -17,9 +17,7 @@
 </script>
 
 <div class="custom-modal">
-  <button type="button" on:click={resolve}>
-    Resolve
-  </button>
+  <button type="button" on:click={resolve}> Resolve </button>
   <p>{prop}</p>
 </div>
 
