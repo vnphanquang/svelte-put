@@ -22,5 +22,8 @@
     <li>
       <a href="/modal" class="hover:text-primary">@svelte-put/modal</a>
     </li>
+    <li>
+      <a href="/select" class="hover:text-primary">@svelte-put/select</a>
+    </li>
   </ul>
 </main>

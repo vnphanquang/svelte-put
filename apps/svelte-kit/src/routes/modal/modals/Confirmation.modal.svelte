@@ -4,9 +4,12 @@
   import Modal from '@svelte-put/modal/Modal.svelte';
 
   type $$Props = ExtendedModalProps<{ disabled?: boolean }>;
-  type $$Events = ExtendedModalEvents<{ confirmed: boolean }, {
-    anotherEvent: CustomEvent<{ payload: string }>;
-  }>;
+  type $$Events = ExtendedModalEvents<
+    { confirmed: boolean },
+    {
+      anotherEvent: CustomEvent<{ payload: string }>;
+    }
+  >;
 
   export let disabled: NonNullable<$$Props['disabled']> = false;
 
@@ -31,7 +34,7 @@
 <Modal
   classes={{ container: 'confirmation-modal' }}
   {...$$restProps}
-  dispatch={dispatch}
+  {dispatch}
   accessibility={{
     role: 'dialog',
     labelledBy: 'confirmation-dialog-title',
