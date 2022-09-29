@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.1
+
+### Patch Changes
+
+- [`0d37ceb`](https://github.com/vnphanquang/svelte-put/commit/0d37ceb26a719e3910bdcd52f16e1b7dfc093118) Thanks [@vnphanquang](https://github.com/vnphanquang)! - fallback in case `crypto.randomUUID` is not available (ex. non HTTPS context)
+
 ## 0.5.0
 
 ### Minor Changes
