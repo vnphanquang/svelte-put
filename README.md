@@ -170,7 +170,7 @@ pnpm turbo
 
 <!-- github specifics -->
 [github.contributing]: ./CONTRIBUTING.md
-[github.issues]: https://github.com/vnphanquang/svelte-action-movable/issues?q=
+[github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
 
 [github.movable]: https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/movable
 [github.movable.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/CHANGELOG.md
