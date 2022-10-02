@@ -40,7 +40,7 @@ Each pull request should [reference an open issue][github.issues.open] unless th
 
 ## Consistent Code Style
 
-1. Commit message should follow the [Conventional Commits specification][conventionalcommits], this will enable [semantic-release][semanticrelease] to automate the workflow properly.
+1. Commit message should follow the [Conventional Commits specification][conventionalcommits].
 2. Code should be formatted with [prettier] and linted with [eslint]. They are already integrated into the codebase. See [package.json] for relevant scripts. There might also exist extensions for your editor that further enhance the experience with these tools.
    - [VS Code Prettier][vscode.extension.prettier]
    - [VS Code Eslint][vscode.extension.eslint]
@@ -85,7 +85,6 @@ Some extensions that are well suited for this project:
 [github.issues.open]: https://github.com/vnphanquang/svelte-put/issues?q=is%3Aissue+is%3Aopen
 [github.discussions]: https://github.com/vnphanquang/svelte-put/discussions
 [conventionalcommits]: https://www.conventionalcommits.org/en/v1.0.0/
-[semanticrelease]: https://github.com/semantic-release/semantic-release
 [prettier]: https://prettier.io/
 [eslint]: https://eslint.org/
 [vscode.extension.prettier]: https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
