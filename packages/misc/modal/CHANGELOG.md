@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.2
+
+### Patch Changes
+
+- [`8d3f44f`](https://github.com/vnphanquang/svelte-put/commit/8d3f44f41672d18dc63722f3b4e74883dfaad9c6) Thanks [@vnphanquang](https://github.com/vnphanquang)! - bump @svelte-put/movable version
+
 ## 0.5.1
 
 ### Patch Changes
