@@ -217,9 +217,12 @@ export function movable(node: HTMLElement, parameters: MovableParameters = { ena
   };
 
   const onMouseDown = (event: MouseEvent) => {
-    const excludedNodes = Array.from(trigger.querySelectorAll(ignore.join(', ')));
-    if (excludedNodes.some((node) => node.isSameNode(event.target as HTMLElement))) {
-      return;
+    const ignoreSelector = ignore.join(',');
+    if (ignoreSelector) {
+      const excludedNodes = Array.from(trigger.querySelectorAll(ignore.join(', ')));
+      if (excludedNodes.some((node) => node.isSameNode(event.target as HTMLElement))) {
+        return;
+      }
     }
 
     const computedStyles = getComputedStyle(node);
