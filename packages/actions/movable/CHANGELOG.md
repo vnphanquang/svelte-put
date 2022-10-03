@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.1
+
+### Patch Changes
+
+- [`53b9606`](https://github.com/vnphanquang/svelte-put/commit/53b96065e28c2c0c77930d0048639990129cf5aa) Thanks [@vnphanquang](https://github.com/vnphanquang)! - fix: skip ignore step if not provided
+
 ## 1.2.0
 
 ### Minor Changes
