@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.4
+
+### Patch Changes
+
+- [`043bf3d`](https://github.com/vnphanquang/svelte-put/commit/043bf3dc4758071b9416ded43d8e59597a5bcc57) Thanks [@vnphanquang](https://github.com/vnphanquang)! - remove autofocus on close button
+
 ## 0.5.3
 
 ### Patch Changes
