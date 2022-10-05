@@ -1,6 +1,6 @@
 {
   "name": "@svelte-put/modal",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "Svelte async modal",
   "type": "module",
   "svelte": "./lib/index.js",
