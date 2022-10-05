@@ -149,7 +149,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    translate: -50% -50%;
+    transform: translate(-50%, -50%);
     z-index: 1;
   }
 
@@ -168,10 +168,10 @@
   }
 
   :global(:where(.s-modal-x):hover) {
-    scale: 1.05;
+    transform: scale(1.05);
   }
 
   :global(:where(.s-modal-x):active) {
-    scale: 0.95;
+    transform: scale(0.95);
   }
 </style>
