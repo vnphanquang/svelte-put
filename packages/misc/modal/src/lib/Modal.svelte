@@ -118,8 +118,7 @@
   >
     <slot name="x" class={rClasses.x} onClick={onClickX} {xBtn}>
       {#if xBtn}
-        <!-- svelte-ignore a11y-autofocus -->
-        <button class={rClasses.x} on:click={onClickX} autofocus>
+        <button class={rClasses.x} on:click={onClickX}>
           <slot name="x-content">
             <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 48 48">
               <path
