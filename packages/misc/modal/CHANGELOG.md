@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.3
+
+### Patch Changes
+
+- [`e7018b8`](https://github.com/vnphanquang/svelte-put/commit/e7018b8a24a6c9abd6eefa977d992fe07dddd1f4) Thanks [@vnphanquang](https://github.com/vnphanquang)! - use transform in place of translate and scale for wider browser support
+
 ## 0.5.2
 
 ### Patch Changes
