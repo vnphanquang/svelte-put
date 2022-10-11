@@ -194,7 +194,9 @@ The HTML generated will look similar to
     </a>
   </li>
 </ul>
-```
+``
+
+</details>
 
 And the CSS for this list is
 
@@ -213,12 +215,30 @@ And the CSS for this list is
 
 </details>
 
-
-</details>
-
 ## Documentation
 
 ### Typescript support
+
+Ambient types for custom events should be available automatically where `toc` is imported.
+
+<details open>
+  <summary> show / hide </summary>
+
+```html
+ <script lang="ts">
+    import { toc } from '@svelte-put/toc';
+ </script>
+
+ <!-- on:toc should be typed -->
+ <div
+    use:toc
+    on:toc
+ />
+```
+
+</details>
+
+If the above is not working, fall back to this:
 
 <details open>
   <summary> app.d.ts: show / hide </summary>

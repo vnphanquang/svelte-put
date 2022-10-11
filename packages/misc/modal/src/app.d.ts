@@ -11,8 +11,6 @@ declare namespace App {
   // interface Stuff {}
 }
 declare namespace svelte.JSX {
-  interface HTMLAttributes<T> {
-    // on:clickoutside
-    onclickoutside?: (event: CustomEvent<MouseEvent>) => void;
-  }
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface, @typescript-eslint/no-unused-vars
+  interface HTMLAttributes {}
 }

@@ -15,8 +15,6 @@ declare namespace App {
 }
 
 declare namespace svelte.JSX {
-  export interface HTMLAttributes {
-    // on:toc
-    ontoc?: (event: CustomEvent<import('@svelte-put/toc').TocEventDetails>) => void;
-  }
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  export interface HTMLAttributes {}
 }

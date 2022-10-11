@@ -21,11 +21,4 @@ declare namespace svelte.JSX {
   type HTMLAttrs<T> = {
     [key in keyof EventList as `on${key}`]?: CustomEventHandler<T, EventList[key]>;
   };
-
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface, @typescript-eslint/no-unused-vars
-  interface HTMLAttributes<T> {
-    ontoc?: (event: CustomEvent<import('./lib').TocEventDetails>) => void;
-  }
 }
-
-declare module '*.svelte';

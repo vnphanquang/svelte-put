@@ -1,4 +1,28 @@
 /**
+ * Additional attributes extended from `svelte-put/toc`
+ * @public
+ *
+ * @remarks
+ * The ambient types for these extended attributes should be available automatically
+ * whenever `svelte-put/toc` is imported.
+ *
+ * ```html
+ * <script lang="ts">
+ *   import { toc } from '@svelte-put/toc';
+ * </script>
+ *
+ * <!-- on:toc should be typed -->
+ * <div
+ *   use:toc
+ *   on:toc
+ * />
+ * ```
+ */
+export interface TocAttributes {
+  ontoc?: (event: CustomEvent<TocEventDetails>) => void; // on:toc
+}
+
+/**
  * svelte action parameters to config behavior of `toc`
  * @public
  */

@@ -11,7 +11,17 @@ import type {
   TocEventDetails,
   TocEventItemDetails,
   ResolvedTocParameters,
+  TocAttributes,
 } from './toc.types';
+
+// ambient typing
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  export namespace svelte.JSX {
+    // eslint-disable-next-line @typescript-eslint/no-empty-interface, @typescript-eslint/no-unused-vars
+    export interface HTMLAttributes<T> extends TocAttributes {}
+  }
+}
 
 const cache: Record<
   string,
