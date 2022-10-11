@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.6
+
+### Patch Changes
+
+- [`7657f5f`](https://github.com/vnphanquang/svelte-put/commit/7657f5fe706b247a66f09a39bb5a0b2755c61d28) Thanks [@vnphanquang](https://github.com/vnphanquang)! - provide ambient typings for custom events
+
 ## 1.0.5
 
 ### Patch Changes

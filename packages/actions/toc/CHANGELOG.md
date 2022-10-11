@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.8
+
+### Patch Changes
+
+- [`4c2db74`](https://github.com/vnphanquang/svelte-put/commit/4c2db742db8d65b6fa4e7d52052e179814e4e194) Thanks [@vnphanquang](https://github.com/vnphanquang)! - provide ambient types for custom event on:toc
+
 ## 1.0.7
 
 ### Patch Changes
