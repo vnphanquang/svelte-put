@@ -1,4 +1,30 @@
 /**
+ * Additional attributes extended from `svelte-put/intersect`
+ * @public
+ *
+ * @remarks
+ * The ambient types for these extended attributes should be available automatically
+ * whenever `svelte-put/movable` is imported.
+ *
+ * ```html
+ * <script lang="ts">
+ *   import { movable } from '@svelte-put/movable';
+ * </script>
+ *
+ * <!-- on:movablestart, on:movableend should be typed -->
+ * <div
+ *   use:movable
+ *   on:movablestart
+ *   on:movableend
+ * />
+ * ```
+ */
+export interface MovableAttributes {
+  onmovablestart?: (event: CustomEvent<MovableEventDetails>) => void; // on:movablestart
+  onmovableend?: (event: CustomEvent<MovableEventDetails>) => void; // on:movableend
+}
+
+/**
  * Limit by creating a bounding box of movable area `[-delta, +delta]` in both axes
  * @public
  *

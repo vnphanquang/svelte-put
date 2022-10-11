@@ -56,6 +56,28 @@ See [examples here](https://github.com/vnphanquang/svelte-put/blob/main/packages
 
 ### Typescript support
 
+Ambient types for custom events should be available automatically where `movable` is imported.
+
+<details open>
+  <summary> show / hide </summary>
+
+```html
+ <script lang="ts">
+    import { movable } from '@svelte-put/movable';
+ </script>
+
+ <!-- on:movablestart, on:movableend should be typed -->
+ <div
+    use:movable
+    on:movablestart
+    on:movableend
+ />
+```
+
+</details>
+
+If the above is not working, fall back to this:
+
 <details open>
   <summary> app.d.ts: show / hide </summary>
 

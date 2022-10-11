@@ -16,12 +16,6 @@ declare namespace App {
 
 declare namespace svelte.JSX {
   export interface HTMLAttributes {
-    // on:movablestart
-    onmovablestart?: (
-      event: CustomEvent<import('@svelte-put/movable').MovableEventDetails>,
-    ) => void;
-    // on:movableend
-    onmovableend?: (event: CustomEvent<import('@svelte-put/movable').MovableEventDetails>) => void;
     // on:toc
     ontoc?: (event: CustomEvent<import('@svelte-put/toc').TocEventDetails>) => void;
   }

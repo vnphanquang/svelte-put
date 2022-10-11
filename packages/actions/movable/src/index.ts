@@ -6,5 +6,5 @@
  * @packageDocumentation
  */
 
-export { movable } from './movable';
+export * from './movable';
 export * from './movable.types';

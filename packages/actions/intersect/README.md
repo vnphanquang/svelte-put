@@ -82,6 +82,7 @@ Ambient types for custom events should be available automatically where `interse
 </details>
 
 If the above is not working, fall back to this:
+
 <details open>
   <summary> app.d.ts: show / hide </summary>
 

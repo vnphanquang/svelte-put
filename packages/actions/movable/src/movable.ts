@@ -1,5 +1,14 @@
-import type { MovableEventDetails, MovableParameters } from './movable.types';
+import type { MovableAttributes, MovableEventDetails, MovableParameters } from './movable.types';
 import { input } from './utils';
+
+// ambient typing
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  export namespace svelte.JSX {
+    // eslint-disable-next-line @typescript-eslint/no-empty-interface
+    export interface HTMLAttributes extends MovableAttributes {}
+  }
+}
 
 /**
  * Trigger node displacement on mousedown (via position.left & position.top)
