@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.4
+
+### Patch Changes
+
+- [`83e0ebf`](https://github.com/vnphanquang/svelte-put/commit/83e0ebf415db8cdf3c91adaeb151d8e9e1b09f61) Thanks [@vnphanquang](https://github.com/vnphanquang)! - provide automatic ambient types for extended attributes
+
 ## 1.0.3
 
 ### Patch Changes
