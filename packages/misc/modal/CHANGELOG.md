@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.5
+
+### Patch Changes
+
+- [`5087d68`](https://github.com/vnphanquang/svelte-put/commit/5087d68b6a4626f96c0237fe7af19f8e50e06c70) Thanks [@vnphanquang](https://github.com/vnphanquang)! - bump dependences' version
+
 ## 0.5.4
 
 ### Patch Changes
