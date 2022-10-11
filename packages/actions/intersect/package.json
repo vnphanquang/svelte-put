@@ -1,6 +1,6 @@
 {
   "name": "@svelte-put/intersect",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Action that wraps IntersectionObserver",
   "main": "lib/index.js",
   "module": "lib/index.js",

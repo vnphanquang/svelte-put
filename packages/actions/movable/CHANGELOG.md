@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.2
+
+### Patch Changes
+
+- [`94b844f`](https://github.com/vnphanquang/svelte-put/commit/94b844ff230a4ddaf48025962d3d14073c418394) Thanks [@vnphanquang](https://github.com/vnphanquang)! - provide amibent types for custom events (attributes)
+
 ## 1.2.1
 
 ### Patch Changes
