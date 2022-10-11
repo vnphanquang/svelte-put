@@ -7,3 +7,4 @@
  */
 
 export * from './clickoutside';
+export * from './clickoutside.types';

@@ -56,6 +56,27 @@ See [examples here](https://github.com/vnphanquang/svelte-put/blob/main/packages
 
 ### Typescript support
 
+Ambient types for `on:clickoutside` should be available automatically when `clickoutside` is imported
+
+<details open>
+  <summary> show / hide </summary>
+
+```html
+ <script lang="ts">
+    import { clickoutside } from '@svelte-put/clickoutside';
+ </script>
+
+ <!-- on:clickoutside should be typed -->
+ <div
+   use:clickoutside
+   on:clickoutside
+ />
+```
+
+</details>
+
+If the above is not working, fall back to this:
+
 <details open>
   <summary> app.d.ts: show / hide </summary>
 

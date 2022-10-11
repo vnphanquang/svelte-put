@@ -15,21 +15,7 @@ declare namespace App {
 }
 
 declare namespace svelte.JSX {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  type EventHandler<E = Event, T = HTMLElement> = (event: E & { target: EventTarget & T }) => any;
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
-  type CustomEventHandler<T, D = any> = EventHandler<CustomEvent<D>, T>;
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
-  type HTMLAttrs<T> = {
-    [key in keyof EventList as `on${key}`]?: CustomEventHandler<T, EventList[key]>;
-  };
-
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface, @typescript-eslint/no-unused-vars
-  interface HTMLAttributes<T> {
-    // on:clickoutside
-    onclickoutside?: (event: CustomEvent<MouseEvent>) => void;
+  export interface HTMLAttributes {
     // on:movablestart
     onmovablestart?: (
       event: CustomEvent<import('@svelte-put/movable').MovableEventDetails>,
@@ -44,5 +30,3 @@ declare namespace svelte.JSX {
     ontoc?: (event: CustomEvent<import('@svelte-put/toc').TocEventDetails>) => void;
   }
 }
-
-declare module '*.svelte';

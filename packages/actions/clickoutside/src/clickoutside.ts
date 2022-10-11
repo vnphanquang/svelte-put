@@ -1,24 +1,12 @@
-/**
- * Limit to which the click event will trigger `clickoutside`
- * @public
- *
- * @remarks
- * Currently only the parent option is supported
- */
-export interface ClickOutsideLimit {
-  /** Click event beyond the `boundingRect` of this parent node will not trigger `clickoutside` */
-  parent: HTMLElement;
-}
+import { ClickOutsideAttributes, ClickOutsideParameters } from './clickoutside.types';
 
-/**
- * svelte action parameters to config behavior of `clickoutside`
- * @public
- */
-export interface ClickOutsideParameters {
-  /** whether to activate the action. Default to `true` */
-  enabled: boolean;
-  /** limit to which the click event will trigger `clickoutside` */
-  limit?: ClickOutsideLimit;
+// ambient typing
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  export namespace svelte.JSX {
+    // eslint-disable-next-line @typescript-eslint/no-empty-interface
+    export interface HTMLAttributes extends ClickOutsideAttributes {}
+  }
 }
 
 /**
