@@ -7,3 +7,4 @@
  */
 
 export * from './intersect';
+export * from './intersect.types';

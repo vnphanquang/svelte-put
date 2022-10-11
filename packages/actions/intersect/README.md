@@ -61,6 +61,27 @@ See [examples here](https://github.com/vnphanquang/svelte-put/blob/main/packages
 
 ### Typescript support
 
+Ambient types for custom events should be available automatically where `intersect` is imported.
+
+<details open>
+  <summary> show / hide </summary>
+
+```html
+ <script lang="ts">
+    import { intersect } from '@svelte-put/intersect';
+ </script>
+
+ <!-- on:intersect, on:intersectonce should be typed -->
+ <div
+    use:intersect
+    on:intersect
+    on:intersectonce
+ />
+```
+
+</details>
+
+If the above is not working, fall back to this:
 <details open>
   <summary> app.d.ts: show / hide </summary>
 

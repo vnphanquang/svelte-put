@@ -56,7 +56,7 @@ See [examples here](https://github.com/vnphanquang/svelte-put/blob/main/packages
 
 ### Typescript support
 
-Ambient types for `on:clickoutside` should be available automatically when `clickoutside` is imported
+Ambient types for custom events should be available automatically where `clickoutside` is imported.
 
 <details open>
   <summary> show / hide </summary>

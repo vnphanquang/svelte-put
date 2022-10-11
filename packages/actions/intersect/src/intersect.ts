@@ -1,27 +1,12 @@
-/**
- * svelte action parameters to config behavior of `movable`
- * @public
- *
- * @remarks
- *
- * parameters for `intersect` extends {@link https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver | IntersectionObserverInit }
- * (second parameter passed to IntersectionObserver constructor)
- */
-export interface IntersectParameters extends IntersectionObserverInit {
-  /** whether to activate the action. Default to `true` */
-  enabled?: boolean;
-}
+import { IntersectAttributes, IntersectDetail, IntersectParameters } from './intersect.types';
 
-/**
- * `detail` payload for `intersect` and `intersectonce` CustomEvent
- * @public
- * ```
- */
-export interface IntersectDetail {
-  /** the IntersectionObserver itself */
-  readonly observer: IntersectionObserver;
-  /** list of IntersectionObserverEntry passed from IntersectionObserver callback */
-  readonly entries: IntersectionObserverEntry[];
+// ambient typing
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  export namespace svelte.JSX {
+    // eslint-disable-next-line @typescript-eslint/no-empty-interface
+    export interface HTMLAttributes extends IntersectAttributes {}
+  }
 }
 
 /**
