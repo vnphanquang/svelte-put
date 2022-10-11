@@ -70,8 +70,8 @@
   },
   "homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/misc/modal",
   "dependencies": {
-    "@svelte-put/clickoutside": "^1.0.3",
-    "@svelte-put/movable": "^1.2.1",
+    "@svelte-put/clickoutside": "^1.0.4",
+    "@svelte-put/movable": "^1.2.2",
     "@svelte-put/shortcut": "^1.0.2"
   },
   "devDependencies": {
