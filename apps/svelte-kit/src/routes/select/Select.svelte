@@ -4,7 +4,7 @@
   import type { ShortcutTrigger } from '@svelte-put/shortcut';
   import { slide } from 'svelte/transition';
 
-  import type { Searcher, SelectProps, SearchConfig, BaseOption, Grouper, GroupConfig } from './Select.types';
+  import type { Searcher, SelectProps, SearchConfig, BaseOption, GroupConfig } from './Select.types';
 
   type Value = $$Generic;
   type Option = $$Generic<BaseOption<Value>>;
@@ -12,7 +12,6 @@
   type $$Props = SelectProps<Value, Option, Multiple>;
 
   export let id: NonNullable<$$Props['id']> = crypto.randomUUID();
-  // export let name: NonNullable<$$Props['name']> = '';
   export let placeholder: NonNullable<$$Props['placeholder']> = '';
   export let disabled: NonNullable<$$Props['disabled']> = false;
   export let multiple: NonNullable<$$Props['multiple']> = false as Multiple;
@@ -126,7 +125,7 @@
     return options.reduce((map, option) => {
       let group = '';
       if (groupConfig.enabled) {
-        group = groupConfig.group(option) ?? groupConfig.ungroupedLabel;
+        group = groupConfig.group(option) || groupConfig.ungroupedLabel;
       }
 
       if (map[group]) {
@@ -341,7 +340,7 @@
     >
       {#each Object.entries(grouped) as [group, options] (group)}
         {#if group}
-          <p>{group}</p>
+          <p class="listbox-option-group">{group}</p>
         {/if}
         {#each options as option (option.id)}
           {@const absoluteIndex = searchedOptions.findIndex((o) => o.id === option.id)}
@@ -503,6 +502,14 @@
     padding: 4px 0;
     max-height: 500px;
     overflow: auto;
+  }
+
+  .listbox-option-group {
+    padding: 8px;
+    color: darkgray;
+  }
+  .listbox-option-group:not(first-of-type) {
+    padding-top: 12px;
   }
 
   .listbox-option {

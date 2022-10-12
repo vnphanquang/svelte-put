@@ -1,5 +1,6 @@
 <script lang="ts">
   import Select from './Select.svelte';
+  import type { GroupConfig } from './Select.types';
 
   const options = [
     { label: 'Golden Retriever', value: 'Golden Retriever', id: 'golden-retriever', group: 'dog' },
@@ -38,9 +39,11 @@
     clearOnSelection: true,
   };
 
+  let group: GroupConfig<typeof options[0]>;
   $: group = {
     enabled: false,
-    ungroupedLabel: 'Ungrouped',
+    ungroupedLabel: 'UNGROUPED',
+    group: (option) => option.group?.toUpperCase() ?? '',
   };
 
   let clearable: boolean;
@@ -60,9 +63,9 @@
       <label for="multiple">Multiple?:</label>
       <input type="checkbox" id="multiple" bind:checked={multiple} class="justify-self-start">
 
-      <p>Search Config</p>
+      <p class="self-start">Search Config</p>
       <div class="grid grid-cols-[auto,1fr] gap-5 items-center">
-        <label for="searchable">enabled?:</label>
+        <label for="searchable">Enabled?:</label>
         <input type="checkbox" id="searchable" bind:checked={search.enabled} class="justify-self-start">
 
         <label for="clearOnSelection">Clear search on selection?:</label>
@@ -72,7 +75,7 @@
         <input type="number" id="debounced" bind:value={search.debounced} class="justify-self-start">
       </div>
 
-      <p>Group Config</p>
+      <p class="self-start">Group Config</p>
       <div class="grid grid-cols-[auto,1fr] gap-5 items-center">
         <label for="groupable">Enabled?:</label>
         <input type="checkbox" id="groupable" bind:checked={group.enabled} class="justify-self-start">
@@ -107,37 +110,56 @@
 
   <section class="w-full max-w-2xl grid gap-5">
     <h2 class="text-3xl font-bold underline">Samples</h2>
-    {#each [false, true] as multiple}
-      <section class="w-full grid gap-5">
-        <h3 class="text-2xl font-bold">
-          {multiple ? 'Multiple' : 'Single'} Select
-        </h3>
+    <section class="w-full grid gap-5">
+      <article>
+        <h4 class="text-xl font-bold">Default</h4>
+        <Select {options} placeholder="Please select" />
+      </article>
 
-        <article>
-          <h4 class="text-xl">Default</h4>
-          <Select {options} placeholder="Please select" {multiple} />
-        </article>
+      <article>
+        <h4 class="text-xl font-bold">Multiple</h4>
+        <Select {options} placeholder="Please select" multiple />
+      </article>
 
-        <article>
-          <h4 class="text-xl">Disabled</h4>
-          <Select {options} placeholder="Please select" {multiple} disabled />
-        </article>
+      <article class="grid gap-4">
+        <h4 class="text-xl font-bold">Pre-selected</h4>
 
-        <article>
-          <h4 class="text-xl">Searchable</h4>
-          <Select {options} placeholder="Please select" {multiple} search />
-        </article>
+        <div>
+          <h5>Single</h5>
+          <Select {options} placeholder="Please select" selected={options[2]} />
+        </div>
 
-        <article>
-          <h4 class="text-xl">Non-clearable</h4>
-          <Select {options} placeholder="Please select" {multiple} clearable={false} />
-        </article>
+        <div>
+          <h5>Multiple</h5>
+          <Select {options} placeholder="Please select" multiple selected={options.slice(2, 5)} />
+        </div>
 
-        <article>
-          <h4 class="text-xl">Hide Expansion Indicator</h4>
-          <Select {options} placeholder="Please select" {multiple} hideExpansionIndicator />
-        </article>
-      </section>
-    {/each}
+      </article>
+
+      <article>
+        <h4 class="text-xl font-bold">Disabled</h4>
+        <Select {options} placeholder="Please select" disabled />
+      </article>
+
+      <article>
+        <h4 class="text-xl font-bold">Searchable</h4>
+        <Select {options} placeholder="Please select" search />
+      </article>
+
+      <article>
+        <h4 class="text-xl font-bold">Groupable</h4>
+        <Select {options} placeholder="Please select" group />
+      </article>
+
+      <article>
+        <h4 class="text-xl font-bold">Non-clearable</h4>
+        <Select {options} placeholder="Please select" clearable={false} />
+      </article>
+
+      <article>
+        <h4 class="text-xl font-bold">Hide Expansion Indicator</h4>
+        <Select {options} placeholder="Please select" hideExpansionIndicator />
+      </article>
+    </section>
   </section>
 </div>
