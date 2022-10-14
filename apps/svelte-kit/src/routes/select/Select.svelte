@@ -4,32 +4,34 @@
   import type { ShortcutTrigger } from '@svelte-put/shortcut';
   import { slide } from 'svelte/transition';
 
-  import type { Searcher, SelectProps, SearchConfig, BaseOption, GroupConfig } from './Select.types';
+  import type { Searcher, SearchConfig, BaseOption, GroupConfig, SearchProp, GroupProp, SelectProps } from './Select.types';
 
   type Value = $$Generic;
   type Option = $$Generic<BaseOption<Value>>;
-  type Multiple = $$Generic<true | false>;
-  type $$Props = SelectProps<Value, Option, Multiple>;
 
-  export let id: NonNullable<$$Props['id']> = crypto.randomUUID();
-  export let placeholder: NonNullable<$$Props['placeholder']> = '';
-  export let disabled: NonNullable<$$Props['disabled']> = false;
-  export let multiple: NonNullable<$$Props['multiple']> = false as Multiple;
-  export let collapseOnSelection: NonNullable<$$Props['collapseOnSelection']> = multiple ? false : true;
+  type $$Props = SelectProps<Option>;
+  type SelectedOption = $$Props['selected'];
+  type SelectedValue = $$Props['value'];
+
+  export let id = crypto.randomUUID();
+  export let placeholder = '';
+  export let disabled = false;
+  export let multiple: $$Props['multiple'] = undefined;
+  export let collapseOnSelection = multiple ? false : true;
   $: collapseOnSelection = multiple ? false : true;
-  export let required: NonNullable<$$Props['required']> = false;
-  export let generateUlId: NonNullable<$$Props['generateUlId']> = () => `${id}-ul`;
-  export let generateLiId: NonNullable<$$Props['generateLiId']> = (option) => `li-${option.id}`;
-  export let open: NonNullable<$$Props['open']> = false;
-  export let group: NonNullable<$$Props['group']> = false;
-  export let options: $$Props['options'];
-  export let selected: $$Props['selected'] = undefined;
-  export let value: $$Props['value'] = (
+  export let required = false;
+  export let generateUlId = () => `${id}-ul`;
+  export let generateLiId = (option: Option) => `li-${option.id}`;
+  export let open = false;
+  export let group: GroupProp<Option> = false;
+  export let options: Option[];
+  export let selected: SelectedOption = undefined;
+  export let value: SelectedValue = (
     Array.isArray(selected) ? selected?.map((o) => o.value) : selected?.value
-  ) as $$Props['value'];
-  export let search: NonNullable<$$Props['search']> = false;
-  export let clearable: NonNullable<$$Props['clearable']> = true;
-  export let hideExpansionIndicator: NonNullable<$$Props['hideExpansionIndicator']> = false;
+  ) as SelectedValue;
+  export let search: SearchProp<Option> = false;
+  export let clearable = true;
+  export let hideExpansionIndicator = false;
 
   // option focus handling
   let focusedOptionIndex: number | undefined = undefined;
@@ -51,7 +53,7 @@
     debounced: 0,
     enabled: false,
   };
-  function resolveSearchProp(search: NonNullable<$$Props['search']>): SearchConfig<Option> {
+  function resolveSearchProp(search: SearchProp<Option>): SearchConfig<Option> {
     let debounced = 0;
     if (typeof search === 'boolean') {
       return {
@@ -100,7 +102,7 @@
     ungroupedLabel: 'Ungrouped',
     group: (option) => option.group ?? '',
   };
-  function resolveGroup(group: NonNullable<$$Props['group']>): GroupConfig<Option> {
+  function resolveGroup(group: GroupProp<Option>): GroupConfig<Option> {
     if (typeof group === 'function') {
       return {
         ...DEFAULT_GROUP_CONFIG,
@@ -154,14 +156,14 @@
     if (_option.disabled) return;
     if (multiple) {
       selectionMap[_option.id] = !selectionMap[_option.id];
-      selected = options.filter((option) => selectionMap[option.id]) as unknown as $$Props['selected'];
-      value = (selected as Option[]).map((option) => option.value) as unknown as $$Props['value'];
+      selected = options.filter((option) => selectionMap[option.id]) as unknown as SelectedOption;
+      value = (selected as Option[]).map((option) => option.value) as unknown as SelectedValue;
     } else {
       for (const option of options) {
         selectionMap[option.id] = option.id === _option.id ? !selectionMap[option.id] : false;
       }
-      selected = _option as unknown as $$Props['selected'];
-      value = _option.value as unknown as $$Props['value'];
+      selected = _option as unknown as SelectedOption;
+      value = _option.value as unknown as SelectedValue;
     }
     if (rSearch.clearOnSelection) {
       query = '';
