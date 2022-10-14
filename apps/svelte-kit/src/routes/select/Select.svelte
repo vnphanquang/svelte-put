@@ -8,8 +8,9 @@
 
   type Value = $$Generic;
   type Option = $$Generic<BaseOption<Value>>;
+  type Multiple = $$Generic<true | false | undefined>;
 
-  type $$Props = SelectProps<Option>;
+  type $$Props = SelectProps<Option, Multiple>;
   type SelectedOption = $$Props['selected'];
   type SelectedValue = $$Props['value'];
 
