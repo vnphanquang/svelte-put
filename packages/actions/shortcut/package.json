@@ -39,19 +39,19 @@
   },
   "homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/shortcut",
   "devDependencies": {
-    "@microsoft/api-documenter": "^7.19.14",
-    "@microsoft/api-extractor": "^7.31.2",
-    "@rollup/plugin-typescript": "^8.5.0",
+    "@microsoft/api-documenter": "^7.19.19",
+    "@microsoft/api-extractor": "^7.33.1",
+    "@rollup/plugin-typescript": "^9.0.1",
     "@svelte-put/apirc": "workspace:^0.0.0",
     "@svelte-put/eslint-config": "workspace:^0.0.0",
     "@svelte-put/prettierrc": "workspace:^0.0.0",
     "@svelte-put/tsconfig": "workspace:^0.0.0",
-    "eslint": "^8.23.1",
+    "eslint": "^8.25.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.7.1",
-    "rollup": "^2.79.1",
+    "rollup": "^3.1.0",
     "rollup-plugin-filesize": "^9.1.2",
     "tslib": "^2.4.0",
-    "typescript": "^4.8.3"
+    "typescript": "^4.8.4"
   }
 }
