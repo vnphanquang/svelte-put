@@ -46,7 +46,13 @@
   // search handling
   let defaultSearcher: Searcher<Option> = (input) => {
     const { query, options } = input;
-    return options.filter((option) => option.label.toLowerCase().includes(query.toLowerCase()));
+    return options.filter((option) => {
+      let matched = option.label.toLowerCase().includes(query.toLowerCase());
+      if (!matched && option.group) {
+        matched = option.group.toLowerCase().includes(query.toLowerCase());
+      }
+      return matched;
+    });
   };
   const DEFAULT_SEARCH_CONFIG: SearchConfig<Option> = {
     search: defaultSearcher,
@@ -255,6 +261,7 @@
   ];
 </script>
 
+<!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
   {id}
   class="combobox {$$props.class}"
@@ -292,7 +299,7 @@
 
     {#if selectedOptions.length}
       {#if multiple}
-        {#each selectedOptions as option}
+        {#each selectedOptions as option (option.id)}
           <p class="selected-option">
             <span class="selected-option-label">{option.label}</span>
             <button class="selected-option-remove" on:click|preventDefault|stopPropagation={() => toggleSelection(option)} tabindex="-1">
