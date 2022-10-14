@@ -32,27 +32,36 @@ export interface GroupConfig<Option> {
 
 export type GroupProp<Option> = boolean | Grouper<Option> | Partial<GroupConfig<Option>>;
 
-export interface SelectProps<
-  Value,
-  Option extends BaseOption<Value>,
-  Multiple extends true | false,
-> {
+export interface SelectBaseProps<O extends BaseOption<V>, V = O['value']> {
   id?: string;
   placeholder?: string;
   open?: boolean;
   disabled?: boolean;
-  multiple?: Multiple;
   collapseOnSelection?: boolean;
   required?: boolean;
   nullable?: boolean;
-  options: Option[];
-  group?: GroupProp<Option>;
-  selected?: Multiple extends true ? Option[] : Option;
-  value?: Multiple extends true ? Option['value'][] : Option['value'];
+  group?: GroupProp<O>;
   generateUlId?: () => string;
-  generateLiId?: (option: Option) => string;
-  search?: SearchProp<Option>;
+  generateLiId?: (option: O) => string;
+  search?: SearchProp<O>;
   class?: string;
   clearable?: boolean;
   hideExpansionIndicator?: boolean;
+  options: O[];
 }
+
+export interface SingleSelectProps<O extends BaseOption<V>, V = O['value']> extends SelectBaseProps<O, V> {
+  multiple?: false;
+  selected?: O;
+  value?: V;
+}
+
+export interface MultipleSelectProps<O extends BaseOption<V>, V = O['value']> extends SelectBaseProps<O, V> {
+  multiple: true;
+  selected?: O[];
+  value?: V[];
+}
+
+export type SelectProps<O extends BaseOption<V>, V = O['value']> =
+  | SingleSelectProps<O, V>
+  | MultipleSelectProps<O, V>;

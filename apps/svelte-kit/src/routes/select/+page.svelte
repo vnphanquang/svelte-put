@@ -127,11 +127,17 @@
         <div>
           <h5>Single</h5>
           <Select {options} placeholder="Please select" selected={options[2]} />
+
+          <!-- this should cause ts error (selected must be array) -->
+          <!-- <Select {options} placeholder="Please select" multiple selected={options[2]} /> -->
         </div>
 
         <div>
           <h5>Multiple</h5>
           <Select {options} placeholder="Please select" multiple selected={options.slice(2, 5)} />
+
+          <!-- this should cause ts error (selected must be single value) -->
+          <!-- <Select {options} placeholder="Please select" selected={options.slice(2, 5)} /> -->
         </div>
 
       </article>
