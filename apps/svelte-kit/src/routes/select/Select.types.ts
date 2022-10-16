@@ -4,6 +4,7 @@ export interface BaseOption<Value> {
   id: string;
   disabled?: boolean;
   group?: string;
+  deselectable?: boolean;
 }
 
 export interface SearchInput<Option> {
