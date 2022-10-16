@@ -30,6 +30,11 @@
     { label: 'Hamster', value: 'Hamster', id: 'hamster' },
   ];
 
+  $: optionsWithFirstTwoNotDeselectable = [
+    ...options.slice(0, 2).map(o => ({ ...o, deselectable: false })),
+    ...options.slice(2),
+  ];
+
   let placeholder = 'Custom placeholder';
   let multiple: boolean;
 
@@ -112,17 +117,17 @@
     <h2 class="text-3xl font-bold underline">Samples</h2>
     <section class="w-full grid gap-5">
       <article>
-        <h4 class="text-xl font-bold">Default</h4>
+        <h4>Default</h4>
         <Select {options} placeholder="Please select" />
       </article>
 
       <article>
-        <h4 class="text-xl font-bold">Multiple</h4>
+        <h4>Multiple</h4>
         <Select {options} placeholder="Please select" multiple />
       </article>
 
       <article class="grid gap-4">
-        <h4 class="text-xl font-bold">Pre-selected</h4>
+        <h4>Pre-selected Options</h4>
 
         <div>
           <h5>Single</h5>
@@ -141,16 +146,20 @@
           <!-- <Select {options} placeholder="Please select" selected={options.slice(2, 5)} />
           <Select {options} placeholder="Please select" multiple={false} selected={options.slice(2, 5)} /> -->
         </div>
-
       </article>
 
       <article>
-        <h4 class="text-xl font-bold">Disabled</h4>
+        <h4>Pre-selected & Fixed Options</h4>
+        <Select options={optionsWithFirstTwoNotDeselectable} multiple selected={options.slice(0, 2)} />
+      </article>
+
+      <article>
+        <h4>Disabled</h4>
         <Select {options} placeholder="Please select" disabled />
       </article>
 
       <article class="grid gap-4">
-        <h4 class="text-xl font-bold">Searchable</h4>
+        <h4>Searchable</h4>
 
         <div>
           <h5>Single</h5>
@@ -162,19 +171,26 @@
       </article>
 
       <article>
-        <h4 class="text-xl font-bold">Groupable</h4>
+        <h4>Groupable</h4>
         <Select {options} placeholder="Please select" group />
       </article>
 
       <article>
-        <h4 class="text-xl font-bold">Non-clearable</h4>
+        <h4>Non-clearable</h4>
         <Select {options} placeholder="Please select" clearable={false} />
       </article>
 
       <article>
-        <h4 class="text-xl font-bold">Hide Expansion Indicator</h4>
+        <h4>Hide Expansion Indicator</h4>
         <Select {options} placeholder="Please select" hideExpansionIndicator />
       </article>
     </section>
   </section>
 </div>
+
+<style>
+  h4 {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+</style>

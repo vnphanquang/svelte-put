@@ -178,7 +178,7 @@
     if (collapseOnSelection) collapse();
   }
   function clearSelection() {
-    for (const option of options) {
+    for (const option of options.filter(o => o.deselectable !== false)) {
       selectionMap[option.id] = false;
       selected = undefined;
       value = undefined;
@@ -302,11 +302,12 @@
         {#each selectedOptions as option (option.id)}
           <p class="selected-option">
             <span class="selected-option-label">{option.label}</span>
-            {#if !option.disabled}
+            {#if option.deselectable !== false}
               <button
                 class="selected-option-remove"
                 on:click|preventDefault|stopPropagation={() => toggleSelection(option)}
                 tabindex="-1"
+                disabled={option.disabled}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 48 48" stroke="currentColor">
                   <path d="m12.45 37.65-2.1-2.1L21.9 24 10.35 12.45l2.1-2.1L24 21.9l11.55-11.55 2.1 2.1L26.1 24l11.55 11.55-2.1 2.1L24 26.1Z"/>
@@ -359,20 +360,22 @@
           <p class="listbox-option-group">{group}</p>
         {/if}
         {#each options as option (option.id)}
-          {@const absoluteIndex = searchedOptions.findIndex((o) => o.id === option.id)}
-          <li
-            transition:slide|local={{ duration: 100 }}
-            class="listbox-option"
-            role="option"
-            data-focused={focusedOptionIndex === absoluteIndex}
-            aria-selected={selectionMap[option.id]}
-            aria-disabled={option.disabled}
-            id={generateLiId(option)}
-            on:click|stopPropagation={() => toggleSelection(option)}
-            on:mouseenter={() => (focusedOptionIndex = absoluteIndex)}
-          >
-            {option.label}
-          </li>
+          {#if !selectionMap[option.id] || option.deselectable !== false}
+            {@const absoluteIndex = searchedOptions.findIndex((o) => o.id === option.id)}
+            <li
+              transition:slide|local={{ duration: 100 }}
+              class="listbox-option"
+              role="option"
+              data-focused={focusedOptionIndex === absoluteIndex}
+              aria-selected={selectionMap[option.id]}
+              aria-disabled={option.disabled}
+              id={generateLiId(option)}
+              on:click|stopPropagation={() => toggleSelection(option)}
+              on:mouseenter={() => (focusedOptionIndex = absoluteIndex)}
+            >
+              {option.label}
+            </li>
+          {/if}
         {/each}
       {/each}
     </ul>
