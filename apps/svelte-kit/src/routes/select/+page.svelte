@@ -149,9 +149,16 @@
         <Select {options} placeholder="Please select" disabled />
       </article>
 
-      <article>
+      <article class="grid gap-4">
         <h4 class="text-xl font-bold">Searchable</h4>
-        <Select {options} placeholder="Please select" search />
+
+        <div>
+          <h5>Single</h5>
+          <Select {options} placeholder="Please select" search />
+
+          <h5>Multiple</h5>
+          <Select {options} placeholder="Please select" search multiple />
+        </div>
       </article>
 
       <article>

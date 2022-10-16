@@ -60,30 +60,30 @@
     debounced: 0,
     enabled: false,
   };
-  function resolveSearchProp(search: SearchProp<Option>): SearchConfig<Option> {
+  function resolveSearchProp(prop: SearchProp<Option>): SearchConfig<Option> {
     let debounced = 0;
-    if (typeof search === 'boolean') {
+    if (typeof prop === 'boolean') {
       return {
         ...DEFAULT_SEARCH_CONFIG,
-        enabled: search,
+        enabled: prop,
       };
     }
 
-    if (typeof search === 'function') {
+    if (typeof prop === 'function') {
       return {
         ...DEFAULT_SEARCH_CONFIG,
         enabled: true,
-        search,
+        search: prop,
       };
     }
 
-    if (search.debounced) {
-      debounced = search.debounced;
+    if (prop.debounced) {
+      debounced = prop.debounced;
     }
     return {
       ...DEFAULT_SEARCH_CONFIG,
       enabled: true,
-      ...search,
+      ...prop,
       debounced,
     };
   }
@@ -109,23 +109,23 @@
     ungroupedLabel: 'Ungrouped',
     group: (option) => option.group ?? '',
   };
-  function resolveGroup(group: GroupProp<Option>): GroupConfig<Option> {
-    if (typeof group === 'function') {
+  function resolveGroup(prop: GroupProp<Option>): GroupConfig<Option> {
+    if (typeof prop === 'function') {
       return {
         ...DEFAULT_GROUP_CONFIG,
         enabled: true,
-        group,
+        group: prop,
       };
-    } else if (typeof group === 'boolean') {
+    } else if (typeof prop === 'boolean') {
       return {
         ...DEFAULT_GROUP_CONFIG,
-        enabled: group,
+        enabled: prop,
       };
     } else {
       return {
         ...DEFAULT_GROUP_CONFIG,
         enabled: true,
-        ...group,
+        ...prop,
       };
     }
   }
@@ -302,11 +302,17 @@
         {#each selectedOptions as option (option.id)}
           <p class="selected-option">
             <span class="selected-option-label">{option.label}</span>
-            <button class="selected-option-remove" on:click|preventDefault|stopPropagation={() => toggleSelection(option)} tabindex="-1">
-              <svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 48 48" stroke="currentColor">
-                <path d="m12.45 37.65-2.1-2.1L21.9 24 10.35 12.45l2.1-2.1L24 21.9l11.55-11.55 2.1 2.1L26.1 24l11.55 11.55-2.1 2.1L24 26.1Z"/>
-              </svg>
-            </button>
+            {#if !option.disabled}
+              <button
+                class="selected-option-remove"
+                on:click|preventDefault|stopPropagation={() => toggleSelection(option)}
+                tabindex="-1"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 48 48" stroke="currentColor">
+                  <path d="m12.45 37.65-2.1-2.1L21.9 24 10.35 12.45l2.1-2.1L24 21.9l11.55-11.55 2.1 2.1L26.1 24l11.55 11.55-2.1 2.1L24 26.1Z"/>
+                </svg>
+              </button>
+            {/if}
           </p>
         {/each}
       {:else}
