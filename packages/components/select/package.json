@@ -1,29 +1,21 @@
 {
-  "name": "@svelte-put/modal",
-  "version": "0.5.5",
-  "description": "Svelte async modal",
+  "name": "@svelte-put/select",
+  "version": "0.0.0",
+  "description": "Svelte feature-rich, extensible, type-safe, accessible select component",
   "type": "module",
   "svelte": "./lib/index.js",
   "main": "./lib/index.js",
   "module": "./lib/index.js",
   "exports": {
     "./package.json": "./package.json",
-    "./Modal.svelte": "./lib/Modal.svelte",
-    "./ModalPortal.svelte": "./lib/ModalPortal.svelte",
-    "./modal": "./lib/modal.js",
+    "./Select.svelte": "./lib/Select.svelte",
     ".": "./lib/index.js"
   },
   "types": "lib/index.d.ts",
   "typesVersions": {
     "*": {
-      "modal": [
-        "./lib/modal.d.ts"
-      ],
-      "Modal.svelte": [
-        "./lib/Modal.svelte.d.ts"
-      ],
-      "ModalPortal.svelte": [
-        "./lib/ModalPortal.svelte.d.ts"
+      "Select.svelte": [
+        "./lib/Select.svelte.d.ts"
       ]
     }
   },
@@ -55,23 +47,19 @@
   "keywords": [
     "svelte",
     "component",
-    "utility",
-    "modal",
-    "stacking",
-    "multiple",
+    "select",
     "async",
-    "await",
-    "programmatically"
+    "creatable",
+    "accessible"
   ],
   "author": "Quang Phan",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/vnphanquang/svelte-put/issues"
   },
-  "homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/misc/modal",
+  "homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/components/select",
   "dependencies": {
     "@svelte-put/clickoutside": "^1.0.4",
-    "@svelte-put/movable": "^1.2.2",
     "@svelte-put/shortcut": "^1.0.2"
   },
   "devDependencies": {

@@ -23,6 +23,7 @@ importers:
       '@svelte-put/modal': workspace:*
       '@svelte-put/movable': workspace:*
       '@svelte-put/prettierrc': workspace:*
+      '@svelte-put/select': workspace:^0.0.0
       '@svelte-put/shortcut': workspace:*
       '@svelte-put/toc': workspace:*
       '@sveltejs/adapter-auto': 1.0.0-next.83
@@ -50,6 +51,7 @@ importers:
       '@svelte-put/modal': link:../../packages/misc/modal
       '@svelte-put/movable': link:../../packages/actions/movable
       '@svelte-put/prettierrc': link:../../packages/configs/prettierrc
+      '@svelte-put/select': link:../../packages/components/select
       '@svelte-put/shortcut': link:../../packages/actions/shortcut
       '@svelte-put/toc': link:../../packages/actions/toc
       '@sveltejs/adapter-auto': 1.0.0-next.83
@@ -65,7 +67,7 @@ importers:
       svelte-awesome: 3.0.0_svelte@3.51.0
       svelte-check: 2.9.2_zoczxmi4o3fslbwzsxwpwausyy
       svelte-preprocess: 4.10.7_xtpsenb4qzglfzu4rz7ilvsl2m
-      tailwindcss: 3.1.8_postcss@8.4.18
+      tailwindcss: 3.1.8
       tslib: 2.4.0
       typescript: 4.8.4
       vite: 3.1.8
@@ -242,6 +244,55 @@ importers:
       typescript: 4.8.4
       vite: 3.1.8
 
+  packages/components/select:
+    specifiers:
+      '@microsoft/api-documenter': ^7.19.19
+      '@microsoft/api-extractor': ^7.33.1
+      '@svelte-put/apirc': workspace:^0.0.0
+      '@svelte-put/clickoutside': ^1.0.4
+      '@svelte-put/eslint-config': workspace:^0.0.0
+      '@svelte-put/prettierrc': workspace:^0.0.0
+      '@svelte-put/shortcut': ^1.0.2
+      '@svelte-put/tsconfig': workspace:^0.0.0
+      '@sveltejs/adapter-auto': 1.0.0-next.83
+      '@sveltejs/kit': 1.0.0-next.516
+      '@sveltejs/package': 1.0.0-next.5
+      eslint: ^8.25.0
+      npm-run-all: ^4.1.5
+      prettier: ^2.7.1
+      prettier-plugin-svelte: ^2.8.0
+      svelte: ^3.51.0
+      svelte-check: ^2.9.2
+      svelte-preprocess: ^4.10.7
+      svelte2tsx: ^0.5.20
+      tslib: ^2.4.0
+      typescript: ^4.8.4
+      vite: ^3.1.8
+    dependencies:
+      '@svelte-put/clickoutside': link:../../actions/clickoutside
+      '@svelte-put/shortcut': link:../../actions/shortcut
+    devDependencies:
+      '@microsoft/api-documenter': 7.19.19
+      '@microsoft/api-extractor': 7.33.1
+      '@svelte-put/apirc': link:../../configs/apirc
+      '@svelte-put/eslint-config': link:../../configs/eslint-config
+      '@svelte-put/prettierrc': link:../../configs/prettierrc
+      '@svelte-put/tsconfig': link:../../configs/tsconfig
+      '@sveltejs/adapter-auto': 1.0.0-next.83
+      '@sveltejs/kit': 1.0.0-next.516_svelte@3.51.0+vite@3.1.8
+      '@sveltejs/package': 1.0.0-next.5_c36sqhgzdfaw4kmxogryyrffx4
+      eslint: 8.25.0
+      npm-run-all: 4.1.5
+      prettier: 2.7.1
+      prettier-plugin-svelte: 2.8.0_ibge6ami6vq2q2j5g4rcvk62hq
+      svelte: 3.51.0
+      svelte-check: 2.9.2_svelte@3.51.0
+      svelte-preprocess: 4.10.7_c36sqhgzdfaw4kmxogryyrffx4
+      svelte2tsx: 0.5.20_c36sqhgzdfaw4kmxogryyrffx4
+      tslib: 2.4.0
+      typescript: 4.8.4
+      vite: 3.1.8
+
   packages/configs/apirc:
     specifiers: {}
 
@@ -365,16 +416,15 @@ importers:
       '@microsoft/api-documenter': ^7.19.19
       '@microsoft/api-extractor': ^7.33.1
       '@svelte-put/apirc': workspace:^0.0.0
-      '@svelte-put/clickoutside': workspace:^1.0.4
+      '@svelte-put/clickoutside': ^1.0.4
       '@svelte-put/eslint-config': workspace:^0.0.0
-      '@svelte-put/movable': workspace:^1.2.2
+      '@svelte-put/movable': ^1.2.2
       '@svelte-put/prettierrc': workspace:^0.0.0
-      '@svelte-put/shortcut': workspace:^1.0.2
+      '@svelte-put/shortcut': ^1.0.2
       '@svelte-put/tsconfig': workspace:^0.0.0
       '@sveltejs/adapter-auto': 1.0.0-next.83
       '@sveltejs/kit': 1.0.0-next.516
       '@sveltejs/package': 1.0.0-next.5
-      '@types/md5': ^2.3.2
       eslint: ^8.25.0
       npm-run-all: ^4.1.5
       prettier: ^2.7.1
@@ -400,7 +450,6 @@ importers:
       '@sveltejs/adapter-auto': 1.0.0-next.83
       '@sveltejs/kit': 1.0.0-next.516_svelte@3.51.0+vite@3.1.8
       '@sveltejs/package': 1.0.0-next.5_c36sqhgzdfaw4kmxogryyrffx4
-      '@types/md5': 2.3.2
       eslint: 8.25.0
       npm-run-all: 4.1.5
       prettier: 2.7.1
@@ -6366,12 +6415,10 @@ packages:
       stable: 0.1.8
     dev: true
 
-  /tailwindcss/3.1.8_postcss@8.4.18:
+  /tailwindcss/3.1.8:
     resolution: {integrity: sha512-YSneUCZSFDYMwk+TGq8qYFdCA3yfBRdBlS7txSq0LUmzyeqRe3a8fBQzbz9M3WS/iFT4BNf/nmw9mEzrnSaC0g==}
     engines: {node: '>=12.13.0'}
     hasBin: true
-    peerDependencies:
-      postcss: ^8.0.9
     dependencies:
       arg: 5.0.2
       chokidar: 3.5.3

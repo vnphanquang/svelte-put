@@ -4,13 +4,13 @@
   import type { ShortcutTrigger } from '@svelte-put/shortcut';
   import { slide } from 'svelte/transition';
 
-  import type { Searcher, SearchConfig, BaseOption, GroupConfig, SearchProp, GroupProp, SelectProps } from './Select.types';
+  import type { Searcher, SearchConfig, BaseOption, GroupConfig, SearchProp, GroupProp, SelectProperties } from './Select.types';
 
   type Value = $$Generic;
   type Option = $$Generic<BaseOption<Value>>;
   type Multiple = $$Generic<true | false | undefined>;
 
-  type $$Props = SelectProps<Option, Multiple>;
+  type $$Props = SelectProperties<Option, Multiple>;
   type SelectedOption = $$Props['selected'];
   type SelectedValue = $$Props['value'];
 

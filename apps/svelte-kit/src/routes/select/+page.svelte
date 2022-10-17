@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Select from './Select.svelte';
-  import type { GroupConfig } from './Select.types';
+  import type { GroupConfig } from '@svelte-put/select';
+  import Select from '@svelte-put/select/Select.svelte';
 
   const options = [
     { label: 'Golden Retriever', value: 'Golden Retriever', id: 'golden-retriever', group: 'dog' },
