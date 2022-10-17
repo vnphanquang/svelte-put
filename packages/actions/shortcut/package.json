@@ -15,7 +15,7 @@
   "scripts": {
     "lint": "eslint --ignore-path .gitignore \"./**/*/*{ts,js,cjs}\"",
     "format": "prettier --check --ignore-path .gitignore --plugin-search-dir=. \"./**/*.{ts,js,cjs}\"",
-    "build": "rollup -c",
+    "build": "rollup -c --configPlugin typescript",
     "api:extract": "api-extractor run --local --verbose",
     "api:document": "api-documenter markdown -i api/temp -o api/docs",
     "api": "run-s api:extract api:document"
