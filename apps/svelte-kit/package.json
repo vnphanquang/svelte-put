@@ -32,7 +32,7 @@
     "postcss-nesting": "^10.2.0",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
-    "svelte": "^3.51.0",
+    "svelte": "^3.52.0",
     "svelte-awesome": "^3.0.0",
     "svelte-check": "^2.9.2",
     "svelte-preprocess": "^4.10.7",

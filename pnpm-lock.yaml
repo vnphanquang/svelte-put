@@ -35,7 +35,7 @@ importers:
       postcss-nesting: ^10.2.0
       prettier: ^2.7.1
       prettier-plugin-tailwindcss: ^0.1.13
-      svelte: ^3.51.0
+      svelte: ^3.52.0
       svelte-awesome: ^3.0.0
       svelte-check: ^2.9.2
       svelte-preprocess: ^4.10.7
@@ -55,7 +55,7 @@ importers:
       '@svelte-put/shortcut': link:../../packages/actions/shortcut
       '@svelte-put/toc': link:../../packages/actions/toc
       '@sveltejs/adapter-auto': 1.0.0-next.83
-      '@sveltejs/kit': 1.0.0-next.516_svelte@3.51.0+vite@3.1.8
+      '@sveltejs/kit': 1.0.0-next.516_svelte@3.52.0+vite@3.1.8
       cssnano: 5.1.13_postcss@8.4.18
       eslint: 8.25.0
       postcss: 8.4.18
@@ -63,10 +63,10 @@ importers:
       postcss-nesting: 10.2.0_postcss@8.4.18
       prettier: 2.7.1
       prettier-plugin-tailwindcss: 0.1.13_prettier@2.7.1
-      svelte: 3.51.0
-      svelte-awesome: 3.0.0_svelte@3.51.0
-      svelte-check: 2.9.2_zoczxmi4o3fslbwzsxwpwausyy
-      svelte-preprocess: 4.10.7_xtpsenb4qzglfzu4rz7ilvsl2m
+      svelte: 3.52.0
+      svelte-awesome: 3.0.0_svelte@3.52.0
+      svelte-check: 2.9.2_vidagnlh55bt6yxji7dk5y5wla
+      svelte-preprocess: 4.10.7_thgq75zisbcmm7d6lsbrpbdhti
       tailwindcss: 3.1.8
       tslib: 2.4.0
       typescript: 4.8.4
@@ -74,40 +74,42 @@ importers:
 
   packages/actions/clickoutside:
     specifiers:
-      '@microsoft/api-documenter': ^7.19.19
-      '@microsoft/api-extractor': ^7.33.1
+      '@microsoft/api-documenter': ^7.19.20
+      '@microsoft/api-extractor': ^7.33.2
       '@rollup/plugin-typescript': ^9.0.1
       '@svelte-put/apirc': workspace:^0.0.0
       '@svelte-put/eslint-config': workspace:^0.0.0
       '@svelte-put/prettierrc': workspace:^0.0.0
       '@svelte-put/tsconfig': workspace:^0.0.0
+      '@types/node': ^18.11.0
       eslint: ^8.25.0
       npm-run-all: ^4.1.5
       prettier: ^2.7.1
-      rollup: ^3.1.0
+      rollup: ^3.2.2
       rollup-plugin-filesize: ^9.1.2
       tslib: ^2.4.0
       typescript: ^4.8.4
     devDependencies:
-      '@microsoft/api-documenter': 7.19.19
-      '@microsoft/api-extractor': 7.33.1
-      '@rollup/plugin-typescript': 9.0.1_52y3o6nq3pi22pxbagne3lkikq
+      '@microsoft/api-documenter': 7.19.20
+      '@microsoft/api-extractor': 7.33.2
+      '@rollup/plugin-typescript': 9.0.1_p5jh7ldozoj4wz6bisrjheqzay
       '@svelte-put/apirc': link:../../configs/apirc
       '@svelte-put/eslint-config': link:../../configs/eslint-config
       '@svelte-put/prettierrc': link:../../configs/prettierrc
       '@svelte-put/tsconfig': link:../../configs/tsconfig
+      '@types/node': 18.11.0
       eslint: 8.25.0
       npm-run-all: 4.1.5
       prettier: 2.7.1
-      rollup: 3.1.0
+      rollup: 3.2.2
       rollup-plugin-filesize: 9.1.2
       tslib: 2.4.0
       typescript: 4.8.4
 
   packages/actions/intersect:
     specifiers:
-      '@microsoft/api-documenter': ^7.19.19
-      '@microsoft/api-extractor': ^7.33.1
+      '@microsoft/api-documenter': ^7.19.20
+      '@microsoft/api-extractor': ^7.33.2
       '@rollup/plugin-typescript': ^9.0.1
       '@svelte-put/apirc': workspace:^0.0.0
       '@svelte-put/eslint-config': workspace:^0.0.0
@@ -116,14 +118,14 @@ importers:
       eslint: ^8.25.0
       npm-run-all: ^4.1.5
       prettier: ^2.7.1
-      rollup: ^3.1.0
+      rollup: ^3.2.2
       rollup-plugin-filesize: ^9.1.2
       tslib: ^2.4.0
       typescript: ^4.8.4
     devDependencies:
-      '@microsoft/api-documenter': 7.19.19
-      '@microsoft/api-extractor': 7.33.1
-      '@rollup/plugin-typescript': 9.0.1_52y3o6nq3pi22pxbagne3lkikq
+      '@microsoft/api-documenter': 7.19.20
+      '@microsoft/api-extractor': 7.33.2
+      '@rollup/plugin-typescript': 9.0.1_p5jh7ldozoj4wz6bisrjheqzay
       '@svelte-put/apirc': link:../../configs/apirc
       '@svelte-put/eslint-config': link:../../configs/eslint-config
       '@svelte-put/prettierrc': link:../../configs/prettierrc
@@ -131,15 +133,15 @@ importers:
       eslint: 8.25.0
       npm-run-all: 4.1.5
       prettier: 2.7.1
-      rollup: 3.1.0
+      rollup: 3.2.2
       rollup-plugin-filesize: 9.1.2
       tslib: 2.4.0
       typescript: 4.8.4
 
   packages/actions/movable:
     specifiers:
-      '@microsoft/api-documenter': ^7.19.19
-      '@microsoft/api-extractor': ^7.33.1
+      '@microsoft/api-documenter': ^7.19.20
+      '@microsoft/api-extractor': ^7.33.2
       '@rollup/plugin-typescript': ^9.0.1
       '@svelte-put/apirc': workspace:^0.0.0
       '@svelte-put/eslint-config': workspace:^0.0.0
@@ -148,14 +150,14 @@ importers:
       eslint: ^8.25.0
       npm-run-all: ^4.1.5
       prettier: ^2.7.1
-      rollup: ^3.1.0
+      rollup: ^3.2.2
       rollup-plugin-filesize: ^9.1.2
       tslib: ^2.4.0
       typescript: ^4.8.4
     devDependencies:
-      '@microsoft/api-documenter': 7.19.19
-      '@microsoft/api-extractor': 7.33.1
-      '@rollup/plugin-typescript': 9.0.1_52y3o6nq3pi22pxbagne3lkikq
+      '@microsoft/api-documenter': 7.19.20
+      '@microsoft/api-extractor': 7.33.2
+      '@rollup/plugin-typescript': 9.0.1_p5jh7ldozoj4wz6bisrjheqzay
       '@svelte-put/apirc': link:../../configs/apirc
       '@svelte-put/eslint-config': link:../../configs/eslint-config
       '@svelte-put/prettierrc': link:../../configs/prettierrc
@@ -163,15 +165,15 @@ importers:
       eslint: 8.25.0
       npm-run-all: 4.1.5
       prettier: 2.7.1
-      rollup: 3.1.0
+      rollup: 3.2.2
       rollup-plugin-filesize: 9.1.2
       tslib: 2.4.0
       typescript: 4.8.4
 
   packages/actions/shortcut:
     specifiers:
-      '@microsoft/api-documenter': ^7.19.19
-      '@microsoft/api-extractor': ^7.33.1
+      '@microsoft/api-documenter': ^7.19.20
+      '@microsoft/api-extractor': ^7.33.2
       '@rollup/plugin-typescript': ^9.0.1
       '@svelte-put/apirc': workspace:^0.0.0
       '@svelte-put/eslint-config': workspace:^0.0.0
@@ -180,14 +182,14 @@ importers:
       eslint: ^8.25.0
       npm-run-all: ^4.1.5
       prettier: ^2.7.1
-      rollup: ^3.1.0
+      rollup: ^3.2.2
       rollup-plugin-filesize: ^9.1.2
       tslib: ^2.4.0
       typescript: ^4.8.4
     devDependencies:
-      '@microsoft/api-documenter': 7.19.19
-      '@microsoft/api-extractor': 7.33.1
-      '@rollup/plugin-typescript': 9.0.1_52y3o6nq3pi22pxbagne3lkikq
+      '@microsoft/api-documenter': 7.19.20
+      '@microsoft/api-extractor': 7.33.2
+      '@rollup/plugin-typescript': 9.0.1_p5jh7ldozoj4wz6bisrjheqzay
       '@svelte-put/apirc': link:../../configs/apirc
       '@svelte-put/eslint-config': link:../../configs/eslint-config
       '@svelte-put/prettierrc': link:../../configs/prettierrc
@@ -195,15 +197,15 @@ importers:
       eslint: 8.25.0
       npm-run-all: 4.1.5
       prettier: 2.7.1
-      rollup: 3.1.0
+      rollup: 3.2.2
       rollup-plugin-filesize: 9.1.2
       tslib: 2.4.0
       typescript: 4.8.4
 
   packages/actions/toc:
     specifiers:
-      '@microsoft/api-documenter': ^7.19.19
-      '@microsoft/api-extractor': ^7.33.1
+      '@microsoft/api-documenter': ^7.19.20
+      '@microsoft/api-extractor': ^7.33.2
       '@svelte-put/apirc': workspace:^0.0.0
       '@svelte-put/eslint-config': workspace:^0.0.0
       '@svelte-put/prettierrc': workspace:^0.0.0
@@ -215,7 +217,7 @@ importers:
       npm-run-all: ^4.1.5
       prettier: ^2.7.1
       prettier-plugin-svelte: ^2.8.0
-      svelte: ^3.51.0
+      svelte: ^3.52.0
       svelte-check: ^2.9.2
       svelte-preprocess: ^4.10.7
       svelte2tsx: ^0.5.20
@@ -223,31 +225,31 @@ importers:
       typescript: ^4.8.4
       vite: ^3.1.8
     devDependencies:
-      '@microsoft/api-documenter': 7.19.19
-      '@microsoft/api-extractor': 7.33.1
+      '@microsoft/api-documenter': 7.19.20
+      '@microsoft/api-extractor': 7.33.2
       '@svelte-put/apirc': link:../../configs/apirc
       '@svelte-put/eslint-config': link:../../configs/eslint-config
       '@svelte-put/prettierrc': link:../../configs/prettierrc
       '@svelte-put/tsconfig': link:../../configs/tsconfig
       '@sveltejs/adapter-auto': 1.0.0-next.83
-      '@sveltejs/kit': 1.0.0-next.516_svelte@3.51.0+vite@3.1.8
-      '@sveltejs/package': 1.0.0-next.5_c36sqhgzdfaw4kmxogryyrffx4
+      '@sveltejs/kit': 1.0.0-next.516_svelte@3.52.0+vite@3.1.8
+      '@sveltejs/package': 1.0.0-next.5_besnmoibwkhwtentvwuriss7pa
       eslint: 8.25.0
       npm-run-all: 4.1.5
       prettier: 2.7.1
-      prettier-plugin-svelte: 2.8.0_ibge6ami6vq2q2j5g4rcvk62hq
-      svelte: 3.51.0
-      svelte-check: 2.9.2_svelte@3.51.0
-      svelte-preprocess: 4.10.7_c36sqhgzdfaw4kmxogryyrffx4
-      svelte2tsx: 0.5.20_c36sqhgzdfaw4kmxogryyrffx4
+      prettier-plugin-svelte: 2.8.0_lrllcp5xtrkmmdzifit4hd52ze
+      svelte: 3.52.0
+      svelte-check: 2.9.2_svelte@3.52.0
+      svelte-preprocess: 4.10.7_besnmoibwkhwtentvwuriss7pa
+      svelte2tsx: 0.5.20_besnmoibwkhwtentvwuriss7pa
       tslib: 2.4.0
       typescript: 4.8.4
       vite: 3.1.8
 
   packages/components/select:
     specifiers:
-      '@microsoft/api-documenter': ^7.19.19
-      '@microsoft/api-extractor': ^7.33.1
+      '@microsoft/api-documenter': ^7.19.20
+      '@microsoft/api-extractor': ^7.33.2
       '@svelte-put/apirc': workspace:^0.0.0
       '@svelte-put/clickoutside': ^1.0.4
       '@svelte-put/eslint-config': workspace:^0.0.0
@@ -261,7 +263,7 @@ importers:
       npm-run-all: ^4.1.5
       prettier: ^2.7.1
       prettier-plugin-svelte: ^2.8.0
-      svelte: ^3.51.0
+      svelte: ^3.52.0
       svelte-check: ^2.9.2
       svelte-preprocess: ^4.10.7
       svelte2tsx: ^0.5.20
@@ -272,23 +274,23 @@ importers:
       '@svelte-put/clickoutside': link:../../actions/clickoutside
       '@svelte-put/shortcut': link:../../actions/shortcut
     devDependencies:
-      '@microsoft/api-documenter': 7.19.19
-      '@microsoft/api-extractor': 7.33.1
+      '@microsoft/api-documenter': 7.19.20
+      '@microsoft/api-extractor': 7.33.2
       '@svelte-put/apirc': link:../../configs/apirc
       '@svelte-put/eslint-config': link:../../configs/eslint-config
       '@svelte-put/prettierrc': link:../../configs/prettierrc
       '@svelte-put/tsconfig': link:../../configs/tsconfig
       '@sveltejs/adapter-auto': 1.0.0-next.83
-      '@sveltejs/kit': 1.0.0-next.516_svelte@3.51.0+vite@3.1.8
-      '@sveltejs/package': 1.0.0-next.5_c36sqhgzdfaw4kmxogryyrffx4
+      '@sveltejs/kit': 1.0.0-next.516_svelte@3.52.0+vite@3.1.8
+      '@sveltejs/package': 1.0.0-next.5_besnmoibwkhwtentvwuriss7pa
       eslint: 8.25.0
       npm-run-all: 4.1.5
       prettier: 2.7.1
-      prettier-plugin-svelte: 2.8.0_ibge6ami6vq2q2j5g4rcvk62hq
-      svelte: 3.51.0
-      svelte-check: 2.9.2_svelte@3.51.0
-      svelte-preprocess: 4.10.7_c36sqhgzdfaw4kmxogryyrffx4
-      svelte2tsx: 0.5.20_c36sqhgzdfaw4kmxogryyrffx4
+      prettier-plugin-svelte: 2.8.0_lrllcp5xtrkmmdzifit4hd52ze
+      svelte: 3.52.0
+      svelte-check: 2.9.2_svelte@3.52.0
+      svelte-preprocess: 4.10.7_besnmoibwkhwtentvwuriss7pa
+      svelte2tsx: 0.5.20_besnmoibwkhwtentvwuriss7pa
       tslib: 2.4.0
       typescript: 4.8.4
       vite: 3.1.8
@@ -308,7 +310,7 @@ importers:
       eslint-plugin-svelte3: ^4.0.0
       eslint-plugin-tsdoc: ^0.2.17
       prettier: ^2.7.1
-      svelte: ^3.51.0
+      svelte: ^3.52.0
       typescript: ^4.8.4
     dependencies:
       '@svelte-put/prettierrc': link:../prettierrc
@@ -317,12 +319,12 @@ importers:
       eslint-config-prettier: 8.5.0_eslint@8.25.0
       eslint-plugin-import: 2.26.0_zb5prbqp7qzcgafjm73dfpyyvm
       eslint-plugin-prettier: 4.2.1_hvbqyfstm4urdpm6ffpwfka4e4
-      eslint-plugin-svelte3: 4.0.0_pr36k4f4yzzzfpayao7l7fkqni
+      eslint-plugin-svelte3: 4.0.0_2h6d4ngklmojchucosx7yvuw7m
     devDependencies:
       eslint: 8.25.0
       eslint-plugin-tsdoc: 0.2.17
       prettier: 2.7.1
-      svelte: 3.51.0
+      svelte: 3.52.0
       typescript: 4.8.4
 
   packages/configs/prettierrc:
@@ -364,8 +366,8 @@ importers:
 
   packages/misc/avatar:
     specifiers:
-      '@microsoft/api-documenter': ^7.19.19
-      '@microsoft/api-extractor': ^7.33.1
+      '@microsoft/api-documenter': ^7.19.20
+      '@microsoft/api-extractor': ^7.33.2
       '@svelte-put/apirc': workspace:^0.0.0
       '@svelte-put/eslint-config': workspace:^0.0.0
       '@svelte-put/prettierrc': workspace:^0.0.0
@@ -379,7 +381,7 @@ importers:
       npm-run-all: ^4.1.5
       prettier: ^2.7.1
       prettier-plugin-svelte: ^2.8.0
-      svelte: ^3.51.0
+      svelte: ^3.52.0
       svelte-check: ^2.9.2
       svelte-preprocess: ^4.10.7
       svelte2tsx: ^0.5.20
@@ -389,32 +391,32 @@ importers:
     dependencies:
       md5: 2.3.0
     devDependencies:
-      '@microsoft/api-documenter': 7.19.19
-      '@microsoft/api-extractor': 7.33.1
+      '@microsoft/api-documenter': 7.19.20
+      '@microsoft/api-extractor': 7.33.2
       '@svelte-put/apirc': link:../../configs/apirc
       '@svelte-put/eslint-config': link:../../configs/eslint-config
       '@svelte-put/prettierrc': link:../../configs/prettierrc
       '@svelte-put/tsconfig': link:../../configs/tsconfig
       '@sveltejs/adapter-auto': 1.0.0-next.83
-      '@sveltejs/kit': 1.0.0-next.516_svelte@3.51.0+vite@3.1.8
-      '@sveltejs/package': 1.0.0-next.5_c36sqhgzdfaw4kmxogryyrffx4
+      '@sveltejs/kit': 1.0.0-next.516_svelte@3.52.0+vite@3.1.8
+      '@sveltejs/package': 1.0.0-next.5_besnmoibwkhwtentvwuriss7pa
       '@types/md5': 2.3.2
       eslint: 8.25.0
       npm-run-all: 4.1.5
       prettier: 2.7.1
-      prettier-plugin-svelte: 2.8.0_ibge6ami6vq2q2j5g4rcvk62hq
-      svelte: 3.51.0
-      svelte-check: 2.9.2_svelte@3.51.0
-      svelte-preprocess: 4.10.7_c36sqhgzdfaw4kmxogryyrffx4
-      svelte2tsx: 0.5.20_c36sqhgzdfaw4kmxogryyrffx4
+      prettier-plugin-svelte: 2.8.0_lrllcp5xtrkmmdzifit4hd52ze
+      svelte: 3.52.0
+      svelte-check: 2.9.2_svelte@3.52.0
+      svelte-preprocess: 4.10.7_besnmoibwkhwtentvwuriss7pa
+      svelte2tsx: 0.5.20_besnmoibwkhwtentvwuriss7pa
       tslib: 2.4.0
       typescript: 4.8.4
       vite: 3.1.8
 
   packages/misc/modal:
     specifiers:
-      '@microsoft/api-documenter': ^7.19.19
-      '@microsoft/api-extractor': ^7.33.1
+      '@microsoft/api-documenter': ^7.19.20
+      '@microsoft/api-extractor': ^7.33.2
       '@svelte-put/apirc': workspace:^0.0.0
       '@svelte-put/clickoutside': ^1.0.4
       '@svelte-put/eslint-config': workspace:^0.0.0
@@ -429,7 +431,7 @@ importers:
       npm-run-all: ^4.1.5
       prettier: ^2.7.1
       prettier-plugin-svelte: ^2.8.0
-      svelte: ^3.51.0
+      svelte: ^3.52.0
       svelte-check: ^2.9.2
       svelte-preprocess: ^4.10.7
       svelte2tsx: ^0.5.20
@@ -441,23 +443,23 @@ importers:
       '@svelte-put/movable': link:../../actions/movable
       '@svelte-put/shortcut': link:../../actions/shortcut
     devDependencies:
-      '@microsoft/api-documenter': 7.19.19
-      '@microsoft/api-extractor': 7.33.1
+      '@microsoft/api-documenter': 7.19.20
+      '@microsoft/api-extractor': 7.33.2
       '@svelte-put/apirc': link:../../configs/apirc
       '@svelte-put/eslint-config': link:../../configs/eslint-config
       '@svelte-put/prettierrc': link:../../configs/prettierrc
       '@svelte-put/tsconfig': link:../../configs/tsconfig
       '@sveltejs/adapter-auto': 1.0.0-next.83
-      '@sveltejs/kit': 1.0.0-next.516_svelte@3.51.0+vite@3.1.8
-      '@sveltejs/package': 1.0.0-next.5_c36sqhgzdfaw4kmxogryyrffx4
+      '@sveltejs/kit': 1.0.0-next.516_svelte@3.52.0+vite@3.1.8
+      '@sveltejs/package': 1.0.0-next.5_besnmoibwkhwtentvwuriss7pa
       eslint: 8.25.0
       npm-run-all: 4.1.5
       prettier: 2.7.1
-      prettier-plugin-svelte: 2.8.0_ibge6ami6vq2q2j5g4rcvk62hq
-      svelte: 3.51.0
-      svelte-check: 2.9.2_svelte@3.51.0
-      svelte-preprocess: 4.10.7_c36sqhgzdfaw4kmxogryyrffx4
-      svelte2tsx: 0.5.20_c36sqhgzdfaw4kmxogryyrffx4
+      prettier-plugin-svelte: 2.8.0_lrllcp5xtrkmmdzifit4hd52ze
+      svelte: 3.52.0
+      svelte-check: 2.9.2_svelte@3.52.0
+      svelte-preprocess: 4.10.7_besnmoibwkhwtentvwuriss7pa
+      svelte2tsx: 0.5.20_besnmoibwkhwtentvwuriss7pa
       tslib: 2.4.0
       typescript: 4.8.4
       vite: 3.1.8
@@ -846,8 +848,8 @@ packages:
       - supports-color
     dev: true
 
-  /@microsoft/api-documenter/7.19.19:
-    resolution: {integrity: sha512-r7GuZ//eawHT4w6KBYA2mdNQdJD9ZKG7Bnkcja+PR/MwLEb8ce61aPbguFgyyeFmbiLS/bwGdmUM2ZjLXuJBKA==}
+  /@microsoft/api-documenter/7.19.20:
+    resolution: {integrity: sha512-1SX16ootdbymEG+ZkGhksDwHkd6SlNoQxhtFpx6n8HexcLVXn+ssENN0ALd1gvWRRHeKf3x+cCzfiMM5qwIX9A==}
     hasBin: true
     dependencies:
       '@microsoft/api-extractor-model': 7.25.1
@@ -867,8 +869,8 @@ packages:
       '@rushstack/node-core-library': 3.53.2
     dev: true
 
-  /@microsoft/api-extractor/7.33.1:
-    resolution: {integrity: sha512-FwhBbG4RlV2CqEsps2acIVCZz0evSDwotaJGwPhBvAKMYI9xm0pk2Jpuq6tTn2Xtjg4vPXH7bzJ2dPGl3FzgzQ==}
+  /@microsoft/api-extractor/7.33.2:
+    resolution: {integrity: sha512-OTCOtpQgvvRnxyCAHCPEDXVyJXrj54sGNCltOQaaT1wkTUPmRYo/I8yrCGXiBPUIHOpV3lUnaDJkzQF9dtbNWA==}
     hasBin: true
     dependencies:
       '@microsoft/api-extractor-model': 7.25.1
@@ -1086,7 +1088,7 @@ packages:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
     dev: true
 
-  /@rollup/plugin-typescript/9.0.1_52y3o6nq3pi22pxbagne3lkikq:
+  /@rollup/plugin-typescript/9.0.1_p5jh7ldozoj4wz6bisrjheqzay:
     resolution: {integrity: sha512-fj+CTk8+HvFCEwwDQdNgWd0lIJVXtMQ0Z3vH/ZgzFSbK2s1zs5wjZrjzrhViTTN+UF49+P69/tybgKRdGHpj/Q==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
@@ -1101,7 +1103,7 @@ packages:
     dependencies:
       '@rollup/pluginutils': 4.2.1
       resolve: 1.22.1
-      rollup: 3.1.0
+      rollup: 3.2.2
       tslib: 2.4.0
       typescript: 4.8.4
     dev: true
@@ -1301,7 +1303,7 @@ packages:
       - supports-color
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.516_svelte@3.51.0+vite@3.1.8:
+  /@sveltejs/kit/1.0.0-next.516_svelte@3.52.0+vite@3.1.8:
     resolution: {integrity: sha512-n0oGcv7xpgJ81ld1oER5HVREP4TdeDUJ8S64XNDcl3Y2xfQLKk8C4SLYQw2D6V+DxUm8V3aRrj7N7/tm4CQm6A==}
     engines: {node: '>=16.14'}
     hasBin: true
@@ -1310,7 +1312,7 @@ packages:
       svelte: ^3.44.0
       vite: ^3.1.0
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 1.0.9_svelte@3.51.0+vite@3.1.8
+      '@sveltejs/vite-plugin-svelte': 1.0.9_svelte@3.52.0+vite@3.1.8
       '@types/cookie': 0.5.1
       cookie: 0.5.0
       devalue: 4.0.0
@@ -1320,7 +1322,7 @@ packages:
       sade: 1.8.1
       set-cookie-parser: 2.5.1
       sirv: 2.0.2
-      svelte: 3.51.0
+      svelte: 3.52.0
       tiny-glob: 0.2.9
       undici: 5.11.0
       vite: 3.1.8
@@ -1329,7 +1331,7 @@ packages:
       - supports-color
     dev: true
 
-  /@sveltejs/package/1.0.0-next.5_c36sqhgzdfaw4kmxogryyrffx4:
+  /@sveltejs/package/1.0.0-next.5_besnmoibwkhwtentvwuriss7pa:
     resolution: {integrity: sha512-cXH8ESgZ5wSPspqsuIpz0hupz+gZlX9SfVV6FdwzY2A/dzKsTXUJKOjSd7hkjr69sBMyQRLfnk9eEaTG1EXGFA==}
     engines: {node: '>=16.14'}
     hasBin: true
@@ -1339,13 +1341,13 @@ packages:
       chokidar: 3.5.3
       kleur: 4.1.5
       sade: 1.8.1
-      svelte: 3.51.0
-      svelte2tsx: 0.5.20_c36sqhgzdfaw4kmxogryyrffx4
+      svelte: 3.52.0
+      svelte2tsx: 0.5.20_besnmoibwkhwtentvwuriss7pa
     transitivePeerDependencies:
       - typescript
     dev: true
 
-  /@sveltejs/vite-plugin-svelte/1.0.9_svelte@3.51.0+vite@3.1.8:
+  /@sveltejs/vite-plugin-svelte/1.0.9_svelte@3.52.0+vite@3.1.8:
     resolution: {integrity: sha512-+SDrAnT7TDi8sdj4OfD2SC4s9DNrpNVBrue8fT2PmKks9Ddu0JIfSeX91wXZb/1xHz4EkGb+rli8GTRI0yGOjg==}
     engines: {node: ^14.18.0 || >= 16}
     peerDependencies:
@@ -1361,8 +1363,8 @@ packages:
       deepmerge: 4.2.2
       kleur: 4.1.5
       magic-string: 0.26.7
-      svelte: 3.51.0
-      svelte-hmr: 0.15.0_svelte@3.51.0
+      svelte: 3.52.0
+      svelte-hmr: 0.15.0_svelte@3.52.0
       vite: 3.1.8
     transitivePeerDependencies:
       - supports-color
@@ -1417,6 +1419,10 @@ packages:
 
   /@types/node/12.20.55:
     resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
+    dev: true
+
+  /@types/node/18.11.0:
+    resolution: {integrity: sha512-IOXCvVRToe7e0ny7HpT/X9Rb2RYtElG1a+VshjwT00HxrM2dWBApHQoqsI6WiY7Q03vdf2bCrIGzVrkF/5t10w==}
     dev: true
 
   /@types/node/18.8.5:
@@ -3050,14 +3056,14 @@ packages:
       prettier-linter-helpers: 1.0.0
     dev: false
 
-  /eslint-plugin-svelte3/4.0.0_pr36k4f4yzzzfpayao7l7fkqni:
+  /eslint-plugin-svelte3/4.0.0_2h6d4ngklmojchucosx7yvuw7m:
     resolution: {integrity: sha512-OIx9lgaNzD02+MDFNLw0GEUbuovNcglg+wnd/UY0fbZmlQSz7GlQiQ1f+yX0XvC07XPcDOnFcichqI3xCwp71g==}
     peerDependencies:
       eslint: '>=8.0.0'
       svelte: ^3.2.0
     dependencies:
       eslint: 8.25.0
-      svelte: 3.51.0
+      svelte: 3.52.0
     dev: false
 
   /eslint-plugin-tsdoc/0.2.17:
@@ -5431,14 +5437,14 @@ packages:
       fast-diff: 1.2.0
     dev: false
 
-  /prettier-plugin-svelte/2.8.0_ibge6ami6vq2q2j5g4rcvk62hq:
+  /prettier-plugin-svelte/2.8.0_lrllcp5xtrkmmdzifit4hd52ze:
     resolution: {integrity: sha512-QlXv/U3bUszks3XYDPsk1fsaQC+fo2lshwKbcbO+lrSVdJ+40mB1BfL8OCAk1W9y4pJxpqO/4gqm6NtF3zNGCw==}
     peerDependencies:
       prettier: ^1.16.4 || ^2.0.0
       svelte: ^3.2.0
     dependencies:
       prettier: 2.7.1
-      svelte: 3.51.0
+      svelte: 3.52.0
     dev: true
 
   /prettier-plugin-tailwindcss/0.1.13_prettier@2.7.1:
@@ -5753,8 +5759,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /rollup/3.1.0:
-    resolution: {integrity: sha512-GEvr+COcXicr4nuih6mpt2Eydq5lZ72z0RrKx1H4/Q2ouT34OHrIIJ9OUj2sZqUhq7QL8Hp8Q8BoWbjL/6ccRQ==}
+  /rollup/3.2.2:
+    resolution: {integrity: sha512-tw8NITEB/A8aa8F+mmIJ7fQ7Abej0R9ugR1ZzsCqb7P8HWVIVdneN69BMTDjhk0qbUsewDSJSDTcVuCTogs8JA==}
     engines: {node: '>=14.18.0', npm: '>=8.0.0'}
     hasBin: true
     optionalDependencies:
@@ -6209,15 +6215,15 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  /svelte-awesome/3.0.0_svelte@3.51.0:
+  /svelte-awesome/3.0.0_svelte@3.52.0:
     resolution: {integrity: sha512-jfK+vc7f2kTFbBCk3dR1C3JA72cugh5bZHILc0gHbaSC3f1PkwPpA4OwpCRCT1Zf0hv6oaSZKxR8V2m1SKHj3Q==}
     peerDependencies:
       svelte: ^3.43.1
     dependencies:
-      svelte: 3.51.0
+      svelte: 3.52.0
     dev: true
 
-  /svelte-check/2.9.2_svelte@3.51.0:
+  /svelte-check/2.9.2_svelte@3.52.0:
     resolution: {integrity: sha512-DRi8HhnCiqiGR2YF9ervPGvtoYrheE09cXieCTEqeTPOTJzfoa54Py8rovIBv4bH4n5HgZYIyTQ3DDLHQLl2uQ==}
     hasBin: true
     peerDependencies:
@@ -6229,8 +6235,8 @@ packages:
       import-fresh: 3.3.0
       picocolors: 1.0.0
       sade: 1.8.1
-      svelte: 3.51.0
-      svelte-preprocess: 4.10.7_c36sqhgzdfaw4kmxogryyrffx4
+      svelte: 3.52.0
+      svelte-preprocess: 4.10.7_besnmoibwkhwtentvwuriss7pa
       typescript: 4.8.4
     transitivePeerDependencies:
       - '@babel/core'
@@ -6245,7 +6251,7 @@ packages:
       - sugarss
     dev: true
 
-  /svelte-check/2.9.2_zoczxmi4o3fslbwzsxwpwausyy:
+  /svelte-check/2.9.2_vidagnlh55bt6yxji7dk5y5wla:
     resolution: {integrity: sha512-DRi8HhnCiqiGR2YF9ervPGvtoYrheE09cXieCTEqeTPOTJzfoa54Py8rovIBv4bH4n5HgZYIyTQ3DDLHQLl2uQ==}
     hasBin: true
     peerDependencies:
@@ -6257,8 +6263,8 @@ packages:
       import-fresh: 3.3.0
       picocolors: 1.0.0
       sade: 1.8.1
-      svelte: 3.51.0
-      svelte-preprocess: 4.10.7_xtpsenb4qzglfzu4rz7ilvsl2m
+      svelte: 3.52.0
+      svelte-preprocess: 4.10.7_thgq75zisbcmm7d6lsbrpbdhti
       typescript: 4.8.4
     transitivePeerDependencies:
       - '@babel/core'
@@ -6273,16 +6279,16 @@ packages:
       - sugarss
     dev: true
 
-  /svelte-hmr/0.15.0_svelte@3.51.0:
+  /svelte-hmr/0.15.0_svelte@3.52.0:
     resolution: {integrity: sha512-Aw21SsyoohyVn4yiKXWPNCSW2DQNH/76kvUnE9kpt4h9hcg9tfyQc6xshx9hzgMfGF0kVx0EGD8oBMWSnATeOg==}
     engines: {node: ^12.20 || ^14.13.1 || >= 16}
     peerDependencies:
       svelte: '>=3.19.0'
     dependencies:
-      svelte: 3.51.0
+      svelte: 3.52.0
     dev: true
 
-  /svelte-preprocess/4.10.7_c36sqhgzdfaw4kmxogryyrffx4:
+  /svelte-preprocess/4.10.7_besnmoibwkhwtentvwuriss7pa:
     resolution: {integrity: sha512-sNPBnqYD6FnmdBrUmBCaqS00RyCsCpj2BG58A1JBswNF7b0OKviwxqVrOL/CKyJrLSClrSeqQv5BXNg2RUbPOw==}
     engines: {node: '>= 9.11.2'}
     requiresBuild: true
@@ -6329,11 +6335,11 @@ packages:
       magic-string: 0.25.9
       sorcery: 0.10.0
       strip-indent: 3.0.0
-      svelte: 3.51.0
+      svelte: 3.52.0
       typescript: 4.8.4
     dev: true
 
-  /svelte-preprocess/4.10.7_xtpsenb4qzglfzu4rz7ilvsl2m:
+  /svelte-preprocess/4.10.7_thgq75zisbcmm7d6lsbrpbdhti:
     resolution: {integrity: sha512-sNPBnqYD6FnmdBrUmBCaqS00RyCsCpj2BG58A1JBswNF7b0OKviwxqVrOL/CKyJrLSClrSeqQv5BXNg2RUbPOw==}
     engines: {node: '>= 9.11.2'}
     requiresBuild: true
@@ -6381,15 +6387,15 @@ packages:
       postcss: 8.4.18
       sorcery: 0.10.0
       strip-indent: 3.0.0
-      svelte: 3.51.0
+      svelte: 3.52.0
       typescript: 4.8.4
     dev: true
 
-  /svelte/3.51.0:
-    resolution: {integrity: sha512-PBITYIrsNOuW+Dtds00gSY68raNZQn7i59Dg/fjgf6WwyawPKeBwle692coO7ILZqSO+UJe9899aDn9sMdeOHA==}
+  /svelte/3.52.0:
+    resolution: {integrity: sha512-FxcnEUOAVfr10vDU5dVgJN19IvqeHQCS1zfe8vayTfis9A2t5Fhx+JDe5uv/C3j//bB1umpLJ6quhgs9xyUbCQ==}
     engines: {node: '>= 8'}
 
-  /svelte2tsx/0.5.20_c36sqhgzdfaw4kmxogryyrffx4:
+  /svelte2tsx/0.5.20_besnmoibwkhwtentvwuriss7pa:
     resolution: {integrity: sha512-yNHmN/uoAnJ7d1XqVohiNA6TMFOxibHyEddUAHVt1PiLXtbwAJF3WaGYlg8QbOdoXzOVsVNCAlqRUIdULUm+OA==}
     peerDependencies:
       svelte: ^3.24
@@ -6397,7 +6403,7 @@ packages:
     dependencies:
       dedent-js: 1.0.1
       pascal-case: 3.1.2
-      svelte: 3.51.0
+      svelte: 3.52.0
       typescript: 4.8.4
     dev: true
 
