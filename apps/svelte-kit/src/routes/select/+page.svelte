@@ -192,9 +192,9 @@
   main {
     display: grid;
     gap: 2.5rem;
-    padding: 10rem;
+    padding: 5rem 0;
     place-items: center;
-    width: 100vw;
+    width: 100%
   }
 
   h1 {
