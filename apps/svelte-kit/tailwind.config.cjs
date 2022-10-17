@@ -1,6 +1,10 @@
-/** @type {import("tailwindcss/tailwind-config").TailwindConfig } */
+/** @type {import("tailwindcss").Config } */
 const config = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
+  corePlugins: {
+    // disable preflight here for better real world simulation
+    preflight: false,
+  },
   theme: {
     extend: {
       backgroundImage: {
