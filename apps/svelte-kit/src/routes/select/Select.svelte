@@ -94,10 +94,20 @@
   $: allOptionsDisabled = searchedOptions.every((o) => o.disabled);
   // add lodash debounce?
   const doSearch = async (query: string, options: Option[]) => {
+    const previousSearchOptions = searchedOptions;
     searchedOptions = await rSearch.search({ query, options });
-    if (focusedOptionIndex !== undefined) {
-      if (!searchedOptions.length) focusedOptionIndex = undefined;
-      else focusedOptionIndex = Math.max(focusedOptionIndex, searchedOptions.length - 1);
+    if (!searchedOptions.length) focusedOptionIndex = undefined;
+    else if (focusedOptionIndex !== undefined) {
+      const focusedOption = previousSearchOptions[focusedOptionIndex];
+      focusedOptionIndex = 0;
+      for (let i = 0; i < searchedOptions.length; i++) {
+        if (searchedOptions[i].id === focusedOption.id) {
+          focusedOptionIndex = i;
+          break;
+        }
+      }
+    } else {
+      focusedOptionIndex = 0;
     }
     if (!open && query) expand();
   };
@@ -519,7 +529,7 @@
     margin-top: 4px;
     background-color: white;
     padding: 4px 0;
-    max-height: 500px;
+    max-height: 300px;
     overflow: auto;
   }
 
