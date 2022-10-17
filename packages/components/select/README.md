@@ -8,7 +8,7 @@ Feature-rich, extensible, type-safe, accessible `Select` component in `svelte`.
 
 </div>
 
-> ⚠️ `@svelte-put/select` is in active development and not feature complete yet.
+> ⚠️ `@svelte-put/select` is in active development and not feature complete yet. However, you can preview it at [![repl.badge]][repl]. Any feedback is welcome and much appreciated.
 
 ## Table of Contents
 
@@ -42,6 +42,8 @@ pnpm add -D @svelte-put/select
 ```
 
 ## [Changelog][github.changelog]
+
+> Documentation and usage guide are coming soon...
 
 <p align="center">
   <a href="https://www.buymeacoffee.com/vnphanquang" target="_blank">

@@ -56,49 +56,49 @@
   let collapseOnSelection: boolean;
 </script>
 
-<div class="grid place-items-center w-screen p-40 gap-10">
-  <h1 class="text-4xl font-bold">@svelte-put/select</h1>
+<main>
+  <h1>@svelte-put/select</h1>
 
-  <section class="w-full max-w-2xl grid gap-5">
-    <h2 class="text-3xl font-bold underline">Interactive Playground</h2>
-    <div class="grid grid-cols-[auto,1fr] gap-5 items-center">
+  <section>
+    <h2>Interactive Playground</h2>
+    <div class="interactive-playground ip">
       <label for="placeholder">Interactive Placeholder: </label>
       <input type="text" bind:value={placeholder} placeholder="something fun" id="placeholder">
 
       <label for="multiple">Multiple?:</label>
-      <input type="checkbox" id="multiple" bind:checked={multiple} class="justify-self-start">
+      <input type="checkbox" id="multiple" bind:checked={multiple}>
 
-      <p class="self-start">Search Config</p>
-      <div class="grid grid-cols-[auto,1fr] gap-5 items-center">
+      <p class="ip__group-title">Search Config</p>
+      <div class="ip__group">
         <label for="searchable">Enabled?:</label>
-        <input type="checkbox" id="searchable" bind:checked={search.enabled} class="justify-self-start">
+        <input type="checkbox" id="searchable" bind:checked={search.enabled}>
 
         <label for="clearOnSelection">Clear search on selection?:</label>
-        <input type="checkbox" id="clearOnSelection" bind:checked={search.clearOnSelection} class="justify-self-start">
+        <input type="checkbox" id="clearOnSelection" bind:checked={search.clearOnSelection}>
 
         <label for="debounced">Debounce delay:</label>
-        <input type="number" id="debounced" bind:value={search.debounced} class="justify-self-start">
+        <input type="number" id="debounced" bind:value={search.debounced}>
       </div>
 
-      <p class="self-start">Group Config</p>
-      <div class="grid grid-cols-[auto,1fr] gap-5 items-center">
+      <p class="ip__group-title">Group Config</p>
+      <div class="ip__group">
         <label for="groupable">Enabled?:</label>
-        <input type="checkbox" id="groupable" bind:checked={group.enabled} class="justify-self-start">
+        <input type="checkbox" id="groupable" bind:checked={group.enabled}>
 
         <label for="ungroupedLabel">Debounce delay:</label>
-        <input type="text" id="ungroupedLabel" bind:value={group.ungroupedLabel} class="justify-self-start">
+        <input type="text" id="ungroupedLabel" bind:value={group.ungroupedLabel}>
       </div>
 
       <label for="clearable">Clearable?:</label>
-      <input type="checkbox" id="clearable" bind:checked={clearable} class="justify-self-start">
+      <input type="checkbox" id="clearable" bind:checked={clearable}>
 
       <label for="hideExpansionIndicator">Hide expansion indicator?:</label>
-      <input type="checkbox" id="hideExpansionIndicator" bind:checked={hideExpansionIndicator} class="justify-self-start">
+      <input type="checkbox" id="hideExpansionIndicator" bind:checked={hideExpansionIndicator}>
 
       <label for="collapseOnSelection">Collapse on selection</label>
-      <input type="checkbox" id="collapseOnSelection" bind:checked={collapseOnSelection} class="justify-self-start">
+      <input type="checkbox" id="collapseOnSelection" bind:checked={collapseOnSelection}>
 
-      <div class="border-t-2 border-gray-500 col-[1/3] pt-4">
+      <div class="ip__select">
         <Select
           {options}
           bind:placeholder
@@ -113,9 +113,9 @@
     </div>
   </section>
 
-  <section class="w-full max-w-2xl grid gap-5">
-    <h2 class="text-3xl font-bold underline">Samples</h2>
-    <section class="w-full grid gap-5">
+  <section>
+    <h2>Samples</h2>
+    <section class="samples">
       <article>
         <h4>Default</h4>
         <Select {options} placeholder="Please select" />
@@ -126,7 +126,7 @@
         <Select {options} placeholder="Please select" multiple />
       </article>
 
-      <article class="grid gap-4">
+      <article class="samples__group">
         <h4>Pre-selected Options</h4>
 
         <div>
@@ -158,7 +158,7 @@
         <Select {options} placeholder="Please select" disabled />
       </article>
 
-      <article class="grid gap-4">
+      <article class="samples__group">
         <h4>Searchable</h4>
 
         <div>
@@ -186,11 +186,75 @@
       </article>
     </section>
   </section>
-</div>
+</main>
 
 <style>
+  main {
+    display: grid;
+    gap: 2.5rem;
+    padding: 10rem;
+    place-items: center;
+    width: 100vw;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 2.5rem;
+  }
+
   h4 {
     font-size: 1.25rem;
     font-weight: bold;
+  }
+
+  section {
+    display: grid;
+    gap: 1.25rem;
+    max-width: 42rem;
+    width: 100%;
+  }
+
+  h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 2.25rem;
+    text-decoration-line: underline;
+  }
+
+  .interactive-playground.ip {
+    align-items: center;
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: auto 1fr;
+  }
+  .ip__group-title {
+    align-self: flex-start;
+  }
+  .ip__group {
+    align-items: center;
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: auto 1fr;
+  }
+  .ip input[type="checkbox"] {
+    justify-self: start;
+  }
+  .ip__select {
+    border-color: rgb(107 114 128);
+    border-top-width: 2px;
+    grid-column: 1/3;
+    padding-top: 1rem;
+  }
+
+  .samples {
+    display: grid;
+    gap: 1.25rem;
+    width: 100%;
+  }
+
+  .samples__group {
+    display: grid;
+    gap: 1rem;
   }
 </style>

@@ -55,13 +55,13 @@ Note:
 
 These are some packages that will be added in the future (as soon as I find time, and the implementation has matured & become generic enough).
 
-| Package | Category | Short Description |
-| --- | --- | --- |
-| @svelte-put/popover | action | trigger tooltip & detailed popover, using [popperjs](https://popper.js.org/) |
-| @svelte-put/select | component | minimal & extensible `select` |
-| @svelte-put/noti | utility | fire async toast-like notification |
-| @svelte-put/inputcache | action | cache & restore value of input into/from local/session storage |
-| @svelte-put/form | action | auto collect type-safe input value from form (???)  |
+| Package | Category | Short Description | Status | REPL
+| --- | --- | --- | --- | --- |
+| [@svelte-put/select][github.select] | component | minimal & extensible `select` | active development | [![repl.badge]][repl.select] |
+| @svelte-put/popover | action | trigger tooltip & detailed popover, using [popperjs](https://popper.js.org/) | in flux |
+| @svelte-put/noti | utility | fire async toast-like notification | in flux |
+| @svelte-put/inputcache | action | cache & restore value of input into/from local/session storage | in flux |
+| @svelte-put/form | action | auto collect type-safe input value from form (???) | inception |
 
 Names for those packages may change.
 
@@ -200,6 +200,10 @@ pnpm turbo
 [github.modal.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/modal/CHANGELOG.md
 [github.modal.docs]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/modal/api/docs/index.md
 
+[github.select]: https://github.com/vnphanquang/svelte-put/tree/main/packages/components/select
+[github.select.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/components/select/CHANGELOG.md
+[github.select.docs]: https://github.com/vnphanquang/svelte-put/blob/main/packages/components/select/api/docs/index.md
+
 <!-- heading badge -->
 [license.badge]: https://img.shields.io/badge/license-MIT-blue.svg
 [license]: ./LICENSE
@@ -228,6 +232,7 @@ pnpm turbo
 [repl.toc]: https://svelte.dev/repl/d9c896ac62cd41d49f80ffa249d292e6
 [repl.avatar]: https://svelte.dev/repl/d54381946b1c4ebd8e612e4568fbbbd0
 [repl.modal]: https://svelte.dev/repl/0a68001337544b8ab55995fb3d02d1f6
+[repl.select]: https://svelte.dev/repl/4f0d701ab5ed411ebbc9a71b0955385d
 
 [@microsoft/api-extractor]: https://www.npmjs.com/package/@microsoft/api-extractor
 [@microsoft/api-documenter]: https://www.npmjs.com/package/@microsoft/api-documenter
