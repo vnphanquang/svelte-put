@@ -33,7 +33,7 @@ export interface GroupConfig<Option> {
 
 export type GroupProp<Option> = boolean | Grouper<Option> | Partial<GroupConfig<Option>>;
 
-export interface SelectProps<
+export interface SelectProperties<
   O extends BaseOption<V>,
   M extends true | false | undefined,
   V = O['value'],
@@ -55,6 +55,5 @@ export interface SelectProps<
   options: O[];
   multiple?: M;
   selected?: undefined extends M ? O : true extends M ? O[] : O;
-  // selected?: M extends undefined ? O : M extends true ? O[] : O;
   value?: undefined extends M ? V : true extends M ? V[] : V;
 }
