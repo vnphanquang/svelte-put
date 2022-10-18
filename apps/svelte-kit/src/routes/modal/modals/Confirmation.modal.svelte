@@ -11,7 +11,7 @@
     }
   >;
 
-  export let disabled: NonNullable<$$Props['disabled']> = false;
+  export let disabled = false;
 
   const dispatch = createModalEventDispatcher<$$Events>();
 

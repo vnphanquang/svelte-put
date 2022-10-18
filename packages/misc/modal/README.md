@@ -125,7 +125,7 @@ The example below shows how a confirmation modal might be implemented. See [Buil
   type $$Events = ExtendedModalEvents<{ confirmed: boolean }>;
 
   // use NonNullable type utility here to exclude the `undefined` case
-  export let disabled: NonNullable<$$Props['disabled']> = false;
+  export let disabled = false;
 
   // create a custom event dispatcher with built-in helper
   const dispatch = createModalEventDispatcher<$$Events>();
