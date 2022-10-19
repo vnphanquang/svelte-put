@@ -4,7 +4,7 @@
   "private": true,
   "workspaces": [
     "apps/*",
-    "packages/configs/*",
+    "configs/*",
     "packages/actions/*",
     "packages/components/*",
     "packages/misc/*"

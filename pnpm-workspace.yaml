@@ -1,5 +1,5 @@
 packages:
-  - "packages/configs/*"
+  - "configs/*"
   - "packages/actions/*"
   - "packages/components/*"
   - "packages/misc/*"

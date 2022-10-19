@@ -17,8 +17,8 @@ importers:
     devDependencies:
       '@changesets/changelog-github': 0.4.7
       '@changesets/cli': 2.25.0
-      '@svelte-put/eslint-config': link:packages/configs/eslint-config
-      '@svelte-put/prettierrc': link:packages/configs/prettierrc
+      '@svelte-put/eslint-config': link:configs/eslint-config
+      '@svelte-put/prettierrc': link:configs/prettierrc
       eslint: 8.25.0
       lint-staged: 13.0.3
       prettier: 2.7.1
@@ -58,11 +58,11 @@ importers:
     devDependencies:
       '@svelte-put/avatar': link:../../packages/misc/avatar
       '@svelte-put/clickoutside': link:../../packages/actions/clickoutside
-      '@svelte-put/eslint-config': link:../../packages/configs/eslint-config
+      '@svelte-put/eslint-config': link:../../configs/eslint-config
       '@svelte-put/intersect': link:../../packages/actions/intersect
       '@svelte-put/modal': link:../../packages/misc/modal
       '@svelte-put/movable': link:../../packages/actions/movable
-      '@svelte-put/prettierrc': link:../../packages/configs/prettierrc
+      '@svelte-put/prettierrc': link:../../configs/prettierrc
       '@svelte-put/select': link:../../packages/components/select
       '@svelte-put/shortcut': link:../../packages/actions/shortcut
       '@svelte-put/toc': link:../../packages/actions/toc
@@ -83,6 +83,75 @@ importers:
       tslib: 2.4.0
       typescript: 4.8.4
       vite: 3.1.8
+
+  configs/apirc:
+    specifiers: {}
+
+  configs/eslint-config:
+    specifiers:
+      '@svelte-put/prettierrc': workspace:^0.0.0
+      '@typescript-eslint/eslint-plugin': ^5.40.1
+      '@typescript-eslint/parser': ^5.40.1
+      eslint: ^8.25.0
+      eslint-config-prettier: ^8.5.0
+      eslint-plugin-import: ^2.26.0
+      eslint-plugin-prettier: ^4.2.1
+      eslint-plugin-svelte3: ^4.0.0
+      eslint-plugin-tsdoc: ^0.2.17
+      prettier: ^2.7.1
+      svelte: ^3.52.0
+      typescript: ^4.8.4
+    dependencies:
+      '@svelte-put/prettierrc': link:../prettierrc
+      '@typescript-eslint/eslint-plugin': 5.40.1_ukgdydjtebaxmxfqp5v5ulh64y
+      '@typescript-eslint/parser': 5.40.1_z4bbprzjrhnsfa24uvmcbu7f5q
+      eslint-config-prettier: 8.5.0_eslint@8.25.0
+      eslint-plugin-import: 2.26.0_vcunoyu347gmi72pwsm7mdvjca
+      eslint-plugin-prettier: 4.2.1_hvbqyfstm4urdpm6ffpwfka4e4
+      eslint-plugin-svelte3: 4.0.0_2h6d4ngklmojchucosx7yvuw7m
+    devDependencies:
+      eslint: 8.25.0
+      eslint-plugin-tsdoc: 0.2.17
+      prettier: 2.7.1
+      svelte: 3.52.0
+      typescript: 4.8.4
+
+  configs/prettierrc:
+    specifiers: {}
+
+  configs/releaserc:
+    specifiers:
+      '@semantic-release/changelog': ^6.0.1
+      '@semantic-release/commit-analyzer': ^9.0.2
+      '@semantic-release/git': ^10.0.1
+      '@semantic-release/github': ^8.0.6
+      '@semantic-release/npm': ^9.0.1
+      '@semantic-release/release-notes-generator': ^10.0.3
+      '@svelte-put/eslint-config': workspace:^0.0.0
+      '@svelte-put/prettierrc': workspace:^0.0.0
+      conventional-changelog-conventionalcommits: ^5.0.0
+      eslint: ^8.25.0
+      prettier: ^2.7.1
+      semantic-release: ^19.0.5
+      typescript: ^4.8.4
+    dependencies:
+      '@semantic-release/changelog': 6.0.1_semantic-release@19.0.5
+      '@semantic-release/commit-analyzer': 9.0.2_semantic-release@19.0.5
+      '@semantic-release/git': 10.0.1_semantic-release@19.0.5
+      '@semantic-release/github': 8.0.6_semantic-release@19.0.5
+      '@semantic-release/npm': 9.0.1_semantic-release@19.0.5
+      '@semantic-release/release-notes-generator': 10.0.3_semantic-release@19.0.5
+      conventional-changelog-conventionalcommits: 5.0.0
+    devDependencies:
+      '@svelte-put/eslint-config': link:../eslint-config
+      '@svelte-put/prettierrc': link:../prettierrc
+      eslint: 8.25.0
+      prettier: 2.7.1
+      semantic-release: 19.0.5
+      typescript: 4.8.4
+
+  configs/tsconfig:
+    specifiers: {}
 
   packages/actions/clickoutside:
     specifiers:
@@ -105,10 +174,10 @@ importers:
       '@microsoft/api-documenter': 7.19.22
       '@microsoft/api-extractor': 7.33.4
       '@rollup/plugin-typescript': 9.0.1_bvn3ed5hy3sfde644tygjdj4ia
-      '@svelte-put/apirc': link:../../configs/apirc
-      '@svelte-put/eslint-config': link:../../configs/eslint-config
-      '@svelte-put/prettierrc': link:../../configs/prettierrc
-      '@svelte-put/tsconfig': link:../../configs/tsconfig
+      '@svelte-put/apirc': link:../../../configs/apirc
+      '@svelte-put/eslint-config': link:../../../configs/eslint-config
+      '@svelte-put/prettierrc': link:../../../configs/prettierrc
+      '@svelte-put/tsconfig': link:../../../configs/tsconfig
       '@types/node': 18.11.2
       eslint: 8.25.0
       npm-run-all: 4.1.5
@@ -138,10 +207,10 @@ importers:
       '@microsoft/api-documenter': 7.19.22
       '@microsoft/api-extractor': 7.33.4
       '@rollup/plugin-typescript': 9.0.1_bvn3ed5hy3sfde644tygjdj4ia
-      '@svelte-put/apirc': link:../../configs/apirc
-      '@svelte-put/eslint-config': link:../../configs/eslint-config
-      '@svelte-put/prettierrc': link:../../configs/prettierrc
-      '@svelte-put/tsconfig': link:../../configs/tsconfig
+      '@svelte-put/apirc': link:../../../configs/apirc
+      '@svelte-put/eslint-config': link:../../../configs/eslint-config
+      '@svelte-put/prettierrc': link:../../../configs/prettierrc
+      '@svelte-put/tsconfig': link:../../../configs/tsconfig
       eslint: 8.25.0
       npm-run-all: 4.1.5
       prettier: 2.7.1
@@ -170,10 +239,10 @@ importers:
       '@microsoft/api-documenter': 7.19.22
       '@microsoft/api-extractor': 7.33.4
       '@rollup/plugin-typescript': 9.0.1_bvn3ed5hy3sfde644tygjdj4ia
-      '@svelte-put/apirc': link:../../configs/apirc
-      '@svelte-put/eslint-config': link:../../configs/eslint-config
-      '@svelte-put/prettierrc': link:../../configs/prettierrc
-      '@svelte-put/tsconfig': link:../../configs/tsconfig
+      '@svelte-put/apirc': link:../../../configs/apirc
+      '@svelte-put/eslint-config': link:../../../configs/eslint-config
+      '@svelte-put/prettierrc': link:../../../configs/prettierrc
+      '@svelte-put/tsconfig': link:../../../configs/tsconfig
       eslint: 8.25.0
       npm-run-all: 4.1.5
       prettier: 2.7.1
@@ -202,10 +271,10 @@ importers:
       '@microsoft/api-documenter': 7.19.22
       '@microsoft/api-extractor': 7.33.4
       '@rollup/plugin-typescript': 9.0.1_bvn3ed5hy3sfde644tygjdj4ia
-      '@svelte-put/apirc': link:../../configs/apirc
-      '@svelte-put/eslint-config': link:../../configs/eslint-config
-      '@svelte-put/prettierrc': link:../../configs/prettierrc
-      '@svelte-put/tsconfig': link:../../configs/tsconfig
+      '@svelte-put/apirc': link:../../../configs/apirc
+      '@svelte-put/eslint-config': link:../../../configs/eslint-config
+      '@svelte-put/prettierrc': link:../../../configs/prettierrc
+      '@svelte-put/tsconfig': link:../../../configs/tsconfig
       eslint: 8.25.0
       npm-run-all: 4.1.5
       prettier: 2.7.1
@@ -239,10 +308,10 @@ importers:
     devDependencies:
       '@microsoft/api-documenter': 7.19.22
       '@microsoft/api-extractor': 7.33.4
-      '@svelte-put/apirc': link:../../configs/apirc
-      '@svelte-put/eslint-config': link:../../configs/eslint-config
-      '@svelte-put/prettierrc': link:../../configs/prettierrc
-      '@svelte-put/tsconfig': link:../../configs/tsconfig
+      '@svelte-put/apirc': link:../../../configs/apirc
+      '@svelte-put/eslint-config': link:../../../configs/eslint-config
+      '@svelte-put/prettierrc': link:../../../configs/prettierrc
+      '@svelte-put/tsconfig': link:../../../configs/tsconfig
       '@sveltejs/adapter-auto': 1.0.0-next.83
       '@sveltejs/kit': 1.0.0-next.517_svelte@3.52.0+vite@3.1.8
       '@sveltejs/package': 1.0.0-next.5_besnmoibwkhwtentvwuriss7pa
@@ -288,10 +357,10 @@ importers:
     devDependencies:
       '@microsoft/api-documenter': 7.19.22
       '@microsoft/api-extractor': 7.33.4
-      '@svelte-put/apirc': link:../../configs/apirc
-      '@svelte-put/eslint-config': link:../../configs/eslint-config
-      '@svelte-put/prettierrc': link:../../configs/prettierrc
-      '@svelte-put/tsconfig': link:../../configs/tsconfig
+      '@svelte-put/apirc': link:../../../configs/apirc
+      '@svelte-put/eslint-config': link:../../../configs/eslint-config
+      '@svelte-put/prettierrc': link:../../../configs/prettierrc
+      '@svelte-put/tsconfig': link:../../../configs/tsconfig
       '@sveltejs/adapter-auto': 1.0.0-next.83
       '@sveltejs/kit': 1.0.0-next.517_svelte@3.52.0+vite@3.1.8
       '@sveltejs/package': 1.0.0-next.5_besnmoibwkhwtentvwuriss7pa
@@ -306,75 +375,6 @@ importers:
       tslib: 2.4.0
       typescript: 4.8.4
       vite: 3.1.8
-
-  packages/configs/apirc:
-    specifiers: {}
-
-  packages/configs/eslint-config:
-    specifiers:
-      '@svelte-put/prettierrc': workspace:^0.0.0
-      '@typescript-eslint/eslint-plugin': ^5.40.1
-      '@typescript-eslint/parser': ^5.40.1
-      eslint: ^8.25.0
-      eslint-config-prettier: ^8.5.0
-      eslint-plugin-import: ^2.26.0
-      eslint-plugin-prettier: ^4.2.1
-      eslint-plugin-svelte3: ^4.0.0
-      eslint-plugin-tsdoc: ^0.2.17
-      prettier: ^2.7.1
-      svelte: ^3.52.0
-      typescript: ^4.8.4
-    dependencies:
-      '@svelte-put/prettierrc': link:../prettierrc
-      '@typescript-eslint/eslint-plugin': 5.40.1_ukgdydjtebaxmxfqp5v5ulh64y
-      '@typescript-eslint/parser': 5.40.1_z4bbprzjrhnsfa24uvmcbu7f5q
-      eslint-config-prettier: 8.5.0_eslint@8.25.0
-      eslint-plugin-import: 2.26.0_vcunoyu347gmi72pwsm7mdvjca
-      eslint-plugin-prettier: 4.2.1_hvbqyfstm4urdpm6ffpwfka4e4
-      eslint-plugin-svelte3: 4.0.0_2h6d4ngklmojchucosx7yvuw7m
-    devDependencies:
-      eslint: 8.25.0
-      eslint-plugin-tsdoc: 0.2.17
-      prettier: 2.7.1
-      svelte: 3.52.0
-      typescript: 4.8.4
-
-  packages/configs/prettierrc:
-    specifiers: {}
-
-  packages/configs/releaserc:
-    specifiers:
-      '@semantic-release/changelog': ^6.0.1
-      '@semantic-release/commit-analyzer': ^9.0.2
-      '@semantic-release/git': ^10.0.1
-      '@semantic-release/github': ^8.0.6
-      '@semantic-release/npm': ^9.0.1
-      '@semantic-release/release-notes-generator': ^10.0.3
-      '@svelte-put/eslint-config': workspace:^0.0.0
-      '@svelte-put/prettierrc': workspace:^0.0.0
-      conventional-changelog-conventionalcommits: ^5.0.0
-      eslint: ^8.25.0
-      prettier: ^2.7.1
-      semantic-release: ^19.0.5
-      typescript: ^4.8.4
-    dependencies:
-      '@semantic-release/changelog': 6.0.1_semantic-release@19.0.5
-      '@semantic-release/commit-analyzer': 9.0.2_semantic-release@19.0.5
-      '@semantic-release/git': 10.0.1_semantic-release@19.0.5
-      '@semantic-release/github': 8.0.6_semantic-release@19.0.5
-      '@semantic-release/npm': 9.0.1_semantic-release@19.0.5
-      '@semantic-release/release-notes-generator': 10.0.3_semantic-release@19.0.5
-      conventional-changelog-conventionalcommits: 5.0.0
-    devDependencies:
-      '@svelte-put/eslint-config': link:../eslint-config
-      '@svelte-put/prettierrc': link:../prettierrc
-      eslint: 8.25.0
-      prettier: 2.7.1
-      semantic-release: 19.0.5
-      typescript: 4.8.4
-
-  packages/configs/tsconfig:
-    specifiers: {}
 
   packages/misc/avatar:
     specifiers:
@@ -405,10 +405,10 @@ importers:
     devDependencies:
       '@microsoft/api-documenter': 7.19.22
       '@microsoft/api-extractor': 7.33.4
-      '@svelte-put/apirc': link:../../configs/apirc
-      '@svelte-put/eslint-config': link:../../configs/eslint-config
-      '@svelte-put/prettierrc': link:../../configs/prettierrc
-      '@svelte-put/tsconfig': link:../../configs/tsconfig
+      '@svelte-put/apirc': link:../../../configs/apirc
+      '@svelte-put/eslint-config': link:../../../configs/eslint-config
+      '@svelte-put/prettierrc': link:../../../configs/prettierrc
+      '@svelte-put/tsconfig': link:../../../configs/tsconfig
       '@sveltejs/adapter-auto': 1.0.0-next.83
       '@sveltejs/kit': 1.0.0-next.517_svelte@3.52.0+vite@3.1.8
       '@sveltejs/package': 1.0.0-next.5_besnmoibwkhwtentvwuriss7pa
@@ -457,10 +457,10 @@ importers:
     devDependencies:
       '@microsoft/api-documenter': 7.19.22
       '@microsoft/api-extractor': 7.33.4
-      '@svelte-put/apirc': link:../../configs/apirc
-      '@svelte-put/eslint-config': link:../../configs/eslint-config
-      '@svelte-put/prettierrc': link:../../configs/prettierrc
-      '@svelte-put/tsconfig': link:../../configs/tsconfig
+      '@svelte-put/apirc': link:../../../configs/apirc
+      '@svelte-put/eslint-config': link:../../../configs/eslint-config
+      '@svelte-put/prettierrc': link:../../../configs/prettierrc
+      '@svelte-put/tsconfig': link:../../../configs/tsconfig
       '@sveltejs/adapter-auto': 1.0.0-next.83
       '@sveltejs/kit': 1.0.0-next.517_svelte@3.52.0+vite@3.1.8
       '@sveltejs/package': 1.0.0-next.5_besnmoibwkhwtentvwuriss7pa
