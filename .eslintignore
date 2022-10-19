@@ -1,0 +1,10 @@
+coverage/
+.next
+build
+dist
+*.tsbuildinfo
+*.gitignore
+*.svg
+*.lock
+*.npmignore
+examples/**
