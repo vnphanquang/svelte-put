@@ -1,5 +1,5 @@
 module.exports = {
-  ...require('@svelte-put/prettierrc'),
+  ...require('@vnphanquang/prettierrc'),
   plugins: [require('prettier-plugin-tailwindcss')],
   tailwindConfig: './tailwind.config.cjs',
 };

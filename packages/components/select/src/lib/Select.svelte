@@ -4,7 +4,15 @@
   import type { ShortcutTrigger } from '@svelte-put/shortcut';
   import { slide } from 'svelte/transition';
 
-  import type { Searcher, SearchConfig, BaseOption, GroupConfig, SearchProp, GroupProp, SelectProperties } from './Select.types';
+  import type {
+    Searcher,
+    SearchConfig,
+    BaseOption,
+    GroupConfig,
+    SearchProp,
+    GroupProp,
+    SelectProperties,
+  } from './Select.types';
 
   type Value = $$Generic;
   type Option = $$Generic<BaseOption<Value>>;
@@ -36,9 +44,10 @@
 
   // option focus handling
   let focusedOptionIndex: number | undefined = undefined;
-  $: activeDescendant = focusedOptionIndex !== undefined && searchedOptions[focusedOptionIndex]
-    ? generateLiId(searchedOptions[focusedOptionIndex])
-    : undefined;
+  $: activeDescendant =
+    focusedOptionIndex !== undefined && searchedOptions[focusedOptionIndex]
+      ? generateLiId(searchedOptions[focusedOptionIndex])
+      : undefined;
   function resetFocusedOptionIndex() {
     focusedOptionIndex = undefined;
   }
@@ -140,7 +149,10 @@
     }
   }
   $: rGroup = resolveGroup(group);
-  function groupOptions(options: Option[], groupConfig: GroupConfig<Option>): Record<string, Option[]>{
+  function groupOptions(
+    options: Option[],
+    groupConfig: GroupConfig<Option>,
+  ): Record<string, Option[]> {
     return options.reduce((map, option) => {
       let group = '';
       if (groupConfig.enabled) {
@@ -188,7 +200,7 @@
     if (collapseOnSelection) collapse();
   }
   function clearSelection() {
-    for (const option of options.filter(o => o.deselectable !== false)) {
+    for (const option of options.filter((o) => o.deselectable !== false)) {
       selectionMap[option.id] = false;
       selected = undefined;
       value = undefined;
@@ -266,9 +278,7 @@
     searchFocused = false;
   }
   let inputShortcuts: ShortcutTrigger[];
-  $: inputShortcuts = [
-    { key: 'Backspace', callback: removeLastSelection },
-  ];
+  $: inputShortcuts = [{ key: 'Backspace', callback: removeLastSelection }];
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -319,15 +329,25 @@
                 tabindex="-1"
                 disabled={option.disabled}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 48 48" stroke="currentColor">
-                  <path d="m12.45 37.65-2.1-2.1L21.9 24 10.35 12.45l2.1-2.1L24 21.9l11.55-11.55 2.1 2.1L26.1 24l11.55 11.55-2.1 2.1L24 26.1Z"/>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="14"
+                  width="14"
+                  viewBox="0 0 48 48"
+                  stroke="currentColor"
+                >
+                  <path
+                    d="m12.45 37.65-2.1-2.1L21.9 24 10.35 12.45l2.1-2.1L24 21.9l11.55-11.55 2.1 2.1L26.1 24l11.55 11.55-2.1 2.1L24 26.1Z"
+                  />
                 </svg>
               </button>
             {/if}
           </p>
         {/each}
       {:else}
-        <p class="selected-single" on:click={() => searchElement?.focus()}>{selectedOptions[0].label}</p>
+        <p class="selected-single" on:click={() => searchElement?.focus()}>
+          {selectedOptions[0].label}
+        </p>
       {/if}
     {/if}
 
@@ -338,20 +358,39 @@
 
   <div class="combobox-right">
     {#if clearable && selectedOptions.length}
-      <button class="combobox-clear" on:click|stopPropagation={clearSelection} disabled={disabled} tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 48 48" stroke="currentColor">
-          <path d="m12.45 37.65-2.1-2.1L21.9 24 10.35 12.45l2.1-2.1L24 21.9l11.55-11.55 2.1 2.1L26.1 24l11.55 11.55-2.1 2.1L24 26.1Z"/>
+      <button
+        class="combobox-clear"
+        on:click|stopPropagation={clearSelection}
+        {disabled}
+        tabindex="-1"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="20"
+          width="20"
+          viewBox="0 0 48 48"
+          stroke="currentColor"
+        >
+          <path
+            d="m12.45 37.65-2.1-2.1L21.9 24 10.35 12.45l2.1-2.1L24 21.9l11.55-11.55 2.1 2.1L26.1 24l11.55 11.55-2.1 2.1L24 26.1Z"
+          />
         </svg>
       </button>
       {#if !hideExpansionIndicator}
-        <div class="combobox-right-separator"></div>
+        <div class="combobox-right-separator" />
       {/if}
     {/if}
 
     {#if !hideExpansionIndicator}
       <div class="combobox-arrow">
-        <svg xmlns="http://www.w3.org/2000/svg" height="26" width="26" viewBox="0 0 48 48" stroke="currentColor">
-          <path d="m24 30.75-12-12 2.15-2.15L24 26.5l9.85-9.85L36 18.8Z"/>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="26"
+          width="26"
+          viewBox="0 0 48 48"
+          stroke="currentColor"
+        >
+          <path d="m24 30.75-12-12 2.15-2.15L24 26.5l9.85-9.85L36 18.8Z" />
         </svg>
       </div>
     {/if}
@@ -392,7 +431,6 @@
   {/if}
 </div>
 
-
 <!-- FIXME: fix this dreadful color scheme -->
 <style>
   .combobox {
@@ -401,7 +439,7 @@
     align-items: stretch;
     background-color: white;
   }
-  .combobox[aria-disabled="true"] {
+  .combobox[aria-disabled='true'] {
     cursor: not-allowed;
     background-color: lightgray;
   }
@@ -557,5 +595,4 @@
     color: darkgray;
     cursor: not-allowed;
   }
-
 </style>

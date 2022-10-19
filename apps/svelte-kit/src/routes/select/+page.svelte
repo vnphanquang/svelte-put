@@ -18,7 +18,12 @@
     { label: 'Burmese', value: 'Burmese', id: 'burmese', group: 'cat' },
     { label: 'Maine Coon', value: 'Maine Coon', id: 'maine-coon', group: 'cat' },
     { label: 'Persian', value: 'Persian', id: 'persian', group: 'cat' },
-    { label: 'Vietnamese Pot-bellied', value: 'Vietnamese Pot-bellied', id: 'vietnamese-pot-bellied', group: 'pig' },
+    {
+      label: 'Vietnamese Pot-bellied',
+      value: 'Vietnamese Pot-bellied',
+      id: 'vietnamese-pot-bellied',
+      group: 'pig',
+    },
     { label: 'Micro', value: 'Micro', id: 'micro', group: 'pig' },
     { label: 'Mangalica', value: 'Mangalica', id: 'mangalica', group: 'pig' },
     { label: 'Duroc', value: 'Duroc', id: 'duroc', group: 'pig' },
@@ -31,7 +36,7 @@
   ];
 
   $: optionsWithFirstTwoNotDeselectable = [
-    ...options.slice(0, 2).map(o => ({ ...o, deselectable: false })),
+    ...options.slice(0, 2).map((o) => ({ ...o, deselectable: false })),
     ...options.slice(2),
   ];
 
@@ -63,40 +68,40 @@
     <h2>Interactive Playground</h2>
     <div class="interactive-playground ip">
       <label for="placeholder">Interactive Placeholder: </label>
-      <input type="text" bind:value={placeholder} placeholder="something fun" id="placeholder">
+      <input type="text" bind:value={placeholder} placeholder="something fun" id="placeholder" />
 
       <label for="multiple">Multiple?:</label>
-      <input type="checkbox" id="multiple" bind:checked={multiple}>
+      <input type="checkbox" id="multiple" bind:checked={multiple} />
 
       <p class="ip__group-title">Search Config</p>
       <div class="ip__group">
         <label for="searchable">Enabled?:</label>
-        <input type="checkbox" id="searchable" bind:checked={search.enabled}>
+        <input type="checkbox" id="searchable" bind:checked={search.enabled} />
 
         <label for="clearOnSelection">Clear search on selection?:</label>
-        <input type="checkbox" id="clearOnSelection" bind:checked={search.clearOnSelection}>
+        <input type="checkbox" id="clearOnSelection" bind:checked={search.clearOnSelection} />
 
         <label for="debounced">Debounce delay:</label>
-        <input type="number" id="debounced" bind:value={search.debounced}>
+        <input type="number" id="debounced" bind:value={search.debounced} />
       </div>
 
       <p class="ip__group-title">Group Config</p>
       <div class="ip__group">
         <label for="groupable">Enabled?:</label>
-        <input type="checkbox" id="groupable" bind:checked={group.enabled}>
+        <input type="checkbox" id="groupable" bind:checked={group.enabled} />
 
         <label for="ungroupedLabel">Debounce delay:</label>
-        <input type="text" id="ungroupedLabel" bind:value={group.ungroupedLabel}>
+        <input type="text" id="ungroupedLabel" bind:value={group.ungroupedLabel} />
       </div>
 
       <label for="clearable">Clearable?:</label>
-      <input type="checkbox" id="clearable" bind:checked={clearable}>
+      <input type="checkbox" id="clearable" bind:checked={clearable} />
 
       <label for="hideExpansionIndicator">Hide expansion indicator?:</label>
-      <input type="checkbox" id="hideExpansionIndicator" bind:checked={hideExpansionIndicator}>
+      <input type="checkbox" id="hideExpansionIndicator" bind:checked={hideExpansionIndicator} />
 
       <label for="collapseOnSelection">Collapse on selection</label>
-      <input type="checkbox" id="collapseOnSelection" bind:checked={collapseOnSelection}>
+      <input type="checkbox" id="collapseOnSelection" bind:checked={collapseOnSelection} />
 
       <div class="ip__select">
         <Select
@@ -150,7 +155,11 @@
 
       <article>
         <h4>Pre-selected & Fixed Options</h4>
-        <Select options={optionsWithFirstTwoNotDeselectable} multiple selected={options.slice(0, 2)} />
+        <Select
+          options={optionsWithFirstTwoNotDeselectable}
+          multiple
+          selected={options.slice(0, 2)}
+        />
       </article>
 
       <article>
@@ -194,7 +203,7 @@
     gap: 2.5rem;
     padding: 5rem 0;
     place-items: center;
-    width: 100%
+    width: 100%;
   }
 
   h1 {
@@ -237,7 +246,7 @@
     gap: 1.25rem;
     grid-template-columns: auto 1fr;
   }
-  .ip input[type="checkbox"] {
+  .ip input[type='checkbox'] {
     justify-self: start;
   }
   .ip__select {

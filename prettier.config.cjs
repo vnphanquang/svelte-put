@@ -1,3 +1,4 @@
 module.exports = {
-  ...require('@svelte-put/prettierrc'),
+  ...require('@vnphanquang/prettierrc'),
+  pluginSearchDirs: ['.'],
 };

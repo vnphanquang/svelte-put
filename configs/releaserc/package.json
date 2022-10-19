@@ -9,12 +9,7 @@
     "format": "prettier --check \"./**/*.{ts,js,cjs,json}\""
   },
   "devDependencies": {
-    "@svelte-put/eslint-config": "workspace:^0.0.0",
-    "@svelte-put/prettierrc": "workspace:^0.0.0",
-    "eslint": "^8.25.0",
-    "prettier": "^2.7.1",
-    "semantic-release": "^19.0.5",
-    "typescript": "^4.8.4"
+    "semantic-release": "^19.0.5"
   },
   "dependencies": {
     "@semantic-release/changelog": "^6.0.1",

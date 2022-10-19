@@ -56,7 +56,8 @@ export function createModalStore() {
       };
     });
 
-    let id: string = (crypto && crypto.randomUUID && crypto.randomUUID()) ?? `modal-indexed-${modals.length}`;
+    let id: string =
+      (crypto && crypto.randomUUID && crypto.randomUUID()) ?? `modal-indexed-${modals.length}`;
     let props: ComponentProps<Component>;
     let component: ComponentType<Component>;
     if (typeof input === 'function') {

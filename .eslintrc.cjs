@@ -1,4 +1,4 @@
 module.exports = {
   root: true,
-  extends: ['@svelte-put/eslint-config'],
+  extends: ['@vnphanquang/eslint-config-svelte'],
 };

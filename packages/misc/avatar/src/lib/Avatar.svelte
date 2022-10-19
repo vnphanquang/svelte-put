@@ -78,6 +78,7 @@
     return [_src, rGravatar, rUIAvatar, rFallback].filter(nonNullableFilter);
   }
 </script>
+
 <!--
   @component
   Svelte `<img>` wrapper component for displaying avatar
