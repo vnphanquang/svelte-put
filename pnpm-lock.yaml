@@ -32,7 +32,7 @@ importers:
       turbo: 1.5.6
       typescript: 4.8.4
 
-  apps/svelte-kit:
+  apps/playground:
     specifiers:
       '@svelte-put/avatar': workspace:*
       '@svelte-put/clickoutside': workspace:*
@@ -85,7 +85,7 @@ importers:
       svelte-awesome: 3.0.0_svelte@3.52.0
       svelte-check: 2.9.2_vidagnlh55bt6yxji7dk5y5wla
       svelte-preprocess: 4.10.7_thgq75zisbcmm7d6lsbrpbdhti
-      tailwindcss: 3.1.8_postcss@8.4.18
+      tailwindcss: 3.1.8
       tslib: 2.4.0
       typescript: 4.8.4
       vite: 3.1.8
@@ -225,8 +225,6 @@ importers:
       '@sveltejs/kit': 1.0.0-next.517
       '@sveltejs/package': 1.0.0-next.5
       npm-run-all: ^4.1.5
-      prettier: ^2.7.1
-      prettier-plugin-svelte: ^2.8.0
       svelte: ^3.52.0
       svelte-check: ^2.9.2
       svelte-preprocess: ^4.10.7
@@ -243,8 +241,6 @@ importers:
       '@sveltejs/kit': 1.0.0-next.517_svelte@3.52.0+vite@3.1.8
       '@sveltejs/package': 1.0.0-next.5_besnmoibwkhwtentvwuriss7pa
       npm-run-all: 4.1.5
-      prettier: 2.7.1
-      prettier-plugin-svelte: 2.8.0_lrllcp5xtrkmmdzifit4hd52ze
       svelte: 3.52.0
       svelte-check: 2.9.2_svelte@3.52.0
       svelte-preprocess: 4.10.7_besnmoibwkhwtentvwuriss7pa
@@ -265,8 +261,6 @@ importers:
       '@sveltejs/kit': 1.0.0-next.517
       '@sveltejs/package': 1.0.0-next.5
       npm-run-all: ^4.1.5
-      prettier: ^2.7.1
-      prettier-plugin-svelte: ^2.8.0
       svelte: ^3.52.0
       svelte-check: ^2.9.2
       svelte-preprocess: ^4.10.7
@@ -286,8 +280,6 @@ importers:
       '@sveltejs/kit': 1.0.0-next.517_svelte@3.52.0+vite@3.1.8
       '@sveltejs/package': 1.0.0-next.5_besnmoibwkhwtentvwuriss7pa
       npm-run-all: 4.1.5
-      prettier: 2.7.1
-      prettier-plugin-svelte: 2.8.0_lrllcp5xtrkmmdzifit4hd52ze
       svelte: 3.52.0
       svelte-check: 2.9.2_svelte@3.52.0
       svelte-preprocess: 4.10.7_besnmoibwkhwtentvwuriss7pa
@@ -308,8 +300,6 @@ importers:
       '@types/md5': ^2.3.2
       md5: ^2.3.0
       npm-run-all: ^4.1.5
-      prettier: ^2.7.1
-      prettier-plugin-svelte: ^2.8.0
       svelte: ^3.52.0
       svelte-check: ^2.9.2
       svelte-preprocess: ^4.10.7
@@ -329,8 +319,6 @@ importers:
       '@sveltejs/package': 1.0.0-next.5_besnmoibwkhwtentvwuriss7pa
       '@types/md5': 2.3.2
       npm-run-all: 4.1.5
-      prettier: 2.7.1
-      prettier-plugin-svelte: 2.8.0_lrllcp5xtrkmmdzifit4hd52ze
       svelte: 3.52.0
       svelte-check: 2.9.2_svelte@3.52.0
       svelte-preprocess: 4.10.7_besnmoibwkhwtentvwuriss7pa
@@ -352,8 +340,6 @@ importers:
       '@sveltejs/kit': 1.0.0-next.517
       '@sveltejs/package': 1.0.0-next.5
       npm-run-all: ^4.1.5
-      prettier: ^2.7.1
-      prettier-plugin-svelte: ^2.8.0
       svelte: ^3.52.0
       svelte-check: ^2.9.2
       svelte-preprocess: ^4.10.7
@@ -374,8 +360,6 @@ importers:
       '@sveltejs/kit': 1.0.0-next.517_svelte@3.52.0+vite@3.1.8
       '@sveltejs/package': 1.0.0-next.5_besnmoibwkhwtentvwuriss7pa
       npm-run-all: 4.1.5
-      prettier: 2.7.1
-      prettier-plugin-svelte: 2.8.0_lrllcp5xtrkmmdzifit4hd52ze
       svelte: 3.52.0
       svelte-check: 2.9.2_svelte@3.52.0
       svelte-preprocess: 4.10.7_besnmoibwkhwtentvwuriss7pa
@@ -6694,12 +6678,10 @@ packages:
       stable: 0.1.8
     dev: true
 
-  /tailwindcss/3.1.8_postcss@8.4.18:
+  /tailwindcss/3.1.8:
     resolution: {integrity: sha512-YSneUCZSFDYMwk+TGq8qYFdCA3yfBRdBlS7txSq0LUmzyeqRe3a8fBQzbz9M3WS/iFT4BNf/nmw9mEzrnSaC0g==}
     engines: {node: '>=12.13.0'}
     hasBin: true
-    peerDependencies:
-      postcss: ^8.0.9
     dependencies:
       arg: 5.0.2
       chokidar: 3.5.3

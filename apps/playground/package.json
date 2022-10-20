@@ -1,5 +1,5 @@
 {
-  "name": "@svelte-put/svelte-kit",
+  "name": "@svelte-put/playground",
   "version": "0.0.0",
   "private": true,
   "description": "Development env & field test kit for packages",

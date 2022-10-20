@@ -25,7 +25,7 @@ When you start working on an issue, make sure you are asked to be assigned to it
 Please include as much details as possible:
 
 - steps to reproduce,
-- a github repo that has enough setup to reproduce the bug would be nice. It might be helpful to clone this repo and play around in the [svelte-kit](./apps/svelte-kit/) project, create a branch to reproduce your problem there and reference in your issue.
+- a github repo that has enough setup to reproduce the bug would be nice. It might be helpful to clone this repo and play around in the [playground](./apps/playground) project, create a branch to reproduce your problem there and reference in your issue.
 - screenshots.
 
 ### Feature Request
