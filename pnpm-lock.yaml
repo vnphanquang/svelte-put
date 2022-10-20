@@ -42,7 +42,7 @@ importers:
       '@svelte-put/select': workspace:*
       '@svelte-put/shortcut': workspace:*
       '@svelte-put/toc': workspace:*
-      '@sveltejs/adapter-static': 1.0.0-next.45
+      '@sveltejs/adapter-vercel': 1.0.0-next.80
       '@sveltejs/kit': 1.0.0-next.520
       '@typescript-eslint/eslint-plugin': ^5.27.0
       '@typescript-eslint/parser': ^5.27.0
@@ -71,7 +71,7 @@ importers:
       '@svelte-put/select': link:../../packages/components/select
       '@svelte-put/shortcut': link:../../packages/actions/shortcut
       '@svelte-put/toc': link:../../packages/actions/toc
-      '@sveltejs/adapter-static': 1.0.0-next.45
+      '@sveltejs/adapter-vercel': 1.0.0-next.80
       '@sveltejs/kit': 1.0.0-next.520_svelte@3.52.0+vite@3.1.8
       '@typescript-eslint/eslint-plugin': 5.40.1_ukgdydjtebaxmxfqp5v5ulh64y
       '@typescript-eslint/parser': 5.40.1_z4bbprzjrhnsfa24uvmcbu7f5q
@@ -1259,12 +1259,18 @@ packages:
       set-cookie-parser: 2.5.1
     dev: true
 
-  /@sveltejs/adapter-static/1.0.0-next.45:
-    resolution: {integrity: sha512-7hJp3QYbn5+hDJKJDMe3ufAvPlgSP6Ishm1X84cbydKM1ZuI/rtmQw3gDEUuXAgcU+TDJTJLwrSlcErr1/HjIw==}
-    dev: true
-
   /@sveltejs/adapter-vercel/1.0.0-next.79:
     resolution: {integrity: sha512-Mitw34vS+wR/qxZm6qOUltf910N8gcekYZHaEVxO6HaE/9LyEZ/O03e9rRKwo4LAWrHXOkHMdUxvv1VcS9BqmQ==}
+    dependencies:
+      '@vercel/nft': 0.22.1
+      esbuild: 0.15.10
+    transitivePeerDependencies:
+      - encoding
+      - supports-color
+    dev: true
+
+  /@sveltejs/adapter-vercel/1.0.0-next.80:
+    resolution: {integrity: sha512-a1ibKgN5RsNw6HPzhNKrPuEndgYRXCYlGIioVzfKpt/tEr4RuV5o/bST2FBgjCIWCqajKhWg1QLZmN2DZfPy6Q==}
     dependencies:
       '@vercel/nft': 0.22.1
       esbuild: 0.15.10

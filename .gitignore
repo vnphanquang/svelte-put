@@ -33,3 +33,4 @@ temp/
 
 # svelte-kit
 .svelte-kit/
+.vercel
