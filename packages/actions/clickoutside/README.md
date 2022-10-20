@@ -17,6 +17,7 @@ Svelte action `use:clickoutside` - event for clicking outside a node
 
 - [`@svelte-put/clickoutside`](#svelte-putclickoutside)
   - [Table of Contents](#table-of-contents)
+  - [Features](#features)
   - [`svelte-put`](#svelte-put)
   - [Changelog](#changelog)
   - [Installation](#installation)
@@ -25,6 +26,13 @@ Svelte action `use:clickoutside` - event for clicking outside a node
     - [Typescript support](#typescript-support)
 
 </details>
+
+## Features
+
+- reactive `enabled` option for performance improvement
+- `limit` option for limiting `clickoutside` to a parent `HTMLElement`
+
+Customization is documented at [ClickOutsideParameters][github.api.clickoutsideparameters].
 
 ## `svelte-put`
 
@@ -62,15 +70,12 @@ Ambient types for custom events should be available automatically where `clickou
   <summary> show / hide </summary>
 
 ```html
- <script lang="ts">
-    import { clickoutside } from '@svelte-put/clickoutside';
- </script>
+<script lang="ts">
+  import { clickoutside } from '@svelte-put/clickoutside';
+</script>
 
- <!-- on:clickoutside should be typed -->
- <div
-   use:clickoutside
-   on:clickoutside
- />
+<!-- on:clickoutside should be typed -->
+<div use:clickoutside on:clickoutside />
 ```
 
 </details>
@@ -120,10 +125,10 @@ For detailed documentation, see the [extracted API][github.api].
 [github.api.clickoutside]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/clickoutside/api/docs/clickoutside.clickoutside.md
 
 <!-- heading badge -->
+
 [npm.badge]: https://img.shields.io/npm/v/@svelte-put/clickoutside
 [npm]: https://www.npmjs.com/package/@svelte-put/clickoutside
 [bundlephobia.badge]: https://img.shields.io/bundlephobia/minzip/@svelte-put/clickoutside?label=minzipped
 [bundlephobia]: https://bundlephobia.com/package/@svelte-put/intersect
-
 [repl]: https://svelte.dev/repl/9e5f9ee41c2c45aa8523993e357f6e78
 [repl.badge]: https://img.shields.io/static/v1?label=&message=Svelte+REPL&logo=svelte&logoColor=fff&color=ff3e00

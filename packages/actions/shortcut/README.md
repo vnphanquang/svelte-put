@@ -24,6 +24,14 @@ Svelte action `use:shortcut` - add event listener for keyboard shortcuts
 
 </details>
 
+## Features
+
+- one or multiple trigger combinations
+- reactive `enabled` option for action and individual triggers
+- shortcut callback through either custom event (`on:shortcut`) for as parameter to action
+
+Customization is documented at [ShortcutParameters][github.api.shortcutparameters].
+
 ## `svelte-put`
 
 This package is part of the [@svelte-put][github.monorepo] family. For contributing guideline and more, refer to its [readme][github.monorepo].
@@ -90,6 +98,7 @@ Quick access to the parameter interface accepted by the action: [ShortcutParamet
 </p>
 
 <!-- github specifics -->
+
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
 [github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/shortcut/CHANGELOG.md
 [github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
@@ -98,6 +107,7 @@ Quick access to the parameter interface accepted by the action: [ShortcutParamet
 [github.api.shortcut]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/shortcut/api/docs/shortcut.shortcut.md
 
 <!-- heading badge -->
+
 [npm.badge]: https://img.shields.io/npm/v/@svelte-put/shortcut
 [npm]: https://www.npmjs.com/package/@svelte-put/shortcut
 [bundlephobia.badge]: https://img.shields.io/bundlephobia/minzip/@svelte-put/shortcut?label=minzipped

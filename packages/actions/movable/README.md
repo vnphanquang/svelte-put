@@ -17,6 +17,7 @@ Svelte action `use:movable` - make a node move on mousedown & mousemove
 
 - [`@svelte-put/movable`](#svelte-putmovable)
   - [Table of Contents](#table-of-contents)
+  - [Features](#features)
   - [`svelte-put`](#svelte-put)
   - [Changelog](#changelog)
   - [Installation](#installation)
@@ -25,6 +26,15 @@ Svelte action `use:movable` - make a node move on mousedown & mousemove
     - [Typescript support](#typescript-support)
 
 </details>
+
+## Features
+
+- reactive `enabled` option for performance
+- `limit` option to restrict movement of node
+- custom `trigger` `HTMLElement`
+- `ignore` css selectors for excluding children nodes from triggering movement
+
+Customization is documented at [MovableParameters][github.api.movableparameters].
 
 ## `svelte-put`
 
@@ -62,16 +72,12 @@ Ambient types for custom events should be available automatically where `movable
   <summary> show / hide </summary>
 
 ```html
- <script lang="ts">
-    import { movable } from '@svelte-put/movable';
- </script>
+<script lang="ts">
+  import { movable } from '@svelte-put/movable';
+</script>
 
- <!-- on:movablestart, on:movableend should be typed -->
- <div
-    use:movable
-    on:movablestart
-    on:movableend
- />
+<!-- on:movablestart, on:movableend should be typed -->
+<div use:movable on:movablestart on:movableend />
 ```
 
 </details>
@@ -91,7 +97,9 @@ If the above is not working, fall back to this:
 declare namespace svelte.JSX {
   interface HTMLAttributes<T> {
     // on:movablestart
-    onmovablestart?: (event: CustomEvent<import('@svelte-put/movable').MovableEventDetails>) => void;
+    onmovablestart?: (
+      event: CustomEvent<import('@svelte-put/movable').MovableEventDetails>,
+    ) => void;
     // on:movableend
     onmovableend?: (event: CustomEvent<import('@svelte-put/movable').MovableEventDetails>) => void;
   }
@@ -127,10 +135,10 @@ Quick access to the parameter interface accepted by the action: [MovableParamete
 [github.api.movable]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/api/docs/movable.movable.md
 
 <!-- heading badge -->
+
 [npm.badge]: https://img.shields.io/npm/v/@svelte-put/movable
 [npm]: https://www.npmjs.com/package/@svelte-put/movable
 [bundlephobia.badge]: https://img.shields.io/bundlephobia/minzip/@svelte-put/movable?label=minzipped
 [bundlephobia]: https://bundlephobia.com/package/@svelte-put/movable
-
 [repl]: https://svelte.dev/repl/88a7c1fc2e134db7b58786d5f385fc5d
 [repl.badge]: https://img.shields.io/static/v1?label=&message=Svelte+REPL&logo=svelte&logoColor=fff&color=ff3e00
