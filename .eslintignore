@@ -8,5 +8,4 @@ dist
 *.lock
 *.npmignore
 examples/**
-/.svelte-kit
-/package
+.svelte-kit/
