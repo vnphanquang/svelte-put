@@ -2,6 +2,6 @@
   import '../lib/ui/styles/app.css';
 </script>
 
-<div class="flex h-full flex-col">
+<main class="min-h-screen flex-1">
   <slot />
-</div>
+</main>

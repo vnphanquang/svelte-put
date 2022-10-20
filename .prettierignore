@@ -25,3 +25,5 @@ LICENSE
 *.patch
 *.toml
 *.prisma
+svelte-kit/
+package/

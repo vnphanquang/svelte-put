@@ -30,3 +30,7 @@ build
 .turbo
 
 temp/
+
+# svelte-kit
+/.svelte-kit
+/package
