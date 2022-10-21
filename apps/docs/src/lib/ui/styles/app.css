@@ -4,7 +4,7 @@
 
 @layer base {
   html {
-    @apply h-full bg-bg bg-paper text-fg;
+    @apply h-full bg-bg bg-paper text-fg text-base;
 
     scroll-behavior: smooth;
   }
