@@ -1,5 +1,11 @@
 <script lang="ts">
-  import { page } from '$app/stores';
+  import { cubicIn, cubicOut } from 'svelte/easing';
+  import { fly } from 'svelte/transition';
+
+  import type { LayoutData } from './$types';
+
+  export let data: LayoutData;
+
   const contents = [
     {
       category: 'Actions',
@@ -45,11 +51,18 @@
   function generateDocHref(packageName: string) {
     return `/docs/${packageName}`;
   }
+
+  const TRANSITION_DURATION = 200;
+  const yIn = 10;
+  const yOut = -10;
 </script>
 
-<div class="flex-2 min-h-screen">
+<div class="flex-2 min-h-screen overflow-y-scroll">
   <nav id="navbar" class="flex items-center justify-between border-b border-border py-2 px-6">
-    <p>Logo will go here</p>
+    <a href="/" class="flex items-end gap-2">
+      <img src="/images/svelte-put-logo.svg" alt="svelte-put" width="32" height="32" />
+      <span class="c-link text-sm font-bold">svelte-put</span>
+    </a>
     <a href="https://github.com/vnphanquang/svelte-put" target="__blank" class="c-link">
       <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6"
         ><title>GitHub</title><path
@@ -60,12 +73,12 @@
     </a>
   </nav>
 
-  <nav data-sveltekit-prefetch id="sidebar" class="max-w-xs border-r border-border py-6">
+  <nav data-sveltekit-prefetch id="sidebar" class="max-w-xs border-r border-border py-6 text-sm">
     <ul>
       <li>
         <a
           href="/docs"
-          data-active={$page.url.pathname === '/docs'}
+          data-active={data.pathname === '/docs'}
           class="c-link-bg block py-2 px-6 font-bold"
         >
           Introduction
@@ -80,8 +93,8 @@
               <li>
                 <a
                   {href}
-                  data-active={$page.url.pathname.includes(name)}
-                  class="c-link-bg block py-2 px-10 text-sm"
+                  data-active={data.pathname.includes(name)}
+                  class="c-link-bg block py-2 px-10"
                 >
                   <span class="h-full w-1 bg-primary" />
                   {name}
@@ -101,11 +114,25 @@
       {/each}
     </ul>
   </nav>
-  console.log(`Turbo ~ file: +layout.svelte ~ line 91 ~ nav`, nav);
 
-  <main class="c-container justify-self-stretch py-10">
-    <slot />
-  </main>
+  {#key data.pathname}
+    <main
+      class="c-container justify-self-stretch py-10"
+      in:fly={{
+        y: yIn,
+        duration: TRANSITION_DURATION,
+        delay: TRANSITION_DURATION,
+        easing: cubicOut,
+      }}
+      out:fly={{
+        y: yOut,
+        duration: TRANSITION_DURATION,
+        easing: cubicIn,
+      }}
+    >
+      <slot />
+    </main>
+  {/key}
 </div>
 
 <style lang="postcss">
