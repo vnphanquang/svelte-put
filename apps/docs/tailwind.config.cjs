@@ -1,11 +1,19 @@
 const plugin = require('tailwindcss/plugin');
 
 const sveltePut = plugin(
-  ({ addComponents }) => {
-    addComponents({
-      '.c-container': {
+  ({ addComponents, addUtilities }) => {
+    addUtilities({
+      '.container': {
         '@apply mx-auto w-full max-w-5xl max-md:px-10': {},
       },
+      '.bg-gradient-brand': {
+        '@apply bg-gradient-to-r from-svelte to-[#42b883]': {},
+      },
+      '.text-gradient-brand': {
+        '@apply bg-gradient-brand bg-clip-text text-transparent': {},
+      },
+    });
+    addComponents({
       '.c-link': {
         '@apply hover:text-primary': {},
       },
