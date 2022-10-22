@@ -13,7 +13,7 @@
   {#key mounted}
     <h1 class="flex items-end gap-1" in:fly={{ y: 20, duration: 1000, easing: cubicOut }}>
       <img src="/images/svelte-put-logo.svg" alt="svelte-put" width="60" height="60" />
-      <span class="font-bold uppercase">svelte-put</span>
+      <span class="font-bold uppercase text-gradient-brand">svelte-put</span>
     </h1>
     <p in:fly={{ y: 20, duration: 1000, delay: 100, easing: cubicOut }}>
       Useful <a class="c-link underline" href="https://svelte.dev/" target="__blank">svelte</a> stuff
