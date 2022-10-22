@@ -32,6 +32,7 @@ const sveltePut = plugin(
           },
           border: '#d5c4a1',
           primary: '#d65d03',
+          svelte: '#ef4623',
           secondary: '#98971a',
         },
         keyframes: {
