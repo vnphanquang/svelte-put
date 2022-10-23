@@ -98,7 +98,7 @@
     <div class="flex w-full items-center justify-between py-2 px-6">
       <a href="/" class="flex items-center gap-2">
         <img src="/images/svelte-put-logo.svg" alt="svelte-put" width="32" height="32" />
-        <span class="c-link text-sm font-bold">svelte-put</span>
+        <span class="c-link text-sm font-bold text-gradient-brand">svelte-put</span>
       </a>
       <a href="https://github.com/vnphanquang/svelte-put" target="__blank" class="c-link">
         <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6"
