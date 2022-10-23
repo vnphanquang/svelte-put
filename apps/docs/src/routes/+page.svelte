@@ -21,11 +21,11 @@
     </p>
     <ul class="flex items-center justify-center gap-10 text-sm font-bold uppercase">
       <li in:fly={{ y: 20, duration: 1000, delay: 200, easing: cubicOut }}>
-        <a href="/docs" class="c-link" data-sveltekit-prefetch>Documentation</a>
+        <a href="/docs" class="c-link" data-sveltekit-prefetch>Read Docs</a>
       </li>
       <li in:fly={{ y: 20, duration: 1000, delay: 300, easing: cubicOut }}>
         <a href="https://github.com/vnphanquang/svelte-put" class="c-link" target="__blank"
-          >Github</a
+          >See Github</a
         >
       </li>
     </ul>
