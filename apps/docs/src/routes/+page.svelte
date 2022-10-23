@@ -1,25 +1,54 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import { onMount, tick } from 'svelte';
   import { cubicOut } from 'svelte/easing';
   import { fly } from 'svelte/transition';
 
+  import SveltePutLogoAnimation from '$lib/ui/components/SveltePutLogoAnimation.svelte';
+
+  let animationOpen = false;
+  function open() {
+    animationOpen = true;
+  }
+  function close() {
+    animationOpen = false;
+  }
+
+  let innerWidth = Infinity;
   let mounted = false;
-  onMount(() => (mounted = true));
+  $: if (innerWidth < 768) {
+    tick().then(open);
+  } else {
+    close();
+  }
+  onMount(async () => {
+    mounted = true;
+  });
 </script>
 
+<svelte:window bind:innerWidth />
+
 <main
-  class="grid h-screen w-screen place-content-center place-items-center gap-10 bg-fg bg-paper text-white"
+  class="grid h-screen w-screen place-content-center place-items-center gap-10 bg-fg bg-paper text-center text-white"
 >
   {#key mounted}
-    <h1 class="flex items-end gap-1" in:fly={{ y: 20, duration: 1000, easing: cubicOut }}>
-      <img src="/images/svelte-put-logo.svg" alt="svelte-put" width="60" height="60" />
-      <span class="font-bold uppercase text-gradient-brand">svelte-put</span>
+    <SveltePutLogoAnimation open={animationOpen} class="ml-1 scale-75" />
+
+    <h1
+      class="font-bold uppercase text-gradient-brand"
+      in:fly={{ y: 20, duration: 1000, easing: cubicOut }}
+    >
+      svelte-put
     </h1>
+
     <p in:fly={{ y: 20, duration: 1000, delay: 100, easing: cubicOut }}>
       Useful <a class="c-link underline" href="https://svelte.dev/" target="__blank">svelte</a> stuff
       to put in your projects
     </p>
-    <ul class="flex items-center justify-center gap-10 text-sm font-bold uppercase">
+    <ul
+      class="flex items-center justify-center gap-10 text-sm font-bold uppercase"
+      on:mouseenter={open}
+      on:mouseleave={close}
+    >
       <li in:fly={{ y: 20, duration: 1000, delay: 200, easing: cubicOut }}>
         <a href="/docs" class="c-link" data-sveltekit-prefetch>Read Docs</a>
       </li>
