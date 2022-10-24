@@ -22,6 +22,7 @@
     "@svelte-put/toc": "workspace:*",
     "@sveltejs/adapter-vercel": "1.0.0-next.80",
     "@sveltejs/kit": "1.0.0-next.524",
+    "@tailwindcss/typography": "^0.5.7",
     "@typescript-eslint/eslint-plugin": "^5.40.1",
     "@typescript-eslint/parser": "^5.40.1",
     "@vnphanquang/prettierrc": "^1.0.0",

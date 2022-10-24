@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --header-height: 55px;
+  }
+
   html {
     @apply h-full bg-bg bg-paper text-fg text-base;
 

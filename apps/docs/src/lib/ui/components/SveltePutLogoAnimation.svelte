@@ -177,7 +177,7 @@
     }
     & .box-content {
       transition-delay: 250ms;
-      transform: translate(-50%, -150%);
+      transform: translate(-50%, -125%);
       opacity: 1;
     }
   }
