@@ -44,6 +44,7 @@ importers:
       '@svelte-put/toc': workspace:*
       '@sveltejs/adapter-vercel': 1.0.0-next.80
       '@sveltejs/kit': 1.0.0-next.524
+      '@tailwindcss/typography': ^0.5.7
       '@typescript-eslint/eslint-plugin': ^5.40.1
       '@typescript-eslint/parser': ^5.40.1
       '@vnphanquang/prettierrc': ^1.0.0
@@ -74,6 +75,7 @@ importers:
       '@svelte-put/toc': link:../../packages/actions/toc
       '@sveltejs/adapter-vercel': 1.0.0-next.80
       '@sveltejs/kit': 1.0.0-next.524_svelte@3.52.0+vite@3.1.8
+      '@tailwindcss/typography': 0.5.7_tailwindcss@3.2.1
       '@typescript-eslint/eslint-plugin': 5.40.1_c4zyna56jjjrggqkyejnaxjxfu
       '@typescript-eslint/parser': 5.40.1_wyqvi574yv7oiwfeinomdzmc3m
       '@vnphanquang/prettierrc': 1.0.0_prettier@2.7.1
@@ -1351,6 +1353,18 @@ packages:
       vite: 3.1.8
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@tailwindcss/typography/0.5.7_tailwindcss@3.2.1:
+    resolution: {integrity: sha512-JTTSTrgZfp6Ki4svhPA4mkd9nmQ/j9EfE7SbHJ1cLtthKkpW2OxsFXzSmxbhYbEkfNIyAyhle5p4SYyKRbz/jg==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || insiders'
+    dependencies:
+      lodash.castarray: 4.4.0
+      lodash.isplainobject: 4.0.6
+      lodash.merge: 4.6.2
+      postcss-selector-parser: 6.0.10
+      tailwindcss: 3.2.1_postcss@8.4.18
     dev: true
 
   /@tootallnate/once/1.1.2:
@@ -4345,6 +4359,10 @@ packages:
 
   /lodash.capitalize/4.2.1:
     resolution: {integrity: sha512-kZzYOKspf8XVX5AvmQF94gQW0lejFVgb80G85bU4ZWzoJ6C03PQg3coYAUpSTpQWelrZELd3XWgHzw4Ck5kaIw==}
+
+  /lodash.castarray/4.4.0:
+    resolution: {integrity: sha512-aVx8ztPv7/2ULbArGJ2Y42bG1mEQ5mGjpdvrbJcJFU3TbYybe+QlLS4pst9zV52ymy2in1KpFPiZnAOATxD4+Q==}
+    dev: true
 
   /lodash.escaperegexp/4.1.2:
     resolution: {integrity: sha512-TM9YBvyC84ZxE3rgfefxUWiQKLilstD6k7PTGt6wfbtXF8ixIJLOL3VYyV/z+ZiPLsVxAsKAFVwWlWeb2Y8Yyw==}

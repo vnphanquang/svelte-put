@@ -58,8 +58,6 @@ pnpm add -D @svelte-put/clickoutside
 
 See [examples here](https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/clickoutside/api/docs/clickoutside.clickoutside.md#example). Also check out the [Svelte REPL][repl].
 
-</details>
-
 ## Documentation
 
 ### Typescript support
