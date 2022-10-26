@@ -25,6 +25,14 @@
   });
 </script>
 
+<svelte:head>
+  <title>svelte-put</title>
+  <meta
+    name="description"
+    content="Collection of utilities, components, and tooling for svelte projects"
+  />
+</svelte:head>
+
 <svelte:window bind:innerWidth />
 
 <main
