@@ -22,7 +22,7 @@
     "@svelte-put/shortcut": "workspace:*",
     "@svelte-put/toc": "workspace:*",
     "@sveltejs/adapter-auto": "1.0.0-next.84",
-    "@sveltejs/kit": "1.0.0-next.524",
+    "@sveltejs/kit": "1.0.0-next.525",
     "@vnphanquang/prettierrc": "^1.0.0",
     "cssnano": "^5.1.13",
     "eslint": "^8.26.0",
