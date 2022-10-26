@@ -75,12 +75,12 @@
     "@svelte-put/shortcut": "^1.0.2"
   },
   "devDependencies": {
-    "@microsoft/api-documenter": "^7.19.22",
-    "@microsoft/api-extractor": "^7.33.4",
+    "@microsoft/api-documenter": "^7.19.23",
+    "@microsoft/api-extractor": "^7.33.5",
     "@svelte-put/apirc": "workspace:^0.0.0",
     "@svelte-put/tsconfig": "workspace:^0.0.0",
     "@sveltejs/adapter-auto": "1.0.0-next.84",
-    "@sveltejs/kit": "1.0.0-next.524",
+    "@sveltejs/kit": "1.0.0-next.525",
     "@sveltejs/package": "1.0.0-next.5",
     "npm-run-all": "^4.1.5",
     "svelte": "^3.52.0",
