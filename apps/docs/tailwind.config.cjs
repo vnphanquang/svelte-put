@@ -26,6 +26,30 @@ const sveltePut = plugin(
   {
     theme: {
       extend: {
+        typography: {
+          DEFAULT: {
+            css: {
+              'h2,h3,h4,h5,h6': {
+                position: 'relative',
+                '&:hover::before': {
+                  content: '"#"',
+                  position: 'absolute',
+                  right: '101%',
+                },
+              },
+              'h1,h2,h3,h4,h5,h6': {
+                '& a': {
+                  'text-decoration': 'none',
+                  'font-weight': 'inherit',
+                },
+              },
+            },
+          },
+        },
+        fontFamily: {
+          fira: ['Fira Code', 'monospace'],
+          inter: ['Inter VF', 'Inter', 'sans-serif'],
+        },
         spacing: {
           header: 'var(--header-height)',
         },
