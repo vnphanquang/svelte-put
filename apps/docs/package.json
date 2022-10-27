@@ -11,6 +11,9 @@
     "lint": "eslint .",
     "format": "prettier --check --ignore-path ../../.prettierignore \"./**/*.{ts,js,cjs,json,svelte,css}\""
   },
+  "dependencies": {
+    "static-tree": "^1.1.1"
+  },
   "devDependencies": {
     "@svelte-put/avatar": "workspace:*",
     "@svelte-put/clickoutside": "workspace:*",

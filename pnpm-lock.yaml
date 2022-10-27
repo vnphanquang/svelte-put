@@ -60,6 +60,7 @@ importers:
       prettier-plugin-tailwindcss: ^0.1.13
       rehype-autolink-headings: ^6.1.1
       rehype-slug: ^5.0.1
+      static-tree: ^1.1.1
       svelte: ^3.52.0
       svelte-check: ^2.9.2
       svelte-highlight: ^6.2.1
@@ -68,6 +69,8 @@ importers:
       tslib: ^2.4.0
       typescript: ^4.8.4
       vite: ^3.1.8
+    dependencies:
+      static-tree: 1.1.1
     devDependencies:
       '@svelte-put/avatar': link:../../packages/misc/avatar
       '@svelte-put/clickoutside': link:../../packages/actions/clickoutside
@@ -6519,6 +6522,10 @@ packages:
     resolution: {integrity: sha512-ji9qxRnOVfcuLDySj9qzhGSEFVobyt1kIOSkj1qZzYLzq7Tos/oUUWvotUPQLlrsidqsK6tBH89Bc9kL5zHA6w==}
     deprecated: 'Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility'
     dev: true
+
+  /static-tree/1.1.1:
+    resolution: {integrity: sha512-Qtri/ANvEIPOKUnBEylGFZeJWYELL/Ykajj/MO+D5ZPhuGMTPCnVId5RzeQPs2tlb7v+hHOIJW5LJfAl8yXKDA==}
+    dev: false
 
   /stream-combiner2/1.1.1:
     resolution: {integrity: sha512-3PnJbYgS56AeWgtKF5jtJRT6uFJe56Z0Hc5Ngg/6sI6rIt8iiMBTa9cvdyFfpMQjaVHr8dusbNeFGIIonxOvKw==}

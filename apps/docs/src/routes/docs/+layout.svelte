@@ -2,6 +2,8 @@
   import gruvbox from 'svelte-highlight/styles/gruvbox-dark-soft';
   import { cubicOut } from 'svelte/easing';
 
+  import { APP_ROUTE_TREE } from '$lib/constants';
+
   import type { LayoutData } from './$types';
 
   export let data: LayoutData;
@@ -12,18 +14,23 @@
       packages: [
         {
           name: '@svelte-put/clickoutside',
+          path: APP_ROUTE_TREE.docs.clickoutside.$.path(),
         },
         {
           name: '@svelte-put/intersect',
+          path: APP_ROUTE_TREE.docs.intersect.$.path(),
         },
         {
           name: '@svelte-put/movable',
+          path: APP_ROUTE_TREE.docs.movable.$.path(),
         },
         {
           name: '@svelte-put/shortcut',
+          path: APP_ROUTE_TREE.docs.shortcut.$.path(),
         },
         {
           name: '@svelte-put/toc',
+          path: APP_ROUTE_TREE.docs.toc.$.path(),
         },
       ],
     },
@@ -32,6 +39,7 @@
       packages: [
         {
           name: '@svelte-put/select',
+          path: APP_ROUTE_TREE.docs.select.$.path(),
         },
       ],
     },
@@ -40,17 +48,15 @@
       packages: [
         {
           name: '@svelte-put/avatar',
+          path: APP_ROUTE_TREE.docs.avatar.$.path(),
         },
         {
           name: '@svelte-put/modal',
+          path: APP_ROUTE_TREE.docs.modal.$.path(),
         },
       ],
     },
   ] as const;
-
-  function generateDocHref(packageName: string) {
-    return `/docs/${packageName}`;
-  }
 
   // TODO: extract this to own @svelte-put/transition
   function slide(node: HTMLElement, { delay = 0, duration = 400, easing = cubicOut, axis = 'y' }) {
@@ -118,8 +124,8 @@
       <ul class="sticky top-header p-6">
         <li>
           <a
-            href="/docs"
-            data-current={data.pathname === '/docs'}
+            href={APP_ROUTE_TREE.docs.$.path()}
+            data-current={data.pathname === APP_ROUTE_TREE.docs.$.path()}
             class="c-link block py-2 font-bold"
           >
             Introduction
@@ -129,11 +135,10 @@
           <li class="py-2">
             <p class="font-bold">{category}</p>
             <ul class="mt-2 space-y-1 border-l border-border/50">
-              {#each packages as { name }}
-                {@const href = generateDocHref(name)}
+              {#each packages as { name, path }}
                 <li>
                   <a
-                    {href}
+                    href={path}
                     data-current={data.pathname.includes(name)}
                     class="c-link -ml-px block py-1 pl-3 data-current:border-l data-current:border-primary"
                   >
