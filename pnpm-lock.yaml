@@ -316,8 +316,8 @@ importers:
       '@microsoft/api-documenter': ^7.19.23
       '@microsoft/api-extractor': ^7.33.5
       '@svelte-put/apirc': workspace:^0.0.0
-      '@svelte-put/clickoutside': workspace:^1.0.4
-      '@svelte-put/shortcut': workspace:^1.0.2
+      '@svelte-put/clickoutside': ^1.0.4
+      '@svelte-put/shortcut': ^1.0.2
       '@svelte-put/tsconfig': workspace:^0.0.0
       '@sveltejs/adapter-auto': 1.0.0-next.84
       '@sveltejs/kit': 1.0.0-next.525
@@ -394,9 +394,9 @@ importers:
       '@microsoft/api-documenter': ^7.19.23
       '@microsoft/api-extractor': ^7.33.5
       '@svelte-put/apirc': workspace:^0.0.0
-      '@svelte-put/clickoutside': workspace:^1.0.4
-      '@svelte-put/movable': workspace:^1.2.2
-      '@svelte-put/shortcut': workspace:^1.0.2
+      '@svelte-put/clickoutside': ^1.0.4
+      '@svelte-put/movable': ^1.2.2
+      '@svelte-put/shortcut': ^1.0.2
       '@svelte-put/tsconfig': workspace:^0.0.0
       '@sveltejs/adapter-auto': 1.0.0-next.84
       '@sveltejs/kit': 1.0.0-next.525

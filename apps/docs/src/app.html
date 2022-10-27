@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- general metadata tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#fbf1c7" />
 
+    <!-- web manifest -->
+    <link rel="manifest" href="%sveltekit.assets%/site.webmanifest" />
+
+    <!-- favicons -->
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -29,14 +35,21 @@
       href="%sveltekit.assets%/images/favicon/favicon-16x16.png"
     />
     <link rel="icon" type="image/png" href="%sveltekit.assets%/images/favicon/favicon.png" />
-    <link rel="manifest" href="%sveltekit.assets%/site.webmanifest" />
     <link
       rel="mask-icon"
       href="%sveltekit.assets%/images/favicon/safari-pinned-tab.svg"
       color="#d65d03"
     />
     <meta name="msapplication-TileColor" content="#fbf1c7" />
-    <meta name="theme-color" content="#fbf1c7" />
+
+    <!-- fonts -->
+    <link
+      rel="preload"
+      href="%sveltekit.assets%/fonts/Inter-VariableFont_slnt,wght.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
 
     %sveltekit.head%
   </head>
