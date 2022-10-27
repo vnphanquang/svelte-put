@@ -26,7 +26,7 @@ const sveltePut = plugin(
   {
     theme: {
       extend: {
-        typography: {
+        typography: ({ theme }) => ({
           DEFAULT: {
             css: {
               'h2,h3,h4,h5,h6': {
@@ -38,6 +38,7 @@ const sveltePut = plugin(
                 },
               },
               'h1,h2,h3,h4,h5,h6': {
+                'scroll-margin-top': theme('spacing.header'),
                 '& a': {
                   'text-decoration': 'none',
                   'font-weight': 'inherit',
@@ -45,7 +46,7 @@ const sveltePut = plugin(
               },
             },
           },
-        },
+        }),
         fontFamily: {
           fira: ['Fira Code', 'monospace'],
           inter: ['Inter VF', 'Inter', 'sans-serif'],
