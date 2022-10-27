@@ -1,4 +1,5 @@
 <script lang="ts">
+  import gruvbox from 'svelte-highlight/styles/gruvbox-dark-soft';
   import { cubicOut } from 'svelte/easing';
 
   import type { LayoutData } from './$types';
@@ -85,6 +86,10 @@
   }
 </script>
 
+<svelte:head>
+  {@html gruvbox}
+</svelte:head>
+
 <div class="relative flex min-h-screen flex-1 flex-col pt-header">
   <header class="fixed inset-x-0 top-0 z-header h-header border-b border-border bg-bg">
     {#key data.pathname}
@@ -144,7 +149,7 @@
     </nav>
 
     {#key data.pathname}
-      <main class="prose flex-1 py-10 px-6 md:px-10 lg:px-14">
+      <main class="prose max-w-none flex-1 py-10 px-6 md:px-10 lg:px-14">
         <slot />
       </main>
     {/key}
