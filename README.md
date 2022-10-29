@@ -222,13 +222,13 @@ pnpm turbo
 <!-- svelte REPL -->
 
 [repl.badge]: https://img.shields.io/static/v1?label=&message=Svelte+REPL&logo=svelte&logoColor=fff&color=ff3e00
-[repl.movable]: https://svelte.dev/repl/88a7c1fc2e134db7b58786d5f385fc5d
+[repl.avatar]: https://svelte.dev/repl/d54381946b1c4ebd8e612e4568fbbbd0
 [repl.clickoutside]: https://svelte.dev/repl/9e5f9ee41c2c45aa8523993e357f6e78
 [repl.intersect]: https://svelte.dev/repl/835eacce6ac44aff95a7cb0bb5ca200d
-[repl.toc]: https://svelte.dev/repl/d9c896ac62cd41d49f80ffa249d292e6
-[repl.avatar]: https://svelte.dev/repl/d54381946b1c4ebd8e612e4568fbbbd0
 [repl.modal]: https://svelte.dev/repl/0a68001337544b8ab55995fb3d02d1f6
+[repl.movable]: https://svelte.dev/repl/88a7c1fc2e134db7b58786d5f385fc5d
 [repl.select]: https://svelte.dev/repl/4f0d701ab5ed411ebbc9a71b0955385d
+[repl.toc]: https://svelte.dev/repl/d9c896ac62cd41d49f80ffa249d292e6
 [@microsoft/api-extractor]: https://www.npmjs.com/package/@microsoft/api-extractor
 [@microsoft/api-documenter]: https://www.npmjs.com/package/@microsoft/api-documenter
 [pnpm]: https://pnpm.io/
