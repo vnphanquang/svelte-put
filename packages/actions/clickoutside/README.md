@@ -127,6 +127,6 @@ For detailed documentation, see the [extracted API][github.api].
 [npm.badge]: https://img.shields.io/npm/v/@svelte-put/clickoutside
 [npm]: https://www.npmjs.com/package/@svelte-put/clickoutside
 [bundlephobia.badge]: https://img.shields.io/bundlephobia/minzip/@svelte-put/clickoutside?label=minzipped
-[bundlephobia]: https://bundlephobia.com/package/@svelte-put/intersect
+[bundlephobia]: https://bundlephobia.com/package/@svelte-put/clickoutside
 [repl]: https://svelte.dev/repl/9e5f9ee41c2c45aa8523993e357f6e78
 [repl.badge]: https://img.shields.io/static/v1?label=&message=Svelte+REPL&logo=svelte&logoColor=fff&color=ff3e00
