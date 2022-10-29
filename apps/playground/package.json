@@ -21,10 +21,10 @@
     "@svelte-put/select": "workspace:*",
     "@svelte-put/shortcut": "workspace:*",
     "@svelte-put/toc": "workspace:*",
-    "@sveltejs/adapter-auto": "1.0.0-next.84",
-    "@sveltejs/kit": "1.0.0-next.525",
+    "@sveltejs/adapter-auto": "1.0.0-next.85",
+    "@sveltejs/kit": "1.0.0-next.528",
     "@vnphanquang/prettierrc": "^1.0.0",
-    "cssnano": "^5.1.13",
+    "cssnano": "^5.1.14",
     "eslint": "^8.26.0",
     "postcss": "^8.4.18",
     "postcss-import": "^15.0.0",
@@ -38,6 +38,6 @@
     "tailwindcss": "^3.2.1",
     "tslib": "^2.4.0",
     "typescript": "^4.8.4",
-    "vite": "^3.1.8"
+    "vite": "^3.2.1"
   }
 }
