@@ -2,61 +2,13 @@
   import gruvbox from 'svelte-highlight/styles/gruvbox-dark-soft';
   import { cubicOut } from 'svelte/easing';
 
+  import { packagesByCategory } from '$data/packages';
   import { APP_ROUTE_TREE } from '$lib/constants';
+  import { capitalize } from '$lib/utils/string';
 
   import type { LayoutData } from './$types';
 
   export let data: LayoutData;
-
-  const contents = [
-    {
-      category: 'Actions',
-      packages: [
-        {
-          name: '@svelte-put/clickoutside',
-          path: APP_ROUTE_TREE.docs.clickoutside.$.path(),
-        },
-        {
-          name: '@svelte-put/intersect',
-          path: APP_ROUTE_TREE.docs.intersect.$.path(),
-        },
-        {
-          name: '@svelte-put/movable',
-          path: APP_ROUTE_TREE.docs.movable.$.path(),
-        },
-        {
-          name: '@svelte-put/shortcut',
-          path: APP_ROUTE_TREE.docs.shortcut.$.path(),
-        },
-        {
-          name: '@svelte-put/toc',
-          path: APP_ROUTE_TREE.docs.toc.$.path(),
-        },
-      ],
-    },
-    {
-      category: 'Components',
-      packages: [
-        {
-          name: '@svelte-put/select',
-          path: APP_ROUTE_TREE.docs.select.$.path(),
-        },
-      ],
-    },
-    {
-      category: 'Miscellaneous',
-      packages: [
-        {
-          name: '@svelte-put/avatar',
-          path: APP_ROUTE_TREE.docs.avatar.$.path(),
-        },
-        {
-          name: '@svelte-put/modal',
-          path: APP_ROUTE_TREE.docs.modal.$.path(),
-        },
-      ],
-    },
-  ] as const;
 
   // TODO: extract this to own @svelte-put/transition
   function slide(node: HTMLElement, { delay = 0, duration = 400, easing = cubicOut, axis = 'y' }) {
@@ -121,7 +73,7 @@
 
   <div class="c-container relative mx-auto flex flex-1 items-stretch">
     <nav data-sveltekit-prefetch class="border-r border-border text-sm">
-      <ul class="sticky top-header p-6">
+      <ul class="sticky top-header whitespace-nowrap p-6">
         <li>
           <a
             href={APP_ROUTE_TREE.docs.$.path()}
@@ -131,11 +83,11 @@
             Introduction
           </a>
         </li>
-        {#each contents as { category, packages }}
+        {#each Object.entries(packagesByCategory) as [category, packages]}
           <li class="py-2">
-            <p class="font-bold">{category}</p>
+            <p class="font-bold">{capitalize(category)}</p>
             <ul class="mt-2 space-y-1 border-l border-border/50">
-              {#each packages as { name, path }}
+              {#each packages as { name, path, status }}
                 <li>
                   <a
                     href={path}
@@ -144,6 +96,9 @@
                   >
                     <span class="h-full w-1 bg-primary" />
                     {name}
+                    {#if status !== 'stable'}
+                      <sup class:c-badge-primary={status === 'dev'}>{status}</sup>
+                    {/if}
                   </a>
                 </li>
               {/each}
@@ -154,7 +109,7 @@
     </nav>
 
     {#key data.pathname}
-      <main class="prose max-w-none flex-1 py-10 px-6 md:px-10 lg:px-14">
+      <main class="prose max-w-full flex-1 py-10 px-6 md:px-10 lg:px-14">
         <slot />
       </main>
     {/key}

@@ -11,6 +11,15 @@ const sveltePut = plugin(
       },
     });
     addComponents({
+      '.c-badge': {
+        '@apply rounded-lg text-white px-1.5 py-px': {},
+      },
+      '.c-badge-primary': {
+        '@apply c-badge bg-primary': {},
+      },
+      '.c-badge-secondary': {
+        '@apply c-badge bg-secondary': {},
+      },
       '.c-container': {
         '@apply mx-auto w-full px-3 md:px-5 lg:px-8 max-w-[1440px]': {},
       },
