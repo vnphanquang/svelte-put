@@ -1,0 +1,53 @@
+<script lang="ts">
+  import {
+    createBundlephobiaBadgeUrl,
+    createBundlephobiaUrl,
+    createNpmBadgeUrl,
+    createNpmUrl,
+    createSvelteReplBadgeUrl,
+    createSvelteReplUrl,
+  } from '$lib/utils/badge';
+
+  import type { LayoutData } from './$types';
+
+  export let data: LayoutData;
+</script>
+
+{#key data.package.name}
+  <h1 class="text-center">{data.package.name}</h1>
+  <p class="h-6 space-x-2 text-center">
+    <a href={createNpmUrl(data.package.name)} target="__blank" class="h-full">
+      <img
+        class="my-0 inline-block h-full w-auto rounded"
+        src={createNpmBadgeUrl(data.package.name)}
+        alt={data.package.name}
+        height="24"
+        width="100"
+      />
+    </a>
+    <a href={createBundlephobiaUrl(data.package.name)} target="__blank" class="h-full">
+      <img
+        class="my-0 inline-block h-full w-auto rounded"
+        src={createBundlephobiaBadgeUrl(data.package.name)}
+        alt={data.package.name}
+        height="24"
+        width="132"
+        target="__blank"
+      />
+    </a>
+    {#if data.package.replId}
+      <a href={createSvelteReplUrl(data.package.replId)} target="__blank" class="h-full">
+        <img
+          class="my-0 inline-block h-full w-auto rounded"
+          src={createSvelteReplBadgeUrl()}
+          alt={data.package.name}
+          height="24"
+          width="112"
+          target="__blank"
+        />
+      </a>
+    {/if}
+  </p>
+{/key}
+
+<slot />

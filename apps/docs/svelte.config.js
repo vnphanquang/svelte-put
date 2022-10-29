@@ -13,13 +13,25 @@ const config = {
     mdsvex({
       extensions: ['.md', '.md.svelte'],
       highlight: false,
-      rehypePlugins: [slug, [link, { behavior: 'wrap' }]],
+      rehypePlugins: [
+        slug,
+        [
+          link,
+          {
+            behavior: 'wrap',
+            test: ['h2', 'h3', 'h4', 'h5', 'h6'],
+          },
+        ],
+      ],
     }),
     preprocess({ postcss: true }),
   ],
 
   kit: {
     adapter: adapter(),
+    alias: {
+      $data: 'src/data',
+    },
   },
 };
 
