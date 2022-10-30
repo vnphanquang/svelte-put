@@ -27,13 +27,6 @@
     cursor: not-allowed;
   }
 
-  pre:not(#fakeId) code {
-    @apply font-fira p-6;
-  }
-  pre:not(#fakeId) {
-    @apply p-0;
-  }
-
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,
