@@ -87,11 +87,11 @@
           <li class="py-2">
             <p class="font-bold">{capitalize(category)}</p>
             <ul class="mt-2 space-y-1 border-l border-border/50">
-              {#each packages as { name, path, status }}
+              {#each packages as { name, path, status, id }}
                 <li>
                   <a
                     href={path}
-                    data-current={data.pathname.includes(name)}
+                    data-current={data.pathname.includes(id)}
                     class="c-link -ml-px block py-1 pl-3 data-current:border-l data-current:border-primary"
                   >
                     <span class="h-full w-1 bg-primary" />

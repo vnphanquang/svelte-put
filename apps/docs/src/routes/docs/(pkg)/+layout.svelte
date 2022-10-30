@@ -14,8 +14,8 @@
 </script>
 
 {#key data.package.name}
-  <h1 class="text-center">{data.package.name}</h1>
-  <p class="h-6 space-x-2 text-center">
+  <h1>{data.package.name}</h1>
+  <p class="h-6 space-x-2">
     <a href={createNpmUrl(data.package.name)} target="__blank" class="h-full">
       <img
         class="my-0 inline-block h-full w-auto rounded"
@@ -48,6 +48,7 @@
       </a>
     {/if}
   </p>
+  <p class="h-px w-full bg-border" />
 {/key}
 
 <slot />

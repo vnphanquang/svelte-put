@@ -17,6 +17,7 @@
   "devDependencies": {
     "@svelte-put/avatar": "workspace:*",
     "@svelte-put/clickoutside": "workspace:*",
+    "@svelte-put/copy": "workspace:*",
     "@svelte-put/intersect": "workspace:*",
     "@svelte-put/modal": "workspace:*",
     "@svelte-put/movable": "workspace:*",
