@@ -9,6 +9,7 @@ export const { node: APP_ROUTE_TREE } = tBuild({
         builder
           .addChild('avatar')
           .addChild('clickoutside')
+          .addChild('copy')
           .addChild('intersect')
           .addChild('modal')
           .addChild('movable')
