@@ -17,6 +17,14 @@ export const packages = {
     category: 'action',
     status: 'stable',
   },
+  copy: {
+    id: 'copy',
+    name: '@svelte-put/copy',
+    path: APP_ROUTE_TREE.docs.copy.$.path(),
+    replId: undefined,
+    category: 'action',
+    status: 'stable',
+  },
   intersect: {
     id: 'intersect',
     name: '@svelte-put/intersect',
