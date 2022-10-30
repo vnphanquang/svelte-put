@@ -1,0 +1,66 @@
+{
+  "name": "@svelte-put/copy",
+  "version": "0.0.0",
+  "description": "Svelte action & utilities for copying text inside nodes",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "types": "lib/src/index.d.ts",
+  "exports": {
+    ".": "./lib/index.js",
+    "./action": "./lib/action.js",
+    "./utils": "./lib/utils.js"
+  },
+  "typesVersions": {
+    "*": {
+      "action": [
+        "./lib/src/copy.action.d.ts"
+      ],
+      "utils": [
+        "./lib/src/copy.utils.d.ts"
+      ]
+    }
+  },
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "lint": "eslint --ignore-path .gitignore \"./**/*/*{ts,js,cjs}\"",
+    "format": "prettier --check --ignore-path .gitignore --plugin-search-dir=. \"./**/*.{ts,js,cjs}\"",
+    "build": "rollup -c --configPlugin typescript",
+    "api:extract": "api-extractor run --local --verbose",
+    "api:document": "api-documenter markdown -i api/temp -o api/docs",
+    "api": "run-s api:extract api:document"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vnphanquang/svelte-put.git"
+  },
+  "keywords": [
+    "svelte",
+    "action",
+    "copy",
+    "clipboard"
+  ],
+  "author": "Quang Phan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vnphanquang/svelte-put/issues"
+  },
+  "homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/copy",
+  "devDependencies": {
+    "@microsoft/api-documenter": "^7.19.23",
+    "@microsoft/api-extractor": "^7.33.5",
+    "@rollup/plugin-typescript": "^9.0.2",
+    "@svelte-put/apirc": "workspace:^0.0.0",
+    "@svelte-put/tsconfig": "workspace:^0.0.0",
+    "npm-run-all": "^4.1.5",
+    "rollup": "^3.2.3",
+    "rollup-plugin-filesize": "^9.1.2",
+    "tslib": "^2.4.0",
+    "typescript": "^4.8.4"
+  }
+}
