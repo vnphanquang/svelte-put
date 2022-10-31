@@ -1,5 +1,5 @@
-@import "fonts/inter.font.css";
-@import "fonts/firacode.font.css";
+@import 'fonts/inter.font.css';
+@import 'fonts/firacode.font.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,7 +10,7 @@
   }
 
   html {
-    @apply h-full bg-bg bg-paper text-fg text-base font-inter;
+    @apply h-full bg-bg bg-paper font-inter text-base text-fg;
 
     scroll-behavior: smooth;
   }

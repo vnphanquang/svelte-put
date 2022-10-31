@@ -23,7 +23,6 @@ Svelte action `use:clickoutside` - event for clicking outside a node
   - [Installation](#installation)
   - [Usage](#usage)
   - [Documentation](#documentation)
-    - [Typescript support](#typescript-support)
 
 </details>
 
@@ -59,46 +58,6 @@ pnpm add -D @svelte-put/clickoutside
 See [examples here](https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/clickoutside/api/docs/clickoutside.clickoutside.md#example). Also check out the [Svelte REPL][repl].
 
 ## Documentation
-
-### Typescript support
-
-Ambient types for custom events should be available automatically where `clickoutside` is imported.
-
-<details open>
-  <summary> show / hide </summary>
-
-```html
-<script lang="ts">
-  import { clickoutside } from '@svelte-put/clickoutside';
-</script>
-
-<!-- on:clickoutside should be typed -->
-<div use:clickoutside on:clickoutside />
-```
-
-</details>
-
-If the above is not working, fall back to this:
-
-<details open>
-  <summary> app.d.ts: show / hide </summary>
-
-```typescript
-/// <reference types="@sveltejs/kit" />
-/// <reference types="svelte" />
-
-// Typescript support in svelte-kit, see
-// https://github.com/sveltejs/language-tools/blob/master/docs/preprocessors/typescript.md#im-using-an-attributeevent-on-a-dom-element-and-it-throws-a-type-error
-
-declare namespace svelte.JSX {
-  interface HTMLAttributes<T> {
-    // on:clickoutside
-    onclickoutside?: (event: CustomEvent<MouseEvent>) => void;
-  }
-}
-```
-
-</details>
 
 For detailed documentation, see the [extracted API][github.api].
 
