@@ -1,11 +1,11 @@
 <script lang="ts">
   import { copy } from '@svelte-put/copy';
   import type { ComponentProps } from 'svelte';
-  import Highlight from 'svelte-highlight';
-  import xml from 'svelte-highlight/languages/xml';
+  import Highlight from 'svelte-highlight/Highlight.svelte';
+  import HighlightSvelte from 'svelte-highlight/HighlightSvelte.svelte';
   import { fade } from 'svelte/transition';
 
-  export let lang: ComponentProps<Highlight>['language'] = xml;
+  export let lang: ComponentProps<Highlight>['language'] | 'svelte' = 'svelte';
   export let code: string;
   export let title = '';
 
@@ -70,7 +70,11 @@
     </button>
   </div>
   <div use:copy={{ trigger: copyBtn }} on:copy={onCopy}>
-    <Highlight language={lang} {code} langtag />
+    {#if lang === 'svelte'}
+      <HighlightSvelte {code} langtag />
+    {:else}
+      <Highlight language={lang} {code} langtag />
+    {/if}
   </div>
 </div>
 
