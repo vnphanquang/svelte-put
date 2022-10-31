@@ -1,7 +1,5 @@
 <script lang="ts">
   import shell from 'svelte-highlight/languages/shell';
-  import typescript from 'svelte-highlight/languages/typescript';
-  import xml from 'svelte-highlight/languages/xml';
 
   import CodeSwitch from '$lib/ui/components/Code/CodeSwitch.svelte';
 
