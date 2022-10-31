@@ -18,16 +18,19 @@
       variant: 'npm',
       code: `npm install --save-dev ${data.package.name}`,
       lang: shell,
+      title: 'terminal',
     },
     {
       variant: 'pnpm',
       code: `pnpm add -D ${data.package.name}`,
       lang: shell,
+      title: 'terminal',
     },
     {
       variant: 'yarn',
       code: `yarn add -D ${data.package.name}`,
       lang: shell,
+      title: 'terminal',
     },
   ]}
 />
