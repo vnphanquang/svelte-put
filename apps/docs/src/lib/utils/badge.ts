@@ -21,3 +21,7 @@ export function createSvelteReplUrl(id: string) {
 export function createSvelteReplBadgeUrl() {
   return 'https://img.shields.io/static/v1?label=&message=Svelte+REPL&logo=svelte&logoColor=fff&color=ff3e00&style=for-the-badge';
 }
+
+export function createChangelogBadgeUrl() {
+  return 'https://img.shields.io/badge/-changelog-blue?style=for-the-badge';
+}

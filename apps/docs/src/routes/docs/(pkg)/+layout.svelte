@@ -2,6 +2,7 @@
   import {
     createBundlephobiaBadgeUrl,
     createBundlephobiaUrl,
+    createChangelogBadgeUrl,
     createNpmBadgeUrl,
     createNpmUrl,
     createSvelteReplBadgeUrl,
@@ -43,6 +44,18 @@
           alt={data.package.name}
           height="24"
           width="112"
+          target="__blank"
+        />
+      </a>
+    {/if}
+    {#if data.package.changelogUrl}
+      <a href={data.package.changelogUrl} target="__blank" class="h-full">
+        <img
+          class="my-0 inline-block h-full w-auto rounded"
+          src={createChangelogBadgeUrl()}
+          alt="changelog"
+          height="24"
+          width="89"
           target="__blank"
         />
       </a>
