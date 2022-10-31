@@ -29,13 +29,13 @@
     </ul>
   </div>
 
-  {#each codes as { code, lang }, index}
+  {#each codes as { code, lang, title }, index}
     {@const current = index === activeCodeIndex}
     <section
       class="hidden opacity-0 data-current:block data-current:opacity-100"
       data-current={current}
     >
-      <Code {lang} {code} />
+      <Code {lang} {code} {title} />
     </section>
   {/each}
 </div>
