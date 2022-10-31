@@ -8,6 +8,8 @@ export const packages = {
     replId: 'd54381946b1c4ebd8e612e4568fbbbd0',
     category: 'miscellaneous',
     status: 'stable',
+    changelogUrl:
+      'https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/avatar/CHANGELOG.md',
   },
   clickoutside: {
     id: 'clickoutside',
@@ -16,6 +18,8 @@ export const packages = {
     replId: '9e5f9ee41c2c45aa8523993e357f6e78',
     category: 'action',
     status: 'stable',
+    changelogUrl:
+      'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/clickoutside/CHANGELOG.md',
   },
   copy: {
     id: 'copy',
@@ -24,6 +28,8 @@ export const packages = {
     replId: undefined,
     category: 'action',
     status: 'stable',
+    changelogUrl:
+      'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/copy/CHANGELOG.md',
   },
   intersect: {
     id: 'intersect',
@@ -32,6 +38,8 @@ export const packages = {
     replId: '835eacce6ac44aff95a7cb0bb5ca200d',
     category: 'action',
     status: 'stable',
+    changelogUrl:
+      'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/intersect/CHANGELOG.md',
   },
   modal: {
     id: 'modal',
@@ -40,6 +48,8 @@ export const packages = {
     replId: '0a68001337544b8ab55995fb3d02d1f6',
     category: 'miscellaneous',
     status: 'stable',
+    changelogUrl:
+      'https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/modal/CHANGELOG.md',
   },
   movable: {
     id: 'movable',
@@ -48,6 +58,8 @@ export const packages = {
     replId: '88a7c1fc2e134db7b58786d5f385fc5d',
     category: 'action',
     status: 'stable',
+    changelogUrl:
+      'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/CHANGELOG.md',
   },
   select: {
     id: 'select',
@@ -56,6 +68,8 @@ export const packages = {
     replId: '4f0d701ab5ed411ebbc9a71b0955385d',
     category: 'component',
     status: 'dev',
+    changelogUrl:
+      'https://github.com/vnphanquang/svelte-put/blob/main/packages/components/select/CHANGELOG.md',
   },
   shortcut: {
     id: 'shortcut',
@@ -64,6 +78,8 @@ export const packages = {
     replId: undefined,
     category: 'action',
     status: 'stable',
+    changelogUrl:
+      'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/shortcut/CHANGELOG.md',
   },
   toc: {
     id: 'toc',
@@ -72,6 +88,8 @@ export const packages = {
     replId: 'd9c896ac62cd41d49f80ffa249d292e6',
     category: 'action',
     status: 'stable',
+    changelogUrl:
+      'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/toc/CHANGELOG.md',
   },
 } as const;
 
