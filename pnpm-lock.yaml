@@ -66,6 +66,7 @@ importers:
       svelte-check: ^2.9.2
       svelte-highlight: ^6.2.1
       svelte-preprocess: ^4.10.7
+      svelte-preprocess-import-assets: ^0.2.2
       tailwindcss: ^3.2.1
       tslib: ^2.4.0
       typescript: ^4.8.4
@@ -104,6 +105,7 @@ importers:
       svelte-check: 2.9.2_vidagnlh55bt6yxji7dk5y5wla
       svelte-highlight: 6.2.1
       svelte-preprocess: 4.10.7_thgq75zisbcmm7d6lsbrpbdhti
+      svelte-preprocess-import-assets: 0.2.2_svelte@3.52.0
       tailwindcss: 3.2.1_postcss@8.4.18
       tslib: 2.4.0
       typescript: 4.8.4
@@ -6795,6 +6797,24 @@ packages:
       svelte: '>=3.19.0'
     dependencies:
       svelte: 3.52.0
+    dev: true
+
+  /svelte-parse-markup/0.1.1_svelte@3.52.0:
+    resolution: {integrity: sha512-xCBSldaZdwi0u0ANASVCUFynCaV8z5D6sQOnzPcYSEoD9dd40MLzOKMBVmuTf/LUuPvc+cUvF132MnwdG7mDig==}
+    peerDependencies:
+      svelte: ^3.0.0
+    dependencies:
+      svelte: 3.52.0
+    dev: true
+
+  /svelte-preprocess-import-assets/0.2.2_svelte@3.52.0:
+    resolution: {integrity: sha512-5omtHEvC2LizvCrOJBI+lcXtC9w2zIRXzopQz3ZecmaoTrGwrQeIT2FF+dx1uIqgxj77Ddk9W+fhmkrRwjICwg==}
+    peerDependencies:
+      svelte: ^3.37.0
+    dependencies:
+      magic-string: 0.25.9
+      svelte: 3.52.0
+      svelte-parse-markup: 0.1.1_svelte@3.52.0
     dev: true
 
   /svelte-preprocess/4.10.7_besnmoibwkhwtentvwuriss7pa:

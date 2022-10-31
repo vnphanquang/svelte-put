@@ -3,6 +3,7 @@ import { mdsvex } from 'mdsvex';
 import link from 'rehype-autolink-headings';
 import slug from 'rehype-slug';
 import preprocess from 'svelte-preprocess';
+import importAssets from 'svelte-preprocess-import-assets';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -10,6 +11,14 @@ const config = {
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
   preprocess: [
+    importAssets({
+      sources: () => [
+        {
+          tag: 'Code',
+          srcAttributes: ['code'],
+        },
+      ],
+    }),
     mdsvex({
       extensions: ['.md', '.md.svelte'],
       highlight: false,
