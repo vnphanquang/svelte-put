@@ -6,6 +6,7 @@
     "apps/*",
     "configs/*",
     "packages/actions/*",
+    "packages/preprocessors/*",
     "packages/components/*",
     "packages/misc/*"
   ],
