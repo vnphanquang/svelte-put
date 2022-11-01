@@ -10,7 +10,7 @@
   export let data: PageData;
 </script>
 
-## Installation
+<h2>Installation</h2>
 
 <CodeSwitch
   codes={[
@@ -35,8 +35,11 @@
   ]}
 />
 
-## Usage ## Typescript Support Ambient types for custom events should be available automatically
-where `clickoutside` is imported.
+<h2>Usage</h2>
+
+<h2>Typescript Support</h2>
+
+Ambient types for custom events should be available automatically where `clickoutside` is imported.
 
 <Code
   lang="svelte"
