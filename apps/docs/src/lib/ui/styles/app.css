@@ -27,6 +27,11 @@
     cursor: not-allowed;
   }
 
+  code:not(#fakeId)::after,
+  code:not(#fadeId)::before {
+    content: none;
+  }
+
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,

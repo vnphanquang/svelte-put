@@ -59,6 +59,22 @@ const sveltePut = plugin(
               'h1,h2,h3,h4,h5,h6': {
                 'scroll-margin-top': theme('spacing.header'),
               },
+              a: {
+                'text-decoration': 'none',
+                'font-weight': 'inherit',
+                color: theme('colors.primary'),
+                '&:hover': {
+                  'text-decoration': 'underline',
+                },
+              },
+              code: {
+                color: theme('colors.primary'),
+                'background-color': theme('colors.bg.accent'),
+                'font-weight': 'inherit',
+                display: 'inline-block',
+                padding: `0 ${theme('spacing.2')}`,
+                'border-radius': theme('borderRadius.DEFAULT'),
+              },
             },
           },
         }),
@@ -85,6 +101,10 @@ const sveltePut = plugin(
           primary: '#d65d03',
           svelte: '#ef4623',
           secondary: '#98971a',
+          code: {
+            fg: '#e5e7eb',
+            bg: '#46433e',
+          },
         },
         keyframes: {
           'fade-in-up': {
