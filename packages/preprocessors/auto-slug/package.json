@@ -4,7 +4,7 @@
   "description": "Generate slug from text content, to add id to headings for example",
   "main": "lib/index.js",
   "module": "lib/index.mjs",
-  "types": "lib/src/index.d.ts",
+  "types": "lib/index.d.ts",
   "exports": {
     ".": {
       "import": "./lib/index.mjs",

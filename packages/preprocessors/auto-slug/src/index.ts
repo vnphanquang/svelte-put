@@ -5,7 +5,10 @@
  *
  * @packageDocumentation
  */
-
 import { autoSlug } from './auto-slug';
 
-export = autoSlug;
+export * from './auto-slug';
+export * from './auto-slug.constants';
+export * from './auto-slug.types';
+
+export default autoSlug;
