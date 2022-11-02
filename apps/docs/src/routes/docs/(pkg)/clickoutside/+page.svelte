@@ -39,14 +39,17 @@
 
 <h2>Typescript Support</h2>
 
-Ambient types for custom events should be available automatically where `clickoutside` is imported.
+<p>
+  Ambient types for custom events should be available automatically where `clickoutside` is
+  imported.
+</p>
 
 <Code
   lang="svelte"
   code="./codes/typescript-auto-example.svelte?raw"
-  title="component-using-clickoutside.svelte"
+  title="using-clickoutside.svelte"
 />
 
-If the above is not working, fall back to this:
+<p>If the above is not working, fall back to this:</p>
 
 <Code lang={typescript} code="./codes/typescript-fallback.d.ts?raw" title="src/app.d.ts" />

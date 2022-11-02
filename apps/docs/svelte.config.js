@@ -16,7 +16,16 @@ const config = {
         },
       ],
     }),
-    autoSlug(),
+    autoSlug((defaultOptions) => ({
+      anchor: {
+        content: '#',
+        position: 'prepend',
+        properties: {
+          ...defaultOptions.anchor.properties,
+          class: 'heading-anchor',
+        },
+      },
+    })),
     preprocess({ postcss: true }),
   ],
 

@@ -1,7 +1,22 @@
 const plugin = require('tailwindcss/plugin');
 
 const sveltePut = plugin(
-  ({ addComponents, addUtilities }) => {
+  ({ addComponents, addUtilities, addBase }) => {
+    addBase({
+      'h1,h2,h3,h4,h5,h6': {
+        '@apply relative': {},
+        '& .heading-anchor': {
+          '@apply text-primary absolute top-0 bottom-0 right-full opacity-0 transition-opacity duration-150 mr-1':
+            {},
+          'text-decoration': 'none',
+          'font-weight': 'inherit',
+        },
+        '&:hover .heading-anchor': {
+          '@apply opacity-100': {},
+        },
+      },
+    });
+
     addUtilities({
       '.bg-gradient-brand': {
         '@apply bg-gradient-to-r from-svelte to-[#42b883]': {},
@@ -41,20 +56,8 @@ const sveltePut = plugin(
               h1: {
                 'font-size': '2rem',
               },
-              'h2,h3,h4,h5,h6': {
-                position: 'relative',
-                '&:hover::before': {
-                  content: '"#"',
-                  position: 'absolute',
-                  right: '101%',
-                },
-              },
               'h1,h2,h3,h4,h5,h6': {
                 'scroll-margin-top': theme('spacing.header'),
-                '& a': {
-                  'text-decoration': 'none',
-                  'font-weight': 'inherit',
-                },
               },
             },
           },
@@ -114,7 +117,7 @@ const sveltePut = plugin(
 
 /** @type {import("tailwindcss").Config } */
 const config = {
-  content: ['./src/**/*.{html,js,svelte,ts,md}'],
+  content: ['./src/**/*.{html,js,svelte,ts,md}', 'svelte.config.js'],
   plugins: [sveltePut, require('@tailwindcss/typography')],
 };
 
