@@ -49,12 +49,14 @@
 </svelte:head>
 
 <div class="relative flex min-h-screen flex-1 flex-col pt-header">
-  <header class="fixed inset-x-0 top-0 z-header h-header border-b border-border bg-bg">
+  <header
+    class="fixed inset-x-0 top-0 z-header flex h-header flex-col border-b border-border bg-bg"
+  >
     {#key data.pathname}
       <div class="h-0.5 w-full bg-gradient-brand" in:slide={{ axis: 'x' }} />
     {/key}
-    <nav class="x-auto c-container">
-      <div class="flex w-full items-center justify-between py-2 px-6">
+    <nav class="x-auto c-container flex-1">
+      <div class="flex h-full w-full items-center justify-between py-2 px-6">
         <a href="/" class="flex items-center gap-2">
           <img src="/images/svelte-put-logo.svg" alt="svelte-put" width="32" height="32" />
           <span class="c-link text-sm font-bold text-gradient-brand">svelte-put</span>
