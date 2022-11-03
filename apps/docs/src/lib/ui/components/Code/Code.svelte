@@ -19,8 +19,6 @@
   export let expansion: 'disabled' | 'enabled' = 'enabled';
   export let icon: 'none' | 'code' | 'warning' | 'error' = 'code';
 
-  let copyBtn: HTMLButtonElement;
-
   let copied = false;
   function onCopy() {
     copied = true;
@@ -38,9 +36,14 @@
 <div
   class="code-wrapper group relative my-6 overflow-hidden rounded-md text-code-fg shadow hover:shadow-md {$$props.class}"
   on:mouseleave={onMouseLeave}
+  aria-expanded={expanded}
 >
-  <div class="not-prose flex items-center bg-code-bg py-2 pl-6 pr-4">
-    <p class="flex flex-1 items-center gap-x-2 font-fira text-sm">
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <div
+    class="not-prose flex cursor-pointer items-center bg-code-bg py-2 pl-6 pr-4"
+    on:click={toggleExpansion}
+  >
+    <p class="flex flex-1 items-center space-x-2 font-fira text-sm">
       <span class="w-6" alt="indicator">
         {#if icon === 'code'}
           <IconCode />
@@ -54,7 +57,13 @@
         {title}
       </span>
     </p>
-    <button bind:this={copyBtn} class="flex items-center justify-center space-x-1" alt="copy code">
+    <button
+      class="flex items-center justify-center space-x-1"
+      alt="copy code"
+      on:click|stopPropagation
+      use:copy={{ text: code }}
+      on:copy={onCopy}
+    >
       {#if copied}
         <span transition:fade|local={{ duration: 150 }} class="rounded p-2 text-sm"> Copied </span>
       {/if}
@@ -72,9 +81,10 @@
       {/key}
     </button>
     {#if expansion !== 'disabled'}
+      <div class="mx-2 self-stretch border-l border-border" />
       <button
         alt="collapse code block"
-        on:click={toggleExpansion}
+        on:click|stopPropagation={toggleExpansion}
         class="flex rounded p-2 hover:bg-border/10 active:scale-95"
       >
         <IconExpandLess
@@ -85,11 +95,7 @@
     {/if}
   </div>
   {#if expanded}
-    <div
-      use:copy={{ trigger: copyBtn }}
-      on:copy={onCopy}
-      transition:slide|local={{ duration: 150 }}
-    >
+    <div transition:slide|local={{ duration: 150 }}>
       {#if lang === 'svelte'}
         <HighlightSvelte {code} langtag />
       {:else}
