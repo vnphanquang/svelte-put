@@ -61,6 +61,16 @@ export const packages = {
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/CHANGELOG.md',
   },
+  'preprocess-auto-slug': {
+    id: 'preprocess-auto-slug',
+    name: '@svelte-put/preprocess-auto-slug',
+    path: APP_ROUTE_TREE.docs.preprocessAutoSlug.$.path(),
+    replId: undefined,
+    category: 'preprocessor',
+    status: 'stable',
+    changelogUrl:
+      'https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocessors/preprocess-auto-slug/CHANGELOG.md',
+  },
   select: {
     id: 'select',
     name: '@svelte-put/select',

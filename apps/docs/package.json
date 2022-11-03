@@ -12,7 +12,7 @@
     "format": "prettier --check --ignore-path ../../.prettierignore \"./**/*.{ts,js,cjs,json,svelte,css}\""
   },
   "dependencies": {
-    "static-tree": "^1.1.1"
+    "static-tree": "^1.2.0"
   },
   "devDependencies": {
     "@svelte-put/avatar": "workspace:*",
@@ -25,11 +25,11 @@
     "@svelte-put/select": "workspace:*",
     "@svelte-put/shortcut": "workspace:*",
     "@svelte-put/toc": "workspace:*",
-    "@sveltejs/adapter-vercel": "1.0.0-next.80",
-    "@sveltejs/kit": "1.0.0-next.528",
+    "@sveltejs/adapter-vercel": "1.0.0-next.81",
+    "@sveltejs/kit": "1.0.0-next.532",
     "@tailwindcss/typography": "^0.5.7",
-    "@typescript-eslint/eslint-plugin": "^5.41.0",
-    "@typescript-eslint/parser": "^5.41.0",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
     "@vnphanquang/prettierrc": "^1.0.0",
     "autoprefixer": "^10.4.13",
     "cssnano": "^5.1.14",
@@ -46,9 +46,9 @@
     "svelte-preprocess": "^4.10.7",
     "svelte-preprocess-import-assets": "^0.2.2",
     "tailwindcss": "^3.2.1",
-    "tslib": "^2.4.0",
+    "tslib": "^2.4.1",
     "typescript": "^4.8.4",
-    "vite": "^3.2.1"
+    "vite": "^3.2.2"
   },
   "type": "module"
 }

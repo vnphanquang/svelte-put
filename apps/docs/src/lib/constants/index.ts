@@ -1,10 +1,8 @@
 import { tBuild } from 'static-tree';
-export const { node: APP_ROUTE_TREE } = tBuild({
-  key: 'APP_ROUTE_TREE',
+export const { node: APP_ROUTE_TREE } = tBuild('APP_ROUTE_TREE', {
   pathResolver: () => '',
   build: (builder) =>
-    builder.addChild({
-      key: 'docs',
+    builder.addChild('docs', {
       build: (builder) =>
         builder
           .addChild('avatar')
@@ -13,6 +11,9 @@ export const { node: APP_ROUTE_TREE } = tBuild({
           .addChild('intersect')
           .addChild('modal')
           .addChild('movable')
+          .addChild('preprocessAutoSlug', {
+            pathResolver: () => 'preprocess-auto-slug',
+          })
           .addChild('select')
           .addChild('shortcut')
           .addChild('toc'),
