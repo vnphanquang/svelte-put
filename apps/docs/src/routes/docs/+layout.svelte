@@ -89,7 +89,7 @@
           <li class="py-2">
             <p class="font-bold">{capitalize(category)}</p>
             <ul class="mt-2 space-y-1 border-l border-border/50">
-              {#each packages as { name, path, status, id }}
+              {#each packages as { name, path, status, id, new: isNew }}
                 <li>
                   <a
                     href={path}
@@ -98,9 +98,14 @@
                   >
                     <span class="h-full w-1 bg-primary" />
                     {name}
-                    {#if status !== 'stable'}
-                      <sup class:c-badge-primary={status === 'dev'}>{status}</sup>
-                    {/if}
+                    <sup>
+                      {#if status !== 'stable'}
+                        <span class:c-badge-primary={status === 'dev'}>{status}</span>
+                      {/if}
+                      {#if isNew}
+                        <span class="c-badge-secondary">{'new'}</span>
+                      {/if}
+                    </sup>
                   </a>
                 </li>
               {/each}

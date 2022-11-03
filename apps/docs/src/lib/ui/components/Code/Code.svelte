@@ -5,12 +5,12 @@
   import HighlightSvelte from 'svelte-highlight/HighlightSvelte.svelte';
   import { fade, slide } from 'svelte/transition';
 
-  import IconCode from '$lib/ui/components/icons/Code.svelte';
-  import IconCopy from '$lib/ui/components/icons/Copy.svelte';
-  import IconDone from '$lib/ui/components/icons/Done.svelte';
-  import IconError from '$lib/ui/components/icons/Error.svelte';
-  import IconExpandLess from '$lib/ui/components/icons/ExpandLess.svelte';
-  import IconWarning from '$lib/ui/components/icons/Warning.svelte';
+  import IconCode from '$lib/ui/components/icons/material/Code.svelte';
+  import IconCopy from '$lib/ui/components/icons/material/Copy.svelte';
+  import IconDone from '$lib/ui/components/icons/material/Done.svelte';
+  import IconError from '$lib/ui/components/icons/material/Error.svelte';
+  import IconExpandLess from '$lib/ui/components/icons/material/ExpandLess.svelte';
+  import IconWarning from '$lib/ui/components/icons/material/Warning.svelte';
 
   export let lang: ComponentProps<Highlight>['language'] | 'svelte' = 'svelte';
   export let code: string;
@@ -41,7 +41,7 @@
 >
   <div class="not-prose flex items-center bg-code-bg py-2 pl-6 pr-4">
     <p class="flex flex-1 items-center gap-x-2 font-fira text-sm">
-      <span class="w-6">
+      <span class="w-6" alt="indicator">
         {#if icon === 'code'}
           <IconCode />
         {:else if icon === 'warning'}
@@ -77,7 +77,10 @@
         on:click={toggleExpansion}
         class="flex rounded p-2 hover:bg-border/10 active:scale-95"
       >
-        <IconExpandLess class="inline-block transition-transform {!expanded ? 'rotate-180' : ''}" />
+        <IconExpandLess
+          class="inline-block transition-transform {!expanded ? 'rotate-180' : ''}"
+          title=""
+        />
       </button>
     {/if}
   </div>
