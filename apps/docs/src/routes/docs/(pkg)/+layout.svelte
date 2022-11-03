@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Empty from '$lib/ui/components/icons/Empty.svelte';
   import {
     createBundlephobiaBadgeUrl,
     createBundlephobiaUrl,
@@ -64,4 +65,12 @@
   <p class="h-px w-full bg-border" />
 {/key}
 
-<slot />
+{#if data.package.ready}
+  <slot />
+{:else}
+  <div class="grid place-items-center font-bold">
+    <p class="text-2xl">Documentation coming very soon</p>
+    <Empty />
+    <p class="text-lg">Wow, such empty</p>
+  </div>
+{/if}
