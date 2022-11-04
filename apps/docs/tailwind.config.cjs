@@ -24,6 +24,9 @@ const sveltePut = plugin(
       '.text-gradient-brand': {
         '@apply bg-gradient-brand bg-clip-text text-transparent': {},
       },
+      '.inset-center': {
+        '@apply top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2': {},
+      },
     });
     addComponents({
       '.c-badge': {
@@ -84,6 +87,7 @@ const sveltePut = plugin(
         },
         spacing: {
           header: 'var(--header-height)',
+          sidebar: 'var(--sidebar-width)',
         },
         data: {
           current: 'current="true"',
