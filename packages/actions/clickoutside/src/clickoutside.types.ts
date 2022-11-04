@@ -19,7 +19,7 @@
  * ```
  */
 export interface ClickOutsideAttributes {
-  onclickoutside?: (event: CustomEvent<MouseEvent>) => void; // on:clickoutside
+  onclickoutside?: (event: CustomEvent<Event>) => void; // on:clickoutside
 }
 
 /**
@@ -43,4 +43,8 @@ export interface ClickOutsideParameters {
   enabled: boolean;
   /** limit to which the click event will trigger `clickoutside` */
   limit?: ClickOutsideLimit;
+  /** event to register callback. Default to `click` */
+  event?: string;
+  /** options to add to `addEventListener` */
+  options?: AddEventListenerOptions | boolean;
 }
