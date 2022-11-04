@@ -69,35 +69,37 @@ export function clickoutside(
   node: HTMLElement,
   parameters: Partial<ClickOutsideParameters> = { enabled: true },
 ) {
-  let limit = parameters.limit;
-  let enabled = parameters.enabled ?? true;
-  const handleClick = (event: Event) => {
-    if (
-      node &&
-      !node.contains(event.target as Node) &&
-      !event.defaultPrevented &&
-      (!limit || limit.parent.contains(event.target as Node))
-    ) {
+  let { enabled, eventType, nodeForEvent, options, capture } = resolveParameters(parameters);
+  const handle = (event: Event) => {
+    if (node && !node.contains(event.target as Node) && !event.defaultPrevented) {
       node.dispatchEvent(new CustomEvent('clickoutside', { detail: event }));
     }
   };
 
   if (parameters.enabled !== false) {
-    document.addEventListener('mousedown', handleClick, true);
+    nodeForEvent.addEventListener(eventType, handle, options);
   }
 
   return {
     update(update: ClickOutsideParameters) {
-      if (!enabled && update.enabled) {
-        document.addEventListener('mousedown', handleClick, true);
-      } else if (enabled && !update.enabled) {
-        document.removeEventListener('mousedown', handleClick, true);
-      }
-      limit = update.limit;
-      enabled = update.enabled ?? true;
+      nodeForEvent.removeEventListener(eventType, handle, capture);
+      ({ enabled, eventType, nodeForEvent, options, capture } = resolveParameters(update));
+      if (enabled) nodeForEvent.addEventListener(eventType, handle, options);
     },
     destroy() {
-      document.removeEventListener('mousedown', handleClick, true);
+      nodeForEvent.removeEventListener(eventType, handle, capture);
     },
+  };
+}
+
+/** @internal */
+export function resolveParameters(parameters: Partial<ClickOutsideParameters>) {
+  return {
+    enabled: parameters.enabled ?? true,
+    nodeForEvent: parameters.limit?.parent ?? document,
+    eventType: parameters.event ?? 'click',
+    options: parameters.options,
+    capture:
+      typeof parameters.options === 'object' ? parameters.options?.capture : parameters.options,
   };
 }

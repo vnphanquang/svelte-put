@@ -9,23 +9,25 @@ Dispatch a `clickoutside` [CustomEvent](https://developer.mozilla.org/en-US/docs
 <b>Signature:</b>
 
 ```typescript
-export declare function clickoutside(node: HTMLElement, parameters?: Partial<ClickOutsideParameters>): {
-    update(update: ClickOutsideParameters): void;
-    destroy(): void;
+export declare function clickoutside(
+  node: HTMLElement,
+  parameters?: Partial<ClickOutsideParameters>,
+): {
+  update(update: ClickOutsideParameters): void;
+  destroy(): void;
 };
 ```
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  node | HTMLElement | node outside of which <code>click</code> event will trigger <code>clickoutside</code> |
-|  parameters | Partial&lt;[ClickOutsideParameters](./clickoutside.clickoutsideparameters.md)<!-- -->&gt; | <i>(Optional)</i> |
+| Parameter  | Type                                                                                      | Description                                                                           |
+| ---------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| node       | HTMLElement                                                                               | node outside of which <code>click</code> event will trigger <code>clickoutside</code> |
+| parameters | Partial&lt;[ClickOutsideParameters](./clickoutside.clickoutsideparameters.md)<!-- -->&gt; | <i>(Optional)</i>                                                                     |
 
 <b>Returns:</b>
 
 { update(update: [ClickOutsideParameters](./clickoutside.clickoutsideparameters.md)<!-- -->): void; destroy(): void; }
-
 
 ## Remarks
 
@@ -33,10 +35,10 @@ As with any svelte action, `clickoutside` should be use with element and not com
 
 ```html
 <-- correct usage-->
- <div use:clickoutside />
+<div use:clickoutside />
 
 <-- incorrect usage-->
-<Component use:clickoutside/>
+<Component use:clickoutside />
 ```
 
 ## Example
@@ -75,4 +77,3 @@ Typical usage to close a modal / overlay when backdrop is clicked on
  {/if}
 </section
 ```
-
