@@ -68,9 +68,9 @@
 {#if data.package.ready}
   <slot />
 {:else}
-  <div class="grid place-items-center font-bold">
-    <p class="text-2xl">Documentation coming very soon</p>
-    <Empty />
+  <div class="grid w-full place-items-center font-bold">
     <p class="text-lg">Wow, such empty</p>
+    <Empty />
+    <p class="text-2xl">Documentation coming very soon</p>
   </div>
 {/if}

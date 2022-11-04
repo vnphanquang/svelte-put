@@ -73,8 +73,8 @@
     </nav>
   </header>
 
-  <div class="c-container relative mx-auto flex flex-1 items-stretch">
-    <nav data-sveltekit-prefetch class="border-r border-border text-sm">
+  <div class="container relative mx-auto flex flex-1 items-stretch">
+    <nav data-sveltekit-prefetch class="w-sidebar shrink-0 border-r border-border text-sm">
       <ul class="sticky top-header whitespace-nowrap p-6">
         <li>
           <a
@@ -89,7 +89,7 @@
           <li class="py-2">
             <p class="font-bold">{capitalize(category)}</p>
             <ul class="mt-2 space-y-1 border-l border-border/50">
-              {#each packages as { name, path, status, id, new: isNew }}
+              {#each packages as { path, status, id, new: isNew }}
                 <li>
                   <a
                     href={path}
@@ -97,7 +97,7 @@
                     class="c-link -ml-px block py-1 pl-3 data-current:border-l data-current:border-primary"
                   >
                     <span class="h-full w-1 bg-primary" />
-                    {name}
+                    {id}
                     <sup>
                       {#if status !== 'stable'}
                         <span class:c-badge-primary={status === 'dev'}>{status}</span>
@@ -116,9 +116,15 @@
     </nav>
 
     {#key data.pathname}
-      <main class="prose max-w-full flex-1 py-10 px-6 md:px-10 lg:px-14">
+      <main class="prose w-full flex-1 py-10 px-6 md:px-10 lg:px-14">
         <slot />
       </main>
     {/key}
   </div>
 </div>
+
+<style lang="postcss">
+  main {
+    max-width: calc(100% - var(--sidebar-width));
+  }
+</style>

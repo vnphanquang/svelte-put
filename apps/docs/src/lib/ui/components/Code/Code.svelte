@@ -34,13 +34,13 @@
 </script>
 
 <div
-  class="code-wrapper group relative my-6 overflow-hidden rounded-md text-code-fg shadow hover:shadow-md {$$props.class}"
+  class="group relative my-6 flex max-w-full flex-col overflow-hidden rounded-md text-code-fg shadow hover:shadow-md {$$props.class}"
   on:mouseleave={onMouseLeave}
   aria-expanded={expanded}
 >
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div
-    class="not-prose flex cursor-pointer items-center bg-code-bg py-2 pl-6 pr-4"
+    class="not-prose flex cursor-pointer items-center bg-code-bg py-2 pl-6 pr-2"
     on:click={toggleExpansion}
   >
     <p class="flex flex-1 items-center space-x-2 font-fira text-sm">
@@ -95,12 +95,14 @@
     {/if}
   </div>
   {#if expanded}
-    <div transition:slide|local={{ duration: 150 }}>
-      {#if lang === 'svelte'}
-        <HighlightSvelte {code} langtag />
-      {:else}
-        <Highlight language={lang} {code} langtag />
-      {/if}
+    <div class="flex-1 overflow-auto">
+      <div transition:slide|local={{ duration: 150 }}>
+        {#if lang === 'svelte'}
+          <HighlightSvelte {code} langtag />
+        {:else}
+          <Highlight language={lang} {code} langtag />
+        {/if}
+      </div>
     </div>
   {/if}
 </div>
