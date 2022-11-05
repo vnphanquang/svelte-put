@@ -14,20 +14,16 @@
     {
       variant: 'npm',
       code: `npm install ${dev ? '--save-dev ' : ''}${pkg}`,
-      lang: shell,
-      title: 'terminal',
     },
     {
       variant: 'pnpm',
       code: `pnpm add ${dev ? '-D ' : ''}${pkg}`,
-      lang: shell,
-      title: 'terminal',
     },
     {
       variant: 'yarn',
       code: `yarn add ${dev ? '-D ' : ''}${pkg}`,
-      lang: shell,
-      title: 'terminal',
     },
   ]}
+  lang={shell}
+  title="terminal"
 />
