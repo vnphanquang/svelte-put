@@ -1,5 +1,18 @@
+<script lang="ts" context="module">
+  export interface CodeProps {
+    lang?: ComponentProps<Highlight>['language'] | 'svelte';
+    code: string;
+    title?: string;
+    expanded?: boolean;
+    expansion?: 'disabled' | 'enabled';
+    icon?: 'none' | 'code' | 'warning' | 'error';
+    class?: string;
+  }
+</script>
+
 <script lang="ts">
   import { copy } from '@svelte-put/copy';
+  import { clsx } from 'clsx';
   import type { ComponentProps } from 'svelte';
   import Highlight from 'svelte-highlight/Highlight.svelte';
   import HighlightSvelte from 'svelte-highlight/HighlightSvelte.svelte';
@@ -12,12 +25,13 @@
   import IconExpandLess from '$lib/ui/components/icons/material/ExpandLess.svelte';
   import IconWarning from '$lib/ui/components/icons/material/Warning.svelte';
 
-  export let lang: ComponentProps<Highlight>['language'] | 'svelte' = 'svelte';
-  export let code: string;
-  export let title = '';
-  export let expanded = true;
-  export let expansion: 'disabled' | 'enabled' = 'enabled';
-  export let icon: 'none' | 'code' | 'warning' | 'error' = 'code';
+  type $$Props = CodeProps;
+  export let lang: $$Props['lang'] = 'svelte';
+  export let code: $$Props['code'];
+  export let title: $$Props['title'] = '';
+  export let expanded: $$Props['expanded'] = true;
+  export let expansion: $$Props['expansion'] = 'enabled';
+  export let icon: $$Props['icon'] = 'code';
 
   let copied = false;
   function onCopy() {
@@ -34,7 +48,9 @@
 </script>
 
 <div
-  class="group relative my-6 flex max-w-full flex-col overflow-hidden rounded-md text-code-fg shadow hover:shadow-md {$$props.class}"
+  class="group relative my-6 flex max-w-full flex-col overflow-hidden rounded-md text-code-fg shadow hover:shadow-md {clsx(
+    $$props.class,
+  )}"
   on:mouseleave={onMouseLeave}
   aria-expanded={expanded}
 >
@@ -98,9 +114,9 @@
     <div class="flex-1 overflow-auto">
       <div transition:slide|local={{ duration: 150 }}>
         {#if lang === 'svelte'}
-          <HighlightSvelte {code} langtag />
+          <HighlightSvelte {code} />
         {:else}
-          <Highlight language={lang} {code} langtag />
+          <Highlight language={lang} {code} />
         {/if}
       </div>
     </div>

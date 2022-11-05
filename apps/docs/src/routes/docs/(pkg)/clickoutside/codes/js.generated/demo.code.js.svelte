@@ -1,12 +1,10 @@
-<script lang="ts">
+<script>
   import { clickoutside } from '@svelte-put/clickoutside';
   import { quintOut } from 'svelte/easing';
   import { fly } from 'svelte/transition';
-
   let enabled = true;
-  let parent: HTMLElement;
+  let parent;
   let click = 0;
-
   function onClickOutside() {
     click++;
   }
@@ -15,7 +13,10 @@
   }
 </script>
 
-<fieldset class="border-4 border-blue-500 bg-violet-200 p-10 {$$props.class}" bind:this={parent}>
+<fieldset
+  class="border-4 border-blue-500 bg-violet-200 p-10 {$$props.class ?? ''}"
+  bind:this={parent}
+>
   <legend>Limit</legend>
 
   <div

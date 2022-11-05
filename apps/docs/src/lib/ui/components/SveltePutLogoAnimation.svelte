@@ -1,8 +1,9 @@
 <script lang="ts">
+  import { clsx } from 'clsx';
   export let open = true;
 </script>
 
-<div class="box {$$props.class}" {open}>
+<div class="box {clsx($$props.class)}" {open}>
   <div class="box-content">
     <img src="/images/svelte-logo.svg" alt="svelte" height="128" width="107" />
   </div>
