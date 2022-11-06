@@ -1,4 +1,7 @@
 <script lang="ts">
+  import { toc } from '@svelte-put/toc';
+  import type { TocEventDetails } from '@svelte-put/toc';
+  import clsx from 'clsx';
   import gruvbox from 'svelte-highlight/styles/gruvbox-dark-soft';
   import { cubicOut } from 'svelte/easing';
 
@@ -42,13 +45,97 @@
         `border-${secondary_dimensions[1].toLowerCase()}-width: ${t * border_width_end_value}px;`,
     };
   }
+  let tocItems: { level: string; text: string; id: string }[] = [];
+  let activeTocId = '';
+  const stateMap: Record<string, { y: number; isInView: boolean }> = {};
+  function onToc(e: CustomEvent<TocEventDetails>) {
+    // FIXME: should refactor here once @svelte-put/toc is refactored to support these by default
+
+    // eslint-disable-next-line no-undef
+    const scrollingDownCallback: IntersectionObserverCallback = (entries) => {
+      let newActiveTocId = '';
+      for (const entry of entries) {
+        const id = entry.target.id;
+        const y = entry.boundingClientRect.y;
+
+        const previousY = stateMap[id]?.y;
+        stateMap[id] = { y, isInView: entry.isIntersecting };
+
+        if (previousY) {
+          if (y < previousY) {
+            // scrolling down
+            if (entry.isIntersecting) {
+              // entering
+            } else {
+              // leaving
+              if (!newActiveTocId) newActiveTocId = id;
+            }
+          }
+        } else {
+          if (entry.isIntersecting && !newActiveTocId) newActiveTocId = id;
+        }
+      }
+      if (newActiveTocId) {
+        activeTocId = newActiveTocId;
+      }
+    };
+    const scrollingDownObserver = new IntersectionObserver(scrollingDownCallback, {
+      rootMargin: '-100px 0px 0px 0px',
+    });
+
+    // eslint-disable-next-line no-undef
+    const scrollingUpCallback: IntersectionObserverCallback = (entries) => {
+      let newActiveTocId = '';
+      for (const entry of entries) {
+        const id = entry.target.id;
+        const y = entry.boundingClientRect.y;
+
+        const previousY = stateMap[id]?.y;
+        stateMap[id] = { y, isInView: entry.isIntersecting };
+
+        if (previousY) {
+          if (y > previousY) {
+            // scrolling up
+            if (entry.isIntersecting) {
+              // entering
+              if (!newActiveTocId) newActiveTocId = id;
+            } else {
+              // leaving
+            }
+          }
+        } else {
+          if (entry.isIntersecting && !newActiveTocId) newActiveTocId = id;
+        }
+      }
+      if (newActiveTocId) {
+        activeTocId = newActiveTocId;
+      }
+    };
+    const scrollingUpObserver = new IntersectionObserver(scrollingUpCallback, {
+      rootMargin: '100px 0px 0px 0px',
+    });
+
+    const items = [];
+    for (const item of e.detail.items) {
+      if (item.element.tagName.toLowerCase() !== 'h1') {
+        scrollingDownObserver.observe(item.element);
+        scrollingUpObserver.observe(item.element);
+        items.push({
+          id: item.id,
+          level: item.element.tagName[1],
+          text: item.text.substring(1),
+        });
+      }
+    }
+    tocItems = items;
+  }
 </script>
 
 <svelte:head>
   {@html gruvbox}
 </svelte:head>
 
-<div class="relative flex min-h-screen flex-1 flex-col pt-header">
+<div class="relative flex min-h-screen w-full flex-1 flex-col pt-header">
   <header
     class="fixed inset-x-0 top-0 z-header flex h-header flex-col border-b border-border bg-bg"
   >
@@ -73,9 +160,9 @@
     </nav>
   </header>
 
-  <div class="container relative mx-auto flex flex-1 items-stretch">
-    <nav data-sveltekit-prefetch class="w-sidebar shrink-0 border-r border-border text-sm">
-      <ul class="sticky top-header whitespace-nowrap p-6">
+  <div class="relative flex w-full flex-1 items-stretch" id="wrapper">
+    <nav data-sveltekit-prefetch class="sidebar w-sidebar shrink-0 border-r border-border text-sm">
+      <ul class="sidebar-content">
         <li>
           <a
             href={APP_ROUTE_TREE.docs.$.path()}
@@ -89,21 +176,27 @@
           <li class="py-2">
             <p class="font-bold">{capitalize(category)}</p>
             <ul class="mt-2 space-y-1 border-l border-border/50">
-              {#each packages as { path, status, id, new: isNew }}
+              {#each packages as { path, status, id }}
                 <li>
                   <a
                     href={path}
                     data-current={data.pathname.includes(id)}
-                    class="c-link -ml-px block py-1 pl-3 data-current:border-l data-current:border-primary"
+                    class="c-link -ml-px block border-l border-transparent py-1 pl-3 data-current:border-primary"
                   >
                     <span class="h-full w-1 bg-primary" />
                     {id}
                     <sup>
                       {#if status !== 'stable'}
-                        <span class:c-badge-primary={status === 'dev'}>{status}</span>
-                      {/if}
-                      {#if isNew}
-                        <span class="c-badge-secondary">{'new'}</span>
+                        <span
+                          class={clsx(
+                            status === 'dev' && 'c-badge-primary',
+                            // status === 'new' && 'c-badge-secondary',
+                            status === 'beta' && 'c-badge-blue',
+                            status === 'flux' && 'c-badge-red',
+                          )}
+                        >
+                          {status}
+                        </span>
                       {/if}
                     </sup>
                   </a>
@@ -116,15 +209,56 @@
     </nav>
 
     {#key data.pathname}
-      <main class="prose w-full flex-1 py-10 px-6 md:px-10 lg:px-14">
+      <main
+        class="prose flex-1 py-10 px-6 md:px-10 lg:px-14"
+        use:toc={{ anchored: false, indicator: false }}
+        on:toc={onToc}
+      >
         <slot />
       </main>
     {/key}
+
+    <nav class="sidebar">
+      <div class="sidebar-content text-sm">
+        {#if tocItems.length}
+          <p class="py-2 font-bold uppercase">On This Page</p>
+          <ul class="space-y-1 border-l border-border/50">
+            {#each tocItems as { id, text, level }}
+              {@const current = id === activeTocId}
+              <li>
+                <a
+                  href={`#${id}`}
+                  data-current={current}
+                  class="c-link -ml-px block border-l border-transparent py-1 data-current:border-primary"
+                  class:pl-3={level === '2'}
+                  class:pl-5={level === '3'}
+                  class:pl-7={level === '4'}
+                  class:pl-9={level === '5'}
+                  class:pl-11={level === '6'}
+                >
+                  {text}
+                </a>
+              </li>
+            {/each}
+          </ul>
+        {/if}
+      </div>
+    </nav>
   </div>
 </div>
 
 <style lang="postcss">
+  #wrapper {
+    --wrapper-padding: 1rem;
+    padding: 0 var(--wrapper-padding);
+  }
+  .sidebar {
+    @apply w-sidebar shrink-0;
+    & .sidebar-content {
+      @apply sticky top-header p-6;
+    }
+  }
   main {
-    max-width: calc(100% - var(--sidebar-width));
+    max-width: calc(100% - var(--sidebar-width) * 2);
   }
 </style>
