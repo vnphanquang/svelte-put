@@ -7,6 +7,7 @@
 
   import { packagesByCategory } from '$data/packages';
   import { APP_ROUTE_TREE } from '$lib/constants';
+  import StatusBadge from '$lib/ui/components/StatusBadge/StatusBadge.svelte';
   import { capitalize } from '$lib/utils/string';
 
   import type { LayoutData } from './$types';
@@ -120,10 +121,14 @@
       if (item.element.tagName.toLowerCase() !== 'h1') {
         scrollingDownObserver.observe(item.element);
         scrollingUpObserver.observe(item.element);
+        let text = item.text;
+        if (text.startsWith('#')) {
+          text = text.slice(1);
+        }
         items.push({
           id: item.id,
           level: item.element.tagName[1],
-          text: item.text.substring(1),
+          text,
         });
       }
     }
@@ -187,16 +192,7 @@
                     {id}
                     <sup>
                       {#if status !== 'stable'}
-                        <span
-                          class={clsx(
-                            status === 'dev' && 'c-badge-primary',
-                            // status === 'new' && 'c-badge-secondary',
-                            status === 'beta' && 'c-badge-blue',
-                            status === 'flux' && 'c-badge-red',
-                          )}
-                        >
-                          {status}
-                        </span>
+                        <StatusBadge {status} />
                       {/if}
                     </sup>
                   </a>
