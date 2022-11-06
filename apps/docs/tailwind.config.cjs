@@ -38,6 +38,9 @@ const sveltePut = plugin(
       '.c-badge-secondary': {
         '@apply c-badge bg-secondary': {},
       },
+      '.c-badge-gray': {
+        '@apply c-badge bg-gray-500': {},
+      },
       '.c-badge-red': {
         '@apply c-badge bg-red-500': {},
       },
