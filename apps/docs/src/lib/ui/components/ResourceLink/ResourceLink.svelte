@@ -8,7 +8,9 @@
   export let string = key;
 </script>
 
-<a href={resources[key]} target="__blank" class={clsx($$props.class)}>{string}</a>
+<a href={resources[key]} target="__blank" class={clsx($$props.class)}>
+  <slot>{string}</slot>
+</a>
 
 <style lang="postcss">
 </style>
