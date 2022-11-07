@@ -439,7 +439,7 @@ importers:
       '@microsoft/api-documenter': ^7.19.23
       '@microsoft/api-extractor': ^7.33.5
       '@svelte-put/apirc': workspace:^0.0.0
-      '@svelte-put/clickoutside': ^1.0.4
+      '@svelte-put/clickoutside': ^1.1.0
       '@svelte-put/movable': ^1.2.2
       '@svelte-put/shortcut': ^1.0.2
       '@svelte-put/tsconfig': workspace:^0.0.0
