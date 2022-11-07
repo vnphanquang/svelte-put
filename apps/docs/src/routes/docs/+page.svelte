@@ -108,4 +108,4 @@
   >.
 </p>
 
-<p>Happy coding!</p>
+<p>Happy coding! 👨‍💻</p>

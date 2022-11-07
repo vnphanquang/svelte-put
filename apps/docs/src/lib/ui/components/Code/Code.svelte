@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
   export interface CodeProps {
     lang?: ComponentProps<Highlight>['language'] | 'svelte';
-    code: string;
+    code: string | Record<string, string>;
     title?: string;
     expanded?: boolean;
     expansion?: 'disabled' | 'enabled';
@@ -33,6 +33,10 @@
   export let expansion: $$Props['expansion'] = 'enabled';
   export let icon: $$Props['icon'] = 'code';
 
+  let variant = typeof code === 'object' ? Object.keys(code)[0] : '';
+
+  $: currentCode = typeof code === 'object' ? code[variant] : code;
+
   let copied = false;
   function onCopy() {
     copied = true;
@@ -48,15 +52,16 @@
 </script>
 
 <div
-  class="group relative my-6 flex max-w-full flex-col overflow-hidden rounded-md text-code-fg shadow hover:shadow-md {clsx(
+  class={clsx(
+    'group relative my-6 flex max-w-full flex-col overflow-hidden rounded-md text-code-fg shadow hover:shadow-md',
     $$props.class,
-  )}"
+  )}
   on:mouseleave={onMouseLeave}
   aria-expanded={expanded}
 >
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div
-    class="not-prose flex cursor-pointer items-center bg-code-bg py-2 pl-6 pr-2"
+    class="not-prose flex cursor-pointer items-center border-b border-white bg-code-bg py-2 pl-6 pr-2"
     on:click={toggleExpansion}
   >
     <p class="flex flex-1 items-center space-x-2 font-fira text-sm">
@@ -77,7 +82,7 @@
       class="flex items-center justify-center space-x-1"
       alt="copy code"
       on:click|stopPropagation
-      use:copy={{ text: code }}
+      use:copy={{ text: currentCode }}
       on:copy={onCopy}
     >
       {#if copied}
@@ -110,13 +115,28 @@
       </button>
     {/if}
   </div>
+  {#if typeof code === 'object'}
+    <div class="not-prose">
+      <ul class="flex w-full items-center border-b border-white bg-code-bg pr-2 text-sm">
+        {#each Object.keys(code) as key}
+          {@const current = key === variant}
+          <li
+            data-current={current}
+            class="-mb-px border-b border-transparent data-current:border-b-primary"
+          >
+            <button class="px-4 py-3" on:click={() => (variant = key)}>{key}</button>
+          </li>
+        {/each}
+      </ul>
+    </div>
+  {/if}
   {#if expanded}
     <div class="flex-1 overflow-auto">
       <div transition:slide|local={{ duration: 150 }}>
         {#if lang === 'svelte'}
-          <HighlightSvelte {code} />
+          <HighlightSvelte code={currentCode} />
         {:else}
-          <Highlight language={lang} {code} />
+          <Highlight language={lang} code={currentCode} />
         {/if}
       </div>
     </div>
@@ -125,7 +145,7 @@
 
 <style lang="postcss">
   :global(pre:not(#fakeId)) {
-    @apply m-0 rounded-none border-t border-border p-0;
+    @apply m-0 rounded-none p-0;
   }
   :global(pre:not(#fakeId)::after) {
     @apply p-4;

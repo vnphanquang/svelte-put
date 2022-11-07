@@ -1,7 +1,7 @@
 <script lang="ts">
   import shell from 'svelte-highlight/languages/shell';
 
-  import CodeSwitch from '$lib/ui/components/Code/CodeSwitch.svelte';
+  import Code from '$lib/ui/components/Code/Code.svelte';
 
   export let pkg: string;
   export let dev = true;
@@ -9,21 +9,12 @@
 
 <h2>Installation</h2>
 
-<CodeSwitch
-  codes={[
-    {
-      variant: 'npm',
-      code: `npm install ${dev ? '--save-dev ' : ''}${pkg}`,
-    },
-    {
-      variant: 'pnpm',
-      code: `pnpm add ${dev ? '-D ' : ''}${pkg}`,
-    },
-    {
-      variant: 'yarn',
-      code: `yarn add ${dev ? '-D ' : ''}${pkg}`,
-    },
-  ]}
+<Code
+  code={{
+    npm: `npm install ${dev ? '--save-dev ' : ''}${pkg}`,
+    pnpm: `pnpm add ${dev ? '-D ' : ''}${pkg}`,
+    yarn: `yarn add ${dev ? '-D ' : ''}${pkg}`,
+  }}
   lang={shell}
   title="terminal"
 />

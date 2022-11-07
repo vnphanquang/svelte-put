@@ -3,10 +3,8 @@
 
   import ActionUsageNotice from '$lib/ui/components/ActionUsageNotice/ActionUsageNotice.svelte';
   import Code from '$lib/ui/components/Code/Code.svelte';
-  import CodeSwitch from '$lib/ui/components/Code/CodeSwitch.svelte';
   import Installation from '$lib/ui/components/Installation/Installation.svelte';
   import ResourceLink from '$lib/ui/components/ResourceLink/ResourceLink.svelte';
-  import { capitalize } from '$lib/utils/string';
 
   import type { PageData } from './$types';
   import { codes } from './codes';
@@ -18,7 +16,7 @@
 <Installation pkg={data.package.name} />
 
 <h2>Quick Start</h2>
-<Code lang="svelte" code="./codes/quick-start.code.svelte?raw" title="quick start" />
+<Code lang="svelte" code={codes.quickStart} />
 
 <ActionUsageNotice action={data.package.id} />
 
@@ -26,11 +24,8 @@
 
 <h3>Feature Demo</h3>
 <Demo />
-<CodeSwitch
-  codes={Object.entries(codes.advancedUsage.demo).map(([lang, code]) => ({
-    variant: capitalize(lang),
-    code,
-  }))}
+<Code
+  code={codes.advancedUsage.demo}
   title="usage demo source. expand to see"
   class="max-h-[500px]"
 />
@@ -97,3 +92,15 @@
   title="src/app.d.ts - fallback typescript support"
   expanded={false}
 />
+
+<h2>API Reference</h2>
+
+<p>
+  Visit the
+  <ResourceLink
+    href="https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/clickoutside/api/docs/index.md"
+  >
+    extracted API page
+  </ResourceLink>
+  on github for details.
+</p>
