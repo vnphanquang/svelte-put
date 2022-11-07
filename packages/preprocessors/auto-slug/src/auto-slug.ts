@@ -6,7 +6,7 @@ import { PreprocessorGroup } from 'svelte/types/compiler/preprocess';
 
 import { DEFAULT_AUTO_SLUG_OPTIONS } from './auto-slug.constants';
 import type { AutoSlugInput, Node } from './auto-slug.types';
-import { getTextContent, hasIdAttribute, isMustacheNode } from './auto-slug.utils';
+import { getTextContent, getIdAttribute } from './auto-slug.utils';
 
 /**
  * create svelte preprocessor to generate slug from text content of matching tags
@@ -40,60 +40,57 @@ export function autoSlug(input: AutoSlugInput): PreprocessorGroup {
           if (
             node.type === 'Element' &&
             options.tags.includes(tNode.name) &&
-            !hasIdAttribute(tNode, options.attributeName) &&
-            !isMustacheNode(tNode) &&
             tNode.children?.length
           ) {
-            const nodeText = getTextContent(tNode).trim();
-            if (nodeText) {
-              const slug = options.slug({
-                generated: slugger.slug(nodeText),
-                nodeText,
-                slugger,
-              });
+            let id = getIdAttribute(content, tNode, options.attributeName);
+            if (!id) {
+              const nodeText = getTextContent(tNode).trim();
+              if (nodeText) {
+                const generated = slugger.slug(nodeText);
+                id = options.slug({ generated, nodeText, slugger });
 
-              const idAttrStr = ` ${options.attributeName}="${slug}"`;
-              s.appendLeft(tNode.children[0].start - 1, idAttrStr);
+                const idAttrStr = ` ${options.attributeName}="${id}"`;
+                s.appendLeft(tNode.children[0].start - 1, idAttrStr);
+              }
+            }
+            if (id && options.anchor.enabled) {
+              const inlineProperties = Object.entries(options.anchor.properties)
+                .map(([key, value]) => `${key}="${value}"`)
+                .join(' ');
+              const anchorOpening = `<a href="#${id}" ${inlineProperties}>`;
+              const anchorClosing = '</a>';
 
-              if (options.anchor.enabled) {
-                const inlineProperties = Object.entries(options.anchor.properties)
-                  .map(([key, value]) => `${key}="${value}"`)
-                  .join(' ');
-                const anchorOpening = `<a href="#${slug}" ${inlineProperties}>`;
-                const anchorClosing = '</a>';
-
-                switch (options.anchor.position) {
-                  case 'before':
-                    s.appendLeft(
-                      tNode.start,
-                      `${anchorOpening}${options.anchor.content}${anchorClosing}`,
-                    );
-                    break;
-                  case 'prepend':
-                    s.appendRight(
-                      tNode.children[0].start,
-                      `${anchorOpening}${options.anchor.content}${anchorClosing}`,
-                    );
-                    break;
-                  case 'wrap':
-                    s.appendRight(tNode.children[0].start, anchorOpening).appendLeft(
-                      tNode.children[tNode.children.length - 1].end,
-                      anchorClosing,
-                    );
-                    break;
-                  case 'append':
-                    s.appendLeft(
-                      tNode.children[tNode.children.length - 1].end,
-                      `${anchorOpening}${options.anchor.content}${anchorClosing}`,
-                    );
-                    break;
-                  case 'after':
-                    s.appendRight(
-                      tNode.end,
-                      `${anchorOpening}${options.anchor.content}${anchorClosing}`,
-                    );
-                    break;
-                }
+              switch (options.anchor.position) {
+                case 'before':
+                  s.appendLeft(
+                    tNode.start,
+                    `${anchorOpening}${options.anchor.content}${anchorClosing}`,
+                  );
+                  break;
+                case 'prepend':
+                  s.appendRight(
+                    tNode.children[0].start,
+                    `${anchorOpening}${options.anchor.content}${anchorClosing}`,
+                  );
+                  break;
+                case 'wrap':
+                  s.appendRight(tNode.children[0].start, anchorOpening).appendLeft(
+                    tNode.children[tNode.children.length - 1].end,
+                    anchorClosing,
+                  );
+                  break;
+                case 'append':
+                  s.appendLeft(
+                    tNode.children[tNode.children.length - 1].end,
+                    `${anchorOpening}${options.anchor.content}${anchorClosing}`,
+                  );
+                  break;
+                case 'after':
+                  s.appendRight(
+                    tNode.end,
+                    `${anchorOpening}${options.anchor.content}${anchorClosing}`,
+                  );
+                  break;
               }
             }
           }
