@@ -1,6 +1,6 @@
 {
   "name": "@svelte-put/copy",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Svelte action & utilities for copying text inside nodes",
   "main": "lib/index.js",
   "module": "lib/index.js",

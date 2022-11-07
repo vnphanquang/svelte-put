@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0
+
+### Minor Changes
+
+- [#64](https://github.com/vnphanquang/svelte-put/pull/64) [`aa7a5f8`](https://github.com/vnphanquang/svelte-put/commit/aa7a5f82df60551044a108e2d24cbf29314e9680) Thanks [@vnphanquang](https://github.com/vnphanquang)! - turn off `capture` by default, provide additional options for configuring event listener registration
+
 ## 1.0.4
 
 ### Patch Changes

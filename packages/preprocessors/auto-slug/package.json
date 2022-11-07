@@ -1,6 +1,6 @@
 {
   "name": "@svelte-put/preprocess-auto-slug",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Generate slug from text content, to add id to headings for example",
   "main": "lib/index.js",
   "module": "lib/index.mjs",
