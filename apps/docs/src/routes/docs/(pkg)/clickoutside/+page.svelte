@@ -6,6 +6,7 @@
   import CodeSwitch from '$lib/ui/components/Code/CodeSwitch.svelte';
   import Installation from '$lib/ui/components/Installation/Installation.svelte';
   import ResourceLink from '$lib/ui/components/ResourceLink/ResourceLink.svelte';
+  import { capitalize } from '$lib/utils/string';
 
   import type { PageData } from './$types';
   import { codes } from './codes';
@@ -27,7 +28,7 @@
 <Demo />
 <CodeSwitch
   codes={Object.entries(codes.advancedUsage.demo).map(([lang, code]) => ({
-    variant: lang,
+    variant: capitalize(lang),
     code,
   }))}
   title="usage demo source. expand to see"

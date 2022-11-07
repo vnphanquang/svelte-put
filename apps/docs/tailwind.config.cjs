@@ -51,7 +51,7 @@ const sveltePut = plugin(
         '@apply mx-auto w-full px-3 md:px-5 lg:px-8 max-w-[1440px]': {},
       },
       '.c-link': {
-        '@apply hover:text-primary data-current:text-primary': {},
+        '@apply text-fg hover:text-primary data-current:text-primary': {},
       },
       '.c-link-bg': {
         '@apply data-current:text-primary data-current:hover:text-white hover:bg-primary hover:text-white':

@@ -2,17 +2,21 @@
   import clsx from 'clsx';
 
   import { packagesByCategory } from '$data/packages';
+  import ResourceLink from '$lib/ui/components/ResourceLink/ResourceLink.svelte';
   import StatusBadge from '$lib/ui/components/StatusBadge/StatusBadge.svelte';
+  import Github from '$lib/ui/components/icons/Github.svelte';
   import { createNpmBadgeUrl, createNpmUrl } from '$lib/utils/badge';
   import { capitalize } from '$lib/utils/string';
 </script>
 
 <h1>@svelte-put</h1>
 
-<p class="italic">
-  A collection of useful svelte actions, components, and utilities extracted from real world
-  projects.
-</p>
+<div class="not-prose rounded bg-bg-accent p-4 italic">
+  <p class="border-l-4 border-primary pl-4">
+    A collection of useful svelte actions, components, and utilities extracted from real world
+    projects.
+  </p>
+</div>
 
 <h2>Packages</h2>
 <p>
@@ -21,36 +25,87 @@
 </p>
 
 {#each Object.entries(packagesByCategory) as [category, packages]}
-  {@const sharedClass = 'bold border-border border-r px-2 h-full flex items-center'}
-  {@const headerClass = clsx(sharedClass, 'font-bold border-b')}
+  {@const sharedClass = 'bold border-border border-r p-4 h-full flex items-center'}
+  {@const headerClass = clsx(sharedClass, 'font-bold border-b bg-bg-accent')}
   <h3 id="{category}-packages">{capitalize(category)}</h3>
-  <div class="not-prose grid grid-cols-[198px,1fr,100px,80px] items-center">
-    <p class={headerClass}>ID</p>
-    <p class={headerClass}>Description</p>
-    <p class={headerClass}>Version</p>
-    <p class="{headerClass} border-r-0">Status</p>
-    {#each packages as { id, description, name, path, status }, index}
-      {@const cellClass = clsx(sharedClass, index < packages.length - 1 && 'border-b')}
-      <p class={cellClass}>
-        <a href={path} class="c-link font-semibold">
-          {id}
-        </a>
-      </p>
-      <p class={cellClass}>{description}</p>
-      <div class={cellClass}>
-        <a href={createNpmUrl(name)} target="__blank" class="block">
-          <img
-            class="block rounded"
-            src={createNpmBadgeUrl(name)}
-            alt={name}
-            height="20"
-            width="83"
-          />
-        </a>
-      </div>
-      <p class="{cellClass} border-r-0" class:border-b-0={index === packages.length - 1}>
-        <StatusBadge {status} />
-      </p>
-    {/each}
-  </div>
+  <section class="rounded bg-bg-accent/50 shadow">
+    <div class="not-prose grid grid-cols-[198px,1fr,140px,80px] items-center">
+      <p class={headerClass}>ID</p>
+      <p class={headerClass}>Description</p>
+      <p class={headerClass}>Version</p>
+      <p class="{headerClass} border-r-0">Status</p>
+      {#each packages as { id, description, name, path, status }, index}
+        {@const cellClass = clsx(sharedClass, index < packages.length - 1 && 'border-b')}
+        <p class={cellClass}>
+          <a href={path} class="c-link font-semibold">
+            {id}
+          </a>
+        </p>
+        <p class={cellClass}>{description}</p>
+        <div class={cellClass}>
+          <a href={createNpmUrl(name)} target="__blank" class="block">
+            <img
+              class="block rounded"
+              src={createNpmBadgeUrl(name)}
+              alt={name}
+              height="25"
+              width="106"
+            />
+          </a>
+        </div>
+        <p
+          class="{cellClass} justify-self-center border-r-0"
+          class:border-b-0={index === packages.length - 1}
+        >
+          <StatusBadge {status} />
+        </p>
+      {/each}
+    </div>
+  </section>
 {/each}
+
+<h2>Inspiration & Acknowledgement</h2>
+
+<p>
+  This is a collection of useful svelte utilities extracted from my real world projects that might
+  be helpful for yours too.
+</p>
+
+<p>
+  There is already a great pool of svelte
+  <ResourceLink href="https://github.com/sw-yx/svelte-actions">
+    svelte actions collected by Shawn and other contributors
+  </ResourceLink>
+  that you should check out. There might be some duplication here and there. However:
+</p>
+<ul>
+  <li>
+    Shawn's project aims to be a source for RFCs into svelte; I believe the stuff I am putting here
+    should stay in user land.
+  </li>
+  <li>
+    I prefer having separate packages for their dedicated purposes (instead of one package that
+    exports everything).
+  </li>
+  <li>I want to incrementally include more than just actions in this collection.</li>
+</ul>
+
+<p>For those reasons, a monorepo seems like a good fit, hence this project.</p>
+
+<h2>Contributing</h2>
+
+<p>
+  Source code can be found at
+  <span class="">
+    <ResourceLink key="github">
+      github <Github class="inline-block h-6 w-6 align-top" />
+    </ResourceLink>
+  </span>. If you have any suggestions or found a bug, please read the
+  <ResourceLink href="https://github.com/vnphanquang/svelte-put/blob/main/CONTRIBUTING.md"
+    >Contributing Guidelines</ResourceLink
+  > and
+  <ResourceLink href="https://github.com/vnphanquang/svelte-put/issues">open an issue</ResourceLink
+  >.
+</p>
+
+<p>Happy coding!</p>
