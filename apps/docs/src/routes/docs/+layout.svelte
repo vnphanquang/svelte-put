@@ -161,7 +161,7 @@
     </nav>
   </header>
 
-  <div class="relative flex w-full flex-1 items-stretch" id="wrapper">
+  <div class="c-container relative flex w-full flex-1 items-stretch" id="wrapper">
     <nav data-sveltekit-prefetch class="sidebar w-sidebar shrink-0 border-r border-border text-sm">
       <ul class="sidebar-content">
         <li>
@@ -237,6 +237,15 @@
       </div>
     </nav>
   </div>
+
+  <footer class="space-y-2 border-t border-border py-6 text-center font-fira text-xs">
+    <p>
+      Released under the <ResourceLink key="MIT License" class="font-medium" />
+    </p>
+    <p>
+      Made with rice 🍚 <ResourceLink key="Quang Phan" class="font-medium" />
+    </p>
+  </footer>
 </div>
 
 <style lang="postcss">

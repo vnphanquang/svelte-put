@@ -9,6 +9,6 @@
   export let href = key ? resources[key] : '';
 </script>
 
-<a {href} target="__blank" class={clsx($$props.class)}>
+<a {href} target="__blank" class={clsx('c-link', $$props.class)}>
   <slot>{string}</slot>
 </a>

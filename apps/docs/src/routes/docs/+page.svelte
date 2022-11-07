@@ -37,7 +37,7 @@
       {#each packages as { id, description, name, path, status }, index}
         {@const cellClass = clsx(sharedClass, index < packages.length - 1 && 'border-b')}
         <p class={cellClass}>
-          <a href={path} class="c-link font-semibold">
+          <a href={path} class="c-link font-medium">
             {id}
           </a>
         </p>
