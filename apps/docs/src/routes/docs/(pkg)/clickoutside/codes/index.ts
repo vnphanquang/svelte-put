@@ -19,13 +19,13 @@ const excludingEventsCustom = `<div use:clickoutside={{ options: { capture: true
 
 export const codes = {
   quickStart: {
-    typescript: quickStartTs,
-    javascript: quickStartJs,
+    Typescript: quickStartTs,
+    Javascript: quickStartJs,
   },
   advancedUsage: {
     demo: {
-      typescript: demoTs,
-      javascript: demoJs,
+      Typescript: demoTs,
+      Javascript: demoJs,
     },
     limitParent,
     eventType,
