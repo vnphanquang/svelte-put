@@ -51,7 +51,7 @@ const sveltePut = plugin(
         '@apply mx-auto w-full px-3 md:px-5 lg:px-8 max-w-[1440px]': {},
       },
       '.c-link': {
-        '@apply text-fg hover:text-primary data-current:text-primary': {},
+        '@apply hover:text-primary data-current:text-primary': {},
       },
       '.c-link-bg': {
         '@apply data-current:text-primary data-current:hover:text-white hover:bg-primary hover:text-white':
@@ -70,6 +70,8 @@ const sveltePut = plugin(
               },
               'h1,h2,h3,h4,h5,h6': {
                 'scroll-margin-top': theme('spacing.header'),
+                'padding-bottom': '0.5rem',
+                'border-bottom': `1px ${theme('colors.border')} solid`,
               },
               a: {
                 'text-decoration': 'none',
