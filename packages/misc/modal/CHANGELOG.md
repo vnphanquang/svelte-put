@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.5.6
+
+### Patch Changes
+
+- [`a08d317`](https://github.com/vnphanquang/svelte-put/commit/a08d31721f86f1c11864ff811eef4ca754bc31ac) Thanks [@vnphanquang](https://github.com/vnphanquang)! - docs: remove type re-declaration for prop in examples
+
+- Updated dependencies [[`aa7a5f8`](https://github.com/vnphanquang/svelte-put/commit/aa7a5f82df60551044a108e2d24cbf29314e9680)]:
+  - @svelte-put/clickoutside@1.1.0
+
 ## 0.5.5
 
 ### Patch Changes
