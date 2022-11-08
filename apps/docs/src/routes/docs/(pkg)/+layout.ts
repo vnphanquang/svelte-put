@@ -8,7 +8,12 @@ export const load: LayoutLoad = async ({ url }) => {
   // so using url.pathname instead.
   const routeSegments = (url.pathname ?? '').split('/');
   const pkgId = routeSegments[routeSegments.length - 1] as PackageId;
+  const pkg = packages[pkgId] as Package;
   return {
-    package: packages[pkgId] as Package,
+    package: pkg,
+    meta: {
+      title: `${pkg.id} | @svelte-put`,
+      description: pkg.description,
+    },
   };
 };

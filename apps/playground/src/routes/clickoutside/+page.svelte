@@ -10,8 +10,6 @@
   }
 </script>
 
-<title>clickoutside | @svelte-put</title>
-
 <main class="grid flex-1 grid-rows-[auto,1fr] flex-col gap-y-10 p-4">
   <h1 class="text-center text-4xl font-bold">@svelte-put/clickoutside</h1>
   <fieldset

@@ -1,56 +1,79 @@
 {
-    "name": "svelte-put",
-    "short_name": "svelte-put",
-    "theme_color": "#fbf1c7",
-    "background_color": "#fbf1c7",
-    "start_url": "https://svelte-put.vnphanquang.com/",
-    "display": "standalone",
-    "icons": [
-        {
-            "src": "/images/favicon/android-chrome-36x36.png",
-            "sizes": "36x36",
-            "type": "image/png"
-        },
-        {
-            "src": "/images/favicon/android-chrome-48x48.png",
-            "sizes": "48x48",
-            "type": "image/png"
-        },
-        {
-            "src": "/images/favicon/android-chrome-72x72.png",
-            "sizes": "72x72",
-            "type": "image/png"
-        },
-        {
-            "src": "/images/favicon/android-chrome-96x96.png",
-            "sizes": "96x96",
-            "type": "image/png"
-        },
-        {
-            "src": "/images/favicon/android-chrome-144x144.png",
-            "sizes": "144x144",
-            "type": "image/png"
-        },
-        {
-            "src": "/images/favicon/android-chrome-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png",
-            "purpose": "maskable"
-        },
-        {
-            "src": "/images/favicon/android-chrome-256x256.png",
-            "sizes": "256x256",
-            "type": "image/png"
-        },
-        {
-            "src": "/images/favicon/android-chrome-384x384.png",
-            "sizes": "384x384",
-            "type": "image/png"
-        },
-        {
-            "src": "/images/favicon/android-chrome-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
-    ]
+  "name": "svelte-put",
+  "short_name": "svelte-put",
+  "theme_color": "#fbf1c7",
+  "background_color": "#fbf1c7",
+  "start_url": "https://svelte-put.vnphanquang.com/",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/images/favicon/android-chrome-36x36.png",
+      "sizes": "36x36",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/favicon/android-chrome-48x48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/favicon/android-chrome-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/favicon/android-chrome-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/favicon/android-chrome-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/favicon/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/images/favicon/android-chrome-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/favicon/android-chrome-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/favicon/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/screenshots/screenshot-1280x720.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "@svelte-put desktop"
+    },
+    {
+      "src": "/images/screenshots/screenshot-428x926.png",
+      "sizes": "428x926",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "@svelte-put mobile"
+    },
+    {
+      "src": "/images/screenshots/screenshot-800x418.png",
+      "sizes": "800x418",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "@svelte-put og"
+    }
+  ]
 }

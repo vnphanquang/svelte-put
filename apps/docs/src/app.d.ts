@@ -7,7 +7,24 @@
 // and what to do when importing types
 declare namespace App {
   // interface Locals {}
-  // interface PageData {}
+  interface PageData {
+    meta?: {
+      title?: string;
+      description?: string;
+      og?: {
+        title?: string;
+        description?: string;
+        type?: 'website' | 'article' | 'profile';
+        image?: string;
+        url?: string;
+      };
+      twitter?: {
+        card?: string;
+        imageAlt?: string;
+        site?: string;
+      };
+    };
+  }
   // interface Error {}
   // interface Platform {}
 }
