@@ -7,6 +7,7 @@
     expansion?: 'disabled' | 'enabled';
     icon?: 'none' | 'code' | 'warning' | 'error';
     class?: string;
+    variant?: string;
   }
 </script>
 
@@ -32,8 +33,7 @@
   export let expanded: $$Props['expanded'] = true;
   export let expansion: $$Props['expansion'] = 'enabled';
   export let icon: $$Props['icon'] = 'code';
-
-  let variant = typeof code === 'object' ? Object.keys(code)[0] : '';
+  export let variant = typeof code === 'object' ? Object.keys(code)[0] : '';
 
   $: currentCode = typeof code === 'object' ? code[variant] : code;
 
@@ -53,7 +53,7 @@
 
 <div
   class={clsx(
-    'group relative my-6 flex max-w-full flex-col overflow-hidden rounded-md text-code-fg shadow hover:shadow-md',
+    'group relative my-6 max-w-full overflow-hidden rounded-md text-code-fg shadow hover:shadow-md',
     $$props.class,
   )}
   on:mouseleave={onMouseLeave}
@@ -115,24 +115,24 @@
       </button>
     {/if}
   </div>
-  {#if typeof code === 'object'}
-    <div class="not-prose">
-      <ul class="flex w-full items-center border-b border-white bg-code-bg pr-2 text-sm">
-        {#each Object.keys(code) as key}
-          {@const current = key === variant}
-          <li
-            data-current={current}
-            class="-mb-px border-b border-transparent data-current:border-b-primary"
-          >
-            <button class="px-4 py-3" on:click={() => (variant = key)}>{key}</button>
-          </li>
-        {/each}
-      </ul>
-    </div>
-  {/if}
   {#if expanded}
-    <div class="flex-1 overflow-auto">
-      <div transition:slide|local={{ duration: 150 }}>
+    <div transition:slide|local={{ duration: 150 }}>
+      {#if typeof code === 'object'}
+        <div class="not-prose">
+          <ul class="flex w-full items-center border-b border-white bg-code-bg pr-2 text-sm">
+            {#each Object.keys(code) as key}
+              {@const current = key === variant}
+              <li
+                data-current={current}
+                class="-mb-px border-b border-transparent data-current:border-b-primary"
+              >
+                <button class="px-4 py-3" on:click={() => (variant = key)}>{key}</button>
+              </li>
+            {/each}
+          </ul>
+        </div>
+      {/if}
+      <div class="overflow-auto">
         {#if lang === 'svelte'}
           <HighlightSvelte code={currentCode} />
         {:else}

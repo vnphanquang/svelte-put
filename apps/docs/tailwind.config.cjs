@@ -61,6 +61,12 @@ const sveltePut = plugin(
         '@apply before:border-l-4 before:border-primary before:pr-4 rounded bg-bg-accent p-4 italic':
           {},
       },
+      '.c-btn-text': {
+        '@apply inline-block text-primary hover:underline': {},
+      },
+      '.c-btn-text-secondary': {
+        '@apply inline-block text-secondary hover:underline': {},
+      },
     });
   },
   {
@@ -74,6 +80,8 @@ const sveltePut = plugin(
               },
               'h1,h2,h3,h4,h5,h6': {
                 'scroll-margin-top': theme('spacing.header'),
+              },
+              'h1,h2,h3': {
                 'padding-bottom': '0.5rem',
                 'border-bottom': `1px ${theme('colors.border')} solid`,
               },

@@ -1,7 +1,9 @@
 <script lang="ts">
   import typescript from 'svelte-highlight/languages/typescript';
 
+  import mouseclickPng from '$lib/assets/images/mouseclick.png';
   import ActionUsageNotice from '$lib/ui/components/ActionUsageNotice/ActionUsageNotice.svelte';
+  import ApiReference from '$lib/ui/components/ApiReference/ApiReference.svelte';
   import Code from '$lib/ui/components/Code/Code.svelte';
   import Installation from '$lib/ui/components/Installation/Installation.svelte';
   import ResourceLink from '$lib/ui/components/ResourceLink/ResourceLink.svelte';
@@ -93,14 +95,8 @@
   expanded={false}
 />
 
-<h2>API Reference</h2>
+<ApiReference href={data.package.apiUrl} />
 
-<p>
-  Visit the
-  <ResourceLink
-    href="https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/clickoutside/api/docs/index.md"
-  >
-    extracted API page
-  </ResourceLink>
-  on github for details.
-</p>
+<img src={mouseclickPng} alt="mouse click faster" width="300" height="210" />
+
+<p>Happy clicking outside! 👨‍💻</p>

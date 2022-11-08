@@ -11,6 +11,7 @@ declare namespace App {
     meta?: {
       title?: string;
       description?: string;
+      keywords?: string[];
       og?: {
         title?: string;
         description?: string;
