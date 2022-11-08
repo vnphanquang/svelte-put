@@ -16,7 +16,11 @@
 </script>
 
 {#key data.package.name}
-  <h1 class="border-none">{data.package.name}</h1>
+  <h1>{data.package.name}</h1>
+  {#if data.package.description}
+    <p class="c-callout">{data.package.description}</p>
+  {/if}
+
   <p class="h-6 space-x-2">
     <a href={createNpmUrl(data.package.name)} target="__blank" class="h-full">
       <img

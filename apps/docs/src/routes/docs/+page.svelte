@@ -11,12 +11,10 @@
 
 <h1>@svelte-put</h1>
 
-<div class="not-prose rounded bg-bg-accent p-4 italic">
-  <p class="border-l-4 border-primary pl-4">
-    A collection of useful svelte actions, components, and utilities extracted from real world
-    projects.
-  </p>
-</div>
+<p class="c-callout">
+  a collection of useful svelte actions, components, and utilities extracted from real world
+  projects.
+</p>
 
 <h2>Packages</h2>
 <p>

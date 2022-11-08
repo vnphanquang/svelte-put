@@ -57,6 +57,10 @@ const sveltePut = plugin(
         '@apply data-current:text-primary data-current:hover:text-white hover:bg-primary hover:text-white':
           {},
       },
+      '.c-callout': {
+        '@apply before:border-l-4 before:border-primary before:pr-4 rounded bg-bg-accent p-4 italic':
+          {},
+      },
     });
   },
   {
