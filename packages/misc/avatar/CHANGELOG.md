@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.9
+
+### Patch Changes
+
+- [`cd8d66e`](https://github.com/vnphanquang/svelte-put/commit/cd8d66e9d668e058636eb9c4c9d561c83282adb0) Thanks [@vnphanquang](https://github.com/vnphanquang)! - automatically assign size from gravatar and uiAvatar if provided
+
+- [`f64028e`](https://github.com/vnphanquang/svelte-put/commit/f64028ed9b8cfb0547c43c4e5d4b2d8db60809a7) Thanks [@vnphanquang](https://github.com/vnphanquang)! - pass resolved size and alt to default slot
+
 ## 1.0.8
 
 ### Patch Changes
