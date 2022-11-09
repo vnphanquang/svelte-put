@@ -11,41 +11,58 @@
   export let src: string | undefined = undefined;
   export let gravatar: GravatarOptions | string | undefined = undefined;
   export let uiAvatar: string | UIAvatarOptions | undefined = undefined;
-  export let fallback = DEFINITIVE_FALLBACK;
+  export let fallback: string | undefined = undefined;
   export let size: number | undefined = undefined;
   export let alt: string | undefined = undefined;
 
   $: rAlt = resolveAlt(alt, gravatar, uiAvatar);
   $: rSize = resolveSize(32, size, src, gravatar, uiAvatar);
-  $: trials = resolveSrc(src, gravatar, uiAvatar, fallback);
-  let resolvedSrc = DEFINITIVE_FALLBACK;
+  $: sources = resolveSrc(src, gravatar, uiAvatar, fallback);
+  let rSrc = DEFINITIVE_FALLBACK;
 
+  let element: HTMLImageElement;
   onMount(async () => {
-    for (const url of trials) {
-      try {
-        const response = await fetch(url, { mode: 'cors' });
-        if (response.status.toString().startsWith('2')) {
-          resolvedSrc = url;
-          break;
+    let rElement = element;
+    if ($$slots.default) {
+      rElement = new Image();
+      rElement.style.display = 'none';
+      document.body.appendChild(rElement);
+    }
+    let currentSourceIndex = 0;
+    if (rElement) {
+      rElement.addEventListener('error', (e) => {
+        console.log(e);
+        if (currentSourceIndex < sources.length - 1) {
+          currentSourceIndex++;
+          rElement.src = rSrc = sources[currentSourceIndex];
+        } else {
+          rElement.src = rSrc = DEFINITIVE_FALLBACK;
         }
-      } catch {
-        //
-      }
+      });
+      rElement.src = rSrc = sources[currentSourceIndex];
     }
   });
 </script>
 
 <!--
   @component
-  Svelte `<img>` wrapper component for displaying avatar
+  Svelte image wrapper component for displaying avatar
   @public
 -->
-<slot src={resolvedSrc} size={rSize} alt={rAlt}>
-  <img src={resolvedSrc} alt={rAlt} height={rSize} width={rSize} class={$$props.class} />
+<slot src={rSrc} size={rSize} alt={rAlt} {sources}>
+  <img
+    src={rSrc}
+    alt={rAlt}
+    height={rSize}
+    width={rSize}
+    class="svelte-put-avatar {$$props.class ?? ''}"
+    data-sources={sources.join(',')}
+    bind:this={element}
+  />
 </slot>
 
 <style>
-  :where(img) {
+  :global(:where(.svelte-put-avatar)) {
     aspect-ratio: 1 / 1;
     object-fit: cover;
     object-position: center;

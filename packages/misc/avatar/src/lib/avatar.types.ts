@@ -10,6 +10,8 @@ export interface AvatarSlots {
     alt: string;
     /** The resolved size, if any */
     size: number;
+    /** All the images source from prop */
+    sources: string[];
   };
 }
 

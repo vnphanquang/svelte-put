@@ -63,16 +63,15 @@ export function resolveSize(
 
 export const DEFINITIVE_FALLBACK = 'https://www.gravatar.com/avatar?d=mp';
 export function resolveSrc(
-  src: string,
-  gravatar: AvatarProps['gravatar'],
-  uiAvatar: AvatarProps['uiAvatar'],
-  fallback: string,
+  src?: string,
+  gravatar?: AvatarProps['gravatar'],
+  uiAvatar?: AvatarProps['uiAvatar'],
+  fallback?: string,
 ): string[] {
   const rUIAvatar = uiAvatar ? constructUIAvatarUrl(uiAvatar) : null;
   let rGravatar: string | null = null;
-  const rFallback: string | null = fallback === DEFINITIVE_FALLBACK ? null : fallback;
   if (gravatar) {
-    if (rUIAvatar || rFallback) {
+    if (rUIAvatar || fallback) {
       if (typeof gravatar === 'object' && !gravatar.default) {
         gravatar.default = '404';
       } else {
@@ -85,5 +84,5 @@ export function resolveSrc(
     rGravatar = constructGravatarUrl(gravatar);
   }
 
-  return [src, rGravatar, rUIAvatar, rFallback].filter(nonNullableFilter);
+  return [src, rGravatar, rUIAvatar, fallback].filter(nonNullableFilter);
 }
