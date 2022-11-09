@@ -1,6 +1,6 @@
 {
   "name": "@svelte-put/dragscroll",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Svelte action for pointer drag-to-scroll behavior",
   "main": "lib/index.js",
   "module": "lib/index.js",
