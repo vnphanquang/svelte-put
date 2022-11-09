@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.10
+
+### Patch Changes
+
+- [`da91481`](https://github.com/vnphanquang/svelte-put/commit/da914811c85879d5ac51c8a9568efa2c361e70bc) Thanks [@vnphanquang](https://github.com/vnphanquang)! - avoid fetch (cors) problem, use image `onerror` instead (see https://github.com/vnphanquang/svelte-put/issues/67)
+
 ## 1.0.9
 
 ### Patch Changes
