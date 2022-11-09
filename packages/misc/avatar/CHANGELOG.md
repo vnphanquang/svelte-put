@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.11
+
+### Patch Changes
+
+- [`9e95881`](https://github.com/vnphanquang/svelte-put/commit/9e958812ee37988c5f6f2e0ddab659aff7c0e5ec) Thanks [@vnphanquang](https://github.com/vnphanquang)! - automatically extract alt from source configs
+
 ## 1.0.10
 
 ### Patch Changes
