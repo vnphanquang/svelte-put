@@ -250,6 +250,30 @@ importers:
       tslib: 2.4.1
       typescript: 4.8.4
 
+  packages/actions/dragscroll:
+    specifiers:
+      '@microsoft/api-documenter': ^7.19.23
+      '@microsoft/api-extractor': ^7.33.5
+      '@rollup/plugin-typescript': ^9.0.2
+      '@svelte-put/apirc': workspace:^0.0.0
+      '@svelte-put/tsconfig': workspace:^0.0.0
+      npm-run-all: ^4.1.5
+      rollup: ^3.2.5
+      rollup-plugin-filesize: ^9.1.2
+      tslib: ^2.4.1
+      typescript: ^4.8.4
+    devDependencies:
+      '@microsoft/api-documenter': 7.19.23
+      '@microsoft/api-extractor': 7.33.5
+      '@rollup/plugin-typescript': 9.0.2_skqhbvp355vci76ty3pdffvjrq
+      '@svelte-put/apirc': link:../../../configs/apirc
+      '@svelte-put/tsconfig': link:../../../configs/tsconfig
+      npm-run-all: 4.1.5
+      rollup: 3.2.5
+      rollup-plugin-filesize: 9.1.2
+      tslib: 2.4.1
+      typescript: 4.8.4
+
   packages/actions/intersect:
     specifiers:
       '@microsoft/api-documenter': ^7.19.23
@@ -998,6 +1022,7 @@ packages:
   /@npmcli/move-file/1.1.2:
     resolution: {integrity: sha512-1SUf/Cg2GzGDyaf15aR9St9TWlb+XvbZXWpDx8YKs7MLzMH/BCeopv+y9vzrzgkfykCGuWOlSu3mZhj2+FQcrg==}
     engines: {node: '>=10'}
+    deprecated: This functionality has been moved to @npmcli/fs
     dependencies:
       mkdirp: 1.0.4
       rimraf: 3.0.2

@@ -37,6 +37,18 @@ export const packages = {
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/copy/CHANGELOG.md',
   },
+  dragscroll: {
+    id: 'dragscroll',
+    name: '@svelte-put/dragscroll',
+    description: 'action to add pointer "drag-to-scroll" behavior',
+    path: APP_ROUTE_TREE.docs.dragscroll.$.path(),
+    replId: undefined,
+    category: 'action',
+    status: 'dev',
+    ready: false,
+    changelogUrl:
+      'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/dragscroll/CHANGELOG.md',
+  },
   intersect: {
     id: 'intersect',
     name: '@svelte-put/intersect',
