@@ -1,21 +1,20 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
-  import type { AvatarProps } from './avatar.types';
-  import type { AvatarSlots, GravatarOptions, UIAvatarOptions } from './avatar.types';
+  import type { AvatarSlots, AvatarProps } from './avatar.types';
   import { resolveAlt, resolveSize, resolveSrc, DEFINITIVE_FALLBACK } from './avatar.utils';
 
   type $$Props = AvatarProps;
   type $$Slots = AvatarSlots;
 
-  export let src: string | undefined = undefined;
-  export let gravatar: GravatarOptions | string | undefined = undefined;
-  export let uiAvatar: string | UIAvatarOptions | undefined = undefined;
-  export let fallback: string | undefined = undefined;
-  export let size: number | undefined = undefined;
-  export let alt: string | undefined = undefined;
+  export let src: $$Props['src'] = undefined;
+  export let gravatar: $$Props['gravatar'] = undefined;
+  export let uiAvatar: $$Props['uiAvatar'] = undefined;
+  export let fallback: $$Props['fallback'] = undefined;
+  export let size: $$Props['size'] = undefined;
+  export let alt: $$Props['alt'] = undefined;
 
-  $: rAlt = resolveAlt(alt, gravatar, uiAvatar);
+  $: rAlt = resolveAlt(alt, gravatar, uiAvatar, src);
   $: rSize = resolveSize(32, size, src, gravatar, uiAvatar);
   $: sources = resolveSrc(src, gravatar, uiAvatar, fallback);
   let rSrc = DEFINITIVE_FALLBACK;

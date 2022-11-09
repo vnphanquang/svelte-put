@@ -17,6 +17,16 @@ function getSizeFromUrl(url: string): number | undefined {
   return undefined;
 }
 
+/** @internal */
+function getAltFromUrl(url: string): string {
+  // match "name" or "email" query param from url
+  const match = url.match(/(name|email)=([^&]+)/);
+  if (match) {
+    return match[2];
+  }
+  return '';
+}
+
 /**
  * @internal
  */
@@ -32,11 +42,14 @@ export function resolveAlt(
   alt?: string,
   gravatar?: AvatarProps['gravatar'],
   uiAvatar?: AvatarProps['uiAvatar'],
+  src?: string,
 ): string {
   if (alt) return alt;
   if (typeof gravatar === 'object' && gravatar.email) return gravatar.email;
+  if (typeof gravatar === 'string' && gravatar) return gravatar;
   if (typeof uiAvatar === 'object' && uiAvatar.name) return uiAvatar.name;
   if (typeof uiAvatar === 'string') return uiAvatar;
+  if (src) return getAltFromUrl(src);
   return '';
 }
 
