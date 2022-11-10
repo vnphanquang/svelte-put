@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.12
+
+### Patch Changes
+
+- [`2ae9e6f`](https://github.com/vnphanquang/svelte-put/commit/2ae9e6f79a932bb08509fd421846760d2a83aa92) Thanks [@vnphanquang](https://github.com/vnphanquang)! - remove `object-fit` and `object-position` property for minimal & nonintrusive styling
+
 ## 1.0.11
 
 ### Patch Changes
