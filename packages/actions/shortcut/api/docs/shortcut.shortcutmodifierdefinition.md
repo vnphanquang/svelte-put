@@ -9,8 +9,12 @@ Possible variations for modifier definition
 <b>Signature:</b>
 
 ```typescript
-export declare type ShortcutModifierDefinition = ShortcutModifier | ShortcutModifier[] | ShortcutModifier[][];
+export declare type ShortcutModifierDefinition =
+  | ShortcutModifier
+  | ShortcutModifier[]
+  | ShortcutModifier[][];
 ```
+
 <b>References:</b> [ShortcutModifier](./shortcut.shortcutmodifier.md)
 
 ## Example 1
@@ -19,16 +23,10 @@ Listen for a single modifier
 
 ```html
 <script>
- import { shortcut } from '@svelte-put/shortcut';
+  import { shortcut } from '@svelte-put/shortcut';
 </script>
 
-<window use:shortcut={{
-  trigger: {
-   key: 'k' ,
-   modifier: 'ctrl',
-  },
-}}
-/>
+<window use:shortcut={{ trigger: { key: 'k' , modifier: 'ctrl', }, }} />
 ```
 
 ## Example 2
@@ -37,16 +35,10 @@ Listen for one of many modifiers (or)
 
 ```html
 <script>
- import { shortcut } from '@svelte-put/shortcut';
+  import { shortcut } from '@svelte-put/shortcut';
 </script>
 
-<window use:shortcut={{
-  trigger: {
-   key: 'k' ,
-   modifier: ['ctrl', 'meta'],
-  },
-}}
-/>
+<window use:shortcut={{ trigger: { key: 'k' , modifier: ['ctrl', 'meta'], }, }} />
 ```
 
 ## Example 3
@@ -55,17 +47,10 @@ Listen for a combination of multiple modifiers (and)
 
 ```html
 <script>
- import { shortcut } from '@svelte-put/shortcut';
+  import { shortcut } from '@svelte-put/shortcut';
 </script>
 
-<window use:shortcut={{
-  trigger: {
-   key: 'k' ,
-   modifier: [['ctrl', 'shift']],
-  },
-}}
-/>
-
+<window use:shortcut={{ trigger: { key: 'k' , modifier: [['ctrl', 'shift']], }, }} />
 ```
 
 ## Example 4
@@ -74,19 +59,9 @@ A mix of the 3 previous examples
 
 ```html
 <script>
- import { shortcut } from '@svelte-put/shortcut';
+  import { shortcut } from '@svelte-put/shortcut';
 </script>
 
-<window use:shortcut={{
-  trigger: {
-   key: 'k' ,
-   modifier: [
-     ['ctrl', 'shift'], // ctrl and shift
-                        // or
-     ['meta'],          // meta
-   ],
-  },
-}}
-/>
+<window use:shortcut={{ trigger: { key: 'k' , modifier: [ ['ctrl', 'shift'], // ctrl and shift // or
+['meta'], // meta ], }, }} />
 ```
-

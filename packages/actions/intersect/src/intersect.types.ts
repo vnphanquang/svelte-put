@@ -41,7 +41,6 @@ export interface IntersectParameters extends IntersectionObserverInit {
 /**
  * `detail` payload for `intersect` and `intersectonce` CustomEvent
  * @public
- * ```
  */
 export interface IntersectDetail {
   /** the IntersectionObserver itself */

@@ -61,8 +61,8 @@ declare global {
  * <Component use:clickoutside/>
  * ```
  *
- * @param node node outside of which `click` event will trigger `clickoutside`
- * @param parameters
+ * @param node - node outside of which `click` event will trigger `clickoutside`
+ * @param parameters - instructions for `clickoutside` behavior
  * @returns
  */
 export function clickoutside(

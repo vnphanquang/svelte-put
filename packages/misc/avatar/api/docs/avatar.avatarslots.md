@@ -9,12 +9,11 @@ Slots of Avatar component
 <b>Signature:</b>
 
 ```typescript
-export interface AvatarSlots 
+export interface AvatarSlots
 ```
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [default](./avatar.avatarslots.default.md) |  | { src: string; } |  |
-
+| Property                                   | Modifiers | Type                                                             | Description |
+| ------------------------------------------ | --------- | ---------------------------------------------------------------- | ----------- |
+| [default](./avatar.avatarslots.default.md) |           | { src: string; alt: string; size: number; sources: string\[\]; } |             |

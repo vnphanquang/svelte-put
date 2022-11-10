@@ -144,6 +144,8 @@ export function createModalStore() {
 }
 
 /**
+ * @public
+ *
  * Helper that wraps svelte `createEventDispatcher` for creating typesafe
  * event dispatcher from the `$$Events` type. See {@link ExtendedModalEvents}
  *

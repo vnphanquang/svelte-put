@@ -8,28 +8,28 @@ Svelte action `use:toc` and component `<Toc>` for building table of contents
 
 ## Classes
 
-|  Class | Description |
-|  --- | --- |
-|  [Toc](./toc.toc.md) | Svelte <code>&lt;Toc&gt;</code> component that internally use <code>toc</code> action and display a basic table of contents with ul |
+| Class               | Description                                                                                                                         |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| [Toc](./toc.toc.md) | Svelte <code>&lt;Toc&gt;</code> component that internally use <code>toc</code> action and display a basic table of contents with ul |
 
 ## Functions
 
-|  Function | Description |
-|  --- | --- |
-|  [slugify(text)](./toc.slugify.md) | Slugify a string |
-|  [toc(node, parameters)](./toc.toc.md) | Find matching DOM elements for building table of contents |
+| Function                              | Description                                               |
+| ------------------------------------- | --------------------------------------------------------- |
+| [slugify(text)](./toc.slugify.md)     | Slugify a string                                          |
+| [toc(node, parameters)](./toc.toc.md) | Find matching DOM elements for building table of contents |
 
 ## Interfaces
 
-|  Interface | Description |
-|  --- | --- |
-|  [TocEventDetails](./toc.toceventdetails.md) | <code>detail</code> payload for <code>toc</code> CustomEvent |
-|  [TocEventItemDetails](./toc.toceventitemdetails.md) | Details about each DOM element transformed during the operation of the <code>toc</code> action |
-|  [TocParameters](./toc.tocparameters.md) | svelte action parameters to config behavior of <code>toc</code> |
+| Interface                                           | Description                                                                                    |
+| --------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| [TocAttributes](./toc.tocattributes.md)             | Additional attributes extended from <code>svelte-put/toc</code>                                |
+| [TocEventDetails](./toc.toceventdetails.md)         | <code>detail</code> payload for <code>toc</code> CustomEvent                                   |
+| [TocEventItemDetails](./toc.toceventitemdetails.md) | Details about each DOM element transformed during the operation of the <code>toc</code> action |
+| [TocParameters](./toc.tocparameters.md)             | svelte action parameters to config behavior of <code>toc</code>                                |
 
 ## Variables
 
-|  Variable | Description |
-|  --- | --- |
-|  [DEFAULT\_TOC\_PARAMETERS](./toc.default_toc_parameters.md) | The default [TocParameters](./toc.tocparameters.md) options for <code>toc</code> action |
-
+| Variable                                                  | Description                                                                             |
+| --------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| [DEFAULT_TOC_PARAMETERS](./toc.default_toc_parameters.md) | The default [TocParameters](./toc.tocparameters.md) options for <code>toc</code> action |

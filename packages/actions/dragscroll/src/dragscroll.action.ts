@@ -3,8 +3,8 @@ import type { DragScrollParameters } from './dragscroll.types';
 /**
  * @public
  *
- * @param node
- * @param parameters
+ * @param node - node to apply the action
+ * @param parameters - instructions for customizing action behavior
  * @returns
  */
 export function dragscroll(node: HTMLElement, parameters: DragScrollParameters = {}) {

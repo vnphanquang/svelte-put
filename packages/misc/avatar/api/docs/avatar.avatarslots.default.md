@@ -9,5 +9,8 @@
 ```typescript
 default: {
         src: string;
+        alt: string;
+        size: number;
+        sources: string[];
     };
 ```

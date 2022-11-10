@@ -8,29 +8,28 @@ Svelte component and utilities for handling avatar
 
 ## Classes
 
-|  Class | Description |
-|  --- | --- |
-|  [Avatar](./avatar.avatar.md) | Svelte <code>&lt;img&gt;</code> wrapper component for displaying avatar |
+| Class                        | Description                                          |
+| ---------------------------- | ---------------------------------------------------- |
+| [Avatar](./avatar.avatar.md) | Svelte image wrapper component for displaying avatar |
 
 ## Functions
 
-|  Function | Description |
-|  --- | --- |
-|  [gravatar(input)](./avatar.gravatar.md) | Builds a [Gravatar](https://en.gravatar.com/site/implement/images) url |
-|  [uiAvatar(input)](./avatar.uiavatar.md) | Builds a [UIAvatar](https://ui-avatars.com) url |
+| Function                                | Description                                                            |
+| --------------------------------------- | ---------------------------------------------------------------------- |
+| [gravatar(input)](./avatar.gravatar.md) | Builds a [Gravatar](https://en.gravatar.com/site/implement/images) url |
+| [uiAvatar(input)](./avatar.uiavatar.md) | Builds a [UIAvatar](https://ui-avatars.com) url                        |
 
 ## Interfaces
 
-|  Interface | Description |
-|  --- | --- |
-|  [AvatarProps](./avatar.avatarprops.md) | Props to Avatar component |
-|  [AvatarSlots](./avatar.avatarslots.md) | Slots of Avatar component |
-|  [GravatarOptions](./avatar.gravataroptions.md) | Options for building [Gravatar](https://en.gravatar.com/site/implement/images) url. Each option should map to a supported Gravatar query param |
-|  [UIAvatarOptions](./avatar.uiavataroptions.md) | Options for building [UIAvatar](https://ui-avatars.com) url. Each option should map to a supported UIAvatar setting item |
+| Interface                                      | Description                                                                                                                                    |
+| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| [AvatarProps](./avatar.avatarprops.md)         | Props to Avatar component                                                                                                                      |
+| [AvatarSlots](./avatar.avatarslots.md)         | Slots of Avatar component                                                                                                                      |
+| [GravatarOptions](./avatar.gravataroptions.md) | Options for building [Gravatar](https://en.gravatar.com/site/implement/images) url. Each option should map to a supported Gravatar query param |
+| [UIAvatarOptions](./avatar.uiavataroptions.md) | Options for building [UIAvatar](https://ui-avatars.com) url. Each option should map to a supported UIAvatar setting item                       |
 
 ## Type Aliases
 
-|  Type Alias | Description |
-|  --- | --- |
-|  [GravatarDefault](./avatar.gravatardefault.md) | URL or option to fallback when email hash returns no match from Gravatar. See [Gravatar](https://en.gravatar.com/site/implement/images) for detailed explanation of each option. |
-
+| Type Alias                                     | Description                                                                                                                                                                      |
+| ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [GravatarDefault](./avatar.gravatardefault.md) | URL or option to fallback when email hash returns no match from Gravatar. See [Gravatar](https://en.gravatar.com/site/implement/images) for detailed explanation of each option. |

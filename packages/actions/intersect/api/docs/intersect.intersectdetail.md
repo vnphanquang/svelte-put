@@ -16,8 +16,7 @@ export interface IntersectDetail
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [entries](./intersect.intersectdetail.entries.md) | <code>readonly</code> | IntersectionObserverEntry\[\] | list of IntersectionObserverEntry passed from IntersectionObserver callback |
-|  [observer](./intersect.intersectdetail.observer.md) | <code>readonly</code> | IntersectionObserver | the IntersectionObserver itself |
-
+| Property                                            | Modifiers             | Type                          | Description                                                                 |
+| --------------------------------------------------- | --------------------- | ----------------------------- | --------------------------------------------------------------------------- |
+| [entries](./intersect.intersectdetail.entries.md)   | <code>readonly</code> | IntersectionObserverEntry\[\] | list of IntersectionObserverEntry passed from IntersectionObserver callback |
+| [observer](./intersect.intersectdetail.observer.md) | <code>readonly</code> | IntersectionObserver          | the IntersectionObserver itself                                             |
