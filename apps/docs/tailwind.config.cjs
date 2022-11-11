@@ -53,6 +53,9 @@ const sveltePut = plugin(
       '.c-link': {
         '@apply hover:text-primary data-current:text-primary': {},
       },
+      '.c-link-primary': {
+        '@apply text-primary hover:underline': {},
+      },
       '.c-link-bg': {
         '@apply data-current:text-primary data-current:hover:text-white hover:bg-primary hover:text-white':
           {},
@@ -96,6 +99,7 @@ const sveltePut = plugin(
               code: {
                 color: theme('colors.primary'),
                 'background-color': theme('colors.bg.accent'),
+                'font-size': theme('fontSize.sm'),
                 'font-weight': 'inherit',
                 display: 'inline-block',
                 padding: `0 ${theme('spacing.2')}`,

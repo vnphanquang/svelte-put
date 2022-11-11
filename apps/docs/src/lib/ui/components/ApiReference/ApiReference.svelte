@@ -13,9 +13,11 @@
 
   <p>
     See the extracted
-    <ResourceLink {href}>API Reference</ResourceLink>
-    (powered by <ResourceLink key="@microsoft/api-extractor" /> and <ResourceLink
+    <ResourceLink {href}>API Reference</ResourceLink> on github.
+  </p>
+  <p class="text-sm italic text-gray-500">
+    API extraction is powered by <ResourceLink key="@microsoft/api-extractor" /> and <ResourceLink
       key="@microsoft/api-documenter"
-    />) on github.
+    />).
   </p>
 </section>

@@ -9,6 +9,9 @@
   import ResourceLink from '$lib/ui/components/ResourceLink/ResourceLink.svelte';
   import StatusBadge from '$lib/ui/components/StatusBadge/StatusBadge.svelte';
   import Github from '$lib/ui/components/icons/Github.svelte';
+  import Svelte from '$lib/ui/components/icons/Svelte.svelte';
+  import Tailwind from '$lib/ui/components/icons/Tailwind.svelte';
+  import Vercel from '$lib/ui/components/icons/Vercel.svelte';
   import { capitalize } from '$lib/utils/string';
 
   import type { LayoutData } from './$types';
@@ -274,6 +277,18 @@
     </p>
     <p>
       Made with rice 🍚 <ResourceLink key="Quang Phan" class="font-medium" />
+    </p>
+    <p>
+      Powered by
+      <ResourceLink key="svelte-kit">
+        <Svelte class="inline w-4" />
+      </ResourceLink>
+      <ResourceLink key="TailwindCSS">
+        <Tailwind class="inline w-4" />
+      </ResourceLink>
+      <ResourceLink key="vercel">
+        <Vercel class="inline w-4" />
+      </ResourceLink>
     </p>
   </footer>
 </div>

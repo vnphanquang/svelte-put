@@ -18,6 +18,7 @@
   import AvatarUiAvatarMinimal from './codes/uiAvatar.minimal.svelte';
   import AvatarUiAvatarVerbose from './codes/uiAvatar.verbose.svelte';
   import AvatarUsageSectionLayout from './components/AvatarUsageSectionLayout.svelte';
+  import ConnectedListItem from './components/ConnectedListItem.svelte';
 
   export let data: PageData;
 
@@ -32,9 +33,62 @@
 <section>
   <h2 id={RESOLUTION_STRATEGY_SECTION_ID}>Resolution Strategies</h2>
   <p>
-    <code>@svelte-put/avatar</code> provides several resolution strategies for image source that can
-    be used in isolation or together.
+    <code>@svelte-put/avatar</code> provides several strategies for specifying image source, used in
+    isolation or together to form a chain that will resolve to the first available source.
   </p>
+
+  <div class="not-prose pl-4">
+    <ul class="rc">
+      <ConnectedListItem number={1}>
+        <p class="mb-4">
+          <code>src</code> prop - highest priority, most helpful when used together with others
+        </p>
+      </ConnectedListItem>
+      <ConnectedListItem number={2}>
+        <p class="mb-4">
+          <code>gravatar</code> prop - <ResourceLink key="Gravatar" class="c-link-primary" />
+        </p>
+      </ConnectedListItem>
+      <ConnectedListItem number={3}>
+        <p class="mb-4">
+          <code>uiAvatar</code> prop - <ResourceLink key="UI Avatar" class="c-link-primary" />
+        </p>
+      </ConnectedListItem>
+      <ConnectedListItem number={4}>
+        <p class="mb-4"><code>fallback</code> prop - custom fallback</p>
+      </ConnectedListItem>
+      <ConnectedListItem number={5}>
+        <p>
+          <ResourceLink href="https://www.gravatar.com/avatar?d=mp" class="c-link-primary"
+            >internal fallback</ResourceLink
+          >, last resort
+        </p>
+      </ConnectedListItem>
+    </ul>
+  </div>
+
+  <p>For example:</p>
+  <ol>
+    <li>
+      you have a dedicated api & database for avatar (<code>src</code>),
+    </li>
+    <li>
+      you also want to automatically fetch avatar from
+      <ResourceLink key="Gravatar" /> with user's email if they have not uploaded their own avatar (<code
+        >gravatar</code
+      >),
+    </li>
+    <li>
+      you also want to fallback to an <ResourceLink key="UI Avatar" />
+      with user's initials if their gravatar has not been set up (<code>uiAvatar</code>),
+    </li>
+    <li>
+      you provide your own custom fallback just in case <ResourceLink key="UI Avatar" />
+      is out of service all of the sudden.
+    </li>
+  </ol>
+
+  <Code code={codes.priority} title="Resolution Strategies" />
 </section>
 
 <section>

@@ -28,6 +28,11 @@
     cursor: not-allowed;
   }
 
+  code {
+    @apply text-primary bg-bg-accent py-0 px-2 rounded inline-block text-sm;
+    font-weight: inherit;
+  }
+
   code:not(#fakeId)::after,
   code:not(#fadeId)::before {
     content: none;

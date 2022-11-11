@@ -16,6 +16,7 @@ export const resources = {
   '@microsoft/api-extractor': 'https://api-extractor.com/',
   '@microsoft/api-documenter': 'https://api-extractor.com/pages/setup/generating_docs/',
   TailwindCSS: 'https://tailwindcss.com/',
+  vercel: 'https://vercel.com/',
 } as const;
 
 export type ResourceId = keyof typeof resources;
