@@ -11,8 +11,11 @@
   import type { PageData } from './$types';
   import { codes } from './codes';
   import Demo from './codes/demo.code.svelte';
+  import ExcludeEventDemo from './codes/exclude-events.svelte';
 
   export let data: PageData;
+
+  const ADVANCED_USAGE_SECTION_ID = 'advanced-usage-and-customization';
 </script>
 
 <Installation pkg={data.package.name} />
@@ -25,7 +28,7 @@
 <ActionUsageNotice action={data.package.id} />
 
 <section>
-  <h2>Advanced Usage & Customization</h2>
+  <h2 id={ADVANCED_USAGE_SECTION_ID}>Advanced Usage & Customization</h2>
 
   <section>
     <h3>Feature Demo</h3>
@@ -71,8 +74,11 @@
   <section>
     <h3>Excluding Other Events in the <code>clickoutside</code> Zone</h3>
     <p>
-      In the initial demo under the "Advanced Usage" section, notice the <code>stopPropagation</code
-      >
+      In the
+      <ResourceLink id={ADVANCED_USAGE_SECTION_ID}>
+        initial demo under the "Advanced Usage"
+      </ResourceLink>
+      section, notice the <code>stopPropagation</code>
       modifier was added to the click event. Without this, the button would also trigger an
       <code>on:clickoutside</code> event.
     </p>
@@ -90,6 +96,16 @@
       code={codes.advancedUsage.excludingEvents.custom}
       title="mousedown & capture"
       icon="warning"
+    />
+    <p>
+      Another typical use case for this is shown below, where the same callback is registered for
+      both <code>on:clickoutside</code> and another click event.
+    </p>
+    <ExcludeEventDemo />
+    <Code
+      code={codes.advancedUsage.excludingEvents.demo}
+      title="|stopPropagation example"
+      expanded={false}
     />
   </section>
 </section>

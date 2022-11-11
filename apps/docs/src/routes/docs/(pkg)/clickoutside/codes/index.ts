@@ -1,4 +1,5 @@
 import demoTs from './demo.code.svelte?raw';
+import excludeEvents from './exclude-events.svelte?raw';
 import demoJs from './js.generated/demo.code.js.svelte?raw';
 import quickStartJs from './js.generated/quick-start.code.js.svelte?raw';
 import quickStartTs from './quick-start.code.svelte?raw';
@@ -33,6 +34,7 @@ export const codes = {
     excludingEvents: {
       default: excludingEvents,
       custom: excludingEventsCustom,
+      demo: excludeEvents,
     },
   },
   typescriptSupport: {
