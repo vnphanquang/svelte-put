@@ -43,7 +43,7 @@
   "homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocessors/auto-slug",
   "devDependencies": {
     "@types/estree": "^1.0.0",
-    "svelte": "^3.52.0",
+    "svelte": "^3.53.1",
     "tsup": "^6.4.0"
   },
   "peerDependencies": {
