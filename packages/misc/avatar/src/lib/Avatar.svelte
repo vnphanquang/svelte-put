@@ -30,7 +30,6 @@
     let currentSourceIndex = 0;
     if (rElement) {
       rElement.addEventListener('error', (e) => {
-        console.log(e);
         if (currentSourceIndex < sources.length - 1) {
           currentSourceIndex++;
           rElement.src = rSrc = sources[currentSourceIndex];
