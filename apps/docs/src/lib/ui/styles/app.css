@@ -6,8 +6,15 @@
 
 @layer base {
   :root {
-    --header-height: 55px;
+    --header-height: 90px;
     --sidebar-width: 250px;
+
+    @media screen(lg) {
+      --sidebar-width: 230px;
+    }
+    @media screen(xl) {
+      --header-height: 55px;
+    }
   }
 
   html {

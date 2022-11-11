@@ -35,36 +35,39 @@
 
 <svelte:window bind:innerWidth />
 
-<main
-  class="grid h-screen w-screen place-content-center place-items-center gap-10 bg-fg bg-paper text-center text-white"
->
+<main class="bg-fg bg-paper text-center text-white">
   {#key mounted}
-    <SveltePutLogoAnimation open={animationOpen} class="ml-1 scale-75" />
-
-    <h1
-      class="font-bold uppercase text-gradient-brand"
-      in:fly={{ y: 20, duration: 1000, easing: cubicOut }}
+    <div
+      class="grid h-screen w-screen place-content-center place-items-center gap-10"
+      class:hidden={!mounted}
     >
-      svelte-put
-    </h1>
+      <SveltePutLogoAnimation open={animationOpen} class="ml-1 scale-75" />
 
-    <p in:fly={{ y: 20, duration: 1000, delay: 100, easing: cubicOut }}>
-      Useful <a class="c-link underline" href="https://svelte.dev/" target="__blank">svelte</a> stuff
-      to put in your projects
-    </p>
-    <ul
-      class="flex items-center justify-center gap-10 text-sm font-bold uppercase"
-      on:mouseenter={open}
-      on:mouseleave={close}
-    >
-      <li in:fly={{ y: 20, duration: 1000, delay: 200, easing: cubicOut }}>
-        <a href="/docs" class="c-link" data-sveltekit-prefetch>Read Docs</a>
-      </li>
-      <li in:fly={{ y: 20, duration: 1000, delay: 300, easing: cubicOut }}>
-        <a href="https://github.com/vnphanquang/svelte-put" class="c-link" target="__blank"
-          >See Github</a
-        >
-      </li>
-    </ul>
+      <h1
+        class="font-bold uppercase text-gradient-brand"
+        in:fly={{ y: 20, duration: 1000, easing: cubicOut }}
+      >
+        svelte-put
+      </h1>
+
+      <p in:fly={{ y: 20, duration: 1000, delay: 100, easing: cubicOut }}>
+        Useful <a class="c-link underline" href="https://svelte.dev/" target="__blank">svelte</a> stuff
+        to put in your projects
+      </p>
+      <ul
+        class="flex items-center justify-center gap-10 text-sm font-bold uppercase"
+        on:mouseenter={open}
+        on:mouseleave={close}
+      >
+        <li in:fly={{ y: 20, duration: 1000, delay: 200, easing: cubicOut }}>
+          <a href="/docs" class="c-link" data-sveltekit-prefetch>Read Docs</a>
+        </li>
+        <li in:fly={{ y: 20, duration: 1000, delay: 300, easing: cubicOut }}>
+          <a href="https://github.com/vnphanquang/svelte-put" class="c-link" target="__blank"
+            >See Github</a
+          >
+        </li>
+      </ul>
+    </div>
   {/key}
 </main>

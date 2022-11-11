@@ -1,14 +1,17 @@
 <script lang="ts">
+  import { clickoutside } from '@svelte-put/clickoutside';
   import { toc } from '@svelte-put/toc';
   import type { TocEventDetails } from '@svelte-put/toc';
   import gruvbox from 'svelte-highlight/styles/gruvbox-dark-soft';
   import { cubicOut } from 'svelte/easing';
+  import { fly, fade } from 'svelte/transition';
 
   import { packagesByCategory } from '$data/packages';
   import { APP_ROUTE_TREE } from '$lib/constants';
   import ResourceLink from '$lib/ui/components/ResourceLink/ResourceLink.svelte';
   import StatusBadge from '$lib/ui/components/StatusBadge/StatusBadge.svelte';
   import Github from '$lib/ui/components/icons/Github.svelte';
+  import Menu from '$lib/ui/components/icons/Menu.svelte';
   import Svelte from '$lib/ui/components/icons/Svelte.svelte';
   import Tailwind from '$lib/ui/components/icons/Tailwind.svelte';
   import Vercel from '$lib/ui/components/icons/Vercel.svelte';
@@ -50,6 +53,26 @@
         `border-${secondary_dimensions[1].toLowerCase()}-width: ${t * border_width_end_value}px;`,
     };
   }
+
+  let innerWidth = 0;
+  $: isLg = innerWidth > 1024;
+  $: leftSidebarOpen = isLg;
+  let leftSidebarTogglerClick = 0;
+  function toggleLeftSidebar() {
+    leftSidebarOpen = !leftSidebarOpen;
+    leftSidebarTogglerClick++;
+  }
+  function closeLeftSidebar() {
+    leftSidebarOpen = false;
+  }
+  $: isXl = innerWidth > 1280;
+  $: rightSidebarOpen = isXl;
+  let rightSidebarTogglerClick = 0;
+  function toggleRightSidebar() {
+    rightSidebarOpen = !rightSidebarOpen;
+    rightSidebarTogglerClick++;
+  }
+
   let tocItems: { level: string; text: string; id: string }[] = [];
   let activeTocId = '';
   let intersectEnabled = true;
@@ -173,6 +196,8 @@
   {@html gruvbox}
 </svelte:head>
 
+<svelte:window bind:innerWidth />
+
 <div class="relative flex min-h-screen w-full flex-1 flex-col pt-header">
   <header
     class="fixed inset-x-0 top-0 z-header flex h-header flex-col border-b border-border bg-bg"
@@ -180,95 +205,122 @@
     {#key data.pathname}
       <div class="h-0.5 w-full bg-gradient-brand" in:slide={{ axis: 'x' }} />
     {/key}
-    <nav class="x-auto c-container flex-1">
-      <div class="flex h-full w-full items-center justify-between py-2 px-6">
-        <a href="/" class="flex items-center gap-2">
-          <img src="/images/svelte-put-logo.svg" alt="svelte-put" width="32" height="32" />
-          <span class="c-link text-sm font-bold text-gradient-brand">svelte-put</span>
-        </a>
-        <ResourceLink class="c-link" key="github">
-          <Github class="h-6 w-6" />
-        </ResourceLink>
-      </div>
+    <nav class="c-container flex flex-1 items-center justify-between py-2">
+      <a href="/" class="flex items-center gap-2">
+        <img src="/images/svelte-put-logo.svg" alt="svelte-put" width="32" height="32" />
+        <span class="c-link text-sm font-bold text-gradient-brand">svelte-put</span>
+      </a>
+      <ResourceLink class="c-link" key="github">
+        <Github class="h-6 w-6" />
+      </ResourceLink>
     </nav>
+    <div class="border-t border-border xl:hidden">
+      <nav class="h-subheader c-container flex items-center justify-between py-1 lg:justify-end">
+        <button class="c-btn-icon lg:hidden" on:click|stopPropagation={toggleLeftSidebar}>
+          <Menu height="24" width="24" />
+        </button>
+        <button class="c-btn-icon" on:click|stopPropagation={toggleRightSidebar}>
+          <Menu height="24" width="24" class="-scale-x-100" />
+        </button>
+      </nav>
+    </div>
   </header>
 
-  <div class="c-container relative flex w-full flex-1 items-stretch" id="wrapper">
-    <nav data-sveltekit-prefetch class="sidebar w-sidebar shrink-0 border-r border-border text-sm">
-      <ul class="sidebar-content">
-        <li>
-          <a
-            href={APP_ROUTE_TREE.docs.$.path()}
-            data-current={data.pathname === APP_ROUTE_TREE.docs.$.path()}
-            class="c-link block py-2 font-bold"
-          >
-            Introduction
-          </a>
-        </li>
-        {#each Object.entries(packagesByCategory) as [category, packages]}
-          <li class="py-2">
-            <p class="font-bold">{capitalize(category)}</p>
-            <ul class="mt-2 space-y-1 border-l border-border/50">
-              {#each packages as { path, status, id }}
-                <li>
-                  <a
-                    href={path}
-                    data-current={data.pathname.includes(id)}
-                    class="c-link -ml-px block border-l border-transparent py-1 pl-3 data-current:border-primary"
-                  >
-                    <span class="h-full w-1 bg-primary" />
-                    {id}
-                    <sup>
-                      {#if status !== 'stable'}
-                        <StatusBadge {status} />
-                      {/if}
-                    </sup>
-                  </a>
-                </li>
-              {/each}
-            </ul>
+  <div class="c-container relative flex w-full flex-1 items-stretch">
+    {#key leftSidebarTogglerClick}
+      <nav
+        data-sveltekit-prefetch
+        class="sidebar sidebar--left"
+        transition:fly|local={{ x: -200, duration: 200 }}
+        use:clickoutside={{ enabled: leftSidebarOpen && !isLg }}
+        on:clickoutside={toggleLeftSidebar}
+        data-open={leftSidebarOpen}
+      >
+        <ul class="sidebar-content">
+          <li>
+            <a
+              href={APP_ROUTE_TREE.docs.$.path()}
+              data-current={data.pathname === APP_ROUTE_TREE.docs.$.path()}
+              class="c-link block py-2 font-bold"
+              on:click={closeLeftSidebar}
+            >
+              Introduction
+            </a>
           </li>
-        {/each}
-      </ul>
-    </nav>
+          {#each Object.entries(packagesByCategory) as [category, packages]}
+            <li class="py-2">
+              <p class="font-bold">{capitalize(category)}</p>
+              <ul class="mt-2 space-y-1 border-l border-border/50">
+                {#each packages as { path, status, id }}
+                  <li>
+                    <a
+                      href={path}
+                      data-current={data.pathname.includes(id)}
+                      class="c-link -ml-px block border-l border-transparent py-1 pl-3 data-current:border-primary"
+                      on:click={closeLeftSidebar}
+                    >
+                      <span class="h-full w-1 bg-primary" />
+                      {id}
+                      <sup>
+                        {#if status !== 'stable'}
+                          <StatusBadge {status} />
+                        {/if}
+                      </sup>
+                    </a>
+                  </li>
+                {/each}
+              </ul>
+            </li>
+          {/each}
+        </ul>
+      </nav>
+    {/key}
+    {#if leftSidebarOpen}
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
+      <div class="sidebar-backdrop" transition:fade|local={{ duration: 150 }} />
+    {/if}
 
     {#key data.pathname}
-      <main
-        class="prose flex-1 px-6 pb-20 pt-10 md:px-10 lg:px-14"
-        use:toc={{ anchored: false, indicator: false }}
-        on:toc={onToc}
-      >
+      <main class="prose flex-1" use:toc={{ anchored: false, indicator: false }} on:toc={onToc}>
         <slot />
       </main>
     {/key}
 
-    <nav class="sidebar">
-      <div class="sidebar-content text-sm">
-        {#if tocItems.length}
+    {#key rightSidebarTogglerClick}
+      <nav
+        class="sidebar sidebar--right"
+        transition:fly|local={{ x: 200, duration: 200 }}
+        use:clickoutside={{ enabled: rightSidebarOpen && !isXl }}
+        on:clickoutside={toggleRightSidebar}
+        data-open={rightSidebarOpen}
+      >
+        <div class="sidebar-content text-sm">
           <p class="py-2 font-bold uppercase">On This Page</p>
-          <ul class="space-y-1 border-l border-border/50">
-            {#each tocItems as { id, text, level }}
-              {@const current = id === activeTocId}
-              <li>
-                <a
-                  href={`#${id}`}
-                  data-current={current}
-                  class="c-link -ml-px block border-l border-transparent py-1 data-current:border-primary"
-                  class:pl-3={level === '2'}
-                  class:pl-5={level === '3'}
-                  class:pl-7={level === '4'}
-                  class:pl-9={level === '5'}
-                  class:pl-11={level === '6'}
-                  on:click={() => handleTocItemClick(id)}
-                >
-                  {text}
-                </a>
-              </li>
-            {/each}
-          </ul>
-        {/if}
-      </div>
-    </nav>
+          {#if tocItems.length}
+            <ul class="space-y-1 border-l border-border/50">
+              {#each tocItems as { id, text, level }}
+                {@const current = id === activeTocId}
+                <li>
+                  <a
+                    href={`#${id}`}
+                    data-current={current}
+                    class="c-link -ml-px block border-l border-transparent py-1 data-current:border-primary"
+                    class:pl-3={level === '2'}
+                    class:pl-5={level === '3'}
+                    class:pl-7={level === '4'}
+                    class:pl-9={level === '5'}
+                    class:pl-11={level === '6'}
+                    on:click={() => handleTocItemClick(id)}
+                  >
+                    {text}
+                  </a>
+                </li>
+              {/each}
+            </ul>
+          {/if}
+        </div>
+      </nav>
+    {/key}
   </div>
 
   <footer class="space-y-2 border-t border-border py-6 text-center font-fira text-xs">
@@ -294,17 +346,44 @@
 </div>
 
 <style lang="postcss">
-  #wrapper {
-    --wrapper-padding: 1rem;
-    padding: 0 var(--wrapper-padding);
-  }
   .sidebar {
-    @apply w-sidebar shrink-0;
+    @apply w-sidebar shrink-0 border-border text-sm;
+
     & .sidebar-content {
-      @apply sticky top-header px-6 pt-10;
+      @apply sticky top-header pt-10;
     }
   }
+
+  .sidebar--left {
+    @apply border-r max-lg:left-0;
+    @apply max-lg:fixed max-lg:top-0 max-lg:bottom-0;
+    @apply max-lg:z-sidebar max-lg:justify-center max-lg:bg-bg max-lg:shadow-lg;
+    @apply max-lg:hidden max-lg:data-open:flex;
+  }
+  .sidebar-backdrop {
+    @apply fixed inset-0 bg-black/20 backdrop-blur-[1px] lg:hidden;
+    z-index: calc(theme(zIndex.sidebar) - 1);
+  }
+
+  .sidebar--right {
+    @apply max-xl:right-0;
+    @apply max-xl:fixed max-xl:top-header;
+    @apply max-xl:z-sidebar max-xl:justify-center max-xl:rounded-b max-xl:bg-bg max-xl:shadow-lg;
+    @apply max-xl:hidden max-xl:data-open:flex;
+
+    & .sidebar-content {
+      @apply max-xl:p-4;
+    }
+  }
+
   main {
-    max-width: calc(100% - var(--sidebar-width) * 2);
+    @apply pb-20 pt-10 lg:px-10 xl:px-14;
+    max-width: 100%;
+    @media screen(lg) {
+      max-width: calc(100% - var(--sidebar-width));
+    }
+    @media screen(xl) {
+      max-width: calc(100% - var(--sidebar-width) * 2);
+    }
   }
 </style>

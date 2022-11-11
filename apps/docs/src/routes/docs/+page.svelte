@@ -26,7 +26,7 @@
   {@const sharedClass = 'bold border-border border-r p-4 h-full flex items-center'}
   {@const headerClass = clsx(sharedClass, 'font-bold border-b bg-bg-accent')}
   <h3 id="{category}-packages">{capitalize(category)}</h3>
-  <section class="rounded bg-bg-accent/50 shadow">
+  <section class="max-w-full overflow-auto rounded bg-bg-accent/50 shadow">
     <div class="not-prose grid grid-cols-[198px,1fr,140px,80px] items-center">
       <p class={headerClass}>ID</p>
       <p class={headerClass}>Description</p>

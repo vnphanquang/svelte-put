@@ -21,7 +21,7 @@
     <p class="c-callout">{data.package.description}</p>
   {/if}
 
-  <p class="h-6 space-x-2">
+  <p class="flex flex-wrap gap-2">
     <a href={createNpmUrl(data.package.name)} target="__blank" class="h-full">
       <img
         class="my-0 inline-block h-full w-auto rounded"
@@ -72,7 +72,7 @@
 {#if data.package.ready}
   <slot />
 {:else}
-  <div class="grid w-full place-items-center font-bold">
+  <div class="grid w-full place-items-center text-center font-bold">
     <p class="text-lg">Wow, such empty</p>
     <Empty />
     <p class="text-2xl">Documentation coming very soon</p>
