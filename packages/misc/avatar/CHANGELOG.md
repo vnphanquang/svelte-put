@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.13
+
+### Patch Changes
+
+- [`a111a2b`](https://github.com/vnphanquang/svelte-put/commit/a111a2bd0f41fb65d04b9f57cba89bd6635f4d79) Thanks [@vnphanquang](https://github.com/vnphanquang)! - remove `console.log` in `Avatar` img src resolution
+
 ## 1.0.12
 
 ### Patch Changes
