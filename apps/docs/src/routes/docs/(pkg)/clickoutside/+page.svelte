@@ -17,83 +17,104 @@
 
 <Installation pkg={data.package.name} />
 
-<h2>Quick Start</h2>
-<Code lang="svelte" code={codes.quickStart} />
+<section>
+  <h2>Quick Start</h2>
+  <Code lang="svelte" code={codes.quickStart} />
+</section>
 
 <ActionUsageNotice action={data.package.id} />
 
-<h2>Advanced Usage & Customization</h2>
+<section>
+  <h2>Advanced Usage & Customization</h2>
 
-<h3>Feature Demo</h3>
-<Demo />
-<Code
-  code={codes.advancedUsage.demo}
-  title="usage demo source. expand to see"
-  class="max-h-[500px]"
-/>
+  <section>
+    <h3>Feature Demo</h3>
+    <Demo />
+    <Code
+      code={codes.advancedUsage.demo}
+      title="usage demo source. expand to see"
+      class="max-h-[500px]"
+    />
+  </section>
 
-<h3>Limit the <code>clickoutside</code> Zone</h3>
-<p>
-  As seen in the demo above, the <code>limit.parent</code> option can be set to limit the zone that
-  will trigger <code>on:clickoutside</code>. By default, there is no limit, and the event listener
-  is attached to <code>document</code>.
-</p>
-<Code lang="svelte" code={codes.advancedUsage.limitParent} title="setting limit.parent" />
+  <section>
+    <h3>Limit the <code>clickoutside</code> Zone</h3>
+    <p>
+      As seen in the demo above, the <code>limit.parent</code> option can be set to limit the zone
+      that will trigger <code>on:clickoutside</code>. By default, there is no limit, and the event
+      listener is attached to <code>document</code>.
+    </p>
+    <Code lang="svelte" code={codes.advancedUsage.limitParent} title="setting limit.parent" />
+  </section>
 
-<h3>Event Type Customization</h3>
-<p>
-  By default, <code>clickoutside</code> is based on the <code>click</code> event. You can customize
-  this with the <code>event</code> option.
-</p>
-<Code lang="svelte" code={codes.advancedUsage.eventType} title="overriding event type" />
+  <section>
+    <h3>Event Type Customization</h3>
+    <p>
+      By default, <code>clickoutside</code> is based on the <code>click</code> event. You can
+      customize this with the <code>event</code> option.
+    </p>
+    <Code lang="svelte" code={codes.advancedUsage.eventType} title="overriding event type" />
+  </section>
 
-<h3><code>AddEventListenerOptions</code></h3>
-<p>
-  Additional options can be passed to <ResourceLink key="addEventListener" /> should it be necessary.
-</p>
-<Code
-  lang="svelte"
-  code={codes.advancedUsage.addEventListenerOptions}
-  title="providing AddEventListenerOptions"
-/>
+  <section>
+    <h3><code>AddEventListenerOptions</code></h3>
+    <p>
+      Additional options can be passed to <ResourceLink key="addEventListener" /> should it be necessary.
+    </p>
+    <Code
+      lang="svelte"
+      code={codes.advancedUsage.addEventListenerOptions}
+      title="providing AddEventListenerOptions"
+    />
+  </section>
 
-<h3>Excluding Other Events in the <code>clickoutside</code> Zone</h3>
-<p>
-  In the initial demo under the "Advanced Usage" section, notice the <code>stopPropagation</code>
-  modifier was added to the click event. Without this, the button would also trigger an
-  <code>on:clickoutside</code> event.
-</p>
-<Code lang="svelte" code={codes.advancedUsage.excludingEvents.default} title="excluding events" />
-<p>
-  Be aware to reflect the customization made to the event listener as mentioned in the last two
-  sections. For example:
-</p>
-<Code
-  lang="svelte"
-  code={codes.advancedUsage.excludingEvents.custom}
-  title="mousedown & capture"
-  icon="warning"
-/>
+  <section>
+    <h3>Excluding Other Events in the <code>clickoutside</code> Zone</h3>
+    <p>
+      In the initial demo under the "Advanced Usage" section, notice the <code>stopPropagation</code
+      >
+      modifier was added to the click event. Without this, the button would also trigger an
+      <code>on:clickoutside</code> event.
+    </p>
+    <Code
+      lang="svelte"
+      code={codes.advancedUsage.excludingEvents.default}
+      title="excluding events"
+    />
+    <p>
+      Be aware to reflect the customization made to the event listener as mentioned in the last two
+      sections. For example:
+    </p>
+    <Code
+      lang="svelte"
+      code={codes.advancedUsage.excludingEvents.custom}
+      title="mousedown & capture"
+      icon="warning"
+    />
+  </section>
+</section>
 
-<h2>Typescript Support</h2>
-<p>
-  Ambient types for custom events should be available automatically where <code
-    >{data.package.id}</code
-  > is imported.
-</p>
-<Code
-  lang="svelte"
-  code={codes.typescriptSupport.auto}
-  title="automatically typed - example source"
-  expanded={false}
-/>
-<p>If the above is not working, fall back to this:</p>
-<Code
-  lang={typescript}
-  code={codes.typescriptSupport.fallback}
-  title="src/app.d.ts - fallback typescript support"
-  expanded={false}
-/>
+<section>
+  <h2>Typescript Support</h2>
+  <p>
+    Ambient types for custom events should be available automatically where <code
+      >{data.package.id}</code
+    > is imported.
+  </p>
+  <Code
+    lang="svelte"
+    code={codes.typescriptSupport.auto}
+    title="automatically typed - example source"
+    expanded={false}
+  />
+  <p>If the above is not working, fall back to this:</p>
+  <Code
+    lang={typescript}
+    code={codes.typescriptSupport.fallback}
+    title="src/app.d.ts - fallback typescript support"
+    expanded={false}
+  />
+</section>
 
 <ApiReference href={data.package.apiUrl} />
 

@@ -10,10 +10,12 @@
 <Component use:${action} />`;
 </script>
 
-<h2>Action Usage Notice</h2>
+<section>
+  <h2>Action Usage Notice</h2>
 
-As with any <ResourceLink key="svelte action" />, <code>clickoutside</code> should be use with
-<code>element</code>
-and not <code>component</code>.
+  As with any <ResourceLink key="svelte action" />, <code>clickoutside</code> should be use with
+  <code>element</code>
+  and not <code>component</code>.
 
-<Code lang="svelte" {code} title="use:action is an element directive" icon="warning" />
+  <Code lang="svelte" {code} title="use:action is an element directive" icon="warning" />
+</section>

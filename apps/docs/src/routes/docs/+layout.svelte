@@ -49,83 +49,112 @@
   }
   let tocItems: { level: string; text: string; id: string }[] = [];
   let activeTocId = '';
-  const stateMap: Record<string, { y: number; isInView: boolean }> = {};
+  let intersectEnabled = true;
+  let intersectResetTimeoutId: ReturnType<typeof setTimeout>;
+  function handleTocItemClick(id: string) {
+    clearTimeout(intersectResetTimeoutId);
+    activeTocId = id;
+    intersectEnabled = false;
+    intersectResetTimeoutId = setTimeout(() => {
+      intersectEnabled = true;
+    }, 800);
+  }
+  // const stateMap: Record<string, { y: number; isInView: boolean }> = {};
   function onToc(e: CustomEvent<TocEventDetails>) {
     // FIXME: should refactor here once @svelte-put/toc is refactored to support these by default
 
+    // // eslint-disable-next-line no-undef
+    // const scrollingDownCallback: IntersectionObserverCallback = (entries) => {
+    //   let newActiveTocId = '';
+    //   for (const entry of entries) {
+    //     const id = entry.target.id;
+    //     const y = entry.boundingClientRect.y;
+
+    //     const previousY = stateMap[id]?.y;
+    //     stateMap[id] = { y, isInView: entry.isIntersecting };
+
+    //     if (previousY) {
+    //       if (y < previousY) {
+    //         // scrolling down
+    //         if (entry.isIntersecting) {
+    //           // entering
+    //         } else {
+    //           // leaving
+    //           if (!newActiveTocId) newActiveTocId = id;
+    //         }
+    //       }
+    //     } else {
+    //       if (entry.isIntersecting && !newActiveTocId) newActiveTocId = id;
+    //     }
+    //   }
+    //   if (newActiveTocId) {
+    //     activeTocId = newActiveTocId;
+    //   }
+    // };
+    // const scrollingDownObserver = new IntersectionObserver(scrollingDownCallback, {
+    //   rootMargin: '-100px 0px 0px 0px',
+    // });
+
+    // // eslint-disable-next-line no-undef
+    // const scrollingUpCallback: IntersectionObserverCallback = (entries) => {
+    //   let newActiveTocId = '';
+    //   for (const entry of entries) {
+    //     const id = entry.target.id;
+    //     const y = entry.boundingClientRect.y;
+
+    //     const previousY = stateMap[id]?.y;
+    //     stateMap[id] = { y, isInView: entry.isIntersecting };
+
+    //     if (previousY) {
+    //       if (y > previousY) {
+    //         // scrolling up
+    //         if (entry.isIntersecting) {
+    //           // entering
+    //           if (!newActiveTocId) newActiveTocId = id;
+    //         } else {
+    //           // leaving
+    //         }
+    //       }
+    //     } else {
+    //       if (entry.isIntersecting && !newActiveTocId) newActiveTocId = id;
+    //     }
+    //   }
+    //   if (newActiveTocId) {
+    //     activeTocId = newActiveTocId;
+    //   }
+    // };
+    // const scrollingUpObserver = new IntersectionObserver(scrollingUpCallback, {
+    //   rootMargin: '100px 0px 0px 0px',
+    // });
+
     // eslint-disable-next-line no-undef
-    const scrollingDownCallback: IntersectionObserverCallback = (entries) => {
-      let newActiveTocId = '';
+    const callback: IntersectionObserverCallback = (entries) => {
       for (const entry of entries) {
-        const id = entry.target.id;
-        const y = entry.boundingClientRect.y;
-
-        const previousY = stateMap[id]?.y;
-        stateMap[id] = { y, isInView: entry.isIntersecting };
-
-        if (previousY) {
-          if (y < previousY) {
-            // scrolling down
-            if (entry.isIntersecting) {
-              // entering
-            } else {
-              // leaving
-              if (!newActiveTocId) newActiveTocId = id;
-            }
-          }
-        } else {
-          if (entry.isIntersecting && !newActiveTocId) newActiveTocId = id;
+        const tocId = entry.target.getAttribute('data-toc-id');
+        if (entry.isIntersecting && intersectEnabled && tocId) {
+          activeTocId = tocId;
         }
       }
-      if (newActiveTocId) {
-        activeTocId = newActiveTocId;
-      }
     };
-    const scrollingDownObserver = new IntersectionObserver(scrollingDownCallback, {
-      rootMargin: '-100px 0px 0px 0px',
+    const observer = new IntersectionObserver(callback, {
+      threshold: 1,
     });
-
-    // eslint-disable-next-line no-undef
-    const scrollingUpCallback: IntersectionObserverCallback = (entries) => {
-      let newActiveTocId = '';
-      for (const entry of entries) {
-        const id = entry.target.id;
-        const y = entry.boundingClientRect.y;
-
-        const previousY = stateMap[id]?.y;
-        stateMap[id] = { y, isInView: entry.isIntersecting };
-
-        if (previousY) {
-          if (y > previousY) {
-            // scrolling up
-            if (entry.isIntersecting) {
-              // entering
-              if (!newActiveTocId) newActiveTocId = id;
-            } else {
-              // leaving
-            }
-          }
-        } else {
-          if (entry.isIntersecting && !newActiveTocId) newActiveTocId = id;
-        }
-      }
-      if (newActiveTocId) {
-        activeTocId = newActiveTocId;
-      }
-    };
-    const scrollingUpObserver = new IntersectionObserver(scrollingUpCallback, {
-      rootMargin: '100px 0px 0px 0px',
-    });
-
     const items = [];
     for (const item of e.detail.items) {
       if (item.element.tagName.toLowerCase() !== 'h1') {
-        scrollingDownObserver.observe(item.element);
-        scrollingUpObserver.observe(item.element);
+        // scrollingDownObserver.observe(item.element);
+        // scrollingUpObserver.observe(item.element);
+        // observer.observe(item.element);
         let text = item.text;
         if (text.startsWith('#')) {
           text = text.slice(1);
         }
+        const parent = item.element.parentElement;
+        if (parent) {
+          parent.setAttribute('data-toc-id', item.id);
+          observer.observe(parent);
+        }
+
         items.push({
           id: item.id,
           level: item.element.tagName[1],
@@ -227,6 +256,7 @@
                   class:pl-7={level === '4'}
                   class:pl-9={level === '5'}
                   class:pl-11={level === '6'}
+                  on:click={() => handleTocItemClick(id)}
                 >
                   {text}
                 </a>
