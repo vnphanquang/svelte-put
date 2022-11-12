@@ -1,5 +1,5 @@
+import { copyToClipboard } from './copy.helpers';
 import { CopyParameters, CopyAttributes, CopyDetail } from './copy.types';
-import { copyToClipboard } from './copy.utils';
 
 // ambient typing
 declare global {
@@ -18,48 +18,62 @@ declare global {
  * @param parameters - svelte action parameters
  * @returns svelte action interface
  */
-export function copy(node: HTMLElement, parameters: Partial<CopyParameters> = {}) {
-  let { trigger = node, enabled = true, text } = parameters;
-
-  function defaultText() {
-    return node.innerText;
-  }
+export function copy<K extends keyof HTMLElementEventMap = 'click'>(
+  node: HTMLElement,
+  parameters: Partial<CopyParameters<K>> = {},
+) {
+  let { trigger, enabled, text, events } = resolveParameters(node, parameters);
 
   async function handler() {
-    const rText = (typeof text === 'function' ? await text() : text) ?? defaultText();
+    const rText = await text();
     copyToClipboard(rText);
     const detail: CopyDetail = { text: rText };
     node.dispatchEvent(new CustomEvent('copy', { detail }));
   }
 
-  if (enabled) {
-    trigger?.addEventListener('click', handler);
+  function addEvents() {
+    if (trigger) {
+      for (const event of events) {
+        trigger.addEventListener(event, handler);
+      }
+    }
   }
+
+  function removeEvents() {
+    if (trigger) {
+      for (const event of events) {
+        trigger.removeEventListener(event, handler);
+      }
+    }
+  }
+
+  if (enabled) addEvents();
 
   return {
     update(update: Partial<CopyParameters> = {}) {
-      const newEnabled = update.enabled ?? true;
-      const newTrigger = update.trigger ?? node;
-      if (!trigger?.isSameNode(newTrigger)) {
-        trigger?.removeEventListener('click', handler);
-        trigger = newTrigger;
-        if (newEnabled) {
-          trigger?.addEventListener('click', handler);
-        }
-      } else {
-        if (newEnabled && !enabled) {
-          // from disabled to enabled
-          trigger?.addEventListener('click', handler);
-        } else if (!newEnabled && enabled) {
-          // from enabled to disabled
-          trigger?.removeEventListener('click', handler);
-        }
-      }
-      enabled = newEnabled;
-      text = update.text;
+      removeEvents();
+      ({ trigger, enabled, text, events } = resolveParameters(node, update));
+      addEvents();
     },
     destroy() {
-      trigger?.removeEventListener('click', handler);
+      removeEvents();
     },
   };
+}
+
+/**
+ * @internal
+ */
+function resolveParameters<K extends keyof HTMLElementEventMap>(
+  node: HTMLElement,
+  parameters: Partial<CopyParameters<K>> = {},
+) {
+  const { trigger = node, enabled = true } = parameters;
+  const text =
+    typeof parameters.text === 'function'
+      ? parameters.text
+      : ((() => parameters.text ?? node.innerText) as () => string | Promise<string>);
+  const events =
+    typeof parameters.event === 'string' ? [parameters.event] : parameters.event ?? ['click'];
+  return { trigger, enabled, text, events };
 }

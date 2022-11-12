@@ -1,16 +1,22 @@
 /**
  * svelte action parameters to config behavior of `copy`
- * @internal
+ * @public
  */
-export interface CopyParameters {
+export interface CopyParameters<K extends keyof HTMLElementEventMap = 'click'> {
   /** whether to activate the action. Default to `true` */
   enabled: boolean;
+  /**
+   * The event to trigger the copy action,
+   * passed to `addEventListener` on `trigger`.
+   * Default to `click`
+   */
+  event: K | K[];
   /**
    * the `HTMLElement` to register event on.
    * Default to the `node` on which the action is registered.
    */
   trigger: HTMLElement;
-  /** the text to copy, or a function (sync/async) that returns it */
+  /** the text to copy, or a sync/async function that returns it */
   text: string | (() => string | Promise<string>);
 }
 

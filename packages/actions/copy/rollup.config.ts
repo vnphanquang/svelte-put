@@ -4,11 +4,7 @@ import filesize from 'rollup-plugin-filesize';
 import typescript from 'typescript';
 
 const config: RollupOptions = {
-  input: {
-    index: 'src/index.ts',
-    action: 'src/copy.action.ts',
-    utils: 'src/copy.utils.ts',
-  },
+  input: 'src/index.ts',
   output: {
     sourcemap: true,
     dir: './lib',

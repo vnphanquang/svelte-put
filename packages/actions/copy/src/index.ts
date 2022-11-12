@@ -7,5 +7,5 @@
  */
 
 export * from './copy.action';
-export * from './copy.utils';
+export * from './copy.helpers';
 export * from './copy.types';
