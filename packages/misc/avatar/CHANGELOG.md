@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.14
+
+### Patch Changes
+
+- [`3b62c30`](https://github.com/vnphanquang/svelte-put/commit/3b62c30fa7011130598c9d86cd2f13f360ef9591) Thanks [@vnphanquang](https://github.com/vnphanquang)! - Publish dedicated documentation site at https://svelte-put.vnphanquang.com/docs/avatar
+
 ## 1.0.13
 
 ### Patch Changes

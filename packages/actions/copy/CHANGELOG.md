@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.0.0
+
+### Major Changes
+
+- [`9b19f15`](https://github.com/vnphanquang/svelte-put/commit/9b19f1565f84c9ec98e051943ebfc7bc3ce17357) Thanks [@vnphanquang](https://github.com/vnphanquang)! - Mature implementation, dedicated docs site, regenerated api
+
+### Patch Changes
+
+- [`c36a663`](https://github.com/vnphanquang/svelte-put/commit/c36a66324003b6011d6f0d9d590e81ab4f65dca5) Thanks [@vnphanquang](https://github.com/vnphanquang)! - pass additional to `TextResolver` function (`text` parameter callback variant)
+
+- [`77a428c`](https://github.com/vnphanquang/svelte-put/commit/77a428c64e22925c4b6d1d123aaa4e1489c6dd28) Thanks [@vnphanquang](https://github.com/vnphanquang)! - allow cusomtizing event types for `addEventListener`
+
+- [`42cbcf5`](https://github.com/vnphanquang/svelte-put/commit/42cbcf5d66e028cec7c4a358ec696f7fcc1d12d8) Thanks [@vnphanquang](https://github.com/vnphanquang)! - set parameters to optional, allow using just `use:copy`
+
+- [`91dbee1`](https://github.com/vnphanquang/svelte-put/commit/91dbee1bd8f4b797f12cbec60569d36434dfacac) Thanks [@vnphanquang](https://github.com/vnphanquang)! - link to dedicated docs site at https://svelte-put.vnphanquang.com/docs/copy
+
 ## 0.1.0
 
 ### Minor Changes

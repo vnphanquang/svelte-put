@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.1
+
+### Patch Changes
+
+- [`ee53115`](https://github.com/vnphanquang/svelte-put/commit/ee5311505b787c45100efd247f66864b604145f6) Thanks [@vnphanquang](https://github.com/vnphanquang)! - link to dedicated docs site at https://svelte-put.vnphanquang.com/docs/clickoutside
+
 ## 1.1.0
 
 ### Minor Changes
