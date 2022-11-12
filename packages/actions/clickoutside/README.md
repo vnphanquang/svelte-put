@@ -20,10 +20,6 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 
 ## [Changelog][github.changelog]
 
-## Documentation
-
-For detailed documentation, see the [extracted API][github.api].
-
 <p align="center">
   <a href="https://www.buymeacoffee.com/vnphanquang" target="_blank">
     <img
@@ -40,9 +36,6 @@ For detailed documentation, see the [extracted API][github.api].
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
 [github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/clickoutside/CHANGELOG.md
 [github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
-[github.api]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/clickoutside/api/docs/index.md
-[github.api.clickoutsideparameters]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/clickoutside/api/docs/clickoutside.clickoutsideparameters.md
-[github.api.clickoutside]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/clickoutside/api/docs/clickoutside.clickoutside.md
 
 <!-- heading badge -->
 

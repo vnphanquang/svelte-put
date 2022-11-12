@@ -1,7 +1,7 @@
 {
   "name": "@svelte-put/copy",
   "version": "0.1.0",
-  "description": "Svelte action & utilities for copying text inside nodes",
+  "description": "Svelte action & utilities for copying text to clipboard",
   "main": "lib/index.js",
   "module": "lib/index.js",
   "types": "lib/src/index.d.ts",
@@ -43,14 +43,15 @@
     "svelte",
     "action",
     "copy",
-    "clipboard"
+    "clipboard",
+    "text"
   ],
   "author": "Quang Phan",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/vnphanquang/svelte-put/issues"
   },
-  "homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/copy",
+  "homepage": "https://svelte-put.vnphanquang.com/docs/copy",
   "devDependencies": {
     "@microsoft/api-documenter": "^7.19.24",
     "@microsoft/api-extractor": "^7.33.6",
