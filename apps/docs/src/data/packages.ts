@@ -38,8 +38,8 @@ export const packages = {
     path: APP_ROUTE_TREE.docs.copy.$.path(),
     replId: undefined,
     category: 'action',
-    status: 'beta',
-    ready: false,
+    status: 'new',
+    ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/copy',
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/copy/CHANGELOG.md',

@@ -101,7 +101,10 @@
       Another typical use case for this is shown below, where the same callback is registered for
       both <code>on:clickoutside</code> and another click event.
     </p>
-    <ExcludeEventDemo />
+    <fieldset class="border-2 border-violet-500">
+      <legend>Example</legend>
+      <ExcludeEventDemo />
+    </fieldset>
     <Code
       code={codes.advancedUsage.excludingEvents.demo}
       title="|stopPropagation example"

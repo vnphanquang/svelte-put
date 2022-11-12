@@ -13,7 +13,7 @@
 <section>
   <h2>Action Usage Notice</h2>
 
-  As with any <ResourceLink key="svelte action" />, <code>clickoutside</code> should be use with
+  As with any <ResourceLink key="svelte action" />, <code>{action}</code> should be use with
   <code>element</code>
   and not <code>component</code>.
 

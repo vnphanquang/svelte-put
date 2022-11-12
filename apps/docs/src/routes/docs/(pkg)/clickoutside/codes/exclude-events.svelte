@@ -12,7 +12,7 @@
   }
 </script>
 
-<div class="relative w-full overflow-hidden border-2 border-violet-500">
+<div class="relative w-full overflow-hidden">
   {#if leftOpen}
     <div
       class="absolute inset-y-0 left-0 w-1/4 bg-red-200"

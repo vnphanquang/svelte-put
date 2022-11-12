@@ -108,10 +108,19 @@
         class="flex rounded p-2 hover:bg-border/10 active:scale-95"
         aria-label="Toggle expansion"
       >
-        <IconExpandLess
-          class="inline-block transition-transform {!expanded ? 'rotate-180' : ''}"
-          title=""
-        />
+        <span
+          class={clsx(
+            'h-5',
+            expanded && 'inline-grid place-items-center',
+            !expanded && 'animate-bounce',
+          )}
+        >
+          <IconExpandLess
+            class="inline-block transition-transform {!expanded ? 'rotate-180' : ''}"
+            height="20"
+            width="20"
+          />
+        </span>
       </button>
     {/if}
   </div>
@@ -124,7 +133,7 @@
               {@const current = key === variant}
               <li
                 data-current={current}
-                class="-mb-px border-b border-transparent data-current:border-b-primary"
+                class="-mb-px border-b border-transparent hover:text-primary data-current:border-b-primary"
               >
                 <button class="px-4 py-3" on:click={() => (variant = key)}>{key}</button>
               </li>

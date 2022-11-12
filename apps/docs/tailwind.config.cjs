@@ -70,6 +70,12 @@ const sveltePut = plugin(
       '.c-btn-text-secondary': {
         '@apply inline-block text-secondary hover:underline': {},
       },
+      '.c-footnote': {
+        '@apply inline-flex items-center justify-center rounded-full w-4 h-4 text-2xs': {},
+      },
+      '.c-footnote-red': {
+        '@apply c-footnote bg-red-700 text-white': {},
+      },
     });
   },
   {
@@ -108,6 +114,9 @@ const sveltePut = plugin(
             },
           },
         }),
+        fontSize: {
+          '2xs': '0.625rem',
+        },
         fontFamily: {
           fira: ['Fira Code', 'monospace'],
           inter: ['Inter VF', 'Inter', 'sans-serif'],
