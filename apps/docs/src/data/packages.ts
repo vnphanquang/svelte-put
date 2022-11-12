@@ -4,7 +4,7 @@ export const packages = {
   avatar: {
     id: 'avatar',
     name: '@svelte-put/avatar',
-    description: 'component & utilities for building avatar',
+    description: 'component & utilities for building avatars',
     path: APP_ROUTE_TREE.docs.avatar.$.path(),
     replId: 'd54381946b1c4ebd8e612e4568fbbbd0',
     category: 'miscellaneous',
