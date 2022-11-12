@@ -50,11 +50,6 @@ Useful svelte stuff to put in your projects
 | [@svelte-put/avatar][github.avatar] | component & utilities for avatar | [![npm.avatar.badge]][npm.avatar] | [Changelog][github.avatar.changelog] | [API][github.avatar.docs] | [![docs.badge]][docs.avatar] |
 | [@svelte-put/modal][github.modal]   | type-safe async modal builder    | [![npm.modal.badge]][npm.modal]   | [Changelog][github.modal.changelog]  | [API][github.modal.docs]  | coming soon                  |
 
-Note:
-
-- REPLs are copies from playground code. See the [Playground](#playground) section for more info.
-- Documentation markdowns are generated with [@microsoft/api-extractor] & [@microsoft/api-documenter].
-
 ### In the Pipeline
 
 These are some packages that will be added in the future (as soon as I find time, and the implementation has matured & become generic enough).
@@ -165,12 +160,7 @@ pnpm turbo
 
 <!-- svelte REPL -->
 
-[@microsoft/api-extractor]: https://www.npmjs.com/package/@microsoft/api-extractor
-[@microsoft/api-documenter]: https://www.npmjs.com/package/@microsoft/api-documenter
-[pnpm]: https://pnpm.io/
-[pnpm.env]: https://pnpm.io/cli/env
 [turborepo]: https://turborepo.org/
-[nvm]: https://github.com/nvm-sh/nvm
 
 <!-- docs linking -->
 
