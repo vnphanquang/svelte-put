@@ -6,7 +6,7 @@ export interface CopyParameters {
   /** whether to activate the action. Default to `true` */
   enabled: boolean;
   /**
-   * the `HTMLElement` to trigger the copy action on `click`.
+   * the `HTMLElement` to register event on.
    * Default to the `node` on which the action is registered.
    */
   trigger: HTMLElement;

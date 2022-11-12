@@ -18,7 +18,7 @@ declare global {
  * @param parameters - svelte action parameters
  * @returns svelte action interface
  */
-export function copy(node: HTMLElement, parameters: Partial<CopyParameters>) {
+export function copy(node: HTMLElement, parameters: Partial<CopyParameters> = {}) {
   let { trigger = node, enabled = true, text } = parameters;
 
   function defaultText() {
@@ -37,7 +37,7 @@ export function copy(node: HTMLElement, parameters: Partial<CopyParameters>) {
   }
 
   return {
-    update(update: Partial<CopyParameters>) {
+    update(update: Partial<CopyParameters> = {}) {
       const newEnabled = update.enabled ?? true;
       const newTrigger = update.trigger ?? node;
       if (!trigger?.isSameNode(newTrigger)) {
