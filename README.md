@@ -122,9 +122,9 @@ pnpm turbo
 [github.movable]: https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/movable
 [github.movable.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/CHANGELOG.md
 [github.movable.docs]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/api/docs/index.md
-[github.preprocess-auto-slug]: https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocessors/preprocess-auto-slug
-[github.preprocess-auto-slug.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocessors/preprocess-auto-slug/CHANGELOG.md
-[github.preprocess-auto-slug.docs]: https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocessors/preprocess-auto-slug/api/docs/index.md
+[github.preprocess-auto-slug]: https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocessors/auto-slug
+[github.preprocess-auto-slug.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocessors/auto-slug/CHANGELOG.md
+[github.preprocess-auto-slug.docs]: https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocessors/auto-slug/api/docs/index.md
 [github.select]: https://github.com/vnphanquang/svelte-put/tree/main/packages/components/select
 [github.select.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/components/select/CHANGELOG.md
 [github.select.docs]: https://github.com/vnphanquang/svelte-put/blob/main/packages/components/select/api/docs/index.md
