@@ -15,7 +15,7 @@ export const DEFAULT_AUTO_SLUG_OPTIONS: AutoSlugOptions = {
     content: '#',
     properties: {
       'aria-hidden': 'true',
-      'tab-index': '-1',
+      tabindex: '-1',
     },
     href: (slug) => `#${slug}`,
   },
