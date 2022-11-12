@@ -33,19 +33,19 @@ const sveltePut = plugin(
         '@apply rounded-lg text-white px-1.5 py-px': {},
       },
       '.c-badge-primary': {
-        '@apply c-badge bg-primary': {},
+        '@apply c-badge bg-primary-darker': {},
       },
       '.c-badge-secondary': {
-        '@apply c-badge bg-secondary': {},
+        '@apply c-badge bg-secondary-darker': {},
       },
       '.c-badge-gray': {
-        '@apply c-badge bg-gray-500': {},
+        '@apply c-badge bg-gray-700': {},
       },
       '.c-badge-red': {
-        '@apply c-badge bg-red-500': {},
+        '@apply c-badge bg-red-700': {},
       },
       '.c-badge-blue': {
-        '@apply c-badge bg-blue-500': {},
+        '@apply c-badge bg-blue-700': {},
       },
       '.c-container': {
         '@apply mx-auto w-full px-4 md:px-5 md:px-6 xl:px-8 max-w-[1440px]': {},
@@ -91,13 +91,13 @@ const sveltePut = plugin(
               a: {
                 'text-decoration': 'none',
                 'font-weight': 'inherit',
-                color: theme('colors.primary'),
+                color: theme('colors.primary.DEFAULT'),
                 '&:hover': {
                   'text-decoration': 'underline',
                 },
               },
               code: {
-                color: theme('colors.primary'),
+                color: theme('colors.primary.darker'),
                 'background-color': theme('colors.bg.accent'),
                 'font-size': theme('fontSize.sm'),
                 'font-weight': 'inherit',
@@ -130,9 +130,15 @@ const sveltePut = plugin(
             accent: '#ebdbb2',
           },
           border: '#d5c4a1',
-          primary: '#d65d03',
+          primary: {
+            DEFAULT: '#d65d03',
+            darker: '#6D3203',
+          },
           svelte: '#ef4623',
-          secondary: '#98971a',
+          secondary: {
+            DEFAULT: '#98971a',
+            darker: '#5B5A0B',
+          },
           code: {
             fg: '#e5e7eb',
             bg: '#46433e',
