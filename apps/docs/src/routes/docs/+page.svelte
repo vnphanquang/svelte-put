@@ -2,6 +2,7 @@
   import clsx from 'clsx';
 
   import { packagesByCategory } from '$data/packages';
+  import EditThisPageLink from '$lib/ui/components/EditThisPageLink/EditThisPageLink.svelte';
   import ResourceLink from '$lib/ui/components/ResourceLink/ResourceLink.svelte';
   import StatusBadge from '$lib/ui/components/StatusBadge/StatusBadge.svelte';
   import Github from '$lib/ui/components/icons/Github.svelte';
@@ -107,3 +108,9 @@
 </p>
 
 <p>Happy coding! 👨‍💻</p>
+
+<p class="text-right">
+  <EditThisPageLink
+    href="https://github.com/vnphanquang/svelte-put/edit/main/apps/docs/src/routes/docs/+page.svelte"
+  />
+</p>

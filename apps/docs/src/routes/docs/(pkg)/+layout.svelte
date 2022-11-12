@@ -1,5 +1,6 @@
 <script lang="ts">
   import BackToTopBtn from '$lib/ui/components/BackToTopBtn/BackToTopBtn.svelte';
+  import EditThisPageLink from '$lib/ui/components/EditThisPageLink/EditThisPageLink.svelte';
   import ResourceLink from '$lib/ui/components/ResourceLink/ResourceLink.svelte';
   import Empty from '$lib/ui/components/icons/Empty.svelte';
   import Github from '$lib/ui/components/icons/Github.svelte';
@@ -79,6 +80,10 @@
 
 {#if data.package.ready}
   <slot />
+
+  <p class="text-right">
+    <EditThisPageLink packageId={data.package.id} />
+  </p>
 {:else}
   <div class="grid w-full place-items-center text-center">
     <p class="text-lg font-bold">Wow, such empty</p>
