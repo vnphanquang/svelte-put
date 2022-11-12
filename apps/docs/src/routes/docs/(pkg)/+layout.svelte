@@ -1,6 +1,8 @@
 <script lang="ts">
+  import BackToTopBtn from '$lib/ui/components/BackToTopBtn/BackToTopBtn.svelte';
   import ResourceLink from '$lib/ui/components/ResourceLink/ResourceLink.svelte';
   import Empty from '$lib/ui/components/icons/Empty.svelte';
+  import Github from '$lib/ui/components/icons/Github.svelte';
   import {
     createBundlephobiaBadgeUrl,
     createBundlephobiaUrl,
@@ -17,7 +19,12 @@
 </script>
 
 {#key data.package.name}
-  <h1>{data.package.name}</h1>
+  <h1 class="flex items-center justify-between">
+    {data.package.name}
+    <ResourceLink href={data.package.githubUrl} class="text-fg active:text-primary">
+      <Github class="inline" height="28" width="28" />
+    </ResourceLink>
+  </h1>
   {#if data.package.description}
     <p class="c-callout">{data.package.description}</p>
   {/if}
@@ -83,3 +90,5 @@
     </p>
   </div>
 {/if}
+
+<BackToTopBtn class="fixed bottom-4 right-4 z-header" />
