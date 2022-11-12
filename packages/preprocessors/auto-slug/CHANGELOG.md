@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.1
+
+### Patch Changes
+
+- [`a01c7db`](https://github.com/vnphanquang/svelte-put/commit/a01c7db5cd83320a33aa702ce8f6db4be61836dc) Thanks [@vnphanquang](https://github.com/vnphanquang)! - fix typo `tab-index` attribute should be `tabindex`
+
 ## 0.2.0
 
 ### Minor Changes
