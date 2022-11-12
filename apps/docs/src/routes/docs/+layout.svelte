@@ -203,7 +203,7 @@
     class="fixed inset-x-0 top-0 z-header flex h-header flex-col border-b border-border bg-bg"
   >
     {#key data.pathname}
-      <div class="h-0.5 w-full bg-gradient-brand" in:slide={{ axis: 'x' }} />
+      <div class="h-0.5 w-full bg-gradient-brand" in:slide={{ axis: 'x', duration: 500 }} />
     {/key}
     <nav class="c-container flex flex-1 items-center justify-between py-2">
       <a href="/" class="flex items-center gap-2">
@@ -216,11 +216,19 @@
     </nav>
     <div class="border-t border-border xl:hidden">
       <nav class="h-subheader c-container flex items-center justify-between py-1 lg:justify-end">
-        <button class="c-btn-icon lg:hidden" on:click|stopPropagation={toggleLeftSidebar}>
-          <Menu height="24" width="24" />
+        <button
+          class="c-btn-icon flex items-center space-x-2 text-xs lg:hidden"
+          on:click|stopPropagation={toggleLeftSidebar}
+        >
+          <Menu height="24" width="24" class="inline" />
+          <span> Packages </span>
         </button>
-        <button class="c-btn-icon" on:click|stopPropagation={toggleRightSidebar}>
-          <Menu height="24" width="24" class="-scale-x-100" />
+        <button
+          class="c-btn-icon flex items-center space-x-2 text-xs"
+          on:click|stopPropagation={toggleRightSidebar}
+        >
+          <span> Table of Contents </span>
+          <Menu height="24" width="24" class="inline -scale-x-100" />
         </button>
       </nav>
     </div>
