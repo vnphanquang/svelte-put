@@ -1,5 +1,5 @@
 import { copyToClipboard } from './copy.helpers';
-import { CopyParameters, CopyAttributes, CopyDetail } from './copy.types';
+import type { CopyParameters, CopyAttributes, CopyDetail, TextResolver } from './copy.types';
 
 // ambient typing
 declare global {
@@ -18,14 +18,14 @@ declare global {
  * @param parameters - svelte action parameters
  * @returns svelte action interface
  */
-export function copy<K extends keyof HTMLElementEventMap = 'click'>(
+export function copy<K extends keyof HTMLElementEventMap>(
   node: HTMLElement,
   parameters: Partial<CopyParameters<K>> = {},
 ) {
   let { trigger, enabled, text, events } = resolveParameters(node, parameters);
 
-  async function handler() {
-    const rText = await text();
+  async function handler(e: HTMLElementEventMap[K]) {
+    const rText = await text({ node, trigger, event: e });
     copyToClipboard(rText);
     const detail: CopyDetail = { text: rText };
     node.dispatchEvent(new CustomEvent('copy', { detail }));
@@ -34,7 +34,7 @@ export function copy<K extends keyof HTMLElementEventMap = 'click'>(
   function addEvents() {
     if (trigger) {
       for (const event of events) {
-        trigger.addEventListener(event, handler);
+        trigger.addEventListener<K>(event, handler);
       }
     }
   }
@@ -50,7 +50,7 @@ export function copy<K extends keyof HTMLElementEventMap = 'click'>(
   if (enabled) addEvents();
 
   return {
-    update(update: Partial<CopyParameters> = {}) {
+    update(update: Partial<CopyParameters<K>> = {}) {
       removeEvents();
       ({ trigger, enabled, text, events } = resolveParameters(node, update));
       addEvents();
@@ -72,8 +72,10 @@ function resolveParameters<K extends keyof HTMLElementEventMap>(
   const text =
     typeof parameters.text === 'function'
       ? parameters.text
-      : ((() => parameters.text ?? node.innerText) as () => string | Promise<string>);
+      : ((() => parameters.text ?? node.innerText) as TextResolver<K>);
   const events =
-    typeof parameters.event === 'string' ? [parameters.event] : parameters.event ?? ['click'];
+    typeof parameters.event === 'string'
+      ? [parameters.event]
+      : parameters.event ?? (['click'] as K[]);
   return { trigger, enabled, text, events };
 }

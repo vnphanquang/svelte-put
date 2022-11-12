@@ -1,8 +1,32 @@
 /**
+ * the input passed to {@link TextResolver}
+ * @public
+ */
+export interface TextResolverInput<K extends keyof HTMLElementEventMap> {
+  /** the node the action was registered on */
+  node: HTMLElement;
+  /**
+   * the trigger element, as specified by the action parameter,
+   * otherwise same as `node`
+   */
+  trigger: HTMLElement;
+  /** the event that triggered the listener */
+  event: HTMLElementEventMap[K];
+}
+
+/**
+ * a sync/async function that return the text to be copied
+ * @public
+ */
+export type TextResolver<K extends keyof HTMLElementEventMap> = (
+  input: TextResolverInput<K>,
+) => string | Promise<string>;
+
+/**
  * svelte action parameters to config behavior of `copy`
  * @public
  */
-export interface CopyParameters<K extends keyof HTMLElementEventMap = 'click'> {
+export interface CopyParameters<K extends keyof HTMLElementEventMap> {
   /** whether to activate the action. Default to `true` */
   enabled: boolean;
   /**
@@ -17,7 +41,7 @@ export interface CopyParameters<K extends keyof HTMLElementEventMap = 'click'> {
    */
   trigger: HTMLElement;
   /** the text to copy, or a sync/async function that returns it */
-  text: string | (() => string | Promise<string>);
+  text: string | TextResolver<K>;
 }
 
 /**
