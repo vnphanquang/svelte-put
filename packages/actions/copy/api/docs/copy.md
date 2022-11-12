@@ -4,7 +4,7 @@
 
 ## copy package
 
-svelte action and utilities for copying text inside nodes
+svelte action and utilities for copying text to clipboard
 
 ## Functions
 
@@ -15,7 +15,15 @@ svelte action and utilities for copying text inside nodes
 
 ## Interfaces
 
-| Interface                                  | Description                                                                |
-| ------------------------------------------ | -------------------------------------------------------------------------- |
-| [CopyAttributes](./copy.copyattributes.md) | Additional attributes extended from <code>svelte-put/copy</code>           |
-| [CopyDetail](./copy.copydetail.md)         | <code>detail</code> payload for <code>copy</code> <code>CustomEvent</code> |
+| Interface                                        | Description                                                                |
+| ------------------------------------------------ | -------------------------------------------------------------------------- |
+| [CopyAttributes](./copy.copyattributes.md)       | Additional attributes extended from <code>svelte-put/copy</code>           |
+| [CopyDetail](./copy.copydetail.md)               | <code>detail</code> payload for <code>copy</code> <code>CustomEvent</code> |
+| [CopyParameters](./copy.copyparameters.md)       | svelte action parameters to config behavior of <code>copy</code>           |
+| [TextResolverInput](./copy.textresolverinput.md) | the input passed to [TextResolver](./copy.textresolver.md)                 |
+
+## Type Aliases
+
+| Type Alias                             | Description                                             |
+| -------------------------------------- | ------------------------------------------------------- |
+| [TextResolver](./copy.textresolver.md) | a sync/async function that return the text to be copied |

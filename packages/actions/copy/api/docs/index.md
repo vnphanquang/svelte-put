@@ -8,4 +8,4 @@
 
 | Package                       | Description                                               |
 | ----------------------------- | --------------------------------------------------------- |
-| [@svelte-put/copy](./copy.md) | svelte action and utilities for copying text inside nodes |
+| [@svelte-put/copy](./copy.md) | svelte action and utilities for copying text to clipboard |

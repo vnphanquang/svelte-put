@@ -9,24 +9,24 @@ Copy text to clipboard on `click` event
 <b>Signature:</b>
 
 ```typescript
-export declare function copy(
+export declare function copy<K extends keyof HTMLElementEventMap>(
   node: HTMLElement,
-  parameters: Partial<CopyParameters>,
+  parameters?: Partial<CopyParameters<K>>,
 ): {
-  update(update: Partial<CopyParameters>): void;
+  update(update?: Partial<CopyParameters<K>>): void;
   destroy(): void;
 };
 ```
 
 ## Parameters
 
-| Parameter  | Type                          | Description                    |
-| ---------- | ----------------------------- | ------------------------------ |
-| node       | HTMLElement                   | HTMLElement to register action |
-| parameters | Partial&lt;CopyParameters&gt; | svelte action parameters       |
+| Parameter  | Type                                                                       | Description                                |
+| ---------- | -------------------------------------------------------------------------- | ------------------------------------------ |
+| node       | HTMLElement                                                                | HTMLElement to register action             |
+| parameters | Partial&lt;[CopyParameters](./copy.copyparameters.md)<!-- -->&lt;K&gt;&gt; | <i>(Optional)</i> svelte action parameters |
 
 <b>Returns:</b>
 
-{ update(update: Partial&lt;CopyParameters&gt;): void; destroy(): void; }
+{ update(update?: Partial&lt;[CopyParameters](./copy.copyparameters.md)<!-- -->&lt;K&gt;&gt;): void; destroy(): void; }
 
 svelte action interface
