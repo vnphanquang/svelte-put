@@ -2,7 +2,7 @@
 
 # `@svelte-put/clickoutside`
 
-[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia] [![repl.badge]][repl]
+[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia] [![docs.badge]][docs] [![repl.badge]][repl]
 
 Svelte action `use:clickoutside` - event for clicking outside a node
 
@@ -10,52 +10,15 @@ Svelte action `use:clickoutside` - event for clicking outside a node
 
 </div>
 
-## Table of Contents
+## Usage & Documentation
 
-<details open>
-  <summary>Show / hide</summary>
-
-- [`@svelte-put/clickoutside`](#svelte-putclickoutside)
-  - [Table of Contents](#table-of-contents)
-  - [Features](#features)
-  - [`svelte-put`](#svelte-put)
-  - [Changelog](#changelog)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Documentation](#documentation)
-
-</details>
-
-## Features
-
-- reactive `enabled` option for performance improvement
-- `limit` option for limiting `clickoutside` to a parent `HTMLElement`
-
-Customization is documented at [ClickOutsideParameters][github.api.clickoutsideparameters].
+[See the dedicated documentation page here][docs].
 
 ## `svelte-put`
 
 This package is part of the [@svelte-put][github.monorepo] family. For contributing guideline and more, refer to its [readme][github.monorepo].
 
 ## [Changelog][github.changelog]
-
-## Installation
-
-```bash
-npm install -D @svelte-put/clickoutside
-```
-
-```bash
-yarn add -D @svelte-put/clickoutside
-```
-
-```bash
-pnpm add -D @svelte-put/clickoutside
-```
-
-## Usage
-
-See [examples here](https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/clickoutside/api/docs/clickoutside.clickoutside.md#example). Also check out the [Svelte REPL][repl].
 
 ## Documentation
 
@@ -89,3 +52,5 @@ For detailed documentation, see the [extracted API][github.api].
 [bundlephobia]: https://bundlephobia.com/package/@svelte-put/clickoutside
 [repl]: https://svelte.dev/repl/9e5f9ee41c2c45aa8523993e357f6e78
 [repl.badge]: https://img.shields.io/static/v1?label=&message=Svelte+REPL&logo=svelte&logoColor=fff&color=ff3e00
+[docs]: https://svelte-put.vnphanquang.com/docs/clickoutside
+[docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue

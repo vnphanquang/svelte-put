@@ -39,7 +39,7 @@
   "bugs": {
     "url": "https://github.com/vnphanquang/svelte-put/issues"
   },
-  "homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/clickoutside",
+  "homepage": "https://svelte-put.vnphanquang.com/docs/clickoutside",
   "devDependencies": {
     "@microsoft/api-documenter": "^7.19.24",
     "@microsoft/api-extractor": "^7.33.6",
