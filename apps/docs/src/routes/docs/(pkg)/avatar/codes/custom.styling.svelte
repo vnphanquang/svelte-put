@@ -5,7 +5,7 @@
 </script>
 
 <Avatar
-  src="https://images.unsplash.com/photo-1597838816882-4435b1977fbe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=849&q=80"
+  src="https://img.freepik.com/free-photo/adorable-jack-russell-retriever-puppy-portrait_53876-64825.jpg?w=2000"
   uiAvatar="Jim+Hopper"
   size={50}
   class="custom-avatar rounded-full"

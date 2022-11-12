@@ -57,7 +57,6 @@
     $$props.class,
   )}
   on:mouseleave={onMouseLeave}
-  aria-expanded={expanded}
 >
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div
@@ -107,6 +106,7 @@
         alt="collapse code block"
         on:click|stopPropagation={toggleExpansion}
         class="flex rounded p-2 hover:bg-border/10 active:scale-95"
+        aria-label="Toggle expansion"
       >
         <IconExpandLess
           class="inline-block transition-transform {!expanded ? 'rotate-180' : ''}"
