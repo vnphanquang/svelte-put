@@ -10,6 +10,7 @@ export const packages = {
     category: 'miscellaneous',
     status: 'stable',
     ready: true,
+    githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/misc/avatar',
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/avatar/CHANGELOG.md',
     apiUrl:
@@ -24,6 +25,7 @@ export const packages = {
     category: 'action',
     status: 'stable',
     ready: true,
+    githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/clickoutside',
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/clickoutside/CHANGELOG.md',
     apiUrl:
@@ -38,6 +40,7 @@ export const packages = {
     category: 'action',
     status: 'beta',
     ready: false,
+    githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/copy',
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/copy/CHANGELOG.md',
     apiUrl:
@@ -52,6 +55,7 @@ export const packages = {
     category: 'action',
     status: 'dev',
     ready: false,
+    githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/dragscroll',
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/dragscroll/CHANGELOG.md',
     apiUrl:
@@ -66,6 +70,7 @@ export const packages = {
     category: 'action',
     status: 'stable',
     ready: false,
+    githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/intersect',
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/intersect/CHANGELOG.md',
     apiUrl:
@@ -80,6 +85,7 @@ export const packages = {
     category: 'miscellaneous',
     status: 'stable',
     ready: false,
+    githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/misc/modal',
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/modal/CHANGELOG.md',
     apiUrl:
@@ -94,6 +100,7 @@ export const packages = {
     category: 'action',
     status: 'stable',
     ready: false,
+    githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/movable',
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/CHANGELOG.md',
     apiUrl:
@@ -108,6 +115,8 @@ export const packages = {
     category: 'preprocessor',
     status: 'beta',
     ready: false,
+    githubUrl:
+      'https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocessors/auto-slug',
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocessors/preprocess-auto-slug/CHANGELOG.md',
     apiUrl: '',
@@ -121,6 +130,7 @@ export const packages = {
     category: 'component',
     status: 'dev',
     ready: false,
+    githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/components/select',
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/components/select/CHANGELOG.md',
     apiUrl:
@@ -135,6 +145,7 @@ export const packages = {
     category: 'action',
     status: 'stable',
     ready: false,
+    githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/shortcut',
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/shortcut/CHANGELOG.md',
     apiUrl:
@@ -149,6 +160,7 @@ export const packages = {
     category: 'action',
     status: 'flux',
     ready: false,
+    githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/toc',
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/toc/CHANGELOG.md',
     apiUrl:

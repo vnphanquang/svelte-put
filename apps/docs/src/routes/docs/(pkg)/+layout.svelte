@@ -1,4 +1,5 @@
 <script lang="ts">
+  import ResourceLink from '$lib/ui/components/ResourceLink/ResourceLink.svelte';
   import Empty from '$lib/ui/components/icons/Empty.svelte';
   import {
     createBundlephobiaBadgeUrl,
@@ -72,9 +73,13 @@
 {#if data.package.ready}
   <slot />
 {:else}
-  <div class="grid w-full place-items-center text-center font-bold">
-    <p class="text-lg">Wow, such empty</p>
+  <div class="grid w-full place-items-center text-center">
+    <p class="text-lg font-bold">Wow, such empty</p>
     <Empty />
-    <p class="text-2xl">Documentation coming very soon</p>
+    <p>Documentation is being put together and will be available very soon.</p>
+    <p>
+      In the mean time, you can visit
+      <ResourceLink href={data.package.githubUrl}>github</ResourceLink> for more information.
+    </p>
   </div>
 {/if}
