@@ -24,7 +24,10 @@ declare namespace App {
         url?: string;
       };
       twitter?: {
+        title?: string;
+        description?: string;
         card?: string;
+        img?: string;
         imageAlt?: string;
         site?: string;
       };

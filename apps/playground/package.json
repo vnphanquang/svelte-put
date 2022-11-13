@@ -22,7 +22,7 @@
     "@svelte-put/shortcut": "workspace:*",
     "@svelte-put/toc": "workspace:*",
     "@sveltejs/adapter-auto": "1.0.0-next.87",
-    "@sveltejs/kit": "1.0.0-next.542",
+    "@sveltejs/kit": "1.0.0-next.544",
     "@vnphanquang/prettierrc": "^1.0.0",
     "cssnano": "^5.1.14",
     "eslint": "^8.27.0",
@@ -35,7 +35,7 @@
     "svelte-awesome": "^3.0.0",
     "svelte-check": "^2.9.2",
     "svelte-preprocess": "^4.10.7",
-    "tailwindcss": "^3.2.3",
+    "tailwindcss": "^3.2.4",
     "tslib": "^2.4.1",
     "typescript": "^4.8.4",
     "vite": "^3.2.3"

@@ -14,6 +14,9 @@ export const load: LayoutLoad = async ({ url }) => {
     meta: {
       title: `${pkg.id} | @svelte-put`,
       description: pkg.description,
+      og: {
+        image: `https://svelte-put.vnphanquang/images/og/svelte-put-${pkg.id}.png`,
+      },
     },
   };
 };
