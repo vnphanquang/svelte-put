@@ -1,4 +1,72 @@
 <script lang="ts">
+  import monkeyClickingImg from '$lib/assets/images/monkey-clicking.gif';
+  import ActionUsageNotice from '$lib/ui/components/ActionUsageNotice/ActionUsageNotice.svelte';
+  import ApiReference from '$lib/ui/components/ApiReference/ApiReference.svelte';
+  import Code from '$lib/ui/components/Code/Code.svelte';
+  import Installation from '$lib/ui/components/Installation/Installation.svelte';
+  import ResourceLink from '$lib/ui/components/ResourceLink/ResourceLink.svelte';
+
+  import type { PageData } from './$types';
+  import { codes } from './codes';
+  import CustomAxis from './codes/custom.axis.svelte';
+  import NoParameters from './codes/no-parameters.svelte';
+
+  export let data: PageData;
 </script>
 
-dragscroll
+<Installation pkg={data.package.name} />
+
+<ActionUsageNotice action={data.package.id} />
+
+<section>
+  <h2>Quick Start</h2>
+  <Code code={codes.quickStart.instruction} title="quick start" />
+  <div class="not-prose border-2 border-violet-500 p-4">
+    <p>Default, no parameters: drag to scroll horizontally</p>
+    <NoParameters />
+  </div>
+  <Code code={codes.quickStart.demo} title="quick start demo" expanded={false} />
+</section>
+
+<section>
+  <h2>Customization</h2>
+
+  <section>
+    <h3>Specifying the Scroll Axis</h3>
+    <p>
+      <code>dragscroll</code> supports both axes. You can specifying the scrolling axis or both with
+      the <code>axis</code> parameter. By default, <code>axis</code> is set to <code>x</code>.
+    </p>
+    <Code code={codes.custom.axis.instruction} title="scroll axis" />
+    <div class="not-prose border-2 border-violet-500 p-4">
+      <CustomAxis />
+    </div>
+    <Code code={codes.custom.axis.demo} title="scroll axis demo" expanded={false} />
+  </section>
+
+  <section>
+    <h3><code>mouse</code> vs <code>pointer</code></h3>
+    <p>
+      By default, <code>dragscroll</code> assumes
+      <ResourceLink href="https://developer.mozilla.org/en-US/docs/Web/API/PointerEvent"
+        >PointerEvent</ResourceLink
+      >
+      (
+      <code>pointerup</code>, <code>pointerdown</code>, <code>pointermove</code>,
+      <code>pointerleave</code>
+      ). You can switch to
+      <ResourceLink href="https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent"
+        >MouseEvent</ResourceLink
+      >
+      equivalents by specifying the <code>event</code>
+      parameter.
+    </p>
+    <Code code={codes.custom.event} title="mouse vs pointer" />
+  </section>
+</section>
+
+<ApiReference href={data.package.apiUrl} />
+
+<img src={monkeyClickingImg} alt="copy" width="300" height="217" />
+
+<p>Happy dragging! 👨‍💻</p>

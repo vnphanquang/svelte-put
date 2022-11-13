@@ -49,12 +49,12 @@ export const packages = {
   dragscroll: {
     id: 'dragscroll',
     name: '@svelte-put/dragscroll',
-    description: 'action to add pointer "drag-to-scroll" behavior',
+    description: 'action to add "drag-to-scroll" behavior',
     path: APP_ROUTE_TREE.docs.dragscroll.$.path(),
     replId: undefined,
     category: 'action',
-    status: 'dev',
-    ready: false,
+    status: 'new',
+    ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/dragscroll',
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/dragscroll/CHANGELOG.md',

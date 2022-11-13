@@ -37,6 +37,7 @@ importers:
       '@svelte-put/avatar': workspace:*
       '@svelte-put/clickoutside': workspace:*
       '@svelte-put/copy': workspace:*
+      '@svelte-put/dragscroll': workspace:*
       '@svelte-put/intersect': workspace:*
       '@svelte-put/modal': workspace:*
       '@svelte-put/movable': workspace:*
@@ -81,6 +82,7 @@ importers:
       '@svelte-put/avatar': link:../../packages/misc/avatar
       '@svelte-put/clickoutside': link:../../packages/actions/clickoutside
       '@svelte-put/copy': link:../../packages/actions/copy
+      '@svelte-put/dragscroll': link:../../packages/actions/dragscroll
       '@svelte-put/intersect': link:../../packages/actions/intersect
       '@svelte-put/modal': link:../../packages/misc/modal
       '@svelte-put/movable': link:../../packages/actions/movable
