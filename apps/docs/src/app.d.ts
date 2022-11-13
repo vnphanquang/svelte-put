@@ -2,11 +2,15 @@
 /// <reference types="svelte" />
 /// <reference types="vite/client" />
 
+declare const VERCEL_ANALYTICS_ID: string;
+
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
 // and what to do when importing types
 declare namespace App {
-  // interface Locals {}
+  interface Locals {
+    userId: string;
+  }
   interface PageData {
     meta?: {
       title?: string;

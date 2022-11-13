@@ -48,13 +48,16 @@ importers:
       '@sveltejs/adapter-vercel': 1.0.0-next.81
       '@sveltejs/kit': 1.0.0-next.542
       '@tailwindcss/typography': ^0.5.8
+      '@types/cookie': ^0.5.1
       '@types/glob': ^8.0.0
       '@types/node': ^18.11.9
       '@typescript-eslint/eslint-plugin': ^5.42.1
       '@typescript-eslint/parser': ^5.42.1
+      '@vercel/analytics': ^0.1.4
       '@vnphanquang/prettierrc': ^1.0.0
       autoprefixer: ^10.4.13
       clsx: ^1.2.1
+      cookie: ^0.5.0
       cssnano: ^5.1.14
       eslint: ^8.27.0
       glob: ^8.0.3
@@ -75,9 +78,13 @@ importers:
       tslib: ^2.4.1
       typescript: ^4.8.4
       vite: ^3.2.3
+      web-vitals: ^3.0.4
     dependencies:
+      '@vercel/analytics': 0.1.4
       clsx: 1.2.1
+      cookie: 0.5.0
       static-tree: 1.2.0
+      web-vitals: 3.0.4
     devDependencies:
       '@svelte-put/avatar': link:../../packages/misc/avatar
       '@svelte-put/clickoutside': link:../../packages/actions/clickoutside
@@ -93,6 +100,7 @@ importers:
       '@sveltejs/adapter-vercel': 1.0.0-next.81
       '@sveltejs/kit': 1.0.0-next.542_svelte@3.53.1+vite@3.2.3
       '@tailwindcss/typography': 0.5.8_tailwindcss@3.2.3
+      '@types/cookie': 0.5.1
       '@types/glob': 8.0.0
       '@types/node': 18.11.9
       '@typescript-eslint/eslint-plugin': 5.42.1_2udltptbznfmezdozpdoa2aemq
@@ -1846,6 +1854,12 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
+  /@vercel/analytics/0.1.4:
+    resolution: {integrity: sha512-6xI1kozfgigwmDTQCrtj+m0yQnzhLGa/l0yE8BjTbUQ2vF9b88CEXF3dXjZl48ESfjssCur3FkK3jOwZm4emrw==}
+    peerDependencies:
+      react: ^16.8||^17||^18
+    dev: false
+
   /@vercel/nft/0.22.1:
     resolution: {integrity: sha512-lYYZIoxRurqDOSoVIdBicGnpUIpfyaS5qVjdPq+EfI285WqtZK3NK/dyCkiyBul+X2U2OEhRyeMdXPCHGJbohw==}
     hasBin: true
@@ -2670,7 +2684,6 @@ packages:
   /cookie/0.5.0:
     resolution: {integrity: sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==}
     engines: {node: '>= 0.6'}
-    dev: true
 
   /core-util-is/1.0.2:
     resolution: {integrity: sha512-3lqz5YjWTYnW6dlDa5TLaTCcShfar1e40rmcJVwCBJC6mWlFuj0eCHIElmG1g5kyuJ/GD+8Wn4FFCcz4gJPfaQ==}
@@ -8088,6 +8101,10 @@ packages:
     dependencies:
       defaults: 1.0.4
     dev: true
+
+  /web-vitals/3.0.4:
+    resolution: {integrity: sha512-Yau8qf1AJ/dm6MY180Bi0qpCIuWmAfKAnOqmxLecGfIHn0+ND3H4JOhXeY73Pyi9zjSF5J4SNUewHLNUzU7mmA==}
+    dev: false
 
   /webidl-conversions/3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
