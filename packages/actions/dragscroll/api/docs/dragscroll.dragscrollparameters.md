@@ -4,6 +4,8 @@
 
 ## DragScrollParameters interface
 
+instruction for how `use:dragscroll` will behave
+
 <b>Signature:</b>
 
 ```typescript
@@ -12,6 +14,8 @@ export interface DragScrollParameters
 
 ## Properties
 
-| Property                                                 | Modifiers | Type    | Description       |
-| -------------------------------------------------------- | --------- | ------- | ----------------- |
-| [enabled?](./dragscroll.dragscrollparameters.enabled.md) |           | boolean | <i>(Optional)</i> |
+| Property                                                | Modifiers | Type                 | Description                                                                                                                      |
+| ------------------------------------------------------- | --------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| [axis](./dragscroll.dragscrollparameters.axis.md)       |           | 'x' \| 'y' \| 'both' | scrolling axis                                                                                                                   |
+| [enabled](./dragscroll.dragscrollparameters.enabled.md) |           | boolean              | whether to run this action                                                                                                       |
+| [event](./dragscroll.dragscrollparameters.event.md)     |           | 'mouse' \| 'pointer' | <code>MouseEvent</code> or <code>PointerEvent</code> (<code>down</code>, <code>up</code>, <code>leave</code>, <code>move</code>) |

@@ -4,16 +4,16 @@
 
 ## dragscroll package
 
-svelte action `use:dragscroll` for pointer drag-to-scroll behavior
+svelte action `use:dragscroll` for drag-to-scroll behavior
 
 ## Functions
 
-| Function                                                   | Description |
-| ---------------------------------------------------------- | ----------- |
-| [dragscroll(node, parameters)](./dragscroll.dragscroll.md) |             |
+| Function                                                   | Description                                                                    |
+| ---------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| [dragscroll(node, parameters)](./dragscroll.dragscroll.md) | svelte action <code>use:dragscroll</code> for adding 'drag-to-scroll' behavior |
 
 ## Interfaces
 
-| Interface                                                    | Description |
-| ------------------------------------------------------------ | ----------- |
-| [DragScrollParameters](./dragscroll.dragscrollparameters.md) |             |
+| Interface                                                    | Description                                                 |
+| ------------------------------------------------------------ | ----------------------------------------------------------- |
+| [DragScrollParameters](./dragscroll.dragscrollparameters.md) | instruction for how <code>use:dragscroll</code> will behave |

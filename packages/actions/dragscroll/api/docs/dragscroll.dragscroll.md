@@ -4,25 +4,27 @@
 
 ## dragscroll() function
 
+svelte action `use:dragscroll` for adding 'drag-to-scroll' behavior
+
 <b>Signature:</b>
 
 ```typescript
 export declare function dragscroll(
   node: HTMLElement,
-  parameters?: DragScrollParameters,
+  parameters?: Partial<DragScrollParameters>,
 ): {
-  update(update?: DragScrollParameters): void;
+  update(update?: Partial<DragScrollParameters>): void;
   destroy(): void;
 };
 ```
 
 ## Parameters
 
-| Parameter  | Type                                                         | Description                                                    |
-| ---------- | ------------------------------------------------------------ | -------------------------------------------------------------- |
-| node       | HTMLElement                                                  | node to apply the action                                       |
-| parameters | [DragScrollParameters](./dragscroll.dragscrollparameters.md) | <i>(Optional)</i> instructions for customizing action behavior |
+| Parameter  | Type                                                                                | Description                                                    |
+| ---------- | ----------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| node       | HTMLElement                                                                         | node to apply the action                                       |
+| parameters | Partial&lt;[DragScrollParameters](./dragscroll.dragscrollparameters.md)<!-- -->&gt; | <i>(Optional)</i> instructions for customizing action behavior |
 
 <b>Returns:</b>
 
-{ update(update?: [DragScrollParameters](./dragscroll.dragscrollparameters.md)<!-- -->): void; destroy(): void; }
+{ update(update?: Partial&lt;[DragScrollParameters](./dragscroll.dragscrollparameters.md)<!-- -->&gt;): void; destroy(): void; }

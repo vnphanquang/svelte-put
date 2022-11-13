@@ -4,8 +4,10 @@
 
 ## DragScrollParameters.enabled property
 
+whether to run this action
+
 <b>Signature:</b>
 
 ```typescript
-enabled?: boolean;
+enabled: boolean;
 ```
