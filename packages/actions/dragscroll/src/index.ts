@@ -1,7 +1,7 @@
 // Copyright (c) Quang Phan. All rights reserved. Licensed under the MIT license.
 
 /**
- * svelte action `use:dragscroll` for pointer drag-to-scroll behavior
+ * svelte action `use:dragscroll` for drag-to-scroll behavior
  *
  * @packageDocumentation
  */

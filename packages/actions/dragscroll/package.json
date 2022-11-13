@@ -1,7 +1,7 @@
 {
   "name": "@svelte-put/dragscroll",
   "version": "0.1.0",
-  "description": "Svelte action for pointer drag-to-scroll behavior",
+  "description": "Svelte action for drag-to-scroll behavior",
   "main": "lib/index.js",
   "module": "lib/index.js",
   "types": "lib/src/index.d.ts",
@@ -30,7 +30,8 @@
     "drag",
     "scroll",
     "pan",
-    "pointer"
+    "pointer",
+    "mouse"
   ],
   "author": "Quang Phan",
   "license": "MIT",
