@@ -1,8 +1,9 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
-  import { dev } from '$app/environment';
+  import { dev, browser } from '$app/environment';
   import { page } from '$app/stores';
+  import { webVitals } from '$lib/services/web-vitals';
 
   import '../lib/ui/styles/app.css';
 
@@ -22,20 +23,19 @@
   $: twitterImageAlt = meta?.twitter?.imageAlt ?? '@svelte-put site';
   $: twitterSite = meta?.twitter?.site ?? '@vnphanquang';
 
+  // eslint-disable-next-line no-undef
+  let analyticsId = VERCEL_ANALYTICS_ID;
+  $: if (browser && analyticsId) {
+    webVitals({
+      path: $page.url.pathname,
+      params: $page.params,
+      analyticsId,
+    });
+  }
   onMount(async () => {
     const inject = (await import('@vercel/analytics')).inject;
     if (inject && !dev) {
       inject();
-    }
-    const webVitals = (await import('$lib/services/web-vitals')).webVitals;
-    // eslint-disable-next-line no-undef
-    const analyticsId = VERCEL_ANALYTICS_ID;
-    if (webVitals && analyticsId) {
-      webVitals({
-        path: $page.url.pathname,
-        params: $page.params,
-        analyticsId,
-      });
     }
   });
 </script>
