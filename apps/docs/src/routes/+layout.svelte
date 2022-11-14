@@ -7,7 +7,11 @@
 
   import '../lib/ui/styles/app.css';
 
+  const ROOT_URL = 'https://svelte-put.vnphanquang.com';
+
   $: meta = $page.data.meta;
+  // $: console.log(data);
+  $: console.log($page.data);
 
   $: title = meta?.title ?? '@svelte-put';
   $: description = meta?.description ?? 'Useful svelte actions, components, utilities';
@@ -16,8 +20,8 @@
   $: ogTitle = meta?.og?.title ?? title;
   $: ogDescription = meta?.og?.description ?? description;
   $: ogType = meta?.og?.type ?? 'website';
-  $: ogUrl = meta?.og?.url ?? 'https://svelte-put.vnphanquang.com';
-  $: ogImage = meta?.og?.image ?? 'https://svelte-put.vnphanquang.com/images/og/svelte-put.png';
+  $: ogUrl = meta?.og?.url ?? `${ROOT_URL}${$page.url.pathname}`;
+  $: ogImage = meta?.og?.image ?? `${ROOT_URL}/images/og/svelte-put.png`;
 
   $: twitterTitle = meta?.twitter?.title ?? ogTitle;
   $: twitterDescription = meta?.twitter?.description ?? ogDescription;
@@ -61,6 +65,8 @@
   <meta name="twitter:image" content={twitterImage} />
   <meta name="twitter:image:alt" content={twitterImageAlt} />
   <meta name="twitter:site" content={twitterSite} />
+
+  <link href={ogUrl} rel="canonical" />
 </svelte:head>
 
 <slot />
