@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.1
+
+### Patch Changes
+
+- [`d909b13`](https://github.com/vnphanquang/svelte-put/commit/d909b138df5aa65c87ecd9c17c5dab350972055f) Thanks [@vnphanquang](https://github.com/vnphanquang)! - add docs about limitation with scroll-snap
+
+- [`261dd8a`](https://github.com/vnphanquang/svelte-put/commit/261dd8af2f9071ead52c7ea28b62ac83ed712f60) Thanks [@vnphanquang](https://github.com/vnphanquang)! - automatically set `cursor` to `grab` and `grabbing`, allow customization for this `cursor` parameter
+
 ## 1.0.0
 
 ### Major Changes
