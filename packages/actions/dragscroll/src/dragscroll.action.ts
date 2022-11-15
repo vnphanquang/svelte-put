@@ -4,7 +4,7 @@ import type { DragScrollParameters } from './dragscroll.types';
  * @internal
  */
 function resolveParameters(parameters: Partial<DragScrollParameters> = {}) {
-  const { enabled = true, axis = 'x', event = 'pointer' } = parameters;
+  const { cursor = true, enabled = true, axis = 'x', event = 'pointer' } = parameters;
   return {
     enabled,
     axes: {
@@ -17,6 +17,7 @@ function resolveParameters(parameters: Partial<DragScrollParameters> = {}) {
       move: event === 'pointer' ? ('pointermove' as const) : ('mousemove' as const),
       leave: event === 'pointer' ? ('pointerleave' as const) : ('mouseleave' as const),
     },
+    cursor,
   };
 }
 
@@ -34,9 +35,10 @@ export function dragscroll(node: HTMLElement, parameters: Partial<DragScrollPara
   let startY: number;
   let scrollLeft: number;
   let scrollTop: number;
-  let { enabled, axes, events } = resolveParameters(parameters);
+  let { enabled, axes, events, cursor } = resolveParameters(parameters);
 
   function handlePointerDown(e: PointerEvent | MouseEvent) {
+    changeCursor(true);
     isDown = true;
     startX = e.pageX - node.offsetLeft;
     scrollLeft = node.scrollLeft;
@@ -45,6 +47,7 @@ export function dragscroll(node: HTMLElement, parameters: Partial<DragScrollPara
   }
 
   function handlePointerUpAndLeave() {
+    changeCursor();
     isDown = false;
   }
 
@@ -63,36 +66,45 @@ export function dragscroll(node: HTMLElement, parameters: Partial<DragScrollPara
     }
   }
 
-  function addEvents(node?: HTMLElement) {
-    if (node) {
-      node.addEventListener(events.down, handlePointerDown);
-      node.addEventListener(events.leave, handlePointerUpAndLeave);
-      node.addEventListener(events.up, handlePointerUpAndLeave);
-      node.addEventListener(events.move, handlePointerMove);
-    }
+  function addEvents() {
+    if (!node) return;
+    node.addEventListener(events.down, handlePointerDown);
+    node.addEventListener(events.leave, handlePointerUpAndLeave);
+    node.addEventListener(events.up, handlePointerUpAndLeave);
+    node.addEventListener(events.move, handlePointerMove);
   }
 
-  function removeEvents(node?: HTMLElement) {
-    if (node) {
-      node.removeEventListener(events.down, handlePointerDown);
-      node.removeEventListener(events.leave, handlePointerUpAndLeave);
-      node.removeEventListener(events.up, handlePointerUpAndLeave);
-      node.removeEventListener(events.move, handlePointerMove);
+  function removeEvents() {
+    if (!node) return;
+    node.removeEventListener(events.down, handlePointerDown);
+    node.removeEventListener(events.leave, handlePointerUpAndLeave);
+    node.removeEventListener(events.up, handlePointerUpAndLeave);
+    node.removeEventListener(events.move, handlePointerMove);
+  }
+
+  function changeCursor(active = false) {
+    if (!node) return;
+    if (cursor) {
+      node.style.cursor = active ? 'grabbing' : 'grab';
+    } else {
+      node.style.removeProperty('');
     }
   }
 
   if (enabled) {
-    addEvents(node);
+    changeCursor();
+    addEvents();
   }
 
   return {
     update(update: Partial<DragScrollParameters> = {}) {
-      removeEvents(node);
-      ({ enabled, axes, events } = resolveParameters(update));
-      addEvents(node);
+      removeEvents();
+      ({ enabled, axes, events, cursor } = resolveParameters(update));
+      changeCursor();
+      addEvents();
     },
     destroy() {
-      removeEvents(node);
+      removeEvents();
     },
   };
 }

@@ -12,6 +12,8 @@ const event = `<div use:dragscroll={{ event: 'pointer' }}>...</div>
 <div use:dragscroll={{ event: 'mouse' }}>...</div>
 `;
 
+const cursor = `div use:dragscroll={{ cursor: false }}>...</div>`;
+
 export const codes = {
   quickStart: {
     instruction: quickStart,
@@ -23,6 +25,7 @@ export const codes = {
       demo: axis,
     },
     event,
+    cursor,
   },
   limitationSnapScroll,
 } as const;

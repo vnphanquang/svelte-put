@@ -64,6 +64,17 @@
     </p>
     <Code code={codes.custom.event} title="mouse vs pointer" />
   </section>
+
+  <section>
+    <h3>Disabling Cursor Handling</h3>
+    <p>
+      By default, <code>dragscroll</code> adds <code>cursor: grab</code>, and
+      <code>cursor: grabbing</code> on <code>mousedown</code>. This can be disabled by setting the
+      <code>cursor</code>
+      parameter to <code>false</code> (default to <code>true</code>).
+    </p>
+    <Code code={codes.custom.cursor} title="cursor parameter" />
+  </section>
 </section>
 
 <section>
