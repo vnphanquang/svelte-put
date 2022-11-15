@@ -21,7 +21,7 @@
     </label>
   </div>
   <div
-    class="max-h-[300px] max-w-[300px] cursor-pointer overflow-x-auto md:max-h-[400px] md:max-w-[400px]"
+    class="max-h-[300px] max-w-[300px] overflow-x-auto md:max-h-[400px] md:max-w-[400px]"
     use:dragscroll={{ axis }}
   >
     {#each new Array(10) as _, row}

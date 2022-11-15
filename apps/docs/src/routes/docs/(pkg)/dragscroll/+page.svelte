@@ -9,6 +9,7 @@
   import type { PageData } from './$types';
   import { codes } from './codes';
   import CustomAxis from './codes/custom.axis.svelte';
+  import LimitationSnapScroll from './codes/limitation.scroll-snap.svelte';
   import NoParameters from './codes/no-parameters.svelte';
 
   export let data: PageData;
@@ -63,6 +64,35 @@
     </p>
     <Code code={codes.custom.event} title="mouse vs pointer" />
   </section>
+</section>
+
+<section>
+  <h2>Limitation</h2>
+  <p>
+    There is known issue when using
+    <ResourceLink href="https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-align"
+      >scroll-snap-align</ResourceLink
+    >, where view tends to be unresponsive to <code>dragscroll</code> and requires a great
+    <code>mousemove</code> length to snap to the next box.
+  </p>
+  <p>
+    Below, try using scrollbar to confirm snap-align is working as expected. Then try dragging with
+    mouse, notice that it only works when dragged over almost the entire width of the box.
+  </p>
+  <div class="not-prose border-2 border-violet-500 p-4">
+    <div class="not-prose">
+      <LimitationSnapScroll />
+    </div>
+  </div>
+  <Code code={codes.limitationSnapScroll} title="Limitation with scroll-snap" expanded={false} />
+  <p>
+    Here is the <ResourceLink
+      href="https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/dragscroll/src/dragscroll.action.ts"
+      >source code</ResourceLink
+    >
+    for <code>dragscroll</code>. Feel free to open a PR if you've found a workaround for this.
+    Thanks!
+  </p>
 </section>
 
 <ApiReference href={data.package.apiUrl} />

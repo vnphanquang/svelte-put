@@ -1,4 +1,5 @@
 import axis from './custom.axis.svelte?raw';
+import limitationSnapScroll from './limitation.scroll-snap.svelte?raw';
 import noParameters from './no-parameters.svelte?raw';
 import quickStart from './quick-start.svelte?raw';
 
@@ -23,4 +24,5 @@ export const codes = {
     },
     event,
   },
+  limitationSnapScroll,
 } as const;

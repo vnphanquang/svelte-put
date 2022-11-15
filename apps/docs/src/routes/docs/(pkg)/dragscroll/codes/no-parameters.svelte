@@ -2,7 +2,7 @@
   import { dragscroll } from '@svelte-put/dragscroll';
 </script>
 
-<div class="cursor-pointer overflow-x-auto" use:dragscroll>
+<div class="overflow-x-auto" use:dragscroll>
   {#each new Array(10) as _, row}
     <div class="grid grid-cols-[repeat(10,1fr)]">
       {#each new Array(10) as _, col}
