@@ -162,27 +162,57 @@
         }
       }
     };
-    const observer = new IntersectionObserver(callback, {
-      threshold: 1,
-    });
     const items = [];
     for (const item of e.detail.items) {
+      let tocId = item.id;
       if (item.element.tagName.toLowerCase() !== 'h1') {
-        // scrollingDownObserver.observe(item.element);
-        // scrollingUpObserver.observe(item.element);
-        // observer.observe(item.element);
         let text = item.text;
         if (text.startsWith('#')) {
           text = text.slice(1);
         }
-        const parent = item.element.parentElement;
-        if (parent) {
-          parent.setAttribute('data-toc-id', item.id);
-          observer.observe(parent);
+        // scrollingDownObserver.observe(item.element);
+        // scrollingUpObserver.observe(item.element);
+        // observer.observe(item.element);
+        // see app.d.ts for all these extra data attributes
+        if (!item.element.hasAttribute('data-toc-disabled')) {
+          type TocStrategy = 'parent' | 'self';
+          // TODO: add a `auto` strategy
+          // where if the next toc item is very close, use self, otherwise, use parent?
+          // remember to remove all the `data-toc-strategy="self"` when this is done
+          const tocStrategy = (item.element.getAttribute('data-toc-strategy') ??
+            'parent') as TocStrategy;
+          let tocNode: HTMLElement;
+          switch (tocStrategy) {
+            case 'self':
+              tocNode = item.element;
+              break;
+            case 'parent':
+            default:
+              tocNode = item.element.parentElement ?? item.element;
+              break;
+          }
+
+          const dataTocId = tocNode.getAttribute('data-toc-id');
+          if (dataTocId) {
+            tocId = dataTocId;
+          } else {
+            tocNode.setAttribute('data-toc-id', tocId);
+          }
+
+          let threshold = Math.min((0.8 * window.innerHeight) / tocNode.offsetHeight, 1);
+          const customThreshold = tocNode.getAttribute('data-toc-threshold');
+          try {
+            if (customThreshold) threshold = Math.min(parseInt(customThreshold, 10), 1);
+          } catch (e) {
+            //
+          }
+
+          const observer = new IntersectionObserver(callback, { threshold });
+          observer.observe(tocNode);
         }
 
         items.push({
-          id: item.id,
+          id: tocId,
           level: item.element.tagName[1],
           text,
         });

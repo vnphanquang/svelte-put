@@ -36,3 +36,12 @@ declare namespace App {
   // interface Error {}
   // interface Platform {}
 }
+
+declare namespace svelte.JSX {
+  interface HTMLAttributes<T> {
+    // on:clickoutside
+    'data-toc-disabled'?: boolean;
+    'data-toc-strategy'?: 'parent' | 'self';
+    'data-toc-id'?: string;
+  }
+}

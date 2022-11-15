@@ -92,7 +92,7 @@
 </section>
 
 <section>
-  <h2>Usage</h2>
+  <h2 data-toc-strategy="self">Usage</h2>
 
   <section>
     <h3>Direct URL</h3>
@@ -221,7 +221,7 @@
   </section>
 
   <section>
-    <h3>Customization</h3>
+    <h3 data-toc-strategy="self">Customization</h3>
 
     <section>
       <h4>Markup</h4>

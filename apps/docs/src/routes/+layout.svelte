@@ -10,8 +10,6 @@
   const ROOT_URL = 'https://svelte-put.vnphanquang.com';
 
   $: meta = $page.data.meta;
-  // $: console.log(data);
-  $: console.log($page.data);
 
   $: title = meta?.title ?? '@svelte-put';
   $: description = meta?.description ?? 'Useful svelte actions, components, utilities';
