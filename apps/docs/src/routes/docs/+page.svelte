@@ -51,6 +51,8 @@
                   alt={name}
                   height="25"
                   width="106"
+                  loading="lazy"
+                  decoding="async"
                 />
               </a>
             </div>

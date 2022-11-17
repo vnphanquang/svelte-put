@@ -108,6 +108,6 @@
 
 <ApiReference href={data.package.apiUrl} />
 
-<img src={monkeyClickingImg} alt="copy" width="300" height="217" />
+<img src={monkeyClickingImg} alt="copy" width="300" height="217" loading="lazy" decoding="async" />
 
 <p>Happy dragging! 👨‍💻</p>

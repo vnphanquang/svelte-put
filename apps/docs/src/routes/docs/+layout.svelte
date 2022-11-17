@@ -237,7 +237,14 @@
     {/key}
     <nav class="c-container flex flex-1 items-center justify-between py-2">
       <a href="/" class="flex items-center gap-2">
-        <img src="/images/svelte-put-logo.svg" alt="svelte-put" width="32" height="32" />
+        <img
+          src="/images/svelte-put-logo.svg"
+          alt="svelte-put"
+          width="32"
+          height="32"
+          loading="lazy"
+          decoding="async"
+        />
         <span class="c-link text-sm font-bold text-gradient-brand">svelte-put</span>
       </a>
       <ResourceLink class="c-link" key="github">

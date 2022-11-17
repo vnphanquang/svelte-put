@@ -33,6 +33,8 @@
   <p class="flex flex-wrap gap-2">
     <a href={createNpmUrl(data.package.name)} target="__blank" class="h-full">
       <img
+        loading="lazy"
+        decoding="async"
         class="my-0 inline-block h-full w-auto rounded"
         src={createNpmBadgeUrl(data.package.name)}
         alt={data.package.name}
@@ -42,6 +44,8 @@
     </a>
     <a href={createBundlephobiaUrl(data.package.name)} target="__blank" class="h-full">
       <img
+        loading="lazy"
+        decoding="async"
         class="my-0 inline-block h-full w-auto rounded"
         src={createBundlephobiaBadgeUrl(data.package.name)}
         alt={data.package.name}
@@ -53,6 +57,8 @@
     {#if data.package.replId}
       <a href={createSvelteReplUrl(data.package.replId)} target="__blank" class="h-full">
         <img
+          loading="lazy"
+          decoding="async"
           class="my-0 inline-block h-full w-auto rounded"
           src={createSvelteReplBadgeUrl()}
           alt={data.package.name}
@@ -65,6 +71,8 @@
     {#if data.package.changelogUrl}
       <a href={data.package.changelogUrl} target="__blank" class="h-full">
         <img
+          loading="lazy"
+          decoding="async"
           class="my-0 inline-block h-full w-auto rounded"
           src={createChangelogBadgeUrl()}
           alt="changelog"

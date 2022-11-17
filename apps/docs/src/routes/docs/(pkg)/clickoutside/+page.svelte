@@ -137,6 +137,13 @@
 
 <ApiReference href={data.package.apiUrl} />
 
-<img src={mouseclickPng} alt="mouse click faster" width="300" height="210" />
+<img
+  src={mouseclickPng}
+  alt="mouse click faster"
+  width="300"
+  height="210"
+  loading="lazy"
+  decoding="async"
+/>
 
 <p>Happy clicking outside! 👨‍💻</p>

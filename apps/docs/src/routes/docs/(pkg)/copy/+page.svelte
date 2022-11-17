@@ -136,6 +136,6 @@
 
 <ApiReference href={data.package.apiUrl} />
 
-<img src={copyImg} alt="copy" width="300" height="217" />
+<img src={copyImg} alt="copy" width="300" height="217" loading="lazy" decoding="async" />
 
 <p>Happy copying! 👨‍💻</p>

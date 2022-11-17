@@ -288,6 +288,6 @@
 
 <ApiReference href={data.package.apiUrl} />
 
-<img src={avatarAangImg} alt="avatar?" width="300" height="168.6" />
+<img src={avatarAangImg} alt="avatar?" width="300" height="168.6" loading="lazy" decoding="async" />
 
 <p>Happy bending! 👨‍💻</p>

@@ -5,7 +5,14 @@
 
 <div class="box {clsx($$props.class)}" {open}>
   <div class="box-content">
-    <img src="/images/svelte-logo.svg" alt="svelte" height="128" width="107" />
+    <img
+      src="/images/svelte-logo.svg"
+      alt="svelte"
+      height="128"
+      width="107"
+      loading="eager"
+      decoding="sync"
+    />
   </div>
   <div class="box-side box-side--front">
     <div class="box-side-front-em-top" />
