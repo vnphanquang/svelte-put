@@ -44,7 +44,7 @@
   "devDependencies": {
     "@types/estree": "^1.0.0",
     "svelte": "^3.53.1",
-    "tsup": "^6.4.0"
+    "tsup": "^6.5.0"
   },
   "peerDependencies": {
     "svelte": "^3.37.0"
