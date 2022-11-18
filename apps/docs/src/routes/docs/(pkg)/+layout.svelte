@@ -31,7 +31,7 @@
   {/if}
 
   <p class="flex flex-wrap gap-2">
-    <a href={createNpmUrl(data.package.name)} target="__blank" class="h-full">
+    <a href={createNpmUrl(data.package.name)} target="_blank" class="h-full" rel="noreferrer">
       <img
         loading="lazy"
         decoding="async"
@@ -42,7 +42,12 @@
         width="100"
       />
     </a>
-    <a href={createBundlephobiaUrl(data.package.name)} target="__blank" class="h-full">
+    <a
+      href={createBundlephobiaUrl(data.package.name)}
+      target="_blank"
+      class="h-full"
+      rel="noreferrer"
+    >
       <img
         loading="lazy"
         decoding="async"
@@ -51,11 +56,15 @@
         alt={data.package.name}
         height="24"
         width="132"
-        target="__blank"
       />
     </a>
     {#if data.package.replId}
-      <a href={createSvelteReplUrl(data.package.replId)} target="__blank" class="h-full">
+      <a
+        href={createSvelteReplUrl(data.package.replId)}
+        target="_blank"
+        class="h-full"
+        rel="noreferrer"
+      >
         <img
           loading="lazy"
           decoding="async"
@@ -64,12 +73,11 @@
           alt={data.package.name}
           height="24"
           width="112"
-          target="__blank"
         />
       </a>
     {/if}
     {#if data.package.changelogUrl}
-      <a href={data.package.changelogUrl} target="__blank" class="h-full">
+      <a href={data.package.changelogUrl} target="_blank" class="h-full" rel="noreferrer">
         <img
           loading="lazy"
           decoding="async"
@@ -78,7 +86,6 @@
           alt="changelog"
           height="24"
           width="89"
-          target="__blank"
         />
       </a>
     {/if}

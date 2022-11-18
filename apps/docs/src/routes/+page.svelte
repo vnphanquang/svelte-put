@@ -51,8 +51,12 @@
       </h1>
 
       <p in:fly={{ y: 20, duration: 1000, delay: 100, easing: cubicOut }}>
-        Useful <a class="c-link underline" href="https://svelte.dev/" target="__blank">svelte</a> stuff
-        to put in your projects
+        Useful <a
+          class="c-link underline"
+          href="https://svelte.dev/"
+          target="_blank"
+          rel="noreferrer">svelte</a
+        > stuff to put in your projects
       </p>
       <ul
         class="flex items-center justify-center gap-10 text-sm font-bold uppercase"
@@ -63,8 +67,11 @@
           <a href="/docs" class="c-link" data-sveltekit-prefetch>Read Docs</a>
         </li>
         <li in:fly={{ y: 20, duration: 1000, delay: 300, easing: cubicOut }}>
-          <a href="https://github.com/vnphanquang/svelte-put" class="c-link" target="__blank"
-            >See Github</a
+          <a
+            href="https://github.com/vnphanquang/svelte-put"
+            class="c-link"
+            target="_blank"
+            rel="noreferrer">See Github</a
           >
         </li>
       </ul>

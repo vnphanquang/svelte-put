@@ -44,7 +44,7 @@
             </p>
             <p class={cellClass}>{description}</p>
             <div class={cellClass}>
-              <a href={createNpmUrl(name)} target="__blank" class="block">
+              <a href={createNpmUrl(name)} target="_blank" class="block" rel="noreferrer">
                 <img
                   class="block rounded"
                   src={createNpmBadgeUrl(name)}

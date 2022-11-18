@@ -10,6 +10,6 @@
   export let title = '';
 </script>
 
-<a {href} {...!id && { target: '__blank' }} class={clsx('c-link', $$props.class)} {title}>
+<a {href} {...!id && { target: '_blank' }} class={clsx('c-link', $$props.class)} {title}>
   <slot>{key}</slot>
 </a>
