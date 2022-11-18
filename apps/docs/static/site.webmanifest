@@ -67,13 +67,6 @@
       "type": "image/png",
       "platform": "narrow",
       "label": "@svelte-put mobile"
-    },
-    {
-      "src": "/images/screenshots/screenshot-800x418.png",
-      "sizes": "800x418",
-      "type": "image/png",
-      "platform": "narrow",
-      "label": "@svelte-put og"
     }
   ]
 }

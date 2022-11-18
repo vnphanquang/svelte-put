@@ -21,6 +21,7 @@ declare namespace App {
         description?: string;
         type?: 'website' | 'article' | 'profile';
         image?: string;
+        imageAlt?: string;
         url?: string;
       };
       twitter?: {

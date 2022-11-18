@@ -3,23 +3,25 @@
 
   import { dev, browser } from '$app/environment';
   import { page } from '$app/stores';
+  import { PUBLIC_ROOT_URL } from '$env/static/public';
   import { webVitals } from '$lib/services/web-vitals';
 
   import '../lib/ui/styles/app.css';
 
-  const ROOT_URL = 'https://svelte-put.vnphanquang.com';
-
   $: meta = $page.data.meta;
 
   $: title = meta?.title ?? '@svelte-put';
-  $: description = meta?.description ?? 'Useful svelte actions, components, utilities';
+  $: description =
+    meta?.description ??
+    'Useful svelte actions, components, utilities battle-tested in real work projects';
   $: keywords = meta?.keywords ?? ['svelte', 'put', 'action', 'component', 'utility', 'collection'];
 
   $: ogTitle = meta?.og?.title ?? title;
   $: ogDescription = meta?.og?.description ?? description;
   $: ogType = meta?.og?.type ?? 'website';
-  $: ogUrl = meta?.og?.url ?? `${ROOT_URL}${$page.url.pathname}`;
-  $: ogImage = meta?.og?.image ?? `${ROOT_URL}/images/og/svelte-put.png`;
+  $: ogUrl = meta?.og?.url ?? `${PUBLIC_ROOT_URL}${$page.url.pathname}`;
+  $: ogImage = meta?.og?.image ?? `${PUBLIC_ROOT_URL}/images/og/svelte-put.png`;
+  $: ogImageAlt = meta?.og?.imageAlt ?? 'svelte-put';
 
   $: twitterTitle = meta?.twitter?.title ?? ogTitle;
   $: twitterDescription = meta?.twitter?.description ?? ogDescription;
@@ -55,6 +57,7 @@
   <meta property="og:description" content={ogDescription} />
   <meta property="og:type" content={ogType} />
   <meta property="og:image" content={ogImage} />
+  <meta property="og:image:alt" content={ogImageAlt} />
   <meta property="og:url" content={ogUrl} />
 
   <meta name="twitter:title" content={twitterTitle} />
