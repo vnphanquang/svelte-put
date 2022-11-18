@@ -64,6 +64,25 @@ const sveltePut = plugin(
         '@apply before:border-l-4 before:border-primary before:pr-4 rounded bg-bg-accent p-4 italic':
           {},
       },
+      '.c-btn': {
+        '@apply block rounded py-2 px-4 shadow hover:shadow-lg': {},
+        'min-width': '100px',
+        '&:active': {
+          '@apply scale-[0.98]': {},
+        },
+      },
+      '.c-btn-primary': {
+        '@apply c-btn bg-primary text-white': {},
+        '&:hover': {
+          '@apply bg-primary-dark': {},
+        },
+      },
+      '.c-btn-primary-outline': {
+        '@apply c-btn text-primary border border-primary bg-bg': {},
+        '&:hover': {
+          '@apply text-bg bg-primary-dark': {},
+        },
+      },
       '.c-btn-text': {
         '@apply inline-block text-primary hover:underline': {},
       },
@@ -141,6 +160,7 @@ const sveltePut = plugin(
           border: '#d5c4a1',
           primary: {
             DEFAULT: '#d65d03',
+            dark: '#cd5a02',
             darker: '#6D3203',
           },
           svelte: '#ef4623',
