@@ -1,6 +1,5 @@
 import ts from '@rollup/plugin-typescript';
 import type { RollupOptions } from 'rollup';
-import filesize from 'rollup-plugin-filesize';
 import typescript from 'typescript';
 
 const config: RollupOptions = {
@@ -14,7 +13,6 @@ const config: RollupOptions = {
     ts({
       typescript,
     }),
-    filesize(),
   ],
 };
 
