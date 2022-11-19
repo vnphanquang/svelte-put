@@ -68,6 +68,7 @@
   <meta name="twitter:site" content={twitterSite} />
 
   <link href={ogUrl} rel="canonical" />
+  <link type="text/plain" rel="author" href="{PUBLIC_ROOT_URL}/humans.txt" />
 </svelte:head>
 
 <slot />

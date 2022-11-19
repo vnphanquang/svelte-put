@@ -1,0 +1,21 @@
+/* TEAM */
+
+Developer: Quang Phan
+Github: https://github.com/vnphanquang
+Twitter: https://twitter.com/vnphanquang
+From: Vietnam
+
+/* SITE */
+
+Last update: {{last_update}}
+Language: English
+Doctype: HTML5
+IDE: VSCode
+
+/* TECHNOLOGY */
+
+Svelte: https://svelte.dev/
+Svelte-kit: https://kit.svelte.dev/
+Tailwind CSS: https://tailwindcss.com/
+Vercel: https://vercel.com/
+Typescript: https://www.typescriptlang.org/

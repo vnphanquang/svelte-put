@@ -62,6 +62,7 @@ importers:
       cssnano: ^5.1.14
       eslint: ^8.27.0
       glob: ^8.0.3
+      handlebars: ^4.7.7
       highlight.js: ^11.6.0
       postcss: ^8.4.19
       postcss-import: ^15.0.0
@@ -86,6 +87,7 @@ importers:
       '@vercel/analytics': 0.1.5
       clsx: 1.2.1
       cookie: 0.5.0
+      handlebars: 4.7.7
       static-tree: 1.2.0
       web-vitals: 3.1.0
     devDependencies:
