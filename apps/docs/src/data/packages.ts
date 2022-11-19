@@ -69,7 +69,7 @@ export const packages = {
     replId: '835eacce6ac44aff95a7cb0bb5ca200d',
     category: 'action',
     status: 'stable',
-    ready: false,
+    ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/intersect',
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/intersect/CHANGELOG.md',

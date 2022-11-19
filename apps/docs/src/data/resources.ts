@@ -17,6 +17,9 @@ export const resources = {
   '@microsoft/api-documenter': 'https://api-extractor.com/pages/setup/generating_docs/',
   TailwindCSS: 'https://tailwindcss.com/',
   vercel: 'https://vercel.com/',
+  IntersectionObserver:
+    'https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver',
+  CustomEvent: 'https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent',
 } as const;
 
 export type ResourceId = keyof typeof resources;
