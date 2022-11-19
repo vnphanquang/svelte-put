@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.1.0
+
+### Minor Changes
+
+- [`e496e80`](https://github.com/vnphanquang/svelte-put/commit/e496e80ff36d638051aaa690451c95b61e340c2e) Thanks [@vnphanquang](https://github.com/vnphanquang)! - Complete docs site at https://svelte-put.vnphanquang.com/docs/intersect
+
+### Patch Changes
+
+- [`7a35469`](https://github.com/vnphanquang/svelte-put/commit/7a354692aad20e3dc1365340ed9a134942ac2b6d) Thanks [@vnphanquang](https://github.com/vnphanquang)! - Support the `direction` property in `event.detail` for scrolling direction detection
+
 ## 1.0.7
 
 ### Patch Changes
