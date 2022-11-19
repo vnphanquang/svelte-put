@@ -47,4 +47,6 @@ export interface IntersectDetail {
   readonly observer: IntersectionObserver;
   /** list of IntersectionObserverEntry passed from IntersectionObserver callback */
   readonly entries: IntersectionObserverEntry[];
+  /** scrolling direction */
+  readonly direction: 'up' | 'down';
 }

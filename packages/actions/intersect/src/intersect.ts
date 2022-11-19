@@ -104,12 +104,17 @@ declare global {
  */
 export function intersect(node: HTMLElement, parameters: IntersectParameters = { enabled: true }) {
   let hasIntersect = false;
+  let previousY = 0;
+
   let { root, rootMargin, threshold, enabled = true } = parameters;
   const callback: IntersectionObserverCallback = (entries, observer) => {
+    const y = entries[0].boundingClientRect.y ?? 0;
     if (entries.some((e) => !!e.intersectionRatio)) {
+      const direction = y < previousY ? 'down' : 'up';
       const detail: IntersectDetail = {
         observer,
         entries,
+        direction,
       };
       node.dispatchEvent(new CustomEvent('intersect', { detail }));
       if (!hasIntersect && entries.some((e) => e.isIntersecting)) {
@@ -117,6 +122,7 @@ export function intersect(node: HTMLElement, parameters: IntersectParameters = {
         hasIntersect = true;
       }
     }
+    previousY = y;
   };
 
   let observer = new IntersectionObserver(callback, {
