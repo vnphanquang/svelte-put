@@ -87,7 +87,7 @@ export function dragscroll(node: HTMLElement, parameters: Partial<DragScrollPara
     if (cursor) {
       node.style.cursor = active ? 'grabbing' : 'grab';
     } else {
-      node.style.removeProperty('');
+      node.style.removeProperty('cursor');
     }
   }
 
