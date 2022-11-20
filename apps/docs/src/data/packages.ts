@@ -99,7 +99,7 @@ export const packages = {
     replId: '88a7c1fc2e134db7b58786d5f385fc5d',
     category: 'action',
     status: 'stable',
-    ready: false,
+    ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/movable',
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/CHANGELOG.md',
