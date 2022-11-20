@@ -23,7 +23,7 @@
     "web-vitals": "^3.1.0"
   },
   "devDependencies": {
-    "@resvg/resvg-js": "^2.1.0",
+    "@resvg/resvg-js": "^2.2.0",
     "@svelte-put/avatar": "workspace:*",
     "@svelte-put/clickoutside": "workspace:*",
     "@svelte-put/copy": "workspace:*",
@@ -36,7 +36,7 @@
     "@svelte-put/shortcut": "workspace:*",
     "@svelte-put/toc": "workspace:*",
     "@sveltejs/adapter-vercel": "1.0.0-next.81",
-    "@sveltejs/kit": "1.0.0-next.551",
+    "@sveltejs/kit": "1.0.0-next.553",
     "@tailwindcss/typography": "^0.5.8",
     "@types/cookie": "^0.5.1",
     "@types/glob": "^8.0.0",
@@ -46,7 +46,7 @@
     "@vnphanquang/prettierrc": "^1.0.0",
     "autoprefixer": "^10.4.13",
     "cssnano": "^5.1.14",
-    "eslint": "^8.27.0",
+    "eslint": "^8.28.0",
     "glob": "^8.0.3",
     "highlight.js": "^11.6.0",
     "postcss": "^8.4.19",
