@@ -14,7 +14,7 @@ export function input(node: HTMLElement, parameters: MovableParameters) {
     enabled: parameters.enabled ?? true,
     parent: parameters.limit?.parent,
     normalizedDelta: normalizeDelta(parameters.limit?.delta),
-    trigger: parameters.trigger ?? node,
+    handle: parameters.handle ?? parameters.trigger ?? node,
     ignore: parameters.ignore
       ? typeof parameters.ignore === 'string'
         ? [parameters.ignore]

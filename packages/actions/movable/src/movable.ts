@@ -31,7 +31,7 @@ declare global {
  * @example
  *
  * A more typical & complex usage of `movable`: move a node
- * when user clicks and on a trigger; and limit the movement within
+ * when user clicks and on a handle; and limit the movement within
  * a certain boundary.
  *
  * ```html
@@ -39,7 +39,7 @@ declare global {
  *   import { movable } from '@svelte-put/movable';
  *
  *   let modal = false;
- *   let triggerNode: HTMLElement;
+ *   let handleNode: HTMLElement;
  *   let containerNode: HTMLElement;
  * </script>
  *
@@ -53,12 +53,12 @@ declare global {
  *           delta: '20%',
  *           parent: containerNode,
  *         },
- *         trigger: triggerNode,
+ *         handle: handleNode,
  *       }}
  *       on:movablestart={(event) => console.log('movable:start', event.detail.node, event.detail.position)}
  *       on:movableend={(event) => console.log('movable:end', event.detail.node, event.detail.position)}
  *     >
- *       <button bind:this={triggerNode}>
+ *       <button bind:this={handleNode}>
  *          likely some 'move' icon
  *       </button>
  *
@@ -71,7 +71,7 @@ declare global {
  *
  * Things that will happen in the above example:
  *
- * 1. on `mousedown` of the trigger (`button` element), a `movablestart` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent } is dispatched,
+ * 1. on `mousedown` of the handle (`button` element), a `movablestart` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent } is dispatched,
  *
  * 2. any `mousemove` event will tell `div` to move accordingly;
  *
@@ -91,8 +91,8 @@ declare global {
  * <Component use:movable/>
  * ```
  *
- * It is recommended to use the `trigger` option in {@link MovableParameters } to avoid unintended behavior.
- * If no `trigger` is provided, the whole node is the trigger and it might be difficult for
+ * It is recommended to use the `handle` option in {@link MovableParameters } to avoid unintended behavior.
+ * If no `handle` is provided, the whole node is the handle and it might be difficult for
  * user to copy texts within the node.
  *
  * Be aware of side effects:
@@ -109,7 +109,7 @@ declare global {
  *
  */
 export function movable(node: HTMLElement, parameters: MovableParameters = { enabled: true }) {
-  let { parent, normalizedDelta, trigger, enabled, ignore } = input(node, parameters);
+  let { parent, normalizedDelta, handle, enabled, ignore } = input(node, parameters);
 
   const lastMousePosition = { x: 0, y: 0 };
   const lastNodePosition = { top: 0, left: 0 };
@@ -228,7 +228,7 @@ export function movable(node: HTMLElement, parameters: MovableParameters = { ena
   const onMouseDown = (event: MouseEvent) => {
     const ignoreSelector = ignore.join(',');
     if (ignoreSelector) {
-      const excludedNodes = Array.from(trigger.querySelectorAll(ignore.join(', ')));
+      const excludedNodes = Array.from(handle.querySelectorAll(ignore.join(', ')));
       if (excludedNodes.some((node) => node.isSameNode(event.target as HTMLElement))) {
         return;
       }
@@ -260,25 +260,25 @@ export function movable(node: HTMLElement, parameters: MovableParameters = { ena
   };
 
   if (enabled) {
-    trigger.addEventListener('mousedown', onMouseDown, true);
+    handle.addEventListener('mousedown', onMouseDown, true);
   }
   return {
     update(parameters: MovableParameters = { enabled: true }) {
       const update = input(node, parameters);
 
-      trigger.removeEventListener('mousedown', onMouseDown, true);
-      update.trigger.addEventListener('mousedown', onMouseDown, true);
+      handle.removeEventListener('mousedown', onMouseDown, true);
+      update.handle.addEventListener('mousedown', onMouseDown, true);
 
       if (!enabled && update.enabled) {
-        trigger.addEventListener('mousedown', onMouseDown, true);
+        handle.addEventListener('mousedown', onMouseDown, true);
       } else if (enabled && !update.enabled) {
-        trigger.removeEventListener('mousedown', onMouseDown, true);
+        handle.removeEventListener('mousedown', onMouseDown, true);
       }
 
-      ({ parent, normalizedDelta, trigger, enabled, ignore } = update);
+      ({ parent, normalizedDelta, handle, enabled, ignore } = update);
     },
     destroy() {
-      trigger.removeEventListener('mousedown', onMouseDown, true);
+      handle.removeEventListener('mousedown', onMouseDown, true);
     },
   };
 }

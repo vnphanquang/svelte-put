@@ -101,26 +101,30 @@ export interface MovableParameters {
   /** Set a limit within which node can be moved */
   limit?: MovableLimit;
   /**
-   * A node that triggers mousedown event, otherwise the node itself is the trigger
+   * A node that triggers mousedown event, otherwise the node itself is the handle
    *
    * @remarks
    *
-   * `trigger` should be an HTMLElement not a Svelte component.
+   * `handle` should be an HTMLElement not a Svelte component.
    *
    * ```html
-   * <div use:movable={{ trigger }}/>
+   * <div use:movable={{ handle }}/>
    *
    * <-- correct usage-->
-   * <div bind:this={trigger} />
+   * <div bind:this={handle} />
    *
    * <-- incorrect usage-->
-   * <Component bind:this={trigger} />
+   * <Component bind:this={handle} />
    * ```
    *
    */
+  handle?: HTMLElement;
+  /**
+   * @deprecated use `handle` instead (same functionality, just more sensible naming)
+   */
   trigger?: HTMLElement;
   /**
-   * CSS selectors within the `trigger` node to exclude from triggering `movable`.
+   * CSS selectors within the `handle` node to exclude from triggering `movable`.
    * Use this options with caution because it might affect performance.
    */
   ignore?: string | string[];
