@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.3
+
+### Patch Changes
+
+- [`4d36311`](https://github.com/vnphanquang/svelte-put/commit/4d36311a2f6b3f307b7d8bc2cc97c97406baac53) Thanks [@vnphanquang](https://github.com/vnphanquang)! - correctly remove property cursor when cursor is false
+
 ## 1.0.2
 
 ### Patch Changes
