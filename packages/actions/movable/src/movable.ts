@@ -109,7 +109,7 @@ declare global {
  *
  */
 export function movable(node: HTMLElement, parameters: MovableParameters = { enabled: true }) {
-  let { parent, normalizedDelta, handle, enabled, ignore } = input(node, parameters);
+  let { parent, normalizedDelta, handle, enabled, ignore, cursor } = input(node, parameters);
 
   const lastMousePosition = { x: 0, y: 0 };
   const lastNodePosition = { top: 0, left: 0 };
@@ -217,7 +217,12 @@ export function movable(node: HTMLElement, parameters: MovableParameters = { ena
 
   const end = () => {
     document.body.style.userSelect = '';
-    document.body.style.cursor = '';
+    if (cursor) {
+      if (document.body.style.cursor === 'grabbing') {
+        document.body.style.removeProperty('cursor');
+      }
+      handle.style.cursor = 'grab';
+    }
     window.removeEventListener('mousemove', onMouseMove);
     window.removeEventListener('mouseup', end);
 
@@ -226,10 +231,8 @@ export function movable(node: HTMLElement, parameters: MovableParameters = { ena
   };
 
   const onMouseDown = (event: MouseEvent) => {
-    const ignoreSelector = ignore.join(',');
-    if (ignoreSelector) {
-      const excludedNodes = Array.from(handle.querySelectorAll(ignore.join(', ')));
-      if (excludedNodes.some((node) => node.isSameNode(event.target as HTMLElement))) {
+    if (ignore.length) {
+      if (ignore.some((node) => node.isSameNode(event.target as HTMLElement))) {
         return;
       }
     }
@@ -254,31 +257,59 @@ export function movable(node: HTMLElement, parameters: MovableParameters = { ena
     updateLastMousePosition(event);
 
     document.body.style.userSelect = 'none';
-    document.body.style.cursor = 'move';
+    if (cursor) {
+      document.body.style.cursor = 'grabbing';
+      handle.style.cursor = 'grabbing';
+    }
     window.addEventListener('mousemove', onMouseMove);
     window.addEventListener('mouseup', end);
   };
 
+  function addCursor() {
+    if (cursor) {
+      handle.style.cursor = 'grab';
+      if (ignore.length) {
+        for (const e of ignore) {
+          if (!e.style.cursor) {
+            e.style.cursor = 'auto';
+          }
+        }
+      }
+    }
+  }
+  function removeCursor() {
+    if (cursor) {
+      if (handle?.style.cursor === 'grab') {
+        handle.style.removeProperty('cursor');
+      }
+      if (ignore.length) {
+        for (const e of ignore) {
+          if (e.style.cursor === 'auto') {
+            e.style.removeProperty('cursor');
+          }
+        }
+      }
+    }
+  }
+
   if (enabled) {
+    addCursor();
     handle.addEventListener('mousedown', onMouseDown, true);
   }
   return {
-    update(parameters: MovableParameters = { enabled: true }) {
-      const update = input(node, parameters);
-
+    update(update: MovableParameters = {}) {
+      removeCursor();
       handle.removeEventListener('mousedown', onMouseDown, true);
-      update.handle.addEventListener('mousedown', onMouseDown, true);
+      ({ parent, normalizedDelta, handle, enabled, ignore, cursor } = input(node, update));
 
-      if (!enabled && update.enabled) {
+      if (enabled) {
+        addCursor();
         handle.addEventListener('mousedown', onMouseDown, true);
-      } else if (enabled && !update.enabled) {
-        handle.removeEventListener('mousedown', onMouseDown, true);
       }
-
-      ({ parent, normalizedDelta, handle, enabled, ignore } = update);
     },
     destroy() {
       handle.removeEventListener('mousedown', onMouseDown, true);
+      removeCursor();
     },
   };
 }

@@ -10,15 +10,24 @@ import { normalizeDelta } from '../normalizeDelta';
  * @returns
  */
 export function input(node: HTMLElement, parameters: MovableParameters) {
+  const handle = parameters.handle ?? parameters.trigger ?? node;
+  const selector = (
+    parameters.ignore
+      ? typeof parameters.ignore === 'string'
+        ? [parameters.ignore]
+        : parameters.ignore
+      : []
+  ).join(',');
+  let ignore: HTMLElement[] = [];
+  if (selector) {
+    ignore = Array.from(handle.querySelectorAll(selector));
+  }
   return {
     enabled: parameters.enabled ?? true,
     parent: parameters.limit?.parent,
     normalizedDelta: normalizeDelta(parameters.limit?.delta),
-    handle: parameters.handle ?? parameters.trigger ?? node,
-    ignore: parameters.ignore
-      ? typeof parameters.ignore === 'string'
-        ? [parameters.ignore]
-        : parameters.ignore
-      : [],
+    handle,
+    ignore,
+    cursor: parameters.cursor ?? true,
   };
 }

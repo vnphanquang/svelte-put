@@ -8,7 +8,7 @@ export function movable(
   node: HTMLElement,
   parameters?: MovableParameters,
 ): {
-  update(parameters?: MovableParameters): void;
+  update(update?: MovableParameters): void;
   destroy(): void;
 };
 
@@ -45,6 +45,7 @@ export type MovableLimitDelta = `${number}px` | `${number}%`;
 
 // @public
 export interface MovableParameters {
+  cursor?: boolean;
   enabled?: boolean;
   handle?: HTMLElement;
   ignore?: string | string[];

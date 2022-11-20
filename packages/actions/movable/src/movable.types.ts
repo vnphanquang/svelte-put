@@ -128,6 +128,8 @@ export interface MovableParameters {
    * Use this options with caution because it might affect performance.
    */
   ignore?: string | string[];
+  /** automatically change cursor to `grab` on hover and `grabbing` on mousedown of `handle */
+  cursor?: boolean;
 }
 
 /**

@@ -13,7 +13,7 @@ export declare function movable(
   node: HTMLElement,
   parameters?: MovableParameters,
 ): {
-  update(parameters?: MovableParameters): void;
+  update(update?: MovableParameters): void;
   destroy(): void;
 };
 ```
@@ -27,7 +27,7 @@ export declare function movable(
 
 <b>Returns:</b>
 
-{ update(parameters?: [MovableParameters](./movable.movableparameters.md)<!-- -->): void; destroy(): void; }
+{ update(update?: [MovableParameters](./movable.movableparameters.md)<!-- -->): void; destroy(): void; }
 
 svelte action interface
 
