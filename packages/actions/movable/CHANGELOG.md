@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.3.0
+
+### Minor Changes
+
+- [`d429763`](https://github.com/vnphanquang/svelte-put/commit/d429763e722bdfc6bec1d3c80f7a195833eb6548) Thanks [@vnphanquang](https://github.com/vnphanquang)! - deprecate `trigger` parameter in favor of the more sensible `handle`
+
+### Patch Changes
+
+- [`cd027ed`](https://github.com/vnphanquang/svelte-put/commit/cd027ed46117d760539166ef3512fe3068b86c49) Thanks [@vnphanquang](https://github.com/vnphanquang)! - add `cusor` parameter for changing cursor to grab & grabbing
+
 ## 1.2.3
 
 ### Patch Changes
