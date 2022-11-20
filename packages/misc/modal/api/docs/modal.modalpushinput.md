@@ -9,11 +9,13 @@ Either the Svelte modal component or an option object that specifies how to push
 <b>Signature:</b>
 
 ```typescript
-export declare type ModalPushInput<Component extends ModalComponentBase> = ComponentType<Component> | {
-    id?: string;
-    component: ComponentType<Component>;
-    props?: ComponentProps<Component>;
-};
+export type ModalPushInput<Component extends ModalComponentBase> =
+  | ComponentType<Component>
+  | {
+      id?: string;
+      component: ComponentType<Component>;
+      props?: ComponentProps<Component>;
+    };
 ```
-<b>References:</b> [ModalComponentBase](./modal.modalcomponentbase.md)
 
+<b>References:</b> [ModalComponentBase](./modal.modalcomponentbase.md)

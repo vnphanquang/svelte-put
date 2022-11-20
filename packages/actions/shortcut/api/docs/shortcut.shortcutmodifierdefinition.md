@@ -9,7 +9,7 @@ Possible variations for modifier definition
 <b>Signature:</b>
 
 ```typescript
-export declare type ShortcutModifierDefinition =
+export type ShortcutModifierDefinition =
   | ShortcutModifier
   | ShortcutModifier[]
   | ShortcutModifier[][];

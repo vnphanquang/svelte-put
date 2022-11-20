@@ -4,7 +4,7 @@
 
 ## MovableParameters.ignore property
 
-CSS selectors within the `trigger` node to exclude from triggering `movable`<!-- -->. Use this options with caution because it might affect performance.
+CSS selectors within the `handle` node to exclude from triggering `movable`<!-- -->. Use this options with caution because it might affect performance.
 
 <b>Signature:</b>
 

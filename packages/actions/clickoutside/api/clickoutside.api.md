@@ -15,7 +15,7 @@ export function clickoutside(
 // @public
 export interface ClickOutsideAttributes {
   // (undocumented)
-  onclickoutside?: (event: CustomEvent<MouseEvent>) => void;
+  onclickoutside?: (event: CustomEvent<Event>) => void;
 }
 
 // @public
@@ -26,6 +26,19 @@ export interface ClickOutsideLimit {
 // @public
 export interface ClickOutsideParameters {
   enabled: boolean;
+  event?: string;
   limit?: ClickOutsideLimit;
+  options?: AddEventListenerOptions | boolean;
 }
+
+// Warning: (ae-internal-missing-underscore) The name "resolveParameters" should be prefixed with an underscore because the declaration is marked as @internal
+//
+// @internal (undocumented)
+export function resolveParameters(parameters: Partial<ClickOutsideParameters>): {
+  enabled: boolean;
+  nodeForEvent: HTMLElement | Document;
+  eventType: string;
+  options: boolean | AddEventListenerOptions | undefined;
+  capture: boolean | undefined;
+};
 ```

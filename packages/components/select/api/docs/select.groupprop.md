@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-export declare type GroupProp<Option> = boolean | Grouper<Option> | Partial<GroupConfig<Option>>;
+export type GroupProp<Option> = boolean | Grouper<Option> | Partial<GroupConfig<Option>>;
 ```
 
 <b>References:</b> [Grouper](./select.grouper.md)<!-- -->, [GroupConfig](./select.groupconfig.md)

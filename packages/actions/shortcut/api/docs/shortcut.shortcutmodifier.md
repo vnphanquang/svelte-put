@@ -9,5 +9,5 @@ Supported modifier keys, map to [KeyboardEvent](https://developer.mozilla.org/en
 <b>Signature:</b>
 
 ```typescript
-export declare type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
+export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
 ```

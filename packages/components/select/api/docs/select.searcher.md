@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-export declare type Searcher<Option> = (input: SearchInput<Option>) => Option[] | Promise<Option[]>;
+export type Searcher<Option> = (input: SearchInput<Option>) => Option[] | Promise<Option[]>;
 ```
 
 <b>References:</b> [SearchInput](./select.searchinput.md)

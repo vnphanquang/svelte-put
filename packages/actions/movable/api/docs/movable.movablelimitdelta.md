@@ -9,7 +9,7 @@ Limit by creating a bounding box of movable area `[-delta, +delta]` in both axes
 <b>Signature:</b>
 
 ```typescript
-export declare type MovableLimitDelta = `${number}px` | `${number}%`;
+export type MovableLimitDelta = `${number}px` | `${number}%`;
 ```
 
 ## Remarks
@@ -24,28 +24,10 @@ export declare type MovableLimitDelta = `${number}px` | `${number}%`;
 
 ## Example
 
-
 ```html
-<-- limit movement to [- 20% * width, + 20% * width] in x-axis and [- 20% * height, + 20% * height] in y-axis -->
-<div use:movable={{
-   delta: '20%',
-}} />
-
-<-- use pixel unit -->
-<div use:movable={{
-   delta: '200px',
-}} />
-
-<-- mix pixel and percentage & specific to each axis -->
-<div use:movable={{
-   delta: { x: 20%, y: '400px' },
-}} />
-
-<-- mix complex use, added to parent border -->
-<div use:movable={{
-   delta: { x: 20%, y: '400px' },
-   parent: someParentNode,
-}} />
-
+<-- limit movement to [- 20% * width, + 20% * width] in x-axis and [- 20% * height, + 20% * height]
+in y-axis --> <div use:movable={{ delta: '20%', }} /> <-- use pixel unit --> <div use:movable={{
+delta: '200px', }} /> <-- mix pixel and percentage & specific to each axis --> <div use:movable={{
+delta: { x: 20%, y: '400px' }, }} /> <-- mix complex use, added to parent border --> <div
+use:movable={{ delta: { x: 20%, y: '400px' }, parent: someParentNode, }} />
 ```
-

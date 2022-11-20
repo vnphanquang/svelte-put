@@ -21,5 +21,5 @@ The trigger that resolves the modal
 <b>Signature:</b>
 
 ```typescript
-export declare type ResolveTrigger = 'backdrop' | 'x' | 'escape' | 'clickoutside' | 'pop' | 'custom';
+export type ResolveTrigger = 'backdrop' | 'x' | 'escape' | 'clickoutside' | 'pop' | 'custom';
 ```

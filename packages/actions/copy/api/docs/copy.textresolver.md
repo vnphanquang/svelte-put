@@ -9,7 +9,7 @@ a sync/async function that return the text to be copied
 <b>Signature:</b>
 
 ```typescript
-export declare type TextResolver<K extends keyof HTMLElementEventMap> = (
+export type TextResolver<K extends keyof HTMLElementEventMap> = (
   input: TextResolverInput<K>,
 ) => string | Promise<string>;
 ```

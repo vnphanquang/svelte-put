@@ -6,8 +6,6 @@
 
 `detail` payload for `intersect` and `intersectonce` CustomEvent
 
-\`\`\`
-
 <b>Signature:</b>
 
 ```typescript
@@ -16,7 +14,8 @@ export interface IntersectDetail
 
 ## Properties
 
-| Property                                            | Modifiers             | Type                          | Description                                                                 |
-| --------------------------------------------------- | --------------------- | ----------------------------- | --------------------------------------------------------------------------- |
-| [entries](./intersect.intersectdetail.entries.md)   | <code>readonly</code> | IntersectionObserverEntry\[\] | list of IntersectionObserverEntry passed from IntersectionObserver callback |
-| [observer](./intersect.intersectdetail.observer.md) | <code>readonly</code> | IntersectionObserver          | the IntersectionObserver itself                                             |
+| Property                                              | Modifiers             | Type                          | Description                                                                 |
+| ----------------------------------------------------- | --------------------- | ----------------------------- | --------------------------------------------------------------------------- |
+| [direction](./intersect.intersectdetail.direction.md) | <code>readonly</code> | 'up' \| 'down'                | scrolling direction                                                         |
+| [entries](./intersect.intersectdetail.entries.md)     | <code>readonly</code> | IntersectionObserverEntry\[\] | list of IntersectionObserverEntry passed from IntersectionObserver callback |
+| [observer](./intersect.intersectdetail.observer.md)   | <code>readonly</code> | IntersectionObserver          | the IntersectionObserver itself                                             |

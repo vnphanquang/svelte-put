@@ -22,6 +22,7 @@ export interface IntersectAttributes {
 
 // @public
 export interface IntersectDetail {
+  readonly direction: 'up' | 'down';
   readonly entries: IntersectionObserverEntry[];
   readonly observer: IntersectionObserver;
 }

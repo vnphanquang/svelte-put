@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-export declare type Grouper<Option> = (option: Option) => string;
+export type Grouper<Option> = (option: Option) => string;
 ```

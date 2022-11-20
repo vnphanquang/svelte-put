@@ -15,6 +15,7 @@ export function dragscroll(
 // @public
 export interface DragScrollParameters {
   axis: 'x' | 'y' | 'both';
+  cursor: boolean;
   enabled: boolean;
   event: 'mouse' | 'pointer';
 }

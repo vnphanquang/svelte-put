@@ -7,5 +7,5 @@
 <b>Signature:</b>
 
 ```typescript
-onclickoutside?: (event: CustomEvent<MouseEvent>) => void;
+onclickoutside?: (event: CustomEvent<Event>) => void;
 ```

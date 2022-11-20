@@ -9,18 +9,21 @@ Trigger node displacement on mousedown (via position.left &amp; position.top)
 <b>Signature:</b>
 
 ```typescript
-export declare function movable(node: HTMLElement, parameters?: MovableParameters): {
-    update(parameters?: MovableParameters): void;
-    destroy(): void;
+export declare function movable(
+  node: HTMLElement,
+  parameters?: MovableParameters,
+): {
+  update(parameters?: MovableParameters): void;
+  destroy(): void;
 };
 ```
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  node | HTMLElement | HTMLElement to be moved |
-|  parameters | [MovableParameters](./movable.movableparameters.md) | <i>(Optional)</i> svelte action parameters |
+| Parameter  | Type                                                | Description                                |
+| ---------- | --------------------------------------------------- | ------------------------------------------ |
+| node       | HTMLElement                                         | HTMLElement to be moved                    |
+| parameters | [MovableParameters](./movable.movableparameters.md) | <i>(Optional)</i> svelte action parameters |
 
 <b>Returns:</b>
 
@@ -34,12 +37,13 @@ As with any svelte action, `movable` should be use with element and not componen
 
 ```html
 <-- correct usage-->
- <div use:movable />
+<div use:movable />
 
 <-- incorrect usage-->
-<Component use:movable/>
+<Component use:movable />
 ```
-It is recommended to use the `trigger` option in [MovableParameters](./movable.movableparameters.md) to avoid unintended behavior. If no `trigger` is provided, the whole node is the trigger and it might be difficult for user to copy texts within the node.
+
+It is recommended to use the `handle` option in [MovableParameters](./movable.movableparameters.md) to avoid unintended behavior. If no `handle` is provided, the whole node is the handle and it might be difficult for user to copy texts within the node.
 
 Be aware of side effects:
 
@@ -65,14 +69,14 @@ Minimal usage
 
 ## Example 2
 
-A more typical &amp; complex usage of `movable`<!-- -->: move a node when user clicks and on a trigger; and limit the movement within a certain boundary.
+A more typical &amp; complex usage of `movable`<!-- -->: move a node when user clicks and on a handle; and limit the movement within a certain boundary.
 
 ```html
 <script lang="ts">
   import { movable } from '@svelte-put/movable';
 
   let modal = false;
-  let triggerNode: HTMLElement;
+  let handleNode: HTMLElement;
   let containerNode: HTMLElement;
 </script>
 
@@ -86,12 +90,12 @@ A more typical &amp; complex usage of `movable`<!-- -->: move a node when user c
           delta: '20%',
           parent: containerNode,
         },
-        trigger: triggerNode,
+        handle: handleNode,
       }}
       on:movablestart={(event) => console.log('movable:start', event.detail.node, event.detail.position)}
       on:movableend={(event) => console.log('movable:end', event.detail.node, event.detail.position)}
     >
-      <button bind:this={triggerNode}>
+      <button bind:this={handleNode}>
          likely some 'move' icon
       </button>
 
@@ -101,13 +105,13 @@ A more typical &amp; complex usage of `movable`<!-- -->: move a node when user c
 
 </section>
 ```
+
 Things that will happen in the above example:
 
-1. on `mousedown` of the trigger (`button` element), a `movablestart` [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) is dispatched,
+1. on `mousedown` of the handle (`button` element), a `movablestart` [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) is dispatched,
 
 2. any `mousemove` event will tell `div` to move accordingly;
 
 3. movement will be limited to the border of the `containerNode`<!-- -->, ±20% of the width &amp; height of the `div` that the action is being used on,
 
 4. `mouseup` event will stop the movement; a `movableend` [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) is dispatched.
-

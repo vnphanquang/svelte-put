@@ -9,9 +9,11 @@ The base events for modal
 <b>Signature:</b>
 
 ```typescript
-export declare type ModalComponentBaseEvents<Resolved extends ModalComponentBaseResolved = ModalComponentBaseResolved> = {
-    resolve: CustomEvent<Resolved>;
+export type ModalComponentBaseEvents<
+  Resolved extends ModalComponentBaseResolved = ModalComponentBaseResolved,
+> = {
+  resolve: CustomEvent<Resolved>;
 };
 ```
-<b>References:</b> [ModalComponentBaseResolved](./modal.modalcomponentbaseresolved.md)
 
+<b>References:</b> [ModalComponentBaseResolved](./modal.modalcomponentbaseresolved.md)

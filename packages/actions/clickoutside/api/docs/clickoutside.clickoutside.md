@@ -23,7 +23,7 @@ export declare function clickoutside(
 | Parameter  | Type                                                                                      | Description                                                                           |
 | ---------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
 | node       | HTMLElement                                                                               | node outside of which <code>click</code> event will trigger <code>clickoutside</code> |
-| parameters | Partial&lt;[ClickOutsideParameters](./clickoutside.clickoutsideparameters.md)<!-- -->&gt; | <i>(Optional)</i>                                                                     |
+| parameters | Partial&lt;[ClickOutsideParameters](./clickoutside.clickoutsideparameters.md)<!-- -->&gt; | <i>(Optional)</i> instructions for <code>clickoutside</code> behavior                 |
 
 <b>Returns:</b>
 

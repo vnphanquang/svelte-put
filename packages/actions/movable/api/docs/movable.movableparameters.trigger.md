@@ -4,25 +4,12 @@
 
 ## MovableParameters.trigger property
 
-A node that triggers mousedown event, otherwise the node itself is the trigger
+> Warning: This API is now obsolete.
+>
+> use `handle` instead (same functionality, just more sensible naming)
 
 <b>Signature:</b>
 
 ```typescript
 trigger?: HTMLElement;
 ```
-
-## Remarks
-
-`trigger` should be an HTMLElement not a Svelte component.
-
-```html
-<div use:movable={{ trigger }}/>
-
-<-- correct usage-->
-<div bind:this={trigger} />
-
-<-- incorrect usage-->
-<Component bind:this={trigger} />
-```
-

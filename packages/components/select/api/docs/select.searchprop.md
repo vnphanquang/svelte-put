@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-export declare type SearchProp<Option> = boolean | Searcher<Option> | Partial<SearchConfig<Option>>;
+export type SearchProp<Option> = boolean | Searcher<Option> | Partial<SearchConfig<Option>>;
 ```
 
 <b>References:</b> [Searcher](./select.searcher.md)<!-- -->, [SearchConfig](./select.searchconfig.md)
