@@ -17,13 +17,12 @@ Useful svelte stuff to put in your projects
 
 - [@svelte-put](#svelte-put)
   - [Table of Contents](#table-of-contents)
+  - [Documentation](#documentation)
   - [Packages](#packages)
     - [Svelte Actions](#svelte-actions)
+    - [Miscellaneous](#miscellaneous)
     - [In the Pipeline](#in-the-pipeline)
-  - [Playground](#playground)
-  - [Inspiration & Acknowledgement](#inspiration--acknowledgement)
   - [Contributing](#contributing)
-  - [Todos](#todos)
 
 </details>
 
@@ -43,7 +42,7 @@ Useful svelte stuff to put in your projects
 | [@svelte-put/copy][github.copy]                 | copy text to clipboard                            | [![npm.copy.badge]][npm.copy]                 | [Changelog][github.copy.changelog]         | [API][github.copy.docs]         | [![docs.badge]][docs.copy]         |
 | [@svelte-put/dragscroll][github.dragscroll]     | add drag-to-scroll behavior                       | [![npm.dragscroll.badge]][npm.dragscroll]     | [Changelog][github.dragscroll.changelog]   | [API][github.dragscroll.docs]   | [![docs.badge]][docs.dragscroll]   |
 | [@svelte-put/intersect][github.intersect]       | wrapper for IntersectionObserver                  | [![npm.intersect.badge]][npm.intersect]       | [Changelog][github.intersect.changelog]    | [API][github.intersect.docs]    | [![docs.badge]][docs.intersect]    |
-| [@svelte-put/movable][github.movable]           | move node on mousedown                            | [![npm.movable.badge]][npm.movable]           | [Changelog][github.movable.changelog]      | [API][github.movable.docs]      | coming soon                        |
+| [@svelte-put/movable][github.movable]           | move node on mousedown                            | [![npm.movable.badge]][npm.movable]           | [Changelog][github.movable.changelog]      | [API][github.movable.docs]      | [![docs.badge]][docs.movable]      |
 | [@svelte-put/shortcut][github.shortcut]         | add keyboard shortcuts to node                    | [![npm.shortcut.badge]][npm.shortcut]         | [Changelog][github.shortcut.changelog]     | [API][github.shortcut.docs]     | coming soon                        |
 | [@svelte-put/toc][github.toc]                   | action & component for building table of contents | [![npm.toc.badge]][npm.toc]                   | [Changelog][github.toc.changelog]          | [API][github.toc.docs]          | coming soon                        |
 
