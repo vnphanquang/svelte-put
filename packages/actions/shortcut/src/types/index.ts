@@ -1,4 +1,16 @@
 /**
+ * Additional attributes extended from `svelte-put/shortcut`
+ *  @public
+ *
+ * @remarks
+ * The ambient types for these extended attributes should be available automatically
+ * whenever `svelte-put/shorcut` is imported.
+ */
+export interface ShortcutAttributes {
+  onshortcut?: (event: CustomEvent<ShortcutEventDetails>) => void; // on:shortcut
+}
+
+/**
  * Supported modifier keys, map to {@link https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent | KeyboardEvent}'s
  * {@link https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/altKey | altkey},
  * {@link https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/ctrlKey | ctrlKey},
@@ -18,7 +30,7 @@ export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
  *
  * Listen for a single modifier
  *
- * ```html
+ * ```svelte
  * <script>
  *  import { shortcut } from '@svelte-put/shortcut';
  * </script>
@@ -36,7 +48,7 @@ export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
  *
  * Listen for one of many modifiers (or)
  *
- * ```html
+ * ```svelte
  * <script>
  *  import { shortcut } from '@svelte-put/shortcut';
  * </script>
@@ -54,7 +66,7 @@ export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
  *
  * Listen for a combination of multiple modifiers (and)
  *
- * ```html
+ * ```svelte
  * <script>
  *  import { shortcut } from '@svelte-put/shortcut';
  * </script>
@@ -73,7 +85,7 @@ export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
  *
  * A mix of the 3 previous examples
  *
- * ```html
+ * ```svelte
  * <script>
  *  import { shortcut } from '@svelte-put/shortcut';
  * </script>

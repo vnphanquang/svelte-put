@@ -1,4 +1,18 @@
-import type { ShortcutEventDetails, ShortcutModifier, ShortcutParameters } from './types';
+import type {
+  ShortcutEventDetails,
+  ShortcutModifier,
+  ShortcutParameters,
+  ShortcutAttributes,
+} from './types';
+
+// ambient typing
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  export namespace svelte.JSX {
+    // eslint-disable-next-line @typescript-eslint/no-empty-interface
+    export interface HTMLAttributes extends ShortcutAttributes {}
+  }
+}
 
 /**
  * Listen for keyboard event and trigger `shortcut` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent }
@@ -6,7 +20,7 @@ import type { ShortcutEventDetails, ShortcutModifier, ShortcutParameters } from 
  *
  * @example Typical usage
  *
- * ```html
+ * ```svelte
  * <script lang="ts">
  *  import { shortcut, type ShortcutEventDetails } from '@svelte-put/shortcut';
  *

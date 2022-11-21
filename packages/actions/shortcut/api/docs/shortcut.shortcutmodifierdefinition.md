@@ -21,47 +21,78 @@ export type ShortcutModifierDefinition =
 
 Listen for a single modifier
 
-```html
+```svelte
 <script>
   import { shortcut } from '@svelte-put/shortcut';
 </script>
 
-<window use:shortcut={{ trigger: { key: 'k' , modifier: 'ctrl', }, }} />
+<window
+  use:shortcut={{
+    trigger: {
+      key: 'k',
+      modifier: 'ctrl',
+    },
+  }}
+/>
 ```
 
 ## Example 2
 
 Listen for one of many modifiers (or)
 
-```html
+```svelte
 <script>
   import { shortcut } from '@svelte-put/shortcut';
 </script>
 
-<window use:shortcut={{ trigger: { key: 'k' , modifier: ['ctrl', 'meta'], }, }} />
+<window
+  use:shortcut={{
+    trigger: {
+      key: 'k',
+      modifier: ['ctrl', 'meta'],
+    },
+  }}
+/>
 ```
 
 ## Example 3
 
 Listen for a combination of multiple modifiers (and)
 
-```html
+```svelte
 <script>
   import { shortcut } from '@svelte-put/shortcut';
 </script>
 
-<window use:shortcut={{ trigger: { key: 'k' , modifier: [['ctrl', 'shift']], }, }} />
+<window
+  use:shortcut={{
+    trigger: {
+      key: 'k',
+      modifier: [['ctrl', 'shift']],
+    },
+  }}
+/>
 ```
 
 ## Example 4
 
 A mix of the 3 previous examples
 
-```html
+```svelte
 <script>
   import { shortcut } from '@svelte-put/shortcut';
 </script>
 
-<window use:shortcut={{ trigger: { key: 'k' , modifier: [ ['ctrl', 'shift'], // ctrl and shift // or
-['meta'], // meta ], }, }} />
+<window
+  use:shortcut={{
+    trigger: {
+      key: 'k',
+      modifier: [
+        ['ctrl', 'shift'], // ctrl and shift
+        // or
+        ['meta'], // meta
+      ],
+    },
+  }}
+/>
 ```
