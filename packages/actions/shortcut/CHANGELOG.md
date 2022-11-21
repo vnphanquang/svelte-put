@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.4
+
+### Patch Changes
+
+- [`4eae915`](https://github.com/vnphanquang/svelte-put/commit/4eae915a7467e9850eea25ec960aecb0eec8eac2) Thanks [@vnphanquang](https://github.com/vnphanquang)! - add ambient types
+
 ## 1.0.3
 
 ### Patch Changes
