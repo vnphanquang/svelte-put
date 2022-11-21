@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.2
+
+### Patch Changes
+
+- [`af949ec`](https://github.com/vnphanquang/svelte-put/commit/af949ecf08a69861f3b5de8fb0824480fe5d8644) Thanks [@vnphanquang](https://github.com/vnphanquang)! - mature enough implementation with complelte docs page
+
 ## 0.2.1
 
 ### Patch Changes
