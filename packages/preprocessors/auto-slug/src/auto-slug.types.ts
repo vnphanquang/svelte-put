@@ -2,11 +2,13 @@ import type { BaseNode } from 'estree';
 import type BananaSlug from 'github-slugger';
 
 /** @internal */
-type PartialAutoSlugOptions = Omit<AutoSlugOptions, 'anchor'> & {
+type PartialAutoSlugOptions = Partial<Omit<AutoSlugOptions, 'anchor'>> & {
   anchor?: Partial<AutoSlugOptions['anchor']>;
 };
 
 /**
+ * input to preprocessor. Either on object of options or a
+ * function that returns one (with the defaultOptions as its parameter).
  * @public
  */
 export type AutoSlugInput =
@@ -14,28 +16,45 @@ export type AutoSlugInput =
   | ((defaultOptions: AutoSlugOptions) => PartialAutoSlugOptions);
 
 /**
+ * instructions for adding anchor tag
  * @public
  */
 export interface AutoSlugAnchorOptions {
+  /** whether to insert an anchor tag for each matching node */
   enabled: boolean;
   /**
    * where to create the anchor tag
    *
    * - 'prepend' — inject link before the target tag text
+   *
    * - 'append' — inject link after the target tag text
+   *
    * - 'wrap' — wrap the whole target tag text with the link
+   *
    * - 'before' — insert link before the target tag
+   *
    * - 'after' — insert link after the target tag
+   *
+   * default to `prepend`
    */
   position: 'prepend' | 'append' | 'wrap' | 'before' | 'after';
-  /** default to '#', ignored when behavior is `wrap` */
+  /**
+   * content of the inserted anchor tag,
+   * ignored when behavior is `wrap`.
+   * Default to '#'
+   */
   content: string;
-  /** defaults to { 'aria-hidden': 'true', 'tab-index': '-1' } */
+  /**
+   * properties set to the inserted anchor tag,
+   * defaults to `{ 'aria-hidden': 'true', 'tab-index': '-1' }`
+   */
   properties: Record<string, string>;
+  /** href attribute of the inserted anchor tag */
   href: (slug: string) => string;
 }
 
 /**
+ * information passed as parameter to slug resolver
  * @public
  */
 export interface SlugResolverInput {
@@ -48,6 +67,7 @@ export interface SlugResolverInput {
 }
 
 /**
+ * options to config preprocess-auto-slug
  * @public
  */
 export interface AutoSlugOptions {

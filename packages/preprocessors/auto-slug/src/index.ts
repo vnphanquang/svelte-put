@@ -5,6 +5,7 @@
  *
  * @packageDocumentation
  */
+
 import { autoSlug } from './auto-slug';
 
 export * from './auto-slug';

@@ -76,7 +76,6 @@ importers:
       svelte-check: ^2.9.2
       svelte-highlight: ^6.2.1
       svelte-preprocess: ^4.10.7
-      svelte-preprocess-import-assets: ^0.2.2
       tailwindcss: ^3.2.4
       ts-node: ^10.9.1
       tslib: ^2.4.1
@@ -128,7 +127,6 @@ importers:
       svelte-check: 2.9.2_mocwzvuqzrhb37u7s4hjvvzl3i
       svelte-highlight: 6.2.1
       svelte-preprocess: 4.10.7_mvbmsfnr3ibpjsbee6imjcb33m
-      svelte-preprocess-import-assets: 0.2.2_svelte@3.53.1
       tailwindcss: 3.2.4_v776zzvn44o7tpgzieipaairwm
       ts-node: 10.9.1_wup25etrarvlqkprac7h35hj7u
       tslib: 2.4.1
@@ -451,9 +449,13 @@ importers:
 
   packages/preprocessors/auto-slug:
     specifiers:
+      '@microsoft/api-documenter': ^7.19.24
+      '@microsoft/api-extractor': ^7.33.6
+      '@svelte-put/apirc': workspace:^0.0.0
       '@types/estree': ^1.0.0
       github-slugger: ^2.0.0
       magic-string: ^0.26.7
+      npm-run-all: ^4.1.5
       svelte: ^3.53.1
       svelte-parse-markup: ^0.1.1
       tsup: ^6.5.0
@@ -462,7 +464,11 @@ importers:
       magic-string: 0.26.7
       svelte-parse-markup: 0.1.1_svelte@3.53.1
     devDependencies:
+      '@microsoft/api-documenter': 7.19.24
+      '@microsoft/api-extractor': 7.33.6
+      '@svelte-put/apirc': link:../../../configs/apirc
       '@types/estree': 1.0.0
+      npm-run-all: 4.1.5
       svelte: 3.53.1
       tsup: 6.5.0
 
@@ -2444,7 +2450,7 @@ packages:
       dot-prop: 5.3.0
 
   /concat-map/0.0.1:
-    resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
+    resolution: {integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=}
 
   /console-control-strings/1.1.0:
     resolution: {integrity: sha512-ty/fTekppD2fIwRvnZAVdeOiGd1c7YXEixbgJTNzqcxJWKQnjJ/V1bNEEE6hygpM3WjwHFUVK6HTjWSzV4a8sQ==}
@@ -6610,16 +6616,7 @@ packages:
       svelte: ^3.0.0
     dependencies:
       svelte: 3.53.1
-
-  /svelte-preprocess-import-assets/0.2.2_svelte@3.53.1:
-    resolution: {integrity: sha512-5omtHEvC2LizvCrOJBI+lcXtC9w2zIRXzopQz3ZecmaoTrGwrQeIT2FF+dx1uIqgxj77Ddk9W+fhmkrRwjICwg==}
-    peerDependencies:
-      svelte: ^3.37.0
-    dependencies:
-      magic-string: 0.25.9
-      svelte: 3.53.1
-      svelte-parse-markup: 0.1.1_svelte@3.53.1
-    dev: true
+    dev: false
 
   /svelte-preprocess/4.10.7_7dvewpees4iyn2tkw2qzal77a4:
     resolution: {integrity: sha512-sNPBnqYD6FnmdBrUmBCaqS00RyCsCpj2BG58A1JBswNF7b0OKviwxqVrOL/CKyJrLSClrSeqQv5BXNg2RUbPOw==}

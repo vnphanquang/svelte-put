@@ -15,9 +15,9 @@ import { getTextContent, getIdAttribute } from './auto-slug.utils';
  *
  * @public
  *
- * @returns {PreprocessorGroup} svelte preprocessor interface
+ * @returns svelte preprocessor interface
  */
-export function autoSlug(input: AutoSlugInput): PreprocessorGroup {
+export function autoSlug(input: AutoSlugInput = {}): PreprocessorGroup {
   let options = DEFAULT_AUTO_SLUG_OPTIONS;
   const iOptions = typeof input === 'function' ? input(options) : input;
   options = {

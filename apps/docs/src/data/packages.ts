@@ -109,17 +109,18 @@ export const packages = {
   'preprocess-auto-slug': {
     id: 'preprocess-auto-slug',
     name: '@svelte-put/preprocess-auto-slug',
-    description: 'add id slug and anchor to node',
+    description: 'svelte preprocessor to add id attribute and anchor tag',
     path: APP_ROUTE_TREE.docs.preprocessAutoSlug.$.path(),
     replId: undefined,
     category: 'preprocessor',
-    status: 'beta',
-    ready: false,
+    status: 'new',
+    ready: true,
     githubUrl:
       'https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocessors/auto-slug',
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocessors/preprocess-auto-slug/CHANGELOG.md',
-    apiUrl: '',
+    apiUrl:
+      'https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocessors/auto-slug/api/docs/index.md',
   },
   select: {
     id: 'select',
