@@ -1,6 +1,6 @@
 {
   "name": "@svelte-put/shortcut",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Action to move node on mousedown & mousemove",
   "main": "lib/index.js",
   "module": "lib/index.js",
