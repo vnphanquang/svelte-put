@@ -340,8 +340,8 @@
         data-open={rightSidebarOpen}
       >
         <div class="sidebar-content text-sm">
-          <p class="py-2 font-bold uppercase">On This Page</p>
           {#if tocItems.length}
+            <p class="py-2 font-bold uppercase">On This Page</p>
             <ul class="space-y-1 border-l border-border/50">
               {#each tocItems as { id, text, level }}
                 {@const current = id === activeTocId}

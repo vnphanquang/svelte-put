@@ -36,7 +36,7 @@
   }
 
   code {
-    @apply text-primary-darker bg-bg-accent py-0 px-2 rounded inline-block text-sm;
+    @apply inline-block rounded bg-bg-accent py-0 px-2 text-sm text-primary-darker;
     font-weight: inherit;
   }
 

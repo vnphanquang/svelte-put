@@ -145,7 +145,7 @@ export const packages = {
     replId: undefined,
     category: 'action',
     status: 'stable',
-    ready: false,
+    ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/shortcut',
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/shortcut/CHANGELOG.md',

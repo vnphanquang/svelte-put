@@ -4,4 +4,6 @@
 
 Documentation site for `@svelte-put`
 
+https://svelte-put.vnphanquang.com
+
 </div>
