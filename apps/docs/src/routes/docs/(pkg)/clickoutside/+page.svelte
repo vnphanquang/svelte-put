@@ -33,11 +33,7 @@
   <section>
     <h3>Feature Demo</h3>
     <Demo />
-    <Code
-      code={codes.advancedUsage.demo}
-      title="usage demo source. expand to see"
-      class="max-h-[500px]"
-    />
+    <Code code={codes.advancedUsage.demo} title="usage demo source. expand to see" />
   </section>
 
   <section>

@@ -141,7 +141,7 @@
           </ul>
         </div>
       {/if}
-      <div class="overflow-auto">
+      <div class="max-h-[480px] overflow-auto">
         {#if lang === 'svelte'}
           <HighlightSvelte code={currentCode} />
         {:else}
