@@ -19,8 +19,6 @@
 
   html {
     @apply h-full bg-bg bg-paper font-inter text-base text-fg;
-
-    scroll-behavior: smooth;
   }
 
   body {
