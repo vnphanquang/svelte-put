@@ -138,7 +138,7 @@ const sveltePut = plugin(
         },
         fontFamily: {
           fira: ['Fira Code', 'monospace'],
-          inter: ['Inter VF', 'Inter', 'sans-serif'],
+          inter: ['Inter', 'sans-serif'],
         },
         spacing: {
           header: 'var(--header-height)',
