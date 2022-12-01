@@ -31,7 +31,7 @@
   $: twitterSite = meta?.twitter?.site ?? '@vnphanquang';
 
   // eslint-disable-next-line no-undef
-  let analyticsId = VERCEL_ANALYTICS_ID;
+  let analyticsId = $page.data.vercelAnalyticsId;
   $: if (browser && analyticsId) {
     webVitals({
       path: $page.url.pathname,
