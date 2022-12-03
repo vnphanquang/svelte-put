@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.6.0
+
+### Minor Changes
+
+- [`01225f3`](https://github.com/vnphanquang/svelte-put/commit/01225f39809ce10e4ebd0d7604976d18bed93ded) Thanks [@vnphanquang](https://github.com/vnphanquang)! - dedicated doc page at https://svelte-put.vnphanquang.com/docs/modal
+
+### Patch Changes
+
+- [`ba449e3`](https://github.com/vnphanquang/svelte-put/commit/ba449e3afb68b7ba49915d1a6020e6e574e11087) Thanks [@vnphanquang](https://github.com/vnphanquang)! - wrap style in `ModalPortal` in `:global` and `:where` to reduce specificity
+
 ## 0.5.6
 
 ### Patch Changes
