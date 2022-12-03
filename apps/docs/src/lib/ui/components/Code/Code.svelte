@@ -53,7 +53,7 @@
 
 <div
   class={clsx(
-    'group relative my-6 max-w-full overflow-hidden rounded-md text-code-fg shadow hover:shadow-md',
+    'group relative my-6 max-w-full overflow-hidden rounded-md text-code-fg shadow-md hover:shadow-lg',
     $$props.class,
   )}
   on:mouseleave={onMouseLeave}
@@ -141,7 +141,7 @@
           </ul>
         </div>
       {/if}
-      <div class="max-h-[480px] overflow-auto">
+      <div class="max-h-[600px] overflow-auto">
         {#if lang === 'svelte'}
           <HighlightSvelte code={currentCode} />
         {:else}
