@@ -52,7 +52,7 @@ Useful svelte stuff to put in your projects
 | Package                             | Short Description                | Version                           | Changelog                            | API                       | Docs                         |
 | ----------------------------------- | -------------------------------- | --------------------------------- | ------------------------------------ | ------------------------- | ---------------------------- |
 | [@svelte-put/avatar][github.avatar] | component & utilities for avatar | [![npm.avatar.badge]][npm.avatar] | [Changelog][github.avatar.changelog] | [API][github.avatar.docs] | [![docs.badge]][docs.avatar] |
-| [@svelte-put/modal][github.modal]   | type-safe async modal builder    | [![npm.modal.badge]][npm.modal]   | [Changelog][github.modal.changelog]  | [API][github.modal.docs]  | coming soon                  |
+| [@svelte-put/modal][github.modal]   | type-safe async modal builder    | [![npm.modal.badge]][npm.modal]   | [Changelog][github.modal.changelog]  | [API][github.modal.docs]  | [![docs.badge]][docs.modal]  |
 
 ### Preprocessors
 

@@ -103,6 +103,7 @@
 
 <slot name="backdrop" class={rClasses.backdrop} onClick={onClickBackdrop}>
   {#if backdrop}
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div class={rClasses.backdrop} on:click={onClickBackdrop} transition:fade={{ duration: 75 }} />
   {/if}
 </slot>

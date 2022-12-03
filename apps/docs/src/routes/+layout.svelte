@@ -1,9 +1,11 @@
 <script lang="ts">
+  import ModalPortal from '@svelte-put/modal/ModalPortal.svelte';
   import { onMount } from 'svelte';
 
   import { dev, browser } from '$app/environment';
   import { page } from '$app/stores';
   import { PUBLIC_ROOT_URL } from '$env/static/public';
+  import { appStore } from '$lib/services/modal';
   import { webVitals } from '$lib/services/web-vitals';
 
   import '../lib/ui/styles/app.css';
@@ -72,3 +74,5 @@
 </svelte:head>
 
 <slot />
+
+<ModalPortal store={appStore} class="z-overlay" />

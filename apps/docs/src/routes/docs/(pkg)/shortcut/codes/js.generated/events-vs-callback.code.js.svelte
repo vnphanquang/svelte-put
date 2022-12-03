@@ -24,7 +24,6 @@
     trigger: [
       {
         key: 'k',
-
         // trigger if either ctrl or meta is pressed
         modifier: ['ctrl', 'meta'],
 
@@ -33,17 +32,14 @@
       },
       {
         key: 'Escape',
-
         // preferably avoid arrow functions here for better performance,
         // with arrow functions the action has to be updated more frequently
         callback: onCloseCommandPalette,
-
         enabled: commandPalette,
         preventDefault: true,
       },
       {
         key: 'k',
-
         // trigger if both ctrl & shift are pressed
         modifier: [['ctrl', 'shift']],
         id: 'do-something-else',

@@ -4,7 +4,7 @@ import { PUBLIC_ROOT_URL } from '$env/static/public';
 
 import type { LayoutLoad } from './$types';
 
-export const load: LayoutLoad = async ({ url, parent }) => {
+export const load: LayoutLoad = async ({ url }) => {
   const routeSegments = (url.pathname ?? '').split('/');
   const pkgId = routeSegments[routeSegments.length - 1] as PackageId;
   const pkg = packages[pkgId] as Package;

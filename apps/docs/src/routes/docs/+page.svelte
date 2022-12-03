@@ -25,45 +25,37 @@
   </p>
 
   {#each Object.entries(packagesByCategory) as [category, packages]}
-    {@const sharedClass = 'bold border-border border-r p-4 h-full flex items-center'}
-    {@const headerClass = clsx(sharedClass, 'font-bold border-b bg-bg-accent')}
     <section>
       <h3 id="{category}-packages">{capitalize(category)}</h3>
-      <div class="max-w-full overflow-auto rounded bg-bg-accent/50 shadow">
-        <div class="not-prose grid grid-cols-[198px,1fr,140px,80px] items-center">
-          <p class={headerClass}>ID</p>
-          <p class={headerClass}>Description</p>
-          <p class={headerClass}>Version</p>
-          <p class="{headerClass} border-r-0">Status</p>
-          {#each packages as { id, description, name, path, status }, index}
-            {@const cellClass = clsx(sharedClass, index < packages.length - 1 && 'border-b')}
-            <p class={cellClass}>
-              <a href={path} class="c-link font-medium">
-                {id}
-              </a>
-            </p>
-            <p class={cellClass}>{description}</p>
-            <div class={cellClass}>
-              <a href={createNpmUrl(name)} target="_blank" class="block" rel="noreferrer">
-                <img
-                  class="block rounded"
-                  src={createNpmBadgeUrl(name)}
-                  alt={name}
-                  height="25"
-                  width="106"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
-            </div>
-            <p
-              class="{cellClass} justify-self-center border-r-0"
-              class:border-b-0={index === packages.length - 1}
-            >
-              <StatusBadge {status} />
-            </p>
-          {/each}
-        </div>
+      <div
+        class="not-prose c-gtable-4 grid max-w-full grid-cols-[198px,1fr,140px,80px] items-center bg-bg-accent/50 direct-children:p-4"
+      >
+        <p>ID</p>
+        <p>Description</p>
+        <p>Version</p>
+        <p>Status</p>
+        {#each packages as { id, description, name, path, status }}
+          <p>
+            <a href={path} class="c-link font-medium">
+              {id}
+            </a>
+          </p>
+          <p>{description}</p>
+          <div class="flex items-center">
+            <a href={createNpmUrl(name)} target="_blank" class="block" rel="noreferrer">
+              <img
+                class="block rounded"
+                src={createNpmBadgeUrl(name)}
+                alt={name}
+                height="25"
+                width="106"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+          </div>
+          <p class="flex items-center"><StatusBadge {status} /></p>
+        {/each}
       </div>
     </section>
   {/each}

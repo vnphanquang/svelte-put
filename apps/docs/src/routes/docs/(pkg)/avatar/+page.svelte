@@ -70,20 +70,20 @@
   <p>For example:</p>
   <ol>
     <li>
-      you have a dedicated api & database for avatar (<code>src</code>),
+      (<code>src</code>) you have a dedicated api & database for avatar,
     </li>
     <li>
-      you also want to automatically fetch avatar from
-      <ResourceLink key="Gravatar" /> with user's email if they have not uploaded their own avatar (<code
-        >gravatar</code
-      >),
+      (<code>gravatar</code>) you also want to automatically fetch avatar from
+      <ResourceLink key="Gravatar" /> with user's email if they have not uploaded their own avatar,
     </li>
     <li>
-      you also want to fallback to an <ResourceLink key="UI Avatar" />
-      with user's initials if their gravatar has not been set up (<code>uiAvatar</code>),
+      (<code>uiAvatar</code>) you also want to fallback to an <ResourceLink key="UI Avatar" />
+      with user's initials if their gravatar has not been set up,
     </li>
     <li>
-      you provide your own custom fallback just in case <ResourceLink key="UI Avatar" />
+      (<code>fallback</code>) you provide your own custom fallback (last resort) just in case <ResourceLink
+        key="UI Avatar"
+      />
       is out of service all of the sudden.
     </li>
   </ol>

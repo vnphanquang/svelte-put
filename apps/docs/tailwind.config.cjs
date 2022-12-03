@@ -1,7 +1,7 @@
 const plugin = require('tailwindcss/plugin');
 
 const sveltePut = plugin(
-  ({ addComponents, addUtilities, addBase }) => {
+  ({ addComponents, addUtilities, addBase, matchComponents, matchVariant, addVariant }) => {
     addBase({
       'h1,h2,h3,h4,h5,h6': {
         '@apply relative': {},
@@ -61,11 +61,17 @@ const sveltePut = plugin(
           {},
       },
       '.c-callout': {
-        '@apply before:border-l-4 before:border-primary before:pr-4 rounded bg-bg-accent p-4 italic':
-          {},
+        '@apply relative p-4 pl-8 rounded bg-bg-accent italic': {},
+        '&::before': {
+          content: '""',
+          '@apply absolute inset-y-5 left-4 w-1 bg-primary': {},
+        },
+        '& code': {
+          '@apply bg-bg': {},
+        },
       },
       '.c-btn': {
-        '@apply block rounded py-2 px-4 shadow hover:shadow-lg': {},
+        '@apply rounded py-2 px-4 shadow hover:shadow-lg': {},
         'min-width': '100px',
         '&:active': {
           '@apply scale-[0.98]': {},
@@ -96,6 +102,56 @@ const sveltePut = plugin(
         '@apply c-footnote bg-red-700 text-white': {},
       },
     });
+
+    const tableCols = Object.fromEntries(
+      new Array(10).fill(0).map((v, i) => [v + i + 1, v + i + 1]),
+    );
+
+    matchVariant('first-row-grid', (col) => `& > *:nth-child(-n+${col})`, {
+      values: tableCols,
+    });
+    // select nth row :nth(n + row * N_COL + 1):nth(-n + (row + 1) * N_COL)
+    matchVariant('last-row-grid', (col) => `& > *:nth-last-child(-n+${col})`, {
+      values: tableCols,
+    });
+    matchVariant('first-col-grid', (col) => `& > *:nth-child(${col}n+1)`, {
+      values: tableCols,
+    });
+    matchVariant('last-col-grid', (col) => `& > *:nth-child(${col}n+${col})`, {
+      values: tableCols,
+    });
+    addVariant('direct-children', () => '& > *');
+    matchComponents(
+      {
+        'c-gtable': (col) => ({
+          '@apply grid rounded overflow-auto shadow': {},
+          'grid-template-columns': `repeat(${col}, auto)`,
+          '& > *': {
+            '@apply border-b border-l border-border h-full p-2': {},
+          },
+          // first row
+          [`& > *:nth-child(-n+${col})`]: {
+            '@apply border-t-0 bg-bg-accent font-bold': {},
+          },
+          // last row
+          [`& > *:nth-last-child(-n+${col})`]: {
+            '@apply border-b-0': {},
+          },
+          // first col
+          [`& > *:nth-child(${col}n+1)`]: {
+            '@apply border-l-0': {},
+          },
+          // last col
+          [`& > *:nth-child(${col}n+${col})`]: {
+            '@apply border-r-0': {},
+          },
+        }),
+      },
+      {
+        values: tableCols,
+        supportsNegativeValues: false,
+      },
+    );
   },
   {
     theme: {
@@ -129,6 +185,9 @@ const sveltePut = plugin(
                 display: 'inline-block',
                 padding: `0 ${theme('spacing.2')}`,
                 'border-radius': theme('borderRadius.DEFAULT'),
+              },
+              '*::marker': {
+                color: theme('colors.fg'),
               },
             },
           },
@@ -190,12 +249,12 @@ const sveltePut = plugin(
         },
         zIndex: {
           px: '1',
-          // modal: '80', // a modal/dialog
+          modal: '80', // a modal/dialog
           header: '90', // top-fixed navbar
           sidebar: '92', // sidebar
           // float: '100', // floating buttons and such
           // tooltip: '120', // tooltip
-          // overlay: '150', // a full screen overlay
+          overlay: '150', // a full screen overlay
           // command: '200', // command palette
           // notification: '300', // notification
         },

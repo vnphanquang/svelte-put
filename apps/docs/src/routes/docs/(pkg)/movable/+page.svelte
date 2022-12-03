@@ -121,7 +121,7 @@
     be set to another <code>HTMLElement</code> with the <code>handle</code> parameter.
   </p>
   <Code code={codes.handle.instruction} title="custom handle" />
-  <div class="no-prose grid place-items-center border-2 border-violet-500 p-4">
+  <div class="not-prose grid place-items-center border-2 border-violet-500 p-4">
     <p class="text-center">Move blue box by dragging the green box</p>
     <Handle />
   </div>
