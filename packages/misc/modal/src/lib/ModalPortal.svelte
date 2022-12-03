@@ -42,7 +42,7 @@
 </aside>
 
 <style>
-  :where(.s-modal-portal) {
+  :global(:where(.s-modal-portal)) {
     pointer-events: none;
     position: fixed;
     top: 0;
@@ -50,7 +50,7 @@
     bottom: 0;
     left: 0;
   }
-  :global(.s-modal-portal *) {
+  :global(:where(.s-modal-portal *)) {
     pointer-events: auto;
   }
 </style>
