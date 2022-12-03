@@ -84,7 +84,7 @@ export const packages = {
     replId: '0a68001337544b8ab55995fb3d02d1f6',
     category: 'miscellaneous',
     status: 'stable',
-    ready: false,
+    ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/misc/modal',
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/modal/CHANGELOG.md',
@@ -171,6 +171,7 @@ export const packages = {
 
 export type PackageId = keyof typeof packages;
 export type Package = typeof packages[PackageId];
+export type PackageName = Package['name'];
 export type PackageCategory = typeof packages[PackageId]['category'];
 
 export const packagesByCategory = Object.values(packages).reduce((map, pkg) => {
@@ -179,3 +180,7 @@ export const packagesByCategory = Object.values(packages).reduce((map, pkg) => {
   map[category].push(pkg);
   return map;
 }, {} as Record<PackageCategory, Package[]>);
+
+export const pkgToPath = Object.fromEntries(
+  Object.values(packages).map((p) => [p.name, p.path]),
+) as Record<PackageName, string>;

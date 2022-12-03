@@ -1,3 +1,4 @@
+import { pkgToPath } from './packages';
 export const resources = {
   svelte: 'https://svelte.dev/',
   'svelte action': 'https://svelte.dev/docs#template-syntax-element-directives-use-action',
@@ -20,6 +21,7 @@ export const resources = {
   IntersectionObserver:
     'https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver',
   CustomEvent: 'https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent',
+  ...pkgToPath,
 } as const;
 
 export type ResourceId = keyof typeof resources;
