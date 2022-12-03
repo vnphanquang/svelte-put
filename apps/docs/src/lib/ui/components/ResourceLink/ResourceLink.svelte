@@ -11,10 +11,11 @@
   export let resources: Resources = undefined as Resources;
   export let id: string | undefined = undefined;
   export let key: Key | undefined = undefined;
-  export let href = resolveHref();
+  export let href: string | undefined = undefined;
   export let title = '';
 
   function resolveHref() {
+    if (href) return href;
     if (key) {
       const _resources = resources ?? ({} as Record<string, string>);
       if (key in _resources) return _resources[key as any];
@@ -24,8 +25,20 @@
       return `#${id}`;
     }
   }
+
+  $: rHref = resolveHref();
+
+  $: additionalProps = {
+    ...(rHref?.startsWith('http') && { rel: 'noopener' }),
+  };
 </script>
 
-<a {href} {...!id && { target: '_blank' }} class={clsx('c-link', $$props.class)} {title}>
+<a
+  href={rHref}
+  {...!id && { target: '_blank' }}
+  class={clsx('c-link', $$props.class)}
+  {title}
+  {...additionalProps}
+>
   <slot>{key}</slot>
 </a>
