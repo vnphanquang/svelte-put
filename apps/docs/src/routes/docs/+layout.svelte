@@ -16,6 +16,7 @@
   import Tailwind from '$lib/ui/components/icons/Tailwind.svelte';
   import Vercel from '$lib/ui/components/icons/Vercel.svelte';
   import AccountTree from '$lib/ui/components/icons/material/AccountTree.svelte';
+  import Rss from '$lib/ui/components/icons/material/Rss.svelte';
   import { capitalize } from '$lib/utils/string';
 
   import type { LayoutData } from './$types';
@@ -376,10 +377,25 @@
   </div>
 
   <footer
-    class="c-container grid grid-cols-[auto,1fr,auto] space-y-2 border-t border-border py-6 text-center font-fira text-xs"
+    class="c-container grid border-t border-border py-6 text-center font-fira text-xs md:grid-cols-[auto,1fr,auto]"
   >
-    <div />
-    <div>
+    <div
+      class="max-md:mb-4 max-md:flex max-md:items-center max-md:justify-center max-md:space-x-8 md:space-y-2 md:text-left"
+    >
+      <p>
+        <a href="/sitemap.xml" class="c-link" target="_blank">
+          <AccountTree class="inline-block" title="Sitemap" height="16" width="16" />
+          <span>Sitemap</span>
+        </a>
+      </p>
+      <p>
+        <a href="/rss.xml" class="c-link" target="_blank">
+          <Rss class="inline-block" height="16" width="16" />
+          <span>RSS</span>
+        </a>
+      </p>
+    </div>
+    <div class="space-y-2">
       <p>
         Released under the <ResourceLink key="MIT License" class="font-medium" />
       </p>
@@ -389,22 +405,17 @@
       <p>
         Powered by
         <ResourceLink key="svelte-kit">
-          <Svelte class="inline w-4" />
+          <Svelte class="inline" height="16" width="16" />
         </ResourceLink>
         <ResourceLink key="TailwindCSS">
-          <Tailwind class="inline w-4" />
+          <Tailwind class="inline" height="16" width="16" />
         </ResourceLink>
         <ResourceLink key="vercel">
-          <Vercel class="inline w-4" />
+          <Vercel class="inline" height="16" width="16" />
         </ResourceLink>
       </p>
     </div>
-    <p>
-      <a href="/sitemap.xml" class="c-link" target="_blank">
-        <AccountTree class="inline-block" />
-        <span>Sitemap</span>
-      </a>
-    </p>
+    <div />
   </footer>
 </div>
 

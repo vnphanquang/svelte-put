@@ -15,21 +15,13 @@ function rawFonts(ext: string[]): Plugin {
   };
 }
 
-function getDate() {
-  const date = new Date();
-  return `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date
-    .getDate()
-    .toString()
-    .padStart(2, '0')}`;
-}
-
 const config: UserConfig = {
   plugins: [sveltekit(), rawFonts(['.woff'])],
   optimizeDeps: {
     include: ['highlight.js', 'highlight.js/lib/core'],
   },
   define: {
-    'process.env.BUILD_TIMESTAMP': JSON.stringify(getDate()),
+    'process.env.BUILD_TIMESTAMP': JSON.stringify(Date.now()),
   },
 };
 

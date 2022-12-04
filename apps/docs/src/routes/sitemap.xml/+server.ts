@@ -3,6 +3,8 @@ import Handlebars from 'handlebars';
 import { packages } from '$data/packages';
 import { BUILD_TIMESTAMP } from '$env/static/private';
 import { PUBLIC_ROOT_URL } from '$env/static/public';
+import { APP_ROUTE_TREE } from '$lib/constants';
+import { toW3CDate } from '$lib/utils/datetime';
 
 import type { RequestHandler } from './$types';
 import source from './sitemap.template.xml?raw';
@@ -19,7 +21,7 @@ export const GET: RequestHandler = () => {
   const template = Handlebars.compile(source);
   const urls: SiteMapUrl[] = [
     {
-      loc: `${PUBLIC_ROOT_URL}/docs`,
+      loc: `${PUBLIC_ROOT_URL}${APP_ROUTE_TREE.docs.$.path()}`,
       changefreq: 'monthly',
       priority: 0.9,
     },
@@ -33,7 +35,7 @@ export const GET: RequestHandler = () => {
     ),
     {
       loc: PUBLIC_ROOT_URL,
-      lastmod: BUILD_TIMESTAMP,
+      lastmod: toW3CDate(parseInt(BUILD_TIMESTAMP, 10)),
       changefreq: 'monthly',
       priority: 0.2,
     },

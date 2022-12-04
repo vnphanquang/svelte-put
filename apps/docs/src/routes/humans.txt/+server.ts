@@ -1,6 +1,7 @@
 import Handlebars from 'handlebars';
 
 import { BUILD_TIMESTAMP } from '$env/static/private';
+import { toW3CDate } from '$lib/utils/datetime';
 
 import type { RequestHandler } from './$types';
 import source from './humans.template.txt?raw';
@@ -8,7 +9,7 @@ import source from './humans.template.txt?raw';
 export const GET: RequestHandler = async () => {
   const template = Handlebars.compile(source);
   const txt = template({
-    last_update: BUILD_TIMESTAMP,
+    last_update: toW3CDate(parseInt(BUILD_TIMESTAMP, 10)),
   });
   const headers = {
     'Cache-Control': 'max-age=0, s-maxage=3600',

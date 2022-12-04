@@ -4,6 +4,7 @@ export const packages = {
   avatar: {
     id: 'avatar',
     name: '@svelte-put/avatar',
+    publishedAt: 1670126470519,
     description: 'component & utilities for building avatars',
     path: APP_ROUTE_TREE.docs.avatar.$.path(),
     replId: 'd54381946b1c4ebd8e612e4568fbbbd0',
@@ -19,6 +20,7 @@ export const packages = {
   clickoutside: {
     id: 'clickoutside',
     name: '@svelte-put/clickoutside',
+    publishedAt: 1670126470519,
     description: 'event for clicking outside node',
     path: APP_ROUTE_TREE.docs.clickoutside.$.path(),
     replId: '9e5f9ee41c2c45aa8523993e357f6e78',
@@ -34,6 +36,7 @@ export const packages = {
   copy: {
     id: 'copy',
     name: '@svelte-put/copy',
+    publishedAt: 1670126470519,
     description: 'action & utilities to copy text to clipboard',
     path: APP_ROUTE_TREE.docs.copy.$.path(),
     replId: undefined,
@@ -49,6 +52,7 @@ export const packages = {
   dragscroll: {
     id: 'dragscroll',
     name: '@svelte-put/dragscroll',
+    publishedAt: 1670126470519,
     description: 'action to add "drag-to-scroll" behavior',
     path: APP_ROUTE_TREE.docs.dragscroll.$.path(),
     replId: undefined,
@@ -64,6 +68,7 @@ export const packages = {
   intersect: {
     id: 'intersect',
     name: '@svelte-put/intersect',
+    publishedAt: 1670126470519,
     description: 'wrapper for IntersectionObserver',
     path: APP_ROUTE_TREE.docs.intersect.$.path(),
     replId: '835eacce6ac44aff95a7cb0bb5ca200d',
@@ -79,6 +84,7 @@ export const packages = {
   modal: {
     id: 'modal',
     name: '@svelte-put/modal',
+    publishedAt: 1670126470519,
     description: 'type-safe async modal builder',
     path: APP_ROUTE_TREE.docs.modal.$.path(),
     replId: '0a68001337544b8ab55995fb3d02d1f6',
@@ -94,6 +100,7 @@ export const packages = {
   movable: {
     id: 'movable',
     name: '@svelte-put/movable',
+    publishedAt: 1670126470519,
     description: 'move node on mousedown',
     path: APP_ROUTE_TREE.docs.movable.$.path(),
     replId: '88a7c1fc2e134db7b58786d5f385fc5d',
@@ -109,6 +116,7 @@ export const packages = {
   'preprocess-auto-slug': {
     id: 'preprocess-auto-slug',
     name: '@svelte-put/preprocess-auto-slug',
+    publishedAt: 1670126470519,
     description: 'svelte preprocessor to add id attribute and anchor tag',
     path: APP_ROUTE_TREE.docs.preprocessAutoSlug.$.path(),
     replId: undefined,
@@ -125,6 +133,7 @@ export const packages = {
   select: {
     id: 'select',
     name: '@svelte-put/select',
+    publishedAt: 1670126470519,
     description: 'type-safe and extensible select',
     path: APP_ROUTE_TREE.docs.select.$.path(),
     replId: '4f0d701ab5ed411ebbc9a71b0955385d',
@@ -140,6 +149,7 @@ export const packages = {
   shortcut: {
     id: 'shortcut',
     name: '@svelte-put/shortcut',
+    publishedAt: 1670126470519,
     description: 'add keyboard shortcuts to node',
     path: APP_ROUTE_TREE.docs.shortcut.$.path(),
     replId: undefined,
@@ -155,6 +165,7 @@ export const packages = {
   toc: {
     id: 'toc',
     name: '@svelte-put/toc',
+    publishedAt: 1670126470519,
     description: 'action & component for building table of contents',
     path: APP_ROUTE_TREE.docs.toc.$.path(),
     replId: 'd9c896ac62cd41d49f80ffa249d292e6',
