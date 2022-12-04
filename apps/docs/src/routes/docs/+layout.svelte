@@ -253,7 +253,10 @@
       </ResourceLink>
     </nav>
     <div class="border-t border-border xl:hidden">
-      <nav class="h-subheader c-container flex items-center justify-between py-1 lg:justify-end">
+      <nav
+        class="h-subheader c-container flex items-center justify-between py-1 lg:justify-end"
+        aria-label="svelte-put & github"
+      >
         <button
           class="c-btn-icon flex items-center space-x-2 text-xs lg:hidden"
           on:click|stopPropagation={toggleLeftSidebar}
@@ -280,6 +283,7 @@
         use:clickoutside={{ enabled: leftSidebarOpen && !isLg }}
         on:clickoutside={toggleLeftSidebar}
         data-open={leftSidebarOpen}
+        aria-label="Pages"
       >
         <ul class="sidebar-content">
           <li>
@@ -340,6 +344,7 @@
         use:clickoutside={{ enabled: rightSidebarOpen && !isXl }}
         on:clickoutside={toggleRightSidebar}
         data-open={rightSidebarOpen}
+        aria-label="Table of Contents"
       >
         <div class="sidebar-content text-sm">
           {#if tocItems.length}
