@@ -15,6 +15,7 @@
   import Svelte from '$lib/ui/components/icons/Svelte.svelte';
   import Tailwind from '$lib/ui/components/icons/Tailwind.svelte';
   import Vercel from '$lib/ui/components/icons/Vercel.svelte';
+  import AccountTree from '$lib/ui/components/icons/material/AccountTree.svelte';
   import { capitalize } from '$lib/utils/string';
 
   import type { LayoutData } from './$types';
@@ -274,7 +275,6 @@
   <div class="c-container relative flex w-full flex-1 items-stretch">
     {#key leftSidebarTogglerClick}
       <nav
-        data-sveltekit-prefetch
         class="sidebar sidebar--left"
         transition:fly|local={{ x: -200, duration: 200 }}
         use:clickoutside={{ enabled: leftSidebarOpen && !isLg }}
@@ -288,6 +288,7 @@
               data-current={data.pathname === APP_ROUTE_TREE.docs.$.path()}
               class="c-link block py-2 font-bold"
               on:click={closeLeftSidebar}
+              data-sveltekit-preload-data="hover"
             >
               Introduction
             </a>
@@ -299,6 +300,7 @@
                 {#each packages as { path, status, id }}
                   <li>
                     <a
+                      data-sveltekit-preload-data="hover"
                       href={path}
                       data-current={data.pathname.includes(id)}
                       class="c-link -ml-px block border-l border-transparent py-1 pl-3 data-current:border-primary"
@@ -368,24 +370,35 @@
     {/key}
   </div>
 
-  <footer class="space-y-2 border-t border-border py-6 text-center font-fira text-xs">
+  <footer
+    class="c-container grid grid-cols-[auto,1fr,auto] space-y-2 border-t border-border py-6 text-center font-fira text-xs"
+  >
+    <div />
+    <div>
+      <p>
+        Released under the <ResourceLink key="MIT License" class="font-medium" />
+      </p>
+      <p>
+        Made with rice 🍚 <ResourceLink key="Quang Phan" class="font-medium" />
+      </p>
+      <p>
+        Powered by
+        <ResourceLink key="svelte-kit">
+          <Svelte class="inline w-4" />
+        </ResourceLink>
+        <ResourceLink key="TailwindCSS">
+          <Tailwind class="inline w-4" />
+        </ResourceLink>
+        <ResourceLink key="vercel">
+          <Vercel class="inline w-4" />
+        </ResourceLink>
+      </p>
+    </div>
     <p>
-      Released under the <ResourceLink key="MIT License" class="font-medium" />
-    </p>
-    <p>
-      Made with rice 🍚 <ResourceLink key="Quang Phan" class="font-medium" />
-    </p>
-    <p>
-      Powered by
-      <ResourceLink key="svelte-kit">
-        <Svelte class="inline w-4" />
-      </ResourceLink>
-      <ResourceLink key="TailwindCSS">
-        <Tailwind class="inline w-4" />
-      </ResourceLink>
-      <ResourceLink key="vercel">
-        <Vercel class="inline w-4" />
-      </ResourceLink>
+      <a href="/sitemap.xml" class="c-link" target="_blank">
+        <AccountTree class="inline-block" />
+        <span>Sitemap</span>
+      </a>
     </p>
   </footer>
 </div>

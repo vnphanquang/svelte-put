@@ -1,22 +1,18 @@
 import Handlebars from 'handlebars';
 
+import { BUILD_TIMESTAMP } from '$env/static/private';
+
 import type { RequestHandler } from './$types';
 import source from './humans.template.txt?raw';
 
-const template = Handlebars.compile(source);
-
-const date = new Date();
-const txt = template({
-  last_update: `${date.getFullYear()}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date
-    .getDate()
-    .toString()
-    .padStart(2, '0')}`,
-});
-
 export const GET: RequestHandler = async () => {
-  return new Response(txt, {
-    headers: {
-      'content-type': 'text/plain',
-    },
+  const template = Handlebars.compile(source);
+  const txt = template({
+    last_update: BUILD_TIMESTAMP,
   });
+  const headers = {
+    'Cache-Control': 'max-age=0, s-maxage=3600',
+    'Content-Type': 'text/plain',
+  };
+  return new Response(txt, { headers });
 };
