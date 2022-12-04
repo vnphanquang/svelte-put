@@ -3,7 +3,7 @@ import type { RequestHandler } from '@sveltejs/kit';
 import satori from 'satori';
 import { html as toReactNode } from 'satori-html';
 
-import FiraCode from '../../../static/fonts/FiraCode/woff/FiraCode-Regular.woff';
+import FiraCode from '../../../static/fonts/firacode/firacode-latin.woff2';
 
 import OgImage from './OgImage.svelte';
 
