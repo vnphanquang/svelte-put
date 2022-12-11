@@ -2,6 +2,8 @@
   import clsx from 'clsx';
 
   export let status: 'dev' | 'beta' | 'new' | 'flux' | 'stable';
+  let cls = '';
+  export { cls as class };
 </script>
 
 <span
@@ -12,7 +14,7 @@
     status === 'new' && 'c-badge-secondary',
     status === 'beta' && 'c-badge-blue',
     status === 'flux' && 'c-badge-red',
-    $$props.class,
+    cls,
   )}
 >
   <slot>

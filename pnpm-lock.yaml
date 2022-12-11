@@ -48,6 +48,7 @@ importers:
       '@svelte-put/toc': workspace:*
       '@sveltejs/adapter-vercel': 1.0.0-next.84
       '@sveltejs/kit': 1.0.0-next.571
+      '@tailwindash/triangle': ^1.0.5
       '@tailwindcss/typography': ^0.5.8
       '@types/cookie': ^0.5.1
       '@types/glob': ^8.0.0
@@ -66,6 +67,7 @@ importers:
       highlight.js: ^11.7.0
       postcss: ^8.4.19
       postcss-import: ^15.0.1
+      postcss-mixins: ^9.0.4
       postcss-nesting: ^10.2.0
       prettier: ^2.8.0
       prettier-plugin-svelte: ^2.8.1
@@ -105,6 +107,7 @@ importers:
       '@svelte-put/toc': link:../../packages/actions/toc
       '@sveltejs/adapter-vercel': 1.0.0-next.84
       '@sveltejs/kit': 1.0.0-next.571_svelte@3.53.1+vite@3.2.4
+      '@tailwindash/triangle': 1.0.5_tailwindcss@3.2.4
       '@tailwindcss/typography': 0.5.8_tailwindcss@3.2.4
       '@types/cookie': 0.5.1
       '@types/glob': 8.0.0
@@ -119,6 +122,7 @@ importers:
       highlight.js: 11.7.0
       postcss: 8.4.19
       postcss-import: 15.0.1_postcss@8.4.19
+      postcss-mixins: 9.0.4_postcss@8.4.19
       postcss-nesting: 10.2.0_postcss@8.4.19
       prettier: 2.8.0
       prettier-plugin-svelte: 2.8.1_3ndnxlh52lolrqe4kgjgbxb3xa
@@ -1151,7 +1155,7 @@ packages:
       svelte: 3.53.1
       tiny-glob: 0.2.9
       undici: 5.13.0
-      vite: 3.2.4
+      vite: 3.2.4_@types+node@18.11.10
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1185,10 +1189,18 @@ packages:
       magic-string: 0.26.7
       svelte: 3.53.1
       svelte-hmr: 0.15.1_svelte@3.53.1
-      vite: 3.2.4
+      vite: 3.2.4_@types+node@18.11.10
       vitefu: 0.2.2_vite@3.2.4
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@tailwindash/triangle/1.0.5_tailwindcss@3.2.4:
+    resolution: {integrity: sha512-NKXOMqhMTZwpt9Nv4Qqm37UwjmhpWUnrq+1jabDl4y9jcMZKtohaajr+ay+fYe6VFx1bjZFvl1CXobwGsv+7gg==}
+    peerDependencies:
+      tailwindcss: ^3.1.0
+    dependencies:
+      tailwindcss: 3.2.4_v776zzvn44o7tpgzieipaairwm
     dev: true
 
   /@tailwindcss/typography/0.5.8_tailwindcss@3.2.4:
@@ -4928,6 +4940,19 @@ packages:
       postcss-selector-parser: 6.0.10
     dev: true
 
+  /postcss-mixins/9.0.4_postcss@8.4.19:
+    resolution: {integrity: sha512-XVq5jwQJDRu5M1XGkdpgASqLk37OqkH4JCFDXl/Dn7janOJjCTEKL+36cnRVy7bMtoBzALfO7bV7nTIsFnUWLA==}
+    engines: {node: '>=14.0'}
+    peerDependencies:
+      postcss: ^8.2.14
+    dependencies:
+      fast-glob: 3.2.12
+      postcss: 8.4.19
+      postcss-js: 4.0.0_postcss@8.4.19
+      postcss-simple-vars: 7.0.1_postcss@8.4.19
+      sugarss: 4.0.1_postcss@8.4.19
+    dev: true
+
   /postcss-nested/6.0.0_postcss@8.4.19:
     resolution: {integrity: sha512-0DkamqrPcmkBDsLn+vQDIrtkSbNkv5AD/M322ySo9kqFkCIYklym2xEmWkwo+Y3/qZo34tzEPNUw4y7yMCdv5w==}
     engines: {node: '>=12.0'}
@@ -5078,6 +5103,15 @@ packages:
     dependencies:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
+    dev: true
+
+  /postcss-simple-vars/7.0.1_postcss@8.4.19:
+    resolution: {integrity: sha512-5GLLXaS8qmzHMOjVxqkk1TZPf1jMqesiI7qLhnlyERalG0sMbHIbJqrcnrpmZdKCLglHnRHoEBB61RtGTsj++A==}
+    engines: {node: '>=14.0'}
+    peerDependencies:
+      postcss: ^8.2.1
+    dependencies:
+      postcss: 8.4.19
     dev: true
 
   /postcss-svgo/5.1.0_postcss@8.4.19:
@@ -5756,6 +5790,15 @@ packages:
       mz: 2.7.0
       pirates: 4.0.5
       ts-interface-checker: 0.1.13
+    dev: true
+
+  /sugarss/4.0.1_postcss@8.4.19:
+    resolution: {integrity: sha512-WCjS5NfuVJjkQzK10s8WOBY+hhDxxNt/N6ZaGwxFZ+wN3/lKKFSaaKUNecULcTTvE4urLcKaZFQD8vO0mOZujw==}
+    engines: {node: '>=12.0'}
+    peerDependencies:
+      postcss: ^8.3.3
+    dependencies:
+      postcss: 8.4.19
     dev: true
 
   /supports-color/5.5.0:
@@ -6468,7 +6511,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 3.2.4
+      vite: 3.2.4_@types+node@18.11.10
     dev: true
 
   /wcwidth/1.0.1:

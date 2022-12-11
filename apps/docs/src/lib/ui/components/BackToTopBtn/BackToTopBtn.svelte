@@ -1,8 +1,10 @@
 <script lang="ts">
-  import clsx from 'clsx';
   import { fly } from 'svelte/transition';
 
   import ArrowUp from '$lib/ui/components/icons/material/ArrowUp.svelte';
+
+  let cls = '';
+  export { cls as class };
 
   let scrollY = 0;
   let innerHeight = 0;
@@ -20,7 +22,7 @@
     transition:fly={{ y: 100, duration: 200 }}
     type="button"
     on:click={handleClick}
-    class={clsx('grid place-items-center rounded-full bg-fg p-2 text-bg shadow', $$props.class)}
+    class="grid place-items-center rounded-full bg-fg p-2 text-bg shadow {cls}"
     aria-label="Back to top"
   >
     <ArrowUp height="24" width="24" />

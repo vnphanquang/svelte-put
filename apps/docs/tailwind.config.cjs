@@ -61,7 +61,7 @@ const sveltePut = plugin(
           {},
       },
       '.c-callout': {
-        '@apply relative p-4 pl-8 rounded bg-bg-accent italic': {},
+        '@apply relative p-4 pl-8 rounded bg-primary/20 italic': {},
         '&::before': {
           content: '""',
           '@apply absolute inset-y-5 left-4 w-1 bg-primary': {},
@@ -124,14 +124,14 @@ const sveltePut = plugin(
     matchComponents(
       {
         'c-gtable': (col) => ({
-          '@apply grid rounded overflow-auto shadow': {},
+          '@apply grid rounded overflow-auto shadow bg-light-soft/50 dark:bg-dark-soft/50': {},
           'grid-template-columns': `repeat(${col}, auto)`,
           '& > *': {
             '@apply border-b border-l border-border h-full p-2': {},
           },
           // first row
           [`& > *:nth-child(-n+${col})`]: {
-            '@apply border-t-0 bg-bg-accent font-bold': {},
+            '@apply border-t-0 font-bold bg-bg-muted': {},
           },
           // last row
           [`& > *:nth-last-child(-n+${col})`]: {
@@ -178,16 +178,15 @@ const sveltePut = plugin(
                 },
               },
               code: {
-                color: theme('colors.primary.darker'),
-                'background-color': theme('colors.bg.accent'),
-                'font-size': theme('fontSize.sm'),
+                '@apply bg-bg-muted text-fg-muted': {},
+                '@apply text-sm inline-block py-0.5 px-1.5 rounded-md': {},
                 'font-weight': 'inherit',
-                display: 'inline-block',
-                padding: `0 ${theme('spacing.2')}`,
-                'border-radius': theme('borderRadius.DEFAULT'),
               },
-              '*::marker': {
-                color: theme('colors.fg'),
+              pre: {
+                '@apply bg-transparent': {},
+              },
+              '*, *::marker': {
+                '@apply text-fg': {},
               },
             },
           },
@@ -211,25 +210,43 @@ const sveltePut = plugin(
           paper: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.02'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
         },
         colors: {
-          fg: '#3c3836',
-          bg: {
-            DEFAULT: '#fbf1c7',
-            accent: '#ebdbb2',
+          svelte: '#ef4623',
+          light: {
+            DEFAULT: '#ffffff',
+            soft: '#f9f9f9',
+            muted: '#f1f1f1',
           },
-          border: '#d5c4a1',
+          dark: {
+            DEFAULT: '#242424',
+            soft: '#2f2f2f',
+            muted: '#3a3a3a',
+          },
           primary: {
             DEFAULT: '#d65d03',
             dark: '#cd5a02',
             darker: '#6D3203',
           },
-          svelte: '#ef4623',
           secondary: {
             DEFAULT: '#98971a',
             darker: '#5B5A0B',
           },
+
+          // reactive colors
+          border: 'var(--color-border)',
+          fg: {
+            DEFAULT: 'var(--color-fg)',
+            soft: 'var(--color-fg-soft)',
+            muted: 'var(--color-fg-muted)',
+          },
+          bg: {
+            DEFAULT: 'var(--color-bg)',
+            soft: 'var(--color-bg-soft)',
+            muted: 'var(--color-bg-muted)',
+          },
           code: {
-            fg: '#e5e7eb',
-            bg: '#46433e',
+            fg: 'var(--color-code-fg)',
+            bg: 'var(--color-code-bg)',
+            header: 'var(--color-code-header)',
           },
         },
         keyframes: {
@@ -253,7 +270,7 @@ const sveltePut = plugin(
           header: '90', // top-fixed navbar
           sidebar: '92', // sidebar
           // float: '100', // floating buttons and such
-          // tooltip: '120', // tooltip
+          tooltip: '120', // tooltip
           overlay: '150', // a full screen overlay
           // command: '200', // command palette
           // notification: '300', // notification
@@ -265,8 +282,9 @@ const sveltePut = plugin(
 
 /** @type {import("tailwindcss").Config } */
 const config = {
+  darkMode: 'class',
   content: ['./src/**/*.{html,js,svelte,ts,md}', 'svelte.config.js'],
-  plugins: [sveltePut, require('@tailwindcss/typography')],
+  plugins: [sveltePut, require('@tailwindcss/typography'), require('@tailwindash/triangle')],
 };
 
 module.exports = config;

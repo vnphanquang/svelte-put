@@ -35,7 +35,7 @@
 
 <svelte:window bind:innerWidth />
 
-<main class="bg-fg bg-paper text-center text-white">
+<main class="text-center">
   {#key mounted}
     <div
       class="grid h-screen w-screen place-content-center place-items-center gap-10"
@@ -44,7 +44,7 @@
       <SveltePutLogoAnimation open={animationOpen} class="ml-1 scale-75" />
 
       <h1
-        class="font-bold uppercase text-gradient-brand"
+        class="text-3xl font-bold text-gradient-brand"
         in:fly={{ y: 20, duration: 1000, easing: cubicOut }}
       >
         svelte-put
@@ -64,9 +64,9 @@
         on:mouseleave={close}
       >
         <li in:fly={{ y: 20, duration: 1000, delay: 200, easing: cubicOut }}>
-          <a href="/docs" class="c-link" data-sveltekit-prefetch>Read Docs</a>
+          <a href="/docs" class="c-link" data-sveltekit-preload-data>Read Docs</a>
         </li>
-        <li in:fly={{ y: 20, duration: 1000, delay: 300, easing: cubicOut }}>
+        <li in:fly={{ y: 20, duration: 1000, delay: 400, easing: cubicOut }}>
           <a
             href="https://github.com/vnphanquang/svelte-put"
             class="c-link"

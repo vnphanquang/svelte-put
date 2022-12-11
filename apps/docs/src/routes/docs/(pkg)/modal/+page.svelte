@@ -341,7 +341,7 @@
         <ResourceLink {resources} key="Modal" /> provides a few props for customizing interactions with
         modals.
       </p>
-      <div class="c-gtable-4 bg-bg-accent/50 prose-p:m-0">
+      <div class="c-gtable-4 prose-p:m-0">
         <p>Interaction</p>
         <p>Description</p>
         <p>Powered by</p>

@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { clsx } from 'clsx';
-
   import { resources as globalResources } from '$data/resources';
   import type { ResourceId } from '$data/resources';
 
@@ -13,6 +11,8 @@
   export let key: Key | undefined = undefined;
   export let href: string | undefined = undefined;
   export let title = '';
+  let cls = '';
+  export { cls as class };
 
   function resolveHref() {
     if (href) return href;
@@ -33,12 +33,6 @@
   };
 </script>
 
-<a
-  href={rHref}
-  {...!id && { target: '_blank' }}
-  class={clsx('c-link', $$props.class)}
-  {title}
-  {...additionalProps}
->
+<a href={rHref} {...!id && { target: '_blank' }} class="c-link {cls}" {title} {...additionalProps}>
   <slot>{key}</slot>
 </a>

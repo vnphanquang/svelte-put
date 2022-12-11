@@ -2,21 +2,24 @@
   import { clickoutside } from '@svelte-put/clickoutside';
   import { toc } from '@svelte-put/toc';
   import type { TocEventDetails } from '@svelte-put/toc';
-  import gruvbox from 'svelte-highlight/styles/gruvbox-dark-soft';
+  import gruvboxDark from 'svelte-highlight/styles/gruvbox-dark-soft';
+  import gruvboxLight from 'svelte-highlight/styles/gruvbox-light-soft';
   import { cubicOut } from 'svelte/easing';
   import { fly, fade } from 'svelte/transition';
 
   import { packagesByCategory } from '$data/packages';
   import { APP_ROUTE_TREE } from '$lib/constants';
+  import MenuButton from '$lib/ui/components/MenuButton/MenuButton.svelte';
   import ResourceLink from '$lib/ui/components/ResourceLink/ResourceLink.svelte';
   import StatusBadge from '$lib/ui/components/StatusBadge/StatusBadge.svelte';
+  import ThemeModeDropdown from '$lib/ui/components/ThemeModeDropdown/ThemeModeDropdown.svelte';
   import Github from '$lib/ui/components/icons/Github.svelte';
-  import Menu from '$lib/ui/components/icons/Menu.svelte';
   import Svelte from '$lib/ui/components/icons/Svelte.svelte';
   import Tailwind from '$lib/ui/components/icons/Tailwind.svelte';
   import Vercel from '$lib/ui/components/icons/Vercel.svelte';
   import AccountTree from '$lib/ui/components/icons/material/AccountTree.svelte';
   import Rss from '$lib/ui/components/icons/material/Rss.svelte';
+  import { themeMode } from '$lib/ui/stores/theme';
   import { capitalize } from '$lib/utils/string';
 
   import type { LayoutData } from './$types';
@@ -225,7 +228,11 @@
 </script>
 
 <svelte:head>
-  {@html gruvbox}
+  {#if $themeMode === 'light'}
+    {@html gruvboxLight}
+  {:else}
+    {@html gruvboxDark}
+  {/if}
 </svelte:head>
 
 <svelte:window bind:innerWidth />
@@ -237,7 +244,7 @@
     {#key data.pathname}
       <div class="h-0.5 w-full bg-gradient-brand" in:slide={{ axis: 'x', duration: 500 }} />
     {/key}
-    <nav class="c-container flex flex-1 items-center justify-between py-2">
+    <nav class="c-container flex flex-1 items-center py-2">
       <a href="/" class="flex items-center gap-2">
         <img
           src="/images/svelte-put-logo.svg"
@@ -249,29 +256,20 @@
         />
         <span class="c-link text-sm font-bold text-gradient-brand">svelte-put</span>
       </a>
-      <ResourceLink class="c-link" key="github">
-        <Github class="h-6 w-6" />
-      </ResourceLink>
+      <div class="flex flex-1 items-center justify-end space-x-4">
+        <ThemeModeDropdown />
+        <ResourceLink class="c-link" key="github">
+          <Github height="24" width="24" />
+        </ResourceLink>
+      </div>
     </nav>
     <div class="border-t border-border xl:hidden">
       <nav
         class="h-subheader c-container flex items-center justify-between py-1 lg:justify-end"
         aria-label="svelte-put & github"
       >
-        <button
-          class="c-btn-icon flex items-center space-x-2 text-xs lg:hidden"
-          on:click|stopPropagation={toggleLeftSidebar}
-        >
-          <Menu height="24" width="24" class="inline" />
-          <span> Packages </span>
-        </button>
-        <button
-          class="c-btn-icon flex items-center space-x-2 text-xs"
-          on:click|stopPropagation={toggleRightSidebar}
-        >
-          <span> Table of Contents </span>
-          <Menu height="24" width="24" class="inline -scale-x-100" />
-        </button>
+        <MenuButton on:click={toggleLeftSidebar} class="lg:hidden">Packages</MenuButton>
+        <MenuButton on:click={toggleRightSidebar} align="right">Table of Contents</MenuButton>
       </nav>
     </div>
   </header>
@@ -301,7 +299,7 @@
           {#each Object.entries(packagesByCategory) as [category, packages]}
             <li class="py-2">
               <p class="font-bold">{capitalize(category)}</p>
-              <ul class="mt-2 space-y-1 border-l border-border/50">
+              <ul class="mt-2 space-y-1 border-l border-border">
                 {#each packages as { path, status, id }}
                   <li>
                     <a
@@ -350,7 +348,7 @@
         <div class="sidebar-content text-sm">
           {#if tocItems.length}
             <p class="py-2 font-bold uppercase">On This Page</p>
-            <ul class="space-y-1 border-l border-border/50">
+            <ul class="space-y-1 border-l border-border">
               {#each tocItems as { id, text, level }}
                 {@const current = id === activeTocId}
                 <li>

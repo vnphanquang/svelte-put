@@ -1,9 +1,10 @@
 <script lang="ts">
-  import { clsx } from 'clsx';
   export let open = true;
+  let cls = '';
+  export { cls as class };
 </script>
 
-<div class="box {clsx($$props.class)}" {open}>
+<div class="box {cls}" {open}>
   <div class="box-content">
     <img
       src="/images/svelte-logo.svg"
@@ -36,12 +37,17 @@
     --box-size-x: 100px;
     --box-size-y: 60px;
     --box-size-z: 40px;
+    --border-color: #f28c28;
 
     width: var(--box-size-x);
     height: var(--box-size-y);
     perspective: 400px;
     perspective-origin: 280px -50px;
     transform-style: preserve-3d;
+    border-color: var(--border-color);
+  }
+  @mixin dark .box {
+    --border-color: white;
   }
 
   .box-side {
@@ -70,7 +76,7 @@
     position: absolute;
     backside-visibility: inherit;
 
-    @apply border-2 border-white bg-svelte;
+    @apply border-2 border-inherit bg-svelte;
   }
 
   .box-side.box-side--front,
@@ -122,7 +128,7 @@
   }
 
   .box-side-front-em-top {
-    @apply absolute top-0 left-1/2 h-1/4 w-1/3 -translate-x-1/2 border-2 border-t-0 border-white;
+    @apply absolute top-0 left-1/2 h-1/4 w-1/3 -translate-x-1/2 border-2 border-t-0 border-inherit;
   }
   .box-side-front-em-right {
     @apply absolute bg-svelte;
@@ -135,7 +141,7 @@
 
   .box-side-top-left,
   .box-side-top-right {
-    @apply absolute inset-y-0 border-2 border-white bg-svelte;
+    @apply absolute inset-y-0 border-2 border-inherit bg-svelte;
     transition-property: transform;
     transition-duration: 200ms;
     transition-timing-function: ease-out;
@@ -165,7 +171,7 @@
     top: 50%;
     left: 50%;
 
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -80%);
     opacity: 0;
   }
 

@@ -34,6 +34,8 @@
   export let expansion: $$Props['expansion'] = 'enabled';
   export let icon: $$Props['icon'] = 'code';
   export let variant = typeof code === 'object' ? Object.keys(code)[0] : '';
+  let cls = '';
+  export { cls as class };
 
   $: currentCode = typeof code === 'object' ? code[variant] : code;
 
@@ -52,15 +54,12 @@
 </script>
 
 <div
-  class={clsx(
-    'group relative my-6 max-w-full overflow-hidden rounded-md text-code-fg shadow-md hover:shadow-lg',
-    $$props.class,
-  )}
+  class="group relative my-6 max-w-full overflow-hidden rounded-md text-code-fg shadow-md hover:shadow-lg {cls}"
   on:mouseleave={onMouseLeave}
 >
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div
-    class="not-prose flex cursor-pointer items-center border-b border-white bg-code-bg py-2 pl-6 pr-2"
+    class="not-prose flex cursor-pointer items-center bg-code-header py-2 pl-6 pr-2"
     on:click={toggleExpansion}
   >
     <p class="flex flex-1 items-center space-x-2 font-fira text-sm">
@@ -89,7 +88,7 @@
       {/if}
       {#key copied}
         <span
-          class="flex rounded p-2 hover:bg-border/10 active:scale-95"
+          class="flex rounded p-2 hover:bg-border active:scale-95"
           in:fade|local={{ duration: 150 }}
         >
           {#if copied}
@@ -105,7 +104,7 @@
       <button
         alt="collapse code block"
         on:click|stopPropagation={toggleExpansion}
-        class="flex rounded p-2 hover:bg-border/10 active:scale-95"
+        class="flex rounded p-2 hover:bg-border active:scale-95"
         aria-label="Toggle expansion"
       >
         <span
@@ -128,7 +127,7 @@
     <div transition:slide|local={{ duration: 150 }}>
       {#if typeof code === 'object'}
         <div class="not-prose">
-          <ul class="flex w-full items-center border-b border-white bg-code-bg pr-2 text-sm">
+          <ul class="flex w-full items-center border-t border-border bg-code-header pr-2 text-sm">
             {#each Object.keys(code) as key}
               {@const current = key === variant}
               <li
@@ -141,7 +140,7 @@
           </ul>
         </div>
       {/if}
-      <div class="max-h-[600px] overflow-auto">
+      <div class="max-h-[600px] overflow-auto border-t border-border">
         {#if lang === 'svelte'}
           <HighlightSvelte code={currentCode} />
         {:else}

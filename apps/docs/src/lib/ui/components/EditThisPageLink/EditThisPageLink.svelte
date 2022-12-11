@@ -1,5 +1,6 @@
 <script lang="ts">
   import ResourceLink from '$lib/ui/components/ResourceLink/ResourceLink.svelte';
+  import Github from '$lib/ui/components/icons/Github.svelte';
   import EditSquare from '$lib/ui/components/icons/material/EditSquare.svelte';
 
   export let packageId: string | undefined = undefined;
@@ -14,5 +15,6 @@
 
 <ResourceLink href={rHref} class="inline-flex items-center space-x-2">
   <EditSquare height="16" width="16" />
-  <span> Edit this page on github </span>
+  <span> Edit this page on </span>
+  <Github class="inline-block" height="16" width="16" />
 </ResourceLink>

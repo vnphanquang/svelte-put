@@ -5,10 +5,10 @@
 @tailwind utilities;
 
 @layer base {
+  /* reactive spacings & sizings */
   :root {
     --header-height: 90px;
     --sidebar-width: 250px;
-
     @media screen(lg) {
       --sidebar-width: 230px;
     }
@@ -17,8 +17,33 @@
     }
   }
 
+  /* reactive colors */
+  :root {
+    --color-fg: theme(colors.dark.DEFAULT);
+    --color-fg-soft: theme(colors.dark.soft);
+    --color-fg-muted: theme(colors.dark.muted);
+    --color-border: theme(colors.dark.DEFAULT)19;
+    --color-bg: theme(colors.light.DEFAULT);
+    --color-bg-soft: theme(colors.light.soft);
+    --color-bg-muted: theme(colors.light.muted);
+
+    /* derived */
+    --color-code-fg: var(--color-fg);
+    --color-code-bg:var(--color-bg-soft);
+    --color-code-header: var(--color-bg-muted);
+  }
+  .dark {
+    --color-fg: theme(colors.light.DEFAULT);
+    --color-fg-soft: theme(colors.light.soft);
+    --color-fg-muted: theme(colors.light.muted);
+    --color-border: theme(colors.light.DEFAULT)19;
+    --color-bg: theme(colors.dark.DEFAULT);
+    --color-bg-soft: theme(colors.dark.soft);
+    --color-bg-muted: theme(colors.dark.muted);
+  }
+
   html {
-    @apply h-full bg-bg bg-paper font-inter text-base text-fg;
+    @apply h-full bg-bg font-inter text-base text-fg;
   }
 
   body {
@@ -33,14 +58,12 @@
     cursor: not-allowed;
   }
 
-  code {
-    @apply inline-block rounded bg-bg-accent py-0 px-2 text-sm text-primary-darker;
-    font-weight: inherit;
-  }
-
   code:not(#fakeId)::after,
   code:not(#fadeId)::before {
     content: none;
+  }
+  code:not(#fadeId) {
+    @apply bg-code-bg text-code-fg;
   }
 
   input:-webkit-autofill,
@@ -48,6 +71,6 @@
   input:-webkit-autofill:focus,
   input:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 30px theme('colors.bg.DEFAULT') inset !important;
-    -webkit-text-fill-color: theme('colors.fg') !important;
+    -webkit-text-fill-color: theme('colors.fg.DEFAULT') !important;
   }
 }

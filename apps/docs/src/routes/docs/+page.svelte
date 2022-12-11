@@ -1,6 +1,4 @@
 <script lang="ts">
-  import clsx from 'clsx';
-
   import { packagesByCategory } from '$data/packages';
   import EditThisPageLink from '$lib/ui/components/EditThisPageLink/EditThisPageLink.svelte';
   import ResourceLink from '$lib/ui/components/ResourceLink/ResourceLink.svelte';
@@ -28,7 +26,7 @@
     <section>
       <h3 id="{category}-packages">{capitalize(category)}</h3>
       <div
-        class="not-prose c-gtable-4 grid max-w-full grid-cols-[198px,1fr,140px,80px] items-center bg-bg-accent/50 direct-children:p-4"
+        class="not-prose c-gtable-4 grid max-w-full grid-cols-[198px,1fr,140px,80px] items-center direct-children:p-4"
       >
         <p>ID</p>
         <p>Description</p>
