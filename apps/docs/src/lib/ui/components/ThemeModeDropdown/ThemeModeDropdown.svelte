@@ -50,7 +50,7 @@
       class:hidden={!open}
       transition:slide|local={{ duration: 150 }}
       aria-expanded={open}
-      use:clickoutside
+      use:clickoutside={{ enabled: open }}
       on:clickoutside={toggle}
     >
       <div class="triangle mr-2 triangle-t triangle-bg-muted" />
