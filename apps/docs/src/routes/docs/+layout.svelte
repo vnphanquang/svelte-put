@@ -239,7 +239,7 @@
 
 <div class="relative flex min-h-screen w-full flex-1 flex-col pt-header">
   <header
-    class="fixed inset-x-0 top-0 z-header flex h-header flex-col border-b border-border bg-bg"
+    class="fixed inset-x-0 top-0 z-header flex h-header flex-col border-b border-border bg-bg-soft"
   >
     {#key data.pathname}
       <div class="h-0.5 w-full bg-gradient-brand" in:slide={{ axis: 'x', duration: 500 }} />
@@ -374,46 +374,46 @@
     {/key}
   </div>
 
-  <footer
-    class="c-container grid border-t border-border py-6 text-center font-fira text-xs md:grid-cols-[auto,1fr,auto]"
-  >
-    <div
-      class="max-md:mb-4 max-md:flex max-md:items-center max-md:justify-center max-md:space-x-8 md:space-y-2 md:text-left"
-    >
-      <p>
-        <a href="/sitemap.xml" class="c-link" target="_blank">
-          <AccountTree class="inline-block" title="Sitemap" height="16" width="16" />
-          <span>Sitemap</span>
-        </a>
-      </p>
-      <p>
-        <a href="/rss.xml" class="c-link" target="_blank">
-          <Rss class="inline-block" height="16" width="16" />
-          <span>RSS</span>
-        </a>
-      </p>
+  <footer class="border-t border-border bg-bg-soft py-6 text-center font-fira text-xs">
+    <div class="c-container grid md:grid-cols-[auto,1fr,auto]">
+      <div
+        class="max-md:mb-4 max-md:flex max-md:items-center max-md:justify-center max-md:space-x-8 md:space-y-2 md:text-left"
+      >
+        <p>
+          <a href="/sitemap.xml" class="c-link" target="_blank">
+            <AccountTree class="inline-block" title="Sitemap" height="16" width="16" />
+            <span>Sitemap</span>
+          </a>
+        </p>
+        <p>
+          <a href="/rss.xml" class="c-link" target="_blank">
+            <Rss class="inline-block" height="16" width="16" />
+            <span>RSS</span>
+          </a>
+        </p>
+      </div>
+      <div class="space-y-2">
+        <p>
+          Released under the <ResourceLink key="MIT License" class="font-medium" />
+        </p>
+        <p>
+          Made with rice 🍚 <ResourceLink key="Quang Phan" class="font-medium" />
+        </p>
+        <p>
+          Powered by
+          <ResourceLink key="svelte-kit">
+            <Svelte class="inline" height="16" width="16" />
+          </ResourceLink>
+          <ResourceLink key="TailwindCSS">
+            <Tailwind class="inline" height="16" width="16" />
+          </ResourceLink>
+          <ResourceLink key="vercel">
+            <Vercel class="inline" height="16" width="16" />
+          </ResourceLink>
+        </p>
+      </div>
+      <div />
     </div>
-    <div class="space-y-2">
-      <p>
-        Released under the <ResourceLink key="MIT License" class="font-medium" />
-      </p>
-      <p>
-        Made with rice 🍚 <ResourceLink key="Quang Phan" class="font-medium" />
-      </p>
-      <p>
-        Powered by
-        <ResourceLink key="svelte-kit">
-          <Svelte class="inline" height="16" width="16" />
-        </ResourceLink>
-        <ResourceLink key="TailwindCSS">
-          <Tailwind class="inline" height="16" width="16" />
-        </ResourceLink>
-        <ResourceLink key="vercel">
-          <Vercel class="inline" height="16" width="16" />
-        </ResourceLink>
-      </p>
-    </div>
-    <div />
   </footer>
 </div>
 
@@ -425,7 +425,6 @@
       @apply sticky top-header pt-10;
     }
   }
-
   .sidebar--left {
     @apply border-r max-lg:left-0;
     @apply max-lg:fixed max-lg:top-0 max-lg:bottom-0;
