@@ -1,5 +1,7 @@
 import { derived, writable } from 'svelte/store';
 
+import { browser } from '$app/environment';
+
 export interface ThemeStoreValue {
   mode: 'dark' | 'light' | 'system';
 }
@@ -16,7 +18,7 @@ function getCachedTheme() {
 }
 
 function getPrefersColorScheme() {
-  return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  return browser && window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
 function setThemeMode(mode: ThemeStoreValue['mode']) {
