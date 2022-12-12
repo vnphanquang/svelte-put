@@ -1,5 +1,5 @@
-@import 'fonts/inter.font.css';
-@import 'fonts/firacode.font.css';
+@import 'fonts/inter/inter.font.css';
+@import 'fonts/firacode/firacode.font.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
