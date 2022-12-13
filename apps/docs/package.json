@@ -23,7 +23,6 @@
     "web-vitals": "^3.1.0"
   },
   "devDependencies": {
-    "@resvg/resvg-js": "^2.2.0",
     "@svelte-put/avatar": "workspace:*",
     "@svelte-put/clickoutside": "workspace:*",
     "@svelte-put/copy": "workspace:*",
@@ -57,8 +56,6 @@
     "prettier": "^2.8.1",
     "prettier-plugin-svelte": "^2.9.0",
     "prettier-plugin-tailwindcss": "^0.2.1",
-    "satori": "^0.0.44",
-    "satori-html": "^0.3.0",
     "svelte": "^3.54.0",
     "svelte-check": "^2.10.2",
     "svelte-highlight": "^6.2.1",
