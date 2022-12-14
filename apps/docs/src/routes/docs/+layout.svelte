@@ -331,7 +331,11 @@
     {/if}
 
     {#key data.pathname}
-      <main class="prose flex-1" use:toc={{ anchored: false, indicator: false }} on:toc={onToc}>
+      <main
+        class="prose flex-1 dark:prose-invert"
+        use:toc={{ anchored: false, indicator: false }}
+        on:toc={onToc}
+      >
         <slot />
       </main>
     {/key}

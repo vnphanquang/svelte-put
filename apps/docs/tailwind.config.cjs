@@ -185,7 +185,7 @@ const sveltePut = plugin(
               pre: {
                 '@apply bg-transparent': {},
               },
-              '*, *::marker': {
+              '*::marker': {
                 '@apply text-fg': {},
               },
             },
