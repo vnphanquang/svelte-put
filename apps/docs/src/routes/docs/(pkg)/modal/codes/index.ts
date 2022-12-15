@@ -1,4 +1,4 @@
-import modalStore from '$lib/services/modal?raw';
+import modalStore from '$client/services/modal?raw';
 
 import confirmationTs from './ConfirmationModal.code.svelte?raw';
 import fullCustomTs from './FullCustomModal.code.svelte?raw';

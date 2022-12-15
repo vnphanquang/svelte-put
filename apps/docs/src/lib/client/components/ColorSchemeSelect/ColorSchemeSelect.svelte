@@ -3,11 +3,13 @@
   import { createEventDispatcher } from 'svelte';
   import { slide, fade } from 'svelte/transition';
 
+  import type { ColorScheme } from '$shared/types';
+
   import DarkMode from '../icons/material/DarkMode.svelte';
   import LightMode from '../icons/material/LightMode.svelte';
   import SettingsSuggest from '../icons/material/SettingsSuggest.svelte';
 
-  export let scheme: App.ColorScheme;
+  export let scheme: ColorScheme;
   const SCHEMES = {
     light: {
       scheme: 'light',
@@ -28,8 +30,8 @@
     open = !open;
   }
 
-  const dispatch = createEventDispatcher<{ select: App.ColorScheme }>();
-  function changeMode(_scheme: App.ColorScheme) {
+  const dispatch = createEventDispatcher<{ select: ColorScheme }>();
+  function changeMode(_scheme: ColorScheme) {
     dispatch('select', _scheme);
   }
 </script>

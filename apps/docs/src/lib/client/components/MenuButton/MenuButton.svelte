@@ -1,7 +1,7 @@
 <script lang="ts">
   import clsx from 'clsx';
 
-  import Svg from '$lib/ui/components/icons/Svg.svelte';
+  import Svg from '$client/components/icons/Svg.svelte';
 
   export let align: 'left' | 'right' = 'left';
   let cls = '';

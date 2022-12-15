@@ -1,5 +1,5 @@
-import { LoadDependencies } from '$const';
 import { VERCEL_ANALYTICS_ID } from '$env/static/private';
+import { LoadDependencies } from '$shared/constants';
 
 import type { LayoutServerLoad } from './$types';
 

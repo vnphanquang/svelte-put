@@ -19,12 +19,12 @@
   import HighlightSvelte from 'svelte-highlight/HighlightSvelte.svelte';
   import { fade, slide } from 'svelte/transition';
 
-  import IconCode from '$lib/ui/components/icons/material/Code.svelte';
-  import IconCopy from '$lib/ui/components/icons/material/Copy.svelte';
-  import IconDone from '$lib/ui/components/icons/material/Done.svelte';
-  import IconError from '$lib/ui/components/icons/material/Error.svelte';
-  import IconExpandLess from '$lib/ui/components/icons/material/ExpandLess.svelte';
-  import IconWarning from '$lib/ui/components/icons/material/Warning.svelte';
+  import IconCode from '$client/components/icons/material/Code.svelte';
+  import IconCopy from '$client/components/icons/material/Copy.svelte';
+  import IconDone from '$client/components/icons/material/Done.svelte';
+  import IconError from '$client/components/icons/material/Error.svelte';
+  import IconExpandLess from '$client/components/icons/material/ExpandLess.svelte';
+  import IconWarning from '$client/components/icons/material/Warning.svelte';
 
   type $$Props = CodeProps;
   export let lang: $$Props['lang'] = 'svelte';

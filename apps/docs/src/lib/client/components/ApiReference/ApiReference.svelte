@@ -1,5 +1,5 @@
 <script lang="ts">
-  import ResourceLink from '$lib/ui/components/ResourceLink/ResourceLink.svelte';
+  import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
   export let href: string;
 </script>
 

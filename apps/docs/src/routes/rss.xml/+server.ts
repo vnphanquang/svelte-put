@@ -3,7 +3,7 @@ import Handlebars from 'handlebars';
 import { packages } from '$data/packages';
 import { BUILD_TIMESTAMP } from '$env/static/private';
 import { PUBLIC_ROOT_URL } from '$env/static/public';
-import { APP_ROUTE_TREE } from '$lib/constants';
+import { APP_ROUTE_TREE } from '$shared/constants';
 
 import type { RequestHandler } from './$types';
 import source from './rss.template.xml?raw';

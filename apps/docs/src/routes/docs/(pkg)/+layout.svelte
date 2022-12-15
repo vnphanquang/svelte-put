@@ -1,9 +1,9 @@
 <script lang="ts">
-  import BackToTopBtn from '$lib/ui/components/BackToTopBtn/BackToTopBtn.svelte';
-  import EditThisPageLink from '$lib/ui/components/EditThisPageLink/EditThisPageLink.svelte';
-  import ResourceLink from '$lib/ui/components/ResourceLink/ResourceLink.svelte';
-  import Empty from '$lib/ui/components/icons/Empty.svelte';
-  import Github from '$lib/ui/components/icons/Github.svelte';
+  import BackToTopBtn from '$client/components/BackToTopBtn/BackToTopBtn.svelte';
+  import EditThisPageLink from '$client/components/EditThisPageLink/EditThisPageLink.svelte';
+  import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
+  import Empty from '$client/components/icons/Empty.svelte';
+  import Github from '$client/components/icons/Github.svelte';
   import {
     createBundlephobiaBadgeUrl,
     createBundlephobiaUrl,
@@ -13,7 +13,7 @@
     createNpmUrl,
     createSvelteReplBadgeUrl,
     createSvelteReplUrl,
-  } from '$lib/utils/badge';
+  } from '$shared/utils/badge';
 
   import type { LayoutData } from './$types';
 

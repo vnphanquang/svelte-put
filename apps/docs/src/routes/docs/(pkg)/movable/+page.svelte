@@ -1,12 +1,12 @@
 <script lang="ts">
   import typescript from 'svelte-highlight/languages/typescript';
 
-  import mousemoveImg from '$lib/assets/images/mousemove.webp';
-  import ActionUsageNotice from '$lib/ui/components/ActionUsageNotice/ActionUsageNotice.svelte';
-  import ApiReference from '$lib/ui/components/ApiReference/ApiReference.svelte';
-  import Code from '$lib/ui/components/Code/Code.svelte';
-  import Installation from '$lib/ui/components/Installation/Installation.svelte';
-  import ResourceLink from '$lib/ui/components/ResourceLink/ResourceLink.svelte';
+  import mousemoveImg from '$assets/images/mousemove.webp';
+  import ActionUsageNotice from '$client/components/ActionUsageNotice/ActionUsageNotice.svelte';
+  import ApiReference from '$client/components/ApiReference/ApiReference.svelte';
+  import Code from '$client/components/Code/Code.svelte';
+  import Installation from '$client/components/Installation/Installation.svelte';
+  import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
 
   import type { PageData } from './$types';
   import { codes } from './codes';

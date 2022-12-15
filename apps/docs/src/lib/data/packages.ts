@@ -1,4 +1,4 @@
-import { APP_ROUTE_TREE } from '$lib/constants';
+import { APP_ROUTE_TREE } from '$shared/constants';
 
 export const packages = {
   avatar: {

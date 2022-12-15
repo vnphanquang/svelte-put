@@ -1,4 +1,5 @@
 import { tBuild } from 'static-tree';
+
 export const { node: APP_ROUTE_TREE } = tBuild('APP_ROUTE_TREE', {
   pathResolver: () => '',
   build: (builder) =>
@@ -27,3 +28,7 @@ export const { node: APP_ROUTE_TREE } = tBuild('APP_ROUTE_TREE', {
         pathResolver: () => 'sitemap.xml',
       }),
 });
+
+export enum LoadDependencies {
+  ColorScheme = 'app:color-scheme',
+}

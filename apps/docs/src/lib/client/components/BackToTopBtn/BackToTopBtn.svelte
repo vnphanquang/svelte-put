@@ -1,7 +1,7 @@
 <script lang="ts">
   import { fly } from 'svelte/transition';
 
-  import ArrowUp from '$lib/ui/components/icons/material/ArrowUp.svelte';
+  import ArrowUp from '$client/components/icons/material/ArrowUp.svelte';
 
   let cls = '';
   export { cls as class };

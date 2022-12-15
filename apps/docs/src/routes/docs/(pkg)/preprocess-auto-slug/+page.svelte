@@ -1,8 +1,8 @@
 <script lang="ts">
-  import suspiciousLinksImg from '$lib/assets/images/suspicious-links.webp';
-  import Code from '$lib/ui/components/Code/Code.svelte';
-  import Installation from '$lib/ui/components/Installation/Installation.svelte';
-  import ResourceLink from '$lib/ui/components/ResourceLink/ResourceLink.svelte';
+  import suspiciousLinksImg from '$assets/images/suspicious-links.webp';
+  import Code from '$client/components/Code/Code.svelte';
+  import Installation from '$client/components/Installation/Installation.svelte';
+  import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
 
   import type { PageData } from './$types';
   import { codes } from './codes';

@@ -4,7 +4,7 @@
 
   let copied = '';
   function handleCopy(input: TextResolverInput<'pointerdown'>) {
-    const { node, trigger, event } = input;
+    const { node } = input;
     copied = `Custom - ${node.innerText}`;
     return copied;
   }

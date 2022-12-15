@@ -1,11 +1,10 @@
 <script lang="ts">
+  import EditThisPageLink from '$client/components/EditThisPageLink/EditThisPageLink.svelte';
+  import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
+  import StatusBadge from '$client/components/StatusBadge/StatusBadge.svelte';
+  import Github from '$client/components/icons/Github.svelte';
   import { packagesByCategory } from '$data/packages';
-  import EditThisPageLink from '$lib/ui/components/EditThisPageLink/EditThisPageLink.svelte';
-  import ResourceLink from '$lib/ui/components/ResourceLink/ResourceLink.svelte';
-  import StatusBadge from '$lib/ui/components/StatusBadge/StatusBadge.svelte';
-  import Github from '$lib/ui/components/icons/Github.svelte';
-  import { createNpmBadgeUrl, createNpmUrl } from '$lib/utils/badge';
-  import { capitalize } from '$lib/utils/string';
+  import { createNpmBadgeUrl, createNpmUrl } from '$shared/utils/badge';
 </script>
 
 <h1>@svelte-put</h1>
@@ -24,7 +23,7 @@
 
   {#each Object.entries(packagesByCategory) as [category, packages]}
     <section>
-      <h3 id="{category}-packages">{capitalize(category)}</h3>
+      <h3 id="{category}-packages" class="capitalize">{category}</h3>
       <div
         class="not-prose c-gtable-4 grid max-w-full grid-cols-[198px,1fr,140px,80px] items-center direct-children:p-4"
       >

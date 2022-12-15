@@ -3,8 +3,8 @@ import Handlebars from 'handlebars';
 import { packages } from '$data/packages';
 import { BUILD_TIMESTAMP } from '$env/static/private';
 import { PUBLIC_ROOT_URL } from '$env/static/public';
-import { APP_ROUTE_TREE } from '$lib/constants';
-import { toW3CDate } from '$lib/utils/datetime';
+import { APP_ROUTE_TREE } from '$shared/constants';
+import { toW3CDate } from '$shared/utils/datetime';
 
 import type { RequestHandler } from './$types';
 import source from './sitemap.template.xml?raw';

@@ -3,7 +3,7 @@
   import { cubicOut } from 'svelte/easing';
   import { fly } from 'svelte/transition';
 
-  import SveltePutLogoAnimation from '$lib/ui/components/SveltePutLogoAnimation.svelte';
+  import SveltePutLogoAnimation from '$client/components/SveltePutLogoAnimation.svelte';
 
   let animationOpen = false;
   function open() {

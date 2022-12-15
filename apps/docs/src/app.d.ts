@@ -6,13 +6,12 @@
 // for information about these interfaces
 // and what to do when importing types
 declare namespace App {
-  type ColorScheme = 'light' | 'dark' | 'system';
   interface Locals {
     userId: string;
-    colorScheme: ColorScheme;
+    colorScheme: import('$shared/types').ColorScheme;
   }
   interface PageData {
-    colorScheme: ColorScheme;
+    colorScheme: import('$shared/types').ColorScheme;
     vercelAnalyticsId?: string;
     meta?: {
       title?: string;
@@ -41,6 +40,7 @@ declare namespace App {
 }
 
 declare namespace svelte.JSX {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface HTMLAttributes<T> {
     // on:clickoutside
     'data-toc-disabled'?: boolean;

@@ -10,21 +10,21 @@
   import { browser } from '$app/environment';
   import { invalidate } from '$app/navigation';
   import { page } from '$app/stores';
-  import { LoadDependencies } from '$const';
+  import ColorSchemeSelect from '$client/components/ColorSchemeSelect/ColorSchemeSelect.svelte';
+  import MenuButton from '$client/components/MenuButton/MenuButton.svelte';
+  import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
+  import StatusBadge from '$client/components/StatusBadge/StatusBadge.svelte';
+  import Github from '$client/components/icons/Github.svelte';
+  import Svelte from '$client/components/icons/Svelte.svelte';
+  import Tailwind from '$client/components/icons/Tailwind.svelte';
+  import Vercel from '$client/components/icons/Vercel.svelte';
+  import AccountTree from '$client/components/icons/material/AccountTree.svelte';
+  import Rss from '$client/components/icons/material/Rss.svelte';
+  import { getPrefersColorScheme } from '$client/utils/color-scheme';
   import { packagesByCategory } from '$data/packages';
-  import { APP_ROUTE_TREE } from '$lib/constants';
-  import ColorSchemeSelect from '$lib/ui/components/ColorSchemeSelect/ColorSchemeSelect.svelte';
-  import MenuButton from '$lib/ui/components/MenuButton/MenuButton.svelte';
-  import ResourceLink from '$lib/ui/components/ResourceLink/ResourceLink.svelte';
-  import StatusBadge from '$lib/ui/components/StatusBadge/StatusBadge.svelte';
-  import Github from '$lib/ui/components/icons/Github.svelte';
-  import Svelte from '$lib/ui/components/icons/Svelte.svelte';
-  import Tailwind from '$lib/ui/components/icons/Tailwind.svelte';
-  import Vercel from '$lib/ui/components/icons/Vercel.svelte';
-  import AccountTree from '$lib/ui/components/icons/material/AccountTree.svelte';
-  import Rss from '$lib/ui/components/icons/material/Rss.svelte';
-  import { getPrefersColorScheme } from '$lib/utils/color-scheme';
-  import { capitalize } from '$lib/utils/string';
+  import { LoadDependencies, APP_ROUTE_TREE } from '$shared/constants';
+  import type { ColorScheme } from '$shared/types';
+  import { capitalize } from '$shared/utils/string';
 
   import type { LayoutData } from './$types';
 
@@ -235,7 +235,7 @@
       ? getPrefersColorScheme()
       : $page.data.colorScheme;
   let clientColorScheme = $page.data.colorScheme;
-  async function changeColorScheme(e: CustomEvent<App.ColorScheme>) {
+  async function changeColorScheme(e: CustomEvent<ColorScheme>) {
     const scheme = e.detail;
     if (clientColorScheme === scheme) return;
     clientColorScheme = scheme;

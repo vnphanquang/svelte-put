@@ -4,11 +4,11 @@
 
   import { dev, browser } from '$app/environment';
   import { page } from '$app/stores';
+  import { appStore } from '$client/services/modal';
+  import { webVitals } from '$client/services/web-vitals';
   import { PUBLIC_ROOT_URL } from '$env/static/public';
-  import { appStore } from '$lib/services/modal';
-  import { webVitals } from '$lib/services/web-vitals';
 
-  import '../lib/ui/styles/app.css';
+  import '../lib/client/styles/app.css';
 
   $: meta = $page.data.meta;
 

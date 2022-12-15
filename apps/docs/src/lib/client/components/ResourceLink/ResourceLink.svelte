@@ -18,6 +18,7 @@
     if (href) return href;
     if (key) {
       const _resources = resources ?? ({} as Record<string, string>);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       if (key in _resources) return _resources[key as any];
       if (key in globalResources) return globalResources[key as ResourceId];
     }

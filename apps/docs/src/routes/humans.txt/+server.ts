@@ -1,7 +1,7 @@
 import Handlebars from 'handlebars';
 
 import { BUILD_TIMESTAMP } from '$env/static/private';
-import { toW3CDate } from '$lib/utils/datetime';
+import { toW3CDate } from '$shared/utils/datetime';
 
 import type { RequestHandler } from './$types';
 import source from './humans.template.txt?raw';

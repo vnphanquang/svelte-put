@@ -1,7 +1,7 @@
 <script lang="ts">
   import shell from 'svelte-highlight/languages/shell';
 
-  import Code from '$lib/ui/components/Code/Code.svelte';
+  import Code from '$client/components/Code/Code.svelte';
 
   export let pkg: string;
   export let dev = true;

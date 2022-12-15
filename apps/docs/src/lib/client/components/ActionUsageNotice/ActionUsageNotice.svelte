@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Code from '$lib/ui/components/Code/Code.svelte';
-  import ResourceLink from '$lib/ui/components/ResourceLink/ResourceLink.svelte';
+  import Code from '$client/components/Code/Code.svelte';
+  import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
   export let action: string;
 
   const code = `<-- correct usage-->

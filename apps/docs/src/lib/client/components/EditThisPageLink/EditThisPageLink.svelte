@@ -1,7 +1,7 @@
 <script lang="ts">
-  import ResourceLink from '$lib/ui/components/ResourceLink/ResourceLink.svelte';
-  import Github from '$lib/ui/components/icons/Github.svelte';
-  import EditSquare from '$lib/ui/components/icons/material/EditSquare.svelte';
+  import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
+  import Github from '$client/components/icons/Github.svelte';
+  import EditSquare from '$client/components/icons/material/EditSquare.svelte';
 
   export let packageId: string | undefined = undefined;
   export let href = '';
