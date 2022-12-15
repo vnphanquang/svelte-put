@@ -107,13 +107,7 @@
         class="flex rounded p-2 hover:bg-border active:scale-95"
         aria-label="Toggle expansion"
       >
-        <span
-          class={clsx(
-            'h-5',
-            expanded && 'inline-grid place-items-center',
-            !expanded && 'animate-bounce',
-          )}
-        >
+        <span class={clsx('h-5', expanded ? 'inline-grid place-items-center' : 'animate-bounce')}>
           <IconExpandLess
             class="inline-block transition-transform {!expanded ? 'rotate-180' : ''}"
             height="20"

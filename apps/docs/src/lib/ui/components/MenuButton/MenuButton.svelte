@@ -13,10 +13,9 @@
 <button
   class={clsx(
     'c-btn-icon group flex items-center space-x-2 text-xs hover:text-primary',
-    align === 'right' && 'space-x-reverse',
+    align === 'right' && 'flex-row-reverse space-x-reverse',
     cls,
   )}
-  class:flex-row-reverse={align === 'right'}
   on:click|stopPropagation
 >
   <Svg

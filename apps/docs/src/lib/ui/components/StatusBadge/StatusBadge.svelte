@@ -1,22 +1,19 @@
 <script lang="ts">
-  import clsx from 'clsx';
-
   export let status: 'dev' | 'beta' | 'new' | 'flux' | 'stable';
   let cls = '';
   export { cls as class };
+
+  const BADGE_CLASSES = {
+    beta: 'c-badge-blue',
+    dev: 'c-badge-primary',
+    new: 'c-badge-secondary',
+    flux: 'c-badge-red',
+    stable: 'c-badge-gray',
+  } satisfies Record<typeof status, string>;
+  $: badgeClass = BADGE_CLASSES[status];
 </script>
 
-<span
-  class={clsx(
-    'text-xs',
-    status === 'stable' && 'c-badge-gray',
-    status === 'dev' && 'c-badge-primary',
-    status === 'new' && 'c-badge-secondary',
-    status === 'beta' && 'c-badge-blue',
-    status === 'flux' && 'c-badge-red',
-    cls,
-  )}
->
+<span class="text-xs {badgeClass} {cls}">
   <slot>
     {status}
   </slot>
