@@ -45,8 +45,8 @@ importers:
       '@svelte-put/select': workspace:*
       '@svelte-put/shortcut': workspace:*
       '@svelte-put/toc': workspace:*
-      '@sveltejs/adapter-vercel': 1.0.0-next.87
-      '@sveltejs/kit': 1.0.0-next.587
+      '@sveltejs/adapter-vercel': 1.0.0
+      '@sveltejs/kit': 1.0.0
       '@tailwindash/triangle': ^1.0.5
       '@tailwindcss/typography': ^0.5.8
       '@types/cookie': ^0.5.1
@@ -100,8 +100,8 @@ importers:
       '@svelte-put/select': link:../../packages/components/select
       '@svelte-put/shortcut': link:../../packages/actions/shortcut
       '@svelte-put/toc': link:../../packages/actions/toc
-      '@sveltejs/adapter-vercel': 1.0.0-next.87
-      '@sveltejs/kit': 1.0.0-next.587_svelte@3.55.0+vite@4.0.1
+      '@sveltejs/adapter-vercel': 1.0.0_@sveltejs+kit@1.0.0
+      '@sveltejs/kit': 1.0.0_svelte@3.55.0+vite@4.0.1
       '@tailwindash/triangle': 1.0.5_tailwindcss@3.2.4
       '@tailwindcss/typography': 0.5.8_tailwindcss@3.2.4
       '@types/cookie': 0.5.1
@@ -277,9 +277,9 @@ importers:
       '@microsoft/api-extractor': ^7.33.7
       '@svelte-put/apirc': workspace:^0.0.0
       '@svelte-put/tsconfig': workspace:^0.0.0
-      '@sveltejs/adapter-auto': 1.0.0-next.90
-      '@sveltejs/kit': 1.0.0-next.587
-      '@sveltejs/package': 1.0.0-next.6
+      '@sveltejs/adapter-auto': 1.0.0
+      '@sveltejs/kit': 1.0.0
+      '@sveltejs/package': 1.0.0
       npm-run-all: ^4.1.5
       svelte: ^3.55.0
       svelte-check: ^2.10.2
@@ -293,9 +293,9 @@ importers:
       '@microsoft/api-extractor': 7.33.7
       '@svelte-put/apirc': link:../../../configs/apirc
       '@svelte-put/tsconfig': link:../../../configs/tsconfig
-      '@sveltejs/adapter-auto': 1.0.0-next.90
-      '@sveltejs/kit': 1.0.0-next.587_svelte@3.55.0+vite@4.0.1
-      '@sveltejs/package': 1.0.0-next.6_niwyv7xychq2ag6arq5eqxbomm
+      '@sveltejs/adapter-auto': 1.0.0_@sveltejs+kit@1.0.0
+      '@sveltejs/kit': 1.0.0_svelte@3.55.0+vite@4.0.1
+      '@sveltejs/package': 1.0.0_niwyv7xychq2ag6arq5eqxbomm
       npm-run-all: 4.1.5
       svelte: 3.55.0
       svelte-check: 2.10.2_svelte@3.55.0
@@ -313,9 +313,9 @@ importers:
       '@svelte-put/clickoutside': ^1.0.4
       '@svelte-put/shortcut': ^1.0.2
       '@svelte-put/tsconfig': workspace:^0.0.0
-      '@sveltejs/adapter-auto': 1.0.0-next.90
-      '@sveltejs/kit': 1.0.0-next.587
-      '@sveltejs/package': 1.0.0-next.6
+      '@sveltejs/adapter-auto': 1.0.0
+      '@sveltejs/kit': 1.0.0
+      '@sveltejs/package': 1.0.0
       npm-run-all: ^4.1.5
       svelte: ^3.55.0
       svelte-check: ^2.10.2
@@ -332,9 +332,9 @@ importers:
       '@microsoft/api-extractor': 7.33.7
       '@svelte-put/apirc': link:../../../configs/apirc
       '@svelte-put/tsconfig': link:../../../configs/tsconfig
-      '@sveltejs/adapter-auto': 1.0.0-next.90
-      '@sveltejs/kit': 1.0.0-next.587_svelte@3.55.0+vite@4.0.1
-      '@sveltejs/package': 1.0.0-next.6_niwyv7xychq2ag6arq5eqxbomm
+      '@sveltejs/adapter-auto': 1.0.0_@sveltejs+kit@1.0.0
+      '@sveltejs/kit': 1.0.0_svelte@3.55.0+vite@4.0.1
+      '@sveltejs/package': 1.0.0_niwyv7xychq2ag6arq5eqxbomm
       npm-run-all: 4.1.5
       svelte: 3.55.0
       svelte-check: 2.10.2_svelte@3.55.0
@@ -350,9 +350,9 @@ importers:
       '@microsoft/api-extractor': ^7.33.7
       '@svelte-put/apirc': workspace:^0.0.0
       '@svelte-put/tsconfig': workspace:^0.0.0
-      '@sveltejs/adapter-auto': 1.0.0-next.90
-      '@sveltejs/kit': 1.0.0-next.587
-      '@sveltejs/package': 1.0.0-next.6
+      '@sveltejs/adapter-auto': 1.0.0
+      '@sveltejs/kit': 1.0.0
+      '@sveltejs/package': 1.0.0
       '@types/md5': ^2.3.2
       md5: ^2.3.0
       npm-run-all: ^4.1.5
@@ -370,9 +370,9 @@ importers:
       '@microsoft/api-extractor': 7.33.7
       '@svelte-put/apirc': link:../../../configs/apirc
       '@svelte-put/tsconfig': link:../../../configs/tsconfig
-      '@sveltejs/adapter-auto': 1.0.0-next.90
-      '@sveltejs/kit': 1.0.0-next.587_svelte@3.55.0+vite@4.0.1
-      '@sveltejs/package': 1.0.0-next.6_niwyv7xychq2ag6arq5eqxbomm
+      '@sveltejs/adapter-auto': 1.0.0_@sveltejs+kit@1.0.0
+      '@sveltejs/kit': 1.0.0_svelte@3.55.0+vite@4.0.1
+      '@sveltejs/package': 1.0.0_niwyv7xychq2ag6arq5eqxbomm
       '@types/md5': 2.3.2
       npm-run-all: 4.1.5
       svelte: 3.55.0
@@ -392,9 +392,9 @@ importers:
       '@svelte-put/movable': ^1.2.2
       '@svelte-put/shortcut': ^1.0.2
       '@svelte-put/tsconfig': workspace:^0.0.0
-      '@sveltejs/adapter-auto': 1.0.0-next.90
-      '@sveltejs/kit': 1.0.0-next.587
-      '@sveltejs/package': 1.0.0-next.6
+      '@sveltejs/adapter-auto': 1.0.0
+      '@sveltejs/kit': 1.0.0
+      '@sveltejs/package': 1.0.0
       npm-run-all: ^4.1.5
       svelte: ^3.55.0
       svelte-check: ^2.10.2
@@ -412,9 +412,9 @@ importers:
       '@microsoft/api-extractor': 7.33.7
       '@svelte-put/apirc': link:../../../configs/apirc
       '@svelte-put/tsconfig': link:../../../configs/tsconfig
-      '@sveltejs/adapter-auto': 1.0.0-next.90
-      '@sveltejs/kit': 1.0.0-next.587_svelte@3.55.0+vite@4.0.1
-      '@sveltejs/package': 1.0.0-next.6_niwyv7xychq2ag6arq5eqxbomm
+      '@sveltejs/adapter-auto': 1.0.0_@sveltejs+kit@1.0.0
+      '@sveltejs/kit': 1.0.0_svelte@3.55.0+vite@4.0.1
+      '@sveltejs/package': 1.0.0_niwyv7xychq2ag6arq5eqxbomm
       npm-run-all: 4.1.5
       svelte: 3.55.0
       svelte-check: 2.10.2_svelte@3.55.0
@@ -1359,15 +1359,21 @@ packages:
       string-argv: 0.3.1
     dev: true
 
-  /@sveltejs/adapter-auto/1.0.0-next.90:
-    resolution: {integrity: sha512-qxH46Oqqn40998wTmnbffONI0HcW/kiZ3OIjZoysjONne+LU4uEsG425MZ2RHDxmR04zxhsdjCAsn6B4du8D7w==}
+  /@sveltejs/adapter-auto/1.0.0_@sveltejs+kit@1.0.0:
+    resolution: {integrity: sha512-yKyPvlLVua1bJ/42FrR3X041mFGdB4GzTZOAEoHUcNBRE5Mhx94+eqHpC3hNvAOiLEDcKfVO0ObyKSu7qldU+w==}
+    peerDependencies:
+      '@sveltejs/kit': ^1.0.0
     dependencies:
+      '@sveltejs/kit': 1.0.0_svelte@3.55.0+vite@4.0.1
       import-meta-resolve: 2.2.0
     dev: true
 
-  /@sveltejs/adapter-vercel/1.0.0-next.87:
-    resolution: {integrity: sha512-JRmDa7UDpL8Ir2v+8Glq7OMz8Ufn2VLSCJcNDWygNzQehTf9SeK7sAyDjnEUds0WXNH9TMzxqzPd+xj2eZ0W0Q==}
+  /@sveltejs/adapter-vercel/1.0.0_@sveltejs+kit@1.0.0:
+    resolution: {integrity: sha512-3zM/7BJbtxBo02J4/2mpZyiHZtH6HAggND/xRaBiKjSsKSMYvKC4ipqVfHoESuW5NQNAnJVf1zMAQY2PPxv91w==}
+    peerDependencies:
+      '@sveltejs/kit': ^1.0.0
     dependencies:
+      '@sveltejs/kit': 1.0.0_svelte@3.55.0+vite@4.0.1
       '@vercel/nft': 0.22.5
       esbuild: 0.16.5
     transitivePeerDependencies:
@@ -1375,8 +1381,8 @@ packages:
       - supports-color
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.587_svelte@3.55.0+vite@4.0.1:
-    resolution: {integrity: sha512-F8zYXd7URcq57sGfrBRWTLtfj6JKkhNhwM4M8w4hNnJsJlZawPUvpybOSlIP87Z8URO8iCmyigQHxAYYzedrOg==}
+  /@sveltejs/kit/1.0.0_svelte@3.55.0+vite@4.0.1:
+    resolution: {integrity: sha512-6VgD5C3i2XOT7GRBi5LaPPLiFAmpiDkhKJNVt8fLg1RmaL6f7rT4Kiwi2XGpYRj3V1F4t1QRdsfmAkkDUKY3OA==}
     engines: {node: '>=16.14'}
     hasBin: true
     requiresBuild: true
@@ -1403,8 +1409,8 @@ packages:
       - supports-color
     dev: true
 
-  /@sveltejs/package/1.0.0-next.6_niwyv7xychq2ag6arq5eqxbomm:
-    resolution: {integrity: sha512-EwekVYRnD1r0deTt+9OKRvDopdX59FdfMVV+sN/LtIRO8+mEYuuDkj4uurt5yA9o2sMsv9xiAIWT5qKrq0rXuQ==}
+  /@sveltejs/package/1.0.0_niwyv7xychq2ag6arq5eqxbomm:
+    resolution: {integrity: sha512-YTTzhbOtmyq342S3tTYRJ9QQntRlukWieP5gQmqTMxdn1Ztr93pzR9vLCZ0q/pV4sqmEllc70lHJX/iV5uEYEg==}
     engines: {node: '>=16.14'}
     hasBin: true
     peerDependencies:
