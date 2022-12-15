@@ -23,6 +23,7 @@ const config = {
     adapter: adapter(),
     alias: {
       $data: 'src/data',
+      $const: 'src/constants',
     },
   },
 };

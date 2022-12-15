@@ -1,7 +1,27 @@
+const postcss = require('postcss');
 const plugin = require('tailwindcss/plugin');
 
 const sveltePut = plugin(
   ({ addComponents, addUtilities, addBase, matchComponents, matchVariant, addVariant }) => {
+    addVariant('dark', [
+      ':merge(html[data-color-scheme="dark"]) &',
+      ({ container }) => {
+        const originalRule = container.nodes[0];
+        const mediaRule = postcss.atRule({
+          name: 'media',
+          params: '(prefers-color-scheme: dark)',
+          nodes: [
+            postcss.rule({
+              selector: `html:not([data-color-scheme="light"]) ${originalRule.selector}`,
+              nodes: originalRule.nodes,
+            }),
+          ],
+        });
+        container.removeAll();
+        container.append(mediaRule);
+      },
+    ]);
+
     addBase({
       'h1,h2,h3,h4,h5,h6': {
         '@apply relative': {},
@@ -282,7 +302,7 @@ const sveltePut = plugin(
 
 /** @type {import("tailwindcss").Config } */
 const config = {
-  darkMode: 'class',
+  darkMode: '',
   content: ['./src/**/*.{html,js,svelte,ts,md}', 'svelte.config.js'],
   plugins: [sveltePut, require('@tailwindcss/typography'), require('@tailwindash/triangle')],
 };

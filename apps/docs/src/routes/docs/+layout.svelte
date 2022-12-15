@@ -7,19 +7,23 @@
   import { cubicOut } from 'svelte/easing';
   import { fly, fade } from 'svelte/transition';
 
+  import { browser } from '$app/environment';
+  import { invalidate } from '$app/navigation';
+  import { page } from '$app/stores';
+  import { LoadDependencies } from '$const';
   import { packagesByCategory } from '$data/packages';
   import { APP_ROUTE_TREE } from '$lib/constants';
+  import ColorSchemeSelect from '$lib/ui/components/ColorSchemeSelect/ColorSchemeSelect.svelte';
   import MenuButton from '$lib/ui/components/MenuButton/MenuButton.svelte';
   import ResourceLink from '$lib/ui/components/ResourceLink/ResourceLink.svelte';
   import StatusBadge from '$lib/ui/components/StatusBadge/StatusBadge.svelte';
-  import ThemeModeDropdown from '$lib/ui/components/ThemeModeDropdown/ThemeModeDropdown.svelte';
   import Github from '$lib/ui/components/icons/Github.svelte';
   import Svelte from '$lib/ui/components/icons/Svelte.svelte';
   import Tailwind from '$lib/ui/components/icons/Tailwind.svelte';
   import Vercel from '$lib/ui/components/icons/Vercel.svelte';
   import AccountTree from '$lib/ui/components/icons/material/AccountTree.svelte';
   import Rss from '$lib/ui/components/icons/material/Rss.svelte';
-  import { themeMode } from '$lib/ui/stores/theme';
+  import { getPrefersColorScheme } from '$lib/utils/color-scheme';
   import { capitalize } from '$lib/utils/string';
 
   import type { LayoutData } from './$types';
@@ -225,10 +229,27 @@
     }
     tocItems = items;
   }
+
+  $: rColorScheme =
+    $page.data.colorScheme === 'system' && browser
+      ? getPrefersColorScheme()
+      : $page.data.colorScheme;
+  let clientColorScheme = $page.data.colorScheme;
+  async function changeColorScheme(e: CustomEvent<App.ColorScheme>) {
+    const scheme = e.detail;
+    if (clientColorScheme === scheme) return;
+    clientColorScheme = scheme;
+    document.documentElement.dataset.colorScheme = scheme;
+    await fetch('/api/color-scheme', {
+      method: 'POST',
+      body: scheme,
+    });
+    invalidate(LoadDependencies.ColorScheme);
+  }
 </script>
 
 <svelte:head>
-  {#if $themeMode === 'light'}
+  {#if rColorScheme === 'light'}
     {@html gruvboxLight}
   {:else}
     {@html gruvboxDark}
@@ -257,13 +278,13 @@
         <span class="c-link text-sm font-bold text-gradient-brand">svelte-put</span>
       </a>
       <div class="flex flex-1 items-center justify-end space-x-4">
-        <ThemeModeDropdown />
+        <ColorSchemeSelect scheme={clientColorScheme} on:select={changeColorScheme} />
         <ResourceLink class="c-link" key="github">
           <Github height="24" width="24" />
         </ResourceLink>
       </div>
     </nav>
-    <div class="border-t border-border xl:hidden">
+    <div class="border-t border-border dark:text-primary xl:hidden">
       <nav
         class="h-subheader c-container flex items-center justify-between py-1 lg:justify-end"
         aria-label="svelte-put & github"

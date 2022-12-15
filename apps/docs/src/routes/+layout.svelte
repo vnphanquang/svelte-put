@@ -7,7 +7,6 @@
   import { PUBLIC_ROOT_URL } from '$env/static/public';
   import { appStore } from '$lib/services/modal';
   import { webVitals } from '$lib/services/web-vitals';
-  import { storeTheme } from '$lib/ui/stores/theme';
 
   import '../lib/ui/styles/app.css';
 
@@ -43,7 +42,6 @@
     });
   }
   onMount(async () => {
-    storeTheme.initialize();
     const inject = (await import('@vercel/analytics')).inject;
     if (inject && !dev) {
       inject();

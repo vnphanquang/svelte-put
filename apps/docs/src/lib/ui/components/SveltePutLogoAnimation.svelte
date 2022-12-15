@@ -46,7 +46,7 @@
     transform-style: preserve-3d;
     border-color: var(--border-color);
   }
-  @mixin dark .box {
+  @mixin dark .box, global {
     --border-color: white;
   }
 

@@ -6,10 +6,13 @@
 // for information about these interfaces
 // and what to do when importing types
 declare namespace App {
+  type ColorScheme = 'light' | 'dark' | 'system';
   interface Locals {
     userId: string;
+    colorScheme: ColorScheme;
   }
   interface PageData {
+    colorScheme: ColorScheme;
     vercelAnalyticsId?: string;
     meta?: {
       title?: string;
