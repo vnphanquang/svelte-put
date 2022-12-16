@@ -9,6 +9,7 @@
     createBundlephobiaUrl,
     createChangelogBadgeUrl,
     createNpmBadgeUrl,
+    createNpmDownloadBadgeUrl,
     createNpmUrl,
     createSvelteReplBadgeUrl,
     createSvelteReplUrl,
@@ -30,16 +31,27 @@
     <p class="c-callout">{data.package.description}</p>
   {/if}
 
-  <p class="flex flex-wrap gap-2">
-    <a href={createNpmUrl(data.package.name)} target="_blank" class="h-full" rel="noreferrer">
+  <p class="flex flex-wrap items-center gap-2">
+    <a href={createNpmUrl(data.package.name)} target="_blank" rel="noreferrer">
       <img
         loading="lazy"
         decoding="async"
-        class="my-0 inline-block h-full w-auto rounded"
+        class="my-0 inline-block h-6 w-auto rounded"
         src={createNpmBadgeUrl(data.package.name)}
         alt={data.package.name}
         height="24"
-        width="100"
+        width="107"
+      />
+    </a>
+    <a href={createNpmUrl(data.package.name)} target="_blank" rel="noreferrer">
+      <img
+        loading="lazy"
+        decoding="async"
+        class="my-0 inline-block h-6 w-auto rounded"
+        src={createNpmDownloadBadgeUrl(data.package.name)}
+        alt={data.package.name}
+        height="24"
+        width="134"
       />
     </a>
     <a
@@ -51,11 +63,11 @@
       <img
         loading="lazy"
         decoding="async"
-        class="my-0 inline-block h-full w-auto rounded"
+        class="my-0 inline-block h-6 w-auto rounded"
         src={createBundlephobiaBadgeUrl(data.package.name)}
         alt={data.package.name}
         height="24"
-        width="132"
+        width="125"
       />
     </a>
     {#if data.package.replId}
@@ -68,7 +80,7 @@
         <img
           loading="lazy"
           decoding="async"
-          class="my-0 inline-block h-full w-auto rounded"
+          class="my-0 inline-block h-6 w-auto rounded"
           src={createSvelteReplBadgeUrl()}
           alt={data.package.name}
           height="24"
@@ -77,15 +89,15 @@
       </a>
     {/if}
     {#if data.package.changelogUrl}
-      <a href={data.package.changelogUrl} target="_blank" class="h-full" rel="noreferrer">
+      <a href={data.package.changelogUrl} target="_blank" rel="noreferrer">
         <img
           loading="lazy"
           decoding="async"
-          class="my-0 inline-block h-full w-auto rounded"
+          class="my-0 inline-block h-6 w-auto rounded"
           src={createChangelogBadgeUrl()}
           alt="changelog"
           height="24"
-          width="89"
+          width="90"
         />
       </a>
     {/if}

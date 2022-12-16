@@ -6,6 +6,10 @@ export function createNpmBadgeUrl(pkg: string) {
   return `https://img.shields.io/npm/v/${pkg}?style=for-the-badge`;
 }
 
+export function createNpmDownloadBadgeUrl(pkg: string, scope: 'dw' | 'dm' | 'dy' | 'dt' = 'dt') {
+  return `https://img.shields.io/npm/${scope}/${pkg}?style=for-the-badge`;
+}
+
 export function createBundlephobiaUrl(pkg: string) {
   return `https://bundlephobia.com/package/${pkg}`;
 }
