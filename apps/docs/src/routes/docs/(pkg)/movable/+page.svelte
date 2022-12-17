@@ -9,13 +9,13 @@
   import mousemoveImg from '$shared/assets/images/mousemove.webp';
 
   import type { PageData } from './$types';
-  import { codes } from './codes';
-  import Handle from './codes/handle.svelte';
-  import Ignore from './codes/ignore.svelte';
-  import LimitAncestor from './codes/limit.ancestor.svelte';
-  import LimitDelta from './codes/limit.delta.svelte';
-  import LimitScreen from './codes/limit.screen.svelte';
-  import QuickStart from './codes/quickStart.svelte';
+  import { codes } from './_page/codes';
+  import Handle from './_page/codes/handle.svelte';
+  import Ignore from './_page/codes/ignore.svelte';
+  import LimitAncestor from './_page/codes/limit.ancestor.svelte';
+  import LimitDelta from './_page/codes/limit.delta.svelte';
+  import LimitScreen from './_page/codes/limit.screen.svelte';
+  import QuickStart from './_page/codes/quickStart.svelte';
 
   export let data: PageData;
 </script>

@@ -6,19 +6,19 @@
   import avatarAangImg from '$shared/assets/images/avatar-aang.jpeg';
 
   import type { PageData } from './$types';
-  import { codes } from './codes';
-  import AvatarCustomMarkup from './codes/custom.markup.svelte';
-  import AvatarCustomStyling from './codes/custom.styling.svelte';
-  import AvatarDirect from './codes/direct.svelte';
-  import AvatarGravatarHelper from './codes/gravatar.helper.svelte';
-  import AvatarGravatarMinimal from './codes/gravatar.minimal.svelte';
-  import AvatarGravatarVerbose from './codes/gravatar.verbose.svelte';
-  import AvatarMultiple from './codes/multiple.svelte';
-  import AvatarUiAvatarHelper from './codes/uiAvatar.helper.svelte';
-  import AvatarUiAvatarMinimal from './codes/uiAvatar.minimal.svelte';
-  import AvatarUiAvatarVerbose from './codes/uiAvatar.verbose.svelte';
-  import AvatarUsageSectionLayout from './components/AvatarUsageSectionLayout.svelte';
-  import ConnectedListItem from './components/ConnectedListItem.svelte';
+  import { codes } from './_page/codes';
+  import AvatarCustomMarkup from './_page/codes/custom.markup.svelte';
+  import AvatarCustomStyling from './_page/codes/custom.styling.svelte';
+  import AvatarDirect from './_page/codes/direct.svelte';
+  import AvatarGravatarHelper from './_page/codes/gravatar.helper.svelte';
+  import AvatarGravatarMinimal from './_page/codes/gravatar.minimal.svelte';
+  import AvatarGravatarVerbose from './_page/codes/gravatar.verbose.svelte';
+  import AvatarMultiple from './_page/codes/multiple.svelte';
+  import AvatarUiAvatarHelper from './_page/codes/uiAvatar.helper.svelte';
+  import AvatarUiAvatarMinimal from './_page/codes/uiAvatar.minimal.svelte';
+  import AvatarUiAvatarVerbose from './_page/codes/uiAvatar.verbose.svelte';
+  import AvatarUsageSectionLayout from './_page/components/AvatarUsageSectionLayout.svelte';
+  import ConnectedListItem from './_page/components/ConnectedListItem.svelte';
 
   export let data: PageData;
 

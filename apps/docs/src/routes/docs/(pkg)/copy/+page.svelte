@@ -10,10 +10,10 @@
   import copyImg from '$shared/assets/images/copy-meme.webp';
 
   import type { PageData } from './$types';
-  import { codes } from './codes';
-  import CustomText from './codes/custom.text.code.svelte';
-  import CustomTrigger from './codes/custom.trigger.code.svelte';
-  import NoParameters from './codes/no-parameters.code.svelte';
+  import { codes } from './_page/codes';
+  import CustomText from './_page/codes/custom.text.code.svelte';
+  import CustomTrigger from './_page/codes/custom.trigger.code.svelte';
+  import NoParameters from './_page/codes/no-parameters.code.svelte';
 
   export let data: PageData;
 </script>

@@ -7,10 +7,10 @@
   import monkeyClickingImg from '$shared/assets/images/monkey-clicking.gif';
 
   import type { PageData } from './$types';
-  import { codes } from './codes';
-  import CustomAxis from './codes/custom.axis.svelte';
-  import LimitationSnapScroll from './codes/limitation.scroll-snap.svelte';
-  import NoParameters from './codes/no-parameters.svelte';
+  import { codes } from './_page/codes';
+  import CustomAxis from './_page/codes/custom.axis.svelte';
+  import LimitationSnapScroll from './_page/codes/limitation.scroll-snap.svelte';
+  import NoParameters from './_page/codes/no-parameters.svelte';
 
   export let data: PageData;
 </script>

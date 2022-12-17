@@ -19,7 +19,6 @@
 
 <!-- notice this component is just a normal svelte component -->
 
-
 <div class="custom-modal">
   <button type="button" class="c-btn-primary-outline" on:click={resolve}> Resolve </button>
   <p>{content}</p>

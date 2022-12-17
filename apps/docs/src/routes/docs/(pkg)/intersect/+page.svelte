@@ -9,9 +9,9 @@
   import intersectionObserverImg from '$shared/assets/images/intersection-observer.webp';
 
   import type { PageData } from './$types';
-  import { codes } from './codes';
-  import UsageEvents from './codes/usage.events.code.svelte';
-  import Once from './codes/usage.once.code.svelte';
+  import { codes } from './_page/codes';
+  import UsageEvents from './_page/codes/usage.events.code.svelte';
+  import Once from './_page/codes/usage.once.code.svelte';
 
   export let data: PageData;
 </script>

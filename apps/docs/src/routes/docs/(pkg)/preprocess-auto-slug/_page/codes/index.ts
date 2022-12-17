@@ -1,6 +1,6 @@
 import limitationInput from './limitation.input.svelte?raw';
 import limitationOutput from './limitation.output.svelte?raw';
-import quickStart from './quickStart.js?raw';
+import quickStart from './quickStart.ts?raw';
 
 export const codes = {
   quickStart: {

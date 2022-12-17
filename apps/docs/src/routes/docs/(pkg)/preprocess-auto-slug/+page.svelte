@@ -5,7 +5,7 @@
   import suspiciousLinksImg from '$shared/assets/images/suspicious-links.webp';
 
   import type { PageData } from './$types';
-  import { codes } from './codes';
+  import { codes } from './_page/codes';
 
   export let data: PageData;
 </script>

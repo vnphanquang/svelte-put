@@ -9,9 +9,9 @@
   import mouseclickPng from '$shared/assets/images/mouseclick.png';
 
   import type { PageData } from './$types';
-  import { codes } from './codes';
-  import Demo from './codes/demo.code.svelte';
-  import ExcludeEventDemo from './codes/exclude-events.svelte';
+  import { codes } from './_page/codes';
+  import Demo from './_page/codes/demo.code.svelte';
+  import ExcludeEventDemo from './_page/codes/exclude-events.svelte';
 
   export let data: PageData;
 

@@ -10,10 +10,10 @@
   import { createSvelteReplUrl } from '$shared/utils/badge';
 
   import type { PageData } from './$types';
-  import { codes } from './codes';
-  import FullCustomModal from './codes/FullCustomModal.code.svelte';
-  import InformationModal from './codes/InformationModal.code.svelte';
-  import PushAndPop from './codes/pushAndPop.code.svelte';
+  import { codes } from './_page/codes';
+  import FullCustomModal from './_page/codes/FullCustomModal.code.svelte';
+  import InformationModal from './_page/codes/InformationModal.code.svelte';
+  import PushAndPop from './_page/codes/pushAndPop.code.svelte';
 
   export let data: PageData;
 
