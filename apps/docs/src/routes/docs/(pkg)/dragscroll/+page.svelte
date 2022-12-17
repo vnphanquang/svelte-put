@@ -1,10 +1,10 @@
 <script lang="ts">
-  import monkeyClickingImg from '$assets/images/monkey-clicking.gif';
   import ActionUsageNotice from '$client/components/ActionUsageNotice/ActionUsageNotice.svelte';
   import ApiReference from '$client/components/ApiReference/ApiReference.svelte';
   import Code from '$client/components/Code/Code.svelte';
   import Installation from '$client/components/Installation/Installation.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
+  import monkeyClickingImg from '$shared/assets/images/monkey-clicking.gif';
 
   import type { PageData } from './$types';
   import { codes } from './codes';

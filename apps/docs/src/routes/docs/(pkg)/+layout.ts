@@ -1,6 +1,6 @@
-import { packages } from '$data/packages';
-import type { PackageId, Package } from '$data/packages';
 import { PUBLIC_ROOT_URL } from '$env/static/public';
+import { packages } from '$shared/data/packages';
+import type { PackageId, Package } from '$shared/data/packages';
 
 import type { LayoutLoad } from './$types';
 

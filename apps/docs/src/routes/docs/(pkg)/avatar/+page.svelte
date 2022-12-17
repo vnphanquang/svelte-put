@@ -1,9 +1,9 @@
 <script lang="ts">
-  import avatarAangImg from '$assets/images/avatar-aang.jpeg';
   import ApiReference from '$client/components/ApiReference/ApiReference.svelte';
   import Code from '$client/components/Code/Code.svelte';
   import Installation from '$client/components/Installation/Installation.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
+  import avatarAangImg from '$shared/assets/images/avatar-aang.jpeg';
 
   import type { PageData } from './$types';
   import { codes } from './codes';

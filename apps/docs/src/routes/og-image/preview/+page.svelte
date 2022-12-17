@@ -1,7 +1,7 @@
 <script lang="ts">
   import { dragscroll } from '@svelte-put/dragscroll';
 
-  import { packages } from '$data/packages';
+  import { packages } from '$shared/data/packages';
 
   import OgImage from '../OgImage.svelte';
 </script>

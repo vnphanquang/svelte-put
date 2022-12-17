@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { resources as globalResources } from '$data/resources';
-  import type { ResourceId } from '$data/resources';
+  import { resources as globalResources } from '$shared/data/resources';
+  import type { ResourceId } from '$shared/data/resources';
 
   type Resources = $$Generic<Record<string, string> | undefined>;
   type ResourceKeys = keyof Resources;

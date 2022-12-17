@@ -1,9 +1,9 @@
 import Handlebars from 'handlebars';
 
-import { packages } from '$data/packages';
 import { BUILD_TIMESTAMP } from '$env/static/private';
 import { PUBLIC_ROOT_URL } from '$env/static/public';
 import { APP_ROUTE_TREE } from '$shared/constants';
+import { packages } from '$shared/data/packages';
 import { toW3CDate } from '$shared/utils/datetime';
 
 import type { RequestHandler } from './$types';

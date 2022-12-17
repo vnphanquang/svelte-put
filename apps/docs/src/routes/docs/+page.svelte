@@ -3,7 +3,7 @@
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
   import StatusBadge from '$client/components/StatusBadge/StatusBadge.svelte';
   import Github from '$client/components/icons/Github.svelte';
-  import { packagesByCategory } from '$data/packages';
+  import { packagesByCategory } from '$shared/data/packages';
   import { createNpmBadgeUrl, createNpmUrl } from '$shared/utils/badge';
 </script>
 

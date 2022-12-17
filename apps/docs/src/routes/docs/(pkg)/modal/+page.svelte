@@ -1,12 +1,12 @@
 <script lang="ts">
   import typescript from 'svelte-highlight/languages/typescript';
 
-  import modalsImg from '$assets/images/modals-modal-everywhere.webp';
   import ApiReference from '$client/components/ApiReference/ApiReference.svelte';
   import Code from '$client/components/Code/Code.svelte';
   import Installation from '$client/components/Installation/Installation.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
   import { appStore } from '$client/services/modal';
+  import modalsImg from '$shared/assets/images/modals-modal-everywhere.webp';
   import { createSvelteReplUrl } from '$shared/utils/badge';
 
   import type { PageData } from './$types';

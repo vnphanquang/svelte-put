@@ -21,8 +21,8 @@
   import AccountTree from '$client/components/icons/material/AccountTree.svelte';
   import Rss from '$client/components/icons/material/Rss.svelte';
   import { getPrefersColorScheme } from '$client/utils/color-scheme';
-  import { packagesByCategory } from '$data/packages';
   import { LoadDependencies, APP_ROUTE_TREE } from '$shared/constants';
+  import { packagesByCategory } from '$shared/data/packages';
   import type { ColorScheme } from '$shared/types';
   import { capitalize } from '$shared/utils/string';
 

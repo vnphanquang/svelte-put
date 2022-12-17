@@ -1,12 +1,12 @@
 <script lang="ts">
   import typescript from 'svelte-highlight/languages/typescript';
 
-  import mouseclickPng from '$assets/images/mouseclick.png';
   import ActionUsageNotice from '$client/components/ActionUsageNotice/ActionUsageNotice.svelte';
   import ApiReference from '$client/components/ApiReference/ApiReference.svelte';
   import Code from '$client/components/Code/Code.svelte';
   import Installation from '$client/components/Installation/Installation.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
+  import mouseclickPng from '$shared/assets/images/mouseclick.png';
 
   import type { PageData } from './$types';
   import { codes } from './codes';

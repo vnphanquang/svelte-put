@@ -1,13 +1,13 @@
 <script lang="ts">
   import typescript from 'svelte-highlight/languages/typescript';
 
-  import copyImg from '$assets/images/copy-meme.webp';
   import ActionUsageNotice from '$client/components/ActionUsageNotice/ActionUsageNotice.svelte';
   import ApiReference from '$client/components/ApiReference/ApiReference.svelte';
   import Code from '$client/components/Code/Code.svelte';
   import Installation from '$client/components/Installation/Installation.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
   import Copy from '$client/components/icons/material/Copy.svelte';
+  import copyImg from '$shared/assets/images/copy-meme.webp';
 
   import type { PageData } from './$types';
   import { codes } from './codes';

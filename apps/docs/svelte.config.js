@@ -22,9 +22,7 @@ const config = {
   kit: {
     adapter: adapter(),
     alias: {
-      $data: 'src/lib/data',
       $routes: 'src/routes',
-      $assets: 'src/lib/assets',
       $client: 'src/lib/client',
       $server: 'src/lib/server',
       $shared: 'src/lib/shared',

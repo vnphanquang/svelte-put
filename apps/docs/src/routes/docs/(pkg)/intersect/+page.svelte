@@ -1,12 +1,12 @@
 <script lang="ts">
   import typescript from 'svelte-highlight/languages/typescript';
 
-  import intersectionObserverImg from '$assets/images/intersection-observer.webp';
   import ActionUsageNotice from '$client/components/ActionUsageNotice/ActionUsageNotice.svelte';
   import ApiReference from '$client/components/ApiReference/ApiReference.svelte';
   import Code from '$client/components/Code/Code.svelte';
   import Installation from '$client/components/Installation/Installation.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
+  import intersectionObserverImg from '$shared/assets/images/intersection-observer.webp';
 
   import type { PageData } from './$types';
   import { codes } from './codes';
