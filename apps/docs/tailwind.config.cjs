@@ -115,6 +115,12 @@ const sveltePut = plugin(
       '.c-btn-text-secondary': {
         '@apply inline-block text-secondary hover:underline': {},
       },
+      '.c-circle-number': {
+        '@apply w-5 h-5 text-xs rounded-full inline-flex items-center justify-center': {},
+      },
+      '.c-circle-number-primary': {
+        '@apply c-circle-number bg-primary text-white': {},
+      },
       '.c-footnote': {
         '@apply inline-flex items-center justify-center rounded-full w-4 h-4 text-2xs': {},
       },

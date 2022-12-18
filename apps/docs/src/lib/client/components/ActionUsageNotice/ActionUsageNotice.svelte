@@ -8,14 +8,20 @@
 
 <-- incorrect usage-->
 <Component use:${action} />`;
+
+  const heading = 'Action Usage Notice';
 </script>
 
 <section>
-  <h2>Action Usage Notice</h2>
+  <slot name="heading" {heading}>
+    <h2>{heading}</h2>
+  </slot>
 
-  As with any <ResourceLink key="svelte action" />, <code>{action}</code> should be use with
-  <code>element</code>
-  and not <code>component</code>.
+  <p>
+    As with any <ResourceLink key="svelte action" />, <code>{action}</code> should be use with
+    <code>element</code>
+    and not <code>component</code>.
+  </p>
 
   <Code lang="svelte" {code} title="use:action is an element directive" icon="warning" />
 </section>
