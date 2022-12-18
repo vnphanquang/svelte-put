@@ -41,7 +41,7 @@ export const packages = {
     path: APP_ROUTE_TREE.docs.copy.$.path(),
     replId: undefined,
     category: 'action',
-    status: 'new',
+    status: 'stable',
     ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/copy',
     changelogUrl:
@@ -57,7 +57,7 @@ export const packages = {
     path: APP_ROUTE_TREE.docs.dragscroll.$.path(),
     replId: undefined,
     category: 'action',
-    status: 'new',
+    status: 'stable',
     ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/dragscroll',
     changelogUrl:
@@ -170,8 +170,8 @@ export const packages = {
     path: APP_ROUTE_TREE.docs.toc.$.path(),
     replId: 'd9c896ac62cd41d49f80ffa249d292e6',
     category: 'action',
-    status: 'flux',
-    ready: false,
+    status: 'new',
+    ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/toc',
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/toc/CHANGELOG.md',

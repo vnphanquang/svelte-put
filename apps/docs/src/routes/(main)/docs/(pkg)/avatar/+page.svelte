@@ -1,6 +1,7 @@
 <script lang="ts">
   import ApiReference from '$client/components/ApiReference/ApiReference.svelte';
   import Code from '$client/components/Code/Code.svelte';
+  import { ConnectedList, ConnectedListItem } from '$client/components/ConnectedList';
   import Installation from '$client/components/Installation/Installation.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
   import avatarAangImg from '$shared/assets/images/avatar-aang.jpeg';
@@ -18,7 +19,6 @@
   import AvatarUiAvatarMinimal from './_page/codes/uiAvatar.minimal.svelte';
   import AvatarUiAvatarVerbose from './_page/codes/uiAvatar.verbose.svelte';
   import AvatarUsageSectionLayout from './_page/components/AvatarUsageSectionLayout.svelte';
-  import ConnectedListItem from './_page/components/ConnectedListItem.svelte';
 
   export let data: PageData;
 
@@ -37,34 +37,34 @@
     isolation or together to form a chain that will resolve to the first available source.
   </p>
 
-  <div class="not-prose pl-4">
-    <ul class="rc">
-      <ConnectedListItem number={1}>
+  <div class="pl-4">
+    <ConnectedList>
+      <ConnectedListItem>
         <p class="mb-4">
           <code>src</code> prop - highest priority, most helpful when used together with others
         </p>
       </ConnectedListItem>
-      <ConnectedListItem number={2}>
+      <ConnectedListItem>
         <p class="mb-4">
           <code>gravatar</code> prop - <ResourceLink key="Gravatar" class="c-link-primary" />
         </p>
       </ConnectedListItem>
-      <ConnectedListItem number={3}>
+      <ConnectedListItem>
         <p class="mb-4">
           <code>uiAvatar</code> prop - <ResourceLink key="UI Avatar" class="c-link-primary" />
         </p>
       </ConnectedListItem>
-      <ConnectedListItem number={4}>
+      <ConnectedListItem>
         <p class="mb-4"><code>fallback</code> prop - custom fallback</p>
       </ConnectedListItem>
-      <ConnectedListItem number={5}>
+      <ConnectedListItem>
         <p>
           <ResourceLink href="https://www.gravatar.com/avatar?d=mp" class="c-link-primary"
             >internal fallback</ResourceLink
           >, last resort
         </p>
       </ConnectedListItem>
-    </ul>
+    </ConnectedList>
   </div>
 
   <p>For example:</p>

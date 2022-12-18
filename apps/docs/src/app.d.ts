@@ -47,3 +47,5 @@ declare namespace svelteHTML {
     'data-toc-id'?: string;
   }
 }
+
+declare module '*.svelte';
