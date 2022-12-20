@@ -15,7 +15,7 @@
 </p>
 
 <section>
-  <h2 data-toc-strategy="self">Packages</h2>
+  <h2>Packages</h2>
   <p>
     <code>@svelte-put</code> includes several packages with self-managed release cycles, listed below.
     Check out their corresponding documentation page for more details.

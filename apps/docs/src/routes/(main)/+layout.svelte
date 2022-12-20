@@ -1,7 +1,6 @@
 <script lang="ts">
   import { clickoutside } from '@svelte-put/clickoutside';
-  import { toc } from '@svelte-put/toc';
-  import type { TocEventDetails } from '@svelte-put/toc';
+  import { toc, createTocStore } from '@svelte-put/toc';
   import gruvboxDark from 'svelte-highlight/styles/gruvbox-dark-soft';
   import gruvboxLight from 'svelte-highlight/styles/gruvbox-light-soft';
   import { cubicOut } from 'svelte/easing';
@@ -83,152 +82,19 @@
     rightSidebarTogglerClick++;
   }
 
-  let tocItems: { level: string; text: string; id: string }[] = [];
-  let activeTocId = '';
-  let intersectEnabled = true;
+  let tocChangePaused = false;
+  let activeTocId: string;
+  const tocStore = createTocStore();
+  $: if (!tocChangePaused) activeTocId = $tocStore.activeItem?.id ?? '';
+
   let intersectResetTimeoutId: ReturnType<typeof setTimeout>;
   function handleTocItemClick(id: string) {
     clearTimeout(intersectResetTimeoutId);
     activeTocId = id;
-    intersectEnabled = false;
+    tocChangePaused = true;
     intersectResetTimeoutId = setTimeout(() => {
-      intersectEnabled = true;
+      tocChangePaused = false;
     }, 800);
-  }
-  // const stateMap: Record<string, { y: number; isInView: boolean }> = {};
-  function onToc(e: CustomEvent<TocEventDetails>) {
-    // FIXME: should refactor here once @svelte-put/toc is refactored to support these by default
-
-    // // eslint-disable-next-line no-undef
-    // const scrollingDownCallback: IntersectionObserverCallback = (entries) => {
-    //   let newActiveTocId = '';
-    //   for (const entry of entries) {
-    //     const id = entry.target.id;
-    //     const y = entry.boundingClientRect.y;
-
-    //     const previousY = stateMap[id]?.y;
-    //     stateMap[id] = { y, isInView: entry.isIntersecting };
-
-    //     if (previousY) {
-    //       if (y < previousY) {
-    //         // scrolling down
-    //         if (entry.isIntersecting) {
-    //           // entering
-    //         } else {
-    //           // leaving
-    //           if (!newActiveTocId) newActiveTocId = id;
-    //         }
-    //       }
-    //     } else {
-    //       if (entry.isIntersecting && !newActiveTocId) newActiveTocId = id;
-    //     }
-    //   }
-    //   if (newActiveTocId) {
-    //     activeTocId = newActiveTocId;
-    //   }
-    // };
-    // const scrollingDownObserver = new IntersectionObserver(scrollingDownCallback, {
-    //   rootMargin: '-100px 0px 0px 0px',
-    // });
-
-    // // eslint-disable-next-line no-undef
-    // const scrollingUpCallback: IntersectionObserverCallback = (entries) => {
-    //   let newActiveTocId = '';
-    //   for (const entry of entries) {
-    //     const id = entry.target.id;
-    //     const y = entry.boundingClientRect.y;
-
-    //     const previousY = stateMap[id]?.y;
-    //     stateMap[id] = { y, isInView: entry.isIntersecting };
-
-    //     if (previousY) {
-    //       if (y > previousY) {
-    //         // scrolling up
-    //         if (entry.isIntersecting) {
-    //           // entering
-    //           if (!newActiveTocId) newActiveTocId = id;
-    //         } else {
-    //           // leaving
-    //         }
-    //       }
-    //     } else {
-    //       if (entry.isIntersecting && !newActiveTocId) newActiveTocId = id;
-    //     }
-    //   }
-    //   if (newActiveTocId) {
-    //     activeTocId = newActiveTocId;
-    //   }
-    // };
-    // const scrollingUpObserver = new IntersectionObserver(scrollingUpCallback, {
-    //   rootMargin: '100px 0px 0px 0px',
-    // });
-
-    // eslint-disable-next-line no-undef
-    const callback: IntersectionObserverCallback = (entries) => {
-      for (const entry of entries) {
-        const tocId = entry.target.getAttribute('data-toc-id');
-        if (entry.isIntersecting && intersectEnabled && tocId) {
-          activeTocId = tocId;
-        }
-      }
-    };
-    const items = [];
-    for (const item of e.detail.items) {
-      let tocId = item.id;
-      if (item.element.tagName.toLowerCase() !== 'h1') {
-        let text = item.text;
-        if (text.startsWith('#')) {
-          text = text.slice(1);
-        }
-        // scrollingDownObserver.observe(item.element);
-        // scrollingUpObserver.observe(item.element);
-        // observer.observe(item.element);
-        // see app.d.ts for all these extra data attributes
-        if (!item.element.hasAttribute('data-toc-disabled')) {
-          type TocStrategy = 'parent' | 'self';
-          // TODO: add a `auto` strategy
-          // where if the next toc item is very close, use self, otherwise, use parent?
-          // remember to remove all the `data-toc-strategy="self"` when this is done
-          const tocStrategy = (item.element.getAttribute('data-toc-strategy') ??
-            'parent') as TocStrategy;
-          let tocNode: HTMLElement;
-          switch (tocStrategy) {
-            case 'self':
-              tocNode = item.element;
-              break;
-            case 'parent':
-            default:
-              tocNode = item.element.parentElement ?? item.element;
-              break;
-          }
-
-          const dataTocId = tocNode.getAttribute('data-toc-id');
-          if (dataTocId) {
-            tocId = dataTocId;
-          } else {
-            tocNode.setAttribute('data-toc-id', tocId);
-          }
-
-          let threshold = Math.min((0.8 * window.innerHeight) / tocNode.offsetHeight, 1);
-          const customThreshold = tocNode.getAttribute('data-toc-threshold');
-          try {
-            if (customThreshold) threshold = Math.min(parseInt(customThreshold, 10), 1);
-          } catch (e) {
-            //
-          }
-
-          const observer = new IntersectionObserver(callback, { threshold });
-          observer.observe(tocNode);
-        }
-
-        items.push({
-          id: tocId,
-          level: item.element.tagName[1],
-          text,
-        });
-      }
-    }
-    tocItems = items;
   }
 
   $: rColorScheme =
@@ -348,15 +214,17 @@
       </nav>
     {/key}
     {#if leftSidebarOpen}
-      <!-- svelte-ignore a11y-click-events-have-key-events -->
       <div class="sidebar-backdrop" transition:fade|local={{ duration: 150 }} />
     {/if}
 
     {#key data.pathname}
       <main
         class="prose flex-1 dark:prose-invert"
-        use:toc={{ anchored: false, indicator: false }}
-        on:toc={onToc}
+        use:toc={{
+          store: tocStore,
+          selector: ':where(h2, h3, h4, h5, h6)',
+          observe: true,
+        }}
       >
         <slot />
       </main>
@@ -372,10 +240,11 @@
         aria-label="Table of Contents"
       >
         <div class="sidebar-content text-sm">
-          {#if tocItems.length}
+          {#if Object.values($tocStore.items).length}
             <p class="py-2 font-bold uppercase">On This Page</p>
             <ul class="space-y-1 border-l border-border">
-              {#each tocItems as { id, text, level }}
+              {#each Object.values($tocStore.items) as { id, text, element }}
+                {@const level = element.tagName.slice(1)}
                 {@const current = id === activeTocId}
                 <li>
                   <a

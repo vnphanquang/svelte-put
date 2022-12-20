@@ -1,28 +1,16 @@
 {
   "name": "@svelte-put/toc",
   "version": "1.0.8",
-  "description": "Action & component for building table of contents",
+  "description": "Action & utilities for building table of contents",
   "type": "module",
   "svelte": "./lib/index.js",
   "main": "./lib/index.js",
   "module": "./lib/index.js",
   "exports": {
     "./package.json": "./package.json",
-    "./Toc.svelte": "./lib/component/Toc.svelte",
-    "./toc": "./lib/action/index.js",
     ".": "./lib/index.js"
   },
   "types": "lib/index.d.ts",
-  "typesVersions": {
-    "*": {
-      "toc": [
-        "./lib/action/index.d.ts"
-      ],
-      "Toc.svelte": [
-        "./lib/component/Toc.svelte.d.ts"
-      ]
-    }
-  },
   "publishConfig": {
     "access": "public"
   },
@@ -59,7 +47,12 @@
     "table of contents",
     "table",
     "content",
-    "component"
+    "utility",
+    "store",
+    "intersection observer",
+    "intersection",
+    "observer",
+    "anchor"
   ],
   "author": "Quang Phan",
   "license": "MIT",
@@ -85,6 +78,6 @@
     "vite": "^4.0.4"
   },
   "peerDependencies": {
-    "svelte": "^3.2.0"
+    "svelte": "^3.55.0"
   }
 }

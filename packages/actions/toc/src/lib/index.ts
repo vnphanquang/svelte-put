@@ -1,10 +1,13 @@
 // Copyright (c) Quang Phan. All rights reserved. Licensed under the MIT license.
 
 /**
- * Svelte action `use:toc` and component `<Toc>` for building table of contents
+ * Svelte action `use:toc` for building table of contents
  *
  * @packageDocumentation
  */
 
-export * from './action';
-export * from './component';
+export * from './toc.action';
+export { DEFAULT_TOC_PARAMETERS } from './toc.parameters';
+export * from './toc.types';
+export * from './toc.utils';
+export * from './toc.store';
