@@ -1,11 +1,14 @@
 <script lang="ts">
   import ActionUsageNotice from '$client/components/ActionUsageNotice/ActionUsageNotice.svelte';
   import ApiReference from '$client/components/ApiReference/ApiReference.svelte';
+  import ApiUnitReference from '$client/components/ApiUnitReference/ApiUnitReference.svelte';
+  import Code from '$client/components/Code/Code.svelte';
   import { ConnectedList, ConnectedListItem } from '$client/components/ConnectedList';
   import Installation from '$client/components/Installation/Installation.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
 
   import type { PageData } from './$types';
+  import { codes } from './_page/codes';
 
   export let data: PageData;
 </script>
@@ -15,11 +18,11 @@
 <section>
   <h2>Introduction</h2>
   <p>
-    <code>@svelte-put/toc</code> operates at <strong>runtime</strong> and will do the following:
+    <code>@svelte-put/toc</code> operates at <strong>runtime</strong> and does the following:
   </p>
   <ConnectedList class="pl-4">
     <ConnectedListItem>
-      <p>search for matching elements (heading elements by default),</p>
+      <p>search for matching elements (default: <code>:where(h1, h2, h3, h4, h5, h6)</code>),</p>
     </ConnectedListItem>
     <ConnectedListItem>
       <p>
@@ -27,7 +30,7 @@
       </p>
     </ConnectedListItem>
     <ConnectedListItem>
-      <p>adding anchor tag to element,</p>
+      <p>add anchor tag to element,</p>
     </ConnectedListItem>
     <ConnectedListItem>
       <p>
@@ -36,11 +39,13 @@
       </p>
     </ConnectedListItem>
     <ConnectedListItem>
-      <p>provide svelte action, component, and utilities for building table of contents.</p>
+      <p>
+        expose necessary pieces (action, component, and utilities) for building table of contents.
+      </p>
     </ConnectedListItem>
   </ConnectedList>
   <p>
-    It is recommended to use <ResourceLink key="@svelte-put/preprocess-auto-slug" /> for handling
+    It is recommended to use the complementary <ResourceLink key="@svelte-put/preprocess-auto-slug" /> for handling
     <span class="c-circle-number-primary">2</span>
     and
     <span class="c-circle-number-primary">3</span> at <strong>build time</strong>.
@@ -53,61 +58,60 @@
       href="https://itnext.io/1v1-scroll-listener-vs-intersection-observers-469a26ab9eb6"
     >
       this article
-    </ResourceLink> for performance comparison of <code>on:scroll</code> vs
+    </ResourceLink> for a performance comparison between <code>on:scroll</code> vs
     <code>IntersectionObserver</code>.
   </p>
 </section>
 
 <section>
-  <h2>Quick Start</h2>
+  <h2 id="quick-start">Quick Start</h2>
+  <p>Given the following svelte component and the default <code>toc</code> config</p>
+  <Code code={codes.quickStart.input} title="quick start - input" />
+  <p>Matching elements will be transformed after page load into</p>
+  <Code code={codes.quickStart.output} title="quick start - output" />
 </section>
 
 <section>
   <h2>Toc Action</h2>
 
+  <p>
+    <code>use:toc</code> will search for matching elements only from descendants of the element
+    where it is used. In the <ResourceLink id="quick-start">Quick Start</ResourceLink> example, that's the <code>main</code> element. To search
+    from everything on the page, use <code>svelte:body</code>.
+    <!-- add prop online:boolean to the Code component that renders a minimal box -->
+    <Code code={`<svelte:body use:toc />`} />
+  </p>
+
   <ActionUsageNotice action={data.package.id}>
     <h3 slot="heading" let:heading>{heading}</h3>
   </ActionUsageNotice>
+
+  <section>
+    <h3>Configuration</h3>
+    <p>The following configuration (all optional) can be specified as action parameters.</p>
+    <ApiUnitReference type="'parent' | 'self' | 'auto'" d="'auto'">
+      <h4 slot="name"><code>strategy</code></h4>
+      The default<code>strategy</code> for this run, can be overridden for each matching element
+      using the <code>data-toc-strategy</code> attribute.
+    </ApiUnitReference>
+    <ApiUnitReference type="number" d="undefined">
+      <h4 slot="name"><code>scrollMarginTop</code></h4>
+      css<code>scroll-margin-top</code> - if provided will be applied to matching elements as inline
+      style.
+    </ApiUnitReference>
+  </section>
 </section>
 
 <section>
   <h2>Toc Data Attributes</h2>
 
-  <section>
-    <h3><code>data-toc-strategy</code></h3>
-    <div class="pl-6 prose-p:m-0">
-      <p>
-        <strong>Type</strong>: <code>'parent' | 'self' | 'auto'</code>
-      </p>
-      <p>
-        <strong>Default</strong>: <code>'auto'</code>
-      </p>
-    </div>
-  </section>
+  <ApiUnitReference name="data-toc-strategy" type="'parent' | 'self' | 'auto'" d="'auto'">
+    Override the <code>strategy</code> for this element
+  </ApiUnitReference>
 
-  <section>
-    <h3><code>data-toc-disabled</code></h3>
-    <div class="pl-6 prose-p:m-0">
-      <p>
-        <strong>Type</strong>: <code>boolean</code>
-      </p>
-      <p>
-        <strong>Default</strong>: <code>false</code>
-      </p>
-    </div>
-  </section>
+  <ApiUnitReference name="data-toc-ignore" type="boolean" d="false" />
 
-  <section>
-    <h3><code>data-toc-id</code></h3>
-    <div class="pl-6 prose-p:m-0">
-      <p>
-        <strong>Type</strong>: <code>string</code>
-      </p>
-      <p>
-        <strong>Default</strong>: <code>''</code>
-      </p>
-    </div>
-  </section>
+  <ApiUnitReference name="data-toc-id" type="string" d="undefined" />
 </section>
 
 <section>

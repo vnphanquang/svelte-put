@@ -1,5 +1,6 @@
 <script lang="ts">
   import Code from '$client/components/Code/Code.svelte';
+  import { ConnectedList, ConnectedListItem } from '$client/components/ConnectedList';
   import Installation from '$client/components/Installation/Installation.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
   import suspiciousLinksImg from '$shared/assets/images/suspicious-links.webp';
@@ -11,15 +12,38 @@
 </script>
 
 <section>
-  <h2>Acknowledgement</h2>
+  <h2>Introduction</h2>
   <p>
     This package is heavily inspired by
     <ResourceLink href="https://github.com/rehypejs/rehype-slug">rehype-slug</ResourceLink>
     and
     <ResourceLink href="https://github.com/rehypejs/rehype-autolink-headings">
       rehype-autolink-headings
-    </ResourceLink>.
+    </ResourceLink>. If you are already using
+    <ResourceLink key="MDsveX" /> with some other <code>rehype</code> plugins,
+    <code>rehype-slug</code>
+    and <code>rehype-autolink-headings</code> should already work well.
   </p>
+  <p>
+    <code>preprocess-auto-slug</code> operates at <strong>build time</strong> and does the following:
+  </p>
+  <ConnectedList>
+    <ConnectedListItem>
+      <p>Search for matching elements (heading elements by default),</p>
+    </ConnectedListItem>
+    <ConnectedListItem>
+      <p>Generate <code>id</code> attributes from element content,</p>
+    </ConnectedListItem>
+    <ConnectedListItem>
+      <p>add anchor tag to element.</p>
+    </ConnectedListItem>
+  </ConnectedList>
+  <p>
+    <code>preprocess-auto-slug</code> alone is not that interesting. When coupled with
+    <ResourceLink key="@svelte-put/toc" /> (<strong>runtime</strong> logics), however, it provides a
+    minimal & efficient solution for generating table of contents.
+  </p>
+  <p />
 </section>
 
 <Installation pkg={data.package.name} />

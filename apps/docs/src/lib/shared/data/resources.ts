@@ -21,6 +21,7 @@ export const resources = {
   IntersectionObserver:
     'https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver',
   CustomEvent: 'https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent',
+  MDsveX: 'https://github.com/pngwn/MDsveX',
   ...pkgToPath,
 } as const;
 
