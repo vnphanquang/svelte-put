@@ -76,7 +76,9 @@
     position: absolute;
     backside-visibility: inherit;
 
-    @apply border-2 border-inherit bg-svelte;
+    border-width: theme(borderWidth.2);
+    border-color: inherit;
+    background-color: theme(backgroundColor.svelte);
   }
 
   .box-side.box-side--front,
@@ -128,10 +130,19 @@
   }
 
   .box-side-front-em-top {
-    @apply absolute top-0 left-1/2 h-1/4 w-1/3 -translate-x-1/2 border-2 border-t-0 border-inherit;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 25%;
+    width: 33.333333%;
+    transform: translateX(-50%);
+    border-width: theme(borderWidth.2);
+    border-top-width: 0;
+    border-color: inherit;
   }
   .box-side-front-em-right {
-    @apply absolute bg-svelte;
+    position: absolute;
+    background-color: theme(backgroundColor.svelte);
     width: 8px;
     height: 10px;
     right: 0px;
@@ -141,7 +152,11 @@
 
   .box-side-top-left,
   .box-side-top-right {
-    @apply absolute inset-y-0 border-2 border-inherit bg-svelte;
+    position: absolute;
+    inset: 0 auto;
+    border-width: theme(borderWidth.2);
+    border-color: inherit;
+    background-color: theme(backgroundColor.svelte);
     transition-property: transform;
     transition-duration: 200ms;
     transition-timing-function: ease-out;

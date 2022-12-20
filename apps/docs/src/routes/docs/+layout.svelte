@@ -444,41 +444,88 @@
 
 <style lang="postcss">
   .sidebar {
-    @apply w-sidebar shrink-0 border-border text-sm;
+    width: theme(spacing.sidebar);
+    flex-shrink: 0;
+    border-color: theme(borderColor.border);
+    font-size: theme(fontSize.sm);
 
     & .sidebar-content {
-      @apply sticky top-header pt-10;
+      position: sticky;
+      top: theme(spacing.header);
+      padding-top: theme(spacing.10);
     }
   }
   .sidebar--left {
-    @apply border-r max-lg:left-0;
-    @apply max-lg:fixed max-lg:top-0 max-lg:bottom-0;
-    @apply max-lg:z-sidebar max-lg:justify-center max-lg:bg-bg max-lg:shadow-lg;
-    @apply max-lg:hidden max-lg:data-open:flex;
+    @media (max-width: theme(screens.lg)) {
+      position: fixed;
+      border-right: theme(borderWidth.DEFAULT);
+      left: 0;
+      top: 0;
+      bottom: 0;
+      z-index: theme(zIndex.sidebar);
+      background-color: theme(backgroundColor.bg.DEFAULT);
+      box-shadow: theme(boxShadow.lg);
+      display: none;
+      justify-content: center;
+
+      &[data-open='true'] {
+        display: flex;
+      }
+    }
   }
+
   .sidebar-backdrop {
-    @apply fixed inset-0 bg-black/20 backdrop-blur-[1px] lg:hidden;
+    position: fixed;
+    inset: 0;
+    display: hidden;
+    background-color: theme(backgroundColor.black / 20%);
+    backdrop-filter: blur(1px);
     z-index: calc(theme(zIndex.sidebar) - 1);
+
+    @screen lg {
+      display: none;
+    }
   }
 
   .sidebar--right {
-    @apply max-xl:right-0;
-    @apply max-xl:fixed max-xl:top-header;
-    @apply max-xl:z-sidebar max-xl:justify-center max-xl:rounded-b max-xl:bg-bg max-xl:shadow-lg;
-    @apply max-xl:hidden max-xl:data-open:flex;
+    @media (max-width: theme(screens.xl)) {
+      width: auto;
+      max-width: 80vw;
+      padding: theme(spacing.4);
+      position: fixed;
+      right: 0;
+      top: theme(spacing.header);
+      z-index: theme(zIndex.sidebar);
+      border-bottom-left-radius: theme(borderRadius.DEFAULT);
+      border-bottom-right-radius: theme(borderRadius.DEFAULT);
+      background-color: theme(backgroundColor.bg.DEFAULT);
+      box-shadow: theme(boxShadow.lg);
+      display: none;
+      justify-content: center;
 
-    & .sidebar-content {
-      @apply max-xl:p-4;
+      &[data-open='true'] {
+        display: flex;
+      }
+
+      & .sidebar-content {
+        padding: theme(spacing.4);
+      }
     }
   }
 
   main {
-    @apply pb-20 pt-10 lg:px-10 xl:px-14;
+    padding-bottom: theme(spacing.20);
+    padding-top: theme(spacing.10);
     max-width: 100%;
-    @media screen(lg) {
+
+    @screen lg {
+      padding-left: theme(spacing.10);
+      padding-right: theme(spacing.10);
       max-width: calc(100% - var(--sidebar-width));
     }
-    @media screen(xl) {
+    @screen xl {
+      padding-left: theme(spacing.14);
+      padding-right: theme(spacing.14);
       max-width: calc(100% - var(--sidebar-width) * 2);
     }
   }

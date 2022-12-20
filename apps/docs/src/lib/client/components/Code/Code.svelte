@@ -147,12 +147,15 @@
 
 <style lang="postcss">
   :global(pre:not(#fakeId)) {
-    @apply m-0 rounded-none p-0;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
   }
   :global(pre:not(#fakeId)::after) {
-    @apply p-4;
+    padding: theme(spacing.4);
   }
   :global(pre:not(#fakeId) code) {
-    @apply p-6 font-fira;
+    padding: theme(spacing.6);
+    font-family: theme(fontFamily.fira);
   }
 </style>
