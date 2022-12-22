@@ -2,17 +2,13 @@ const path = require('path');
 
 const postcss = require('postcss');
 
+/** @type {import('postcss-load-config').Config} */
 module.exports = {
   plugins: {
-    'postcss-import': {
-      resolve(id, basedir) {
-        if (id.startsWith('$')) {
-          return path.resolve(__dirname, 'src/lib/ui/styles/', id.slice(1));
-        }
-        return path.resolve(basedir, id);
-      },
-    },
+    'postcss-import': {},
+    /** @type {import('postcss-mixins').Options} */
     'postcss-mixins': {
+      mixinsDir: path.resolve(__dirname, './src/lib/client/styles/mixins'),
       mixins: {
         /**
          * @example
