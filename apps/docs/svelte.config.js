@@ -18,7 +18,6 @@ const config = {
     })),
     vitePreprocess(),
   ],
-
   kit: {
     adapter: adapter(),
     alias: {
@@ -26,6 +25,16 @@ const config = {
       $client: 'src/lib/client',
       $server: 'src/lib/server',
       $shared: 'src/lib/shared',
+    },
+  },
+  vitePlugin: {
+    experimental: {
+      inspector: {
+        toggleKeyCombo: 'control-shift',
+        holdMode: true,
+        showToggleButton: 'always',
+        toggleButtonPos: 'bottom-left',
+      },
     },
   },
 };
