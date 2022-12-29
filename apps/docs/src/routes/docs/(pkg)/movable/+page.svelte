@@ -130,6 +130,9 @@
 
 <section>
   <h2>Ignore Children Nodes from Triggering <code>movable</code> on Click</h2>
+  <p class="c-callout">
+    Prefer <code>handle</code> in favor of <code>ignore</code> when possible for better predictability.
+  </p>
   <p>
     The <code>ignore</code> parameter takes one or more CSS selector strings and will exclude
     matching children of <code>handle</code> from trigger <code>movable</code>.
