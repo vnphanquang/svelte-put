@@ -27,7 +27,7 @@
 <section>
   <h2>Quick Start</h2>
   <Code code={codes.quickStart} title="quick start" />
-  <fieldset class="not-prose grid place-items-center border-2 border-violet-500 p-4">
+  <fieldset class="not-prose grid place-items-center space-y-4 border-2 border-violet-500 p-4">
     <legend>Example</legend>
     <p class="text-center">Box below can be moved around</p>
     <QuickStart />
@@ -64,7 +64,7 @@
       <code>'screen'</code>
     </p>
     <Code code={codes.limit.screen.instruction} title="limit to viewport" />
-    <div class="not-prose grid place-items-center border-2 border-violet-500 p-4">
+    <div class="not-prose grid place-items-center space-y-4 border-2 border-violet-500 p-4">
       <p class="text-center">Box below can be moved around, but only within viewport</p>
       <LimitScreen />
     </div>
@@ -121,7 +121,7 @@
     be set to another <code>HTMLElement</code> with the <code>handle</code> parameter.
   </p>
   <Code code={codes.handle.instruction} title="custom handle" />
-  <div class="not-prose grid place-items-center border-2 border-violet-500 p-4">
+  <div class="not-prose grid place-items-center space-y-4 border-2 border-violet-500 p-4">
     <p class="text-center">Move blue box by dragging the green box</p>
     <Handle />
   </div>
@@ -135,7 +135,7 @@
     matching children of <code>handle</code> from trigger <code>movable</code>.
   </p>
   <Code code={codes.ignore.instruction} title="ignore" />
-  <div class="not-prose grid place-items-center border-2 border-violet-500 p-4">
+  <div class="not-prose grid place-items-center space-y-4 border-2 border-violet-500 p-4">
     <p class="text-center">
       <code>mousedown</code> on red box will not trigger <code>movable</code>
     </p>
