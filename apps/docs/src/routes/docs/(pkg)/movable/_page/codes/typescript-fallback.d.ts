@@ -1,13 +1,13 @@
 /// <reference types="svelte" />
 
-declare namespace svelte.JSX {
+declare namespace svelteHTML {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface HTMLAttributes<T> {
-    // on:movablestart
-    onmovablestart?: (
+    'on:movablestart'?: (
       event: CustomEvent<import('@svelte-put/movable').MovableEventDetails>,
     ) => void;
-    // on:movableend
-    onmovableend?: (event: CustomEvent<import('@svelte-put/movable').MovableEventDetails>) => void;
+    'on:movableend'?: (
+      event: CustomEvent<import('@svelte-put/movable').MovableEventDetails>,
+    ) => void;
   }
 }

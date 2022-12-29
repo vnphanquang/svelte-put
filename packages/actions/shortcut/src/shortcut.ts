@@ -8,7 +8,7 @@ import type {
 // ambient typing
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
-  export namespace svelte.JSX {
+  export namespace svelteHTML {
     // eslint-disable-next-line @typescript-eslint/no-empty-interface
     export interface HTMLAttributes extends ShortcutAttributes {}
   }

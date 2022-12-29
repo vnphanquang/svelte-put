@@ -19,7 +19,7 @@
  * ```
  */
 export interface ClickOutsideAttributes {
-  onclickoutside?: (event: CustomEvent<Event>) => void; // on:clickoutside
+  'on:clickoutside'?: (event: CustomEvent<Event>) => void;
 }
 
 /**

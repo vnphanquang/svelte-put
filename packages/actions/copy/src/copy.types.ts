@@ -75,5 +75,5 @@ export interface CopyDetail {
  * ```
  */
 export interface CopyAttributes {
-  oncopy?: (event: CustomEvent<CopyDetail>) => void; // on:copy
+  'on:copy'?: (event: CustomEvent<CopyDetail>) => void;
 }

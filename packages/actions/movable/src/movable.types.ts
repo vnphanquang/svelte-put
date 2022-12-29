@@ -20,8 +20,8 @@
  * ```
  */
 export interface MovableAttributes {
-  onmovablestart?: (event: CustomEvent<MovableEventDetails>) => void; // on:movablestart
-  onmovableend?: (event: CustomEvent<MovableEventDetails>) => void; // on:movableend
+  'on:movablestart'?: (event: CustomEvent<MovableEventDetails>) => void;
+  'on:movableend'?: (event: CustomEvent<MovableEventDetails>) => void;
 }
 
 /**

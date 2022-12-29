@@ -10,7 +10,7 @@ declare namespace App {
   // interface Stuff {}
 }
 
-declare namespace svelte.JSX {
+declare namespace svelteHTML {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   type EventHandler<E = Event, T = HTMLElement> = (event: E & { target: EventTarget & T }) => any;
 

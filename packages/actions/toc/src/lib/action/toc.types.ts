@@ -19,7 +19,7 @@
  * ```
  */
 export interface TocAttributes {
-  ontoc?: (event: CustomEvent<TocEventDetails>) => void; // on:toc
+  'on:toc'?: (event: CustomEvent<TocEventDetails>) => void;
 }
 
 /**

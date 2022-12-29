@@ -7,7 +7,7 @@
  * whenever `svelte-put/shorcut` is imported.
  */
 export interface ShortcutAttributes {
-  onshortcut?: (event: CustomEvent<ShortcutEventDetails>) => void; // on:shortcut
+  'on:shortcut'?: (event: CustomEvent<ShortcutEventDetails>) => void;
 }
 
 /**

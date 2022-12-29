@@ -20,8 +20,8 @@
  * ```
  */
 export interface IntersectAttributes {
-  onintersect?: (event: CustomEvent<IntersectDetail>) => void; // on:intersect
-  onintersectonce?: (event: CustomEvent<IntersectDetail>) => void; // on:intersectonce
+  'on:intersect'?: (event: CustomEvent<IntersectDetail>) => void;
+  'on:intersectonce'?: (event: CustomEvent<IntersectDetail>) => void;
 }
 
 /**

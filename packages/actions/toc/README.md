@@ -57,7 +57,7 @@ This package rely on svelte action strategy and attempts to stay minimal. If you
 The `use:toc` action will search for all matching DOM elements and
 transform them to support hash navigation (anchor element with id attribute).
 By default, all heading elements are collected. You can customize the behavior
-with the action parameters [TocParameters][github.api.TocParameters]
+with the action parameters [TocParameters][github.api.tocparameters]
 
 <details open>
   <summary>Show / hide</summary>
@@ -77,12 +77,13 @@ with the action parameters [TocParameters][github.api.TocParameters]
   }
 </script>
 
-<svelte:body use:toc on:toc={onToc} />
+<svelte:body use:toc on:toc="{onToc}" />
 
 <h1>Heading</h1>
 <h2 id="manual-id">Some other content</h2>
-<h2>Content without explicit id will be slugified into an id with maximum length of 50 characters</h2>
-
+<h2>
+  Content without explicit id will be slugified into an id with maximum length of 50 characters
+</h2>
 ```
 
 </details>
@@ -94,13 +95,7 @@ After `toc` has completed its execution, the HTML in example above will be trans
 
 ```html
 <h1 class="toc-element" style="position: relative;">
-  <a
-    class="toc-anchor"
-    href="#heading"
-    style="position: relative;"
-  >
-    Heading
-  </a>
+  <a class="toc-anchor" href="#heading" style="position: relative;"> Heading </a>
   <p
     class="toc-p"
     id="note"
@@ -109,13 +104,7 @@ After `toc` has completed its execution, the HTML in example above will be trans
 </h1>
 
 <h2 class="toc-element" style="position: relative;">
-  <a
-    class="toc-anchor"
-    href="#manual-id"
-    style="position: relative;"
-  >
-    Some other content
-  </a>
+  <a class="toc-anchor" href="#manual-id" style="position: relative;"> Some other content </a>
   <p
     class="toc-p"
     id="note"
@@ -144,9 +133,9 @@ After `toc` has completed its execution, the HTML in example above will be trans
 ### Component
 
 The exported `Toc` component internally uses `<svelte:body use:toc />`; customization can be done by
-providing [TocParameters][github.api.TocParameters] through the `parameters` prop.
+providing [TocParameters][github.api.tocparameters] through the `parameters` prop.
 
-The component will print out a simple `ul` with some default margin for `li` depending on the heading level. For a simple blog post, this should be enough. For more complex use cases, you can override one of [TocSlots][github.api.TocSlots].
+The component will print out a simple `ul` with some default margin for `li` depending on the heading level. For a simple blog post, this should be enough. For more complex use cases, you can override one of [TocSlots][github.api.tocslots].
 
 If the component interface does not provide enough customization flexibility for you, consider open an [issue][github.issues] to discuss or use the `use:toc` action interface instead.
 
@@ -176,7 +165,7 @@ The HTML generated will look similar to
 <details open>
   <summary>Show / hide</summary>
 
-```html
+````html
 <ul class="toc-ul">
   <li class="toc-li toc-li--h1">
     <a class="custom-anchor-tag" href="#heading">
@@ -211,7 +200,7 @@ And the CSS for this list is
 .toc-li.toc-li--h2 {
   margin-left: 1rem;
 }
-```
+````
 
 </details>
 
@@ -225,15 +214,12 @@ Ambient types for custom events should be available automatically where `toc` is
   <summary> show / hide </summary>
 
 ```html
- <script lang="ts">
-    import { toc } from '@svelte-put/toc';
- </script>
+<script lang="ts">
+  import { toc } from '@svelte-put/toc';
+</script>
 
- <!-- on:toc should be typed -->
- <div
-    use:toc
-    on:toc
- />
+<!-- on:toc should be typed -->
+<div use:toc on:toc />
 ```
 
 </details>
@@ -250,7 +236,7 @@ If the above is not working, fall back to this:
 // Typescript support in svelte-kit, see
 // https://github.com/sveltejs/language-tools/blob/master/docs/preprocessors/typescript.md#im-using-an-attributeevent-on-a-dom-element-and-it-throws-a-type-error
 
-declare namespace svelte.JSX {
+declare namespace svelteHTML {
   interface HTMLAttributes<T> {
     // on:toc
     ontoc?: (event: CustomEvent<import('@svelte-put/toc').TocEventDetails>) => void;
@@ -276,24 +262,28 @@ For detailed documentation, see the [extracted API][github.api].
 </p>
 
 <!-- github specifics -->
+
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
 [github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/toc/CHANGELOG.md
 [github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
 [github.api]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/toc/api/docs/index.md
-[github.api.TocProps]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/toc/api/docs/toc.tocprops.md
-[github.api.TocSlots]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/toc/api/docs/toc.tocslots.md
-[github.api.TocParameters]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/toc/api/docs/toc.tocparameters.md
+[github.api.tocprops]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/toc/api/docs/toc.tocprops.md
+[github.api.tocslots]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/toc/api/docs/toc.tocslots.md
+[github.api.tocparameters]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/toc/api/docs/toc.tocparameters.md
 
 <!-- heading badge -->
+
 [npm.badge]: https://img.shields.io/npm/v/@svelte-put/toc
 [npm]: https://www.npmjs.com/package/@svelte-put/toc
 [bundlephobia.badge]: https://img.shields.io/bundlephobia/minzip/@svelte-put/toc?label=minzipped
 [bundlephobia]: https://bundlephobia.com/package/@svelte-put/toc
 
 <!-- external resources -->
+
 [svelte-toc]: https://github.com/janosh/svelte-toc
 [janosh]: https://github.com/janosh
 
 <!-- repl -->
+
 [repl]: https://svelte.dev/repl/0a68001337544b8ab55995fb3d02d1f6
 [repl.badge]: https://img.shields.io/static/v1?label=&message=Svelte+REPL&logo=svelte&logoColor=fff&color=ff3e00

@@ -10,7 +10,7 @@ declare namespace App {
   // interface Session {}
   // interface Stuff {}
 }
-declare namespace svelte.JSX {
+declare namespace svelteHTML {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface, @typescript-eslint/no-unused-vars
   interface HTMLAttributes {}
 }

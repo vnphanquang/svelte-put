@@ -17,9 +17,9 @@ import type {
 // ambient typing
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
-  export namespace svelte.JSX {
-    // eslint-disable-next-line @typescript-eslint/no-empty-interface, @typescript-eslint/no-unused-vars
-    export interface HTMLAttributes<T> extends TocAttributes {}
+  export namespace svelteHTML {
+    // eslint-disable-next-line @typescript-eslint/no-empty-interface
+    export interface HTMLAttributes extends TocAttributes {}
   }
 }
 
