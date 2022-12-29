@@ -1,6 +1,6 @@
 {
   "name": "@svelte-put/copy",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Svelte action & utilities for copying text to clipboard",
   "main": "lib/index.js",
   "module": "lib/index.js",
