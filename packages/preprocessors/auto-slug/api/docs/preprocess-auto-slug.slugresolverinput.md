@@ -9,13 +9,14 @@ information passed as parameter to slug resolver
 <b>Signature:</b>
 
 ```typescript
-interface SlugResolverInput
+interface SlugResolverInput 
 ```
 
 ## Properties
 
-| Property                                                           | Modifiers | Type       | Description                                                     |
-| ------------------------------------------------------------------ | --------- | ---------- | --------------------------------------------------------------- |
-| [generated](./preprocess-auto-slug.slugresolverinput.generated.md) |           | string     | generated slug, by default slug will resolve to this            |
-| [nodeText](./preprocess-auto-slug.slugresolverinput.nodetext.md)   |           | string     | text extracted from original node                               |
-| [slugger](./preprocess-auto-slug.slugresolverinput.slugger.md)     |           | BananaSlug | the [BananaSlug](https://github.com/Flet/github-slugger) object |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [generated](./preprocess-auto-slug.slugresolverinput.generated.md) |  | string | generated slug, by default slug will resolve to this |
+|  [nodeText](./preprocess-auto-slug.slugresolverinput.nodetext.md) |  | string | text extracted from original node |
+|  [slugger](./preprocess-auto-slug.slugresolverinput.slugger.md) |  | BananaSlug | the [BananaSlug](https://github.com/Flet/github-slugger) object |
+

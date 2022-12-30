@@ -9,7 +9,7 @@ Svelte image wrapper component for displaying avatar
 <b>Signature:</b>
 
 ```typescript
-export default class Avatar extends SvelteComponentTyped<AvatarProps, AvatarEvents, AvatarSlots>
+export default class Avatar extends SvelteComponentTyped<AvatarProps, AvatarEvents, AvatarSlots> 
 ```
-
 <b>Extends:</b> SvelteComponentTyped&lt;[AvatarProps](./avatar.avatarprops.md)<!-- -->, AvatarEvents, [AvatarSlots](./avatar.avatarslots.md)<!-- -->&gt;
+

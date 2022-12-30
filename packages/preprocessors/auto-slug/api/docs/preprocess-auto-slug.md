@@ -6,26 +6,27 @@
 
 ## Functions
 
-| Function                                              | Description                                                                                                                                                                                       |
-| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [autoSlug(input)](./preprocess-auto-slug.autoslug.md) | <p>create svelte preprocessor to generate slug from text content of matching tags</p><p>By default, it will search for all headings tag and add the generated slug to the tag's id attribute.</p> |
+|  Function | Description |
+|  --- | --- |
+|  [autoSlug(input)](./preprocess-auto-slug.autoslug.md) | <p>create svelte preprocessor to generate slug from text content of matching tags</p><p>By default, it will search for all headings tag and add the generated slug to the tag's id attribute.</p> |
 
 ## Interfaces
 
-| Interface                                                                | Description                                      |
-| ------------------------------------------------------------------------ | ------------------------------------------------ |
-| [AutoSlugAnchorOptions](./preprocess-auto-slug.autosluganchoroptions.md) | instructions for adding anchor tag               |
-| [AutoSlugOptions](./preprocess-auto-slug.autoslugoptions.md)             | options to config preprocess-auto-slug           |
-| [SlugResolverInput](./preprocess-auto-slug.slugresolverinput.md)         | information passed as parameter to slug resolver |
+|  Interface | Description |
+|  --- | --- |
+|  [AutoSlugAnchorOptions](./preprocess-auto-slug.autosluganchoroptions.md) | instructions for adding anchor tag |
+|  [AutoSlugOptions](./preprocess-auto-slug.autoslugoptions.md) | options to config preprocess-auto-slug |
+|  [SlugResolverInput](./preprocess-auto-slug.slugresolverinput.md) | information passed as parameter to slug resolver |
 
 ## Variables
 
-| Variable                                                                         | Description                   |
-| -------------------------------------------------------------------------------- | ----------------------------- |
-| [DEFAULT_AUTO_SLUG_OPTIONS](./preprocess-auto-slug.default_auto_slug_options.md) | default options for auto-slug |
+|  Variable | Description |
+|  --- | --- |
+|  [DEFAULT\_AUTO\_SLUG\_OPTIONS](./preprocess-auto-slug.default_auto_slug_options.md) | default options for auto-slug |
 
 ## Type Aliases
 
-| Type Alias                                               | Description                                                                                                                   |
-| -------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| [AutoSlugInput](./preprocess-auto-slug.autosluginput.md) | input to preprocessor. Either on object of options or a function that returns one (with the defaultOptions as its parameter). |
+|  Type Alias | Description |
+|  --- | --- |
+|  [AutoSlugInput](./preprocess-auto-slug.autosluginput.md) | input to preprocessor. Either on object of options or a function that returns one (with the defaultOptions as its parameter). |
+

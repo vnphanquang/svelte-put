@@ -8,21 +8,22 @@ svelte action - `use:movable` move node on mousedown
 
 ## Interfaces
 
-| Interface                                               | Description                                                                                                                                                       |
-| ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [MovableAttributes](./movable.movableattributes.md)     | Additional attributes extended from <code>svelte-put/intersect</code>                                                                                             |
-| [MovableEventDetails](./movable.movableeventdetails.md) | <code>detail</code> payload for <code>movableend</code> and <code>movablestart</code> [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) |
-| [MovableLimit](./movable.movablelimit.md)               | The limit within which node can be moved                                                                                                                          |
-| [MovableParameters](./movable.movableparameters.md)     | svelte action parameters to config behavior of <code>movable</code>                                                                                               |
+|  Interface | Description |
+|  --- | --- |
+|  [MovableAttributes](./movable.movableattributes.md) | Additional attributes extended from <code>svelte-put/intersect</code> |
+|  [MovableEventDetails](./movable.movableeventdetails.md) | <code>detail</code> payload for <code>movableend</code> and <code>movablestart</code> [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) |
+|  [MovableLimit](./movable.movablelimit.md) | The limit within which node can be moved |
+|  [MovableParameters](./movable.movableparameters.md) | svelte action parameters to config behavior of <code>movable</code> |
 
 ## Variables
 
-| Variable                        | Description                                                                   |
-| ------------------------------- | ----------------------------------------------------------------------------- |
-| [movable](./movable.movable.md) | Trigger node displacement on mousedown (via position.left &amp; position.top) |
+|  Variable | Description |
+|  --- | --- |
+|  [movable](./movable.movable.md) | Trigger node displacement on mousedown (via position.left &amp; position.top) |
 
 ## Type Aliases
 
-| Type Alias                                          | Description                                                                                 |
-| --------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| [MovableLimitDelta](./movable.movablelimitdelta.md) | Limit by creating a bounding box of movable area <code>[-delta, +delta]</code> in both axes |
+|  Type Alias | Description |
+|  --- | --- |
+|  [MovableLimitDelta](./movable.movablelimitdelta.md) | Limit by creating a bounding box of movable area <code>[-delta, +delta]</code> in both axes |
+

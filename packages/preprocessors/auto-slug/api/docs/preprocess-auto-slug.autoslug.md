@@ -16,12 +16,13 @@ declare function autoSlug(input?: AutoSlugInput): PreprocessorGroup;
 
 ## Parameters
 
-| Parameter | Type                                                     | Description       |
-| --------- | -------------------------------------------------------- | ----------------- |
-| input     | [AutoSlugInput](./preprocess-auto-slug.autosluginput.md) | <i>(Optional)</i> |
+|  Parameter | Type | Description |
+|  --- | --- | --- |
+|  input | [AutoSlugInput](./preprocess-auto-slug.autosluginput.md) | <i>(Optional)</i> |
 
 <b>Returns:</b>
 
 PreprocessorGroup
 
 svelte preprocessor interface
+

@@ -9,7 +9,7 @@ Dispatch a `clickoutside` [CustomEvent](https://developer.mozilla.org/en-US/docs
 <b>Signature:</b>
 
 ```typescript
-clickoutside: Action<HTMLElement, Partial<ClickOutsideParameters>, ClickOutsideAttributes>;
+clickoutside: Action<HTMLElement, Partial<ClickOutsideParameters>, ClickOutsideAttributes>
 ```
 
 ## Remarks
@@ -18,10 +18,10 @@ As with any svelte action, `clickoutside` should be use with element and not com
 
 ```html
 <-- correct usage-->
-<div use:clickoutside />
+ <div use:clickoutside />
 
 <-- incorrect usage-->
-<Component use:clickoutside />
+<Component use:clickoutside/>
 ```
 
 ## Example
@@ -60,3 +60,4 @@ Typical usage to close a modal / overlay when backdrop is clicked on
  {/if}
 </section
 ```
+

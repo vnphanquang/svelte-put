@@ -9,12 +9,8 @@ Possible variations for modifier definition
 <b>Signature:</b>
 
 ```typescript
-export type ShortcutModifierDefinition =
-  | ShortcutModifier
-  | ShortcutModifier[]
-  | ShortcutModifier[][];
+export type ShortcutModifierDefinition = ShortcutModifier | ShortcutModifier[] | ShortcutModifier[][];
 ```
-
 <b>References:</b> [ShortcutModifier](./shortcut.shortcutmodifier.md)
 
 ## Example 1
@@ -23,16 +19,15 @@ Listen for a single modifier
 
 ```svelte
 <script>
-  import { shortcut } from '@svelte-put/shortcut';
+ import { shortcut } from '@svelte-put/shortcut';
 </script>
 
-<window
-  use:shortcut={{
-    trigger: {
-      key: 'k',
-      modifier: 'ctrl',
-    },
-  }}
+<window use:shortcut={{
+  trigger: {
+   key: 'k' ,
+   modifier: 'ctrl',
+  },
+}}
 />
 ```
 
@@ -42,16 +37,15 @@ Listen for one of many modifiers (or)
 
 ```svelte
 <script>
-  import { shortcut } from '@svelte-put/shortcut';
+ import { shortcut } from '@svelte-put/shortcut';
 </script>
 
-<window
-  use:shortcut={{
-    trigger: {
-      key: 'k',
-      modifier: ['ctrl', 'meta'],
-    },
-  }}
+<window use:shortcut={{
+  trigger: {
+   key: 'k' ,
+   modifier: ['ctrl', 'meta'],
+  },
+}}
 />
 ```
 
@@ -61,17 +55,17 @@ Listen for a combination of multiple modifiers (and)
 
 ```svelte
 <script>
-  import { shortcut } from '@svelte-put/shortcut';
+ import { shortcut } from '@svelte-put/shortcut';
 </script>
 
-<window
-  use:shortcut={{
-    trigger: {
-      key: 'k',
-      modifier: [['ctrl', 'shift']],
-    },
-  }}
+<window use:shortcut={{
+  trigger: {
+   key: 'k' ,
+   modifier: [['ctrl', 'shift']],
+  },
+}}
 />
+
 ```
 
 ## Example 4
@@ -80,19 +74,19 @@ A mix of the 3 previous examples
 
 ```svelte
 <script>
-  import { shortcut } from '@svelte-put/shortcut';
+ import { shortcut } from '@svelte-put/shortcut';
 </script>
 
-<window
-  use:shortcut={{
-    trigger: {
-      key: 'k',
-      modifier: [
-        ['ctrl', 'shift'], // ctrl and shift
-        // or
-        ['meta'], // meta
-      ],
-    },
-  }}
+<window use:shortcut={{
+  trigger: {
+   key: 'k' ,
+   modifier: [
+     ['ctrl', 'shift'], // ctrl and shift
+                        // or
+     ['meta'],          // meta
+   ],
+  },
+}}
 />
 ```
+

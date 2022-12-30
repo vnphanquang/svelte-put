@@ -9,7 +9,7 @@ Listen for keyboard event and trigger `shortcut` [CustomEvent](https://developer
 <b>Signature:</b>
 
 ```typescript
-shortcut: Action<HTMLElement, ShortcutParameters, ShortcutAttributes>;
+shortcut: Action<HTMLElement, ShortcutParameters, ShortcutAttributes>
 ```
 
 ## Remarks
@@ -18,12 +18,11 @@ As with any svelte action, `shortcut` should be use with element and not compone
 
 ```html
 <-- correct usage-->
-<div use:intersect />
+ <div use:intersect />
 
 <-- incorrect usage-->
-<Component use:intersect />
+<Component use:intersect/>
 ```
-
 You can either:
 
 - pass multiple callbacks to their associated triggers, or
@@ -38,28 +37,28 @@ Typical usage
 
 ```svelte
 <script lang="ts">
-  import { shortcut, type ShortcutEventDetails } from '@svelte-put/shortcut';
+ import { shortcut, type ShortcutEventDetails } from '@svelte-put/shortcut';
 
-  let commandPalette = false;
+ let commandPalette = false;
 
-  function onOpenCommandPalette() {
-    commandPalette = true;
-  }
-  function onCloseCommandPalette() {
-    commandPalette = false;
-  }
+ function onOpenCommandPalette() {
+   commandPalette = true;
+ }
+ function onCloseCommandPalette() {
+   commandPalette = false;
+ }
 
-  function doSomethingElse(details: ShortcutEventDetails) {
-    console.log('Action was placed on:', details.node);
-    console.log('Trigger:', details.trigger);
-  }
+ function doSomethingElse(details: ShortcutEventDetails) {
+   console.log('Action was placed on:', details.node);
+   console.log('Trigger:', details.trigger);
+ }
 
-  function onShortcut(event: CustomEvent<ShortcutEventDetails>) {
-    if (event.detail.trigger.id === 'do-something-else') {
-      console.log('Same as doSomethingElse()');
-      // be careful here doSomethingElse would have been called too
-    }
+ function onShortcut(event: CustomEvent<ShortcutEventDetails>) {
+   if (event.detail.trigger.id === 'do-something-else') {
+     console.log('Same as doSomethingElse()');
+     // be careful here doSomethingElse would have been called too
   }
+}
 </script>
 
 <svelte:window
@@ -84,16 +83,17 @@ Typical usage
         enabled: commandPalette,
         preventDefault: true,
       },
-      {
+     {
         key: 'k',
 
         // trigger if both ctrl & shift are pressed
         modifier: [['ctrl', 'shift']],
         id: 'do-something-else',
         callback: doSomethingElse,
-      },
+     },
     ],
   }}
   on:shortcut={onShortcut}
 />
 ```
+

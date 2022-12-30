@@ -9,15 +9,16 @@ instructions for adding anchor tag
 <b>Signature:</b>
 
 ```typescript
-interface AutoSlugAnchorOptions
+interface AutoSlugAnchorOptions 
 ```
 
 ## Properties
 
-| Property                                                                 | Modifiers | Type                                                   | Description                                                                                                                                                                                                                                                                                                                                                           |
-| ------------------------------------------------------------------------ | --------- | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [content](./preprocess-auto-slug.autosluganchoroptions.content.md)       |           | string                                                 | content of the inserted anchor tag, ignored when behavior is <code>wrap</code>. Default to '\#'                                                                                                                                                                                                                                                                       |
-| [enabled](./preprocess-auto-slug.autosluganchoroptions.enabled.md)       |           | boolean                                                | whether to insert an anchor tag for each matching node                                                                                                                                                                                                                                                                                                                |
-| [href](./preprocess-auto-slug.autosluganchoroptions.href.md)             |           | (slug: string) =&gt; string                            | href attribute of the inserted anchor tag                                                                                                                                                                                                                                                                                                                             |
-| [position](./preprocess-auto-slug.autosluganchoroptions.position.md)     |           | 'prepend' \| 'append' \| 'wrap' \| 'before' \| 'after' | <p>where to create the anchor tag</p><p>- 'prepend' — inject link before the target tag text</p><p>- 'append' — inject link after the target tag text</p><p>- 'wrap' — wrap the whole target tag text with the link</p><p>- 'before' — insert link before the target tag</p><p>- 'after' — insert link after the target tag</p><p>default to <code>prepend</code></p> |
-| [properties](./preprocess-auto-slug.autosluganchoroptions.properties.md) |           | Record&lt;string, string&gt;                           | properties set to the inserted anchor tag, defaults to <code>{ 'aria-hidden': 'true', 'tab-index': '-1' }</code>                                                                                                                                                                                                                                                      |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [content](./preprocess-auto-slug.autosluganchoroptions.content.md) |  | string | content of the inserted anchor tag, ignored when behavior is <code>wrap</code>. Default to '\#' |
+|  [enabled](./preprocess-auto-slug.autosluganchoroptions.enabled.md) |  | boolean | whether to insert an anchor tag for each matching node |
+|  [href](./preprocess-auto-slug.autosluganchoroptions.href.md) |  | (slug: string) =&gt; string | href attribute of the inserted anchor tag |
+|  [position](./preprocess-auto-slug.autosluganchoroptions.position.md) |  | 'prepend' \| 'append' \| 'wrap' \| 'before' \| 'after' | <p>where to create the anchor tag</p><p>- 'prepend' — inject link before the target tag text</p><p>- 'append' — inject link after the target tag text</p><p>- 'wrap' — wrap the whole target tag text with the link</p><p>- 'before' — insert link before the target tag</p><p>- 'after' — insert link after the target tag</p><p>default to <code>prepend</code></p> |
+|  [properties](./preprocess-auto-slug.autosluganchoroptions.properties.md) |  | Record&lt;string, string&gt; | properties set to the inserted anchor tag, defaults to <code>{ 'aria-hidden': 'true', 'tab-index': '-1' }</code> |
+

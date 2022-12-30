@@ -7,14 +7,15 @@
 <b>Signature:</b>
 
 ```typescript
-export interface SearchConfig<Option>
+export interface SearchConfig<Option> 
 ```
 
 ## Properties
 
-| Property                                                      | Modifiers | Type                                                   | Description |
-| ------------------------------------------------------------- | --------- | ------------------------------------------------------ | ----------- |
-| [clearOnSelection](./select.searchconfig.clearonselection.md) |           | boolean                                                |             |
-| [debounced](./select.searchconfig.debounced.md)               |           | false \| number                                        |             |
-| [enabled](./select.searchconfig.enabled.md)                   |           | boolean                                                |             |
-| [search](./select.searchconfig.search.md)                     |           | [Searcher](./select.searcher.md)<!-- -->&lt;Option&gt; |             |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [clearOnSelection](./select.searchconfig.clearonselection.md) |  | boolean |  |
+|  [debounced](./select.searchconfig.debounced.md) |  | false \| number |  |
+|  [enabled](./select.searchconfig.enabled.md) |  | boolean |  |
+|  [search](./select.searchconfig.search.md) |  | [Searcher](./select.searcher.md)<!-- -->&lt;Option&gt; |  |
+

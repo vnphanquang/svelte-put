@@ -10,8 +10,8 @@ The base interface when modal is resolved
 
 ```typescript
 export type ModalComponentBaseResolved<ExtendedResolved extends Record<string, any> = {}> = {
-  trigger: ResolveTrigger;
+    trigger: ResolveTrigger;
 } & ExtendedResolved;
 ```
-
 <b>References:</b> [ResolveTrigger](./modal.resolvetrigger.md)
+

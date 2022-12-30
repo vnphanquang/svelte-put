@@ -8,14 +8,15 @@ svelte action - `use:intersect` svelte action that wraps IntersectionObserver
 
 ## Interfaces
 
-| Interface                                                 | Description                                                                                       |
-| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| [IntersectAttributes](./intersect.intersectattributes.md) | Additional attributes extended from <code>svelte-put/intersect</code>                             |
-| [IntersectDetail](./intersect.intersectdetail.md)         | <code>detail</code> payload for <code>intersect</code> and <code>intersectonce</code> CustomEvent |
-| [IntersectParameters](./intersect.intersectparameters.md) | svelte action parameters to config behavior of <code>movable</code>                               |
+|  Interface | Description |
+|  --- | --- |
+|  [IntersectAttributes](./intersect.intersectattributes.md) | Additional attributes extended from <code>svelte-put/intersect</code> |
+|  [IntersectDetail](./intersect.intersectdetail.md) | <code>detail</code> payload for <code>intersect</code> and <code>intersectonce</code> CustomEvent |
+|  [IntersectParameters](./intersect.intersectparameters.md) | svelte action parameters to config behavior of <code>movable</code> |
 
 ## Variables
 
-| Variable                              | Description                                            |
-| ------------------------------------- | ------------------------------------------------------ |
-| [intersect](./intersect.intersect.md) | Create an IntersectionObserver that observers the node |
+|  Variable | Description |
+|  --- | --- |
+|  [intersect](./intersect.intersect.md) | Create an IntersectionObserver that observers the node |
+

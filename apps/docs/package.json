@@ -14,7 +14,7 @@
     "lint": "run-p lint:*",
     "lint:code": "eslint . --ignore-path ../../.eslintignore",
     "lint:style": "prettier --plugin-search-dir --ignore-path ../../.prettierignore --check .",
-    "format": "prettier --plugin-search-dir . --write ."
+    "format": "prettier --plugin-search-dir --ignore-path ../../.prettierignore --write ."
   },
   "dependencies": {
     "@vercel/analytics": "^0.1.6",

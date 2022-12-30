@@ -6,6 +6,7 @@
 
 ## Packages
 
-| Package                                   | Description                                                           |
-| ----------------------------------------- | --------------------------------------------------------------------- |
-| [@svelte-put/dragscroll](./dragscroll.md) | svelte action <code>use:dragscroll</code> for drag-to-scroll behavior |
+|  Package | Description |
+|  --- | --- |
+|  [@svelte-put/dragscroll](./dragscroll.md) | svelte action <code>use:dragscroll</code> for drag-to-scroll behavior |
+

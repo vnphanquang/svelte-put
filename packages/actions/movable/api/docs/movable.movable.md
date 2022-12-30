@@ -9,7 +9,7 @@ Trigger node displacement on mousedown (via position.left &amp; position.top)
 <b>Signature:</b>
 
 ```typescript
-movable: Action<HTMLElement, MovableParameters, MovableAttributes>;
+movable: Action<HTMLElement, MovableParameters, MovableAttributes>
 ```
 
 ## Remarks
@@ -18,12 +18,11 @@ As with any svelte action, `movable` should be use with element and not componen
 
 ```html
 <-- correct usage-->
-<div use:movable />
+ <div use:movable />
 
 <-- incorrect usage-->
-<Component use:movable />
+<Component use:movable/>
 ```
-
 It is recommended to use the `handle` option in [MovableParameters](./movable.movableparameters.md) to avoid unintended behavior. If no `handle` is provided, the whole node is the handle and it might be difficult for user to copy texts within the node.
 
 Be aware of side effects:
@@ -86,7 +85,6 @@ A more typical &amp; complex usage of `movable`<!-- -->: move a node when user c
 
 </section>
 ```
-
 Things that will happen in the above example:
 
 1. on `mousedown` of the handle (`button` element), a `movablestart` [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) is dispatched,
@@ -96,3 +94,4 @@ Things that will happen in the above example:
 3. movement will be limited to the border of the `containerNode`<!-- -->, ±20% of the width &amp; height of the `div` that the action is being used on,
 
 4. `mouseup` event will stop the movement; a `movableend` [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) is dispatched.
+

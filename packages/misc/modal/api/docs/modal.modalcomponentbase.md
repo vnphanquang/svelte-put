@@ -9,11 +9,7 @@ The base component for building modal. Modals extending this component needs to 
 <b>Signature:</b>
 
 ```typescript
-export type ModalComponentBase = SvelteComponentTyped<
-  {},
-  ModalComponentBaseEvents<ModalComponentBaseResolved>,
-  {}
->;
+export type ModalComponentBase = SvelteComponentTyped<{}, ModalComponentBaseEvents<ModalComponentBaseResolved>, {}>;
 ```
-
 <b>References:</b> [ModalComponentBaseEvents](./modal.modalcomponentbaseevents.md)<!-- -->, [ModalComponentBaseResolved](./modal.modalcomponentbaseresolved.md)
+

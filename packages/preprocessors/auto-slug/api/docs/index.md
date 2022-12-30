@@ -6,6 +6,7 @@
 
 ## Packages
 
-| Package                                                       | Description |
-| ------------------------------------------------------------- | ----------- |
-| [@svelte-put/preprocess-auto-slug](./preprocess-auto-slug.md) |             |
+|  Package | Description |
+|  --- | --- |
+|  [@svelte-put/preprocess-auto-slug](./preprocess-auto-slug.md) |  |
+

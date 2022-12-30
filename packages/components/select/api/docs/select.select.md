@@ -7,7 +7,7 @@
 <b>Signature:</b>
 
 ```typescript
-export default class Select<Value, Option extends BaseOption<Value>, Multiple extends true | false | undefined> extends SvelteComponentTyped<SelectProps<Value, Option, Multiple>, SelectEvents<Value, Option, Multiple>, SelectSlots<Value, Option, Multiple>>
+export default class Select<Value, Option extends BaseOption<Value>, Multiple extends true | false | undefined> extends SvelteComponentTyped<SelectProps<Value, Option, Multiple>, SelectEvents<Value, Option, Multiple>, SelectSlots<Value, Option, Multiple>> 
 ```
-
 <b>Extends:</b> SvelteComponentTyped&lt;SelectProps&lt;Value, Option, Multiple&gt;, SelectEvents&lt;Value, Option, Multiple&gt;, SelectSlots&lt;Value, Option, Multiple&gt;&gt;
+

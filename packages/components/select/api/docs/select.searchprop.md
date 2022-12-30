@@ -9,5 +9,5 @@
 ```typescript
 export type SearchProp<Option> = boolean | Searcher<Option> | Partial<SearchConfig<Option>>;
 ```
-
 <b>References:</b> [Searcher](./select.searcher.md)<!-- -->, [SearchConfig](./select.searchconfig.md)
+

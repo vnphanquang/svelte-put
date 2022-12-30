@@ -17,11 +17,12 @@ handle?: HTMLElement;
 `handle` should be an HTMLElement not a Svelte component.
 
 ```html
-<div use:movable="{{" handle }} />
+<div use:movable={{ handle }}/>
 
 <-- correct usage-->
-<div bind:this="{handle}" />
+<div bind:this={handle} />
 
 <-- incorrect usage-->
-<Component bind:this="{handle}" />
+<Component bind:this={handle} />
 ```
+

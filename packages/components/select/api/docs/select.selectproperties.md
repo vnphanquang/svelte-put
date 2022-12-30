@@ -7,28 +7,29 @@
 <b>Signature:</b>
 
 ```typescript
-export interface SelectProperties<O extends BaseOption<V>, M extends true | false | undefined, V = O['value']>
+export interface SelectProperties<O extends BaseOption<V>, M extends true | false | undefined, V = O['value']> 
 ```
 
 ## Properties
 
-| Property                                                                       | Modifiers | Type                                                  | Description       |
-| ------------------------------------------------------------------------------ | --------- | ----------------------------------------------------- | ----------------- |
-| [class?](./select.selectproperties.class.md)                                   |           | string                                                | <i>(Optional)</i> |
-| [clearable?](./select.selectproperties.clearable.md)                           |           | boolean                                               | <i>(Optional)</i> |
-| [collapseOnSelection?](./select.selectproperties.collapseonselection.md)       |           | boolean                                               | <i>(Optional)</i> |
-| [disabled?](./select.selectproperties.disabled.md)                             |           | boolean                                               | <i>(Optional)</i> |
-| [generateLiId?](./select.selectproperties.generateliid.md)                     |           | (option: O) =&gt; string                              | <i>(Optional)</i> |
-| [generateUlId?](./select.selectproperties.generateulid.md)                     |           | () =&gt; string                                       | <i>(Optional)</i> |
-| [group?](./select.selectproperties.group.md)                                   |           | [GroupProp](./select.groupprop.md)<!-- -->&lt;O&gt;   | <i>(Optional)</i> |
-| [hideExpansionIndicator?](./select.selectproperties.hideexpansionindicator.md) |           | boolean                                               | <i>(Optional)</i> |
-| [id?](./select.selectproperties.id.md)                                         |           | string                                                | <i>(Optional)</i> |
-| [multiple?](./select.selectproperties.multiple.md)                             |           | M                                                     | <i>(Optional)</i> |
-| [nullable?](./select.selectproperties.nullable.md)                             |           | boolean                                               | <i>(Optional)</i> |
-| [open?](./select.selectproperties.open.md)                                     |           | boolean                                               | <i>(Optional)</i> |
-| [options](./select.selectproperties.options.md)                                |           | O\[\]                                                 |                   |
-| [placeholder?](./select.selectproperties.placeholder.md)                       |           | string                                                | <i>(Optional)</i> |
-| [required?](./select.selectproperties.required.md)                             |           | boolean                                               | <i>(Optional)</i> |
-| [search?](./select.selectproperties.search.md)                                 |           | [SearchProp](./select.searchprop.md)<!-- -->&lt;O&gt; | <i>(Optional)</i> |
-| [selected?](./select.selectproperties.selected.md)                             |           | undefined extends M ? O : true extends M ? O\[\] : O  | <i>(Optional)</i> |
-| [value?](./select.selectproperties.value.md)                                   |           | undefined extends M ? V : true extends M ? V\[\] : V  | <i>(Optional)</i> |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [class?](./select.selectproperties.class.md) |  | string | <i>(Optional)</i> |
+|  [clearable?](./select.selectproperties.clearable.md) |  | boolean | <i>(Optional)</i> |
+|  [collapseOnSelection?](./select.selectproperties.collapseonselection.md) |  | boolean | <i>(Optional)</i> |
+|  [disabled?](./select.selectproperties.disabled.md) |  | boolean | <i>(Optional)</i> |
+|  [generateLiId?](./select.selectproperties.generateliid.md) |  | (option: O) =&gt; string | <i>(Optional)</i> |
+|  [generateUlId?](./select.selectproperties.generateulid.md) |  | () =&gt; string | <i>(Optional)</i> |
+|  [group?](./select.selectproperties.group.md) |  | [GroupProp](./select.groupprop.md)<!-- -->&lt;O&gt; | <i>(Optional)</i> |
+|  [hideExpansionIndicator?](./select.selectproperties.hideexpansionindicator.md) |  | boolean | <i>(Optional)</i> |
+|  [id?](./select.selectproperties.id.md) |  | string | <i>(Optional)</i> |
+|  [multiple?](./select.selectproperties.multiple.md) |  | M | <i>(Optional)</i> |
+|  [nullable?](./select.selectproperties.nullable.md) |  | boolean | <i>(Optional)</i> |
+|  [open?](./select.selectproperties.open.md) |  | boolean | <i>(Optional)</i> |
+|  [options](./select.selectproperties.options.md) |  | O\[\] |  |
+|  [placeholder?](./select.selectproperties.placeholder.md) |  | string | <i>(Optional)</i> |
+|  [required?](./select.selectproperties.required.md) |  | boolean | <i>(Optional)</i> |
+|  [search?](./select.selectproperties.search.md) |  | [SearchProp](./select.searchprop.md)<!-- -->&lt;O&gt; | <i>(Optional)</i> |
+|  [selected?](./select.selectproperties.selected.md) |  | undefined extends M ? O : true extends M ? O\[\] : O | <i>(Optional)</i> |
+|  [value?](./select.selectproperties.value.md) |  | undefined extends M ? V : true extends M ? V\[\] : V | <i>(Optional)</i> |
+

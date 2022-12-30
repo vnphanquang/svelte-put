@@ -7,13 +7,14 @@
 <b>Signature:</b>
 
 ```typescript
-export interface GroupConfig<Option>
+export interface GroupConfig<Option> 
 ```
 
 ## Properties
 
-| Property                                                 | Modifiers | Type                                                 | Description |
-| -------------------------------------------------------- | --------- | ---------------------------------------------------- | ----------- |
-| [enabled](./select.groupconfig.enabled.md)               |           | boolean                                              |             |
-| [group](./select.groupconfig.group.md)                   |           | [Grouper](./select.grouper.md)<!-- -->&lt;Option&gt; |             |
-| [ungroupedLabel](./select.groupconfig.ungroupedlabel.md) |           | string                                               |             |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [enabled](./select.groupconfig.enabled.md) |  | boolean |  |
+|  [group](./select.groupconfig.group.md) |  | [Grouper](./select.grouper.md)<!-- -->&lt;Option&gt; |  |
+|  [ungroupedLabel](./select.groupconfig.ungroupedlabel.md) |  | string |  |
+

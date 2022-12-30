@@ -9,7 +9,7 @@ Additional attributes extended from `svelte-put/shortcut`
 <b>Signature:</b>
 
 ```typescript
-export interface ShortcutAttributes
+export interface ShortcutAttributes 
 ```
 
 ## Remarks
@@ -18,6 +18,7 @@ The ambient types for these extended attributes should be available automaticall
 
 ## Properties
 
-| Property                                                         | Modifiers | Type                                                                                                      | Description       |
-| ---------------------------------------------------------------- | --------- | --------------------------------------------------------------------------------------------------------- | ----------------- |
-| ["on:shortcut"?](./shortcut.shortcutattributes._on_shortcut_.md) |           | (event: CustomEvent&lt;[ShortcutEventDetails](./shortcut.shortcuteventdetails.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  ["on:shortcut"?](./shortcut.shortcutattributes._on_shortcut_.md) |  | (event: CustomEvent&lt;[ShortcutEventDetails](./shortcut.shortcuteventdetails.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
+

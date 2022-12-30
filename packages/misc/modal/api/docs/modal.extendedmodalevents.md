@@ -9,14 +9,10 @@ Utility type for building custom events type from the base Modal component. Use 
 <b>Signature:</b>
 
 ```typescript
-export type ExtendedModalEvents<
-  ExtendedResolved extends Record<string, any> = {},
-  ExtendedEvents extends Record<string, CustomEvent<any>> = {},
-> = {
-  resolve: CustomEvent<ModalComponentBaseResolved & Partial<ExtendedResolved>>;
+export type ExtendedModalEvents<ExtendedResolved extends Record<string, any> = {}, ExtendedEvents extends Record<string, CustomEvent<any>> = {}> = {
+    resolve: CustomEvent<ModalComponentBaseResolved & Partial<ExtendedResolved>>;
 } & ExtendedEvents;
 ```
-
 <b>References:</b> [ModalComponentBaseResolved](./modal.modalcomponentbaseresolved.md)
 
 ## Remarks
@@ -94,6 +90,7 @@ Add other events.
 </script>
 
 <Modal {...$$props} {dispatch}>
-  <button type="button" on:click="{handleClick}">Another Event</button>
+  <button type="button" on:click={handleClick}>Another Event</button>
 </Modal>
 ```
+

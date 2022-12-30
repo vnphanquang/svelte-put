@@ -9,10 +9,11 @@
 <b>Signature:</b>
 
 ```typescript
-export interface ShortcutEventDetails
+export interface ShortcutEventDetails 
 ```
 
 ## Example
+
 
 ```html
 <script>
@@ -39,7 +40,8 @@ export interface ShortcutEventDetails
 
 ## Properties
 
-| Property                                              | Modifiers | Type                                             | Description                            |
-| ----------------------------------------------------- | --------- | ------------------------------------------------ | -------------------------------------- |
-| [node](./shortcut.shortcuteventdetails.node.md)       |           | HTMLElement                                      | the node that the action was placed on |
-| [trigger](./shortcut.shortcuteventdetails.trigger.md) |           | [ShortcutTrigger](./shortcut.shortcuttrigger.md) | the shortcut trigger of this event     |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [node](./shortcut.shortcuteventdetails.node.md) |  | HTMLElement | the node that the action was placed on |
+|  [trigger](./shortcut.shortcuteventdetails.trigger.md) |  | [ShortcutTrigger](./shortcut.shortcuttrigger.md) | the shortcut trigger of this event |
+

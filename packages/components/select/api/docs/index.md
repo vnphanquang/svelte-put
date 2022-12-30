@@ -6,6 +6,7 @@
 
 ## Packages
 
-| Package                           | Description                                                  |
-| --------------------------------- | ------------------------------------------------------------ |
-| [@svelte-put/select](./select.md) | Svelte feature-rich, extensible, accessible select component |
+|  Package | Description |
+|  --- | --- |
+|  [@svelte-put/select](./select.md) | Svelte feature-rich, extensible, accessible select component |
+

@@ -22,21 +22,21 @@
     --color-fg: theme(colors.dark.DEFAULT);
     --color-fg-soft: theme(colors.dark.soft);
     --color-fg-muted: theme(colors.dark.muted);
-    --color-border: theme(colors.dark.DEFAULT)19;
+    --color-border: theme(colors.dark.DEFAULT) 19;
     --color-bg: theme(colors.light.DEFAULT);
     --color-bg-soft: theme(colors.light.soft);
     --color-bg-muted: theme(colors.light.muted);
 
     /* derived */
     --color-code-fg: var(--color-fg);
-    --color-code-bg:var(--color-bg-soft);
+    --color-code-bg: var(--color-bg-soft);
     --color-code-header: var(--color-bg-muted);
   }
   @mixin dark {
     --color-fg: theme(colors.light.DEFAULT);
     --color-fg-soft: theme(colors.light.soft);
     --color-fg-muted: theme(colors.light.muted);
-    --color-border: theme(colors.light.DEFAULT)19;
+    --color-border: theme(colors.light.DEFAULT) 19;
     --color-bg: theme(colors.dark.DEFAULT);
     --color-bg-soft: theme(colors.dark.soft);
     --color-bg-muted: theme(colors.dark.muted);

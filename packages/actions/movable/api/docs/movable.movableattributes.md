@@ -9,7 +9,7 @@ Additional attributes extended from `svelte-put/intersect`
 <b>Signature:</b>
 
 ```typescript
-export interface MovableAttributes
+export interface MovableAttributes 
 ```
 
 ## Remarks
@@ -22,12 +22,17 @@ The ambient types for these extended attributes should be available automaticall
 </script>
 
 <!-- on:movablestart, on:movableend should be typed -->
-<div use:movable on:movablestart on:movableend />
+<div
+  use:movable
+  on:movablestart
+  on:movableend
+/>
 ```
 
 ## Properties
 
-| Property                                                               | Modifiers | Type                                                                                                   | Description       |
-| ---------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------ | ----------------- |
-| ["on:movableend"?](./movable.movableattributes._on_movableend_.md)     |           | (event: CustomEvent&lt;[MovableEventDetails](./movable.movableeventdetails.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
-| ["on:movablestart"?](./movable.movableattributes._on_movablestart_.md) |           | (event: CustomEvent&lt;[MovableEventDetails](./movable.movableeventdetails.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  ["on:movableend"?](./movable.movableattributes._on_movableend_.md) |  | (event: CustomEvent&lt;[MovableEventDetails](./movable.movableeventdetails.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
+|  ["on:movablestart"?](./movable.movableattributes._on_movablestart_.md) |  | (event: CustomEvent&lt;[MovableEventDetails](./movable.movableeventdetails.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
+

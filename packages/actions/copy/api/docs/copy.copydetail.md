@@ -9,11 +9,12 @@
 <b>Signature:</b>
 
 ```typescript
-export interface CopyDetail
+export interface CopyDetail 
 ```
 
 ## Properties
 
-| Property                          | Modifiers | Type   | Description     |
-| --------------------------------- | --------- | ------ | --------------- |
-| [text](./copy.copydetail.text.md) |           | string | the copied text |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [text](./copy.copydetail.text.md) |  | string | the copied text |
+

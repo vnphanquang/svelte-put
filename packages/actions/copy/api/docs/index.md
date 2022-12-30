@@ -6,6 +6,7 @@
 
 ## Packages
 
-| Package                       | Description                                               |
-| ----------------------------- | --------------------------------------------------------- |
-| [@svelte-put/copy](./copy.md) | svelte action and utilities for copying text to clipboard |
+|  Package | Description |
+|  --- | --- |
+|  [@svelte-put/copy](./copy.md) | svelte action and utilities for copying text to clipboard |
+

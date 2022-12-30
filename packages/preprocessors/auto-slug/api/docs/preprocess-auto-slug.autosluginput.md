@@ -9,9 +9,7 @@ input to preprocessor. Either on object of options or a function that returns on
 <b>Signature:</b>
 
 ```typescript
-type AutoSlugInput =
-  | PartialAutoSlugOptions
-  | ((defaultOptions: AutoSlugOptions) => PartialAutoSlugOptions);
+type AutoSlugInput = PartialAutoSlugOptions | ((defaultOptions: AutoSlugOptions) => PartialAutoSlugOptions);
 ```
-
 <b>References:</b> [AutoSlugOptions](./preprocess-auto-slug.autoslugoptions.md)
+

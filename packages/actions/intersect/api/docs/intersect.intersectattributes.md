@@ -9,7 +9,7 @@ Additional attributes extended from `svelte-put/intersect`
 <b>Signature:</b>
 
 ```typescript
-export interface IntersectAttributes
+export interface IntersectAttributes 
 ```
 
 ## Remarks
@@ -22,12 +22,17 @@ The ambient types for these extended attributes should be available automaticall
 </script>
 
 <!-- on:intersect, on:intersectonce should be typed -->
-<div use:intersect on:intersect on:intersectonce />
+<div
+  use:intersect
+  on:intersect
+  on:intersectonce
+/>
 ```
 
 ## Properties
 
-| Property                                                                     | Modifiers | Type                                                                                             | Description       |
-| ---------------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------ | ----------------- |
-| ["on:intersect"?](./intersect.intersectattributes._on_intersect_.md)         |           | (event: CustomEvent&lt;[IntersectDetail](./intersect.intersectdetail.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
-| ["on:intersectonce"?](./intersect.intersectattributes._on_intersectonce_.md) |           | (event: CustomEvent&lt;[IntersectDetail](./intersect.intersectdetail.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  ["on:intersect"?](./intersect.intersectattributes._on_intersect_.md) |  | (event: CustomEvent&lt;[IntersectDetail](./intersect.intersectdetail.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
+|  ["on:intersectonce"?](./intersect.intersectattributes._on_intersectonce_.md) |  | (event: CustomEvent&lt;[IntersectDetail](./intersect.intersectdetail.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
+

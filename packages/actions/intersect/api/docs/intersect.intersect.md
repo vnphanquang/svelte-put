@@ -9,7 +9,7 @@ Create an IntersectionObserver that observers the node
 <b>Signature:</b>
 
 ```typescript
-intersect: Action<HTMLElement, IntersectParameters, IntersectAttributes>;
+intersect: Action<HTMLElement, IntersectParameters, IntersectAttributes>
 ```
 
 ## Remarks
@@ -18,10 +18,10 @@ As with any svelte action, `intersect` should be use with element and not compon
 
 ```html
 <-- correct usage-->
-<div use:intersect />
+ <div use:intersect />
 
 <-- incorrect usage-->
-<Component use:intersect />
+<Component use:intersect/>
 ```
 
 ## Example 1
@@ -98,3 +98,4 @@ Typical use to observe intersection
  {/if}
 </section
 ```
+

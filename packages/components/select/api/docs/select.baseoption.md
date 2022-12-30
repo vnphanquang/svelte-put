@@ -7,16 +7,17 @@
 <b>Signature:</b>
 
 ```typescript
-export interface BaseOption<Value>
+export interface BaseOption<Value> 
 ```
 
 ## Properties
 
-| Property                                             | Modifiers | Type    | Description       |
-| ---------------------------------------------------- | --------- | ------- | ----------------- |
-| [deselectable?](./select.baseoption.deselectable.md) |           | boolean | <i>(Optional)</i> |
-| [disabled?](./select.baseoption.disabled.md)         |           | boolean | <i>(Optional)</i> |
-| [group?](./select.baseoption.group.md)               |           | string  | <i>(Optional)</i> |
-| [id](./select.baseoption.id.md)                      |           | string  |                   |
-| [label](./select.baseoption.label.md)                |           | string  |                   |
-| [value](./select.baseoption.value.md)                |           | Value   |                   |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [deselectable?](./select.baseoption.deselectable.md) |  | boolean | <i>(Optional)</i> |
+|  [disabled?](./select.baseoption.disabled.md) |  | boolean | <i>(Optional)</i> |
+|  [group?](./select.baseoption.group.md) |  | string | <i>(Optional)</i> |
+|  [id](./select.baseoption.id.md) |  | string |  |
+|  [label](./select.baseoption.label.md) |  | string |  |
+|  [value](./select.baseoption.value.md) |  | Value |  |
+

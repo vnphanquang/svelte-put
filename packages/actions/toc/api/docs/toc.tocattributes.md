@@ -9,7 +9,7 @@ Additional attributes extended from `svelte-put/toc`
 <b>Signature:</b>
 
 ```typescript
-export interface TocAttributes
+export interface TocAttributes 
 ```
 
 ## Remarks
@@ -22,11 +22,15 @@ The ambient types for these extended attributes should be available automaticall
 </script>
 
 <!-- on:toc should be typed -->
-<div use:toc on:toc />
+<div
+  use:toc
+  on:toc
+/>
 ```
 
 ## Properties
 
-| Property                                     | Modifiers | Type                                                                                       | Description       |
-| -------------------------------------------- | --------- | ------------------------------------------------------------------------------------------ | ----------------- |
-| ["on:toc"?](./toc.tocattributes._on_toc_.md) |           | (event: CustomEvent&lt;[TocEventDetails](./toc.toceventdetails.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  ["on:toc"?](./toc.tocattributes._on_toc_.md) |  | (event: CustomEvent&lt;[TocEventDetails](./toc.toceventdetails.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
+

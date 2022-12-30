@@ -5,8 +5,9 @@
 ## MovableParameters.trigger property
 
 > Warning: This API is now obsolete.
->
+> 
 > use `handle` instead (same functionality, just more sensible naming)
+> 
 
 <b>Signature:</b>
 

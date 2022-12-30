@@ -14,9 +14,9 @@ export declare function copyToClipboard(text: string): Promise<void> | undefined
 
 ## Parameters
 
-| Parameter | Type   | Description  |
-| --------- | ------ | ------------ |
-| text      | string | text to copy |
+|  Parameter | Type | Description |
+|  --- | --- | --- |
+|  text | string | text to copy |
 
 <b>Returns:</b>
 
@@ -25,3 +25,4 @@ Promise&lt;void&gt; \| undefined
 ## Remarks
 
 This is shamelessly "copied" from [vitepress source code](https://github.com/vuejs/vitepress/blob/43c89d66c0d8c87e244a0a0e73a897509b977e65/src/client/app/composables/copyCode.ts)
+

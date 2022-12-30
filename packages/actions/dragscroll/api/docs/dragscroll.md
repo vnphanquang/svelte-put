@@ -8,12 +8,13 @@ svelte action `use:dragscroll` for drag-to-scroll behavior
 
 ## Interfaces
 
-| Interface                                                    | Description                                                 |
-| ------------------------------------------------------------ | ----------------------------------------------------------- |
-| [DragScrollParameters](./dragscroll.dragscrollparameters.md) | instruction for how <code>use:dragscroll</code> will behave |
+|  Interface | Description |
+|  --- | --- |
+|  [DragScrollParameters](./dragscroll.dragscrollparameters.md) | instruction for how <code>use:dragscroll</code> will behave |
 
 ## Variables
 
-| Variable                                 | Description                                                                    |
-| ---------------------------------------- | ------------------------------------------------------------------------------ |
-| [dragscroll](./dragscroll.dragscroll.md) | svelte action <code>use:dragscroll</code> for adding 'drag-to-scroll' behavior |
+|  Variable | Description |
+|  --- | --- |
+|  [dragscroll](./dragscroll.dragscroll.md) | svelte action <code>use:dragscroll</code> for adding 'drag-to-scroll' behavior |
+

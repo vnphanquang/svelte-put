@@ -9,13 +9,12 @@ Utility type for building custom props type from the base Modal component
 <b>Signature:</b>
 
 ```typescript
-export type ExtendedModalProps<ExtendedProps extends Record<string, any> = {}> =
-  ComponentProps<Modal> & ExtendedProps;
+export type ExtendedModalProps<ExtendedProps extends Record<string, any> = {}> = ComponentProps<Modal> & ExtendedProps;
 ```
-
 <b>References:</b> [Modal](./modal.modal.md)
 
 ## Example
+
 
 ```html
 <script lang="ts">
@@ -31,3 +30,4 @@ export type ExtendedModalProps<ExtendedProps extends Record<string, any> = {}> =
   <p>{anotherProp}</p>
 </Modal>
 ```
+

@@ -9,14 +9,16 @@ svelte action parameters to config behavior of `copy`
 <b>Signature:</b>
 
 ```typescript
-export interface CopyParameters<K extends keyof HTMLElementEventMap>
+export interface CopyParameters<K extends keyof HTMLElementEventMap> 
 ```
 
 ## Properties
 
-| Property                                    | Modifiers | Type                                                              | Description                                                                                                                          |
-| ------------------------------------------- | --------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| [enabled](./copy.copyparameters.enabled.md) |           | boolean                                                           | whether to activate the action. Default to <code>true</code>                                                                         |
-| [event](./copy.copyparameters.event.md)     |           | K \| K\[\]                                                        | The event to trigger the copy action, passed to <code>addEventListener</code> on <code>trigger</code>. Default to <code>click</code> |
-| [text](./copy.copyparameters.text.md)       |           | string \| [TextResolver](./copy.textresolver.md)<!-- -->&lt;K&gt; | the text to copy, or a sync/async function that returns it                                                                           |
-| [trigger](./copy.copyparameters.trigger.md) |           | HTMLElement                                                       | the <code>HTMLElement</code> to register event on. Default to the <code>node</code> on which the action is registered.               |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [enabled](./copy.copyparameters.enabled.md) |  | boolean | whether to activate the action. Default to <code>true</code> |
+|  [event](./copy.copyparameters.event.md) |  | K \| K\[\] | The event to trigger the copy action, passed to <code>addEventListener</code> on <code>trigger</code>. Default to <code>click</code> |
+|  [synthetic](./copy.copyparameters.synthetic.md) |  | boolean | whether to dispatch a synthetic <code>copy</code> event. Defaults to <code>false</code> |
+|  [text](./copy.copyparameters.text.md) |  | string \| [TextResolver](./copy.textresolver.md)<!-- -->&lt;K&gt; | the text to copy, or a sync/async function that returns it |
+|  [trigger](./copy.copyparameters.trigger.md) |  | HTMLElement | the <code>HTMLElement</code> to register event on. Default to the <code>node</code> on which the action is registered. |
+

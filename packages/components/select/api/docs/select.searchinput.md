@@ -7,12 +7,13 @@
 <b>Signature:</b>
 
 ```typescript
-export interface SearchInput<Option>
+export interface SearchInput<Option> 
 ```
 
 ## Properties
 
-| Property                                   | Modifiers | Type       | Description |
-| ------------------------------------------ | --------- | ---------- | ----------- |
-| [options](./select.searchinput.options.md) |           | Option\[\] |             |
-| [query](./select.searchinput.query.md)     |           | string     |             |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [options](./select.searchinput.options.md) |  | Option\[\] |  |
+|  [query](./select.searchinput.query.md) |  | string |  |
+

@@ -9,14 +9,15 @@ options to config preprocess-auto-slug
 <b>Signature:</b>
 
 ```typescript
-interface AutoSlugOptions
+interface AutoSlugOptions 
 ```
 
 ## Properties
 
-| Property                                                                 | Modifiers | Type                                                                     | Description                             |
-| ------------------------------------------------------------------------ | --------- | ------------------------------------------------------------------------ | --------------------------------------- |
-| [anchor](./preprocess-auto-slug.autoslugoptions.anchor.md)               |           | [AutoSlugAnchorOptions](./preprocess-auto-slug.autosluganchoroptions.md) | instructions to add the anchor tag      |
-| [attributeName](./preprocess-auto-slug.autoslugoptions.attributename.md) |           | string                                                                   | default to <code>id</code>              |
-| [slug](./preprocess-auto-slug.autoslugoptions.slug.md)                   |           | (SlugResolverInput: any) =&gt; string                                    | slug resolver                           |
-| [tags](./preprocess-auto-slug.autoslugoptions.tags.md)                   |           | string\[\]                                                               | target tag, default to all heading tags |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [anchor](./preprocess-auto-slug.autoslugoptions.anchor.md) |  | [AutoSlugAnchorOptions](./preprocess-auto-slug.autosluganchoroptions.md) | instructions to add the anchor tag |
+|  [attributeName](./preprocess-auto-slug.autoslugoptions.attributename.md) |  | string | default to <code>id</code> |
+|  [slug](./preprocess-auto-slug.autoslugoptions.slug.md) |  | (SlugResolverInput: any) =&gt; string | slug resolver |
+|  [tags](./preprocess-auto-slug.autoslugoptions.tags.md) |  | string\[\] | target tag, default to all heading tags |
+

@@ -8,22 +8,23 @@ svelte action - `use:shortcut` add keyboard shortcut to node
 
 ## Interfaces
 
-| Interface                                                  | Description                                                                                                            |
-| ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| [ShortcutAttributes](./shortcut.shortcutattributes.md)     | Additional attributes extended from <code>svelte-put/shortcut</code>                                                   |
-| [ShortcutEventDetails](./shortcut.shortcuteventdetails.md) | <code>detail</code> payload for 'shortcut' [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) |
-| [ShortcutParameters](./shortcut.shortcutparameters.md)     | svelte action parameters to config behavior of <code>shortcut</code>                                                   |
-| [ShortcutTrigger](./shortcut.shortcuttrigger.md)           | A definition of a shortcut trigger                                                                                     |
+|  Interface | Description |
+|  --- | --- |
+|  [ShortcutAttributes](./shortcut.shortcutattributes.md) | Additional attributes extended from <code>svelte-put/shortcut</code> |
+|  [ShortcutEventDetails](./shortcut.shortcuteventdetails.md) | <code>detail</code> payload for 'shortcut' [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) |
+|  [ShortcutParameters](./shortcut.shortcutparameters.md) | svelte action parameters to config behavior of <code>shortcut</code> |
+|  [ShortcutTrigger](./shortcut.shortcuttrigger.md) | A definition of a shortcut trigger |
 
 ## Variables
 
-| Variable                           | Description                                                                                                                             |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| [shortcut](./shortcut.shortcut.md) | Listen for keyboard event and trigger <code>shortcut</code> [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) |
+|  Variable | Description |
+|  --- | --- |
+|  [shortcut](./shortcut.shortcut.md) | Listen for keyboard event and trigger <code>shortcut</code> [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) |
 
 ## Type Aliases
 
-| Type Alias                                                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [ShortcutModifier](./shortcut.shortcutmodifier.md)                     | Supported modifier keys, map to [KeyboardEvent](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)<!-- -->'s [altkey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/altKey)<!-- -->, [ctrlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/ctrlKey)<!-- -->, [shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/shiftKey)<!-- -->, [metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/metaKey)<!-- -->. |
-| [ShortcutModifierDefinition](./shortcut.shortcutmodifierdefinition.md) | Possible variations for modifier definition                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+|  Type Alias | Description |
+|  --- | --- |
+|  [ShortcutModifier](./shortcut.shortcutmodifier.md) | Supported modifier keys, map to [KeyboardEvent](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)<!-- -->'s [altkey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/altKey)<!-- -->, [ctrlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/ctrlKey)<!-- -->, [shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/shiftKey)<!-- -->, [metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/metaKey)<!-- -->. |
+|  [ShortcutModifierDefinition](./shortcut.shortcutmodifierdefinition.md) | Possible variations for modifier definition |
+

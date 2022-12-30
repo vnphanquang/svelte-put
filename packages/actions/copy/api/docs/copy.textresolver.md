@@ -9,9 +9,7 @@ a sync/async function that return the text to be copied
 <b>Signature:</b>
 
 ```typescript
-export type TextResolver<K extends keyof HTMLElementEventMap> = (
-  input: TextResolverInput<K>,
-) => string | Promise<string>;
+export type TextResolver<K extends keyof HTMLElementEventMap> = (input: TextResolverInput<K>) => string | Promise<string>;
 ```
-
 <b>References:</b> [TextResolverInput](./copy.textresolverinput.md)
+

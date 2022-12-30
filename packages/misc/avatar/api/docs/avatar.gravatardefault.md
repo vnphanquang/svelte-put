@@ -9,14 +9,5 @@ URL or option to fallback when email hash returns no match from Gravatar. See [G
 <b>Signature:</b>
 
 ```typescript
-export type GravatarDefault =
-  | '404'
-  | 'mp'
-  | 'identicon'
-  | 'monsterid'
-  | 'wavatar'
-  | 'retro'
-  | 'robohash'
-  | 'blank'
-  | `${'http' | 'https'}://${string}.${'png' | 'jpg' | 'jpeg' | 'gif'}`;
+export type GravatarDefault = '404' | 'mp' | 'identicon' | 'monsterid' | 'wavatar' | 'retro' | 'robohash' | 'blank' | `${'http' | 'https'}://${string}.${'png' | 'jpg' | 'jpeg' | 'gif'}`;
 ```

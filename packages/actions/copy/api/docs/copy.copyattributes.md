@@ -9,7 +9,7 @@ Additional attributes extended from `svelte-put/copy`
 <b>Signature:</b>
 
 ```typescript
-export interface CopyAttributes
+export interface CopyAttributes 
 ```
 
 ## Remarks
@@ -22,12 +22,16 @@ The ambient types for these extended attributes should be available automaticall
   let trigger: HTMLElement;
 </script>
 
-<!-- on:copy should be typed -->
-<div use:copy="{{" trigger }} on:copy />
+<!-- on:copied should be typed -->
+<div
+  use:copy={{ trigger }}
+  on:copied
+/>
 ```
 
 ## Properties
 
-| Property                                   | Modifiers | Type                                                                              | Description       |
-| ------------------------------------------ | --------- | --------------------------------------------------------------------------------- | ----------------- |
-| [oncopy?](./copy.copyattributes.oncopy.md) |           | (event: CustomEvent&lt;[CopyDetail](./copy.copydetail.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  ["on:copied"?](./copy.copyattributes._on_copied_.md) |  | (event: CustomEvent&lt;[CopyDetail](./copy.copydetail.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
+
