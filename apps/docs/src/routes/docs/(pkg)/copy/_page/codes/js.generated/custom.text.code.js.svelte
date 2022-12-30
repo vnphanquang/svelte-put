@@ -2,8 +2,8 @@
   import { copy } from '@svelte-put/copy';
   import { fade } from 'svelte/transition';
   let copied = '';
-  function handleCopy(input) {
-    const { node, trigger, event } = input;
+  function copyText(input) {
+    const { node } = input;
     copied = `Custom - ${node.innerText}`;
     return copied;
   }
@@ -13,7 +13,7 @@
   <button
     class="bg-green-500 p-2 text-white active:scale-95"
     type="button"
-    use:copy={{ event: 'pointerdown', text: handleCopy }}
+    use:copy={{ event: 'pointerdown', text: copyText }}
   >
     Click
   </button>

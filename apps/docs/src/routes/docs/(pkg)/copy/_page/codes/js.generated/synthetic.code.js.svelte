@@ -1,12 +1,11 @@
-<script lang="ts">
-  import { copy, type TextResolverInput } from '@svelte-put/copy';
+<script>
+  import { copy } from '@svelte-put/copy';
   import { fade } from 'svelte/transition';
-
   let copied = '';
-  function copyText(input: TextResolverInput<'pointerdown'>) {
-    const { node } = input;
-    copied = `Custom - ${node.innerText}`;
-    return copied;
+  function onSyntheticCopy(e) {
+    const clipboardData = e.clipboardData;
+    copied = clipboardData?.getData('text/plain') ?? '';
+    // clipboardData.setData will have no effect here
   }
 </script>
 
@@ -14,9 +13,10 @@
   <button
     class="bg-green-500 p-2 text-white active:scale-95"
     type="button"
-    use:copy={{ event: 'pointerdown', text: copyText }}
+    use:copy={{ synthetic: true }}
+    on:copy={onSyntheticCopy}
   >
-    Click
+    Click <span class="text-blue-500">synthetic copy</span>
   </button>
   <div>-></div>
   <div class="grid place-items-center self-stretch bg-blue-200 text-black">

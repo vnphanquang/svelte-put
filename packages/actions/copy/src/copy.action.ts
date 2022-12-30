@@ -1,14 +1,7 @@
-import { copyToClipboard } from './copy.helpers';
-import type { CopyParameters, CopyAttributes, CopyDetail, TextResolver } from './copy.types';
+import type { ActionReturn } from 'svelte/action';
 
-// ambient typing
-declare global {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
-  export namespace svelteHTML {
-    // eslint-disable-next-line @typescript-eslint/no-empty-interface
-    export interface HTMLAttributes extends CopyAttributes {}
-  }
-}
+import { copyToClipboard } from './copy.helpers';
+import type { CopyParameters, TextResolver, CopyAttributes, CopyDetail } from './copy.types';
 
 /**
  * Copy text to clipboard on `click` event
@@ -16,19 +9,30 @@ declare global {
  *
  * @param node - HTMLElement to register action
  * @param parameters - svelte action parameters
- * @returns svelte action interface
+ * @returns svelte {@link ActionReturn }
  */
 export function copy<K extends keyof HTMLElementEventMap>(
   node: HTMLElement,
   parameters: Partial<CopyParameters<K>> = {},
-) {
-  let { trigger, enabled, text, events } = resolveParameters(node, parameters);
+): ActionReturn<Partial<CopyParameters<K>>, CopyAttributes> {
+  let { trigger, enabled, text, events, synthetic } = resolveParameters(node, parameters);
 
   async function handler(e: HTMLElementEventMap[K]) {
     const rText = await text({ node, trigger, event: e });
     copyToClipboard(rText);
     const detail: CopyDetail = { text: rText };
-    node.dispatchEvent(new CustomEvent('copy', { detail }));
+    node.dispatchEvent(new CustomEvent('copied', { detail }));
+    if (synthetic) {
+      const clipboardData = new DataTransfer();
+      clipboardData.setData('text/plain', rText);
+      const event = new ClipboardEvent('copy', {
+        clipboardData: clipboardData,
+        dataType: 'text/plain',
+        data: rText,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      } as any);
+      node.dispatchEvent(event);
+    }
   }
 
   function addEvents() {
@@ -50,9 +54,9 @@ export function copy<K extends keyof HTMLElementEventMap>(
   if (enabled) addEvents();
 
   return {
-    update(update: Partial<CopyParameters<K>> = {}) {
+    update(update = {}) {
       removeEvents();
-      ({ trigger, enabled, text, events } = resolveParameters(node, update));
+      ({ trigger, enabled, text, events, synthetic } = resolveParameters(node, update));
       addEvents();
     },
     destroy() {
@@ -68,7 +72,7 @@ function resolveParameters<K extends keyof HTMLElementEventMap>(
   node: HTMLElement,
   parameters: Partial<CopyParameters<K>> = {},
 ) {
-  const { trigger = node, enabled = true } = parameters;
+  const { trigger = node, enabled = true, synthetic = false } = parameters;
   const text =
     typeof parameters.text === 'function'
       ? parameters.text
@@ -77,5 +81,5 @@ function resolveParameters<K extends keyof HTMLElementEventMap>(
     typeof parameters.event === 'string'
       ? [parameters.event]
       : parameters.event ?? (['click'] as K[]);
-  return { trigger, enabled, text, events };
+  return { trigger, enabled, text, events, synthetic };
 }

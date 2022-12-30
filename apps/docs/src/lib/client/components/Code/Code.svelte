@@ -63,7 +63,7 @@
     on:click={toggleExpansion}
   >
     <p class="flex flex-1 items-center space-x-2 font-fira text-sm">
-      <span class="w-6" alt="indicator">
+      <span class="w-6" title="indicator">
         {#if icon === 'code'}
           <IconCode />
         {:else if icon === 'warning'}
@@ -78,10 +78,10 @@
     </p>
     <button
       class="flex items-center justify-center space-x-1"
-      alt="copy code"
+      title="copy code"
       on:click|stopPropagation
       use:copy={{ text: currentCode }}
-      on:copy={onCopy}
+      on:copied={onCopy}
     >
       {#if copied}
         <span transition:fade|local={{ duration: 150 }} class="rounded p-2 text-sm"> Copied </span>
@@ -102,7 +102,7 @@
     {#if expansion !== 'disabled'}
       <div class="mx-2 self-stretch border-l border-border" />
       <button
-        alt="collapse code block"
+        title="collapse code block"
         on:click|stopPropagation={toggleExpansion}
         class="flex rounded p-2 hover:bg-border active:scale-95"
         aria-label="Toggle expansion"

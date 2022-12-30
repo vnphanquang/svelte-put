@@ -27,3 +27,4 @@ LICENSE
 *.prisma
 .svelte-kit/
 .vercel/
+api/**/*

@@ -1,6 +1,5 @@
 <script>
-  import { appStore } from '$lib/services/modal';
-
+  import { appStore } from '$client/services/modal';
   import ConfirmationModal from './ConfirmationModal.code.svelte';
   let pushed;
   async function open() {
@@ -14,6 +13,7 @@
     console.log('Modal was popped by', trigger);
   }
   // actions inside modal will also call pop internally
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   function close() {
     if (pushed) {
       appStore.pop(pushed);

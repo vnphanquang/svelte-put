@@ -3,7 +3,7 @@
   import { fade } from 'svelte/transition';
   let trigger;
   let copied = '';
-  function handleCopy(e) {
+  function handleCopied(e) {
     copied = e.detail.text;
   }
 </script>
@@ -16,7 +16,7 @@
   <div
     class="grid place-items-center border border-yellow-500 p-2"
     use:copy={{ trigger }}
-    on:copy={handleCopy}
+    on:copied={handleCopied}
   >
     <p>copy this</p>
   </div>

@@ -4,7 +4,7 @@
 
   let trigger: HTMLButtonElement;
   let copied = '';
-  function handleCopy(e: CustomEvent<CopyDetail>) {
+  function handleCopied(e: CustomEvent<CopyDetail>) {
     copied = e.detail.text;
   }
 </script>
@@ -17,7 +17,7 @@
   <div
     class="grid place-items-center border border-yellow-500 p-2"
     use:copy={{ trigger }}
-    on:copy={handleCopy}
+    on:copied={handleCopied}
   >
     <p>copy this</p>
   </div>

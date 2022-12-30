@@ -42,6 +42,8 @@ export interface CopyParameters<K extends keyof HTMLElementEventMap> {
   trigger: HTMLElement;
   /** the text to copy, or a sync/async function that returns it */
   text: string | TextResolver<K>;
+  /** whether to dispatch a synthetic `copy` event. Defaults to `false` */
+  synthetic: boolean;
 }
 
 /**
@@ -67,13 +69,13 @@ export interface CopyDetail {
  *   let trigger: HTMLElement;
  * </script>
  *
- * <!-- on:copy should be typed -->
+ * <!-- on:copied should be typed -->
  * <div
  *   use:copy={{ trigger }}
- *   on:copy
+ *   on:copied
  * />
  * ```
  */
 export interface CopyAttributes {
-  'on:copy'?: (event: CustomEvent<CopyDetail>) => void;
+  'on:copied'?: (event: CustomEvent<CopyDetail>) => void;
 }

@@ -2,7 +2,7 @@
   import { copy } from '@svelte-put/copy';
   import { fade } from 'svelte/transition';
   let copied = '';
-  function handleCopy(e) {
+  function handleCopied(e) {
     copied = e.detail.text;
   }
 </script>
@@ -12,7 +12,7 @@
     class="bg-green-500 p-2 text-white active:scale-95"
     type="button"
     use:copy
-    on:copy={handleCopy}
+    on:copied={handleCopied}
   >
     Click <span class="text-blue-500">to copy this</span>
   </button>

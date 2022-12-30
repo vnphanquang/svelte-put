@@ -14,6 +14,7 @@
   import CustomText from './_page/codes/custom.text.code.svelte';
   import CustomTrigger from './_page/codes/custom.trigger.code.svelte';
   import NoParameters from './_page/codes/no-parameters.code.svelte';
+  import Synthetic from './_page/codes/synthetic.code.svelte';
 
   export let data: PageData;
 </script>
@@ -81,9 +82,9 @@
     <section>
       <h4>Callback</h4>
       <p>
-        The <code>TextResolver</code> callback also receive an input that contains the forwarded
-        event and references to <code>node</code> (action is used on) and <code>trigger</code> (event
-        is attached to).
+        Here, <code>text</code> is a callback with the input containing information about the
+        forwarded event, reference to <code>node</code> (on which action is used), and the
+        <code>trigger</code> (to which event is attached).
       </p>
       <fieldset class="w-full border-2 border-violet-500 p-4">
         <legend>Example</legend>
@@ -91,6 +92,23 @@
       </fieldset>
       <Code code={codes.usage.customTextCallback} title="custom text - callback" expanded={false} />
     </section>
+  </section>
+
+  <section>
+    <h3>Simulating the <code>copy</code> event</h3>
+    <p>
+      If <code>synthetic</code> is set to <code>true</code>, a "fake" <code>copy</code> event will
+      be dispatched alongside <code>copied</code>, should that be of any use.
+    </p>
+    <p class="c-callout">
+      Note that since this synthetic <code>copy</code> event is not "real", and operations on
+      <code>clipboardData</code> will have no effect on the actual copied text.
+    </p>
+    <fieldset class="w-full border-2 border-violet-500 p-4">
+      <legend>Example</legend>
+      <Synthetic />
+    </fieldset>
+    <Code code={codes.usage.synthetic} title="synthetic copy event" expanded={false} />
   </section>
 
   <section>
@@ -105,7 +123,7 @@
       </ResourceLink>).
     </p>
     <p>
-      You can skip the action and use this utility to build your own custom solution that fits your
+      You may skip the action and use this utility to build your own custom solution that fits your
       need.
     </p>
     <Code code={codes.usage.helper} title="copyToClipboard" />
