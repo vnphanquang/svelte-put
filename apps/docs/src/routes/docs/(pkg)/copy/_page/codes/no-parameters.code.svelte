@@ -18,7 +18,7 @@
     Click <span class="text-blue-500">to copy this</span>
   </button>
   <div>-></div>
-  <div class="grid place-items-center self-stretch bg-blue-200">
+  <div class="grid place-items-center self-stretch bg-blue-200 text-black">
     {#if copied}
       <p in:fade={{ duration: 200 }}>
         {copied}
