@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.1.0
+
+### Minor Changes
+
+- [`193c0c5`](https://github.com/vnphanquang/svelte-put/commit/193c0c5c9525ade0ec4e9a512c21e96a26139238) Thanks [@vnphanquang](https://github.com/vnphanquang)! - [BREAKING] deprecate `on:copy` in favor of `on:copied` to avoid conflict with default `copy` event
+
+- [`193c0c5`](https://github.com/vnphanquang/svelte-put/commit/193c0c5c9525ade0ec4e9a512c21e96a26139238) Thanks [@vnphanquang](https://github.com/vnphanquang)! - allow simulate the `copy` event by setting `sythetic: true`
+
+### Patch Changes
+
+- [`193c0c5`](https://github.com/vnphanquang/svelte-put/commit/193c0c5c9525ade0ec4e9a512c21e96a26139238) Thanks [@vnphanquang](https://github.com/vnphanquang)! - deprecate ambient typing in favor of [new action type helper](https://github.com/sveltejs/svelte/pull/7805)
+
 ## 1.0.2
 
 ### Patch Changes
