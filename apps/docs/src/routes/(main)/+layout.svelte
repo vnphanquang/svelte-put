@@ -26,7 +26,7 @@
   import type { ColorScheme } from '$shared/types';
   import { capitalize } from '$shared/utils/string';
 
-  import type { LayoutData } from './$types';
+  import type { LayoutData } from './docs/$types';
 
   export let data: LayoutData;
 
@@ -420,9 +420,6 @@
       <div class="space-y-2">
         <p>
           Released under the <ResourceLink key="MIT License" class="font-medium" />
-        </p>
-        <p>
-          Made with rice 🍚 <ResourceLink key="Quang Phan" class="font-medium" />
         </p>
         <p>
           Powered by
