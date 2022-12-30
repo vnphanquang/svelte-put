@@ -22,7 +22,7 @@
     --color-fg: theme(colors.dark.DEFAULT);
     --color-fg-soft: theme(colors.dark.soft);
     --color-fg-muted: theme(colors.dark.muted);
-    --color-border: theme(colors.dark.DEFAULT) 19;
+    --color-border: theme(colors.dark.DEFAULT)19;
     --color-bg: theme(colors.light.DEFAULT);
     --color-bg-soft: theme(colors.light.soft);
     --color-bg-muted: theme(colors.light.muted);
