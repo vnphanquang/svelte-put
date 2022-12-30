@@ -27,7 +27,7 @@ The ambient types for these extended attributes should be available automaticall
 
 ## Properties
 
-| Property                                                               | Modifiers | Type                                                                                             | Description       |
-| ---------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------ | ----------------- |
-| [onintersect?](./intersect.intersectattributes.onintersect.md)         |           | (event: CustomEvent&lt;[IntersectDetail](./intersect.intersectdetail.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
-| [onintersectonce?](./intersect.intersectattributes.onintersectonce.md) |           | (event: CustomEvent&lt;[IntersectDetail](./intersect.intersectdetail.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
+| Property                                                                     | Modifiers | Type                                                                                             | Description       |
+| ---------------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------ | ----------------- |
+| ["on:intersect"?](./intersect.intersectattributes._on_intersect_.md)         |           | (event: CustomEvent&lt;[IntersectDetail](./intersect.intersectdetail.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
+| ["on:intersectonce"?](./intersect.intersectattributes._on_intersectonce_.md) |           | (event: CustomEvent&lt;[IntersectDetail](./intersect.intersectdetail.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |

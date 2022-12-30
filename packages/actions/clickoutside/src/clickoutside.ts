@@ -1,13 +1,7 @@
-import { ClickOutsideAttributes, ClickOutsideParameters } from './clickoutside.types';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import type { Action, ActionReturn } from 'svelte/action';
 
-// ambient typing
-declare global {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
-  export namespace svelteHTML {
-    // eslint-disable-next-line @typescript-eslint/no-empty-interface
-    export interface HTMLAttributes extends ClickOutsideAttributes {}
-  }
-}
+import { ClickOutsideAttributes, ClickOutsideParameters } from './clickoutside.types';
 
 /**
  * Dispatch a `clickoutside` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent } on click outside of node
@@ -63,12 +57,13 @@ declare global {
  *
  * @param node - node outside of which `click` event will trigger `clickoutside`
  * @param parameters - instructions for `clickoutside` behavior
- * @returns
+ * @returns svelte {@link ActionReturn}
  */
-export function clickoutside(
-  node: HTMLElement,
-  parameters: Partial<ClickOutsideParameters> = { enabled: true },
-) {
+export const clickoutside: Action<
+  HTMLElement,
+  Partial<ClickOutsideParameters>,
+  ClickOutsideAttributes
+> = function (node, parameters = { enabled: true }) {
   let { enabled, eventType, nodeForEvent, options, capture } = resolveParameters(parameters);
   const handle = (event: Event) => {
     if (node && !node.contains(event.target as Node) && !event.defaultPrevented) {
@@ -81,7 +76,7 @@ export function clickoutside(
   }
 
   return {
-    update(update: ClickOutsideParameters) {
+    update(update) {
       nodeForEvent.removeEventListener(eventType, handle, capture);
       ({ enabled, eventType, nodeForEvent, options, capture } = resolveParameters(update));
       if (enabled) nodeForEvent.addEventListener(eventType, handle, options);
@@ -90,7 +85,7 @@ export function clickoutside(
       nodeForEvent.removeEventListener(eventType, handle, capture);
     },
   };
-}
+};
 
 /** @internal */
 export function resolveParameters(parameters: Partial<ClickOutsideParameters>) {

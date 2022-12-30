@@ -2,34 +2,15 @@
 
 [Home](./index.md) &gt; [@svelte-put/intersect](./intersect.md) &gt; [intersect](./intersect.intersect.md)
 
-## intersect() function
+## intersect variable
 
 Create an IntersectionObserver that observers the node
 
 <b>Signature:</b>
 
 ```typescript
-export declare function intersect(
-  node: HTMLElement,
-  parameters?: IntersectParameters,
-): {
-  update(update: IntersectParameters): void;
-  destroy(): void;
-};
+intersect: Action<HTMLElement, IntersectParameters, IntersectAttributes>;
 ```
-
-## Parameters
-
-| Parameter  | Type                                                      | Description                                |
-| ---------- | --------------------------------------------------------- | ------------------------------------------ |
-| node       | HTMLElement                                               | HTMLElement to observe                     |
-| parameters | [IntersectParameters](./intersect.intersectparameters.md) | <i>(Optional)</i> svelte action parameters |
-
-<b>Returns:</b>
-
-{ update(update: [IntersectParameters](./intersect.intersectparameters.md)<!-- -->): void; destroy(): void; }
-
-svelte action interface
 
 ## Remarks
 

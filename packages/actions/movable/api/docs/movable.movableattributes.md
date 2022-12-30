@@ -27,7 +27,7 @@ The ambient types for these extended attributes should be available automaticall
 
 ## Properties
 
-| Property                                                         | Modifiers | Type                                                                                                   | Description       |
-| ---------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------ | ----------------- |
-| [onmovableend?](./movable.movableattributes.onmovableend.md)     |           | (event: CustomEvent&lt;[MovableEventDetails](./movable.movableeventdetails.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
-| [onmovablestart?](./movable.movableattributes.onmovablestart.md) |           | (event: CustomEvent&lt;[MovableEventDetails](./movable.movableeventdetails.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
+| Property                                                               | Modifiers | Type                                                                                                   | Description       |
+| ---------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------ | ----------------- |
+| ["on:movableend"?](./movable.movableattributes._on_movableend_.md)     |           | (event: CustomEvent&lt;[MovableEventDetails](./movable.movableeventdetails.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
+| ["on:movablestart"?](./movable.movableattributes._on_movablestart_.md) |           | (event: CustomEvent&lt;[MovableEventDetails](./movable.movableeventdetails.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |

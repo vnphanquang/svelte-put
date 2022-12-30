@@ -6,12 +6,6 @@
 
 `use:clickoutside` - svelte action that emits the `clickoutside` event when the user clicks outside of a node.
 
-## Functions
-
-| Function                                                         | Description                                                                                                                               |
-| ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| [clickoutside(node, parameters)](./clickoutside.clickoutside.md) | Dispatch a <code>clickoutside</code> [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) on click outside of node |
-
 ## Interfaces
 
 | Interface                                                          | Description                                                              |
@@ -19,3 +13,9 @@
 | [ClickOutsideAttributes](./clickoutside.clickoutsideattributes.md) | Additional attributes extended from <code>svelte-put/clickoutside</code> |
 | [ClickOutsideLimit](./clickoutside.clickoutsidelimit.md)           | Limit to which the click event will trigger <code>clickoutside</code>    |
 | [ClickOutsideParameters](./clickoutside.clickoutsideparameters.md) | svelte action parameters to config behavior of <code>clickoutside</code> |
+
+## Variables
+
+| Variable                                       | Description                                                                                                                               |
+| ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| [clickoutside](./clickoutside.clickoutside.md) | Dispatch a <code>clickoutside</code> [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) on click outside of node |

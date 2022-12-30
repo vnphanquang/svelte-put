@@ -6,12 +6,6 @@
 
 svelte action - `use:shortcut` add keyboard shortcut to node
 
-## Functions
-
-| Function                                         | Description                                                                                                                             |
-| ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
-| [shortcut(node, params)](./shortcut.shortcut.md) | Listen for keyboard event and trigger <code>shortcut</code> [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) |
-
 ## Interfaces
 
 | Interface                                                  | Description                                                                                                            |
@@ -20,6 +14,12 @@ svelte action - `use:shortcut` add keyboard shortcut to node
 | [ShortcutEventDetails](./shortcut.shortcuteventdetails.md) | <code>detail</code> payload for 'shortcut' [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) |
 | [ShortcutParameters](./shortcut.shortcutparameters.md)     | svelte action parameters to config behavior of <code>shortcut</code>                                                   |
 | [ShortcutTrigger](./shortcut.shortcuttrigger.md)           | A definition of a shortcut trigger                                                                                     |
+
+## Variables
+
+| Variable                           | Description                                                                                                                             |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| [shortcut](./shortcut.shortcut.md) | Listen for keyboard event and trigger <code>shortcut</code> [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) |
 
 ## Type Aliases
 

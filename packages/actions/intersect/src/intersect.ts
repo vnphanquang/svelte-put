@@ -1,13 +1,7 @@
-import { IntersectAttributes, IntersectDetail, IntersectParameters } from './intersect.types';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import type { Action, ActionReturn } from 'svelte/action';
 
-// ambient typing
-declare global {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
-  export namespace svelteHTML {
-    // eslint-disable-next-line @typescript-eslint/no-empty-interface
-    export interface HTMLAttributes extends IntersectAttributes {}
-  }
-}
+import { IntersectAttributes, IntersectDetail, IntersectParameters } from './intersect.types';
 
 /**
  * Create an IntersectionObserver that observers the node
@@ -100,9 +94,12 @@ declare global {
  *
  * @param node - HTMLElement to observe
  * @param parameters - svelte action parameters
- * @returns svelte action interface
+ * @returns svelte {@link ActionReturn}
  */
-export function intersect(node: HTMLElement, parameters: IntersectParameters = { enabled: true }) {
+export const intersect: Action<HTMLElement, IntersectParameters, IntersectAttributes> = function (
+  node,
+  parameters = { enabled: true },
+) {
   let hasIntersect = false;
   let previousY = 0;
 
@@ -135,7 +132,7 @@ export function intersect(node: HTMLElement, parameters: IntersectParameters = {
     observer.observe(node);
   }
   return {
-    update(update: IntersectParameters) {
+    update(update) {
       update = { enabled: true, ...update };
 
       if (!enabled && update.enabled) {
@@ -167,4 +164,4 @@ export function intersect(node: HTMLElement, parameters: IntersectParameters = {
       observer.disconnect();
     },
   };
-}
+};

@@ -2,29 +2,12 @@
 
 [Home](./index.md) &gt; [@svelte-put/dragscroll](./dragscroll.md) &gt; [dragscroll](./dragscroll.dragscroll.md)
 
-## dragscroll() function
+## dragscroll variable
 
 svelte action `use:dragscroll` for adding 'drag-to-scroll' behavior
 
 <b>Signature:</b>
 
 ```typescript
-export declare function dragscroll(
-  node: HTMLElement,
-  parameters?: Partial<DragScrollParameters>,
-): {
-  update(update?: Partial<DragScrollParameters>): void;
-  destroy(): void;
-};
+dragscroll: Action<HTMLElement, Partial<DragScrollParameters>>;
 ```
-
-## Parameters
-
-| Parameter  | Type                                                                                | Description                                                    |
-| ---------- | ----------------------------------------------------------------------------------- | -------------------------------------------------------------- |
-| node       | HTMLElement                                                                         | node to apply the action                                       |
-| parameters | Partial&lt;[DragScrollParameters](./dragscroll.dragscrollparameters.md)<!-- -->&gt; | <i>(Optional)</i> instructions for customizing action behavior |
-
-<b>Returns:</b>
-
-{ update(update?: Partial&lt;[DragScrollParameters](./dragscroll.dragscrollparameters.md)<!-- -->&gt;): void; destroy(): void; }

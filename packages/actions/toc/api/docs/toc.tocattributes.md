@@ -27,6 +27,6 @@ The ambient types for these extended attributes should be available automaticall
 
 ## Properties
 
-| Property                               | Modifiers | Type                                                                                       | Description       |
-| -------------------------------------- | --------- | ------------------------------------------------------------------------------------------ | ----------------- |
-| [ontoc?](./toc.tocattributes.ontoc.md) |           | (event: CustomEvent&lt;[TocEventDetails](./toc.toceventdetails.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
+| Property                                     | Modifiers | Type                                                                                       | Description       |
+| -------------------------------------------- | --------- | ------------------------------------------------------------------------------------------ | ----------------- |
+| ["on:toc"?](./toc.tocattributes._on_toc_.md) |           | (event: CustomEvent&lt;[TocEventDetails](./toc.toceventdetails.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |

@@ -52,7 +52,7 @@ export function toc(
 // @public
 export interface TocAttributes {
   // (undocumented)
-  ontoc?: (event: CustomEvent<TocEventDetails>) => void;
+  'on:toc'?: (event: CustomEvent<TocEventDetails>) => void;
 }
 
 // @public

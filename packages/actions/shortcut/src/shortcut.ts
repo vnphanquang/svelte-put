@@ -1,18 +1,12 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import type { Action, ActionReturn } from 'svelte/action';
+
 import type {
   ShortcutEventDetails,
   ShortcutModifier,
   ShortcutParameters,
   ShortcutAttributes,
 } from './types';
-
-// ambient typing
-declare global {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
-  export namespace svelteHTML {
-    // eslint-disable-next-line @typescript-eslint/no-empty-interface
-    export interface HTMLAttributes extends ShortcutAttributes {}
-  }
-}
 
 /**
  * Listen for keyboard event and trigger `shortcut` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent }
@@ -107,9 +101,14 @@ declare global {
  *
  * @param node - HTMLElement to add event listener to
  * @param params - svelte action parameters
- * @returns svelte action interface
+ * @returns svelte {@link ActionReturn}
  */
-export function shortcut(node: HTMLElement, params: ShortcutParameters) {
+export const shortcut: Action<HTMLElement, ShortcutParameters, ShortcutAttributes> = function (
+  node,
+  params,
+) {
+  if (!params?.trigger)
+    throw new Error('@svelte-put/shortcut requires a parameter object with a `trigger` property');
   let { enabled = true, trigger, type = 'keydown' } = params;
 
   const handler = (event: KeyboardEvent) => {
@@ -151,7 +150,7 @@ export function shortcut(node: HTMLElement, params: ShortcutParameters) {
   if (enabled) node.addEventListener(type, handler);
 
   return {
-    update: (update: ShortcutParameters) => {
+    update: (update) => {
       const { enabled: newEnabled = true, type: newType = 'keydown' } = update;
 
       if (enabled && (!newEnabled || type !== newType)) {
@@ -168,4 +167,4 @@ export function shortcut(node: HTMLElement, params: ShortcutParameters) {
       node.removeEventListener(type, handler);
     },
   };
-}
+};

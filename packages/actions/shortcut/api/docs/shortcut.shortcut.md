@@ -2,34 +2,15 @@
 
 [Home](./index.md) &gt; [@svelte-put/shortcut](./shortcut.md) &gt; [shortcut](./shortcut.shortcut.md)
 
-## shortcut() function
+## shortcut variable
 
 Listen for keyboard event and trigger `shortcut` [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent)
 
 <b>Signature:</b>
 
 ```typescript
-export declare function shortcut(
-  node: HTMLElement,
-  params: ShortcutParameters,
-): {
-  update: (update: ShortcutParameters) => void;
-  destroy: () => void;
-};
+shortcut: Action<HTMLElement, ShortcutParameters, ShortcutAttributes>;
 ```
-
-## Parameters
-
-| Parameter | Type                                                   | Description                          |
-| --------- | ------------------------------------------------------ | ------------------------------------ |
-| node      | HTMLElement                                            | HTMLElement to add event listener to |
-| params    | [ShortcutParameters](./shortcut.shortcutparameters.md) | svelte action parameters             |
-
-<b>Returns:</b>
-
-{ update: (update: [ShortcutParameters](./shortcut.shortcutparameters.md)<!-- -->) =&gt; void; destroy: () =&gt; void; }
-
-svelte action interface
 
 ## Remarks
 

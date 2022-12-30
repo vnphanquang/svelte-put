@@ -18,6 +18,6 @@ The ambient types for these extended attributes should be available automaticall
 
 ## Properties
 
-| Property                                                   | Modifiers | Type                                                                                                      | Description       |
-| ---------------------------------------------------------- | --------- | --------------------------------------------------------------------------------------------------------- | ----------------- |
-| [onshortcut?](./shortcut.shortcutattributes.onshortcut.md) |           | (event: CustomEvent&lt;[ShortcutEventDetails](./shortcut.shortcuteventdetails.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
+| Property                                                         | Modifiers | Type                                                                                                      | Description       |
+| ---------------------------------------------------------------- | --------- | --------------------------------------------------------------------------------------------------------- | ----------------- |
+| ["on:shortcut"?](./shortcut.shortcutattributes._on_shortcut_.md) |           | (event: CustomEvent&lt;[ShortcutEventDetails](./shortcut.shortcuteventdetails.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |

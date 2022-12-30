@@ -1,14 +1,8 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import type { Action, ActionReturn } from 'svelte/action';
+
 import type { MovableAttributes, MovableEventDetails, MovableParameters } from './movable.types';
 import { input } from './utils';
-
-// ambient typing
-declare global {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
-  export namespace svelteHTML {
-    // eslint-disable-next-line @typescript-eslint/no-empty-interface
-    export interface HTMLAttributes extends MovableAttributes {}
-  }
-}
 
 /**
  * Trigger node displacement on mousedown (via position.left & position.top)
@@ -105,10 +99,13 @@ declare global {
  *
  * @param node - HTMLElement to be moved
  * @param parameters - svelte action parameters
- * @returns svelte action interface
+ * @returns svelte {@link ActionReturn}
  *
  */
-export function movable(node: HTMLElement, parameters: MovableParameters = { enabled: true }) {
+export const movable: Action<HTMLElement, MovableParameters, MovableAttributes> = function (
+  node,
+  parameters = { enabled: true },
+) {
   let { parent, normalizedDelta, handle, enabled, ignore, cursor } = input(node, parameters);
 
   const lastMousePosition = { x: 0, y: 0 };
@@ -297,7 +294,7 @@ export function movable(node: HTMLElement, parameters: MovableParameters = { ena
     handle.addEventListener('mousedown', onMouseDown, true);
   }
   return {
-    update(update: MovableParameters = {}) {
+    update(update) {
       removeCursor();
       handle.removeEventListener('mousedown', onMouseDown, true);
       ({ parent, normalizedDelta, handle, enabled, ignore, cursor } = input(node, update));
@@ -312,4 +309,4 @@ export function movable(node: HTMLElement, parameters: MovableParameters = { ena
       removeCursor();
     },
   };
-}
+};

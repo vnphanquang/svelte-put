@@ -2,34 +2,15 @@
 
 [Home](./index.md) &gt; [@svelte-put/movable](./movable.md) &gt; [movable](./movable.movable.md)
 
-## movable() function
+## movable variable
 
 Trigger node displacement on mousedown (via position.left &amp; position.top)
 
 <b>Signature:</b>
 
 ```typescript
-export declare function movable(
-  node: HTMLElement,
-  parameters?: MovableParameters,
-): {
-  update(update?: MovableParameters): void;
-  destroy(): void;
-};
+movable: Action<HTMLElement, MovableParameters, MovableAttributes>;
 ```
-
-## Parameters
-
-| Parameter  | Type                                                | Description                                |
-| ---------- | --------------------------------------------------- | ------------------------------------------ |
-| node       | HTMLElement                                         | HTMLElement to be moved                    |
-| parameters | [MovableParameters](./movable.movableparameters.md) | <i>(Optional)</i> svelte action parameters |
-
-<b>Returns:</b>
-
-{ update(update?: [MovableParameters](./movable.movableparameters.md)<!-- -->): void; destroy(): void; }
-
-svelte action interface
 
 ## Remarks
 

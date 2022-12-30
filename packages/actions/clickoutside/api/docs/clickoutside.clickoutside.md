@@ -2,32 +2,15 @@
 
 [Home](./index.md) &gt; [@svelte-put/clickoutside](./clickoutside.md) &gt; [clickoutside](./clickoutside.clickoutside.md)
 
-## clickoutside() function
+## clickoutside variable
 
 Dispatch a `clickoutside` [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) on click outside of node
 
 <b>Signature:</b>
 
 ```typescript
-export declare function clickoutside(
-  node: HTMLElement,
-  parameters?: Partial<ClickOutsideParameters>,
-): {
-  update(update: ClickOutsideParameters): void;
-  destroy(): void;
-};
+clickoutside: Action<HTMLElement, Partial<ClickOutsideParameters>, ClickOutsideAttributes>;
 ```
-
-## Parameters
-
-| Parameter  | Type                                                                                      | Description                                                                           |
-| ---------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| node       | HTMLElement                                                                               | node outside of which <code>click</code> event will trigger <code>clickoutside</code> |
-| parameters | Partial&lt;[ClickOutsideParameters](./clickoutside.clickoutsideparameters.md)<!-- -->&gt; | <i>(Optional)</i> instructions for <code>clickoutside</code> behavior                 |
-
-<b>Returns:</b>
-
-{ update(update: [ClickOutsideParameters](./clickoutside.clickoutsideparameters.md)<!-- -->): void; destroy(): void; }
 
 ## Remarks
 

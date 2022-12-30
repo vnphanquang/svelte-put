@@ -27,6 +27,6 @@ The ambient types for these extended attributes should be available automaticall
 
 ## Properties
 
-| Property                                                                   | Modifiers | Type                                         | Description       |
-| -------------------------------------------------------------------------- | --------- | -------------------------------------------- | ----------------- |
-| [onclickoutside?](./clickoutside.clickoutsideattributes.onclickoutside.md) |           | (event: CustomEvent&lt;Event&gt;) =&gt; void | <i>(Optional)</i> |
+| Property                                                                         | Modifiers | Type                                              | Description       |
+| -------------------------------------------------------------------------------- | --------- | ------------------------------------------------- | ----------------- |
+| ["on:clickoutside"?](./clickoutside.clickoutsideattributes._on_clickoutside_.md) |           | (event: CustomEvent&lt;MouseEvent&gt;) =&gt; void | <i>(Optional)</i> |
