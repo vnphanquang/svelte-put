@@ -20,13 +20,14 @@
   import Vercel from '$client/components/icons/Vercel.svelte';
   import AccountTree from '$client/components/icons/material/AccountTree.svelte';
   import Rss from '$client/components/icons/material/Rss.svelte';
+  import VolunteerActivism from '$client/components/icons/material/VolunteerActivism.svelte';
   import { getPrefersColorScheme } from '$client/utils/color-scheme';
   import { LoadDependencies, APP_ROUTE_TREE } from '$shared/constants';
   import { packagesByCategory } from '$shared/data/packages';
   import type { ColorScheme } from '$shared/types';
   import { capitalize } from '$shared/utils/string';
 
-  import type { LayoutData } from './docs/$types';
+  import type { LayoutData } from './$types';
 
   export let data: LayoutData;
 
@@ -434,7 +435,14 @@
           </ResourceLink>
         </p>
       </div>
-      <div />
+      <div>
+        <p>
+          <a href="/docs#donating" class="c-link">
+            <span>Donate</span>
+            <VolunteerActivism class="inline-block" height="16" width="16" />
+          </a>
+        </p>
+      </div>
     </div>
   </footer>
 </div>

@@ -86,6 +86,26 @@
 </section>
 
 <section>
+  <h2 id="donating">Donating</h2>
+  <p>
+    Financial support helps keep the project sustainable. To donate, please visit <ResourceLink
+      href="https://www.buymeacoffee.com/vnphanquang">buymeacoffee/vnphanquang</ResourceLink
+    >.
+  </p>
+  <div class="not-prose">
+    <a
+      href="https://www.buymeacoffee.com/vnphanquang"
+      target="_blank"
+      rel="noreferrer"
+      class="c-btn-primary text-white"
+    >
+      Buy me a banh mi 🥖
+    </a>
+  </div>
+  <p>Thank you very much for your support.</p>
+</section>
+
+<section>
   <h2>Contributing</h2>
   <p>
     Source code can be found at
@@ -103,7 +123,7 @@
   </p>
 </section>
 
-<p>Happy coding! 👨‍💻</p>
+<p class="pt-10">Happy coding! 👨‍💻</p>
 
 <p class="text-right">
   <EditThisPageLink
