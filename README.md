@@ -2,7 +2,7 @@
 
 # [@svelte-put][docs]
 
-[![MIT][license.badge]][license]
+[![MIT][license.badge]][license] [![MadeWithSvelte.com][madewithsvelte.badge]][madewithsvelte]
 
 Useful svelte stuff to put in your projects
 
@@ -141,6 +141,8 @@ pnpm turbo
 
 [license.badge]: https://img.shields.io/badge/license-MIT-blue.svg
 [license]: ./LICENSE
+[madewithsvelte.badge]: https://madewithsvelte.com/storage/repo-shields/4070-shield.svg
+[madewithsvelte]: https://madewithsvelte.com/p/svelte-put/shield-link
 
 <!-- npm -->
 
