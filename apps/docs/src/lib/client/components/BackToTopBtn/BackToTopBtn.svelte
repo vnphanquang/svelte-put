@@ -22,7 +22,7 @@
     transition:fly={{ y: 100, duration: 200 }}
     type="button"
     on:click={handleClick}
-    class="grid place-items-center rounded-full bg-fg p-2 text-bg shadow {cls}"
+    class="grid place-items-center rounded-full bg-fg p-2 text-bg shadow hover:opacity-100 md:opacity-50 {cls}"
     aria-label="Back to top"
   >
     <ArrowUp height="24" width="24" />

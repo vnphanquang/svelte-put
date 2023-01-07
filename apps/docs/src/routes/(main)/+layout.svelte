@@ -435,7 +435,7 @@
           </ResourceLink>
         </p>
       </div>
-      <div>
+      <div class="max-md:mt-4">
         <p>
           <a href="/docs#donating" class="c-link">
             <span>Donate</span>
