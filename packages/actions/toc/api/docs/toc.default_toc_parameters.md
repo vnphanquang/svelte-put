@@ -4,10 +4,30 @@
 
 ## DEFAULT\_TOC\_PARAMETERS variable
 
-The default [TocParameters](./toc.tocparameters.md) options for `toc` action
+The default [TocParameters](./toc.tocparameters.md) for `toc` action
 
 <b>Signature:</b>
 
 ```typescript
-DEFAULT_TOC_PARAMETERS: TocParameters
+DEFAULT_TOC_PARAMETERS: {
+    id: string;
+    selector: string;
+    ignore: string[];
+    scrollMarginTop: number;
+    anchor: {
+        enabled: true;
+        content: string;
+        position: "prepend";
+        properties: {
+            'aria-hidden': string;
+            tabindex: string;
+        };
+        href: (slug: string) => string;
+    };
+    observe: {
+        enabled: false;
+        strategy: "auto";
+        threshold: (element: HTMLElement) => number;
+    };
+}
 ```

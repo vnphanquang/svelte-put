@@ -8,5 +8,5 @@
 
 |  Package | Description |
 |  --- | --- |
-|  [@svelte-put/toc](./toc.md) | Svelte action <code>use:toc</code> and component <code>&lt;Toc&gt;</code> for building table of contents |
+|  [@svelte-put/toc](./toc.md) | Svelte action <code>use:toc</code> for building table of contents |
 

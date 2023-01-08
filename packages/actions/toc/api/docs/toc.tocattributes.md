@@ -4,7 +4,6 @@
 
 ## TocAttributes interface
 
-Additional attributes extended from `svelte-put/toc`
 
 <b>Signature:</b>
 
@@ -12,25 +11,10 @@ Additional attributes extended from `svelte-put/toc`
 export interface TocAttributes 
 ```
 
-## Remarks
-
-The ambient types for these extended attributes should be available automatically whenever `svelte-put/toc` is imported.
-
-```html
-<script lang="ts">
-  import { toc } from '@svelte-put/toc';
-</script>
-
-<!-- on:toc should be typed -->
-<div
-  use:toc
-  on:toc
-/>
-```
-
 ## Properties
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  ["on:toc"?](./toc.tocattributes._on_toc_.md) |  | (event: CustomEvent&lt;[TocEventDetails](./toc.toceventdetails.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
+|  ["on:tocchange"?](./toc.tocattributes._on_tocchange_.md) |  | (event: CustomEvent&lt;[TocChangeEventDetails](./toc.tocchangeeventdetails.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
+|  ["on:tocinit"?](./toc.tocattributes._on_tocinit_.md) |  | (event: CustomEvent&lt;[TocInitEventDetails](./toc.tociniteventdetails.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
 

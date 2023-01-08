@@ -4,7 +4,6 @@
 
 ## TocParameters interface
 
-svelte action parameters to config behavior of `toc`
 
 <b>Signature:</b>
 
@@ -16,13 +15,11 @@ export interface TocParameters
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [anchored](./toc.tocparameters.anchored.md) |  | number \| boolean | Whether to insert an anchor element to each matching DOM element, and potentially a paragraph element for "scroll padding". Defaults to <code>96</code> |
-|  [ignoreSelector](./toc.tocparameters.ignoreselector.md) |  | string\[\] \| string | Query selector(s) that match DOM elements to ignore Each selector is used as <code>:not(selector)</code>. Defaults to <code>.toc-exclude</code> |
-|  [indicator](./toc.tocparameters.indicator.md) |  | string \| boolean | Whether to display an indicator on:hover of the <code>textContent</code> of the matching DOM element. Defaults to <code>#</code> |
-|  [injectedStyleId](./toc.tocparameters.injectedstyleid.md) |  | string | If <code>indicator</code> is not <code>false</code>, an inline style tag is injected to <code>&lt;head&gt;</code>. This is the id of that style tag. Defaults to <code>toc-style</code> |
-|  [insertedAnchorClass](./toc.tocparameters.insertedanchorclass.md) |  | string | The <code>class</code> added to the inserted anchor tag (if any). Defaults to <code>toc-anchor</code> |
-|  [insertedParagraphClass](./toc.tocparameters.insertedparagraphclass.md) |  | string | The <code>class</code> added to the inserted paragraph (if any). Defaults to <code>toc-p</code> |
-|  [itemClass](./toc.tocparameters.itemclass.md) |  | string | The <code>class</code> added to each matching DOM element. Defaults to <code>toc-element</code> |
-|  [selector](./toc.tocparameters.selector.md) |  | string | The query selector used to find all matching DOM elements. Defaults to <code>:where(h1, h2, h3, h4, h5, h6)</code> |
-|  [stimulateHashNavigation](./toc.tocparameters.stimulatehashnavigation.md) |  | boolean | <code>toc</code> is run after component is mounted so if you do not provide yourself the id for the matching DOM element from the server side, browser won't automatically scroll this element into view. <code>stimulateHashNavigation</code> (defaults to <code>true</code>) will stimulate this behavior. |
+|  [anchor](./toc.tocparameters.anchor.md) |  | [TocAnchorParameters](./toc.tocanchorparameters.md) \| boolean | instructions to add the anchor tag. Default to <code>true</code> (default options) |
+|  [id](./toc.tocparameters.id.md) |  | string | A unique ID representing the operation. This is used for caching so that if the action is run multiple times with same parameters it can use the results from previous execution. Defaults to <code>crypto.randomUUID()</code> |
+|  [ignore](./toc.tocparameters.ignore.md) |  | string\[\] \| string | query selector(s) that match DOM elements to ignore Each selector is used as <code>:not(selector)</code>. Defaults to <code>.toc-exclude</code> |
+|  [observe](./toc.tocparameters.observe.md) |  | [TocObserveParameters](./toc.tocobserveparameters.md) \| boolean | instructions to track the active element in the viewport using <code>IntersectionObserver</code>. default to <code>false</code> |
+|  [scrollMarginTop](./toc.tocparameters.scrollmargintop.md) |  | number \| string \| ((element: HTMLElement) =&gt; number \| string) | inline <code>scroll-margin-top</code> value applied matching elements. Defaults to <code>0</code> |
+|  [selector](./toc.tocparameters.selector.md) |  | string | the query selector used to find all matching DOM elements. Defaults to <code>:where(h1, h2, h3, h4, h5, h6)</code> |
+|  [store?](./toc.tocparameters.store.md) |  | Writable&lt;[TocStoreValue](./toc.tocstorevalue.md)<!-- -->&gt; | <i>(Optional)</i> a svelte store that, if provides, will update with the list of extracted toc elements, and the active one (if <code>observe</code> is enabled) |
 

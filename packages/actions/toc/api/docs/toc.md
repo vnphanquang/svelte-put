@@ -4,33 +4,39 @@
 
 ## toc package
 
-Svelte action `use:toc` and component `<Toc>` for building table of contents
-
-## Classes
-
-|  Class | Description |
-|  --- | --- |
-|  [Toc](./toc.toc.md) | Svelte <code>&lt;Toc&gt;</code> component that internally use <code>toc</code> action and display a basic table of contents with ul |
+Svelte action `use:toc` for building table of contents
 
 ## Functions
 
 |  Function | Description |
 |  --- | --- |
+|  [createTocStore()](./toc.createtocstore.md) | create a idiomatic svelte store to use with <code>toc</code> action |
 |  [slugify(text)](./toc.slugify.md) | Slugify a string |
-|  [toc(node, parameters)](./toc.toc.md) | Find matching DOM elements for building table of contents |
 
 ## Interfaces
 
 |  Interface | Description |
 |  --- | --- |
-|  [TocAttributes](./toc.tocattributes.md) | Additional attributes extended from <code>svelte-put/toc</code> |
-|  [TocEventDetails](./toc.toceventdetails.md) | <code>detail</code> payload for <code>toc</code> CustomEvent |
-|  [TocEventItemDetails](./toc.toceventitemdetails.md) | Details about each DOM element transformed during the operation of the <code>toc</code> action |
-|  [TocParameters](./toc.tocparameters.md) | svelte action parameters to config behavior of <code>toc</code> |
+|  [TocAnchorParameters](./toc.tocanchorparameters.md) | options to config how <code>toc</code> action inject anchor tag for each matching toc element |
+|  [TocAttributes](./toc.tocattributes.md) |  |
+|  [TocChangeEventDetails](./toc.tocchangeeventdetails.md) | <code>event.detail</code> of <code>on:tocchange</code> |
+|  [TocEventDetails](./toc.toceventdetails.md) |  |
+|  [TocInitEventDetails](./toc.tociniteventdetails.md) | <code>event.detail</code> of <code>on:tocinit</code> |
+|  [TocItem](./toc.tocitem.md) | information about an extracted toc item |
+|  [TocObserveParameters](./toc.tocobserveparameters.md) | options to config how <code>toc</code> action create <code>IntersectionObserver</code> for each matching toc element |
+|  [TocParameters](./toc.tocparameters.md) |  |
 
 ## Variables
 
 |  Variable | Description |
 |  --- | --- |
-|  [DEFAULT\_TOC\_PARAMETERS](./toc.default_toc_parameters.md) | The default [TocParameters](./toc.tocparameters.md) options for <code>toc</code> action |
+|  [DEFAULT\_TOC\_PARAMETERS](./toc.default_toc_parameters.md) | The default [TocParameters](./toc.tocparameters.md) for <code>toc</code> action |
+|  [toc](./toc.toc.md) | <p>search for matching elements, inject anchor element, watch for active element in viewport with <code>IntersectionObserver</code>. All for building table of contents.</p><p>For comprehensive documentation, see [docs site](https://svelte-put.vnphanquang.com/docs/toc)</p> |
+
+## Type Aliases
+
+|  Type Alias | Description |
+|  --- | --- |
+|  [TocStoreValue](./toc.tocstorevalue.md) |  |
+|  [UserTocParameters](./toc.usertocparameters.md) | user-defined <code>toc</code> parameters |
 

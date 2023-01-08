@@ -1,6 +1,8 @@
 import type { Writable } from 'svelte/store';
 
 /**
+ * options to config how `toc` action create `IntersectionObserver` for each
+ * matching toc element
  * @public
  */
 export interface TocObserveParameters extends Omit<IntersectionObserverInit, 'threshold'> {
@@ -39,6 +41,7 @@ export interface TocObserveParameters extends Omit<IntersectionObserverInit, 'th
 }
 
 /**
+ * options to config how `toc` action inject anchor tag for each matching toc element
  * @public
  */
 export interface TocAnchorParameters {
@@ -135,6 +138,7 @@ export type ResolvedTocParameters = Omit<TocParameters, 'ignore'> & {
 };
 
 /**
+ * user-defined `toc` parameters
  * @public
  */
 export type UserTocParameters = Partial<
@@ -157,6 +161,7 @@ export type TocStoreValue = {
 };
 
 /**
+ * information about an extracted toc item
  * @public
  */
 export interface TocItem {
@@ -198,6 +203,7 @@ export interface TocEventDetails {
 }
 
 /**
+ * `event.detail` of `on:tocinit`
  * @public
  */
 export interface TocInitEventDetails extends TocEventDetails {
@@ -205,6 +211,7 @@ export interface TocInitEventDetails extends TocEventDetails {
 }
 
 /**
+ * `event.detail` of `on:tocchange`
  * @public
  */
 export interface TocChangeEventDetails extends TocEventDetails {
@@ -220,7 +227,7 @@ export interface TocAttributes {
 }
 
 /**
- * @public
+ * @internal
  */
 export type TocCacheItem = {
   parameters: ResolvedTocParameters;
