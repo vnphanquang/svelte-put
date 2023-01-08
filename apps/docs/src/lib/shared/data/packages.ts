@@ -171,7 +171,7 @@ export const packages = {
     replId: 'd9c896ac62cd41d49f80ffa249d292e6',
     category: 'action',
     status: 'new',
-    ready: false,
+    ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/toc',
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/toc/CHANGELOG.md',

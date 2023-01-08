@@ -50,7 +50,7 @@
 </section>
 
 <section>
-  <h2 data-toc-strategy="self">Setting Limit</h2>
+  <h2>Setting Limit</h2>
 
   <p>
     By default, node that uses <code>movable</code> can be moved freely. The <code>limit</code> parameter

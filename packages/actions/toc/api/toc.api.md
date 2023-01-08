@@ -13,6 +13,8 @@ import { Writable } from 'svelte/store';
 export const ATTRIBUTES: {
     autoslug: string;
     autoSlugAnchor: string;
+    toc: string;
+    anchor: string;
     id: string;
     ignore: string;
     strategy: string;
@@ -100,13 +102,9 @@ export interface TocChangeEventDetails extends TocEventDetails {
 
 // @public
 export interface TocDataAttributes {
-    // (undocumented)
     'data-toc-id'?: string;
-    // (undocumented)
     'data-toc-ignore'?: boolean;
-    // (undocumented)
     'data-toc-strategy'?: TocObserveParameters['strategy'];
-    // (undocumented)
     'data-toc-threshold'?: number;
 }
 

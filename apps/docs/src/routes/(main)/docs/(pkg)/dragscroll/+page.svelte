@@ -30,7 +30,7 @@
 </section>
 
 <section>
-  <h2 data-toc-strategy="self">Customization</h2>
+  <h2>Customization</h2>
 
   <section>
     <h3>Specifying the Scroll Axis</h3>

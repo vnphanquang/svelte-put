@@ -5,6 +5,7 @@ export const resources = {
   'svelte-kit': 'https://kit.svelte.dev/',
   'svelte slot': 'https://svelte.dev/docs#template-syntax-slot-slot-key-value',
   'svelte style': 'https://svelte.dev/docs#component-format-style',
+  'svelte store': 'https://svelte.dev/docs#run-time-svelte-store',
   'svelte --style-props':
     'https://svelte.dev/docs#template-syntax-component-directives---style-props',
   addEventListener: 'https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener',

@@ -15,8 +15,11 @@
   }
 </script>
 
-<fieldset class="border-4 border-blue-500 bg-violet-200 p-10 {cls}" bind:this={parent}>
-  <legend>Limit</legend>
+<fieldset
+  class="border-4 border-blue-500 bg-violet-200 p-10 text-dark marker:text-dark prose-strong:text-dark {cls}"
+  bind:this={parent}
+>
+  <legend class="font-bold text-blue-500">Limit</legend>
 
   <div
     class="grid border-2 border-gray-500 bg-gray-200 p-6"
