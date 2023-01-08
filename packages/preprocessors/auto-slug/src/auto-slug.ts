@@ -29,7 +29,9 @@ export function autoSlug(input: AutoSlugInput = {}): PreprocessorGroup {
     },
   };
   return {
-    markup({ content, filename }) {
+    markup(o) {
+      const { content, filename } = o;
+      if (!options.files(o)) return;
       const s = new MagicString(content);
       const ast = parse(content, { filename });
       const slugger = new BananaSlug();
