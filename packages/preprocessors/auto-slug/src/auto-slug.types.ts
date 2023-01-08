@@ -1,5 +1,6 @@
 import type { BaseNode } from 'estree';
 import type BananaSlug from 'github-slugger';
+import type { MarkupPreprocessor } from 'svelte/types/compiler/preprocess';
 
 /** @internal */
 type PartialAutoSlugOptions = Partial<Omit<AutoSlugOptions, 'anchor'>> & {
@@ -71,6 +72,10 @@ export interface SlugResolverInput {
  * @public
  */
 export interface AutoSlugOptions {
+  /**
+   * filter which files the preprocessor will run on
+   */
+  files: (options: Parameters<MarkupPreprocessor>[0]) => boolean;
   /** target tag, default to all heading tags */
   tags: string[];
   /** default to `id` */
