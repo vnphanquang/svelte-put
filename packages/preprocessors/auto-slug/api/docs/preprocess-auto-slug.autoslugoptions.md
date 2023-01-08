@@ -18,6 +18,7 @@ interface AutoSlugOptions
 |  --- | --- | --- | --- |
 |  [anchor](./preprocess-auto-slug.autoslugoptions.anchor.md) |  | [AutoSlugAnchorOptions](./preprocess-auto-slug.autosluganchoroptions.md) | instructions to add the anchor tag |
 |  [attributeName](./preprocess-auto-slug.autoslugoptions.attributename.md) |  | string | default to <code>id</code> |
+|  [files](./preprocess-auto-slug.autoslugoptions.files.md) |  | (options: Parameters&lt;MarkupPreprocessor&gt;\[0\]) =&gt; boolean | filter which files the preprocessor will run on |
 |  [slug](./preprocess-auto-slug.autoslugoptions.slug.md) |  | (SlugResolverInput: any) =&gt; string | slug resolver |
 |  [tags](./preprocess-auto-slug.autoslugoptions.tags.md) |  | string\[\] | target tag, default to all heading tags |
 

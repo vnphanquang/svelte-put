@@ -1,6 +1,7 @@
 import type { TocParameters, ResolvedTocParameters, UserTocParameters } from './toc.types';
 
 /**
+ * The default {@link TocParameters} for `toc` action
  * @public
  */
 export const DEFAULT_TOC_PARAMETERS = {
@@ -26,6 +27,9 @@ export const DEFAULT_TOC_PARAMETERS = {
 } satisfies TocParameters;
 
 /**
+ * resolve {@link UserTocParameters} to {@link ResolvedTocParameters}
+ * for internal usage within toc operations
+ *
  * @internal
  *
  * @param parameters

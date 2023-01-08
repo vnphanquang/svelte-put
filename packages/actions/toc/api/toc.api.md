@@ -4,82 +4,153 @@
 
 ```ts
 
-import { SvelteComponentTyped } from 'svelte';
+import type { Action } from 'svelte/action';
+import { Writable } from 'svelte/store';
+
+// Warning: (ae-internal-missing-underscore) The name "ATTRIBUTES" should be prefixed with an underscore because the declaration is marked as @internal
+//
+// @internal
+export const ATTRIBUTES: {
+    autoslug: string;
+    autoSlugAnchor: string;
+    id: string;
+    ignore: string;
+    strategy: string;
+    threshold: string;
+};
 
 // @public
-export const DEFAULT_TOC_PARAMETERS: TocParameters;
+export function createTocStore(): Writable<TocStoreValue>;
+
+// @public
+export const DEFAULT_TOC_PARAMETERS: {
+    id: string;
+    selector: string;
+    ignore: string[];
+    scrollMarginTop: number;
+    anchor: {
+        enabled: true;
+        content: string;
+        position: "prepend";
+        properties: {
+            'aria-hidden': string;
+            tabindex: string;
+        };
+        href: (slug: string) => string;
+    };
+    observe: {
+        enabled: false;
+        strategy: "auto";
+        threshold: (element: HTMLElement) => number;
+    };
+};
+
+// Warning: (ae-internal-missing-underscore) The name "EVENTS" should be prefixed with an underscore because the declaration is marked as @internal
+//
+// @internal
+export const EVENTS: {
+    init: string;
+    change: string;
+};
 
 // Warning: (ae-internal-missing-underscore) The name "ResolvedTocParameters" should be prefixed with an underscore because the declaration is marked as @internal
 //
 // @internal
-export interface ResolvedTocParameters {
-    // (undocumented)
-    anchored: number;
-    // (undocumented)
-    indicator: string;
-    // (undocumented)
-    injectedStyleId: string;
-    // (undocumented)
-    insertedAnchorClass: string;
-    // (undocumented)
-    insertedParagraphClass: string;
-    // (undocumented)
-    itemClass: string;
-    // (undocumented)
-    selector: string;
-    // (undocumented)
-    stimulateHashNavigation: boolean;
-}
+export type ResolvedTocParameters = Omit<TocParameters, 'ignore'> & {
+    anchor: TocAnchorParameters;
+    observe: TocObserveParameters;
+};
 
 // @public
 export function slugify(text: string): string;
 
-// Warning: (ae-forgotten-export) The symbol "TocProps" needs to be exported by the entry point index.d.ts
-// Warning: (ae-forgotten-export) The symbol "TocEvents" needs to be exported by the entry point index.d.ts
-// Warning: (ae-forgotten-export) The symbol "TocSlots" needs to be exported by the entry point index.d.ts
-//
 // @public
-export class Toc extends SvelteComponentTyped<TocProps, TocEvents, TocSlots> {
-}
+export const toc: Action<HTMLElement, UserTocParameters, TocAttributes>;
 
 // @public
-export function toc(node: HTMLElement, parameters?: Partial<TocParameters>): {
-    update(update: Partial<TocParameters>): void;
-    destroy(): void;
+export interface TocAnchorParameters {
+    content: string;
+    enabled: boolean;
+    href: (id: string) => string;
+    position: 'prepend' | 'append' | 'wrap' | 'before' | 'after';
+    properties: Record<string, string>;
+}
+
+// @public (undocumented)
+export interface TocAttributes {
+    // (undocumented)
+    'on:tocchange'?: (event: CustomEvent<TocChangeEventDetails>) => void;
+    // (undocumented)
+    'on:tocinit'?: (event: CustomEvent<TocInitEventDetails>) => void;
+}
+
+// Warning: (ae-internal-missing-underscore) The name "TocCacheItem" should be prefixed with an underscore because the declaration is marked as @internal
+//
+// @internal (undocumented)
+export type TocCacheItem = {
+    parameters: ResolvedTocParameters;
+    items: Record<string, TocItem>;
 };
 
 // @public
-export interface TocAttributes {
+export interface TocChangeEventDetails extends TocEventDetails {
     // (undocumented)
-    'on:toc'?: (event: CustomEvent<TocEventDetails>) => void;
+    activeItem: TocItem;
 }
 
-// @public
+// @public (undocumented)
 export interface TocEventDetails {
     id: string;
-    items: TocEventItemDetails[];
 }
 
 // @public
-export interface TocEventItemDetails {
+export interface TocInitEventDetails extends TocEventDetails {
+    // (undocumented)
+    items: Record<string, TocItem>;
+}
+
+// @public
+export interface TocItem {
     anchor?: HTMLAnchorElement;
     element: HTMLElement;
     id: string;
-    p?: HTMLParagraphElement;
+    observe?: {
+        observer: IntersectionObserver;
+        strategy: TocObserveParameters['strategy'];
+        threshold: TocObserveParameters['threshold'];
+    };
     text: string;
 }
 
 // @public
-export interface TocParameters {
-    anchored: number | boolean;
-    ignoreSelector: string[] | string;
-    indicator: string | boolean;
-    injectedStyleId: string;
-    insertedAnchorClass: string;
-    insertedParagraphClass: string;
-    itemClass: string;
-    selector: string;
-    stimulateHashNavigation: boolean;
+export interface TocObserveParameters extends Omit<IntersectionObserverInit, 'threshold'> {
+    enabled: boolean;
+    strategy: 'parent' | 'self' | 'auto';
+    threshold: number | ((element: HTMLElement) => number);
 }
+
+// @public (undocumented)
+export interface TocParameters {
+    anchor: TocAnchorParameters | boolean;
+    id: string;
+    ignore: string[] | string;
+    observe: TocObserveParameters | boolean;
+    scrollMarginTop: number | string | ((element: HTMLElement) => number | string);
+    selector: string;
+    store?: Writable<TocStoreValue>;
+}
+
+// @public (undocumented)
+export type TocStoreValue = {
+    id?: string;
+    items: TocInitEventDetails['items'];
+    activeItem?: TocChangeEventDetails['activeItem'];
+};
+
+// @public
+export type UserTocParameters = Partial<Omit<TocParameters, 'observe' | 'anchor'> & {
+    observe: Partial<TocObserveParameters> | boolean;
+    anchor: Partial<TocAnchorParameters> | boolean;
+}>;
 
 ```

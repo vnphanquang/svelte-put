@@ -4,7 +4,6 @@
 
 ## TocEventDetails interface
 
-`detail` payload for `toc` CustomEvent
 
 <b>Signature:</b>
 
@@ -16,6 +15,5 @@ export interface TocEventDetails
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [id](./toc.toceventdetails.id.md) |  | string | A unique UUID from <code>crypto.randomUUID()</code> representing the operation. This is used for caching so that if the action is run multiple times with same parameters it can use the results from previous execution. |
-|  [items](./toc.toceventdetails.items.md) |  | [TocEventItemDetails](./toc.toceventitemdetails.md)<!-- -->\[\] | Details about each DOM element transformed during the operation of the <code>toc</code> action |
+|  [id](./toc.toceventdetails.id.md) |  | string | the ID of this toc operation. see [TocParameters](./toc.tocparameters.md) |
 

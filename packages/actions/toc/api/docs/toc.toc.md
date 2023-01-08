@@ -2,41 +2,63 @@
 
 [Home](./index.md) &gt; [@svelte-put/toc](./toc.md) &gt; [toc](./toc.toc.md)
 
-## toc() function
+## toc variable
 
-Find matching DOM elements for building table of contents
+search for matching elements, inject anchor element, watch for active element in viewport with `IntersectionObserver`<!-- -->. All for building table of contents.
+
+For comprehensive documentation, see [docs site](https://svelte-put.vnphanquang.com/docs/toc)
 
 <b>Signature:</b>
 
 ```typescript
-export declare function toc(node: HTMLElement, parameters?: Partial<TocParameters>): {
-    update(update: Partial<TocParameters>): void;
-    destroy(): void;
-};
+toc: Action<HTMLElement, UserTocParameters, TocAttributes>
 ```
-
-## Parameters
-
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  node | HTMLElement | the HTMLElement under which <code>toc</code> will look for matching elements |
-|  parameters | Partial&lt;[TocParameters](./toc.tocparameters.md)<!-- -->&gt; | <i>(Optional)</i> [TocParameters](./toc.tocparameters.md) svelte action parameters |
-
-<b>Returns:</b>
-
-{ update(update: Partial&lt;[TocParameters](./toc.tocparameters.md)<!-- -->&gt;): void; destroy(): void; }
-
-svelte action interface
 
 ## Remarks
 
-`toc` will search for DOM elements that are descendants of the HTMLElement that `toc` is used on. Typically you want that to be `<body>`<!-- -->.
+As with any svelte action, `clickoutside` should be use with element and not component.
 
 ```html
-<script>
-  import { toc } from '@svelte-put/toc';
-</script>
+<-- correct usage-->
+ <div use:toc />
 
-<svelte:body use:toc />
+<-- incorrect usage-->
+<Component use:toc/>
+
+@example
+
+Minimal use with idiomatic svelte store
+
+```
+html <script lang="ts"> import { toc, createTocStore } from '<!-- -->@<!-- -->svelte-put/clickoutside';
+
+const tocStore = createTocStore();
+
+$: { const { activeItem, items } = $tocStore; console.log('all extracted toc items', items); console.log('activeItem', activeItem); // only if `observer: true` } </script>
+
+&lt;<!-- -->main use:toc=<!-- -->{<!-- -->{ store: tocStore, observe: true }<!-- -->}<!-- -->&gt; <h1>Page heading</h1> <section> <h2>Section heading</h2> </section> ... </main>
+
+```
+
+@example
+
+Usage with callbacks (alternative to svelte store)
+
+```
+html <script lang="ts"> import { toc, createTocStore } from '<!-- -->@<!-- -->svelte-put/clickoutside'; import type { TocInitEventDetails, TocChangeEventDetails } from '<!-- -->@<!-- -->svelte-put/clickoutside';
+
+const tocStore = createTocStore();
+
+function handleTocInit(event: CustomEvent<TocInitEventDetails>) { const { items } = event.detail; }
+
+function handleTocChange(event: CustomEvent<TocChangeEventDetails>) { const { activeItem } = event.detail; } </script>
+
+&lt;<!-- -->main use:toc on:tocinit=<!-- -->{<!-- -->handleTocInit<!-- -->} on:tocchange=<!-- -->{<!-- -->handleTocChange<!-- -->}<!-- -->&gt; ... </main>
+
+```
+
+@param node - root node to search for matching elements in descendants
+@param parameters - instructions for `toc` behavior
+@returns svelte {@link ActionReturn}
 ```
 

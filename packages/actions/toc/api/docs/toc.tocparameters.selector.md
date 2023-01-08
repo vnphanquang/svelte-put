@@ -4,7 +4,7 @@
 
 ## TocParameters.selector property
 
-The query selector used to find all matching DOM elements. Defaults to `:where(h1, h2, h3, h4, h5, h6)`
+the query selector used to find all matching DOM elements. Defaults to `:where(h1, h2, h3, h4, h5, h6)`
 
 <b>Signature:</b>
 

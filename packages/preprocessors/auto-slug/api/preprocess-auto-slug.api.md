@@ -6,6 +6,7 @@
 
 import BananaSlug from 'github-slugger';
 import { BaseNode } from 'estree';
+import { MarkupPreprocessor } from 'svelte/types/compiler/preprocess';
 import { PreprocessorGroup } from 'svelte/types/compiler/preprocess';
 
 // @public
@@ -31,6 +32,7 @@ export type AutoSlugInput = PartialAutoSlugOptions | ((defaultOptions: AutoSlugO
 export interface AutoSlugOptions {
     anchor: AutoSlugAnchorOptions;
     attributeName: string;
+    files: (options: Parameters<MarkupPreprocessor>[0]) => boolean;
     slug: (SlugResolverInput: any) => string;
     tags: string[];
 }

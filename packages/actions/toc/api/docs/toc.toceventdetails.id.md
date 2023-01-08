@@ -4,7 +4,7 @@
 
 ## TocEventDetails.id property
 
-A unique UUID from `crypto.randomUUID()` representing the operation. This is used for caching so that if the action is run multiple times with same parameters it can use the results from previous execution.
+the ID of this toc operation. see [TocParameters](./toc.tocparameters.md)
 
 <b>Signature:</b>
 
