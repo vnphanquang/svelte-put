@@ -2,6 +2,8 @@
 /// <reference types="svelte" />
 /// <reference types="vite/client" />
 
+import type { TocDataAttributes } from '@svelte-put/toc';
+
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
 // and what to do when importing types
@@ -40,12 +42,8 @@ declare namespace App {
 }
 
 declare namespace svelteHTML {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  interface HTMLAttributes<T> {
-    'data-toc-disabled'?: boolean;
-    'data-toc-strategy'?: 'parent' | 'self';
-    'data-toc-id'?: string;
-  }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-interface
+  interface HTMLAttributes<T> extends TocDataAttributes {}
 }
 
 declare module '*.svelte';

@@ -28,7 +28,7 @@
 <ActionUsageNotice action={data.package.id} />
 
 <section>
-  <h2 id={ADVANCED_USAGE_SECTION_ID} data-toc-strategy="self">Advanced Usage & Customization</h2>
+  <h2 id={ADVANCED_USAGE_SECTION_ID}>Advanced Usage & Customization</h2>
 
   <section>
     <h3>Feature Demo</h3>

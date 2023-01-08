@@ -145,7 +145,7 @@
 </section>
 
 <section>
-  <h2 data-toc-strategy="self" id={SECTIONS.usage.id}>{SECTIONS.usage.title}</h2>
+  <h2 id={SECTIONS.usage.id}>{SECTIONS.usage.title}</h2>
   <p>Follow the steps laid out below.</p>
 
   <section>

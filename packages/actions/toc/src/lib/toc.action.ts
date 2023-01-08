@@ -7,7 +7,6 @@ import { compare, resolve } from './toc.parameters';
 import type {
   ResolvedTocParameters,
   TocAttributes,
-  TocDataAttributes,
   TocItem,
   TocInitEventDetails,
   TocChangeEventDetails,
@@ -15,15 +14,6 @@ import type {
   UserTocParameters,
 } from './toc.types';
 import { slugify } from './toc.utils';
-
-// ambient typing
-declare global {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
-  export namespace svelteHTML {
-    // eslint-disable-next-line @typescript-eslint/no-empty-interface
-    export interface HTMLAttributes extends TocDataAttributes {}
-  }
-}
 
 /**
  * all relevant data attribute name literals
@@ -102,10 +92,8 @@ const cache: Record<string, TocCacheItem> = {};
  *
  * ```html
  * <script lang="ts">
- *   import { toc, createTocStore  } from '@svelte-put/clickoutside';
- *   import type { TocInitEventDetails, TocChangeEventDetails  } from '@svelte-put/clickoutside';
- *
- *   const tocStore = createTocStore();
+ *   import { toc } from '@svelte-put/clickoutside';
+ *   import type { TocInitEventDetails, TocChangeEventDetails } from '@svelte-put/clickoutside';
  *
  *   function handleTocInit(event: CustomEvent<TocInitEventDetails>) {
  *      const { items } = event.detail;
@@ -116,7 +104,7 @@ const cache: Record<string, TocCacheItem> = {};
  *   }
  * </script>
  *
- * <main use:toc on:tocinit={handleTocInit} on:tocchange={handleTocChange}>
+ * <main use:toc={{ observe: true }} on:tocinit={handleTocInit} on:tocchange={handleTocChange}>
  *  ...
  * </main>
  * ```

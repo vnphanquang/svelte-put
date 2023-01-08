@@ -50,7 +50,7 @@
 </section>
 
 <section>
-  <h2 data-toc-strategy="self">Events</h2>
+  <h2>Events</h2>
 
   <section>
     <h3><code>on:intersect</code></h3>

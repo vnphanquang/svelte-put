@@ -9,7 +9,6 @@
 
   import type { PageData } from './$types';
   import { codes } from './_page/codes';
-
   export let data: PageData;
 </script>
 
@@ -39,16 +38,16 @@
       </p>
     </ConnectedListItem>
     <ConnectedListItem>
-      <p>
-        expose necessary pieces (action, component, and utilities) for building table of contents.
-      </p>
+      <p>expose necessary pieces for building table of contents.</p>
     </ConnectedListItem>
   </ConnectedList>
   <p>
-    It is recommended to use the complementary <ResourceLink key="@svelte-put/preprocess-auto-slug" /> for handling
+    It is recommended to use the complementary <ResourceLink
+      key="@svelte-put/preprocess-auto-slug"
+    /> for handling
     <span class="c-circle-number-primary">2</span>
     and
-    <span class="c-circle-number-primary">3</span> at <strong>build time</strong>.
+    <span class="c-circle-number-primary">3</span> at <strong>build time</strong> when possible.
     <code>toc</code> will skip those operations if they are already handled by
     <code>preprocess-auto-slug</code>.
   </p>
@@ -65,10 +64,32 @@
 
 <section>
   <h2 id="quick-start">Quick Start</h2>
-  <p>Given the following svelte component and the default <code>toc</code> config</p>
+  <p>
+    Given the following svelte component, let's see how <code>toc</code> searches for all headings,
+    generates id based on <code>textContent</code>, adds anchor tag, and track active element on
+    screen.
+  </p>
   <Code code={codes.quickStart.input} title="quick start - input" />
-  <p>Matching elements will be transformed after page load into</p>
+  <p>
+    Notice the usage of <code>createTocStore</code> as a helper for creating an idiomatic
+    <ResourceLink key="svelte store" />, which will populate its <code>items</code> property with
+    the extracted toc elements, and track <code>activeItem</code> if <code>observe</code> is set to
+    <code>true</code>.
+  </p>
   <Code code={codes.quickStart.output} title="quick start - output" />
+</section>
+
+<section>
+  <h2>Events</h2>
+  <p>
+    In <ResourceLink id="quick-start">Quick Start</ResourceLink>,
+    <ResourceLink key="svelte store" /> is used to keep code minimal. Alternative, you can listen for
+    the
+    <code>tocinit</code>
+    and <code>tocchange</code>
+    events.
+  </p>
+  <Code code={codes.events} title="events" />
 </section>
 
 <section>
@@ -76,8 +97,9 @@
 
   <p>
     <code>use:toc</code> will search for matching elements only from descendants of the element
-    where it is used. In the <ResourceLink id="quick-start">Quick Start</ResourceLink> example, that's the <code>main</code> element. To search
-    from everything on the page, use <code>svelte:body</code>.
+    where it is used. In the <ResourceLink id="quick-start">Quick Start</ResourceLink> example, that's
+    the <code>main</code> element. To search from everything on the page, use it on
+    <code>svelte:body</code>.
     <!-- add prop online:boolean to the Code component that renders a minimal box -->
     <Code code={`<svelte:body use:toc />`} />
   </p>
@@ -87,39 +109,96 @@
   </ActionUsageNotice>
 
   <section>
-    <h3>Configuration</h3>
-    <p>The following configuration (all optional) can be specified as action parameters.</p>
-    <ApiUnitReference type="'parent' | 'self' | 'auto'" d="'auto'">
-      <h4 slot="name"><code>strategy</code></h4>
-      The default<code>strategy</code> for this run, can be overridden for each matching element
-      using the <code>data-toc-strategy</code> attribute.
-    </ApiUnitReference>
-    <ApiUnitReference type="number" d="undefined">
-      <h4 slot="name"><code>scrollMarginTop</code></h4>
-      css<code>scroll-margin-top</code> - if provided will be applied to matching elements as inline
-      style.
-    </ApiUnitReference>
+    <h3>Parameters</h3>
+    <p>
+      <code>toc</code> is highly customizable. Please visit the extracted
+      <ResourceLink
+        href="https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/toc/api/docs/toc.tocparameters.md"
+      >
+        TocParameters
+      </ResourceLink> API page for details.
+    </p>
   </section>
 </section>
 
 <section>
   <h2>Toc Data Attributes</h2>
 
-  <ApiUnitReference name="data-toc-strategy" type="'parent' | 'self' | 'auto'" d="'auto'">
-    Override the <code>strategy</code> for this element
+  <p>
+    Attributes listed below can be used to override behavior of <code>toc</code>
+    per matching element. All of them are <code>undefined</code> by default.
+  </p>
+
+  <ApiUnitReference type="boolean">
+    <h3 slot="name"><code>data-toc-ignore</code></h3>
+    <p>Whether to ignore this element when searching for matching elements.</p>
   </ApiUnitReference>
 
-  <ApiUnitReference name="data-toc-ignore" type="boolean" d="false" />
+  <ApiUnitReference type="string">
+    <h3 slot="name"><code>data-toc-id</code></h3>
+    <p>
+      The <code>id</code> to use for this element in <code>toc</code> context. If not provided, this
+      will be the element <code>id</code>, or generated by <code>toc</code>
+      if element does not have an <code>id</code> either.
+    </p>
+  </ApiUnitReference>
 
-  <ApiUnitReference name="data-toc-id" type="string" d="undefined" />
-</section>
+  <ApiUnitReference type="'parent' | 'self' | 'auto'">
+    <h3 slot="name"><code>data-toc-strategy</code></h3>
+    <p>
+      Override the <code>strategy</code> for this element to use in creating
+      <ResourceLink key="IntersectionObserver" />. This only has effect if the <code>observe</code>
+      option is enabled in <code>toc</code> parameters.
+    </p>
+  </ApiUnitReference>
 
-<section>
-  <h2>Toc Component</h2>
-</section>
+  <ApiUnitReference type="number">
+    <h3 slot="name"><code>data-toc-threshold</code></h3>
+    <p>
+      Override the <code>threshold</code> for this element to use in creating
+      <ResourceLink key="IntersectionObserver" />. This only has effect if the <code>observe</code>
+      option is enabled in <code>toc</code> parameters.
+    </p>
+  </ApiUnitReference>
 
-<section>
-  <h2>Utilities</h2>
+  <p>
+    These attributes are also be referenced from the extracted
+    <ResourceLink
+      href="https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/toc/api/docs/toc.tocdataattributes"
+    >
+      TocDataAttributes
+    </ResourceLink> API page.
+  </p>
+
+  <p>Below instructions show how to add type support for these attributes</p>
+  <Code code={codes.dataAttributes} title="app.d.ts" />
+
+  <hr />
+
+  <p>The following attributes act as <strong>readonly</strong> reference markers.</p>
+
+  <ApiUnitReference>
+    <h3 slot="name"><code>data-toc</code></h3>
+    <p>
+      Marking this element that it's been processed by <code>toc</code>.
+    </p>
+    <p>
+      If this is already preprocessed by <ResourceLink key="@svelte-put/preprocess-auto-slug" />,
+      there will also be a <code>data-auto-slug</code> attribute.
+    </p>
+  </ApiUnitReference>
+
+  <ApiUnitReference>
+    <h3 slot="name"><code>data-toc-anchor</code></h3>
+    <p>
+      If the <code>anchor</code> option is enabled in <code>toc</code> parameters, this attribute is
+      present on the injected anchor element.
+    </p>
+    <p>
+      If the element is added by <ResourceLink key="@svelte-put/preprocess-auto-slug" />, the
+      <code>data-auto-slug-anchor</code> can be seen instead.
+    </p>
+  </ApiUnitReference>
 </section>
 
 <ApiReference href={data.package.apiUrl} />

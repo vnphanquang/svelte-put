@@ -45,15 +45,13 @@ $: { const { activeItem, items } = $tocStore; console.log('all extracted toc ite
 Usage with callbacks (alternative to svelte store)
 
 ```
-html <script lang="ts"> import { toc, createTocStore } from '<!-- -->@<!-- -->svelte-put/clickoutside'; import type { TocInitEventDetails, TocChangeEventDetails } from '<!-- -->@<!-- -->svelte-put/clickoutside';
-
-const tocStore = createTocStore();
+html <script lang="ts"> import { toc } from '<!-- -->@<!-- -->svelte-put/clickoutside'; import type { TocInitEventDetails, TocChangeEventDetails } from '<!-- -->@<!-- -->svelte-put/clickoutside';
 
 function handleTocInit(event: CustomEvent<TocInitEventDetails>) { const { items } = event.detail; }
 
 function handleTocChange(event: CustomEvent<TocChangeEventDetails>) { const { activeItem } = event.detail; } </script>
 
-&lt;<!-- -->main use:toc on:tocinit=<!-- -->{<!-- -->handleTocInit<!-- -->} on:tocchange=<!-- -->{<!-- -->handleTocChange<!-- -->}<!-- -->&gt; ... </main>
+&lt;<!-- -->main use:toc=<!-- -->{<!-- -->{ observe: true }<!-- -->} on:tocinit=<!-- -->{<!-- -->handleTocInit<!-- -->} on:tocchange=<!-- -->{<!-- -->handleTocChange<!-- -->}<!-- -->&gt; ... </main>
 
 ```
 

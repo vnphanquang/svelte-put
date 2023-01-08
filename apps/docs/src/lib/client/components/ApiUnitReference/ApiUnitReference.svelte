@@ -26,9 +26,9 @@
       </slot>
     {/if}
     {#if $$slots.default}
-      <p class="pt-3">
+      <div class="pt-3">
         <slot />
-      </p>
+      </div>
     {/if}
   </div>
 </section>
