@@ -57,7 +57,7 @@ export function autoSlug(input: AutoSlugInput = {}): PreprocessorGroup {
               const inlineProperties = Object.entries(options.anchor.properties)
                 .map(([key, value]) => `${key}="${value}"`)
                 .join(' ');
-              const anchorOpening = `<a href="#${id}" ${inlineProperties}>`;
+              const anchorOpening = `<a href="#${id}" ${inlineProperties} data-auto-slug-anchor>`;
               const anchorClosing = '</a>';
 
               switch (options.anchor.position) {
@@ -92,6 +92,9 @@ export function autoSlug(input: AutoSlugInput = {}): PreprocessorGroup {
                   );
                   break;
               }
+              // mark element with `data-autoslug` attribute
+              // intended for `@svelte-put/toc` to skip anchor processing
+              s.appendLeft(tNode.children[0].start - 1, ` data-auto-slug`);
             }
           }
         },
