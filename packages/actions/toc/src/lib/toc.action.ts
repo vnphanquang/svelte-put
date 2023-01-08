@@ -7,6 +7,7 @@ import { compare, resolve } from './toc.parameters';
 import type {
   ResolvedTocParameters,
   TocAttributes,
+  TocDataAttributes,
   TocItem,
   TocInitEventDetails,
   TocChangeEventDetails,
@@ -14,6 +15,15 @@ import type {
   UserTocParameters,
 } from './toc.types';
 import { slugify } from './toc.utils';
+
+// ambient typing
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  export namespace svelteHTML {
+    // eslint-disable-next-line @typescript-eslint/no-empty-interface
+    export interface HTMLAttributes extends TocDataAttributes {}
+  }
+}
 
 /**
  * all relevant data attribute name literals

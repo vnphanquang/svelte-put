@@ -20,6 +20,7 @@ Svelte action `use:toc` for building table of contents
 |  [TocAnchorParameters](./toc.tocanchorparameters.md) | options to config how <code>toc</code> action inject anchor tag for each matching toc element |
 |  [TocAttributes](./toc.tocattributes.md) |  |
 |  [TocChangeEventDetails](./toc.tocchangeeventdetails.md) | <code>event.detail</code> of <code>on:tocchange</code> |
+|  [TocDataAttributes](./toc.tocdataattributes.md) | Data attributes to override <code>toc</code> behavior per matching element |
 |  [TocEventDetails](./toc.toceventdetails.md) |  |
 |  [TocInitEventDetails](./toc.tociniteventdetails.md) | <code>event.detail</code> of <code>on:tocinit</code> |
 |  [TocItem](./toc.tocitem.md) | information about an extracted toc item |
