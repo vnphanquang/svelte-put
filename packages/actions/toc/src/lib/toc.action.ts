@@ -32,6 +32,8 @@ declare global {
 export const ATTRIBUTES = {
   autoslug: 'data-auto-slug',
   autoSlugAnchor: 'data-auto-slug-anchor',
+  toc: 'data-toc',
+  anchor: 'data-toc-anchor',
   id: 'data-toc-id',
   ignore: 'data-toc-ignore',
   strategy: 'data-toc-strategy',
@@ -224,6 +226,7 @@ export const toc: Action<HTMLElement, UserTocParameters, TocAttributes> = functi
                 element.parentNode?.insertBefore(a, element.nextSibling);
                 break;
             }
+            a.setAttribute(ATTRIBUTES.anchor, '');
           }
         }
 
@@ -270,6 +273,7 @@ export const toc: Action<HTMLElement, UserTocParameters, TocAttributes> = functi
           rObserve = { strategy: rStrategy, observer, threshold };
         }
 
+        element.setAttribute(ATTRIBUTES.toc, '');
         items[tocId] = {
           element,
           id: tocId,
