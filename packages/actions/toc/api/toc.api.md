@@ -98,6 +98,18 @@ export interface TocChangeEventDetails extends TocEventDetails {
     activeItem: TocItem;
 }
 
+// @public
+export interface TocDataAttributes {
+    // (undocumented)
+    'data-toc-id'?: string;
+    // (undocumented)
+    'data-toc-ignore'?: boolean;
+    // (undocumented)
+    'data-toc-strategy'?: TocObserveParameters['strategy'];
+    // (undocumented)
+    'data-toc-threshold'?: number;
+}
+
 // @public (undocumented)
 export interface TocEventDetails {
     id: string;

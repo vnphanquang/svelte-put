@@ -227,6 +227,17 @@ export interface TocAttributes {
 }
 
 /**
+ * Data attributes to override `toc` behavior per matching element
+ * @public
+ */
+export interface TocDataAttributes {
+  'data-toc-ignore'?: boolean;
+  'data-toc-id'?: string;
+  'data-toc-strategy'?: TocObserveParameters['strategy'];
+  'data-toc-threshold'?: number;
+}
+
+/**
  * @internal
  */
 export type TocCacheItem = {
