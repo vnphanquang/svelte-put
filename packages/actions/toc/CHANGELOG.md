@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.0.0
+
+### Major Changes
+
+- [#93](https://github.com/vnphanquang/svelte-put/pull/93) [`4d379db`](https://github.com/vnphanquang/svelte-put/commit/4d379db80b7b2a6c8c6c545519fd577448a252be) Thanks [@vnphanquang](https://github.com/vnphanquang)! - [BREAKING] complete overhaul, drier code with scroll-margin-top and more customizable anchor options
+
+### Patch Changes
+
+- [#93](https://github.com/vnphanquang/svelte-put/pull/93) [`84b63f8`](https://github.com/vnphanquang/svelte-put/commit/84b63f8dd3404cbceb5760ac837cfd2cb3ddfc31) Thanks [@vnphanquang](https://github.com/vnphanquang)! - Add global ambient typings for data-toc-... attributes
+
 ## 1.0.8
 
 ### Patch Changes

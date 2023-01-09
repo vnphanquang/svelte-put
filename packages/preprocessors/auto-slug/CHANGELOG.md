@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0
+
+### Minor Changes
+
+- [#93](https://github.com/vnphanquang/svelte-put/pull/93) [`3377f8d`](https://github.com/vnphanquang/svelte-put/commit/3377f8d2e546483848b955db7938fa671aeaf3b2) Thanks [@vnphanquang](https://github.com/vnphanquang)! - add `data-autoslug` and `data-autoslug-anchor` attributes to mark that these elements have been processed by `preprocess-auto-slug`
+
+- [#93](https://github.com/vnphanquang/svelte-put/pull/93) [`8c89776`](https://github.com/vnphanquang/svelte-put/commit/8c89776b133d94a29183f391a7fdaa5148d53ebb) Thanks [@vnphanquang](https://github.com/vnphanquang)! - add option to filter which files to process
+
 ## 0.2.2
 
 ### Patch Changes
