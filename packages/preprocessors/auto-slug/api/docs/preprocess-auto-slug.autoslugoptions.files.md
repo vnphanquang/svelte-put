@@ -11,3 +11,8 @@ filter which files the preprocessor will run on
 ```typescript
 files: (options: Parameters<MarkupPreprocessor>[0]) => boolean;
 ```
+
+## Remarks
+
+Alternatively, you can skip processing per file by adding `<!-- ignore @svelte-put/preprocess-auto-slug -->` somewhere in the file.
+

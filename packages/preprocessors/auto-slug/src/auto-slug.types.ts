@@ -74,6 +74,11 @@ export interface SlugResolverInput {
 export interface AutoSlugOptions {
   /**
    * filter which files the preprocessor will run on
+   *
+   * @remarks
+   *
+   * Alternatively, you can skip processing per file by adding
+   * `<!-- ignore @svelte-put/preprocess-auto-slug -->` somewhere in the file.
    */
   files: (options: Parameters<MarkupPreprocessor>[0]) => boolean;
   /** target tag, default to all heading tags */
