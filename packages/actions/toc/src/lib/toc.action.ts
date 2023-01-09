@@ -176,7 +176,7 @@ export const toc: Action<HTMLElement, UserTocParameters, TocAttributes> = functi
         if (dataTocId) {
           tocId = dataTocId;
         } else if (!tocId) {
-          element.id = tocId = slugify(text);
+          element.id = tocId = slugify(text.slice(0, 100));
         }
 
         if (scrollMarginTop) {
