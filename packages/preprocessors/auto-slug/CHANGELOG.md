@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.1
+
+### Patch Changes
+
+- [`dbeecf8`](https://github.com/vnphanquang/svelte-put/commit/dbeecf88701d4e25186757d5e05515f44e0e4968) Thanks [@vnphanquang](https://github.com/vnphanquang)! - fix: duplication in slug from `getTextContent`; should only walk node once
+
+- [`abb54f6`](https://github.com/vnphanquang/svelte-put/commit/abb54f6fbeb2ad0f6e0ba99f85240befa071d684) Thanks [@vnphanquang](https://github.com/vnphanquang)! - allow skipping processing with `<!-- ignore @svelte-put/preprocess-auto-slug -->`
+
 ## 0.3.0
 
 ### Minor Changes
