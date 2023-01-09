@@ -2,7 +2,7 @@
 
 # `@svelte-put/toc`
 
-[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia] [![repl.badge]][repl]
+[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia] [![docs.badge]][docs] [![repl.badge]][repl]
 
 Svelte `use:toc` action for building table of contents
 
@@ -41,7 +41,7 @@ This package rely on svelte action strategy and attempts to stay minimal. If you
 
 <!-- repl -->
 
-[repl]: https://svelte.dev/repl/0a68001337544b8ab55995fb3d02d1f6
+[repl]: https://svelte.dev/repl/d9c896ac62cd41d49f80ffa249d292e6
 [repl.badge]: https://img.shields.io/static/v1?label=&message=Svelte+REPL&logo=svelte&logoColor=fff&color=ff3e00
 [docs]: https://svelte-put.vnphanquang.com/docs/toc
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue

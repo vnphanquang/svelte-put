@@ -45,7 +45,7 @@ Useful svelte stuff to put in your projects
 | [@svelte-put/intersect][github.intersect]       | wrapper for IntersectionObserver                  | [![npm.intersect.badge]][npm.intersect]       | [Changelog][github.intersect.changelog]    | [API][github.intersect.docs]    | [![docs.badge]][docs.intersect]    |
 | [@svelte-put/movable][github.movable]           | move node on mousedown                            | [![npm.movable.badge]][npm.movable]           | [Changelog][github.movable.changelog]      | [API][github.movable.docs]      | [![docs.badge]][docs.movable]      |
 | [@svelte-put/shortcut][github.shortcut]         | add keyboard shortcuts to node                    | [![npm.shortcut.badge]][npm.shortcut]         | [Changelog][github.shortcut.changelog]     | [API][github.shortcut.docs]     | [![docs.badge]][docs.shortcut]     |
-| [@svelte-put/toc][github.toc]                   | action & component for building table of contents | [![npm.toc.badge]][npm.toc]                   | [Changelog][github.toc.changelog]          | [API][github.toc.docs]          | coming soon                        |
+| [@svelte-put/toc][github.toc]                   | action & component for building table of contents | [![npm.toc.badge]][npm.toc]                   | [Changelog][github.toc.changelog]          | [API][github.toc.docs]          | [![docs.badge]][docs.toc]          |
 
 ### Miscellaneous
 
