@@ -67,7 +67,10 @@
   </p>
   <p>
     For more details, inspect in-code documentation, read the
-    <ResourceLink href={data.package.apiUrl}>API Reference</ResourceLink>, and check out the
+    <ResourceLink
+      href="https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocessors/auto-slug/api/docs/preprocess-auto-slug.autoslugoptions.md"
+      >API Reference</ResourceLink
+    >, and check out the
     <ResourceLink
       href="https://github.com/vnphanquang/svelte-put/blob/vercel/packages/preprocessors/auto-slug/src/auto-slug.constants.ts"
       >default options</ResourceLink
