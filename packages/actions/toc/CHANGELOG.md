@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.1
+
+### Patch Changes
+
+- [`94e3b25`](https://github.com/vnphanquang/svelte-put/commit/94e3b2553ddd5326f5113f077b0134125afd6b07) Thanks [@vnphanquang](https://github.com/vnphanquang)! - slice textContent to 100 max length before passing to slugify
+
 ## 2.0.0
 
 ### Major Changes
