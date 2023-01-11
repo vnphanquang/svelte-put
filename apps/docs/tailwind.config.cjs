@@ -1,8 +1,9 @@
+const Color = require('color');
 const postcss = require('postcss');
 const plugin = require('tailwindcss/plugin');
 
 const sveltePut = plugin(
-  ({ addComponents, addUtilities, addBase, matchComponents, matchVariant, addVariant }) => {
+  ({ addComponents, matchComponents, addUtilities, addBase, matchVariant, addVariant, theme }) => {
     addVariant('dark', [
       ':merge(html[data-color-scheme="dark"]) &',
       ({ container }) => {
@@ -80,16 +81,6 @@ const sveltePut = plugin(
         '@apply data-current:text-primary data-current:hover:text-white hover:bg-primary hover:text-white':
           {},
       },
-      '.c-callout': {
-        '@apply relative p-4 pl-8 rounded bg-primary/20 italic': {},
-        '&::before': {
-          content: '""',
-          '@apply absolute inset-y-5 left-4 w-1 bg-primary': {},
-        },
-        '& code': {
-          '@apply bg-bg': {},
-        },
-      },
       '.c-btn': {
         '@apply rounded py-2 px-4 shadow hover:shadow-lg': {},
         'min-width': '100px',
@@ -128,6 +119,43 @@ const sveltePut = plugin(
         '@apply c-footnote bg-red-700 text-white': {},
       },
     });
+
+    const cCalloutValues = {
+      info: theme('colors.info'),
+      success: theme('colors.success'),
+      warning: theme('colors.warning'),
+      error: theme('colors.error'),
+    };
+
+    // console.log(Color(theme('colors.info')).lighten(0.5).toString());
+
+    matchComponents(
+      {
+        'c-callout': (value) => ({
+          background: Color(value).fade(0.8).toString(),
+          position: 'relative',
+          padding: theme('spacing.4'),
+          paddingLeft: theme('spacing.8'),
+          borderRadius: theme('borderRadius.DEFAULT'),
+          fontStyle: 'italic',
+          '&::before': {
+            position: 'absolute',
+            insetBlock: theme('spacing.5'),
+            left: theme('spacing.4'),
+            width: theme('spacing.1'),
+            content: '""',
+            background: value,
+          },
+          '& code': {
+            '@apply bg-bg': {},
+          },
+        }),
+      },
+      {
+        values: cCalloutValues,
+        supportsNegativeValues: false,
+      },
+    );
 
     const tableCols = Object.fromEntries(
       new Array(10).fill(0).map((v, i) => [v + i + 1, v + i + 1]),
@@ -275,6 +303,12 @@ const sveltePut = plugin(
             bg: 'var(--color-code-bg)',
             header: 'var(--color-code-header)',
           },
+
+          // contextual colors
+          info: '#74B2EC',
+          success: '#35D0B6',
+          warning: '#EB9514',
+          error: '#EB4275',
         },
         keyframes: {
           'fade-in-up': {

@@ -9,7 +9,7 @@
 
 <h1 class="font-fingerpaint">@svelte-put</h1>
 
-<p class="c-callout">
+<p class="c-callout-info">
   a collection of useful svelte actions, components, and utilities extracted from real world
   projects.
 </p>

@@ -54,7 +54,7 @@
 
   <section>
     <h3><sup class="c-footnote-red">2</sup> Customizing the Trigger</h3>
-    <p class="c-callout">
+    <p class="c-callout-info">
       The <Copy class="inline text-primary" height="16" width="16" /> button seen in all code blocks
       on this site is powered by this very action.
     </p>
@@ -100,7 +100,7 @@
       If <code>synthetic</code> is set to <code>true</code>, a "fake" <code>copy</code> event will
       be dispatched alongside <code>copied</code>, should that be of any use.
     </p>
-    <p class="c-callout">
+    <p class="c-callout-warning">
       Note that since this synthetic <code>copy</code> event is not "real", and operations on
       <code>clipboardData</code> will have no effect on the actual copied text.
     </p>

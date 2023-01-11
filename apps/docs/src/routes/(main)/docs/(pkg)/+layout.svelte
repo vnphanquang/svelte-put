@@ -28,7 +28,7 @@
     </ResourceLink>
   </h1>
   {#if data.package.description}
-    <p class="c-callout">{data.package.description}</p>
+    <p class="c-callout-info">{data.package.description}</p>
   {/if}
 
   <p class="flex flex-wrap items-center gap-2">

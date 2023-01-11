@@ -130,7 +130,7 @@
 
 <section>
   <h2>Ignore Children Nodes from Triggering <code>movable</code> on Click</h2>
-  <p class="c-callout">
+  <p class="c-callout-info">
     Prefer <code>handle</code> in favor of <code>ignore</code> when possible for better predictability.
   </p>
   <p>

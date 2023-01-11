@@ -229,7 +229,7 @@
     <ResourceLink id={SECTIONS.modalResolutionAndExtendingEvents.id}>Extending Events</ResourceLink>
     for more info.
   </p>
-  <p class="c-callout">
+  <p class="c-callout-info">
     It is recommended to use the provided base
     <ResourceLink {resources} key="Modal" /> and its helpers for building type-safe custom modals.
   </p>
@@ -248,7 +248,7 @@
       The base <ResourceLink {resources} key="Modal" /> exposes some slots and props that work together
       to provide customization.
     </p>
-    <div class="c-callout">
+    <div class="c-callout-info">
       <p>It is recommended to read through these api documentation pages:</p>
       <ul class="">
         <li>
@@ -402,7 +402,7 @@
     <h3 id={SECTIONS.modalResolutionAndExtendingEvents.id}>
       {SECTIONS.modalResolutionAndExtendingEvents.title}
     </h3>
-    <p class="c-callout">
+    <p class="c-callout-info">
       For a modal to close gracefully, it dispatches a <code>resolve</code>
       <ResourceLink key="CustomEvent" /> whose details containing a <code>trigger</code>
       property set to <ResourceLink {resources} key="ResolveTrigger" />, indicating where
@@ -434,7 +434,7 @@
         >{SECTIONS.modalResolutionAndExtendingEvents.title}</ResourceLink
       >:
     </p>
-    <p class="c-callout">
+    <p class="c-callout-info">
       the <code>resolve</code> event is the only true requirement for any svelte component to work
       with the modal store <code>push/pop </code> mechanism.
     </p>
