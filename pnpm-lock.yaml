@@ -11,6 +11,7 @@ importers:
       '@vnphanquang/prettierrc': ^1.0.0
       eslint: ^8.31.0
       lint-staged: ^13.1.0
+      postcss-html: ^1.5.0
       prettier: ^2.8.2
       prettier-plugin-svelte: ^2.9.0
       simple-git-hooks: ^2.8.1
@@ -30,12 +31,13 @@ importers:
       '@vnphanquang/prettierrc': 1.0.0_prettier@2.8.2
       eslint: 8.31.0
       lint-staged: 13.1.0
+      postcss-html: 1.5.0
       prettier: 2.8.2
       prettier-plugin-svelte: 2.9.0_y74x4qymbshr6ujrzcfe2sydsa
       simple-git-hooks: 2.8.1
       stylelint: 14.16.1
       stylelint-config-clean-order: 2.3.0_stylelint@14.16.1
-      stylelint-config-html: 1.1.0_stylelint@14.16.1
+      stylelint-config-html: 1.1.0_kbto3rg3njmczth2rrsgfnlsqa
       stylelint-config-prettier: 9.0.4_stylelint@14.16.1
       stylelint-config-standard: 29.0.0_stylelint@14.16.1
       svelte: 3.55.1
@@ -55,7 +57,7 @@ importers:
       '@svelte-put/select': workspace:*
       '@svelte-put/shortcut': workspace:*
       '@svelte-put/toc': workspace:*
-      '@svelte-put/transitions': workspace:^0.0.0
+      '@svelte-put/transitions': workspace:^1.0.0
       '@sveltejs/adapter-vercel': 1.0.1
       '@sveltejs/kit': 1.0.11
       '@tailwindash/triangle': ^1.0.5
@@ -80,7 +82,6 @@ importers:
       highlight.js: ^11.7.0
       npm-run-all: ^4.1.5
       postcss: ^8.4.21
-      postcss-html: ^1.5.0
       postcss-import: ^15.1.0
       postcss-load-config: ^4.0.1
       postcss-mixins: ^9.0.4
@@ -139,7 +140,6 @@ importers:
       highlight.js: 11.7.0
       npm-run-all: 4.1.5
       postcss: 8.4.21
-      postcss-html: 1.5.0
       postcss-import: 15.1.0_postcss@8.4.21
       postcss-load-config: 4.0.1_aesdjsunmf4wiehhujt67my7tu
       postcss-mixins: 9.0.4_postcss@8.4.21
@@ -6011,13 +6011,14 @@ packages:
       stylelint-order: 5.0.0_stylelint@14.16.1
     dev: true
 
-  /stylelint-config-html/1.1.0_stylelint@14.16.1:
+  /stylelint-config-html/1.1.0_kbto3rg3njmczth2rrsgfnlsqa:
     resolution: {integrity: sha512-IZv4IVESjKLumUGi+HWeb7skgO6/g4VMuAYrJdlqQFndgbj6WJAXPhaysvBiXefX79upBdQVumgYcdd17gCpjQ==}
     engines: {node: ^12 || >=14}
     peerDependencies:
       postcss-html: ^1.0.0
       stylelint: '>=14.0.0'
     dependencies:
+      postcss-html: 1.5.0
       stylelint: 14.16.1
     dev: true
 
