@@ -1,5 +1,6 @@
 @import '../../shared/assets/fonts/inter/inter.font.css';
 @import '../../shared/assets/fonts/firacode/firacode.font.css';
+@import '../../shared/assets/fonts/fingerpaint/fingerpaint.font.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

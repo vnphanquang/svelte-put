@@ -44,7 +44,7 @@
       <SveltePutLogoAnimation open={animationOpen} class="ml-1 scale-75" />
 
       <h1
-        class="text-3xl font-bold text-gradient-brand"
+        class="font-fingerpaint text-4xl text-gradient-brand"
         in:fly={{ y: 20, duration: 1000, easing: cubicOut }}
       >
         svelte-put

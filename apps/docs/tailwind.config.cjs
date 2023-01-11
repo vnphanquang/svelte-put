@@ -223,6 +223,7 @@ const sveltePut = plugin(
         fontFamily: {
           fira: ['Fira Code', 'monospace'],
           inter: ['Inter', 'sans-serif'],
+          fingerpaint: ['Finger Paint', 'sans-serif'],
         },
         spacing: {
           header: 'var(--header-height)',

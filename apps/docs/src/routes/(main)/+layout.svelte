@@ -142,7 +142,8 @@
           loading="lazy"
           decoding="async"
         />
-        <span class="c-link text-sm font-bold text-gradient-brand">svelte-put</span>
+        <span class="c-link font-fingerpaint text-sm font-bold text-gradient-brand">svelte-put</span
+        >
       </a>
       <div class="flex flex-1 items-center justify-end space-x-4">
         <ColorSchemeSelect scheme={clientColorScheme} on:select={changeColorScheme} />

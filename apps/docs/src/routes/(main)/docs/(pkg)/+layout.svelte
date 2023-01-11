@@ -21,7 +21,7 @@
 </script>
 
 {#key data.package.name}
-  <h1 class="flex items-center justify-between">
+  <h1 class="flex items-center justify-between font-fingerpaint">
     {data.package.name}
     <ResourceLink href={data.package.githubUrl} class="text-fg active:text-primary">
       <Github class="inline" height="28" width="28" />

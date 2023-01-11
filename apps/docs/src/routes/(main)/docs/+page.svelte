@@ -7,7 +7,7 @@
   import { createNpmBadgeUrl, createNpmUrl } from '$shared/utils/badge';
 </script>
 
-<h1>@svelte-put</h1>
+<h1 class="font-fingerpaint">@svelte-put</h1>
 
 <p class="c-callout">
   a collection of useful svelte actions, components, and utilities extracted from real world
