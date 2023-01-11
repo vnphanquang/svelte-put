@@ -13,7 +13,7 @@
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "run-p lint:*",
     "lint:code": "eslint . --ignore-path ../../.eslintignore",
-    "lint:style": "prettier --plugin-search-dir --ignore-path ../../.prettierignore --check .",
+    "lint:style": "stylelint '**/*.{svelte,css}'",
     "format": "prettier --plugin-search-dir --ignore-path ../../.prettierignore --write ."
   },
   "dependencies": {
@@ -56,6 +56,7 @@
     "highlight.js": "^11.7.0",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.21",
+    "postcss-html": "^1.5.0",
     "postcss-import": "^15.1.0",
     "postcss-load-config": "^4.0.1",
     "postcss-mixins": "^9.0.4",
@@ -63,6 +64,7 @@
     "prettier": "^2.8.2",
     "prettier-plugin-svelte": "^2.9.0",
     "prettier-plugin-tailwindcss": "^0.2.1",
+    "stylelint-order": "^6.0.1",
     "svelte": "^3.55.1",
     "svelte-check": "^3.0.2",
     "svelte-highlight": "^7.1.2",

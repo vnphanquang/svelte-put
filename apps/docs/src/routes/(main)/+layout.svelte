@@ -166,7 +166,7 @@
   <div class="c-container relative flex w-full flex-1 items-stretch">
     {#key leftSidebarTogglerClick}
       <nav
-        class="sidebar sidebar--left"
+        class="sidebar sidebar-left"
         transition:fly|local={{ x: -200, duration: 200 }}
         use:clickoutside={{ enabled: leftSidebarOpen && !isLg }}
         on:clickoutside={toggleLeftSidebar}
@@ -233,7 +233,7 @@
 
     {#key rightSidebarTogglerClick}
       <nav
-        class="sidebar sidebar--right"
+        class="sidebar sidebar-right"
         transition:fly|local={{ x: 200, duration: 200 }}
         use:clickoutside={{ enabled: rightSidebarOpen && !isXl }}
         on:clickoutside={toggleRightSidebar}
@@ -319,29 +319,32 @@
 
 <style lang="postcss">
   .sidebar {
-    width: theme(spacing.sidebar);
     flex-shrink: 0;
-    border-color: theme(borderColor.border);
-    font-size: theme(fontSize.sm);
+    width: theme('spacing.sidebar');
+    font-size: theme('fontSize.sm');
+    border-color: theme('borderColor.border');
 
     & .sidebar-content {
       position: sticky;
-      top: theme(spacing.header);
-      padding-top: theme(spacing.10);
+      top: theme('spacing.header');
+      padding-top: theme('spacing.10');
     }
   }
-  .sidebar--left {
-    @media (max-width: theme(screens.lg)) {
+
+  .sidebar-left {
+    @media (max-width: theme('screens.lg')) {
       position: fixed;
-      border-right: theme(borderWidth.DEFAULT);
-      left: 0;
+      z-index: theme('zIndex.sidebar');
       top: 0;
       bottom: 0;
-      z-index: theme(zIndex.sidebar);
-      background-color: theme(backgroundColor.bg.DEFAULT);
-      box-shadow: theme(boxShadow.lg);
+      left: 0;
+
       display: none;
       justify-content: center;
+
+      background-color: theme('backgroundColor.bg.DEFAULT');
+      border-right: theme('borderWidth.DEFAULT');
+      box-shadow: theme('boxShadow.lg');
 
       &[data-open='true'] {
         display: flex;
@@ -351,57 +354,63 @@
 
   .sidebar-backdrop {
     position: fixed;
+    z-index: calc(theme('zIndex.sidebar') - 1);
     inset: 0;
+
     display: hidden;
-    background-color: theme(backgroundColor.black / 20%);
+
+    background-color: theme('backgroundColor.black / 20%');
     backdrop-filter: blur(1px);
-    z-index: calc(theme(zIndex.sidebar) - 1);
 
     @screen lg {
       display: none;
     }
   }
 
-  .sidebar--right {
-    @media (max-width: theme(screens.xl)) {
-      width: auto;
-      max-width: 80vw;
-      padding: theme(spacing.4);
+  .sidebar-right {
+    @media (max-width: theme('screens.xl')) {
       position: fixed;
+      z-index: theme('zIndex.sidebar');
+      top: theme('spacing.header');
       right: 0;
-      top: theme(spacing.header);
-      z-index: theme(zIndex.sidebar);
-      border-bottom-left-radius: theme(borderRadius.DEFAULT);
-      border-bottom-right-radius: theme(borderRadius.DEFAULT);
-      background-color: theme(backgroundColor.bg.DEFAULT);
-      box-shadow: theme(boxShadow.lg);
+
       display: none;
       justify-content: center;
+
+      width: auto;
+      max-width: 80vw;
+      padding: theme('spacing.4');
+
+      background-color: theme('backgroundColor.bg.DEFAULT');
+      border-bottom-right-radius: theme('borderRadius.DEFAULT');
+      border-bottom-left-radius: theme('borderRadius.DEFAULT');
+      box-shadow: theme('boxShadow.lg');
 
       &[data-open='true'] {
         display: flex;
       }
 
       & .sidebar-content {
-        padding: theme(spacing.4);
+        padding: theme('spacing.4');
       }
     }
   }
 
   main {
-    padding-bottom: theme(spacing.20);
-    padding-top: theme(spacing.10);
     max-width: 100%;
+    padding-top: theme('spacing.10');
+    padding-bottom: theme('spacing.20');
 
     @screen lg {
-      padding-left: theme(spacing.10);
-      padding-right: theme(spacing.10);
       max-width: calc(100% - var(--sidebar-width));
+      padding-right: theme('spacing.10');
+      padding-left: theme('spacing.10');
     }
+
     @screen xl {
-      padding-left: theme(spacing.14);
-      padding-right: theme(spacing.14);
       max-width: calc(100% - var(--sidebar-width) * 2);
+      padding-right: theme('spacing.14');
+      padding-left: theme('spacing.14');
     }
   }
 </style>

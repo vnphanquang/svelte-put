@@ -44,7 +44,7 @@
     debounced: 0,
     clearOnSelection: true,
   };
-  let group: GroupConfig<typeof options[0]>;
+  let group: GroupConfig<(typeof options)[0]>;
   $: group = {
     enabled: false,
     ungroupedLabel: 'UNGROUPED',
@@ -64,8 +64,8 @@
       <input type="text" bind:value={placeholder} placeholder="something fun" id="placeholder" />
       <label for="multiple">Multiple?:</label>
       <input type="checkbox" id="multiple" bind:checked={multiple} />
-      <p class="ip__group-title">Search Config</p>
-      <div class="ip__group">
+      <p class="ip-group-title">Search Config</p>
+      <div class="ip-group">
         <label for="searchable">Enabled?:</label>
         <input type="checkbox" id="searchable" bind:checked={search.enabled} />
         <label for="clearOnSelection">Clear search on selection?:</label>
@@ -73,8 +73,8 @@
         <label for="debounced">Debounce delay:</label>
         <input type="number" id="debounced" bind:value={search.debounced} />
       </div>
-      <p class="ip__group-title">Group Config</p>
-      <div class="ip__group">
+      <p class="ip-group-title">Group Config</p>
+      <div class="ip-group">
         <label for="groupable">Enabled?:</label>
         <input type="checkbox" id="groupable" bind:checked={group.enabled} />
         <label for="ungroupedLabel">Debounce delay:</label>
@@ -86,7 +86,7 @@
       <input type="checkbox" id="hideExpansionIndicator" bind:checked={hideExpansionIndicator} />
       <label for="collapseOnSelection">Collapse on selection</label>
       <input type="checkbox" id="collapseOnSelection" bind:checked={collapseOnSelection} />
-      <div class="ip__select">
+      <div class="ip-select">
         <Select
           {options}
           bind:placeholder
@@ -111,7 +111,7 @@
         <h4>Multiple</h4>
         <Select {options} placeholder="Please select" multiple />
       </article>
-      <article class="samples__group">
+      <article class="samples-group">
         <h4>Pre-selected Options</h4>
         <div>
           <h5>Single</h5>
@@ -140,7 +140,7 @@
         <h4>Disabled</h4>
         <Select {options} placeholder="Please select" disabled />
       </article>
-      <article class="samples__group">
+      <article class="samples-group">
         <h4>Searchable</h4>
         <div>
           <h5>Single</h5>
@@ -169,61 +169,73 @@
   main {
     display: grid;
     gap: 2.5rem;
-    padding: 5rem 0;
     place-items: center;
+
     width: 100%;
+    padding: 5rem 0;
   }
+
   h1 {
     font-size: 2.25rem;
     font-weight: 700;
     line-height: 2.5rem;
   }
+
   h4 {
     font-size: 1.25rem;
     font-weight: bold;
   }
+
   section {
     display: grid;
     gap: 1.25rem;
-    max-width: 42rem;
     width: 100%;
+    max-width: 42rem;
   }
+
   h2 {
     font-size: 1.875rem;
     font-weight: 700;
     line-height: 2.25rem;
     text-decoration-line: underline;
   }
+
   .interactive-playground.ip {
-    align-items: center;
     display: grid;
-    gap: 1.25rem;
     grid-template-columns: auto 1fr;
+    gap: 1.25rem;
+    align-items: center;
   }
-  .ip__group-title {
+
+  .ip-group-title {
     align-self: flex-start;
   }
-  .ip__group {
-    align-items: center;
+
+  .ip-group {
     display: grid;
-    gap: 1.25rem;
     grid-template-columns: auto 1fr;
+    gap: 1.25rem;
+    align-items: center;
   }
+
   .ip input[type='checkbox'] {
     justify-self: start;
   }
-  .ip__select {
-    border-color: rgb(107 114 128);
-    border-top-width: 2px;
+
+  .ip-select {
     grid-column: 1/3;
     padding-top: 1rem;
+    border-color: rgb(107 114 128);
+    border-top-width: 2px;
   }
+
   .samples {
     display: grid;
     gap: 1.25rem;
     width: 100%;
   }
-  .samples__group {
+
+  .samples-group {
     display: grid;
     gap: 1rem;
   }

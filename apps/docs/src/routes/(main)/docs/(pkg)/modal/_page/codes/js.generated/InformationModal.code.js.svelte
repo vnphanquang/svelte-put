@@ -13,14 +13,14 @@
 
 <style>
   :global(.custom-modal-container) {
-    background: lightblue;
     padding: 80px;
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    background: lightblue;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
   }
 
   h2 {
+    margin-bottom: 2rem;
     font-size: 1.5rem;
     font-weight: bold;
-    margin-bottom: 2rem;
   }
 </style>

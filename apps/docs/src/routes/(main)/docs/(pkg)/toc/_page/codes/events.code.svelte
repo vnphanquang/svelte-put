@@ -3,9 +3,11 @@
   import type { TocInitEventDetails, TocChangeEventDetails } from '@svelte-put/toc';
   function handleTocInit(event: CustomEvent<TocInitEventDetails>) {
     const { items } = event.detail;
+    console.log('Extracted item', items);
   }
   function handleTocChange(event: CustomEvent<TocChangeEventDetails>) {
     const { activeItem } = event.detail;
+    console.log('Item currently on viewport', activeItem);
   }
 </script>
 

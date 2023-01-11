@@ -15,7 +15,7 @@
 <style lang="postcss">
   :global(.custom-avatar) {
     border: 2px var(--border-color) solid;
-    box-shadow: 0 0 0 10px hsl(0, 0%, 50%), 0 0 0 15px hsl(0, 0%, 60%), 0 0 0 20px hsl(0, 0%, 70%),
-      0 0 0 25px hsl(0, 0%, 80%), 0 0 0 30px hsl(0, 0%, 90%);
+    box-shadow: 0 0 0 10px hsl(0deg 0% 50%), 0 0 0 15px hsl(0deg 0% 60%),
+      0 0 0 20px hsl(0deg 0% 70%), 0 0 0 25px hsl(0deg 0% 80%), 0 0 0 30px hsl(0deg 0% 90%);
   }
 </style>

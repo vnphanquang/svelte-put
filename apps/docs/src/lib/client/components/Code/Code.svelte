@@ -27,7 +27,7 @@
   import IconWarning from '$client/components/icons/material/Warning.svelte';
 
   type $$Props = CodeProps;
-  export let lang: $$Props['lang'] = 'svelte';
+  export let lang: $$Props['lang'];
   export let code: $$Props['code'];
   export let title: $$Props['title'] = '';
   export let expanded: $$Props['expanded'] = true;
@@ -38,6 +38,7 @@
   export { cls as class };
 
   $: currentCode = typeof code === 'object' ? code[variant] : code;
+  $: rLang = lang || 'svelte';
 
   let copied = false;
   function onCopy() {
@@ -135,10 +136,10 @@
         </div>
       {/if}
       <div class="max-h-[600px] overflow-auto border-t border-border">
-        {#if lang === 'svelte'}
+        {#if rLang === 'svelte'}
           <HighlightSvelte code={currentCode} />
         {:else}
-          <Highlight language={lang} code={currentCode} />
+          <Highlight language={rLang} code={currentCode} />
         {/if}
       </div>
     </div>
@@ -146,15 +147,17 @@
 </div>
 
 <style lang="postcss">
-  :global(pre:not(#fakeId)) {
+  :global(pre:not(#fake-id)) {
     margin: 0;
     padding: 0;
     border-radius: 0;
   }
-  :global(pre:not(#fakeId)::after) {
+
+  :global(pre:not(#fake-id)::after) {
     padding: theme(spacing.4);
   }
-  :global(pre:not(#fakeId) code) {
+
+  :global(pre:not(#fake-id) code) {
     padding: theme(spacing.6);
     font-family: theme(fontFamily.fira);
   }

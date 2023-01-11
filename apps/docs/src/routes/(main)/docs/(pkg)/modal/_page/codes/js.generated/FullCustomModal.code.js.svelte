@@ -18,14 +18,17 @@
 <style>
   .custom-modal {
     position: absolute;
-    width: 80%;
-    height: 80%;
     top: 50%;
     left: 50%;
     translate: -50% -50%;
-    background-color: #fff;
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.25);
+
     display: grid;
     place-items: center;
+
+    width: 80%;
+    height: 80%;
+
+    background-color: #fff;
+    box-shadow: 0 0 0.5rem rgb(0 0 0 / 25%);
   }
 </style>

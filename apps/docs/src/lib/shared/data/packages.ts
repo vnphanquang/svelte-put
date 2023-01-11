@@ -181,9 +181,9 @@ export const packages = {
 } as const;
 
 export type PackageId = keyof typeof packages;
-export type Package = typeof packages[PackageId];
+export type Package = (typeof packages)[PackageId];
 export type PackageName = Package['name'];
-export type PackageCategory = typeof packages[PackageId]['category'];
+export type PackageCategory = (typeof packages)[PackageId]['category'];
 
 export const packagesByCategory = Object.values(packages).reduce((map, pkg) => {
   const category = pkg.category;
