@@ -3,7 +3,7 @@
   import { ConnectedList, ConnectedListItem } from '$client/components/ConnectedList';
   import Installation from '$client/components/Installation/Installation.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
-  import suspiciousLinksImg from '$shared/assets/images/suspicious-links.webp';
+  import endImg from '$shared/assets/images/suspicious-links.webp';
 
   import type { PageData } from './$types';
   import { codes } from './_page/codes';
@@ -98,7 +98,7 @@
 </section>
 
 <img
-  src={suspiciousLinksImg}
+  src={endImg}
   alt="mouse click faster"
   width="300"
   height="168"

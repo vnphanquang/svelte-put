@@ -6,7 +6,7 @@
   import Code from '$client/components/Code/Code.svelte';
   import Installation from '$client/components/Installation/Installation.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
-  import mouseclickPng from '$shared/assets/images/mouseclick.png';
+  import endImage from '$shared/assets/images/mouse-click.webp';
 
   import type { PageData } from './$types';
   import { codes } from './_page/codes';
@@ -134,7 +134,7 @@
 <ApiReference href={data.package.apiUrl} />
 
 <img
-  src={mouseclickPng}
+  src={endImage}
   alt="mouse click faster"
   width="300"
   height="210"

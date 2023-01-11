@@ -6,6 +6,7 @@
   import { ConnectedList, ConnectedListItem } from '$client/components/ConnectedList';
   import Installation from '$client/components/Installation/Installation.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
+  import endImg from '$shared/assets/images/table-of-contents-cat.webp';
 
   import type { PageData } from './$types';
   import { codes } from './_page/codes';
@@ -210,6 +211,13 @@
 
 <ApiReference href={data.package.apiUrl} />
 
-<!-- <img src={avatarAangImg} alt="avatar?" width="300" height="168.6" loading="lazy" decoding="async" /> -->
+<img
+  src={endImg}
+  alt="cat table of contents"
+  width="300"
+  height="221"
+  loading="lazy"
+  decoding="async"
+/>
 
 <p>Happy making table of contents! 👨‍💻</p>

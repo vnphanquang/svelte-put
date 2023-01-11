@@ -7,7 +7,7 @@
   import Installation from '$client/components/Installation/Installation.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
   import Copy from '$client/components/icons/material/Copy.svelte';
-  import copyImg from '$shared/assets/images/copy-meme.webp';
+  import endImg from '$shared/assets/images/copy-meme.webp';
 
   import type { PageData } from './$types';
   import { codes } from './_page/codes';
@@ -154,6 +154,6 @@
 
 <ApiReference href={data.package.apiUrl} />
 
-<img src={copyImg} alt="copy" width="300" height="217" loading="lazy" decoding="async" />
+<img src={endImg} alt="copy" width="300" height="217" loading="lazy" decoding="async" />
 
 <p>Happy copying! 👨‍💻</p>

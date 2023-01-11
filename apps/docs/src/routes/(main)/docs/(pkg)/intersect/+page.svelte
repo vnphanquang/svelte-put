@@ -6,7 +6,7 @@
   import Code from '$client/components/Code/Code.svelte';
   import Installation from '$client/components/Installation/Installation.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
-  import intersectionObserverImg from '$shared/assets/images/intersection-observer.webp';
+  import endImg from '$shared/assets/images/intersection-observer.webp';
 
   import type { PageData } from './$types';
   import { codes } from './_page/codes';
@@ -114,7 +114,7 @@
 <ApiReference href={data.package.apiUrl} />
 
 <img
-  src={intersectionObserverImg}
+  src={endImg}
   alt="intersect observer - ron swanson approves"
   width="300"
   height="170"

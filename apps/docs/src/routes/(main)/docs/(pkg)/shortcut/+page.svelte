@@ -6,7 +6,7 @@
   import Code from '$client/components/Code/Code.svelte';
   import Installation from '$client/components/Installation/Installation.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
-  import keyboardShortcutImg from '$shared/assets/images/keyboard-shortcut.webp';
+  import endImg from '$shared/assets/images/keyboard-shortcut.webp';
 
   import type { PageData } from './$types';
   import { codes } from './_page/codes';
@@ -86,7 +86,7 @@
 <ApiReference href={data.package.apiUrl} />
 
 <img
-  src={keyboardShortcutImg}
+  src={endImg}
   alt="mouse click faster"
   width="300"
   height="245"

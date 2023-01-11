@@ -6,7 +6,7 @@
   import Installation from '$client/components/Installation/Installation.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
   import { appStore } from '$client/services/modal';
-  import modalsImg from '$shared/assets/images/modals-modal-everywhere.webp';
+  import endImg from '$shared/assets/images/modals-modal-everywhere.webp';
   import { createSvelteReplUrl } from '$shared/utils/badge';
 
   import type { PageData } from './$types';
@@ -268,7 +268,9 @@
         Shown below is an (simplified) diagram of the slots of the base
         <ResourceLink {resources} key="Modal" />.
       </p>
-      <fieldset class="not-prose grid place-items-center border-2 border-gray-500 bg-gray-200 p-10">
+      <fieldset
+        class="not-prose grid place-items-center border-2 border-gray-500 bg-gray-200 p-10 text-neutral-500"
+      >
         <legend>backdrop</legend>
         <fieldset class="relative w-5/6 border-2 border-green-500 bg-green-200 p-8">
           <legend>container</legend>
@@ -479,7 +481,7 @@
 <ApiReference href={data.package.apiUrl} />
 
 <img
-  src={modalsImg}
+  src={endImg}
   alt="mouse click faster"
   width="300"
   height="163"

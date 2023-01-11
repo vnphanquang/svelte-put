@@ -4,7 +4,7 @@
   import { ConnectedList, ConnectedListItem } from '$client/components/ConnectedList';
   import Installation from '$client/components/Installation/Installation.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
-  import avatarAangImg from '$shared/assets/images/avatar-aang.jpeg';
+  import avatarAangImg from '$shared/assets/images/avatar-aang.webp';
 
   import type { PageData } from './$types';
   import { codes } from './_page/codes';
