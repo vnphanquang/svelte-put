@@ -36,7 +36,7 @@
     "@svelte-put/select": "workspace:*",
     "@svelte-put/shortcut": "workspace:*",
     "@svelte-put/toc": "workspace:*",
-    "@svelte-put/transitions": "workspace:^0.0.0",
+    "@svelte-put/transitions": "workspace:^1.0.0",
     "@sveltejs/adapter-vercel": "1.0.1",
     "@sveltejs/kit": "1.0.11",
     "@tailwindash/triangle": "^1.0.5",

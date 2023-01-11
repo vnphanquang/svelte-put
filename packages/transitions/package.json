@@ -1,6 +1,6 @@
 {
   "name": "@svelte-put/transitions",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Collection of custom svelte transitions",
   "main": "lib/index.js",
   "module": "lib/index.js",
