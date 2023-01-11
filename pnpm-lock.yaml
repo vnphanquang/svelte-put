@@ -55,6 +55,7 @@ importers:
       '@svelte-put/select': workspace:*
       '@svelte-put/shortcut': workspace:*
       '@svelte-put/toc': workspace:*
+      '@svelte-put/transitions': workspace:^0.0.0
       '@sveltejs/adapter-vercel': 1.0.1
       '@sveltejs/kit': 1.0.11
       '@tailwindash/triangle': ^1.0.5
@@ -88,7 +89,6 @@ importers:
       prettier-plugin-svelte: ^2.9.0
       prettier-plugin-tailwindcss: ^0.2.1
       static-tree: ^1.2.0
-      stylelint-order: ^6.0.1
       svelte: ^3.55.1
       svelte-check: ^3.0.2
       svelte-highlight: ^7.1.2
@@ -118,6 +118,7 @@ importers:
       '@svelte-put/select': link:../../packages/components/select
       '@svelte-put/shortcut': link:../../packages/actions/shortcut
       '@svelte-put/toc': link:../../packages/actions/toc
+      '@svelte-put/transitions': link:../../packages/transitions
       '@sveltejs/adapter-vercel': 1.0.1_@sveltejs+kit@1.0.11
       '@sveltejs/kit': 1.0.11_svelte@3.55.1+vite@4.0.4
       '@tailwindash/triangle': 1.0.5_tailwindcss@3.2.4
@@ -146,7 +147,6 @@ importers:
       prettier: 2.8.2
       prettier-plugin-svelte: 2.9.0_y74x4qymbshr6ujrzcfe2sydsa
       prettier-plugin-tailwindcss: 0.2.1_prettier@2.8.2
-      stylelint-order: 6.0.1
       svelte: 3.55.1
       svelte-check: 3.0.2_gqx7lw3sljhsd4bstor5m2aa2u
       svelte-highlight: 7.1.2
@@ -474,6 +474,30 @@ importers:
       npm-run-all: 4.1.5
       svelte: 3.55.1
       tsup: 6.5.0
+
+  packages/transitions:
+    specifiers:
+      '@microsoft/api-documenter': ^7.19.27
+      '@microsoft/api-extractor': ^7.33.7
+      '@rollup/plugin-typescript': ^11.0.0
+      '@svelte-put/apirc': workspace:^0.0.0
+      '@svelte-put/tsconfig': workspace:^0.0.0
+      '@types/node': ^18.11.18
+      npm-run-all: ^4.1.5
+      rollup: ^3.9.1
+      tslib: ^2.4.1
+      typescript: ^4.9.4
+    devDependencies:
+      '@microsoft/api-documenter': 7.19.27
+      '@microsoft/api-extractor': 7.33.7
+      '@rollup/plugin-typescript': 11.0.0_hqjvco2e22ojmon3nhwchufpre
+      '@svelte-put/apirc': link:../../configs/apirc
+      '@svelte-put/tsconfig': link:../../configs/tsconfig
+      '@types/node': 18.11.18
+      npm-run-all: 4.1.5
+      rollup: 3.9.1
+      tslib: 2.4.1
+      typescript: 4.9.4
 
 packages:
 
@@ -2301,7 +2325,7 @@ packages:
     dev: true
 
   /concat-map/0.0.1:
-    resolution: {integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=}
+    resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
     dev: true
 
   /console-control-strings/1.1.0:
@@ -5341,14 +5365,6 @@ packages:
       postcss: 8.4.21
     dev: true
 
-  /postcss-sorting/8.0.1_postcss@8.4.21:
-    resolution: {integrity: sha512-go9Zoxx7KQH+uLrJ9xa5wRErFeXu01ydA6O8m7koPXkmAN7Ts//eRcIqjo0stBR4+Nir2gMYDOWAOx7O5EPUZA==}
-    peerDependencies:
-      postcss: ^8.4.20
-    dependencies:
-      postcss: 8.4.21
-    dev: true
-
   /postcss-svgo/5.1.0_postcss@8.4.21:
     resolution: {integrity: sha512-D75KsH1zm5ZrHyxPakAxJWtkyXew5qwS70v56exwvw542d9CRtTo78K0WeFxZB4G7JXKKMbEZtZayTGdIky/eA==}
     engines: {node: ^10 || ^12 || >=14.0}
@@ -6040,15 +6056,6 @@ packages:
       postcss: 8.4.21
       postcss-sorting: 7.0.1_postcss@8.4.21
       stylelint: 14.16.1
-    dev: true
-
-  /stylelint-order/6.0.1:
-    resolution: {integrity: sha512-C9gJDZArRBZvn+4MPgggwYTp7dK49WPnYa5+6tBEkZnW/YWj4xBVNJdQjIik14w5orlF9RqFpYDHN0FPWIFOSQ==}
-    peerDependencies:
-      stylelint: ^14.0.0
-    dependencies:
-      postcss: 8.4.21
-      postcss-sorting: 8.0.1_postcss@8.4.21
     dev: true
 
   /stylelint/14.16.1:

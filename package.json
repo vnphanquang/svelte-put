@@ -5,6 +5,7 @@
   "workspaces": [
     "apps/*",
     "configs/*",
+    "packages/*",
     "packages/actions/*",
     "packages/preprocessors/*",
     "packages/components/*",
