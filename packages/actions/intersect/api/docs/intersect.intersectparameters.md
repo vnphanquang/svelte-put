@@ -4,7 +4,7 @@
 
 ## IntersectParameters interface
 
-svelte action parameters to config behavior of `movable`
+svelte action parameters to config behavior of `intersect`
 
 <b>Signature:</b>
 

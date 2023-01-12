@@ -25,7 +25,7 @@ export interface IntersectAttributes {
 }
 
 /**
- * svelte action parameters to config behavior of `movable`
+ * svelte action parameters to config behavior of `intersect`
  * @public
  *
  * @remarks
