@@ -12,6 +12,7 @@ export const { node: APP_ROUTE_TREE } = tBuild('APP_ROUTE_TREE', {
             .addChild('copy')
             .addChild('dragscroll')
             .addChild('intersect')
+            .addChild('resize')
             .addChild('modal')
             .addChild('movable')
             .addChild('preprocessAutoSlug', {

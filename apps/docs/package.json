@@ -33,6 +33,7 @@
     "@svelte-put/modal": "workspace:*",
     "@svelte-put/movable": "workspace:*",
     "@svelte-put/preprocess-auto-slug": "workspace:*",
+    "@svelte-put/resize": "workspace:*",
     "@svelte-put/select": "workspace:*",
     "@svelte-put/shortcut": "workspace:*",
     "@svelte-put/toc": "workspace:*",

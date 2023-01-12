@@ -54,6 +54,7 @@ importers:
       '@svelte-put/modal': workspace:*
       '@svelte-put/movable': workspace:*
       '@svelte-put/preprocess-auto-slug': workspace:*
+      '@svelte-put/resize': workspace:*
       '@svelte-put/select': workspace:*
       '@svelte-put/shortcut': workspace:*
       '@svelte-put/toc': workspace:*
@@ -116,6 +117,7 @@ importers:
       '@svelte-put/modal': link:../../packages/misc/modal
       '@svelte-put/movable': link:../../packages/actions/movable
       '@svelte-put/preprocess-auto-slug': link:../../packages/preprocessors/auto-slug
+      '@svelte-put/resize': link:../../packages/actions/resize
       '@svelte-put/select': link:../../packages/components/select
       '@svelte-put/shortcut': link:../../packages/actions/shortcut
       '@svelte-put/toc': link:../../packages/actions/toc
@@ -254,6 +256,28 @@ importers:
       typescript: 4.9.4
 
   packages/actions/movable:
+    specifiers:
+      '@microsoft/api-documenter': ^7.19.27
+      '@microsoft/api-extractor': ^7.33.7
+      '@rollup/plugin-typescript': ^11.0.0
+      '@svelte-put/apirc': workspace:^0.0.0
+      '@svelte-put/tsconfig': workspace:^0.0.0
+      npm-run-all: ^4.1.5
+      rollup: ^3.9.1
+      tslib: ^2.4.1
+      typescript: ^4.9.4
+    devDependencies:
+      '@microsoft/api-documenter': 7.19.27
+      '@microsoft/api-extractor': 7.33.7
+      '@rollup/plugin-typescript': 11.0.0_hqjvco2e22ojmon3nhwchufpre
+      '@svelte-put/apirc': link:../../../configs/apirc
+      '@svelte-put/tsconfig': link:../../../configs/tsconfig
+      npm-run-all: 4.1.5
+      rollup: 3.9.1
+      tslib: 2.4.1
+      typescript: 4.9.4
+
+  packages/actions/resize:
     specifiers:
       '@microsoft/api-documenter': ^7.19.27
       '@microsoft/api-extractor': ^7.33.7

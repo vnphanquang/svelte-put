@@ -19,8 +19,8 @@ export const resources = {
   '@microsoft/api-documenter': 'https://api-extractor.com/pages/setup/generating_docs/',
   TailwindCSS: 'https://tailwindcss.com/',
   vercel: 'https://vercel.com/',
-  IntersectionObserver:
-    'https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver',
+  IntersectionObserver: 'https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver',
+  ResizeObserver: 'https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver',
   CustomEvent: 'https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent',
   MDsveX: 'https://github.com/pngwn/MDsveX',
   ...pkgToPath,

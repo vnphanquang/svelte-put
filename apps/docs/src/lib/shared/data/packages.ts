@@ -69,7 +69,7 @@ export const packages = {
     id: 'intersect',
     name: '@svelte-put/intersect',
     publishedAt: 1670126470519,
-    description: 'wrapper for IntersectionObserver',
+    description: 'svelte action that wraps for IntersectionObserver',
     path: APP_ROUTE_TREE.docs.intersect.$.path(),
     replId: '835eacce6ac44aff95a7cb0bb5ca200d',
     category: 'action',
@@ -129,6 +129,22 @@ export const packages = {
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocessors/preprocess-auto-slug/CHANGELOG.md',
     apiUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocessors/auto-slug/api/docs/index.md',
+  },
+  resize: {
+    id: 'resize',
+    name: '@svelte-put/resize',
+    publishedAt: 1673513404459,
+    description: 'svelte action that wraps for ResizeObserver',
+    path: APP_ROUTE_TREE.docs.resize.$.path(),
+    replId: undefined,
+    category: 'action',
+    status: 'stable',
+    ready: true,
+    githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/resize',
+    changelogUrl:
+      'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/resize/CHANGELOG.md',
+    apiUrl:
+      'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/resize/api/docs/index.md',
   },
   select: {
     id: 'select',
