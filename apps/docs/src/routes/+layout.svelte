@@ -5,7 +5,6 @@
   import { dev, browser } from '$app/environment';
   import { page } from '$app/stores';
   import { appStore } from '$client/services/modal';
-  import { webVitals } from '$client/services/web-vitals';
   import { PUBLIC_ROOT_URL } from '$env/static/public';
 
   import '../lib/client/styles/app.css';
@@ -34,7 +33,8 @@
 
   // eslint-disable-next-line no-undef
   let analyticsId = $page.data.vercelAnalyticsId;
-  $: if (browser && analyticsId) {
+  let webVitals: typeof import('$client/services/web-vitals').webVitals;
+  $: if (browser && analyticsId && webVitals) {
     webVitals({
       path: $page.url.pathname,
       params: $page.params,
@@ -42,6 +42,7 @@
     });
   }
   onMount(async () => {
+    webVitals = (await import('$client/services/web-vitals')).webVitals;
     const inject = (await import('@vercel/analytics')).inject;
     if (inject && !dev) {
       inject();
