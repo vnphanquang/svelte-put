@@ -34,3 +34,7 @@ temp/
 # svelte-kit
 .svelte-kit/
 .vercel
+
+# vite temp
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*

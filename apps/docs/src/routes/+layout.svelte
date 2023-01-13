@@ -1,4 +1,6 @@
 <script lang="ts">
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  import { partytownSnippet } from '@builder.io/partytown/integration';
   import ModalPortal from '@svelte-put/modal/ModalPortal.svelte';
   import { onMount } from 'svelte';
 
@@ -43,10 +45,6 @@
   }
   onMount(async () => {
     webVitals = (await import('$client/services/web-vitals')).webVitals;
-    const inject = (await import('@vercel/analytics')).inject;
-    if (inject && !dev) {
-      inject();
-    }
   });
 </script>
 
@@ -72,6 +70,19 @@
 
   <link href={ogUrl} rel="canonical" />
   <link type="text/plain" rel="author" href="{PUBLIC_ROOT_URL}/humans.txt" />
+
+  <!-- partytown scripts -->
+  <script>
+    // Forward the necessary functions to the web worker layer
+    partytown = {
+      forward: ['dataLayer.push'],
+    };
+  </script>
+  {@html `<script>${partytownSnippet()}</script>`}
+  {#if !dev}
+    <script src="/_vercel/insights/script.js" type="text/partytown"></script>
+  {/if}
+  <!-- partytown scripts -->
 </svelte:head>
 
 <slot />

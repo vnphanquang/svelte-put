@@ -46,6 +46,7 @@ importers:
 
   apps/docs:
     specifiers:
+      '@builder.io/partytown': ^0.7.4
       '@svelte-put/avatar': workspace:*
       '@svelte-put/clickoutside': workspace:*
       '@svelte-put/copy': workspace:*
@@ -70,7 +71,6 @@ importers:
       '@types/postcss-mixins': ^9.0.0
       '@typescript-eslint/eslint-plugin': ^5.48.1
       '@typescript-eslint/parser': ^5.48.1
-      '@vercel/analytics': ^0.1.6
       '@vnphanquang/prettierrc': ^1.0.0
       autoprefixer: ^10.4.13
       clsx: ^1.2.1
@@ -102,7 +102,7 @@ importers:
       vite: ^4.0.4
       web-vitals: ^3.1.1
     dependencies:
-      '@vercel/analytics': 0.1.6
+      '@builder.io/partytown': 0.7.4
       clsx: 1.2.1
       cookie: 0.5.0
       handlebars: 4.7.7
@@ -552,6 +552,11 @@ packages:
     dependencies:
       regenerator-runtime: 0.13.11
     dev: true
+
+  /@builder.io/partytown/0.7.4:
+    resolution: {integrity: sha512-dcZBPNQiHbMhvDGmdWRFNe75Z/XYmeZ2bubYmC5BeQpF09ObbPcbSqIP2NaNOFonKlWLfsE6u1790o9ZmlfpIw==}
+    hasBin: true
+    dev: false
 
   /@changesets/apply-release-plan/6.1.3:
     resolution: {integrity: sha512-ECDNeoc3nfeAe1jqJb5aFQX7CqzQhD2klXRez2JDb/aVpGUbX673HgKrnrgJRuQR/9f2TtLoYIzrGB9qwD77mg==}
@@ -1735,12 +1740,6 @@ packages:
       '@typescript-eslint/types': 5.48.1
       eslint-visitor-keys: 3.3.0
     dev: true
-
-  /@vercel/analytics/0.1.6:
-    resolution: {integrity: sha512-zNd5pj3iDvq8IMBQHa1YRcIteiw6ZiPB8AsONHd8ieFXlNpLqhXfIYnf4WvTfZ7S1NSJ++mIM14aJnNac/VMXQ==}
-    peerDependencies:
-      react: ^16.8||^17||^18
-    dev: false
 
   /@vercel/nft/0.22.6:
     resolution: {integrity: sha512-gTsFnnT4mGxodr4AUlW3/urY+8JKKB452LwF3m477RFUJTAaDmcz2JqFuInzvdybYIeyIv1sSONEJxsxnbQ5JQ==}
