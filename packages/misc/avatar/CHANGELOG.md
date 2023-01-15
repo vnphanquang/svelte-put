@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.15
+
+### Patch Changes
+
+- [`29e607f`](https://github.com/vnphanquang/svelte-put/commit/29e607f5aab205c59a422e9050c1099eddb5208b) Thanks [@vnphanquang](https://github.com/vnphanquang)! - let Avatar props extends svelte/elements/HTMLImgAttributes
+
 ## 1.0.14
 
 ### Patch Changes
