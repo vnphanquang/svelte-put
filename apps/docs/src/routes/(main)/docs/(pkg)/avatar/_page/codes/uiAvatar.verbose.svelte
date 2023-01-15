@@ -15,4 +15,5 @@
     size: 50,
     format: 'svg',
   }}
+  crossorigin="anonymous"
 />

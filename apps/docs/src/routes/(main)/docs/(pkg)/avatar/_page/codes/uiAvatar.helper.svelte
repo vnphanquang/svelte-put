@@ -16,4 +16,4 @@
   });
 </script>
 
-<Avatar src={uiAvatarUrl} />
+<Avatar src={uiAvatarUrl} crossorigin="anonymous" />

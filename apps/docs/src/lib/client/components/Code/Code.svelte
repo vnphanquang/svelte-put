@@ -27,7 +27,7 @@
   import IconWarning from '$client/components/icons/material/Warning.svelte';
 
   type $$Props = CodeProps;
-  export let lang: $$Props['lang'];
+  export let lang: $$Props['lang'] = 'svelte';
   export let code: $$Props['code'];
   export let title: $$Props['title'] = '';
   export let expanded: $$Props['expanded'] = true;

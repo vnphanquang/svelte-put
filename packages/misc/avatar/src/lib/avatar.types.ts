@@ -1,3 +1,5 @@
+import type { HTMLImgAttributes } from 'svelte/elements';
+
 /**
  * Slots of Avatar component
  * @public
@@ -19,7 +21,7 @@ export interface AvatarSlots {
  * Props to Avatar component
  * @public
  */
-export interface AvatarProps {
+export interface AvatarProps extends HTMLImgAttributes {
   /**
    * "src" attribute. This option is of highest priority
    */

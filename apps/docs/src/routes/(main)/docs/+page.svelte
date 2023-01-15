@@ -48,6 +48,7 @@
                 width="106"
                 loading="lazy"
                 decoding="async"
+                crossorigin="anonymous"
               />
             </a>
           </div>

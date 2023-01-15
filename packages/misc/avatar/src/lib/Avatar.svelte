@@ -56,6 +56,7 @@
     class="svelte-put-avatar {$$props.class ?? ''}"
     data-sources={sources.join(',')}
     bind:this={element}
+    {...$$restProps}
   />
 </slot>
 

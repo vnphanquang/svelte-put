@@ -11,4 +11,4 @@
   });
 </script>
 
-<Avatar src={gravatarUrl} />
+<Avatar src={gravatarUrl} crossorigin="anonymous" />
