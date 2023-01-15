@@ -18,7 +18,7 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 
 ## Acknowledgement
 
-This package rely on svelte action strategy and attempts to stay minimal. If you are looking for a declarative, component-oriented solution, check out [Janosh][janosh]'s [svelte-toc].
+This package relies on svelte action strategy and attempts to stay minimal. If you are looking for a declarative, component-oriented solution, check out [Janosh][janosh]'s [svelte-toc].
 
 ## [Changelog][github.changelog]
 

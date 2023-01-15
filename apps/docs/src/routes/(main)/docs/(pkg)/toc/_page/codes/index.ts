@@ -21,5 +21,15 @@ export const codes = {
       fallback: eventTypingFallback,
     },
   },
+  observe: `<!-- use default options -->
+<main use:toc={{ observe: true }}>...</main>
+
+<!-- customization-->
+<main use:toc={{
+  observe: {
+    strategy: 'auto',
+    threshold: 1,
+  }
+}}>...</main>`,
   dataAttributes,
 };

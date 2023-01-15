@@ -8,9 +8,17 @@
   "module": "./lib/index.js",
   "exports": {
     "./package.json": "./package.json",
-    ".": "./lib/index.js"
+    ".": "./lib/index.js",
+    "./internal": "./lib/toc.internal.js"
   },
   "types": "lib/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "internal": [
+        "./lib/toc.internal.d.ts"
+      ]
+    }
+  },
   "publishConfig": {
     "access": "public"
   },
