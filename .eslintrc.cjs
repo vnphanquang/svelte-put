@@ -2,6 +2,7 @@ module.exports = {
   root: true,
   extends: ['@vnphanquang/eslint-config-svelte'],
   globals: {
-    App: true,
+    App: 'readonly',
+    gtag: 'readonly',
   },
 };

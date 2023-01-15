@@ -1,6 +1,7 @@
 /// <reference types="@sveltejs/kit" />
 /// <reference types="svelte" />
 /// <reference types="vite/client" />
+/// <reference types="@types/gtag.js" />
 
 import type { TocDataAttributes } from '@svelte-put/toc';
 

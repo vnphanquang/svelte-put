@@ -47,6 +47,7 @@
     "@types/color": "^3.0.3",
     "@types/cookie": "^0.5.1",
     "@types/glob": "^8.0.0",
+    "@types/gtag.js": "^0.0.12",
     "@types/node": "^18.11.18",
     "@types/postcss-mixins": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^5.48.1",

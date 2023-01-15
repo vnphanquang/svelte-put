@@ -7,7 +7,7 @@
   import { dev, browser } from '$app/environment';
   import { page } from '$app/stores';
   import { appStore } from '$client/services/modal';
-  import { PUBLIC_ROOT_URL } from '$env/static/public';
+  import { PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID, PUBLIC_ROOT_URL } from '$env/static/public';
 
   import '../lib/client/styles/app.css';
 
@@ -33,7 +33,8 @@
   $: twitterImageAlt = meta?.twitter?.imageAlt ?? '@svelte-put site';
   $: twitterSite = meta?.twitter?.site ?? '@vnphanquang';
 
-  // eslint-disable-next-line no-undef
+  $: analyticsEnabled = !dev;
+
   let analyticsId = $page.data.vercelAnalyticsId;
   let webVitals: typeof import('$client/services/web-vitals').webVitals;
   $: if (browser && analyticsId && webVitals) {
@@ -41,6 +42,13 @@
       path: $page.url.pathname,
       params: $page.params,
       analyticsId,
+    });
+  }
+  $: if (browser && gtag && analyticsEnabled) {
+    gtag('config', PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID, {
+      page_title: document.title,
+      page_location: $page.url.href,
+      page_path: $page.url.pathname,
     });
   }
   onMount(async () => {
@@ -73,30 +81,28 @@
 
   <!-- partytown scripts -->
   <script>
-    // Forward the necessary functions to the web worker layer
     partytown = {
-      forward: ['dataLayer.push'],
+      // forward the necessary functions to the web worker layer
+      forward: ['gtag'],
     };
   </script>
   {@html `<script>${partytownSnippet()}</script>`}
-  {#if !dev}
+
+  {#if analyticsEnabled}
+    <!-- vercel analytics -->
     <script src="/_vercel/insights/script.js" type="text/partytown"></script>
+
     <!-- Google tag (gtag.js) -->
-    <script
-      type="text/partytown"
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-YMF3X1CHQL"
-    ></script>
+    {@html `<script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id="${PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID}"></script>`}
     <script type="text/partytown">
       window.dataLayer = window.dataLayer || [];
-      function gtag() {
+      window.gtag = function () {
         dataLayer.push(arguments);
-      }
+      };
       gtag('js', new Date());
-
-      gtag('config', 'G-YMF3X1CHQL');
     </script>
   {/if}
+
   <!-- partytown scripts -->
 </svelte:head>
 
