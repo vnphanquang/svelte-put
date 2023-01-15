@@ -7,20 +7,6 @@
 import type { Action } from 'svelte/action';
 import { Writable } from 'svelte/store';
 
-// Warning: (ae-internal-missing-underscore) The name "ATTRIBUTES" should be prefixed with an underscore because the declaration is marked as @internal
-//
-// @internal
-export const ATTRIBUTES: {
-    autoslug: string;
-    autoSlugAnchor: string;
-    toc: string;
-    anchor: string;
-    id: string;
-    ignore: string;
-    strategy: string;
-    threshold: string;
-};
-
 // @public
 export function createTocStore(): Writable<TocStoreValue>;
 
@@ -45,14 +31,6 @@ export const DEFAULT_TOC_PARAMETERS: {
         strategy: "auto";
         threshold: (element: HTMLElement) => number;
     };
-};
-
-// Warning: (ae-internal-missing-underscore) The name "EVENTS" should be prefixed with an underscore because the declaration is marked as @internal
-//
-// @internal
-export const EVENTS: {
-    init: string;
-    change: string;
 };
 
 // Warning: (ae-internal-missing-underscore) The name "ResolvedTocParameters" should be prefixed with an underscore because the declaration is marked as @internal

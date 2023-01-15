@@ -3,6 +3,8 @@ import { tick } from 'svelte';
 import type { Action, ActionReturn } from 'svelte/action';
 import { writable } from 'svelte/store';
 
+import { ATTRIBUTES, EVENTS, cache, intersectionObserverCallback } from './toc.internal';
+import type { ActiveTocItemStore } from './toc.internal';
 import { compare, resolve } from './toc.parameters';
 import type {
   ResolvedTocParameters,
@@ -14,32 +16,6 @@ import type {
   UserTocParameters,
 } from './toc.types';
 import { slugify } from './toc.utils';
-
-/**
- * all relevant data attribute name literals
- * @internal
- */
-export const ATTRIBUTES = {
-  autoslug: 'data-auto-slug',
-  autoSlugAnchor: 'data-auto-slug-anchor',
-  toc: 'data-toc',
-  anchor: 'data-toc-anchor',
-  id: 'data-toc-id',
-  ignore: 'data-toc-ignore',
-  strategy: 'data-toc-strategy',
-  threshold: 'data-toc-threshold',
-};
-
-/**
- * all relevant event name literals
- * @internal
- */
-export const EVENTS = {
-  init: 'tocinit',
-  change: 'tocchange',
-};
-
-const cache: Record<string, TocCacheItem> = {};
 
 /**
  * search for matching elements, inject anchor element, watch for active element
@@ -121,7 +97,11 @@ export const toc: Action<HTMLElement, UserTocParameters, TocAttributes> = functi
   let resolved = resolve(parameters);
 
   let items: TocCacheItem['items'] = {};
-  const activeTocItemStore = writable<string | undefined>(undefined);
+  const activeTocItemStore = writable<string | undefined>(undefined) satisfies ActiveTocItemStore;
+
+  // stay minimal by reusing as few `IntersectionObserver` as possible
+  // only create new `IntersectionObserver` for each new `threshold`
+  const observers: Record<number, IntersectionObserver> = {};
 
   const activeTocItemStoreUnsubscribe = activeTocItemStore.subscribe((activeTocItemId) => {
     if (activeTocItemId) {
@@ -133,15 +113,6 @@ export const toc: Action<HTMLElement, UserTocParameters, TocAttributes> = functi
       resolved.store?.set({ ...detail, items });
     }
   });
-
-  const createObserverCallback: (tocId: string) => IntersectionObserverCallback =
-    (tocId) => (entries) => {
-      for (const entry of entries) {
-        if (entry.isIntersecting && tocId) {
-          activeTocItemStore.set(tocId);
-        }
-      }
-    };
 
   tick().then(async () => {
     const { id, selector, anchor, observe, scrollMarginTop } = resolved;
@@ -252,11 +223,18 @@ export const toc: Action<HTMLElement, UserTocParameters, TocAttributes> = functi
                 : observe.threshold;
           }
           const { root, rootMargin } = observe;
-          const observer = new IntersectionObserver(createObserverCallback(tocId), {
-            threshold,
-            rootMargin,
-            root,
-          });
+          nodeToObserve.setAttribute(ATTRIBUTES.observeFor, tocId);
+          let observer: IntersectionObserver;
+          if (observers[threshold]) {
+            observer = observers[threshold];
+          } else {
+            observer = new IntersectionObserver(intersectionObserverCallback(activeTocItemStore), {
+              threshold,
+              rootMargin,
+              root,
+            });
+            observers[threshold] = observer;
+          }
           observer.observe(nodeToObserve);
           rObserve = { strategy: rStrategy, observer, threshold };
         }
@@ -285,9 +263,18 @@ export const toc: Action<HTMLElement, UserTocParameters, TocAttributes> = functi
   return {
     update(update) {
       resolved = resolve(update);
+      // right now `toc` does not support dynamic parameter updates
+      // meaning it'll only run once on component initialization
+      // and not on subsequent updates
+      // this is because the effort to support dynamic updates is rather high:
+      // - revert all previous operation (or detect which ones are still valid/invalid)
+      // - re-run operations
     },
     destroy() {
       activeTocItemStoreUnsubscribe();
+      for (const observer of Object.values(observers)) {
+        observer.disconnect();
+      }
     },
   };
 };
