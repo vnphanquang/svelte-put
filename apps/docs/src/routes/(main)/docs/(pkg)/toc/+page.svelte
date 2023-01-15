@@ -15,6 +15,17 @@
   export let data: PageData;
 </script>
 
+<section>
+  <h2>Acknowledgement</h2>
+  <p>
+    This package rely on
+    <ResourceLink key="svelte action" /> strategy and attempts to stay minimal. If you are looking for
+    a declarative, component-oriented solution, check out
+    <ResourceLink href="https://github.com/janosh">Janosh</ResourceLink>'s
+    <ResourceLink href="https://github.com/janosh/svelte-toc">svelte-toc</ResourceLink>.
+  </p>
+</section>
+
 <Installation pkg={data.package.name} />
 
 <section>
