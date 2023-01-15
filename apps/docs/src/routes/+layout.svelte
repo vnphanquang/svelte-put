@@ -81,6 +81,21 @@
   {@html `<script>${partytownSnippet()}</script>`}
   {#if !dev}
     <script src="/_vercel/insights/script.js" type="text/partytown"></script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      type="text/partytown"
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-YMF3X1CHQL"
+    ></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-YMF3X1CHQL');
+    </script>
   {/if}
   <!-- partytown scripts -->
 </svelte:head>
