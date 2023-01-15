@@ -10,5 +10,4 @@
     default: 'monsterid',
     // forcedefault: 'y',
   }}
-  crossorigin="anonymous"
 />

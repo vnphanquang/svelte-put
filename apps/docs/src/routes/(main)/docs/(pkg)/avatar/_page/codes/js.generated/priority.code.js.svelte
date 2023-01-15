@@ -11,5 +11,4 @@
   gravatar={email}
   uiAvatar="{firstName}+{lastName}"
   fallback="https://your.api/avatar/default"
-  crossorigin="anonymous"
 />

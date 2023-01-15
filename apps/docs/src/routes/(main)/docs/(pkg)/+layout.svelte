@@ -41,7 +41,6 @@
         alt={data.package.name}
         height="24"
         width="107"
-        crossorigin="anonymous"
       />
     </a>
     <a href={createNpmUrl(data.package.name)} target="_blank" rel="noreferrer">
@@ -53,7 +52,6 @@
         alt={data.package.name}
         height="24"
         width="134"
-        crossorigin="anonymous"
       />
     </a>
     <a
@@ -70,7 +68,6 @@
         alt={data.package.name}
         height="24"
         width="125"
-        crossorigin="anonymous"
       />
     </a>
     {#if data.package.replId}
@@ -88,7 +85,6 @@
           alt={data.package.name}
           height="24"
           width="112"
-          crossorigin="anonymous"
         />
       </a>
     {/if}
@@ -102,7 +98,6 @@
           alt="changelog"
           height="24"
           width="90"
-          crossorigin="anonymous"
         />
       </a>
     {/if}

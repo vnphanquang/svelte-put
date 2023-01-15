@@ -10,7 +10,6 @@
   size={50}
   class="custom-avatar rounded-full"
   --border-color={color}
-  crossorigin="anonymous"
 />
 
 <style lang="postcss">
