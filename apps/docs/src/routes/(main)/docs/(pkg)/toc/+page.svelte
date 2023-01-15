@@ -1,4 +1,6 @@
 <script lang="ts">
+  import typescript from 'svelte-highlight/languages/typescript';
+
   import ActionUsageNotice from '$client/components/ActionUsageNotice/ActionUsageNotice.svelte';
   import ApiReference from '$client/components/ApiReference/ApiReference.svelte';
   import ApiUnitReference from '$client/components/ApiUnitReference/ApiUnitReference.svelte';
@@ -97,7 +99,25 @@
     <ResourceLink key="svelte store" /> is used to keep code minimal. Alternatively, you can listen for
     <code>tocinit</code> and <code>tocchange</code> events.
   </p>
-  <Code code={codes.events} title="events" />
+  <Code code={codes.events.example} title="toc events" />
+  <p>
+    Ambient types for custom events should be available automatically where <code
+      >{data.package.id}</code
+    > is imported.
+  </p>
+  <Code
+    lang="svelte"
+    code={codes.events.typing.auto}
+    title="automatically typed - example source"
+    expanded={false}
+  />
+  <p>If the above is not working, fall back to this:</p>
+  <Code
+    lang={typescript}
+    code={codes.events.typing.fallback}
+    title="src/app.d.ts - fallback typescript support"
+    expanded={false}
+  />
 </section>
 
 <section>
