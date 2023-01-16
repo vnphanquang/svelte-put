@@ -189,8 +189,12 @@ export interface TocItem {
   observe?: {
     /** the `IntersectionObserver` instance watching this `element`, */
     observer: IntersectionObserver;
+    /** the resolved toc strategy used for this matching element */
     strategy: TocObserveParameters['strategy'];
+    /** the resolved toc threshold used for this matching element */
     threshold: TocObserveParameters['threshold'];
+    /** the element that was observed by `IntersectionObserver` */
+    element: HTMLElement;
   };
 }
 
@@ -214,7 +218,7 @@ export interface TocInitEventDetails extends TocEventDetails {
  * `event.detail` of `on:tocchange`
  * @public
  */
-export interface TocChangeEventDetails extends TocEventDetails {
+export interface TocChangeEventDetails extends TocInitEventDetails {
   activeItem: TocItem;
 }
 
@@ -259,4 +263,5 @@ export interface TocDataAttributes {
 export type TocCacheItem = {
   parameters: ResolvedTocParameters;
   items: Record<string, TocItem>;
+  activeTocItemId?: string;
 };

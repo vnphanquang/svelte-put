@@ -117,9 +117,7 @@
     <ResourceLink href="https://github.com/vnphanquang/svelte-put/blob/main/CONTRIBUTING.md"
       >Contributing Guidelines</ResourceLink
     > and
-    <ResourceLink href="https://github.com/vnphanquang/svelte-put/issues"
-      >open an issue</ResourceLink
-    >.
+    <ResourceLink key="issue">open an issue</ResourceLink>.
   </p>
 </section>
 

@@ -10,6 +10,7 @@ export const resources = {
     'https://svelte.dev/docs#template-syntax-component-directives---style-props',
   addEventListener: 'https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener',
   github: 'https://github.com/vnphanquang/svelte-put',
+  issue: 'https://github.com/vnphanquang/svelte-put/issues',
   'MIT License': 'https://opensource.org/licenses/MIT',
   'Quang Phan': 'https://github.com/vnphanquang',
   Gravatar: 'https://en.gravatar.com/site/implement/images',

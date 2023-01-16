@@ -105,34 +105,6 @@
 </section>
 
 <section>
-  <h2>Events</h2>
-  <p>
-    In <ResourceLink id="quick-start">Quick Start</ResourceLink>,
-    <ResourceLink key="svelte store" /> is used to keep code minimal. Alternatively, you can listen for
-    <code>tocinit</code> and <code>tocchange</code> events.
-  </p>
-  <Code code={codes.events.example} title="toc events" />
-  <p>
-    Ambient types for custom events should be available automatically where <code
-      >{data.package.id}</code
-    > is imported.
-  </p>
-  <Code
-    lang="svelte"
-    code={codes.events.typing.auto}
-    title="automatically typed - example source"
-    expanded={false}
-  />
-  <p>If the above is not working, fall back to this:</p>
-  <Code
-    lang={typescript}
-    code={codes.events.typing.fallback}
-    title="src/app.d.ts - fallback typescript support"
-    expanded={false}
-  />
-</section>
-
-<section>
   <h2>Toc Action</h2>
 
   <p>
@@ -159,12 +131,92 @@
       </ResourceLink> API page for details.
     </p>
   </section>
+
+  <section>
+    <h3>No Dynamic Update</h3>
+    <p>
+      During development, you may notice that <code>toc</code> does not update when you change the
+      action parameters at runtime and requires a page refresh to work again. This is because
+      currently
+      <code>toc</code> only runs once on mount.
+    </p>
+    <p>
+      Supporting dynamic update is quite a heavy task (tracking what's changed and avoiding
+      duplicated operations) that will increase the bundle size & complexity but is not very useful
+      in most use cases (how often does a table of contents change at runtime?).
+    </p>
+    <p>
+      If you think otherwise and have a valid use case, please submit an
+      <ResourceLink key="issue" />.
+    </p>
+  </section>
 </section>
 
 <section>
-  <h2>Observing 'In View' Element</h2>
+  <h2>Events</h2>
   <p>
-    A common feature of a Table of Contents on the web is to track which part is "in view".
+    In <ResourceLink id="quick-start">Quick Start</ResourceLink>,
+    <ResourceLink key="svelte store" /> is used to keep code minimal. Alternatively, you can listen for
+    <code>tocinit</code> and <code>tocchange</code> events.
+  </p>
+  <Code code={codes.events.example} title="toc events" />
+
+  <section>
+    <h3>Runtime Expectation</h3>
+    <p>
+      <code>tocinit</code> is only fired once. And whether <code>tocchange</code> is fired depends
+      on the
+      <code>observe</code> action parameter (discussed in
+      <ResourceLink id="observing-in-view-element">Observing 'In View' Element</ResourceLink>
+      ).
+    </p>
+    <ul>
+      <li>
+        When <code>observe</code> is <code>false</code>, expect no <code>tocchange</code> event. This
+        makes sense because all necessary information has been extracted at initialization.
+      </li>
+      <li>
+        When <code>observe</code> is <code>true</code>, expect a <code>tocchange</code> event that
+        follows shortly after <code>tocinit</code>. The <code>observe</code> property of each
+        extracted <ResourceLink
+          href="https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/toc/api/docs/toc.tocitem.md"
+          >TocItem</ResourceLink
+        > is only guaranteed to be populated in this
+        <code>tocchange</code> event and not <code>tocinit</code>. This is because
+        <code>observe</code>
+        initialization operations are run asynchronously to avoid blocking any potential work with the
+        extracted information from <code>tocinit</code> (such as rendering the table of content itself).
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Typescript Support</h3>
+    <p>
+      Ambient types for custom events should be available automatically where <code
+        >{data.package.id}</code
+      > is imported.
+    </p>
+    <Code
+      lang="svelte"
+      code={codes.events.typing.auto}
+      title="automatically typed - example source"
+      expanded={false}
+    />
+    <p>If the above is not working, fall back to this:</p>
+    <Code
+      lang={typescript}
+      code={codes.events.typing.fallback}
+      title="src/app.d.ts - fallback typescript support"
+      expanded={false}
+    />
+  </section>
+</section>
+
+<section>
+  <h2 id="observing-in-view-element">Observing 'In View' Element</h2>
+  <p>
+    A common feature of a table of contents on the web is to track which part is "in view".
     Traditionally this has been done with <code>on:scroll</code>, but with the relatively new
     <ResourceLink key="IntersectionObserver" />, we can do this in a more performant way.
   </p>
