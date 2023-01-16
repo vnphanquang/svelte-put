@@ -95,10 +95,14 @@ export function autoSlug(input: AutoSlugInput = {}): PreprocessorGroup {
                   );
                   break;
               }
-              // mark element with `data-autoslug` attribute
-              // intended for `@svelte-put/toc` to skip anchor processing
-              s.appendLeft(tNode.children[0].start - 1, ` data-auto-slug`);
+              s.appendLeft(
+                tNode.children[0].start - 1,
+                ` data-auto-slug-anchor-position=${options.anchor.position}`,
+              );
             }
+            // mark element with `data-autoslug` attribute
+            // intended for `@svelte-put/toc` to skip anchor processing
+            s.appendLeft(tNode.children[0].start - 1, ` data-auto-slug`);
           }
         },
       });
