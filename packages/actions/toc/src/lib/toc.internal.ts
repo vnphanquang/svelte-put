@@ -38,19 +38,14 @@ export const cache: Record<string, TocCacheItem> = {};
 /**
  * @internal
  */
-export type ActiveTocItemStore = Writable<string | undefined>;
-
-/**
- * @internal
- */
 export const intersectionObserverCallback: (
-  store: ActiveTocItemStore,
-) => IntersectionObserverCallback = (store) => {
+  callback: (activeTocItemId?: string) => void,
+) => IntersectionObserverCallback = (callback) => {
   return (entries) => {
     for (const entry of entries) {
       const tocId = entry.target.getAttribute(ATTRIBUTES.observeFor);
       if (tocId && entry.isIntersecting) {
-        store.set(tocId);
+        callback(tocId);
       }
     }
   };

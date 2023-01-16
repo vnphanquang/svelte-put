@@ -1,10 +1,8 @@
 import { tick } from 'svelte';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import type { Action, ActionReturn } from 'svelte/action';
-import { writable } from 'svelte/store';
 
 import { ATTRIBUTES, EVENTS, cache, intersectionObserverCallback } from './toc.internal';
-import type { ActiveTocItemStore } from './toc.internal';
 import { compare, resolve } from './toc.parameters';
 import type {
   ResolvedTocParameters,
@@ -97,13 +95,12 @@ export const toc: Action<HTMLElement, UserTocParameters, TocAttributes> = functi
   let resolved = resolve(parameters);
 
   let items: TocCacheItem['items'] = {};
-  const activeTocItemStore = writable<string | undefined>(undefined) satisfies ActiveTocItemStore;
 
   // stay minimal by reusing as few `IntersectionObserver` as possible
   // only create new `IntersectionObserver` for each new `threshold`
   const observers: Record<number, IntersectionObserver> = {};
 
-  const activeTocItemStoreUnsubscribe = activeTocItemStore.subscribe((activeTocItemId) => {
+  function updateActiveTocItem(activeTocItemId?: string) {
     if (activeTocItemId) {
       const detail: TocChangeEventDetails = {
         id: resolved.id,
@@ -112,7 +109,7 @@ export const toc: Action<HTMLElement, UserTocParameters, TocAttributes> = functi
       node.dispatchEvent(new CustomEvent(EVENTS.change, { detail }));
       resolved.store?.set({ ...detail, items });
     }
-  });
+  }
 
   tick().then(async () => {
     const { id, selector, anchor, observe, scrollMarginTop } = resolved;
@@ -228,7 +225,7 @@ export const toc: Action<HTMLElement, UserTocParameters, TocAttributes> = functi
           if (observers[threshold]) {
             observer = observers[threshold];
           } else {
-            observer = new IntersectionObserver(intersectionObserverCallback(activeTocItemStore), {
+            observer = new IntersectionObserver(intersectionObserverCallback(updateActiveTocItem), {
               threshold,
               rootMargin,
               root,
@@ -271,7 +268,6 @@ export const toc: Action<HTMLElement, UserTocParameters, TocAttributes> = functi
       // - re-run operations
     },
     destroy() {
-      activeTocItemStoreUnsubscribe();
       for (const observer of Object.values(observers)) {
         observer.disconnect();
       }
