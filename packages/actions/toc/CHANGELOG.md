@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.0.2
+
+### Patch Changes
+
+- [`d04d44e`](https://github.com/vnphanquang/svelte-put/commit/d04d44e010cbe74f63c5304451524902c68036c7) Thanks [@vnphanquang](https://github.com/vnphanquang)! - deprecate internal svelte store (for tracking active item within action operations, no effect on the user-provided `store` parameter) in favor of simple callback for smaller bundle size
+
+- [`a8cd5c2`](https://github.com/vnphanquang/svelte-put/commit/a8cd5c2dce7af3aa382a38e69d3c357381e7087b) Thanks [@vnphanquang](https://github.com/vnphanquang)! - add docs about lack of dynamic update support
+
+- [`a8cd5c2`](https://github.com/vnphanquang/svelte-put/commit/a8cd5c2dce7af3aa382a38e69d3c357381e7087b) Thanks [@vnphanquang](https://github.com/vnphanquang)! - improve perf by making observe operation async (prioritize `tocinit` for initial rendering)
+
+- [`60c2029`](https://github.com/vnphanquang/svelte-put/commit/60c2029db21ba6b6a478bff25fd4a8d39c07038f) Thanks [@vnphanquang](https://github.com/vnphanquang)! - use as few IntersectionObserver as possible, only create for each new threshold, otherwise reuse
+
+- [`6058f0c`](https://github.com/vnphanquang/svelte-put/commit/6058f0cc8ea68a844f574dcb957443590d9dff67) Thanks [@vnphanquang](https://github.com/vnphanquang)! - add additional export entry `internal` for use within docs
+
 ## 2.0.1
 
 ### Patch Changes

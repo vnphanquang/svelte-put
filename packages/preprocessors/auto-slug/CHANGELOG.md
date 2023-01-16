@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.2
+
+### Patch Changes
+
+- [`8e4168a`](https://github.com/vnphanquang/svelte-put/commit/8e4168a6bb3904245e7b28b83828632d09a06cad) Thanks [@vnphanquang](https://github.com/vnphanquang)! - when `anchor` is enabled, add attribute `data-auto-slug-anchor-position` for quick retrieve the anchor element at runtime (used by `@svelte-put/toc`)
+
 ## 0.3.1
 
 ### Patch Changes
