@@ -7,7 +7,9 @@
  */
 
 export * from './toc.action';
-export { DEFAULT_TOC_PARAMETERS } from './toc.parameters';
-export * from './toc.types';
-export * from './toc.utils';
-export * from './toc.store';
+export type { TocDataAttributes, TocEventAttributes } from './toc.attributes';
+export type { TocChangeEventDetails, TocEventDetails, TocInitEventDetails } from './toc.events';
+export type { TocItem } from './toc.item';
+export type { TocAnchorParameters, TocObserveParameters, TocParameters } from './toc.parameters';
+export type { TocStore, TocStoreValue } from './toc.store';
+export { createTocStore } from './toc.store';

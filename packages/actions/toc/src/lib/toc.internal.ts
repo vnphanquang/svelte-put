@@ -1,41 +1,14 @@
-import type {
-  ResolvedTocParameters,
-  TocCacheItem,
-  TocChangeEventDetails,
-  TocInitEventDetails,
-  TocItem,
-  TocStoreValue,
-} from './toc.types';
+import { ATTRIBUTES } from './toc.attributes';
+import type { TocItem } from './toc.item';
+import type { ResolvedTocParameters } from './toc.parameters';
 import { slugify } from './toc.utils';
-
 /**
- * all relevant data attribute name literals
  * @internal
  */
-export const ATTRIBUTES = {
-  // markers from `@svelte-put/preprocess-auo-slug`
-  autoslug: 'data-auto-slug',
-  autoSlugAnchor: 'data-auto-slug-anchor',
-  autoSlugAnchorPosition: 'data-auto-slug-anchor-position',
-  // markers
-  toc: 'data-toc',
-  anchor: 'data-toc-anchor',
-  // customization per matching element
-  id: 'data-toc-id',
-  ignore: 'data-toc-ignore',
-  strategy: 'data-toc-strategy',
-  threshold: 'data-toc-threshold',
-  // tracking information for `IntersectionObserver`
-  observeFor: 'data-toc-observe-for',
-};
-
-/**
- * all relevant event name literals
- * @internal
- */
-export const EVENTS = {
-  init: 'tocinit',
-  change: 'tocchange',
+export type TocCacheItem = {
+  parameters: ResolvedTocParameters;
+  items: Record<string, TocItem>;
+  activeTocItemId?: string;
 };
 
 /**
@@ -263,35 +236,4 @@ export function processObserve(
   }
   observer.observe(nodeToObserve);
   return { strategy: rStrategy, observer, threshold, element: nodeToObserve };
-}
-
-/**
- * @internal
- */
-export function dispatchInit(node: HTMLElement, detail: TocInitEventDetails) {
-  node.dispatchEvent(new CustomEvent(EVENTS.init, { detail }));
-  return detail;
-}
-
-/**
- * @internal
- */
-export function dispatchChange(node: HTMLElement, detail: TocChangeEventDetails) {
-  node.dispatchEvent(new CustomEvent(EVENTS.change, { detail }));
-  return detail;
-}
-
-/**
- * @internal
- */
-export function updateStore(
-  store: ResolvedTocParameters['store'],
-  { activeItem, id, items }: Partial<TocStoreValue>,
-) {
-  store?.update((state) => ({
-    ...state,
-    ...(activeItem && { activeItem }),
-    ...(id && { id }),
-    ...(items && { items }),
-  }));
 }

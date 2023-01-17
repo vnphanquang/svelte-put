@@ -2,20 +2,22 @@ import { tick } from 'svelte';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import type { Action, ActionReturn } from 'svelte/action';
 
+import type { TocEventAttributes } from './toc.attributes';
+import { ATTRIBUTES } from './toc.attributes';
+import { dispatchChange, dispatchInit } from './toc.events';
 import {
-  ATTRIBUTES,
   cache,
-  dispatchChange,
-  dispatchInit,
   extractElementText,
   extractTocId,
   processAnchor,
   processObserve,
   processScrollMarginTop,
-  updateStore,
 } from './toc.internal';
+import type { TocCacheItem } from './toc.internal';
+import type { TocItem } from './toc.item';
 import { compare, resolve } from './toc.parameters';
-import type { TocAttributes, TocItem, TocCacheItem, UserTocParameters } from './toc.types';
+import type { TocParameters } from './toc.parameters';
+import { updateStore } from './toc.store';
 
 /**
  * search for matching elements, inject anchor element, watch for active element
@@ -90,7 +92,7 @@ import type { TocAttributes, TocItem, TocCacheItem, UserTocParameters } from './
  * @returns svelte {@link ActionReturn}
  * ```
  */
-export const toc: Action<HTMLElement, UserTocParameters, TocAttributes> = function (
+export const toc: Action<HTMLElement, TocParameters, TocEventAttributes> = function (
   node,
   parameters = {},
 ) {
@@ -102,8 +104,9 @@ export const toc: Action<HTMLElement, UserTocParameters, TocAttributes> = functi
   // only create new `IntersectionObserver` for each new `threshold`
   const observers: Record<number, IntersectionObserver> = {};
 
+  let tocChangeThrottled = false;
   function change(activeTocItemId?: string) {
-    if (activeTocItemId) {
+    if (activeTocItemId && !tocChangeThrottled) {
       cache[resolved.id].activeTocItemId = activeTocItemId;
       const detail = dispatchChange(node, {
         activeItem: items[activeTocItemId] as TocItem,
@@ -112,6 +115,16 @@ export const toc: Action<HTMLElement, UserTocParameters, TocAttributes> = functi
       });
       updateStore(resolved.store, detail);
     }
+  }
+
+  let throttleClickTimeoutId: ReturnType<typeof setTimeout>;
+  function throttleClick(tocId: string, throttle: number) {
+    change(tocId);
+    tocChangeThrottled = true;
+    clearTimeout(throttleClickTimeoutId);
+    throttleClickTimeoutId = setTimeout(() => {
+      tocChangeThrottled = false;
+    }, throttle);
   }
 
   tick().then(async () => {

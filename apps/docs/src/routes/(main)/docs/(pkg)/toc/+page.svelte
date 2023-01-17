@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { ATTRIBUTES } from '@svelte-put/toc/internal';
+  import { ATTRIBUTES } from '@svelte-put/toc/attributes';
   import typescript from 'svelte-highlight/languages/typescript';
 
   import ActionUsageNotice from '$client/components/ActionUsageNotice/ActionUsageNotice.svelte';

@@ -9,13 +9,41 @@
   "exports": {
     "./package.json": "./package.json",
     ".": "./lib/index.js",
-    "./internal": "./lib/toc.internal.js"
+    "./action": "./lib/toc.action.js",
+    "./attributes": "./lib/toc.attributes.js",
+    "./events": "./lib/toc.events.js",
+    "./internal": "./lib/toc.internal.js",
+    "./item": "./lib/toc.item.js",
+    "./parameters": "./lib/toc.parameters.js",
+    "./store": "./lib/toc.store.js",
+    "./utils": "./lib/toc.utils.js"
   },
   "types": "lib/index.d.ts",
   "typesVersions": {
     "*": {
+      "action": [
+        "./lib/toc.action.d.ts"
+      ],
+      "attributes": [
+        "./lib/toc.attributes.d.ts"
+      ],
+      "events": [
+        "./lib/toc.events.d.ts"
+      ],
       "internal": [
         "./lib/toc.internal.d.ts"
+      ],
+      "item": [
+        "./lib/toc.item.d.ts"
+      ],
+      "parameters": [
+        "./lib/toc.parameters.d.ts"
+      ],
+      "store": [
+        "./lib/toc.store.d.ts"
+      ],
+      "utils": [
+        "./lib/toc.utils.d.ts"
       ]
     }
   },
