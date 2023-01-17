@@ -220,51 +220,77 @@
     Traditionally this has been done with <code>on:scroll</code>, but with the relatively new
     <ResourceLink key="IntersectionObserver" />, we can do this in a more performant way.
   </p>
-  <p>
-    In <code>toc</code>, this feature is turned off by default. To use it, set the <code>toc</code>
-    action parameter <code>observe</code> to <code>true</code> or provide an object with customization
-    options.
-  </p>
-  <Code code={codes.observe} title="turn on observe feature" />
+  <section>
+    <h3>Caveat & Design Decision</h3>
+    <p>
+      Unfortunately <code>IntersectionObserver</code> comes with its own caveat. For
+      <code>on:scroll</code>, we can specify something like:
+    </p>
+    <blockquote style="quotes: none;">
+      <p>For each heading, when it reach 10% offset of screen from the top, set it as active.</p>
+    </blockquote>
+    <p>
+      This is not trivial with <code>IntersectionObserver</code> without some hacking (to my
+      knowledge at least), because
+      <code>IntersectionObserver</code> typically triggers immediately when element intersects with viewport.
+    </p>
+    <p>
+      To workaround this, <code>toc</code> provides <code>observe.strategy</code> with an
+      <code>auto</code>
+      (default) option that attempts to calculate the best strategy for the matching element.
+    </p>
+  </section>
+  <section>
+    <h3>Observe Customization</h3>
+    <p>
+      In <code>toc</code>, this feature is turned off by default. To use it, set the
+      <code>toc</code>
+      action parameter <code>observe</code> to <code>true</code> or provide an object with customization
+      options.
+    </p>
+    <Code code={codes.observe} title="turn on observe feature" />
 
-  <ApiUnitReference type="'parent' | 'self' | 'auto'" d="'auto'">
-    <h3 slot="name" id="observe.strategy"><code>observe.strategy</code></h3>
-    <p>
-      This option affects which element the <ResourceLink key="IntersectionObserver" /> will observe.
-    </p>
-    <ul>
-      <li><code>parent</code>: observe <code>parentElement</code> of the matching toc element,</li>
-      <li><code>self</code>: observe the matching toc element itself,</li>
-      <li>
-        <code>auto</code>: attempt to compare matching toc element & its parent
-        <code>offsetHeight</code> with <code>window.innerHeight</code> to determine the best strategy.
-      </li>
-    </ul>
-    <p>
-      Alternatively, <ResourceLink id={ATTRIBUTES.strategy}>{ATTRIBUTES.strategy}</ResourceLink>
-      can be set on the matching toc element to override this global settings.
-    </p>
-  </ApiUnitReference>
+    <ApiUnitReference type="'parent' | 'self' | 'auto'" d="'auto'">
+      <h4 slot="name" id="observe.strategy"><code>observe.strategy</code></h4>
+      <p>
+        This option affects which element the <ResourceLink key="IntersectionObserver" /> will observe.
+      </p>
+      <ul>
+        <li>
+          <code>parent</code>: observe <code>parentElement</code> of the matching toc element,
+        </li>
+        <li><code>self</code>: observe the matching toc element itself,</li>
+        <li>
+          <code>auto</code>: attempt to compare matching toc element & its parent
+          <code>offsetHeight</code> with <code>window.innerHeight</code> to determine the best strategy.
+        </li>
+      </ul>
+      <p>
+        Alternatively, <ResourceLink id={ATTRIBUTES.strategy}>{ATTRIBUTES.strategy}</ResourceLink>
+        can be set on the matching toc element to override this global settings.
+      </p>
+    </ApiUnitReference>
 
-  <ApiUnitReference
-    type="number | ((element: HTMLElement) => number)"
-    d="(element) => Math.min((0.8 * window.innerHeight) / element.offsetHeight, 1)"
-  >
-    <h3 slot="name" id="observe.threshold"><code>observe.threshold</code></h3>
-    <p>The threshold passed to <ResourceLink key="IntersectionObserver" />.</p>
-    <p>
-      Alternatively, <ResourceLink id={ATTRIBUTES.threshold}>{ATTRIBUTES.threshold}</ResourceLink>
-      can be set on the matching toc element to override this global settings.
-    </p>
-  </ApiUnitReference>
+    <ApiUnitReference
+      type="number | ((element: HTMLElement) => number)"
+      d="(element) => Math.min((0.8 * window.innerHeight) / element.offsetHeight, 1)"
+    >
+      <h4 slot="name" id="observe.threshold"><code>observe.threshold</code></h4>
+      <p>The threshold passed to <ResourceLink key="IntersectionObserver" />.</p>
+      <p>
+        Alternatively, <ResourceLink id={ATTRIBUTES.threshold}>{ATTRIBUTES.threshold}</ResourceLink>
+        can be set on the matching toc element to override this global settings.
+      </p>
+    </ApiUnitReference>
 
-  <ApiUnitReference type="boolean" d="false">
-    <h3 slot="name" id="observe.enabled"><code>observe.enabled</code></h3>
-    <p>
-      Whether to turn on <code>observe</code> feature. When <code>observe</code>
-      is provided as an object, this is <code>true</code> implicitly.
-    </p>
-  </ApiUnitReference>
+    <ApiUnitReference type="boolean" d="false">
+      <h4 slot="name" id="observe.enabled"><code>observe.enabled</code></h4>
+      <p>
+        Whether to turn on <code>observe</code> feature. When <code>observe</code>
+        is provided as an object, this is <code>true</code> implicitly.
+      </p>
+    </ApiUnitReference>
+  </section>
 </section>
 
 <section>
