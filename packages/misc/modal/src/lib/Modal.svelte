@@ -137,34 +137,37 @@
 <style>
   :global(:where(.s-modal-backdrop)) {
     position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: rgb(17 24 39 / 0.25);
     z-index: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background-color: rgb(17 24 39 / 25%);
   }
 
   :global(:where(.s-modal-container)) {
     position: absolute;
+    z-index: 1;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1;
   }
 
   :global(button:where(.s-modal-x)) {
     position: absolute;
     top: 0;
     right: 0;
+
     padding: 0.5rem;
-    transition-property: transform;
+
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
+    transition-property: transform;
   }
 
   :global(:where(.s-modal-x) svg) {
-    stroke: currentColor;
+    stroke: currentcolor;
   }
 
   :global(:where(.s-modal-x):hover) {
