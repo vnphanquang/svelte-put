@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.3
+
+### Patch Changes
+
+- [`2a34159`](https://github.com/vnphanquang/svelte-put/commit/2a341590573671a27748776111ce6c49eb2d2ad2) Thanks [@vnphanquang](https://github.com/vnphanquang)! - set extracted `tocId` to `element.id` (bugfix)
+
 ## 2.0.2
 
 ### Patch Changes
