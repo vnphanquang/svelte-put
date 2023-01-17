@@ -494,6 +494,9 @@ export type ModalStorePop = <
   resolved?: Resolved,
 ) => Pushed | undefined;
 
+/**
+ * @public
+ */
 export type ModalStoreOnPop = <Component extends ModalComponentBase = ModalComponentBase>(
   modalId: string,
   callback: ModalResolveCallback<Component>,
@@ -512,7 +515,7 @@ export type ModalStoreSubscribe = Writable<ModalStoreValue>['subscribe'];
 /**
  * @public
  */
-export type ModalStore = {
+export interface ModalStore {
   subscribe: ModalStoreSubscribe;
   /**
    * @public
@@ -584,4 +587,4 @@ export type ModalStore = {
    * @returns the unsubscribe function, when call will remove the callback
    */
   onPop: ModalStoreOnPop;
-};
+}

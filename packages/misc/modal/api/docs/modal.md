@@ -27,6 +27,7 @@ Svelte stackable async modal solution
 |  [ModalComponentBaseProps](./modal.modalcomponentbaseprops.md) | The base events for modal |
 |  [ModalComponentBaseSlots](./modal.modalcomponentbaseslots.md) | The base slots for modal |
 |  [ModalPushOutput](./modal.modalpushoutput.md) | The return of the <code>push</code> method of modal store |
+|  [ModalStore](./modal.modalstore.md) |  |
 
 ## Type Aliases
 
@@ -40,7 +41,6 @@ Svelte stackable async modal solution
 |  [ModalPushInput](./modal.modalpushinput.md) | Either the Svelte modal component or an option object that specifies how to push the modal onto the stack |
 |  [ModalResolveCallback](./modal.modalresolvecallback.md) | callback as one passed to ModalStore <code>onPop</code> |
 |  [ModalResolved](./modal.modalresolved.md) | The resolved type for modal |
-|  [ModalStore](./modal.modalstore.md) |  |
 |  [ModalStoreOnPop](./modal.modalstoreonpop.md) |  |
 |  [ModalStorePop](./modal.modalstorepop.md) |  |
 |  [ModalStorePush](./modal.modalstorepush.md) |  |

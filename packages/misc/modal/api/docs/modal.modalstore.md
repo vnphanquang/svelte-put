@@ -2,18 +2,21 @@
 
 [Home](./index.md) &gt; [@svelte-put/modal](./modal.md) &gt; [ModalStore](./modal.modalstore.md)
 
-## ModalStore type
+## ModalStore interface
 
 
 <b>Signature:</b>
 
 ```typescript
-export type ModalStore = {
-    subscribe: ModalStoreSubscribe;
-    push: ModalStorePush;
-    pop: ModalStorePop;
-    onPop: ModalStoreOnPop;
-};
+export interface ModalStore 
 ```
-<b>References:</b> [ModalStoreSubscribe](./modal.modalstoresubscribe.md)<!-- -->, [ModalStorePush](./modal.modalstorepush.md)<!-- -->, [ModalStorePop](./modal.modalstorepop.md)<!-- -->, [ModalStoreOnPop](./modal.modalstoreonpop.md)
+
+## Properties
+
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [onPop](./modal.modalstore.onpop.md) |  | [ModalStoreOnPop](./modal.modalstoreonpop.md) | callback for when a modal is popped. Can be called multiple times to registered multiple callbacks |
+|  [pop](./modal.modalstore.pop.md) |  | [ModalStorePop](./modal.modalstorepop.md) | Pop the modal with given id. If <code>id</code> is not provided, pop the topmost modal |
+|  [push](./modal.modalstore.push.md) |  | [ModalStorePush](./modal.modalstorepush.md) | Push a new modal to the stack |
+|  [subscribe](./modal.modalstore.subscribe.md) |  | [ModalStoreSubscribe](./modal.modalstoresubscribe.md) |  |
 

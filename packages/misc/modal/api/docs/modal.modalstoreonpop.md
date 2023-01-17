@@ -4,6 +4,7 @@
 
 ## ModalStoreOnPop type
 
+
 <b>Signature:</b>
 
 ```typescript
