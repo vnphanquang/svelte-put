@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.4
+
+### Patch Changes
+
+- [`07ccc5b`](https://github.com/vnphanquang/svelte-put/commit/07ccc5b4547e0afe4650af7e958792e5ac0410b4) Thanks [@vnphanquang](https://github.com/vnphanquang)! - refactor for better logics organization and only export necessary things at index
+
 ## 2.0.3
 
 ### Patch Changes
