@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.1
+
+### Patch Changes
+
+- [`f802493`](https://github.com/vnphanquang/svelte-put/commit/f802493fe012fd70e0336cda245b6820c35a68f9) Thanks [@vnphanquang](https://github.com/vnphanquang)! - add `onPop` to modal store for registering side effects when modal is closed. Thanks to @multiplehats for [discussion](https://github.com/vnphanquang/svelte-put/discussions/113#discussioncomment-4705416)
+
 ## 0.6.0
 
 ### Minor Changes
