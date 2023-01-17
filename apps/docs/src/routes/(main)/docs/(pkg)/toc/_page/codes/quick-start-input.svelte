@@ -5,6 +5,7 @@
 
 <main use:toc={{ store: tocStore, observe: true }}>
   <h1>Page Heading</h1>
+
   <section>
     <h2>Table of Contents</h2>
     {#if Object.values($tocStore.items).length}
@@ -17,11 +18,15 @@
       </ul>
     {/if}
   </section>
+
   <section>
-    <h2>Section Heading</h2>
-    <section>
-      <h3>Nested Section Heading</h3>
-    </section>
+    <h2>Section Heading Level 2</h2>
+    <p>...</p>
+  </section>
+
+  <section>
+    <h3>Section Heading Level 3</h3>
+    <p>...</p>
   </section>
   <!-- ... -->
 </main>

@@ -127,7 +127,10 @@ export const toc: Action<HTMLElement, UserTocParameters, TocAttributes> = functi
         if (element.hasAttribute(ATTRIBUTES.ignore)) continue;
 
         const text = extractElementText(element);
+
         const tocId = extractTocId(element, text);
+        element.id = tocId;
+
         processScrollMarginTop(element, scrollMarginTop);
         const a = processAnchor(element, anchor, tocId);
 
