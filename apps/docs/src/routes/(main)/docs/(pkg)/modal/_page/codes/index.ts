@@ -27,7 +27,7 @@ export const codes = {
         Typescript: fullCustomTs,
         Javascript: fullCustomJs,
       },
-      interface: `appStore.push({
+      interface: `modalStore.push({
   component: FullCustomModal,
   props: {
     content: 'Some custom content'

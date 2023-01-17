@@ -5,7 +5,7 @@
   import Code from '$client/components/Code/Code.svelte';
   import Installation from '$client/components/Installation/Installation.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
-  import { appStore } from '$client/services/modal';
+  import { modalStore } from '$client/services/modal';
   import endImg from '$shared/assets/images/modals-modal-everywhere.webp';
   import { createSvelteReplUrl } from '$shared/utils/badge';
 
@@ -91,11 +91,11 @@
   };
 
   function openInformationModal() {
-    appStore.push(InformationModal);
+    modalStore.push(InformationModal);
   }
 
   function openFullCustomModal() {
-    appStore.push({
+    modalStore.push({
       component: FullCustomModal,
       props: {
         content: 'Some custom content',

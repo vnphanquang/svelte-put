@@ -9,7 +9,7 @@ The return of the `push` method of modal store
 <b>Signature:</b>
 
 ```typescript
-export interface ModalPushOutput<Component extends ModalComponentBase = ModalComponentBase, Resolved extends ModalComponentBaseResolved = ComponentEvents<Component>['resolve']['detail']> 
+export interface ModalPushOutput<Component extends ModalComponentBase, Resolved extends ModalComponentBaseResolved = ModalResolved<Component>> 
 ```
 
 ## Properties

@@ -1,11 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {
-  createEventDispatcher,
-  type ComponentEvents,
-  type ComponentProps,
-  type ComponentType,
-} from 'svelte';
+import { createEventDispatcher, type ComponentProps, type ComponentType } from 'svelte';
 import { writable } from 'svelte/store';
 
 import type {
@@ -15,8 +10,13 @@ import type {
   ModalComponentBaseResolved,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ExtendedModalEvents,
-  ModalInternalResolver,
+  ModalResolveCallback,
   ModalComponentBaseEvents,
+  ModalResolved,
+  ModalStoreOnPop,
+  ModalStorePop,
+  ModalStorePush,
+  ModalStore,
 } from './modal.types';
 
 /**
@@ -30,26 +30,22 @@ import type {
  * const store = createModalStore();
  * ```
  *
- * @returns extended svelte store
+ * @returns extended svelte {@link ModalStore}
  */
-export function createModalStore() {
-  const { subscribe, set } = writable<ModalPushOutput[]>([]);
-  let modals: ModalPushOutput[] = [];
-  const resolveMap: Record<string, undefined | ModalInternalResolver> = {};
+export function createModalStore(): ModalStore {
+  const { subscribe, set } = writable<
+    ModalPushOutput<ModalComponentBase, ModalComponentBaseResolved>[]
+  >([]);
+  let modals: ModalPushOutput<ModalComponentBase, ModalComponentBaseResolved>[] = [];
+  const resolveMap: Record<string, undefined | ModalResolveCallback> = {};
+  const resolveCallbacks: Record<string, undefined | ModalResolveCallback[]> = {};
 
-  /**
-   * Push a new modal to the stack
-   *
-   * @param input - {@link ModalPushInput}
-   * @returns the {@link ModalPushOutput}
-   */
-  function push<
-    Component extends ModalComponentBase,
-    Resolved extends ModalComponentBaseResolved = ComponentEvents<Component>['resolve']['detail'],
-  >(input: ModalPushInput<Component>): ModalPushOutput<Component> {
-    let _resolve: ModalInternalResolver<Resolved> | undefined;
+  const push: ModalStorePush = function <Component extends ModalComponentBase>(
+    input: ModalPushInput<Component>,
+  ): ModalPushOutput<Component> {
+    let _resolve: ModalResolveCallback<Component> | undefined;
     let resolved = false;
-    const promise = new Promise<Resolved>((resolve) => {
+    const promise = new Promise<ModalResolved<Component>>((resolve) => {
       _resolve = (value) => {
         resolved = true;
         resolve(value);
@@ -78,68 +74,63 @@ export function createModalStore() {
     };
 
     modals.push(pushed);
-    resolveMap[pushed.id] = _resolve as unknown as ModalInternalResolver;
+    resolveMap[pushed.id] = _resolve as unknown as ModalResolveCallback;
 
     set([...modals]);
 
     return pushed;
-  }
+  };
 
-  /**
-   * Pop the modal with given id.
-   * If `id` is not provided, pop the topmost modal
-   *
-   * @remarks
-   *
-   * When calling this manually (rather than being called from the `ModalPortal` component),
-   * the trigger is expected to be `pop`;
-   *
-   * @param pushed - the returned {@link ModalPushOutput} output from `push`
-   * @param resolved - custom resolved value, if any
-   * @returns the popped {@link ModalPushOutput} or `undefined` in the
-   * case no modal was found that matches the specified input
-   */
-  function pop<
+  const pop: ModalStorePop = function <
+    Pushed extends ModalPushOutput<Component, Resolved>,
     Component extends ModalComponentBase,
-    Resolved extends ModalComponentBaseResolved = ComponentEvents<Component>['resolve']['detail'],
-    Pushed extends ModalPushOutput<Component, Resolved> | undefined = ModalPushOutput<
-      Component,
-      Resolved
-    >,
-  >(
-    pushed?: Pushed,
-    resolved?: Resolved,
-  ):
-    | (Pushed extends undefined ? ModalPushOutput : ModalPushOutput<Component, Resolved>)
-    | undefined {
-    let popped: ModalPushOutput<Component, Resolved> | undefined;
+    Resolved extends ModalResolved<Component>,
+  >(pushed?: Pushed, resolved?: Resolved) {
+    let popped: Pushed | undefined;
     if (pushed?.id) {
       modals = modals.filter((modal) => {
         if (modal.id === pushed.id) {
-          popped = modal as ModalPushOutput<Component, Resolved>;
+          popped = modal as Pushed;
           return false;
         }
         return true;
       });
       set(modals);
     } else {
-      popped = modals.pop() as ModalPushOutput<Component, Resolved>;
+      popped = modals.pop() as Pushed;
       set([...modals]);
     }
     if (popped) {
-      resolveMap[popped.id]?.({
+      const rResolved = {
         trigger: 'pop',
         ...(resolved ?? {}),
-      });
+      } as Resolved;
+      resolveMap[popped.id]?.(rResolved);
       resolveMap[popped.id] = undefined;
+      resolveCallbacks[popped.id]?.forEach((callback) => callback(rResolved));
+      resolveCallbacks[popped.id] = undefined;
     }
     return popped;
-  }
+  };
+
+  const onPop: ModalStoreOnPop = function (modalId, callback) {
+    if (!resolveCallbacks[modalId]) {
+      resolveCallbacks[modalId] = [callback];
+    } else if (!resolveCallbacks[modalId]?.includes(callback)) {
+      resolveCallbacks[modalId]?.push(callback);
+    }
+    return () => {
+      if (resolveCallbacks[modalId]) {
+        resolveCallbacks[modalId] = resolveCallbacks[modalId]?.filter((cb) => cb !== callback);
+      }
+    };
+  };
 
   return {
     subscribe,
     push,
     pop,
+    onPop,
   };
 }
 

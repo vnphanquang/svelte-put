@@ -9,6 +9,7 @@ import type {
   createEventDispatcher,
   SvelteComponentTyped,
 } from 'svelte';
+import type { Writable } from 'svelte/store';
 
 import type Modal from './Modal.svelte';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -52,6 +53,22 @@ export type ModalComponentBaseEvents<
 > = {
   resolve: CustomEvent<Resolved>;
 };
+
+/**
+ * The resolved type for modal
+ * @public
+ *
+ * @example
+ *
+ * ```typescript
+ * import CustomModal from './CustomModal.svelte';
+ * import type { ModalResolved } from '@svelte-put/modal';
+ *
+ * type CustomModalResolved = ModalResolved<CustomModal>;
+ * ```
+ */
+export type ModalResolved<Component extends ModalComponentBase> =
+  ComponentEvents<Component>['resolve']['detail'];
 
 /**
  * The base slots for modal
@@ -271,8 +288,19 @@ export type ModalComponentBase = SvelteComponentTyped<
 export type ModalPushInput<Component extends ModalComponentBase> =
   | ComponentType<Component>
   | {
+      /**
+       * id to track this modal
+       *
+       * @defaultValue `(crypto && crypto.randomUUID && crypto.randomUUID()) ?? `modal-indexed-$\{modals.length\}`;`
+       */
       id?: string;
+      /**
+       * the component to push
+       */
       component: ComponentType<Component>;
+      /**
+       * props passed to pushed component
+       */
       props?: ComponentProps<Component>;
     };
 
@@ -281,8 +309,8 @@ export type ModalPushInput<Component extends ModalComponentBase> =
  * @public
  */
 export interface ModalPushOutput<
-  Component extends ModalComponentBase = ModalComponentBase,
-  Resolved extends ModalComponentBaseResolved = ComponentEvents<Component>['resolve']['detail'],
+  Component extends ModalComponentBase,
+  Resolved extends ModalComponentBaseResolved = ModalResolved<Component>,
 > {
   /**
    * id of the pushed modal, pass to `pop` to dismiss modal
@@ -440,9 +468,120 @@ export type ExtendedModalEvents<
 } & ExtendedEvents;
 
 /**
- *
- * @internal
+ * callback as one passed to ModalStore `onPop`
+ * @public
  */
-export type ModalInternalResolver<
-  Resolved extends ModalComponentBaseResolved = ModalComponentBaseResolved,
-> = (resolved: Resolved) => void;
+export type ModalResolveCallback<Component extends ModalComponentBase = ModalComponentBase> = (
+  resolved: ModalResolved<Component>,
+) => void;
+
+/**
+ * @public
+ */
+export type ModalStorePush = <Component extends ModalComponentBase>(
+  input: ModalPushInput<Component>,
+) => ModalPushOutput<Component>;
+
+/**
+ * @public
+ */
+export type ModalStorePop = <
+  Pushed extends ModalPushOutput<Component, Resolved>,
+  Component extends ModalComponentBase,
+  Resolved extends ModalResolved<Component>,
+>(
+  pushed?: Pushed,
+  resolved?: Resolved,
+) => Pushed | undefined;
+
+export type ModalStoreOnPop = <Component extends ModalComponentBase = ModalComponentBase>(
+  modalId: string,
+  callback: ModalResolveCallback<Component>,
+) => () => void;
+
+/**
+ * @public
+ */
+export type ModalStoreValue = ModalPushOutput<ModalComponentBase, ModalComponentBaseResolved>[];
+
+/**
+ * @public
+ */
+export type ModalStoreSubscribe = Writable<ModalStoreValue>['subscribe'];
+
+/**
+ * @public
+ */
+export type ModalStore = {
+  subscribe: ModalStoreSubscribe;
+  /**
+   * @public
+   * Push a new modal to the stack
+   *
+   * @param input - {@link ModalPushInput}
+   * @returns the {@link ModalPushOutput}
+   */
+  push: ModalStorePush;
+  /**
+   * Pop the modal with given id.
+   * If `id` is not provided, pop the topmost modal
+   *
+   * @remarks
+   *
+   * When calling this manually (rather than being called from the `ModalPortal` component),
+   * the trigger is expected to be `pop`;
+   *
+   * @param pushed - the returned {@link ModalPushOutput} output from `push`
+   * @param resolved - custom resolved value, if any
+   * @returns the popped {@link ModalPushOutput} or `undefined` in the
+   * case no modal was found that matches the specified input
+   */
+  pop: ModalStorePop;
+  /**
+   * callback for when a modal is popped. Can be called multiple times
+   * to registered multiple callbacks
+   *
+   * @remarks
+   *
+   * This should be called before the modal is pushed.
+   *
+   * If the same callback is registered multiple times, it will only be called once
+   * (be aware that inline arrow function will be a different function each time)
+   *
+   * After the modal is popped, the callback list will be cleared. Meaning
+   * next time the same modal is pushed, callback must be registered again.
+   *
+   * See example for typescript support.
+   *
+   * @example
+   *
+   * ```typescript
+   *  import CustomModal from './CustomModal.svelte';
+   *  import { createModalStore } from '@svelte-put/modal';
+   *  import type { ModalResolveCallback, ModalResolved } from '@svelte-put/modal';
+   *
+   *  const store = createModalStore();
+   *  const pushed = store.push(CustomModal);
+   *
+   *  let unsubscribe = store.onPop<CustomModal>(pushed.id, (resolved) => {});
+   *  unsubscribe(); // to unregister the callback
+   *
+   *  // or
+   *
+   *  function onPop(resolved: ModalResolved<CustomModal>) {};
+   *  unsubscribe = store.onPop(pushed.id, onPop);
+   *  unsubscribe(); // to unregister the callback
+   *
+   *  // or
+   *
+   *  const sideEffect: ModalResolveCallback<CustomModal> = (resolved) => {};
+   *  unsubscribe = store.onPop(pushed.id, sideEffect);
+   *  unsubscribe(); // to unregister the callback
+   * ```
+   *
+   * @param modalId - the id returned from push operation
+   * @param callback - {@link ModalResolveCallback}
+   * @returns the unsubscribe function, when call will remove the callback
+   */
+  onPop: ModalStoreOnPop;
+};

@@ -15,7 +15,7 @@
       "cache": false
     },
     "api": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build", "build"],
       "outputs": ["api/**"]
     }
   }

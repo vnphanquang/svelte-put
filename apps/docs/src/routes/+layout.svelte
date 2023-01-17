@@ -6,7 +6,7 @@
 
   import { dev, browser } from '$app/environment';
   import { page } from '$app/stores';
-  import { appStore } from '$client/services/modal';
+  import { modalStore } from '$client/services/modal';
   import { PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID, PUBLIC_ROOT_URL } from '$env/static/public';
 
   import '../lib/client/styles/app.css';
@@ -108,4 +108,4 @@
 
 <slot />
 
-<ModalPortal store={appStore} class="z-overlay" />
+<ModalPortal store={modalStore} class="z-overlay" />

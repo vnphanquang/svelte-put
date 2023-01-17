@@ -1,10 +1,10 @@
 <script>
-  import { appStore } from '$client/services/modal';
+  import { modalStore } from '$client/services/modal';
   import ConfirmationModal from './ConfirmationModal.code.svelte';
   let pushed;
   async function open() {
     // should get type autocompletion for pushed here
-    pushed = appStore.push(ConfirmationModal);
+    pushed = modalStore.push(ConfirmationModal);
     const { confirmed, trigger } = await pushed.resolve();
     if (confirmed) {
       // do something
@@ -16,7 +16,7 @@
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   function close() {
     if (pushed) {
-      appStore.pop(pushed);
+      modalStore.pop(pushed);
       // if the modal is successfully popped by this operation,
       // the `await` expression in the `open` method above will resolve
       // the `trigger` will be `pop`

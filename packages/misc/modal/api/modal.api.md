@@ -5,35 +5,20 @@
 ```ts
 
 import type { ClickOutsideParameters } from '@svelte-put/clickoutside';
-import { ComponentEvents } from 'svelte';
+import type { ComponentEvents } from 'svelte';
 import type { ComponentProps } from 'svelte';
 import type { ComponentType } from 'svelte';
 import type { createEventDispatcher } from 'svelte';
 import { DispatchOptions } from 'svelte/internal';
 import type { MovableParameters } from '@svelte-put/movable';
-import { Subscriber } from 'svelte/store';
 import { SvelteComponentTyped } from 'svelte';
-import { Unsubscriber } from 'svelte/store';
+import type { Writable } from 'svelte/store';
 
 // @public
 export function createModalEventDispatcher<Events extends ModalComponentBaseEvents<ModalComponentBaseResolved<ExtendedResolved>> & Record<string, CustomEvent<any>>, ExtendedResolved extends Record<string, any> = Omit<Events['resolve']['detail'], 'trigger'>>(): <EventKey extends Extract<keyof Events, string>>(type: EventKey, detail?: { [key in keyof Events]: Events[key]["detail"]; }[EventKey] | undefined, options?: DispatchOptions | undefined) => boolean;
 
 // @public
-export function createModalStore(): {
-    subscribe: (this: void, run: Subscriber<ModalPushOutput<ModalComponentBase, {
-    trigger: ResolveTrigger;
-    }>[]>, invalidate?: ((value?: ModalPushOutput<ModalComponentBase, {
-        trigger: ResolveTrigger;
-    }>[] | undefined) => void) | undefined) => Unsubscriber;
-    push: <Component extends ModalComponentBase, Resolved extends {
-        trigger: ResolveTrigger;
-    } = ComponentEvents<Component>["resolve"]["detail"]>(input: ModalPushInput<Component>) => ModalPushOutput<Component, ComponentEvents<Component>["resolve"]["detail"]>;
-    pop: <Component_1 extends ModalComponentBase, Resolved_1 extends {
-        trigger: ResolveTrigger;
-    } = ComponentEvents<Component_1>["resolve"]["detail"], Pushed extends ModalPushOutput<Component_1, Resolved_1> | undefined = ModalPushOutput<Component_1, Resolved_1>>(pushed?: Pushed | undefined, resolved?: Resolved_1 | undefined) => (Pushed extends undefined ? ModalPushOutput<ModalComponentBase, {
-        trigger: ResolveTrigger;
-    }> : ModalPushOutput<Component_1, Resolved_1>) | undefined;
-};
+export function createModalStore(): ModalStore;
 
 // @public
 export type ExtendedModalEvents<ExtendedResolved extends Record<string, any> = {}, ExtendedEvents extends Record<string, CustomEvent<any>> = {}> = {
@@ -101,11 +86,6 @@ export interface ModalComponentBaseSlots {
     };
 }
 
-// Warning: (ae-internal-missing-underscore) The name "ModalInternalResolver" should be prefixed with an underscore because the declaration is marked as @internal
-//
-// @internal (undocumented)
-export type ModalInternalResolver<Resolved extends ModalComponentBaseResolved = ModalComponentBaseResolved> = (resolved: Resolved) => void;
-
 // Warning: (ae-forgotten-export) The symbol "ModalPortalProps" needs to be exported by the entry point index.d.ts
 // Warning: (ae-forgotten-export) The symbol "ModalPortalEvents" needs to be exported by the entry point index.d.ts
 // Warning: (ae-forgotten-export) The symbol "ModalPortalSlots" needs to be exported by the entry point index.d.ts
@@ -122,13 +102,42 @@ export type ModalPushInput<Component extends ModalComponentBase> = ComponentType
 };
 
 // @public
-export interface ModalPushOutput<Component extends ModalComponentBase = ModalComponentBase, Resolved extends ModalComponentBaseResolved = ComponentEvents<Component>['resolve']['detail']> {
+export interface ModalPushOutput<Component extends ModalComponentBase, Resolved extends ModalComponentBaseResolved = ModalResolved<Component>> {
     component: ComponentType<Component>;
     id: string;
     props: ComponentProps<Component>;
     resolve: () => Promise<Resolved>;
     resolved: boolean;
 }
+
+// @public
+export type ModalResolveCallback<Component extends ModalComponentBase = ModalComponentBase> = (resolved: ModalResolved<Component>) => void;
+
+// @public
+export type ModalResolved<Component extends ModalComponentBase> = ComponentEvents<Component>['resolve']['detail'];
+
+// @public (undocumented)
+export type ModalStore = {
+    subscribe: ModalStoreSubscribe;
+    push: ModalStorePush;
+    pop: ModalStorePop;
+    onPop: ModalStoreOnPop;
+};
+
+// @public (undocumented)
+export type ModalStoreOnPop = <Component extends ModalComponentBase = ModalComponentBase>(modalId: string, callback: ModalResolveCallback<Component>) => () => void;
+
+// @public (undocumented)
+export type ModalStorePop = <Pushed extends ModalPushOutput<Component, Resolved>, Component extends ModalComponentBase, Resolved extends ModalResolved<Component>>(pushed?: Pushed, resolved?: Resolved) => Pushed | undefined;
+
+// @public (undocumented)
+export type ModalStorePush = <Component extends ModalComponentBase>(input: ModalPushInput<Component>) => ModalPushOutput<Component>;
+
+// @public (undocumented)
+export type ModalStoreSubscribe = Writable<ModalStoreValue>['subscribe'];
+
+// @public (undocumented)
+export type ModalStoreValue = ModalPushOutput<ModalComponentBase, ModalComponentBaseResolved>[];
 
 // @public
 export type ResolveTrigger = 'backdrop' | 'x' | 'escape' | 'clickoutside' | 'pop' | 'custom';
