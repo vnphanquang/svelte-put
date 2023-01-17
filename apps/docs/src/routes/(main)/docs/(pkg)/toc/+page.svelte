@@ -221,24 +221,38 @@
     <ResourceLink key="IntersectionObserver" />, we can do this in a more performant way.
   </p>
   <section>
-    <h3>Caveat & Design Decision</h3>
+    <h3>Caveat</h3>
     <p>
       Unfortunately <code>IntersectionObserver</code> comes with its own caveat. For
-      <code>on:scroll</code>, we can specify something like:
+      <code>on:scroll</code>, we can achieve something like:
     </p>
     <blockquote style="quotes: none;">
-      <p>For each heading, when it reach 10% offset of screen from the top, set it as active.</p>
+      <p>
+        For an element (typically heading), when it reach 10% offset of screen from the top, set it
+        as active.
+      </p>
     </blockquote>
     <p>
       This is not trivial with <code>IntersectionObserver</code> without some hacking (to my
       knowledge at least), because
-      <code>IntersectionObserver</code> typically triggers immediately when element intersects with viewport.
+      <code>IntersectionObserver</code> triggers when element (or part of it) intersects with
+      viewport. For this reason, <code>toc</code> prefers to "think" in terms of "section" rather than
+      individual element, something like this:
     </p>
+    <blockquote style="quotes: none;">
+      <p>
+        When 80% of a "section" is visible within the viewport (threshold of <code>0.8</code> for
+        <code>IntersectionObserver</code>), set it to active.
+      </p>
+    </blockquote>
     <p>
-      To workaround this, <code>toc</code> provides <code>observe.strategy</code> with an
-      <code>auto</code>
-      (default) option that attempts to calculate the best strategy for the matching element.
+      With this design decision, a typical use case is wrapping heading tags within a <code
+        >section</code
+      >
+      or <code>div</code> (as shown in <ResourceLink id="quick-start">Quick Start</ResourceLink>).
     </p>
+    <Code code={codes.caveat.prefer} title="think in terms of section" icon="info" />
+    <Code code={codes.caveat.avoid} title="rather than flat individual elements" icon="error" />
   </section>
   <section>
     <h3>Observe Customization</h3>

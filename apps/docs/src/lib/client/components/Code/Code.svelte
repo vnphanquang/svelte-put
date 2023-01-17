@@ -5,7 +5,7 @@
     title?: string;
     expanded?: boolean;
     expansion?: 'disabled' | 'enabled';
-    icon?: 'none' | 'code' | 'warning' | 'error';
+    icon?: 'none' | 'code' | 'warning' | 'error' | 'info';
     class?: string;
     variant?: string;
   }
@@ -24,6 +24,7 @@
   import IconDone from '$client/components/icons/material/Done.svelte';
   import IconError from '$client/components/icons/material/Error.svelte';
   import IconExpandLess from '$client/components/icons/material/ExpandLess.svelte';
+  import IconInfo from '$client/components/icons/material/Info.svelte';
   import IconWarning from '$client/components/icons/material/Warning.svelte';
 
   type $$Props = CodeProps;
@@ -67,6 +68,8 @@
       <span class="w-6" title="indicator">
         {#if icon === 'code'}
           <IconCode />
+        {:else if icon === 'info'}
+          <IconInfo class="text-green-500" />
         {:else if icon === 'warning'}
           <IconWarning class="text-yellow-500" />
         {:else if icon === 'error'}

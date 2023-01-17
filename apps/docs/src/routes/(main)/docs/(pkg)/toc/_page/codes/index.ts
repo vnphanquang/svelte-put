@@ -6,6 +6,12 @@ import quickStartOutput from './quick-start-output.svelte?raw';
 import eventTypingAuto from './typescript-auto.svelte?raw';
 import eventTypingFallback from './typescript-fallback.d.ts?raw';
 
+const caveatFlat = `  <h2>Heading, whether it is h1,h2,...</h2>
+  <p>...content...</p> `;
+const caveatSection = `<section>
+${caveatFlat}
+</section>`;
+
 export const codes = {
   quickStart: {
     input: quickStartInput,
@@ -31,5 +37,9 @@ export const codes = {
     threshold: 1,
   }
 }}>...</main>`,
+  caveat: {
+    avoid: caveatFlat,
+    prefer: caveatSection,
+  },
   dataAttributes,
 };
