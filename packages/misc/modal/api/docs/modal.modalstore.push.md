@@ -4,7 +4,7 @@
 
 ## ModalStore.push property
 
-Push a new modal to the stack
+see [ModalStorePush](./modal.modalstorepush.md)
 
 <b>Signature:</b>
 

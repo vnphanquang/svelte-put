@@ -477,6 +477,10 @@ export type ModalResolveCallback<Component extends ModalComponentBase = ModalCom
 
 /**
  * @public
+ * Push a new modal to the stack
+ *
+ * @param input - {@link ModalPushInput}
+ * @returns the {@link ModalPushOutput}
  */
 export type ModalStorePush = <Component extends ModalComponentBase>(
   input: ModalPushInput<Component>,
@@ -484,6 +488,18 @@ export type ModalStorePush = <Component extends ModalComponentBase>(
 
 /**
  * @public
+ * Pop the modal with given id.
+ * If `id` is not provided, pop the topmost modal
+ *
+ * @remarks
+ *
+ * When calling this manually (rather than being called from the `ModalPortal` component),
+ * the trigger is expected to be `pop`;
+ *
+ * @param pushed - the returned {@link ModalPushOutput} output from `push`
+ * @param resolved - custom resolved value, if any
+ * @returns the popped {@link ModalPushOutput} or `undefined` in the
+ * case no modal was found that matches the specified input
  */
 export type ModalStorePop = <
   Pushed extends ModalPushOutput<Component, Resolved>,
@@ -496,6 +512,50 @@ export type ModalStorePop = <
 
 /**
  * @public
+ * callback for when a modal is popped. Can be called multiple times
+ * to registered multiple callbacks
+ *
+ * @remarks
+ *
+ * This should be called before the modal is pushed.
+ *
+ * If the same callback is registered multiple times, it will only be called once
+ * (be aware that inline arrow function will be a different function each time)
+ *
+ * After the modal is popped, the callback list will be cleared. Meaning
+ * next time the same modal is pushed, callback must be registered again.
+ *
+ * See example for typescript support.
+ *
+ * @example
+ *
+ * ```typescript
+ *  import CustomModal from './CustomModal.svelte';
+ *  import { createModalStore } from '@svelte-put/modal';
+ *  import type { ModalResolveCallback, ModalResolved } from '@svelte-put/modal';
+ *
+ *  const store = createModalStore();
+ *  const pushed = store.push(CustomModal);
+ *
+ *  let unsubscribe = store.onPop<CustomModal>(pushed.id, (resolved) => {});
+ *  unsubscribe(); // to unregister the callback
+ *
+ *  // or
+ *
+ *  function onPop(resolved: ModalResolved<CustomModal>) {};
+ *  unsubscribe = store.onPop<CustomModal>(pushed.id, onPop);
+ *  unsubscribe(); // to unregister the callback
+ *
+ *  // or
+ *
+ *  const sideEffect: ModalResolveCallback<CustomModal> = (resolved) => {};
+ *  unsubscribe = store.onPop(pushed.id, sideEffect);
+ *  unsubscribe(); // to unregister the callback
+ * ```
+ *
+ * @param modalId - the id returned from push operation
+ * @param callback - {@link ModalResolveCallback}
+ * @returns the unsubscribe function, when call will remove the callback
  */
 export type ModalStoreOnPop = <Component extends ModalComponentBase = ModalComponentBase>(
   modalId: string,
@@ -517,74 +577,10 @@ export type ModalStoreSubscribe = Writable<ModalStoreValue>['subscribe'];
  */
 export interface ModalStore {
   subscribe: ModalStoreSubscribe;
-  /**
-   * @public
-   * Push a new modal to the stack
-   *
-   * @param input - {@link ModalPushInput}
-   * @returns the {@link ModalPushOutput}
-   */
+  /** see {@link ModalStorePush} */
   push: ModalStorePush;
-  /**
-   * Pop the modal with given id.
-   * If `id` is not provided, pop the topmost modal
-   *
-   * @remarks
-   *
-   * When calling this manually (rather than being called from the `ModalPortal` component),
-   * the trigger is expected to be `pop`;
-   *
-   * @param pushed - the returned {@link ModalPushOutput} output from `push`
-   * @param resolved - custom resolved value, if any
-   * @returns the popped {@link ModalPushOutput} or `undefined` in the
-   * case no modal was found that matches the specified input
-   */
+  /** see {@link ModalStorePop} */
   pop: ModalStorePop;
-  /**
-   * callback for when a modal is popped. Can be called multiple times
-   * to registered multiple callbacks
-   *
-   * @remarks
-   *
-   * This should be called before the modal is pushed.
-   *
-   * If the same callback is registered multiple times, it will only be called once
-   * (be aware that inline arrow function will be a different function each time)
-   *
-   * After the modal is popped, the callback list will be cleared. Meaning
-   * next time the same modal is pushed, callback must be registered again.
-   *
-   * See example for typescript support.
-   *
-   * @example
-   *
-   * ```typescript
-   *  import CustomModal from './CustomModal.svelte';
-   *  import { createModalStore } from '@svelte-put/modal';
-   *  import type { ModalResolveCallback, ModalResolved } from '@svelte-put/modal';
-   *
-   *  const store = createModalStore();
-   *  const pushed = store.push(CustomModal);
-   *
-   *  let unsubscribe = store.onPop<CustomModal>(pushed.id, (resolved) => {});
-   *  unsubscribe(); // to unregister the callback
-   *
-   *  // or
-   *
-   *  function onPop(resolved: ModalResolved<CustomModal>) {};
-   *  unsubscribe = store.onPop(pushed.id, onPop);
-   *  unsubscribe(); // to unregister the callback
-   *
-   *  // or
-   *
-   *  const sideEffect: ModalResolveCallback<CustomModal> = (resolved) => {};
-   *  unsubscribe = store.onPop(pushed.id, sideEffect);
-   *  unsubscribe(); // to unregister the callback
-   * ```
-   *
-   * @param modalId - the id returned from push operation
-   * @param callback - {@link ModalResolveCallback}
-   * @returns the unsubscribe function, when call will remove the callback
-   */
+  /** see {@link ModalStoreOnPop} */
   onPop: ModalStoreOnPop;
 }

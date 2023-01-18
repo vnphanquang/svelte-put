@@ -4,48 +4,10 @@
 
 ## ModalStore.onPop property
 
-callback for when a modal is popped. Can be called multiple times to registered multiple callbacks
+see [ModalStoreOnPop](./modal.modalstoreonpop.md)
 
 <b>Signature:</b>
 
 ```typescript
 onPop: ModalStoreOnPop;
 ```
-
-## Remarks
-
-This should be called before the modal is pushed.
-
-If the same callback is registered multiple times, it will only be called once (be aware that inline arrow function will be a different function each time)
-
-After the modal is popped, the callback list will be cleared. Meaning next time the same modal is pushed, callback must be registered again.
-
-See example for typescript support.
-
-## Example
-
-
-```typescript
- import CustomModal from './CustomModal.svelte';
- import { createModalStore } from '@svelte-put/modal';
- import type { ModalResolveCallback, ModalResolved } from '@svelte-put/modal';
-
- const store = createModalStore();
- const pushed = store.push(CustomModal);
-
- let unsubscribe = store.onPop<CustomModal>(pushed.id, (resolved) => {});
- unsubscribe(); // to unregister the callback
-
- // or
-
- function onPop(resolved: ModalResolved<CustomModal>) {};
- unsubscribe = store.onPop(pushed.id, onPop);
- unsubscribe(); // to unregister the callback
-
- // or
-
- const sideEffect: ModalResolveCallback<CustomModal> = (resolved) => {};
- unsubscribe = store.onPop(pushed.id, sideEffect);
- unsubscribe(); // to unregister the callback
-```
-

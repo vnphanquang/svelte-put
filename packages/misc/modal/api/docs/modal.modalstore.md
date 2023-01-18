@@ -15,8 +15,8 @@ export interface ModalStore
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [onPop](./modal.modalstore.onpop.md) |  | [ModalStoreOnPop](./modal.modalstoreonpop.md) | callback for when a modal is popped. Can be called multiple times to registered multiple callbacks |
-|  [pop](./modal.modalstore.pop.md) |  | [ModalStorePop](./modal.modalstorepop.md) | Pop the modal with given id. If <code>id</code> is not provided, pop the topmost modal |
-|  [push](./modal.modalstore.push.md) |  | [ModalStorePush](./modal.modalstorepush.md) | Push a new modal to the stack |
+|  [onPop](./modal.modalstore.onpop.md) |  | [ModalStoreOnPop](./modal.modalstoreonpop.md) | see [ModalStoreOnPop](./modal.modalstoreonpop.md) |
+|  [pop](./modal.modalstore.pop.md) |  | [ModalStorePop](./modal.modalstorepop.md) | see [ModalStorePop](./modal.modalstorepop.md) |
+|  [push](./modal.modalstore.push.md) |  | [ModalStorePush](./modal.modalstorepush.md) | see [ModalStorePush](./modal.modalstorepush.md) |
 |  [subscribe](./modal.modalstore.subscribe.md) |  | [ModalStoreSubscribe](./modal.modalstoresubscribe.md) |  |
 

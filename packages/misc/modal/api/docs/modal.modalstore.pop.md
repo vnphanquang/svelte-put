@@ -4,15 +4,10 @@
 
 ## ModalStore.pop property
 
-Pop the modal with given id. If `id` is not provided, pop the topmost modal
+see [ModalStorePop](./modal.modalstorepop.md)
 
 <b>Signature:</b>
 
 ```typescript
 pop: ModalStorePop;
 ```
-
-## Remarks
-
-When calling this manually (rather than being called from the `ModalPortal` component), the trigger is expected to be `pop`<!-- -->;
-

@@ -4,6 +4,7 @@
 
 ## ModalStorePush type
 
+Push a new modal to the stack
 
 <b>Signature:</b>
 

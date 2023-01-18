@@ -4,6 +4,7 @@
 
 ## ModalStorePop type
 
+Pop the modal with given id. If `id` is not provided, pop the topmost modal
 
 <b>Signature:</b>
 
@@ -11,4 +12,8 @@
 export type ModalStorePop = <Pushed extends ModalPushOutput<Component, Resolved>, Component extends ModalComponentBase, Resolved extends ModalResolved<Component>>(pushed?: Pushed, resolved?: Resolved) => Pushed | undefined;
 ```
 <b>References:</b> [ModalPushOutput](./modal.modalpushoutput.md)<!-- -->, [ModalComponentBase](./modal.modalcomponentbase.md)<!-- -->, [ModalResolved](./modal.modalresolved.md)
+
+## Remarks
+
+When calling this manually (rather than being called from the `ModalPortal` component), the trigger is expected to be `pop`<!-- -->;
 

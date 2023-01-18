@@ -41,9 +41,9 @@ Svelte stackable async modal solution
 |  [ModalPushInput](./modal.modalpushinput.md) | Either the Svelte modal component or an option object that specifies how to push the modal onto the stack |
 |  [ModalResolveCallback](./modal.modalresolvecallback.md) | callback as one passed to ModalStore <code>onPop</code> |
 |  [ModalResolved](./modal.modalresolved.md) | The resolved type for modal |
-|  [ModalStoreOnPop](./modal.modalstoreonpop.md) |  |
-|  [ModalStorePop](./modal.modalstorepop.md) |  |
-|  [ModalStorePush](./modal.modalstorepush.md) |  |
+|  [ModalStoreOnPop](./modal.modalstoreonpop.md) | callback for when a modal is popped. Can be called multiple times to registered multiple callbacks |
+|  [ModalStorePop](./modal.modalstorepop.md) | Pop the modal with given id. If <code>id</code> is not provided, pop the topmost modal |
+|  [ModalStorePush](./modal.modalstorepush.md) | Push a new modal to the stack |
 |  [ModalStoreSubscribe](./modal.modalstoresubscribe.md) |  |
 |  [ModalStoreValue](./modal.modalstorevalue.md) |  |
 |  [ResolveTrigger](./modal.resolvetrigger.md) | <p>The trigger that resolves the modal</p><p>- <code>backdrop</code>: non-static backdrop was clicked</p><p>- <code>x</code>: <code>x</code> button was clicked</p><p>- <code>escape</code>: <code>escape</code> key was pressed</p><p>- <code>clickoutside</code>: click outside of modal was detected</p><p>- <code>pop</code>: modal was resolved from by calling the <code>pop</code> method \*\*manually\*\* from the modal store</p><p>- <code>custom</code>: modal was resolved by a custom dispatch. Use this in your custom modal when extending the <code>resolve</code> event with additional props. See [ExtendedModalEvents](./modal.extendedmodalevents.md)</p> |

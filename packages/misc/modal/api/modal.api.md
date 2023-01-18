@@ -125,13 +125,13 @@ export interface ModalStore {
     subscribe: ModalStoreSubscribe;
 }
 
-// @public (undocumented)
+// @public
 export type ModalStoreOnPop = <Component extends ModalComponentBase = ModalComponentBase>(modalId: string, callback: ModalResolveCallback<Component>) => () => void;
 
-// @public (undocumented)
+// @public
 export type ModalStorePop = <Pushed extends ModalPushOutput<Component, Resolved>, Component extends ModalComponentBase, Resolved extends ModalResolved<Component>>(pushed?: Pushed, resolved?: Resolved) => Pushed | undefined;
 
-// @public (undocumented)
+// @public
 export type ModalStorePush = <Component extends ModalComponentBase>(input: ModalPushInput<Component>) => ModalPushOutput<Component>;
 
 // @public (undocumented)
