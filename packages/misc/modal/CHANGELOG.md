@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.6.2
+
+### Patch Changes
+
+- [`3f762f6`](https://github.com/vnphanquang/svelte-put/commit/3f762f68f129113bd2632c6e37688a71159e5347) Thanks [@vnphanquang](https://github.com/vnphanquang)! - add `onPop` section to docs site & remove recommendation to use the base modal, leave users to decide to use it or go headless
+
+- [`a56e47d`](https://github.com/vnphanquang/svelte-put/commit/a56e47dc85b449036fc9e4fa18db46e2f399afc3) Thanks [@vnphanquang](https://github.com/vnphanquang)! - better tsdocs organization & fix `onPop` example
+
 ## 0.6.1
 
 ### Patch Changes
