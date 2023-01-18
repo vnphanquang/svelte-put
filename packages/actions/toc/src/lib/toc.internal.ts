@@ -127,7 +127,7 @@ export function processAnchor(
           element.parentNode?.insertBefore(a, element.nextSibling);
           break;
       }
-      a.setAttribute(ATTRIBUTES.anchor, '');
+      a.toggleAttribute(ATTRIBUTES.anchor, true);
     } else {
       // already processed by `@svelte-put/preprocess-auto-slug`
       // search for the injected anchor element

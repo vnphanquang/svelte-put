@@ -162,7 +162,7 @@ export const toc: Action<HTMLElement, TocParameters, TocEventAttributes> = funct
         }
 
         // mark that this element has been processed by `toc`
-        element.setAttribute(ATTRIBUTES.toc, '');
+        element.toggleAttribute(ATTRIBUTES.toc, true);
       }
       cache[id] = { parameters: resolved, items };
     }
