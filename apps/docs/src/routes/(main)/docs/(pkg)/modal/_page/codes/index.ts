@@ -8,6 +8,7 @@ import fullCustomJs from './js.generated/FullCustomModal.code.js.svelte?raw';
 import informationJs from './js.generated/InformationModal.code.js.svelte?raw';
 import pushAndPopJs from './js.generated/pushAndPop.code.js.svelte?raw';
 import modalPortal from './modalPortal.svelte?raw';
+import onPop from './onPop.ts?raw';
 import pushAndPopTs from './pushAndPop.code.svelte?raw';
 
 export const codes = {
@@ -38,5 +39,8 @@ export const codes = {
   pushAndPop: {
     Typescript: pushAndPopTs,
     Javascript: pushAndPopJs,
+  },
+  sideEffects: {
+    onPop,
   },
 };

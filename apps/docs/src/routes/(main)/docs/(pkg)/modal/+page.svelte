@@ -30,9 +30,9 @@
       title: 'Modal Portal Registration',
       id: 'modal-portal-registration',
     },
-    extendingTheBaseModalComponent: {
-      title: 'Extending the Base Modal Component',
-      id: 'extending-the-base-modal-component',
+    buildingModalComponent: {
+      title: 'Building Modal Component',
+      id: 'building-modal-component',
     },
     pushingAndPopping: {
       title: 'Pushing and Popping',
@@ -65,6 +65,10 @@
     buildingYourOwnModal: {
       title: 'Building Your Own Modal',
       id: 'building-your-own-modal',
+    },
+    sideEffectsOnPop: {
+      title: 'Side Effects On Pop',
+      id: 'side-effects-on-pop',
     },
   };
   const resources = {
@@ -168,12 +172,19 @@
   <Code code={codes.modalPortal} title="example: src/routes/+layout.svelte" />
 
   <section>
-    <h3 id={SECTIONS.extendingTheBaseModalComponent.id}>
-      3. {SECTIONS.extendingTheBaseModalComponent.title}
+    <h3 id={SECTIONS.buildingModalComponent.id}>
+      3. {SECTIONS.buildingModalComponent.title}
     </h3>
     <p>
       <code>@svelte-put/modal</code> by design does not provide any predefined modals but only a
-      base <ResourceLink {resources} key="Modal" /> component with basic skeleton.
+      base <ResourceLink {resources} key="Modal" /> component with basic skeleton that can be extended
+      to fit a wide variety of use cases.
+    </p>
+    <p>
+      Alternatively, any regular svelte component can be used as modal as long as it exposes the
+      correct interface, as discussed the later <ResourceLink id={SECTIONS.buildingYourOwnModal.id}
+        >{SECTIONS.buildingYourOwnModal.title}</ResourceLink
+      > section.
     </p>
     <p>
       The example below shows how a confirmation modal might be implemented. See <ResourceLink
@@ -191,7 +202,7 @@
     </h3>
     <p>
       The custom modal in the
-      <ResourceLink id={SECTIONS.extendingTheBaseModalComponent.id}>last step</ResourceLink>
+      <ResourceLink id={SECTIONS.buildingModalComponent.id}>last step</ResourceLink>
       can be opened idiomatically with the modal store created in
       <ResourceLink id={SECTIONS.globalModalStoreSetup.id}>step 1</ResourceLink>
       . See <ResourceLink id={SECTIONS.modalResolutionAndExtendingEvents.id}
@@ -228,10 +239,6 @@
     extending <ResourceLink {resources} key="ModalComponentBaseResolved" />. See
     <ResourceLink id={SECTIONS.modalResolutionAndExtendingEvents.id}>Extending Events</ResourceLink>
     for more info.
-  </p>
-  <p class="c-callout-info">
-    It is recommended to use the provided base
-    <ResourceLink {resources} key="Modal" /> and its helpers for building type-safe custom modals.
   </p>
   <p>
     The following sections show different customizable parts of the base <ResourceLink
@@ -304,8 +311,8 @@
         </li>
         <li>
           There is no event extended or added compared to the example in
-          <ResourceLink id={SECTIONS.extendingTheBaseModalComponent.id}>Usage - Step 3</ResourceLink
-          >, hence a couple of differences:
+          <ResourceLink id={SECTIONS.buildingModalComponent.id}>Usage - Step 3</ResourceLink>, hence
+          a couple of differences:
           <ol>
             <li>
               no <code>type $$Events = ExtendedModalEvents</code> needed,
@@ -390,7 +397,7 @@
       {SECTIONS.extendingProps.title}
     </h3>
     <p>
-      The example in <ResourceLink id={SECTIONS.extendingTheBaseModalComponent.id}
+      The example in <ResourceLink id={SECTIONS.buildingModalComponent.id}
         >Usage - Step 3</ResourceLink
       >
       is a good starter for extending props when using the <ResourceLink {resources} key="Modal" /> base
@@ -413,7 +420,7 @@
       and forwarded to the <code>pop</code> method of the modal store.
     </p>
     <p>
-      The example in <ResourceLink id={SECTIONS.extendingTheBaseModalComponent.id}
+      The example in <ResourceLink id={SECTIONS.buildingModalComponent.id}
         >Usage - Step 3</ResourceLink
       >
       is a good starter for extending events when using the <ResourceLink {resources} key="Modal" />
@@ -453,6 +460,12 @@
     </fieldset>
     <Code code={codes.modals.fullCustom.source} title="FullCustomModal.svelte" />
   </section>
+</section>
+
+<section>
+  <h2 id={SECTIONS.sideEffectsOnPop.id}>{SECTIONS.sideEffectsOnPop.title}</h2>
+  <p>Callback can be registered to run when a modal is popped from the store.</p>
+  <Code code={codes.sideEffects.onPop} lang={typescript} title="ModalStore.onPop" />
 </section>
 
 <section>

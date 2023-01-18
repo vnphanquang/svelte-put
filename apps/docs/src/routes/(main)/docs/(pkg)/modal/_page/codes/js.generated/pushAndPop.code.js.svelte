@@ -20,6 +20,8 @@
       // if the modal is successfully popped by this operation,
       // the `await` expression in the `open` method above will resolve
       // the `trigger` will be `pop`
+      // alternatively, pass undefined to pop the topmost modal:
+      modalStore.pop();
     }
   }
 </script>
