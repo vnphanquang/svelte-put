@@ -3,6 +3,7 @@ import eventsTs from './events.code.svelte?raw';
 import eventsJs from './js.generated/events.code.js.svelte?raw';
 import quickStartInput from './quick-start-input.svelte?raw';
 import quickStartOutput from './quick-start-output.svelte?raw';
+import tocLinkMarkupEquivalence from './toclink-markup-equivalence.svelte?raw';
 import eventTypingAuto from './typescript-auto.svelte?raw';
 import eventTypingFallback from './typescript-fallback.d.ts?raw';
 
@@ -40,6 +41,10 @@ export const codes = {
   caveat: {
     avoid: caveatFlat,
     prefer: caveatSection,
+  },
+  toclink: {
+    usage: `<a use:toclink={{ store: tocStore, tocItem, observe: true }}></a>`,
+    equivalence: tocLinkMarkupEquivalence,
   },
   dataAttributes,
 };

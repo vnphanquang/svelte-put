@@ -101,6 +101,15 @@
     the extracted toc elements, and track <code>activeItem</code> if <code>observe</code> is set to
     <code>true</code>.
   </p>
+  <p>
+    Also note the complementary optional <code>toclink</code> used on anchor tags in the table of
+    contents. This helps save some manual effort and keep the behavior consistent with the main
+    <code>toc</code>
+    action. See <ResourceLink id="complementary-toclink-action"
+      >Complementary <code>toclink</code></ResourceLink
+    >
+    for more details.
+  </p>
   <Code code={codes.quickStart.output} title="quick start - output" />
 </section>
 
@@ -253,6 +262,13 @@
     </p>
     <Code code={codes.caveat.prefer} title="think in terms of section" icon="info" />
     <Code code={codes.caveat.avoid} title="rather than flat individual elements" icon="error" />
+    <p>
+      You might also find that when an anchor linked to a matching toc element being clicked on (to
+      scroll to said element), the toc element might not be the active one. This is explained with
+      with idiomatic solution in <ResourceLink id="complementary-toclink-action"
+        >toclink</ResourceLink
+      >.
+    </p>
   </section>
   <section>
     <h3>Observe Customization</h3>
@@ -308,6 +324,33 @@
 </section>
 
 <section>
+  <h2 id="complementary-toclink-action">Complementary <code>toclink</code> Action</h2>
+  <p>
+    As seen in <ResourceLink id="quick-start">Quick Start</ResourceLink>:
+  </p>
+  <Code code={codes.toclink.usage} title="toclink" />
+  <p>Regarding markup, this is essentially the same as:</p>
+  <Code code={codes.toclink.equivalence} title="toclink - markup equivalence" />
+  <p>
+    However, <code>toclink</code> provides additional click listener that makes sure the toc item being
+    clicked on will be the active one.
+  </p>
+  <p class="c-callout-warning">
+    This is not always guaranteed otherwise, because toc relies on
+    <code>IntersectionObserver</code>, and when a matching toc element is scrolled into view, the
+    next one might already intersects with the viewport and become the active one.
+  </p>
+
+  <p>
+    For customization details, see the
+    <ResourceLink
+      href="https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/toc/api/docs/toc.toclink.md"
+      >extracted API page</ResourceLink
+    >.
+  </p>
+</section>
+
+<section>
   <h2>Toc Data Attributes</h2>
 
   <p>
@@ -350,7 +393,7 @@
   <p>
     These attributes are also be referenced from the extracted
     <ResourceLink
-      href="https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/toc/api/docs/toc.tocdataattributes"
+      href="https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/toc/api/docs/toc.tocdataattributes.md"
     >
       TocDataAttributes
     </ResourceLink> API page.
@@ -361,8 +404,46 @@
 
   <hr />
 
-  <p>The following attributes act as <strong>readonly</strong> reference markers.</p>
+  <p>
+    The following attributes are utilized by the <code>observe</code>
+    operation when enabled.
+  </p>
+  <ApiUnitReference>
+    <h3 slot="name" id={ATTRIBUTES.observeFor}><code>{ATTRIBUTES.observeFor}</code></h3>
+    <p>
+      Added to the element where <code>IntersectionObserver</code>
+      is used when <code>observe</code> is used and references the associated toc element.
+    </p>
+  </ApiUnitReference>
+  <ApiUnitReference>
+    <h3 slot="name" id={ATTRIBUTES.observeActiveId}><code>{ATTRIBUTES.observeActiveId}</code></h3>
+    <p>
+      Added to the element where <code>toc</code> action is used and references the <code>id</code> of
+      the active matching element.
+    </p>
+    <p class="c-callout-info">
+      This attribute is reactive. When changed, it will trigger events and store update.
+    </p>
+  </ApiUnitReference>
+  <ApiUnitReference>
+    <h3 slot="name" id={ATTRIBUTES.observeThrottled}><code>{ATTRIBUTES.observeThrottled}</code></h3>
+    <p>
+      Added to the element where <code>toc</code> action is used to indicate whether
+      <code>observe</code>
+      is being throttled, typically in conjunction with usage of <code>toclink</code> action.
+    </p>
+  </ApiUnitReference>
+  <ApiUnitReference>
+    <h3 slot="name" id={ATTRIBUTES.linkActive}><code>{ATTRIBUTES.linkActive}</code></h3>
+    <p>
+      Added to the element where <code>toclink</code> is used and set to <code>true</code>
+      when the linked toc element is active.
+    </p>
+  </ApiUnitReference>
 
+  <hr />
+
+  <p>The following attributes act as <strong>readonly</strong> reference markers.</p>
   <ApiUnitReference>
     <h3 slot="name" id={ATTRIBUTES.toc}><code>{ATTRIBUTES.toc}</code></h3>
     <p>
@@ -383,6 +464,20 @@
     <p>
       If the element is added by <ResourceLink key="@svelte-put/preprocess-auto-slug" />, the
       <code>{ATTRIBUTES.autoSlugAnchor}</code> can be seen instead.
+    </p>
+  </ApiUnitReference>
+
+  <ApiUnitReference>
+    <h3 slot="name" id={ATTRIBUTES.root}><code>{ATTRIBUTES.root}</code></h3>
+    <p>
+      This attribute is added to the element where <code>toc</code> action is used for internal reference.
+    </p>
+  </ApiUnitReference>
+  <ApiUnitReference>
+    <h3 slot="name" id={ATTRIBUTES.linkFor}><code>{ATTRIBUTES.linkFor}</code></h3>
+    <p>
+      This attribute is added to the element where <code>toclink</code> action is used and references
+      the linked toc element.
     </p>
   </ApiUnitReference>
 </section>

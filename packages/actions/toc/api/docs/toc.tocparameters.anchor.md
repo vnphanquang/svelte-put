@@ -4,10 +4,10 @@
 
 ## TocParameters.anchor property
 
-instructions to add the anchor tag. Default to `true` (default options)
+instructions to add the anchor tag. Default to: `true`
 
 <b>Signature:</b>
 
 ```typescript
-anchor: TocAnchorParameters | boolean;
+anchor?: TocAnchorParameters | boolean;
 ```

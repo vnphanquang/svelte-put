@@ -4,10 +4,10 @@
 
 ## TocObserveParameters.enabled property
 
-whether to add `IntersectionObserver` to each matching toc element to track active active element in the viewport. default to `true`
+whether to add `IntersectionObserver` to each matching toc element to track active active element in the viewport. Default to: `true`
 
 <b>Signature:</b>
 
 ```typescript
-enabled: boolean;
+enabled?: boolean;
 ```

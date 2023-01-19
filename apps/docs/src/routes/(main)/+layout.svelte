@@ -1,10 +1,10 @@
 <script lang="ts">
   import { clickoutside } from '@svelte-put/clickoutside';
-  import { toc, createTocStore } from '@svelte-put/toc';
+  import { toc, toclink, createTocStore } from '@svelte-put/toc';
   import { slide } from '@svelte-put/transitions';
   import gruvboxDark from 'svelte-highlight/styles/gruvbox-dark-soft';
   import gruvboxLight from 'svelte-highlight/styles/gruvbox-light-soft';
-  import { fly, fade } from 'svelte/transition';
+  import { fade } from 'svelte/transition';
 
   import { browser } from '$app/environment';
   import { invalidate } from '$app/navigation';
@@ -49,20 +49,7 @@
     rightSidebarTogglerClick++;
   }
 
-  let tocChangePaused = false;
-  let activeTocId: string;
   const tocStore = createTocStore();
-  $: if (!tocChangePaused) activeTocId = $tocStore.activeItem?.id ?? '';
-
-  let intersectResetTimeoutId: ReturnType<typeof setTimeout>;
-  function handleTocItemClick(id: string) {
-    clearTimeout(intersectResetTimeoutId);
-    activeTocId = id;
-    tocChangePaused = true;
-    intersectResetTimeoutId = setTimeout(() => {
-      tocChangePaused = false;
-    }, 800);
-  }
 
   $: rColorScheme =
     $page.data.colorScheme === 'system' && browser
@@ -130,57 +117,54 @@
     </div>
   </header>
 
-  <div class="c-container relative flex w-full flex-1 items-stretch">
-    {#key leftSidebarTogglerClick}
-      <nav
-        class="sidebar sidebar-left"
-        transition:fly|local={{ x: -200, duration: 200 }}
-        use:clickoutside={{ enabled: leftSidebarOpen && !isLg }}
-        on:clickoutside={toggleLeftSidebar}
-        data-open={leftSidebarOpen}
-        aria-label="Pages"
-      >
-        <ul class="sidebar-content">
-          <li>
-            <a
-              href={APP_ROUTE_TREE.docs.$.path()}
-              data-current={data.pathname === APP_ROUTE_TREE.docs.$.path()}
-              class="c-link block py-2 font-bold"
-              on:click={closeLeftSidebar}
-              data-sveltekit-preload-data="hover"
-            >
-              Introduction
-            </a>
+  <div class="relative flex w-full flex-1 items-stretch">
+    <nav
+      class="sidebar sidebar-left"
+      use:clickoutside={{ enabled: leftSidebarOpen && !isLg }}
+      on:clickoutside={toggleLeftSidebar}
+      data-open={leftSidebarOpen}
+      aria-label="Pages"
+    >
+      <ul class="sidebar-content">
+        <li>
+          <a
+            href={APP_ROUTE_TREE.docs.$.path()}
+            data-current={data.pathname === APP_ROUTE_TREE.docs.$.path()}
+            class="c-link block py-2 font-bold"
+            on:click={closeLeftSidebar}
+            data-sveltekit-preload-data="hover"
+          >
+            Introduction
+          </a>
+        </li>
+        {#each Object.entries(packagesByCategory) as [category, packages]}
+          <li class="py-2">
+            <p class="font-bold">{capitalize(category)}</p>
+            <ul class="mt-2 space-y-1 border-l border-border">
+              {#each packages as { path, status, id }}
+                <li>
+                  <a
+                    data-sveltekit-preload-data="hover"
+                    href={path}
+                    data-current={data.pathname.includes(id)}
+                    class="c-link -ml-px block border-l border-transparent py-1 pl-3 data-current:border-primary"
+                    on:click={closeLeftSidebar}
+                  >
+                    <span class="h-full w-1 bg-primary" />
+                    {id}
+                    <sup>
+                      {#if status !== 'stable'}
+                        <StatusBadge {status} />
+                      {/if}
+                    </sup>
+                  </a>
+                </li>
+              {/each}
+            </ul>
           </li>
-          {#each Object.entries(packagesByCategory) as [category, packages]}
-            <li class="py-2">
-              <p class="font-bold">{capitalize(category)}</p>
-              <ul class="mt-2 space-y-1 border-l border-border">
-                {#each packages as { path, status, id }}
-                  <li>
-                    <a
-                      data-sveltekit-preload-data="hover"
-                      href={path}
-                      data-current={data.pathname.includes(id)}
-                      class="c-link -ml-px block border-l border-transparent py-1 pl-3 data-current:border-primary"
-                      on:click={closeLeftSidebar}
-                    >
-                      <span class="h-full w-1 bg-primary" />
-                      {id}
-                      <sup>
-                        {#if status !== 'stable'}
-                          <StatusBadge {status} />
-                        {/if}
-                      </sup>
-                    </a>
-                  </li>
-                {/each}
-              </ul>
-            </li>
-          {/each}
-        </ul>
-      </nav>
-    {/key}
+        {/each}
+      </ul>
+    </nav>
     {#if leftSidebarOpen}
       <div class="sidebar-backdrop" transition:fade|local={{ duration: 150 }} />
     {/if}
@@ -198,49 +182,48 @@
       </main>
     {/key}
 
-    {#key rightSidebarTogglerClick}
-      <nav
-        class="sidebar sidebar-right"
-        transition:fly|local={{ x: 200, duration: 200 }}
-        use:clickoutside={{ enabled: rightSidebarOpen && !isXl }}
-        on:clickoutside={toggleRightSidebar}
-        data-open={rightSidebarOpen}
-        aria-label="Table of Contents"
-      >
-        <div class="sidebar-content text-sm">
-          {#if Object.values($tocStore.items).length}
-            <p class="py-2 font-bold uppercase">On This Page</p>
-            <ul class="space-y-1 border-l border-border">
-              {#each Object.values($tocStore.items) as { id, text, element }}
-                {@const level = element.tagName.slice(1)}
-                {@const current = id === activeTocId}
-                <li>
-                  <a
-                    href={`#${id}`}
-                    data-current={current}
-                    class="c-link -ml-px block border-l border-transparent py-1 data-current:border-primary"
-                    class:pl-3={level === '2'}
-                    class:pl-5={level === '3'}
-                    class:pl-7={level === '4'}
-                    class:pl-9={level === '5'}
-                    class:pl-11={level === '6'}
-                    on:click={() => handleTocItemClick(id)}
-                  >
-                    {text}
-                  </a>
-                </li>
-              {/each}
-            </ul>
-          {/if}
-        </div>
-      </nav>
-    {/key}
+    <nav
+      class="sidebar sidebar-right"
+      use:clickoutside={{ enabled: rightSidebarOpen && !isXl }}
+      on:clickoutside={toggleRightSidebar}
+      data-open={rightSidebarOpen}
+      aria-label="Table of Contents"
+    >
+      <div class="sidebar-content text-sm">
+        {#if Object.values($tocStore.items).length}
+          <p class="py-2 font-bold uppercase">On This Page</p>
+          <ul class="space-y-1 border-l border-border">
+            {#each Object.values($tocStore.items) as tocItem}
+              {@const level = tocItem.element.tagName.slice(1)}
+              <li>
+                <!-- svelte-ignore a11y-missing-attribute -->
+                <a
+                  use:toclink={{
+                    tocItem,
+                    store: tocStore,
+                    observe: {
+                      attribute: 'data-current',
+                    },
+                  }}
+                  class="c-link -ml-px block border-l border-transparent py-1 data-current:border-primary"
+                  class:pl-3={level === '2'}
+                  class:pl-5={level === '3'}
+                  class:pl-7={level === '4'}
+                  class:pl-9={level === '5'}
+                  class:pl-11={level === '6'}>{tocItem.text}</a
+                >
+              </li>
+            {/each}
+          </ul>
+        {/if}
+      </div>
+    </nav>
   </div>
 
   <footer class="border-t border-border bg-bg-soft py-6 text-center font-fira text-xs">
     <div class="c-container grid md:grid-cols-[auto,1fr,auto]">
       <div
-        class="max-md:mb-4 max-md:flex max-md:items-center max-md:justify-center max-md:space-x-8 md:space-y-2 md:text-left"
+        class="md:space-y-2 md:text-left max-md:mb-4 max-md:flex max-md:items-center max-md:justify-center max-md:space-x-8"
       >
         <p>
           <a href="/sitemap.xml" class="c-link" target="_blank">
@@ -287,34 +270,57 @@
 <style lang="postcss">
   .sidebar {
     flex-shrink: 0;
+
     width: theme('spacing.sidebar');
+
     font-size: theme('fontSize.sm');
+
     border-color: theme('borderColor.border');
+
+    transition-timing-function: theme('transitionTimingFunction.DEFAULT');
+    transition-duration: 200ms;
+    transition-property: transform, opacity;
 
     & .sidebar-content {
       position: sticky;
       top: theme('spacing.header');
+
+      overflow: auto;
+
+      width: 100%;
       padding-top: theme('spacing.10');
     }
   }
 
   .sidebar-left {
-    @media (max-width: theme('screens.lg')) {
+    & .sidebar-content {
+      max-height: calc(100vh - theme('spacing.header'));
+      padding-right: theme('spacing.4');
+      padding-left: theme('spacing.4');
+    }
+
+    @media (max-width: theme('screens.max-md')) {
       position: fixed;
       z-index: theme('zIndex.sidebar');
       top: 0;
       bottom: 0;
       left: 0;
+      transform: translateX(-100%);
 
-      display: none;
-      justify-content: center;
+      display: flex;
 
+      opacity: 0;
       background-color: theme('backgroundColor.bg.DEFAULT');
       border-right: theme('borderWidth.DEFAULT');
       box-shadow: theme('boxShadow.lg');
 
       &[data-open='true'] {
-        display: flex;
+        transform: translateX(0);
+        opacity: 1;
+      }
+
+      & .sidebar-content {
+        max-height: 100vh;
       }
     }
   }
@@ -332,33 +338,46 @@
     @screen lg {
       display: none;
     }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   .sidebar-right {
-    @media (max-width: theme('screens.xl')) {
+    & .sidebar-content {
+      max-height: calc(100vh - theme('spacing.header'));
+      padding: theme('spacing.2');
+      padding-top: theme('spacing.10');
+    }
+
+    @media (max-width: theme('screens.max-lg')) {
       position: fixed;
       z-index: theme('zIndex.sidebar');
       top: theme('spacing.header');
       right: 0;
+      transform: translateX(100%);
 
-      display: none;
+      display: flex;
       justify-content: center;
 
       width: auto;
       max-width: 80vw;
-      padding: theme('spacing.4');
 
+      opacity: 0;
       background-color: theme('backgroundColor.bg.DEFAULT');
       border-bottom-right-radius: theme('borderRadius.DEFAULT');
       border-bottom-left-radius: theme('borderRadius.DEFAULT');
       box-shadow: theme('boxShadow.lg');
 
       &[data-open='true'] {
-        display: flex;
+        transform: translateX(0);
+        opacity: 1;
       }
 
       & .sidebar-content {
-        padding: theme('spacing.4');
+        max-height: calc(95vh - theme('spacing.header'));
+        padding: theme('spacing.8') theme('spacing.2') theme('spacing.2') theme('spacing.8');
       }
     }
   }

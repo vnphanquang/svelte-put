@@ -38,15 +38,18 @@ export type TocStoreValue = {
  * <main use:toc={{ store: tocStore, observe: true }}>...</main
  */
 export function createTocStore() {
+  let id: string | undefined = undefined;
   const { subscribe, set, update } = writable<TocStoreValue>({
-    id: undefined,
+    id,
     items: {},
     activeItem: undefined,
   });
+  subscribe((state) => (id = state.id));
   return {
     subscribe,
     set,
     update,
+    id: () => id,
   };
 }
 

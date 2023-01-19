@@ -4,12 +4,12 @@
 
 ## TocObserveParameters.threshold property
 
-threshold passed to `IntersectionObserver`<!-- -->. default to `(element) => Math.min((0.8 * window.innerHeight) / element.offsetHeight, 1)`
+threshold passed to `IntersectionObserver`<!-- -->. Default to: `(element) => Math.min((0.8 * window.innerHeight) / element.offsetHeight, 1)`
 
 <b>Signature:</b>
 
 ```typescript
-threshold: number | ((element: HTMLElement) => number);
+threshold?: number | ((element: HTMLElement) => number);
 ```
 
 ## Remarks

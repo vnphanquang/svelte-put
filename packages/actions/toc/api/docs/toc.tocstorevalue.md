@@ -4,6 +4,7 @@
 
 ## TocStoreValue type
 
+value of the `store` provided to [TocParameters](./toc.tocparameters.md)
 
 <b>Signature:</b>
 

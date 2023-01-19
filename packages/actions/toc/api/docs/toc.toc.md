@@ -11,7 +11,7 @@ For comprehensive documentation, see [docs site](https://svelte-put.vnphanquang.
 <b>Signature:</b>
 
 ```typescript
-toc: Action<HTMLElement, UserTocParameters, TocAttributes>
+toc: Action<HTMLElement, TocParameters, TocEventAttributes>
 ```
 
 ## Remarks

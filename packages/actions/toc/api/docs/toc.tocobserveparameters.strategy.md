@@ -4,7 +4,7 @@
 
 ## TocObserveParameters.strategy property
 
-strategy to observe matching toc elements. default to `auto`
+strategy to observe matching toc elements.
 
 - `'parent'` — observe the parent element of the matching toc element
 
@@ -12,10 +12,12 @@ strategy to observe matching toc elements. default to `auto`
 
 - `'auto'` — attempt to compare matching toc element &amp; its parent `offsetHeight` with `window.innerHeight` to determine the best strategy.
 
+Default to: `auto`
+
 <b>Signature:</b>
 
 ```typescript
-strategy: 'parent' | 'self' | 'auto';
+strategy?: 'parent' | 'self' | 'auto';
 ```
 
 ## Remarks

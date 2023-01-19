@@ -4,15 +4,15 @@
 
 ## TocParameters.ignore property
 
-query selector(s) that match DOM elements to ignore Each selector is used as `:not(selector)`<!-- -->. Defaults to `.toc-exclude`
+query selector(s) that match DOM elements to ignore Each selector is used as `:not(selector)`<!-- -->. Default to: `.toc-exclude`
 
 <b>Signature:</b>
 
 ```typescript
-ignore: string[] | string;
+ignore?: string[] | string;
 ```
 
 ## Remarks
 
-Alternatively, you can set the `data-toc-ignore` attribute on the element
+Alternatively, you can set the `data-toc-ignore` attribute on the element Default to: `[]`
 

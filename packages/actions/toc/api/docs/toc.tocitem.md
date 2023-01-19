@@ -19,6 +19,6 @@ export interface TocItem
 |  [anchor?](./toc.tocitem.anchor.md) |  | HTMLAnchorElement | <i>(Optional)</i> the anchor element inserted by the <code>toc</code> action unless the <code>anchor.enabled</code> option from [TocParameters](./toc.tocparameters.md) is <code>false</code> |
 |  [element](./toc.tocitem.element.md) |  | HTMLElement | the DOM element that was transformed |
 |  [id](./toc.tocitem.id.md) |  | string | the id of <code>element</code> or the "slugified" string from <code>textContent</code> |
-|  [observe?](./toc.tocitem.observe.md) |  | { observer: IntersectionObserver; strategy: [TocObserveParameters](./toc.tocobserveparameters.md)<!-- -->\['strategy'\]; threshold: [TocObserveParameters](./toc.tocobserveparameters.md)<!-- -->\['threshold'\]; } | <i>(Optional)</i> the resolved observe config during extraction unless the <code>observe.enabled</code> option from [TocParameters](./toc.tocparameters.md) is <code>false</code> |
+|  [observe?](./toc.tocitem.observe.md) |  | { observer: IntersectionObserver; strategy: [TocObserveParameters](./toc.tocobserveparameters.md)<!-- -->\['strategy'\]; threshold: [TocObserveParameters](./toc.tocobserveparameters.md)<!-- -->\['threshold'\]; element: HTMLElement; } | <i>(Optional)</i> the resolved observe config during extraction unless the <code>observe.enabled</code> option from [TocParameters](./toc.tocparameters.md) is <code>false</code> |
 |  [text](./toc.tocitem.text.md) |  | string | the <code>textContent</code> of <code>element</code> |
 

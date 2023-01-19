@@ -4,10 +4,10 @@
 
 ## TocParameters.id property
 
-A unique ID representing the operation. This is used for caching so that if the action is run multiple times with same parameters it can use the results from previous execution. Defaults to `crypto.randomUUID()`
+A unique ID representing the operation. This is used for caching so that if the action is run multiple times it can use the results from previous execution. Default to: `crypto.randomUUID()`
 
 <b>Signature:</b>
 
 ```typescript
-id: string;
+id?: string;
 ```

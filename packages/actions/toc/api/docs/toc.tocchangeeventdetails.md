@@ -9,9 +9,9 @@
 <b>Signature:</b>
 
 ```typescript
-export interface TocChangeEventDetails extends TocEventDetails 
+export interface TocChangeEventDetails extends TocInitEventDetails 
 ```
-<b>Extends:</b> [TocEventDetails](./toc.toceventdetails.md)
+<b>Extends:</b> [TocInitEventDetails](./toc.tociniteventdetails.md)
 
 ## Properties
 

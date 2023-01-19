@@ -9,11 +9,16 @@ create a idiomatic svelte store to use with `toc` action
 <b>Signature:</b>
 
 ```typescript
-export declare function createTocStore(): import("svelte/store").Writable<TocStoreValue>;
+export declare function createTocStore(): {
+    subscribe: (this: void, run: import("svelte/store").Subscriber<TocStoreValue>, invalidate?: ((value?: TocStoreValue | undefined) => void) | undefined) => import("svelte/store").Unsubscriber;
+    set: (this: void, value: TocStoreValue) => void;
+    update: (this: void, updater: import("svelte/store").Updater<TocStoreValue>) => void;
+    id: () => string | undefined;
+};
 ```
 <b>Returns:</b>
 
-import("svelte/store").Writable&lt;[TocStoreValue](./toc.tocstorevalue.md)<!-- -->&gt;
+{ subscribe: (this: void, run: import("svelte/store").Subscriber&lt;[TocStoreValue](./toc.tocstorevalue.md)<!-- -->&gt;, invalidate?: ((value?: [TocStoreValue](./toc.tocstorevalue.md) \| undefined) =&gt; void) \| undefined) =&gt; import("svelte/store").Unsubscriber; set: (this: void, value: [TocStoreValue](./toc.tocstorevalue.md)<!-- -->) =&gt; void; update: (this: void, updater: import("svelte/store").Updater&lt;[TocStoreValue](./toc.tocstorevalue.md)<!-- -->&gt;) =&gt; void; id: () =&gt; string \| undefined; }
 
 ## Example
 

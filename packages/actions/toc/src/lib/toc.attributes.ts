@@ -49,6 +49,7 @@ export const ATTRIBUTES = {
   // markers
   toc: 'data-toc',
   anchor: 'data-toc-anchor',
+  root: 'data-toc-root',
   // customization per matching element
   id: 'data-toc-id',
   ignore: 'data-toc-ignore',
@@ -56,4 +57,9 @@ export const ATTRIBUTES = {
   threshold: 'data-toc-threshold',
   // tracking information for `IntersectionObserver`
   observeFor: 'data-toc-observe-for',
+  observeThrottled: 'data-toc-observe-throttled',
+  observeActiveId: 'data-toc-observe-active-id',
+  // for elements that `use:toclink`
+  linkFor: 'data-toc-link-for',
+  linkActive: 'data-toc-link-active',
 };

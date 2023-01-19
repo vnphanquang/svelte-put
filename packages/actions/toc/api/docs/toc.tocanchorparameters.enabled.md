@@ -9,5 +9,5 @@ whether to insert an anchor tag for each matching node
 <b>Signature:</b>
 
 ```typescript
-enabled: boolean;
+enabled?: boolean;
 ```

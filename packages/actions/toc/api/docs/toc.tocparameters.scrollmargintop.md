@@ -4,10 +4,10 @@
 
 ## TocParameters.scrollMarginTop property
 
-inline `scroll-margin-top` value applied matching elements. Defaults to `0`
+inline `scroll-margin-top` value applied matching elements. Default to: `0`
 
 <b>Signature:</b>
 
 ```typescript
-scrollMarginTop: number | string | ((element: HTMLElement) => number | string);
+scrollMarginTop?: number | string | ((element: HTMLElement) => number | string);
 ```

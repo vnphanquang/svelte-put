@@ -16,9 +16,9 @@ export interface TocAnchorParameters
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [content](./toc.tocanchorparameters.content.md) |  | string | content of the inserted anchor tag, ignored when behavior is <code>wrap</code>. Default to '\#' |
-|  [enabled](./toc.tocanchorparameters.enabled.md) |  | boolean | whether to insert an anchor tag for each matching node |
-|  [href](./toc.tocanchorparameters.href.md) |  | (id: string) =&gt; string | href attribute of the inserted anchor tag |
-|  [position](./toc.tocanchorparameters.position.md) |  | 'prepend' \| 'append' \| 'wrap' \| 'before' \| 'after' | <p>where to create the anchor tag</p><p>- 'prepend' — inject link before the target tag text</p><p>- 'append' — inject link after the target tag text</p><p>- 'wrap' — wrap the whole target tag text with the link</p><p>- 'before' — insert link before the target tag</p><p>- 'after' — insert link after the target tag</p><p>default to <code>prepend</code></p> |
-|  [properties](./toc.tocanchorparameters.properties.md) |  | Record&lt;string, string&gt; | properties set to the inserted anchor tag, defaults to <code>{ 'aria-hidden': 'true', 'tab-index': '-1' }</code> |
+|  [content?](./toc.tocanchorparameters.content.md) |  | string | <i>(Optional)</i> content of the inserted anchor tag, ignored when behavior is <code>wrap</code>. Default to: '\# |
+|  [enabled?](./toc.tocanchorparameters.enabled.md) |  | boolean | <i>(Optional)</i> whether to insert an anchor tag for each matching node |
+|  [href?](./toc.tocanchorparameters.href.md) |  | (id: string) =&gt; string | <i>(Optional)</i> href attribute of the inserted anchor tag Default to: <code>href: (id) =&gt; '#' + id</code> |
+|  [position?](./toc.tocanchorparameters.position.md) |  | 'prepend' \| 'append' \| 'wrap' \| 'before' \| 'after' | <p><i>(Optional)</i> where to create the anchor tag</p><p>- 'prepend' — inject link before the target tag text</p><p>- 'append' — inject link after the target tag text</p><p>- 'wrap' — wrap the whole target tag text with the link</p><p>- 'before' — insert link before the target tag</p><p>- 'after' — insert link after the target tag Default to: 'prepend'</p> |
+|  [properties?](./toc.tocanchorparameters.properties.md) |  | Record&lt;string, string&gt; | <i>(Optional)</i> properties set to the inserted anchor tag, Default to: <code>{ 'aria-hidden': 'true', 'tab-index': '-1' }</code> |
 

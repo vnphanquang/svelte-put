@@ -15,11 +15,11 @@ export interface TocParameters
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [anchor](./toc.tocparameters.anchor.md) |  | [TocAnchorParameters](./toc.tocanchorparameters.md) \| boolean | instructions to add the anchor tag. Default to <code>true</code> (default options) |
-|  [id](./toc.tocparameters.id.md) |  | string | A unique ID representing the operation. This is used for caching so that if the action is run multiple times with same parameters it can use the results from previous execution. Defaults to <code>crypto.randomUUID()</code> |
-|  [ignore](./toc.tocparameters.ignore.md) |  | string\[\] \| string | query selector(s) that match DOM elements to ignore Each selector is used as <code>:not(selector)</code>. Defaults to <code>.toc-exclude</code> |
-|  [observe](./toc.tocparameters.observe.md) |  | [TocObserveParameters](./toc.tocobserveparameters.md) \| boolean | instructions to track the active element in the viewport using <code>IntersectionObserver</code>. default to <code>false</code> |
-|  [scrollMarginTop](./toc.tocparameters.scrollmargintop.md) |  | number \| string \| ((element: HTMLElement) =&gt; number \| string) | inline <code>scroll-margin-top</code> value applied matching elements. Defaults to <code>0</code> |
-|  [selector](./toc.tocparameters.selector.md) |  | string | the query selector used to find all matching DOM elements. Defaults to <code>:where(h1, h2, h3, h4, h5, h6)</code> |
-|  [store?](./toc.tocparameters.store.md) |  | Writable&lt;[TocStoreValue](./toc.tocstorevalue.md)<!-- -->&gt; | <i>(Optional)</i> a svelte store that, if provides, will update with the list of extracted toc elements, and the active one (if <code>observe</code> is enabled) |
+|  [anchor?](./toc.tocparameters.anchor.md) |  | [TocAnchorParameters](./toc.tocanchorparameters.md) \| boolean | <i>(Optional)</i> instructions to add the anchor tag. Default to: <code>true</code> |
+|  [id?](./toc.tocparameters.id.md) |  | string | <i>(Optional)</i> A unique ID representing the operation. This is used for caching so that if the action is run multiple times it can use the results from previous execution. Default to: <code>crypto.randomUUID()</code> |
+|  [ignore?](./toc.tocparameters.ignore.md) |  | string\[\] \| string | <i>(Optional)</i> query selector(s) that match DOM elements to ignore Each selector is used as <code>:not(selector)</code>. Default to: <code>.toc-exclude</code> |
+|  [observe?](./toc.tocparameters.observe.md) |  | [TocObserveParameters](./toc.tocobserveparameters.md) \| boolean | <i>(Optional)</i> instructions to track the active element in the viewport using <code>IntersectionObserver</code>. Default to: <code>false</code> |
+|  [scrollMarginTop?](./toc.tocparameters.scrollmargintop.md) |  | number \| string \| ((element: HTMLElement) =&gt; number \| string) | <i>(Optional)</i> inline <code>scroll-margin-top</code> value applied matching elements. Default to: <code>0</code> |
+|  [selector?](./toc.tocparameters.selector.md) |  | string | <i>(Optional)</i> the query selector used to find all matching DOM elements. Default to: <code>:where(h1, h2, h3, h4, h5, h6)</code> |
+|  [store?](./toc.tocparameters.store.md) |  | [TocStore](./toc.tocstore.md) | <p><i>(Optional)</i> a svelte store that, if provides, will update with the list of extracted toc elements, and the active one (if <code>observe</code> is enabled)</p><p>Default to: undefined</p> |
 

@@ -4,10 +4,10 @@
 
 ## TocAnchorParameters.properties property
 
-properties set to the inserted anchor tag, defaults to `{ 'aria-hidden': 'true', 'tab-index': '-1' }`
+properties set to the inserted anchor tag, Default to: `{ 'aria-hidden': 'true', 'tab-index': '-1' }`
 
 <b>Signature:</b>
 
 ```typescript
-properties: Record<string, string>;
+properties?: Record<string, string>;
 ```

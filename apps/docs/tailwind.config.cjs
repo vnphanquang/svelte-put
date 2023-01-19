@@ -245,6 +245,10 @@ const sveltePut = plugin(
             },
           },
         }),
+        screens: {
+          'max-md': '1023px',
+          'max-lg': '1279px',
+        },
         fontSize: {
           '2xs': '0.625rem',
         },

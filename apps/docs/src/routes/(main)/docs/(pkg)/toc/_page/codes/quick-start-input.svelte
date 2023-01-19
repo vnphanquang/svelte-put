@@ -1,5 +1,5 @@
 <script>
-  import { toc, createTocStore } from '@svelte-put/toc';
+  import { toc, createTocStore, toclink } from '@svelte-put/toc';
   const tocStore = createTocStore();
 </script>
 
@@ -10,10 +10,11 @@
     <h2>Table of Contents</h2>
     {#if Object.values($tocStore.items).length}
       <ul>
-        {#each Object.values($tocStore.items) as { id, text }}
-          <a class:active={$tocStore.activeItem?.id === id} style="display: contents" href="#{id}">
-            <li>{text}</li>
-          </a>
+        {#each Object.values($tocStore.items) as tocItem}
+          <li>
+            <!-- svelte-ignore a11y-missing-attribute -->
+            <a use:toclink={{ store: tocStore, tocItem, observe: true }} />
+          </li>
         {/each}
       </ul>
     {/if}

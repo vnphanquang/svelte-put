@@ -55,7 +55,7 @@ export function extractElementText(element: HTMLElement): string {
 /**
  * @internal
  */
-export function extractTocId(element: HTMLElement, fallbackText: string): string {
+export function extractTocItemId(element: HTMLElement, fallbackText: string): string {
   let tocId = element.id;
   const dataTocId = element.getAttribute(ATTRIBUTES.id);
   if (dataTocId) {
@@ -236,4 +236,12 @@ export function processObserve(
   }
   observer.observe(nodeToObserve);
   return { strategy: rStrategy, observer, threshold, element: nodeToObserve };
+}
+
+/**
+ * @internal
+ */
+export function findTocRoot(element: HTMLElement, tocId?: string) {
+  if (tocId) return document.querySelector(`[${ATTRIBUTES.root}="${tocId}"]`);
+  else return element.closest(`[${ATTRIBUTES.root}]`);
 }

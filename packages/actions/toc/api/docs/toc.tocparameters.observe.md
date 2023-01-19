@@ -4,10 +4,10 @@
 
 ## TocParameters.observe property
 
-instructions to track the active element in the viewport using `IntersectionObserver`<!-- -->. default to `false`
+instructions to track the active element in the viewport using `IntersectionObserver`<!-- -->. Default to: `false`
 
 <b>Signature:</b>
 
 ```typescript
-observe: TocObserveParameters | boolean;
+observe?: TocObserveParameters | boolean;
 ```

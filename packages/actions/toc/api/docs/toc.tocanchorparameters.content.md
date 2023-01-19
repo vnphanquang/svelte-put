@@ -4,10 +4,10 @@
 
 ## TocAnchorParameters.content property
 
-content of the inserted anchor tag, ignored when behavior is `wrap`<!-- -->. Default to '\#'
+content of the inserted anchor tag, ignored when behavior is `wrap`<!-- -->. Default to: '\#
 
 <b>Signature:</b>
 
 ```typescript
-content: string;
+content?: string;
 ```

@@ -13,5 +13,6 @@ observe?: {
         observer: IntersectionObserver;
         strategy: TocObserveParameters['strategy'];
         threshold: TocObserveParameters['threshold'];
+        element: HTMLElement;
     };
 ```

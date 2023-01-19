@@ -4,10 +4,10 @@
 
 ## TocAnchorParameters.href property
 
-href attribute of the inserted anchor tag
+href attribute of the inserted anchor tag Default to: `href: (id) => '#' + id`
 
 <b>Signature:</b>
 
 ```typescript
-href: (id: string) => string;
+href?: (id: string) => string;
 ```

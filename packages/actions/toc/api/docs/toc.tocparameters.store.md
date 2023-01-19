@@ -6,10 +6,12 @@
 
 a svelte store that, if provides, will update with the list of extracted toc elements, and the active one (if `observe` is enabled)
 
+Default to: undefined
+
 <b>Signature:</b>
 
 ```typescript
-store?: Writable<TocStoreValue>;
+store?: TocStore;
 ```
 
 ## Remarks

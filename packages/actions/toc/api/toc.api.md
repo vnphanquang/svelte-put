@@ -5,75 +5,32 @@
 ```ts
 
 import type { Action } from 'svelte/action';
-import { Writable } from 'svelte/store';
+import { Subscriber } from 'svelte/store';
+import { Unsubscriber } from 'svelte/store';
+import { Updater } from 'svelte/store';
 
 // @public
-export function createTocStore(): Writable<TocStoreValue>;
-
-// @public
-export const DEFAULT_TOC_PARAMETERS: {
-    id: string;
-    selector: string;
-    ignore: string[];
-    scrollMarginTop: number;
-    anchor: {
-        enabled: true;
-        content: string;
-        position: "prepend";
-        properties: {
-            'aria-hidden': string;
-            tabindex: string;
-        };
-        href: (slug: string) => string;
-    };
-    observe: {
-        enabled: false;
-        strategy: "auto";
-        threshold: (element: HTMLElement) => number;
-    };
-};
-
-// Warning: (ae-internal-missing-underscore) The name "ResolvedTocParameters" should be prefixed with an underscore because the declaration is marked as @internal
-//
-// @internal
-export type ResolvedTocParameters = Omit<TocParameters, 'ignore'> & {
-    anchor: TocAnchorParameters;
-    observe: TocObserveParameters;
+export function createTocStore(): {
+    subscribe: (this: void, run: Subscriber<TocStoreValue>, invalidate?: ((value?: TocStoreValue | undefined) => void) | undefined) => Unsubscriber;
+    set: (this: void, value: TocStoreValue) => void;
+    update: (this: void, updater: Updater<TocStoreValue>) => void;
+    id: () => string | undefined;
 };
 
 // @public
-export function slugify(text: string): string;
-
-// @public
-export const toc: Action<HTMLElement, UserTocParameters, TocAttributes>;
+export const toc: Action<HTMLElement, TocParameters, TocEventAttributes>;
 
 // @public
 export interface TocAnchorParameters {
-    content: string;
-    enabled: boolean;
-    href: (id: string) => string;
-    position: 'prepend' | 'append' | 'wrap' | 'before' | 'after';
-    properties: Record<string, string>;
+    content?: string;
+    enabled?: boolean;
+    href?: (id: string) => string;
+    position?: 'prepend' | 'append' | 'wrap' | 'before' | 'after';
+    properties?: Record<string, string>;
 }
-
-// @public (undocumented)
-export interface TocAttributes {
-    // (undocumented)
-    'on:tocchange'?: (event: CustomEvent<TocChangeEventDetails>) => void;
-    // (undocumented)
-    'on:tocinit'?: (event: CustomEvent<TocInitEventDetails>) => void;
-}
-
-// Warning: (ae-internal-missing-underscore) The name "TocCacheItem" should be prefixed with an underscore because the declaration is marked as @internal
-//
-// @internal (undocumented)
-export type TocCacheItem = {
-    parameters: ResolvedTocParameters;
-    items: Record<string, TocItem>;
-};
 
 // @public
-export interface TocChangeEventDetails extends TocEventDetails {
+export interface TocChangeEventDetails extends TocInitEventDetails {
     // (undocumented)
     activeItem: TocItem;
 }
@@ -84,6 +41,14 @@ export interface TocDataAttributes {
     'data-toc-ignore'?: boolean;
     'data-toc-strategy'?: TocObserveParameters['strategy'];
     'data-toc-threshold'?: number;
+}
+
+// @public
+export interface TocEventAttributes {
+    // (undocumented)
+    'on:tocchange'?: (event: CustomEvent<TocChangeEventDetails>) => void;
+    // (undocumented)
+    'on:tocinit'?: (event: CustomEvent<TocInitEventDetails>) => void;
 }
 
 // @public (undocumented)
@@ -106,39 +71,42 @@ export interface TocItem {
         observer: IntersectionObserver;
         strategy: TocObserveParameters['strategy'];
         threshold: TocObserveParameters['threshold'];
+        element: HTMLElement;
     };
     text: string;
 }
 
+// Warning: (ae-forgotten-export) The symbol "TocLinkParameters" needs to be exported by the entry point index.d.ts
+//
+// @public
+export const toclink: Action<HTMLAnchorElement, TocLinkParameters>;
+
 // @public
 export interface TocObserveParameters extends Omit<IntersectionObserverInit, 'threshold'> {
-    enabled: boolean;
-    strategy: 'parent' | 'self' | 'auto';
-    threshold: number | ((element: HTMLElement) => number);
+    enabled?: boolean;
+    strategy?: 'parent' | 'self' | 'auto';
+    threshold?: number | ((element: HTMLElement) => number);
 }
 
 // @public (undocumented)
 export interface TocParameters {
-    anchor: TocAnchorParameters | boolean;
-    id: string;
-    ignore: string[] | string;
-    observe: TocObserveParameters | boolean;
-    scrollMarginTop: number | string | ((element: HTMLElement) => number | string);
-    selector: string;
-    store?: Writable<TocStoreValue>;
+    anchor?: TocAnchorParameters | boolean;
+    id?: string;
+    ignore?: string[] | string;
+    observe?: TocObserveParameters | boolean;
+    scrollMarginTop?: number | string | ((element: HTMLElement) => number | string);
+    selector?: string;
+    store?: TocStore;
 }
 
-// @public (undocumented)
+// @public
+export type TocStore = ReturnType<typeof createTocStore>;
+
+// @public
 export type TocStoreValue = {
     id?: string;
     items: TocInitEventDetails['items'];
     activeItem?: TocChangeEventDetails['activeItem'];
 };
-
-// @public
-export type UserTocParameters = Partial<Omit<TocParameters, 'observe' | 'anchor'> & {
-    observe: Partial<TocObserveParameters> | boolean;
-    anchor: Partial<TocAnchorParameters> | boolean;
-}>;
 
 ```

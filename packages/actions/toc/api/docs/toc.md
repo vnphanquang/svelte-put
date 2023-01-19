@@ -11,16 +11,15 @@ Svelte action `use:toc` for building table of contents
 |  Function | Description |
 |  --- | --- |
 |  [createTocStore()](./toc.createtocstore.md) | create a idiomatic svelte store to use with <code>toc</code> action |
-|  [slugify(text)](./toc.slugify.md) | Slugify a string |
 
 ## Interfaces
 
 |  Interface | Description |
 |  --- | --- |
 |  [TocAnchorParameters](./toc.tocanchorparameters.md) | options to config how <code>toc</code> action inject anchor tag for each matching toc element |
-|  [TocAttributes](./toc.tocattributes.md) |  |
 |  [TocChangeEventDetails](./toc.tocchangeeventdetails.md) | <code>event.detail</code> of <code>on:tocchange</code> |
 |  [TocDataAttributes](./toc.tocdataattributes.md) | Data attributes to override <code>toc</code> behavior per matching element |
+|  [TocEventAttributes](./toc.toceventattributes.md) | ambient typing for <code>toc</code> event handlers |
 |  [TocEventDetails](./toc.toceventdetails.md) |  |
 |  [TocInitEventDetails](./toc.tociniteventdetails.md) | <code>event.detail</code> of <code>on:tocinit</code> |
 |  [TocItem](./toc.tocitem.md) | information about an extracted toc item |
@@ -31,13 +30,13 @@ Svelte action `use:toc` for building table of contents
 
 |  Variable | Description |
 |  --- | --- |
-|  [DEFAULT\_TOC\_PARAMETERS](./toc.default_toc_parameters.md) | The default [TocParameters](./toc.tocparameters.md) for <code>toc</code> action |
 |  [toc](./toc.toc.md) | <p>search for matching elements, inject anchor element, watch for active element in viewport with <code>IntersectionObserver</code>. All for building table of contents.</p><p>For comprehensive documentation, see [docs site](https://svelte-put.vnphanquang.com/docs/toc)</p> |
+|  [toclink](./toc.toclink.md) | <p>complementary action to <code>use:toc</code> applies to anchor elements that will link to a matching toc item on <code>click</code></p><p>See example for the functionalities this action provides</p> |
 
 ## Type Aliases
 
 |  Type Alias | Description |
 |  --- | --- |
-|  [TocStoreValue](./toc.tocstorevalue.md) |  |
-|  [UserTocParameters](./toc.usertocparameters.md) | user-defined <code>toc</code> parameters |
+|  [TocStore](./toc.tocstore.md) | The store type inferred from [createTocStore()](./toc.createtocstore.md) |
+|  [TocStoreValue](./toc.tocstorevalue.md) | value of the <code>store</code> provided to [TocParameters](./toc.tocparameters.md) |
 
