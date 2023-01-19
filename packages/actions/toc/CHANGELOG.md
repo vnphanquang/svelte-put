@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.1.0
+
+### Minor Changes
+
+- [`8d02c83`](https://github.com/vnphanquang/svelte-put/commit/8d02c832ee9c61f6edf913fc29e75020db286497) Thanks [@vnphanquang](https://github.com/vnphanquang)! - add idiomatic support with complementary action `toclink` for anchor tags that link to toc items (typically those in a table of contents)
+
+### Patch Changes
+
+- [`8d02c83`](https://github.com/vnphanquang/svelte-put/commit/8d02c832ee9c61f6edf913fc29e75020db286497) Thanks [@vnphanquang](https://github.com/vnphanquang)! - undefined `anchor` & `observe` should correctly take default options
+
+- [`80730b4`](https://github.com/vnphanquang/svelte-put/commit/80730b40ede5c48138cb81da2d5a49441357a29e) Thanks [@vnphanquang](https://github.com/vnphanquang)! - refator to `toggleAttribute` in favor of `setAttribute` for markers
+
 ## 2.0.4
 
 ### Patch Changes
