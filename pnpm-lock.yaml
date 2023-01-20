@@ -169,8 +169,8 @@ importers:
 
   packages/actions/clickoutside:
     specifiers:
-      '@microsoft/api-documenter': ^7.19.27
-      '@microsoft/api-extractor': ^7.33.7
+      '@microsoft/api-documenter': ^7.19.28
+      '@microsoft/api-extractor': ^7.33.8
       '@rollup/plugin-typescript': ^11.0.0
       '@svelte-put/apirc': workspace:^0.0.0
       '@svelte-put/tsconfig': workspace:^0.0.0
@@ -180,8 +180,8 @@ importers:
       tslib: ^2.4.1
       typescript: ^4.9.4
     devDependencies:
-      '@microsoft/api-documenter': 7.19.27
-      '@microsoft/api-extractor': 7.33.7
+      '@microsoft/api-documenter': 7.19.28
+      '@microsoft/api-extractor': 7.33.8
       '@rollup/plugin-typescript': 11.0.0_6xbyoujvh6bzbrau3o3neoxpya
       '@svelte-put/apirc': link:../../../configs/apirc
       '@svelte-put/tsconfig': link:../../../configs/tsconfig
@@ -193,8 +193,8 @@ importers:
 
   packages/actions/copy:
     specifiers:
-      '@microsoft/api-documenter': ^7.19.27
-      '@microsoft/api-extractor': ^7.33.7
+      '@microsoft/api-documenter': ^7.19.28
+      '@microsoft/api-extractor': ^7.33.8
       '@rollup/plugin-typescript': ^11.0.0
       '@svelte-put/apirc': workspace:^0.0.0
       '@svelte-put/tsconfig': workspace:^0.0.0
@@ -203,8 +203,8 @@ importers:
       tslib: ^2.4.1
       typescript: ^4.9.4
     devDependencies:
-      '@microsoft/api-documenter': 7.19.27
-      '@microsoft/api-extractor': 7.33.7
+      '@microsoft/api-documenter': 7.19.28
+      '@microsoft/api-extractor': 7.33.8
       '@rollup/plugin-typescript': 11.0.0_6xbyoujvh6bzbrau3o3neoxpya
       '@svelte-put/apirc': link:../../../configs/apirc
       '@svelte-put/tsconfig': link:../../../configs/tsconfig
@@ -215,8 +215,8 @@ importers:
 
   packages/actions/dragscroll:
     specifiers:
-      '@microsoft/api-documenter': ^7.19.27
-      '@microsoft/api-extractor': ^7.33.7
+      '@microsoft/api-documenter': ^7.19.28
+      '@microsoft/api-extractor': ^7.33.8
       '@rollup/plugin-typescript': ^11.0.0
       '@svelte-put/apirc': workspace:^0.0.0
       '@svelte-put/tsconfig': workspace:^0.0.0
@@ -225,8 +225,8 @@ importers:
       tslib: ^2.4.1
       typescript: ^4.9.4
     devDependencies:
-      '@microsoft/api-documenter': 7.19.27
-      '@microsoft/api-extractor': 7.33.7
+      '@microsoft/api-documenter': 7.19.28
+      '@microsoft/api-extractor': 7.33.8
       '@rollup/plugin-typescript': 11.0.0_6xbyoujvh6bzbrau3o3neoxpya
       '@svelte-put/apirc': link:../../../configs/apirc
       '@svelte-put/tsconfig': link:../../../configs/tsconfig
@@ -237,8 +237,8 @@ importers:
 
   packages/actions/intersect:
     specifiers:
-      '@microsoft/api-documenter': ^7.19.27
-      '@microsoft/api-extractor': ^7.33.7
+      '@microsoft/api-documenter': ^7.19.28
+      '@microsoft/api-extractor': ^7.33.8
       '@rollup/plugin-typescript': ^11.0.0
       '@svelte-put/apirc': workspace:^0.0.0
       '@svelte-put/tsconfig': workspace:^0.0.0
@@ -247,8 +247,8 @@ importers:
       tslib: ^2.4.1
       typescript: ^4.9.4
     devDependencies:
-      '@microsoft/api-documenter': 7.19.27
-      '@microsoft/api-extractor': 7.33.7
+      '@microsoft/api-documenter': 7.19.28
+      '@microsoft/api-extractor': 7.33.8
       '@rollup/plugin-typescript': 11.0.0_6xbyoujvh6bzbrau3o3neoxpya
       '@svelte-put/apirc': link:../../../configs/apirc
       '@svelte-put/tsconfig': link:../../../configs/tsconfig
@@ -259,8 +259,8 @@ importers:
 
   packages/actions/movable:
     specifiers:
-      '@microsoft/api-documenter': ^7.19.27
-      '@microsoft/api-extractor': ^7.33.7
+      '@microsoft/api-documenter': ^7.19.28
+      '@microsoft/api-extractor': ^7.33.8
       '@rollup/plugin-typescript': ^11.0.0
       '@svelte-put/apirc': workspace:^0.0.0
       '@svelte-put/tsconfig': workspace:^0.0.0
@@ -269,8 +269,8 @@ importers:
       tslib: ^2.4.1
       typescript: ^4.9.4
     devDependencies:
-      '@microsoft/api-documenter': 7.19.27
-      '@microsoft/api-extractor': 7.33.7
+      '@microsoft/api-documenter': 7.19.28
+      '@microsoft/api-extractor': 7.33.8
       '@rollup/plugin-typescript': 11.0.0_6xbyoujvh6bzbrau3o3neoxpya
       '@svelte-put/apirc': link:../../../configs/apirc
       '@svelte-put/tsconfig': link:../../../configs/tsconfig
@@ -281,8 +281,8 @@ importers:
 
   packages/actions/resize:
     specifiers:
-      '@microsoft/api-documenter': ^7.19.27
-      '@microsoft/api-extractor': ^7.33.7
+      '@microsoft/api-documenter': ^7.19.28
+      '@microsoft/api-extractor': ^7.33.8
       '@rollup/plugin-typescript': ^11.0.0
       '@svelte-put/apirc': workspace:^0.0.0
       '@svelte-put/tsconfig': workspace:^0.0.0
@@ -291,8 +291,8 @@ importers:
       tslib: ^2.4.1
       typescript: ^4.9.4
     devDependencies:
-      '@microsoft/api-documenter': 7.19.27
-      '@microsoft/api-extractor': 7.33.7
+      '@microsoft/api-documenter': 7.19.28
+      '@microsoft/api-extractor': 7.33.8
       '@rollup/plugin-typescript': 11.0.0_6xbyoujvh6bzbrau3o3neoxpya
       '@svelte-put/apirc': link:../../../configs/apirc
       '@svelte-put/tsconfig': link:../../../configs/tsconfig
@@ -303,8 +303,8 @@ importers:
 
   packages/actions/shortcut:
     specifiers:
-      '@microsoft/api-documenter': ^7.19.27
-      '@microsoft/api-extractor': ^7.33.7
+      '@microsoft/api-documenter': ^7.19.28
+      '@microsoft/api-extractor': ^7.33.8
       '@rollup/plugin-typescript': ^11.0.0
       '@svelte-put/apirc': workspace:^0.0.0
       '@svelte-put/tsconfig': workspace:^0.0.0
@@ -313,8 +313,8 @@ importers:
       tslib: ^2.4.1
       typescript: ^4.9.4
     devDependencies:
-      '@microsoft/api-documenter': 7.19.27
-      '@microsoft/api-extractor': 7.33.7
+      '@microsoft/api-documenter': 7.19.28
+      '@microsoft/api-extractor': 7.33.8
       '@rollup/plugin-typescript': 11.0.0_6xbyoujvh6bzbrau3o3neoxpya
       '@svelte-put/apirc': link:../../../configs/apirc
       '@svelte-put/tsconfig': link:../../../configs/tsconfig
@@ -325,8 +325,8 @@ importers:
 
   packages/actions/toc:
     specifiers:
-      '@microsoft/api-documenter': ^7.19.27
-      '@microsoft/api-extractor': ^7.33.7
+      '@microsoft/api-documenter': ^7.19.28
+      '@microsoft/api-extractor': ^7.33.8
       '@svelte-put/apirc': workspace:^0.0.0
       '@svelte-put/tsconfig': workspace:^0.0.0
       '@sveltejs/adapter-auto': 1.0.2
@@ -341,8 +341,8 @@ importers:
       typescript: ^4.9.4
       vite: ^4.0.4
     devDependencies:
-      '@microsoft/api-documenter': 7.19.27
-      '@microsoft/api-extractor': 7.33.7
+      '@microsoft/api-documenter': 7.19.28
+      '@microsoft/api-extractor': 7.33.8
       '@svelte-put/apirc': link:../../../configs/apirc
       '@svelte-put/tsconfig': link:../../../configs/tsconfig
       '@sveltejs/adapter-auto': 1.0.2_@sveltejs+kit@1.2.0
@@ -359,8 +359,8 @@ importers:
 
   packages/components/select:
     specifiers:
-      '@microsoft/api-documenter': ^7.19.27
-      '@microsoft/api-extractor': ^7.33.7
+      '@microsoft/api-documenter': ^7.19.28
+      '@microsoft/api-extractor': ^7.33.8
       '@svelte-put/apirc': workspace:^0.0.0
       '@svelte-put/clickoutside': ^1.0.4
       '@svelte-put/shortcut': ^1.0.2
@@ -380,8 +380,8 @@ importers:
       '@svelte-put/clickoutside': link:../../actions/clickoutside
       '@svelte-put/shortcut': link:../../actions/shortcut
     devDependencies:
-      '@microsoft/api-documenter': 7.19.27
-      '@microsoft/api-extractor': 7.33.7
+      '@microsoft/api-documenter': 7.19.28
+      '@microsoft/api-extractor': 7.33.8
       '@svelte-put/apirc': link:../../../configs/apirc
       '@svelte-put/tsconfig': link:../../../configs/tsconfig
       '@sveltejs/adapter-auto': 1.0.2_@sveltejs+kit@1.2.0
@@ -398,8 +398,8 @@ importers:
 
   packages/misc/avatar:
     specifiers:
-      '@microsoft/api-documenter': ^7.19.27
-      '@microsoft/api-extractor': ^7.33.7
+      '@microsoft/api-documenter': ^7.19.28
+      '@microsoft/api-extractor': ^7.33.8
       '@svelte-put/apirc': workspace:^0.0.0
       '@svelte-put/tsconfig': workspace:^0.0.0
       '@sveltejs/adapter-auto': 1.0.2
@@ -418,8 +418,8 @@ importers:
     dependencies:
       md5: 2.3.0
     devDependencies:
-      '@microsoft/api-documenter': 7.19.27
-      '@microsoft/api-extractor': 7.33.7
+      '@microsoft/api-documenter': 7.19.28
+      '@microsoft/api-extractor': 7.33.8
       '@svelte-put/apirc': link:../../../configs/apirc
       '@svelte-put/tsconfig': link:../../../configs/tsconfig
       '@sveltejs/adapter-auto': 1.0.2_@sveltejs+kit@1.2.0
@@ -437,8 +437,8 @@ importers:
 
   packages/misc/modal:
     specifiers:
-      '@microsoft/api-documenter': ^7.19.27
-      '@microsoft/api-extractor': ^7.33.7
+      '@microsoft/api-documenter': ^7.19.28
+      '@microsoft/api-extractor': ^7.33.8
       '@svelte-put/apirc': workspace:^0.0.0
       '@svelte-put/clickoutside': ^1.1.0
       '@svelte-put/movable': ^1.2.2
@@ -460,8 +460,8 @@ importers:
       '@svelte-put/movable': link:../../actions/movable
       '@svelte-put/shortcut': link:../../actions/shortcut
     devDependencies:
-      '@microsoft/api-documenter': 7.19.27
-      '@microsoft/api-extractor': 7.33.7
+      '@microsoft/api-documenter': 7.19.28
+      '@microsoft/api-extractor': 7.33.8
       '@svelte-put/apirc': link:../../../configs/apirc
       '@svelte-put/tsconfig': link:../../../configs/tsconfig
       '@sveltejs/adapter-auto': 1.0.2_@sveltejs+kit@1.2.0
@@ -478,8 +478,8 @@ importers:
 
   packages/preprocessors/auto-slug:
     specifiers:
-      '@microsoft/api-documenter': ^7.19.27
-      '@microsoft/api-extractor': ^7.33.7
+      '@microsoft/api-documenter': ^7.19.28
+      '@microsoft/api-extractor': ^7.33.8
       '@svelte-put/apirc': workspace:^0.0.0
       '@types/estree': ^1.0.0
       github-slugger: ^2.0.0
@@ -493,8 +493,8 @@ importers:
       magic-string: 0.27.0
       svelte-parse-markup: 0.1.1_svelte@3.55.1
     devDependencies:
-      '@microsoft/api-documenter': 7.19.27
-      '@microsoft/api-extractor': 7.33.7
+      '@microsoft/api-documenter': 7.19.28
+      '@microsoft/api-extractor': 7.33.8
       '@svelte-put/apirc': link:../../../configs/apirc
       '@types/estree': 1.0.0
       npm-run-all: 4.1.5
@@ -503,8 +503,8 @@ importers:
 
   packages/transitions:
     specifiers:
-      '@microsoft/api-documenter': ^7.19.27
-      '@microsoft/api-extractor': ^7.33.7
+      '@microsoft/api-documenter': ^7.19.28
+      '@microsoft/api-extractor': ^7.33.8
       '@rollup/plugin-typescript': ^11.0.0
       '@svelte-put/apirc': workspace:^0.0.0
       '@svelte-put/tsconfig': workspace:^0.0.0
@@ -514,8 +514,8 @@ importers:
       tslib: ^2.4.1
       typescript: ^4.9.4
     devDependencies:
-      '@microsoft/api-documenter': 7.19.27
-      '@microsoft/api-extractor': 7.33.7
+      '@microsoft/api-documenter': 7.19.28
+      '@microsoft/api-extractor': 7.33.8
       '@rollup/plugin-typescript': 11.0.0_6xbyoujvh6bzbrau3o3neoxpya
       '@svelte-put/apirc': link:../../configs/apirc
       '@svelte-put/tsconfig': link:../../configs/tsconfig
@@ -1303,8 +1303,8 @@ packages:
       - supports-color
     dev: true
 
-  /@microsoft/api-documenter/7.19.27:
-    resolution: {integrity: sha512-KKNUnDlhRx+tYZsDt3Bn8OqdpCS8V9pce+ZvCjkL+nGHN4G2w1lqAtm82VdzGYgG8HgrwqZ72/Z2bsxKvPho7g==}
+  /@microsoft/api-documenter/7.19.28:
+    resolution: {integrity: sha512-m9FG5vj8d5Zf3N7UV/Xuau/17Loe32A+nEsY4Pgyye+9gR12yz6LAyunUOehNjgDav0C4edy+qtrxOvXyGu7aA==}
     hasBin: true
     dependencies:
       '@microsoft/api-extractor-model': 7.25.3
@@ -1324,8 +1324,8 @@ packages:
       '@rushstack/node-core-library': 3.53.3
     dev: true
 
-  /@microsoft/api-extractor/7.33.7:
-    resolution: {integrity: sha512-fQT2v/j/55DhvMFiopLtth66E7xTFNhnumMKgKY14SaG6qU/V1W0e4nOAgbA+SmLakQjAd1Evu06ofaVaxBPbA==}
+  /@microsoft/api-extractor/7.33.8:
+    resolution: {integrity: sha512-lNscBtYcNwJ4t9kKt6AdYA+FGDG6S8a2EhHdggxgn+rkcTzQ9P6ZsDBSjXa+r+E8qdZjOLP5J1rxohH7t+FTJg==}
     hasBin: true
     dependencies:
       '@microsoft/api-extractor-model': 7.25.3
@@ -1336,7 +1336,7 @@ packages:
       '@rushstack/ts-command-line': 4.13.1
       colors: 1.2.5
       lodash: 4.17.21
-      resolve: 1.17.0
+      resolve: 1.22.1
       semver: 7.3.8
       source-map: 0.6.1
       typescript: 4.8.4
@@ -1433,7 +1433,7 @@ packages:
       jju: 1.4.0
       resolve: 1.17.0
       semver: 7.3.8
-      z-schema: 5.0.4
+      z-schema: 5.0.5
     dev: true
 
   /@rushstack/rig-package/0.3.17:
@@ -1497,7 +1497,7 @@ packages:
       svelte: 3.55.1
       tiny-glob: 0.2.9
       undici: 5.15.1
-      vite: 4.0.4_@types+node@18.11.18
+      vite: 4.0.4
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1531,7 +1531,7 @@ packages:
       magic-string: 0.27.0
       svelte: 3.55.1
       svelte-hmr: 0.15.1_svelte@3.55.1
-      vite: 4.0.4_@types+node@18.11.18
+      vite: 4.0.4
       vitefu: 0.2.4_vite@4.0.4
     transitivePeerDependencies:
       - supports-color
@@ -2530,12 +2530,6 @@ packages:
     engines: {node: '>=0.1.90'}
     dev: true
 
-  /commander/2.20.3:
-    resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
-    requiresBuild: true
-    dev: true
-    optional: true
-
   /commander/4.1.1:
     resolution: {integrity: sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==}
     engines: {node: '>= 6'}
@@ -2550,6 +2544,13 @@ packages:
     resolution: {integrity: sha512-5EEkTNyHNGFPD2H+c/dXXfQZYa/scCKasxWcXJaWnNJ99pnQN9Vnmqow+p+PlFPE63Q6mThaZws1T+HxfpgtPw==}
     engines: {node: ^12.20.0 || >=14}
     dev: true
+
+  /commander/9.5.0:
+    resolution: {integrity: sha512-KRs7WVDKg86PWiuAqhDrAQnTXZKraVcCc6vFdL14qrZ/DcWwuRo7VoiYXalXO7S5GKpqYiVEwCbgFDfxNHKJBQ==}
+    engines: {node: ^12.20.0 || >=14}
+    requiresBuild: true
+    dev: true
+    optional: true
 
   /concat-map/0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
@@ -5717,6 +5718,11 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
+  /punycode/2.3.0:
+    resolution: {integrity: sha512-rRV+zQD8tVFys26lAGR9WUuS4iUAngJScM+ZRSKtvl5tKeZ2t5bvdNFdNHBW9FWR4guGHlgmsZ1G7BSm2wTbuA==}
+    engines: {node: '>=6'}
+    dev: true
+
   /queue-microtask/1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
     dev: true
@@ -7042,7 +7048,7 @@ packages:
   /uri-js/4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
     dependencies:
-      punycode: 2.1.1
+      punycode: 2.3.0
     dev: true
 
   /util-deprecate/1.0.2:
@@ -7144,7 +7150,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 4.0.4_@types+node@18.11.18
+      vite: 4.0.4
     dev: true
 
   /wcwidth/1.0.1:
@@ -7364,8 +7370,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /z-schema/5.0.4:
-    resolution: {integrity: sha512-gm/lx3hDzJNcLwseIeQVm1UcwhWIKpSB4NqH89pTBtFns4k/HDHudsICtvG05Bvw/Mv3jMyk700y5dadueLHdA==}
+  /z-schema/5.0.5:
+    resolution: {integrity: sha512-D7eujBWkLa3p2sIpJA0d1pr7es+a7m0vFAnZLlCEKq/Ij2k0MLi9Br2UPxoxdYystm5K1yeBGzub0FlYUEWj2Q==}
     engines: {node: '>=8.0.0'}
     hasBin: true
     dependencies:
@@ -7373,5 +7379,5 @@ packages:
       lodash.isequal: 4.5.0
       validator: 13.7.0
     optionalDependencies:
-      commander: 2.20.3
+      commander: 9.5.0
     dev: true

@@ -41,8 +41,8 @@
   },
   "homepage": "https://svelte-put.vnphanquang.com/docs/clickoutside",
   "devDependencies": {
-    "@microsoft/api-documenter": "^7.19.27",
-    "@microsoft/api-extractor": "^7.33.7",
+    "@microsoft/api-documenter": "^7.19.28",
+    "@microsoft/api-extractor": "^7.33.8",
     "@rollup/plugin-typescript": "^11.0.0",
     "@svelte-put/apirc": "workspace:^0.0.0",
     "@svelte-put/tsconfig": "workspace:^0.0.0",
