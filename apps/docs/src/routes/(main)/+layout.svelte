@@ -223,7 +223,7 @@
   <footer class="border-t border-border bg-bg-soft py-6 text-center font-fira text-xs">
     <div class="c-container grid md:grid-cols-[auto,1fr,auto]">
       <div
-        class="md:space-y-2 md:text-left max-md:mb-4 max-md:flex max-md:items-center max-md:justify-center max-md:space-x-8"
+        class="max-md:mb-4 max-md:flex max-md:items-center max-md:justify-center max-md:space-x-8 md:space-y-2 md:text-left"
       >
         <p>
           <a href="/sitemap.xml" class="c-link" target="_blank">
@@ -299,7 +299,7 @@
       padding-left: theme('spacing.4');
     }
 
-    @media (max-width: theme('screens.max-md')) {
+    @media (max-width: theme('screens.md-max')) {
       position: fixed;
       z-index: theme('zIndex.sidebar');
       top: 0;
@@ -351,7 +351,7 @@
       padding-top: theme('spacing.10');
     }
 
-    @media (max-width: theme('screens.max-lg')) {
+    @media (max-width: theme('screens.lg-max')) {
       position: fixed;
       z-index: theme('zIndex.sidebar');
       top: theme('spacing.header');
@@ -384,8 +384,7 @@
 
   main {
     max-width: 100%;
-    padding-top: theme('spacing.10');
-    padding-bottom: theme('spacing.20');
+    padding: theme('spacing.10') theme('spacing.4') theme('spacing.20');
 
     @screen lg {
       max-width: calc(100% - var(--sidebar-width));
