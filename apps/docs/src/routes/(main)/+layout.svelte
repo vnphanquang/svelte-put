@@ -117,7 +117,7 @@
     </div>
   </header>
 
-  <div class="relative flex w-full flex-1 items-stretch">
+  <div class="c-container relative flex w-full flex-1 items-stretch">
     <nav
       class="sidebar sidebar-left"
       use:clickoutside={{ enabled: leftSidebarOpen && !isLg }}
@@ -384,7 +384,8 @@
 
   main {
     max-width: 100%;
-    padding: theme('spacing.10') theme('spacing.4') theme('spacing.20');
+    padding-top: theme('spacing.10');
+    padding-bottom: theme('spacing.20');
 
     @screen lg {
       max-width: calc(100% - var(--sidebar-width));
