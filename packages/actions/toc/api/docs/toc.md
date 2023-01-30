@@ -23,6 +23,8 @@ Svelte action `use:toc` for building table of contents
 |  [TocEventDetails](./toc.toceventdetails.md) |  |
 |  [TocInitEventDetails](./toc.tociniteventdetails.md) | <code>event.detail</code> of <code>on:tocinit</code> |
 |  [TocItem](./toc.tocitem.md) | information about an extracted toc item |
+|  [TocLinkObserveParameters](./toc.toclinkobserveparameters.md) | configure relationship between the <code>observe</code> functionality of <code>toc</code> and <code>toclink</code> |
+|  [TocLinkParameters](./toc.toclinkparameters.md) | options to configure the behavior of the <code>toclink</code> svelte action |
 |  [TocObserveParameters](./toc.tocobserveparameters.md) | options to config how <code>toc</code> action create <code>IntersectionObserver</code> for each matching toc element |
 |  [TocParameters](./toc.tocparameters.md) |  |
 

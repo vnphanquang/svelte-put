@@ -76,10 +76,23 @@ export interface TocItem {
     text: string;
 }
 
-// Warning: (ae-forgotten-export) The symbol "TocLinkParameters" needs to be exported by the entry point index.d.ts
-//
 // @public
 export const toclink: Action<HTMLAnchorElement, TocLinkParameters>;
+
+// @public
+export interface TocLinkObserveParameters {
+    attribute?: string | string[] | boolean;
+    enabled?: boolean;
+    throttleOnClick?: number;
+}
+
+// @public
+export interface TocLinkParameters {
+    observe?: TocLinkObserveParameters | boolean;
+    store?: TocStore;
+    tocId?: string;
+    tocItem?: string | TocItem;
+}
 
 // @public
 export interface TocObserveParameters extends Omit<IntersectionObserverInit, 'threshold'> {
