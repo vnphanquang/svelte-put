@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.1.1
+
+### Patch Changes
+
+- [`87d94df`](https://github.com/vnphanquang/svelte-put/commit/87d94dfc584061f7ad846752d7845c64095a8ca0) Thanks [@vnphanquang](https://github.com/vnphanquang)! - expose `toclink` parameters types in build output
+
 ## 2.1.0
 
 ### Minor Changes
