@@ -87,7 +87,7 @@ importers:
       postcss-import: ^15.1.0
       postcss-load-config: ^4.0.1
       postcss-mixins: ^9.0.4
-      postcss-nesting: ^10.2.0
+      postcss-nesting: ^11.0.0
       prettier: ^2.8.3
       prettier-plugin-svelte: ^2.9.0
       prettier-plugin-tailwindcss: ^0.2.1
@@ -147,7 +147,7 @@ importers:
       postcss-import: 15.1.0_postcss@8.4.21
       postcss-load-config: 4.0.1_aesdjsunmf4wiehhujt67my7tu
       postcss-mixins: 9.0.4_postcss@8.4.21
-      postcss-nesting: 10.2.0_postcss@8.4.21
+      postcss-nesting: 11.0.1_postcss@8.4.21
       prettier: 2.8.3
       prettier-plugin-svelte: 2.9.0_kdmmghgdi3ngrsq6otxkjilbry
       prettier-plugin-tailwindcss: 0.2.1_prettier@2.8.3
@@ -768,17 +768,6 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
-    dev: true
-
-  /@csstools/selector-specificity/2.0.2_jwkxkvlpbeeukrxssifiwvrjeq:
-    resolution: {integrity: sha512-IkpVW/ehM1hWKln4fCA3NzJU8KwD+kIOvPZA4cqxoJHtE21CCzjyp+Kxbu0i5I4tBNOlXPL9mjwnWlL0VEG4Fg==}
-    engines: {node: ^12 || ^14 || >=16}
-    peerDependencies:
-      postcss: ^8.2
-      postcss-selector-parser: ^6.0.10
-    dependencies:
-      postcss: 8.4.21
-      postcss-selector-parser: 6.0.10
     dev: true
 
   /@csstools/selector-specificity/2.0.2_wajs5nedgkikc5pcuwett7legi:
@@ -5440,18 +5429,18 @@ packages:
       postcss: ^8.2.14
     dependencies:
       postcss: 8.4.21
-      postcss-selector-parser: 6.0.10
+      postcss-selector-parser: 6.0.11
     dev: true
 
-  /postcss-nesting/10.2.0_postcss@8.4.21:
-    resolution: {integrity: sha512-EwMkYchxiDiKUhlJGzWsD9b2zvq/r2SSubcRrgP+jujMXFzqvANLt16lJANC+5uZ6hjI7lpRmI6O8JIl+8l1KA==}
-    engines: {node: ^12 || ^14 || >=16}
+  /postcss-nesting/11.0.1_postcss@8.4.21:
+    resolution: {integrity: sha512-p/XiegrifL9CBwBiuJtFuUUvp8AgmxdyjNagmIjLEyJDUuo0JwbEgUsnQ99SzE7TRRXqXml7BFXkZpRhonE8rQ==}
+    engines: {node: ^14 || ^16 || >=18}
     peerDependencies:
-      postcss: ^8.2
+      postcss: ^8.4
     dependencies:
-      '@csstools/selector-specificity': 2.0.2_jwkxkvlpbeeukrxssifiwvrjeq
+      '@csstools/selector-specificity': 2.0.2_wajs5nedgkikc5pcuwett7legi
       postcss: 8.4.21
-      postcss-selector-parser: 6.0.10
+      postcss-selector-parser: 6.0.11
     dev: true
 
   /postcss-normalize-charset/5.1.0_postcss@8.4.21:
