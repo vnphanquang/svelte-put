@@ -2,8 +2,8 @@
   import { shortcut } from '@svelte-put/shortcut';
 </script>
 
-<div use:shortcut={{ trigger: { key: 'k', modifier: 'ctrl' } }} />
-<div
+<svelte:window
+  use:shortcut={{ trigger: { key: 'k', modifier: 'ctrl' } }}
   use:shortcut={{
     trigger: [
       { key: 'k', modifier: 'ctrl' },

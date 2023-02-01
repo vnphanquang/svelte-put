@@ -1,10 +1,12 @@
 <script lang="ts">
   import Code from '$client/components/Code/Code.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
+
   export let action: string;
+  export let tag = 'div';
 
   const code = `<-- correct usage-->
-<div use:${action} />
+<${tag} use:${action} />
 
 <-- incorrect usage-->
 <Component use:${action} />`;

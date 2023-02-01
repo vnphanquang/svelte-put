@@ -21,7 +21,7 @@
   <Code lang="svelte" code={codes.quickStart} title="quick start" />
 </section>
 
-<ActionUsageNotice action={data.package.id} />
+<ActionUsageNotice action={data.package.id} tag="svelte:window" />
 
 <section>
   <h2>Key Combination</h2>

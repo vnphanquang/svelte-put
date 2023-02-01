@@ -3,4 +3,4 @@
 </script>
 
 <!-- on:shortcut should be automatically typed -->
-<div use:shortcut={{ trigger: [] }} on:shortcut />
+<svelte:window use:shortcut={{ trigger: [] }} on:shortcut />

@@ -6,7 +6,7 @@
   }
 </script>
 
-<div
+<svelte:window
   use:shortcut={{
     trigger: {
       key: 'k',
