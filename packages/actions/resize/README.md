@@ -2,7 +2,7 @@
 
 # `@svelte-put/resize`
 
-[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia]
+[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia] [![docs.badge]][docs]
 
 Svelte action `use:resize` for pointer drag-to-scroll behavior
 
@@ -12,27 +12,26 @@ Svelte action `use:resize` for pointer drag-to-scroll behavior
 
 This package is part of the [@svelte-put][github.monorepo] family. For contributing guideline and more, refer to its [readme][github.monorepo].
 
+## Usage & Documentation
+
+[See the dedicated documentation page here][docs].
+
+## Quick Start
+
+```html
+<script lang="ts">
+  import { resize } from '@svelte-put/resize';
+  import type { ResizeDetail } from '@svelte-put/resize';
+
+  function onResized(e: CustomEvent<ResizeDetail>) {
+    console.log(e.detail);
+  }
+</script>
+
+<div use:resize on:resized="{onResized}" />
+```
+
 ## [Changelog][github.changelog]
-
-## Installation
-
-```bash
-npm install -D @svelte-put/resize
-```
-
-```bash
-yarn add -D @svelte-put/resize
-```
-
-```bash
-pnpm add -D @svelte-put/resize
-```
-
-</details>
-
-## Documentation
-
-For detailed documentation, see the [extracted API][github.api].
 
 <p align="center">
   <a href="https://www.buymeacoffee.com/vnphanquang" target="_blank">
@@ -50,7 +49,6 @@ For detailed documentation, see the [extracted API][github.api].
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
 [github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/resize/CHANGELOG.md
 [github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
-[github.api]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/resize/api/docs/index.md
 
 <!-- heading badge -->
 
@@ -58,3 +56,5 @@ For detailed documentation, see the [extracted API][github.api].
 [npm]: https://www.npmjs.com/package/@svelte-put/resize
 [bundlephobia.badge]: https://img.shields.io/bundlephobia/minzip/@svelte-put/resize?label=minzipped
 [bundlephobia]: https://bundlephobia.com/package/@svelte-put/resize
+[docs]: https://svelte-put.vnphanquang.com/docs/resize
+[docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue

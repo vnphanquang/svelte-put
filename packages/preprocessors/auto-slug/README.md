@@ -8,13 +8,40 @@ Svelte preprocessor for adding `id` and anchor to nodes
 
 </div>
 
+## `svelte-put`
+
+This package is part of the [@svelte-put][github.monorepo] family. For contributing guideline and more, refer to its [readme][github.monorepo].
+
 ## Usage & Documentation
 
 [See the dedicated documentation page here][docs].
 
-## `svelte-put`
+## Quick Start
 
-This package is part of the [@svelte-put][github.monorepo] family. For contributing guideline and more, refer to its [readme][github.monorepo].
+```html
+<!-- input -->
+<h2>Quick start</h2>
+```
+
+```javascript
+// config
+import autoSlug from '@svelte-put/preprocess-auto-slug';
+
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
+  preprocess: [autoSlug()],
+};
+
+export default config;
+```
+
+```html
+<!-- output -->
+<h2 id="quick-start">
+  <a href="#quick-start" aria-hidden="true" tabindex="-1">#</a>
+  Quick Start
+</h2>
+```
 
 ## [Changelog][github.changelog]
 

@@ -10,13 +10,23 @@ Svelte action `use:movable` - make a node move on mousedown & mousemove
 
 </div>
 
+## `svelte-put`
+
+This package is part of the [@svelte-put][github.monorepo] family. For contributing guideline and more, refer to its [readme][github.monorepo].
+
 ## Usage & Documentation
 
 [See the dedicated documentation page here][docs].
 
-## `svelte-put`
+## Quick Start
 
-This package is part of the [@svelte-put][github.monorepo] family. For contributing guideline and more, refer to its [readme][github.monorepo].
+```html
+<script lang="ts">
+  import { movable } from '@svelte-put/movable';
+</script>
+
+<div class="h-20 w-20" use:movable>...</div>
+```
 
 ## [Changelog][github.changelog]
 

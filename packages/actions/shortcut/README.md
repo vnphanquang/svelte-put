@@ -8,13 +8,29 @@ Svelte action `use:shortcut` - add event listener for keyboard shortcuts
 
 </div>
 
+## `svelte-put`
+
+This package is part of the [@svelte-put][github.monorepo] family. For contributing guideline and more, refer to its [readme][github.monorepo].
+
 ## Usage & Documentation
 
 [See the dedicated documentation page here][docs].
 
-## `svelte-put`
+## Quick Start
 
-This package is part of the [@svelte-put][github.monorepo] family. For contributing guideline and more, refer to its [readme][github.monorepo].
+```html
+<script lang="ts">
+  import { shortcut, type ShortcutEventDetails } from '@svelte-put/shortcut';
+
+  function handleK(detail: ShortcutEventDetails) {
+    console.log('attached node:', detail.node);
+    console.log('original trigger config:', detail.trigger);
+  }
+</script>
+
+<svelte:window use:shortcut={{ trigger: { key: 'k', modifier: ['ctrl', 'meta'], callback: handleK,
+}, }} />
+```
 
 ## [Changelog][github.changelog]
 

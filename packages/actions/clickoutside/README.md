@@ -10,13 +10,27 @@ Svelte action `use:clickoutside` - event for clicking outside a node
 
 </div>
 
+## `svelte-put`
+
+This package is part of the [@svelte-put][github.monorepo] family. For contributing guideline and more, refer to its [readme][github.monorepo].
+
 ## Usage & Documentation
 
 [See the dedicated documentation page here][docs].
 
-## `svelte-put`
+## Quick Start
 
-This package is part of the [@svelte-put][github.monorepo] family. For contributing guideline and more, refer to its [readme][github.monorepo].
+```html
+<script lang="ts">
+  import { clickoutside } from '@svelte-put/clickoutside';
+
+  function doSomething(e: CustomEvent<MouseEvent>) {
+    console.log(e.target);
+  }
+</script>
+
+<div use:clickoutside on:clickoutside="{doSomething}" />
+```
 
 ## [Changelog][github.changelog]
 

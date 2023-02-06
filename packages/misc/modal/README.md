@@ -10,13 +10,45 @@ Solution to async & type-safe modals in Svelte.
 
 This solution employs [svelte store][svelte.store] for handling stack-able modals in an async manner. That is, you can open a modal programmatically and await for it to be "resolved".
 
+## `svelte-put`
+
+This package is part of the [@svelte-put][github.monorepo] family. For contributing guideline and more, refer to its [readme][github.monorepo].
+
 ## Usage & Documentation
 
 [See the dedicated documentation page here][docs].
 
-## `svelte-put`
+## Quick Start
 
-This package is part of the [@svelte-put][github.monorepo] family. For contributing guideline and more, refer to its [readme][github.monorepo].
+```typescript
+// setup modal store
+import { createModalStore } from '@svelte-put/modal';
+export const modalStore = createModalStore();
+```
+
+```html
+<!-- setup ModalPortal -->
+<script lang="ts">
+  import ModalPortal from '@svelte-put/modal/ModalPortal.svelte';
+
+  import { modalStore } from './modal.store';
+</script>
+
+<slot />
+
+<ModalPortal store="{modalStore}" />
+```
+
+```typescript
+// load compatible modal & push/pop
+import { modalStore } from './modal.store';
+import MyModal from './MyModal.svelte';
+
+const pushed = modal.push(MyModal, {
+  /* props */
+});
+modal.pop(pushed);
+```
 
 ## [Changelog][github.changelog]
 

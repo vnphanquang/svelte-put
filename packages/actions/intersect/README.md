@@ -10,13 +10,29 @@ Svelte action `use:intersect` - wrapper for [IntersectionObserver](https://devel
 
 </div>
 
+## `svelte-put`
+
+This package is part of the [@svelte-put][github.monorepo] family. For contributing guideline and more, refer to its [readme][github.monorepo].
+
 ## Usage & Documentation
 
 [See the dedicated documentation page here][docs].
 
-## `svelte-put`
+## Quick Start
 
-This package is part of the [@svelte-put][github.monorepo] family. For contributing guideline and more, refer to its [readme][github.monorepo].
+```html
+<script lang="ts">
+  import { intersect, type IntersectDetail } from '@svelte-put/intersect';
+  function onIntersect(e: CustomEvent<IntersectDetail>) {
+    const { observer, entries, direction } = e.detail;
+    console.log('the observer itself', observer);
+    console.log('scrolling direction:', direction);
+    console.log('intersecting:', entries[0]?.isIntersecting ? 'entering' : 'leaving');
+  }
+</script>
+
+<div use:intersect on:intersect="{onIntersect}" on:intersectonce />
+```
 
 ## [Changelog][github.changelog]
 

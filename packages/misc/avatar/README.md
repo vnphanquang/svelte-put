@@ -8,15 +8,35 @@ Svelte `Avatar` component and utilities for building avatars with builtin suppor
 
 </div>
 
+## `svelte-put`
+
+This package is part of the [@svelte-put][github.monorepo] family. For contributing guideline and more, refer to its [readme][github.monorepo].
+
 ## Usage & Documentation
 
 [See the dedicated documentation page here][docs].
 
+## Quick Start
+
+```html
+<script lang="ts">
+  import Avatar from '@svelte-put/avatar/Avatar.svelte';
+
+  export let id: string;
+  export let email = '';
+  export let firstName = '';
+  export let lastName = '';
+</script>
+
+<Avatar
+  src="https://your.api/avatar/{id}"
+  gravatar="{email}"
+  uiAvatar="{firstName}+{lastName}"
+  fallback="https://your.api/avatar/default"
+/>
+```
+
 ## [Changelog][github.changelog]
-
-## `svelte-put`
-
-This package is part of the [@svelte-put][github.monorepo] family. For contributing guideline and more, refer to its [readme][github.monorepo].
 
 <!-- github specifics -->
 

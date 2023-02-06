@@ -8,13 +8,27 @@ Svelte action `use:copy` and utility for copying text to clipboard
 
 </div>
 
+## `svelte-put`
+
+This package is part of the [@svelte-put][github.monorepo] family. For contributing guideline and more, refer to its [readme][github.monorepo].
+
 ## Usage & Documentation
 
 [See the dedicated documentation page here][docs].
 
-## `svelte-put`
+## Quick Start
 
-This package is part of the [@svelte-put][github.monorepo] family. For contributing guideline and more, refer to its [readme][github.monorepo].
+```html
+<script lang="ts">
+  import { copy, type CopyDetail } from '@svelte-put/copy';
+
+  function handleCopied(e: CustomEvent<CopyDetail>) {
+    console.log('Text copied:', e.detail.text);
+  }
+</script>
+
+<button type="button" use:copy on:copied="{handleCopied}">Click to copy this</button>
+```
 
 ## [Changelog][github.changelog]
 
