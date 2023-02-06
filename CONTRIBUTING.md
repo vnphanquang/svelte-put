@@ -41,15 +41,16 @@ Each pull request should [reference an open issue][github.issues.open] unless th
 ## Consistent Code Style
 
 1. Commit message should follow the [Conventional Commits specification][conventionalcommits].
-2. Code should be formatted with [prettier] and linted with [eslint]. They are already integrated into the codebase. See [package.json] for relevant scripts. There might also exist extensions for your editor that further enhance the experience with these tools.
+2. Code should be formatted with [prettier] and linted with [eslint] and [stylelint]. They are already integrated into the codebase. See [package.json] for relevant scripts. There might also exist extensions for your editor that further enhance the experience with these tools.
    - [VS Code Prettier][vscode.extension.prettier]
    - [VS Code Eslint][vscode.extension.eslint]
+   - [VS Code Stylelint][vscode.extension.stylelint]
 
 ## Development Setup
 
 This is a monorepo managed with [pnpm] & [turborepo]. Familiarity with [turborepo] is helpful but [turborepo] shouldn't stand in your way otherwise.
 
-The monorepo contains several "projects" (a folder with its own `package.json` - "package" in [pnpm] terminology). Using the term "subproject" here to include both "packages" (released to `npm`) and other npm projects.
+The monorepo contains several "projects" (a folder with its own `package.json` - "package" in [pnpm] terminology).
 
 Typically you will only work in one project at a time, in which case the workflow is similar if not exactly the following:
 
@@ -77,16 +78,20 @@ Some extensions that are well suited for this project:
 | [Monorepo Workspace](https://marketplace.visualstudio.com/items?itemName=folke.vscode-monorepo-workspace)  | Folke Lemaitre |
 | [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)             | Svelte         |
 | [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) | Brad Cornes    |
-| [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)                | stylelint      |
+| [Stylelint][vscode.extension.stylelint]                                                                    | stylelint      |
+| [Eslint][vscode.extension.eslint]                                                                          | eslint         |
+| [Prettier][vscode.extension.prettier]                                                                      | prettier       |
 
 [turborepo]: https://turborepo.org/
-[github]: https://github.com/vnphanquang/svelte-put
+[github]: https://github.com/vnphanquangsvelte-put/
 [github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
 [github.issues.open]: https://github.com/vnphanquang/svelte-put/issues?q=is%3Aissue+is%3Aopen
-[github.discussions]: https://github.com/vnphanquang/svelte-put/discussions
+[github.discussions]: https://github.com/vnphanquang/vnphanquang.dev/discussions
 [conventionalcommits]: https://www.conventionalcommits.org/en/v1.0.0/
 [prettier]: https://prettier.io/
 [eslint]: https://eslint.org/
+[stylelint]: https://stylelint.io/
 [vscode.extension.prettier]: https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
 [vscode.extension.eslint]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+[vscode.extension.stylelint]: https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint
 [pnpm]: https://pnpm.io/
