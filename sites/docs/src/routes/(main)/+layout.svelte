@@ -21,7 +21,7 @@
   import Rss from '$client/components/icons/material/Rss.svelte';
   import VolunteerActivism from '$client/components/icons/material/VolunteerActivism.svelte';
   import { getPrefersColorScheme } from '$client/utils/color-scheme';
-  import { LoadDependencies, APP_ROUTE_TREE } from '$shared/constants';
+  import { LOAD_DEPENDENCIES, APP_ROUTE_TREE } from '$shared/constants';
   import { packagesByCategory } from '$shared/data/packages';
   import type { ColorScheme } from '$shared/types';
   import { capitalize } from '$shared/utils/string';
@@ -65,7 +65,7 @@
       method: 'POST',
       body: scheme,
     });
-    invalidate(LoadDependencies.ColorScheme);
+    invalidate(LOAD_DEPENDENCIES.COLOR_SCHEME);
   }
 </script>
 
