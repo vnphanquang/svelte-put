@@ -323,9 +323,9 @@ importers:
       '@microsoft/api-documenter': ^7.19.28
       '@microsoft/api-extractor': ^7.33.8
       '@svelte-put/apirc': workspace:^0.0.0
-      '@svelte-put/clickoutside': ^1.1.0
-      '@svelte-put/movable': ^1.2.2
-      '@svelte-put/shortcut': ^1.0.2
+      '@svelte-put/clickoutside': ^1.2.1
+      '@svelte-put/movable': ^1.4.1
+      '@svelte-put/shortcut': ^1.1.1
       '@svelte-put/tsconfig': workspace:^0.0.0
       '@sveltejs/adapter-auto': 1.0.2
       '@sveltejs/kit': 1.3.10

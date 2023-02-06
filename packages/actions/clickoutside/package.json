@@ -1,6 +1,6 @@
 {
   "name": "@svelte-put/clickoutside",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Event for clicking outside a node",
   "main": "lib/index.js",
   "module": "lib/index.js",

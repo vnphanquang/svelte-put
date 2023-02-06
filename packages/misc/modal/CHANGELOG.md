@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.6.3
+
+### Patch Changes
+
+- [`227e8dc`](https://github.com/vnphanquang/svelte-put/commit/227e8dc11f850787f9f98eb4b24cd23015c9c25c) Thanks [@vnphanquang](https://github.com/vnphanquang)! - add "Quick Start" section in package README
+
+- Updated dependencies [[`227e8dc`](https://github.com/vnphanquang/svelte-put/commit/227e8dc11f850787f9f98eb4b24cd23015c9c25c)]:
+  - @svelte-put/clickoutside@1.2.1
+  - @svelte-put/shortcut@1.1.1
+  - @svelte-put/movable@1.4.1
+
 ## 0.6.2
 
 ### Patch Changes
