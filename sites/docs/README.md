@@ -31,7 +31,7 @@ pyftsubset Inter.var.woff2 --unicodes="U+1f00-1fff" --output-file="inter-greek-e
 
 </details>
 
-will generate a collection of subsets as seen at [static/fonts/inter](https://github.com/vnphanquang/svelte-put/tree/main/apps/docs/static/fonts/inter), with css seen at [src/lib/ui/styles/fonts/inter.font.css](https://github.com/vnphanquang/svelte-put/blob/main/apps/docs/src/lib/ui/styles/fonts/inter.font.css).
+will generate a collection of subsets as seen at [static/fonts/inter](https://github.com/vnphanquang/svelte-put/tree/main/sites/docs/static/fonts/inter), with css seen at [src/lib/ui/styles/fonts/inter.font.css](https://github.com/vnphanquang/svelte-put/blob/main/sites/docs/src/lib/ui/styles/fonts/inter.font.css).
 
 This strategy was [discussed here](https://github.com/vuejs/vitepress/discussions/1648)
 

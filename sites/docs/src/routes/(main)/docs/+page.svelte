@@ -125,6 +125,6 @@
 
 <p class="text-right">
   <EditThisPageLink
-    href="https://github.com/vnphanquang/svelte-put/edit/main/apps/docs/src/routes/(main)/docs/+page.svelte"
+    href="https://github.com/vnphanquang/svelte-put/edit/main/sites/docs/src/routes/(main)/docs/+page.svelte"
   />
 </p>

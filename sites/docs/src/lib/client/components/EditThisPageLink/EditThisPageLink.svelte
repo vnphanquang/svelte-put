@@ -9,7 +9,7 @@
   $: rHref = href || getEditPageUrl(packageId);
 
   function getEditPageUrl(packageId = '') {
-    return `https://github.com/vnphanquang/svelte-put/edit/main/apps/docs/src/routes/(main)/docs/(pkg)/${packageId}/+page.svelte`;
+    return `https://github.com/vnphanquang/svelte-put/edit/main/sites/docs/src/routes/(main)/docs/(pkg)/${packageId}/+page.svelte`;
   }
 </script>
 

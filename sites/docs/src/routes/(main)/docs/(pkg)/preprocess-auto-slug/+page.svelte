@@ -79,7 +79,7 @@
   <p>
     This documentation site uses this very package. Most <code>id</code>
     and link tag for headings are auto-generated during build. See <ResourceLink
-      href="https://github.com/vnphanquang/svelte-put/blob/vercel/apps/docs/svelte.config.js"
+      href="https://github.com/vnphanquang/svelte-put/blob/vercel/sites/docs/svelte.config.js"
       >svelte.config.js</ResourceLink
     >
     as an example for a more complex use case.

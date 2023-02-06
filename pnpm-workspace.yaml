@@ -5,4 +5,4 @@ packages:
   - "packages/actions/*"
   - "packages/components/*"
   - "packages/misc/*"
-  - "apps/*"
+  - "sites/*"
