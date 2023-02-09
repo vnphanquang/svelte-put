@@ -69,7 +69,7 @@ const sveltePut = plugin(
         '@apply c-badge bg-blue-700': {},
       },
       '.c-container': {
-        '@apply mx-auto w-full px-4 md:px-5 md:px-6 xl:px-8 max-w-[1440px]': {},
+        '@apply mx-auto w-full px-4 md:px-5 md:px-6 xl:px-8 max-w-[1920px]': {},
       },
       '.c-link': {
         '@apply hover:text-primary data-current:text-primary': {},

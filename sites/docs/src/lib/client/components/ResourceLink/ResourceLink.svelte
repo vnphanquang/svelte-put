@@ -37,3 +37,9 @@
 <a href={rHref} {...!id && { target: '_blank' }} class="c-link {cls}" {title} {...additionalProps}>
   <slot>{key}</slot>
 </a>
+
+<style lang="postcss">
+  :global(*) .c-link {
+    @apply text-primary hover:underline;
+  }
+</style>
