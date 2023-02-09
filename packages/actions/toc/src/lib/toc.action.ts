@@ -372,11 +372,12 @@ export const toclink: Action<HTMLAnchorElement, TocLinkParameters> = function (
     mutationObserver?.disconnect();
   }
 
+  execute();
+
   return {
     update(update = {}) {
       resolved = resolveTocLinkParameters(update);
-      cleanup();
-      execute();
+      // as with `toc` action, we do not support dynamic update right now
     },
     destroy() {
       cleanup();
