@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.1.3
+
+### Patch Changes
+
+- [#135](https://github.com/vnphanquang/svelte-put/pull/135) [`a86347a`](https://github.com/vnphanquang/svelte-put/commit/a86347a4fe6c189fe2d6005bbf82138a1956ed4a) Thanks [@vnphanquang](https://github.com/vnphanquang)! - execute toclink operation on mount, and remove rerun on update, resolves #133
+
 ## 2.1.2
 
 ### Patch Changes
