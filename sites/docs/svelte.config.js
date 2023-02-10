@@ -19,7 +19,9 @@ const config = {
     vitePreprocess(),
   ],
   kit: {
-    adapter: adapter(),
+    adapter: adapter({
+      runtime: 'edge',
+    }),
     alias: {
       $routes: 'src/routes',
       $client: 'src/lib/client',
