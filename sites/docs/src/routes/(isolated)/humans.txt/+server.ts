@@ -1,3 +1,4 @@
+import type { Config } from '@sveltejs/adapter-vercel';
 import Handlebars from 'handlebars';
 
 import { BUILD_TIMESTAMP } from '$env/static/private';
@@ -16,4 +17,8 @@ export const GET: RequestHandler = async () => {
     'Content-Type': 'text/plain',
   };
   return new Response(txt, { headers });
+};
+
+export const config: Config = {
+  runtime: 'nodejs16.x',
 };

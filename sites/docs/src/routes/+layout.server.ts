@@ -1,3 +1,5 @@
+import type { Config } from '@sveltejs/adapter-vercel';
+
 import { VERCEL_ANALYTICS_ID } from '$env/static/private';
 import { LOAD_DEPENDENCIES } from '$shared/constants';
 
@@ -10,4 +12,8 @@ export const load: LayoutServerLoad = async ({ url, locals, depends }) => {
     vercelAnalyticsId: VERCEL_ANALYTICS_ID,
     colorScheme: locals.colorScheme,
   };
+};
+
+export const config: Config = {
+  runtime: 'edge',
 };
