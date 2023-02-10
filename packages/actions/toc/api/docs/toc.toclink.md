@@ -8,7 +8,7 @@ complementary action to `use:toc` applies to anchor elements that will link to a
 
 See example for the functionalities this action provides
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 toclink: Action<HTMLAnchorElement, TocLinkParameters>

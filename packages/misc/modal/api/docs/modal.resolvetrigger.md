@@ -18,7 +18,7 @@ The trigger that resolves the modal
 
 - `custom`<!-- -->: modal was resolved by a custom dispatch. Use this in your custom modal when extending the `resolve` event with additional props. See [ExtendedModalEvents](./modal.extendedmodalevents.md)
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type ResolveTrigger = 'backdrop' | 'x' | 'escape' | 'clickoutside' | 'pop' | 'custom';

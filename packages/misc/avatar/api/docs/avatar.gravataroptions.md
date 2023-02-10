@@ -6,7 +6,7 @@
 
 Options for building [Gravatar](https://en.gravatar.com/site/implement/images) url. Each option should map to a supported Gravatar query param
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface GravatarOptions 
@@ -16,9 +16,9 @@ export interface GravatarOptions
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [default?](./avatar.gravataroptions.default.md) |  | [GravatarDefault](./avatar.gravatardefault.md) | <i>(Optional)</i> fallback image. See [Gravatar](https://en.gravatar.com/site/implement/images) for detailed explanation |
+|  [default?](./avatar.gravataroptions.default.md) |  | [GravatarDefault](./avatar.gravatardefault.md) | _(Optional)_ fallback image. See [Gravatar](https://en.gravatar.com/site/implement/images) for detailed explanation |
 |  [email](./avatar.gravataroptions.email.md) |  | string | email to md5-hash |
-|  [forcedefault?](./avatar.gravataroptions.forcedefault.md) |  | 'y' | <i>(Optional)</i> Whether to force using default image |
-|  [rating?](./avatar.gravataroptions.rating.md) |  | 'g' \| 'pg' \| 'r' \| 'x' | <i>(Optional)</i> Rating to request |
-|  [size?](./avatar.gravataroptions.size.md) |  | number | <i>(Optional)</i> Size in pixel, from 1px up to 2048px |
+|  [forcedefault?](./avatar.gravataroptions.forcedefault.md) |  | 'y' | _(Optional)_ Whether to force using default image |
+|  [rating?](./avatar.gravataroptions.rating.md) |  | 'g' \| 'pg' \| 'r' \| 'x' | _(Optional)_ Rating to request |
+|  [size?](./avatar.gravataroptions.size.md) |  | number | _(Optional)_ Size in pixel, from 1px up to 2048px |
 

@@ -6,7 +6,7 @@
 
 the [KeyboardEvent](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)<!-- -->.key to listen to
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 key: string;

@@ -6,7 +6,7 @@
 
 Additional attributes extended from `svelte-put/resize`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface ResizeAttributes 
@@ -32,5 +32,5 @@ The ambient types for these extended attributes should be available automaticall
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  ["on:resized"?](./resize.resizeattributes._on_resized_.md) |  | (event: CustomEvent&lt;[ResizeDetail](./resize.resizedetail.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
+|  ["on:resized"?](./resize.resizeattributes._on_resized_.md) |  | (event: CustomEvent&lt;[ResizeDetail](./resize.resizedetail.md)<!-- -->&gt;) =&gt; void | _(Optional)_ |
 

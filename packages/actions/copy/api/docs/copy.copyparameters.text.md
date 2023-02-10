@@ -6,7 +6,7 @@
 
 the text to copy, or a sync/async function that returns it
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 text: string | TextResolver<K>;

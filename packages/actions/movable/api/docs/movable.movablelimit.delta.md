@@ -6,7 +6,7 @@
 
 Bounding box limit in both axes
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 delta?: {

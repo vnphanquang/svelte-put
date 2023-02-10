@@ -4,7 +4,7 @@
 
 ## SelectProperties.search property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 search?: SearchProp<O>;

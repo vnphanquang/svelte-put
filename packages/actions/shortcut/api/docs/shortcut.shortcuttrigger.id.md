@@ -6,7 +6,7 @@
 
 id to distinguish this trigger from others
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 id?: string;

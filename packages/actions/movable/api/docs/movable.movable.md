@@ -6,7 +6,7 @@
 
 Trigger node displacement on mousedown (via position.left &amp; position.top)
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 movable: Action<HTMLElement, MovableParameters, MovableAttributes>

@@ -16,7 +16,7 @@ where to create the anchor tag
 
 - 'after' — insert link after the target tag Default to: 'prepend'
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 position?: 'prepend' | 'append' | 'wrap' | 'before' | 'after';

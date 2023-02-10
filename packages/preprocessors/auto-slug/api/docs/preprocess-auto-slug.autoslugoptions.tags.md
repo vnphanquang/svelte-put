@@ -6,7 +6,7 @@
 
 target tag, default to all heading tags
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 tags: string[];

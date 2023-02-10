@@ -6,7 +6,7 @@
 
 The limit within which node can be moved
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface MovableLimit 
@@ -16,6 +16,6 @@ export interface MovableLimit
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [delta?](./movable.movablelimit.delta.md) |  | { x: [MovableLimitDelta](./movable.movablelimitdelta.md)<!-- -->; y: [MovableLimitDelta](./movable.movablelimitdelta.md)<!-- -->; } \| [MovableLimitDelta](./movable.movablelimitdelta.md) | <i>(Optional)</i> Bounding box limit in both axes |
-|  [parent?](./movable.movablelimit.parent.md) |  | HTMLElement \| 'screen' | <i>(Optional)</i> Move node within this parent node or within screen |
+|  [delta?](./movable.movablelimit.delta.md) |  | { x: [MovableLimitDelta](./movable.movablelimitdelta.md)<!-- -->; y: [MovableLimitDelta](./movable.movablelimitdelta.md)<!-- -->; } \| [MovableLimitDelta](./movable.movablelimitdelta.md) | _(Optional)_ Bounding box limit in both axes |
+|  [parent?](./movable.movablelimit.parent.md) |  | HTMLElement \| 'screen' | _(Optional)_ Move node within this parent node or within screen |
 

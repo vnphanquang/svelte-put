@@ -6,7 +6,7 @@
 
 callback for when the trigger is matched
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 callback?: (detail: ShortcutEventDetails) => void;

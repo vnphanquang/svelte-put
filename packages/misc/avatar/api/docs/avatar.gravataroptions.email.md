@@ -6,7 +6,7 @@
 
 email to md5-hash
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 email: string;

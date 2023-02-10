@@ -6,7 +6,7 @@
 
 instruction for how `use:dragscroll` will behave
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface DragScrollParameters 

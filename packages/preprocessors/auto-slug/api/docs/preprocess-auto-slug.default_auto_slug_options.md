@@ -6,7 +6,7 @@
 
 default options for auto-slug
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 DEFAULT_AUTO_SLUG_OPTIONS: AutoSlugOptions

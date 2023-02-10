@@ -6,7 +6,7 @@
 
 whether the modal has been resolved
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 resolved: boolean;

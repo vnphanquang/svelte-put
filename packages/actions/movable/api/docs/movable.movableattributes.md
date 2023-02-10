@@ -6,7 +6,7 @@
 
 Additional attributes extended from `svelte-put/intersect`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface MovableAttributes 
@@ -33,6 +33,6 @@ The ambient types for these extended attributes should be available automaticall
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  ["on:movableend"?](./movable.movableattributes._on_movableend_.md) |  | (event: CustomEvent&lt;[MovableEventDetails](./movable.movableeventdetails.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
-|  ["on:movablestart"?](./movable.movableattributes._on_movablestart_.md) |  | (event: CustomEvent&lt;[MovableEventDetails](./movable.movableeventdetails.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
+|  ["on:movableend"?](./movable.movableattributes._on_movableend_.md) |  | (event: CustomEvent&lt;[MovableEventDetails](./movable.movableeventdetails.md)<!-- -->&gt;) =&gt; void | _(Optional)_ |
+|  ["on:movablestart"?](./movable.movableattributes._on_movablestart_.md) |  | (event: CustomEvent&lt;[MovableEventDetails](./movable.movableeventdetails.md)<!-- -->&gt;) =&gt; void | _(Optional)_ |
 

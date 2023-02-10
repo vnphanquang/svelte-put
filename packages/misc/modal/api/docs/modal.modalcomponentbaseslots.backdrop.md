@@ -6,7 +6,7 @@
 
 backdrop of the modal
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 backdrop: {

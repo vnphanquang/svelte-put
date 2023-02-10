@@ -6,7 +6,7 @@
 
 "src" attribute. This option is of highest priority
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 src?: string;

@@ -4,7 +4,7 @@
 
 ## SelectProperties.selected property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 selected?: undefined extends M ? O : true extends M ? O[] : O;

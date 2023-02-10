@@ -6,7 +6,7 @@
 
 Name used to generate initials. Ex: John+Doe
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 name: string;

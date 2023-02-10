@@ -4,7 +4,7 @@
 
 ## ResizeAttributes."on:resized" property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 'on:resized'?: (event: CustomEvent<ResizeDetail>) => void;

@@ -6,7 +6,7 @@
 
 the DOM element that was transformed
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 element: HTMLElement;

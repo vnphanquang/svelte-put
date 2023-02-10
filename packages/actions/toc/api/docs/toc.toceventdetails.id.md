@@ -6,7 +6,7 @@
 
 the ID of this toc operation. see [TocParameters](./toc.tocparameters.md)
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 id: string;

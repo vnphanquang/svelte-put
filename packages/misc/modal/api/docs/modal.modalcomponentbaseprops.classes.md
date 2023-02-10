@@ -10,7 +10,7 @@ custom class names for the modal elements.
 
 - If property is provided as `{ override: string }`<!-- -->, it'll override the default class name of that element.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 classes?: Partial<Record<Exclude<keyof ModalComponentBaseSlots, 'default' | 'x-content'>, string | {

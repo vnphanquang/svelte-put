@@ -6,7 +6,7 @@
 
 value for "width" &amp; "height" attribute of <img>. Will have no effect if default slot is overridden
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 size?: number;

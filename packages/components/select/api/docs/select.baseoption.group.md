@@ -4,7 +4,7 @@
 
 ## BaseOption.group property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 group?: string;

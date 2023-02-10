@@ -6,7 +6,7 @@
 
 The store type inferred from [createTocStore()](./toc.createtocstore.md)
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type TocStore = ReturnType<typeof createTocStore>;

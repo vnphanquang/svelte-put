@@ -6,7 +6,7 @@
 
 A node that triggers mousedown event, otherwise the node itself is the handle
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 handle?: HTMLElement;

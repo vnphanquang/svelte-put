@@ -6,7 +6,7 @@
 
 `detail` payload for `copy` `CustomEvent`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface CopyDetail 

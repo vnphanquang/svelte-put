@@ -4,7 +4,7 @@
 
 ## ModalStore.subscribe property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 subscribe: ModalStoreSubscribe;

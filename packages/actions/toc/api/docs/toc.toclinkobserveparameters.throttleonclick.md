@@ -6,7 +6,7 @@
 
 throttle the observe of `use:toc` on click
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 throttleOnClick?: number;

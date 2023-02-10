@@ -6,7 +6,7 @@
 
 filter which files the preprocessor will run on
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 files: (options: Parameters<MarkupPreprocessor>[0]) => boolean;

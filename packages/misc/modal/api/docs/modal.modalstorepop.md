@@ -6,12 +6,12 @@
 
 Pop the modal with given id. If `id` is not provided, pop the topmost modal
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type ModalStorePop = <Pushed extends ModalPushOutput<Component, Resolved>, Component extends ModalComponentBase, Resolved extends ModalResolved<Component>>(pushed?: Pushed, resolved?: Resolved) => Pushed | undefined;
 ```
-<b>References:</b> [ModalPushOutput](./modal.modalpushoutput.md)<!-- -->, [ModalComponentBase](./modal.modalcomponentbase.md)<!-- -->, [ModalResolved](./modal.modalresolved.md)
+**References:** [ModalPushOutput](./modal.modalpushoutput.md)<!-- -->, [ModalComponentBase](./modal.modalcomponentbase.md)<!-- -->, [ModalResolved](./modal.modalresolved.md)
 
 ## Remarks
 

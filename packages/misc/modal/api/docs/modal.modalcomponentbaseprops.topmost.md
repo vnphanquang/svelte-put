@@ -6,7 +6,7 @@
 
 whether the modal is at topmost position (last pushed), this prop is handled by the `ModalPortal` component and you don't have to touch this
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 topmost?: boolean;

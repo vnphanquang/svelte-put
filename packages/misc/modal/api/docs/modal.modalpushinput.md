@@ -6,7 +6,7 @@
 
 Either the Svelte modal component or an option object that specifies how to push the modal onto the stack
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type ModalPushInput<Component extends ModalComponentBase> = ComponentType<Component> | {
@@ -15,5 +15,5 @@ export type ModalPushInput<Component extends ModalComponentBase> = ComponentType
     props?: ComponentProps<Component>;
 };
 ```
-<b>References:</b> [ModalComponentBase](./modal.modalcomponentbase.md)
+**References:** [ModalComponentBase](./modal.modalcomponentbase.md)
 

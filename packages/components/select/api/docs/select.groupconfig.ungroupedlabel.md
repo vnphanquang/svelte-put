@@ -4,7 +4,7 @@
 
 ## GroupConfig.ungroupedLabel property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 ungroupedLabel: string;

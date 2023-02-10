@@ -18,7 +18,7 @@ where to create the anchor tag
 
 default to `prepend`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 position: 'prepend' | 'append' | 'wrap' | 'before' | 'after';

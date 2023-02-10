@@ -6,7 +6,7 @@
 
 list of IntersectionObserverEntry passed from IntersectionObserver callback
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 readonly entries: IntersectionObserverEntry[];

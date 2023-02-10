@@ -6,7 +6,7 @@
 
 svelte action `use:dragscroll` for adding 'drag-to-scroll' behavior
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 dragscroll: Action<HTMLElement, Partial<DragScrollParameters>>

@@ -4,7 +4,7 @@
 
 ## SelectProperties.value property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 value?: undefined extends M ? V : true extends M ? V[] : V;

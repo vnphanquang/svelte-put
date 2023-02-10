@@ -4,10 +4,10 @@
 
 ## Searcher type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type Searcher<Option> = (input: SearchInput<Option>) => Option[] | Promise<Option[]>;
 ```
-<b>References:</b> [SearchInput](./select.searchinput.md)
+**References:** [SearchInput](./select.searchinput.md)
 

@@ -6,7 +6,7 @@
 
 modifier key to listen to in conjunction of `key`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 modifier?: ShortcutModifierDefinition;

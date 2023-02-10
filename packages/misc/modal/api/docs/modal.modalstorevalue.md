@@ -5,10 +5,10 @@
 ## ModalStoreValue type
 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type ModalStoreValue = ModalPushOutput<ModalComponentBase, ModalComponentBaseResolved>[];
 ```
-<b>References:</b> [ModalPushOutput](./modal.modalpushoutput.md)<!-- -->, [ModalComponentBase](./modal.modalcomponentbase.md)<!-- -->, [ModalComponentBaseResolved](./modal.modalcomponentbaseresolved.md)
+**References:** [ModalPushOutput](./modal.modalpushoutput.md)<!-- -->, [ModalComponentBase](./modal.modalcomponentbase.md)<!-- -->, [ModalComponentBaseResolved](./modal.modalcomponentbaseresolved.md)
 

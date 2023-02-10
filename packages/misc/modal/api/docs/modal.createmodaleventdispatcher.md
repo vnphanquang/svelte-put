@@ -6,12 +6,12 @@
 
 Helper that wraps svelte `createEventDispatcher` for creating typesafe event dispatcher from the `$$Events` type. See [ExtendedModalEvents](./modal.extendedmodalevents.md)
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export declare function createModalEventDispatcher<Events extends ModalComponentBaseEvents<ModalComponentBaseResolved<ExtendedResolved>> & Record<string, CustomEvent<any>>, ExtendedResolved extends Record<string, any> = Omit<Events['resolve']['detail'], 'trigger'>>(): <EventKey extends Extract<keyof Events, string>>(type: EventKey, detail?: { [key in keyof Events]: Events[key]["detail"]; }[EventKey] | undefined, options?: import("svelte/internal").DispatchOptions | undefined) => boolean;
 ```
-<b>Returns:</b>
+**Returns:**
 
 &lt;EventKey extends Extract&lt;keyof Events, string&gt;&gt;(type: EventKey, detail?: { \[key in keyof Events\]: Events\[key\]\["detail"\]; }\[EventKey\] \| undefined, options?: import("svelte/internal").DispatchOptions \| undefined) =&gt; boolean
 

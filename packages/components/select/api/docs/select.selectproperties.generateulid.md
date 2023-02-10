@@ -4,7 +4,7 @@
 
 ## SelectProperties.generateUlId property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 generateUlId?: () => string;

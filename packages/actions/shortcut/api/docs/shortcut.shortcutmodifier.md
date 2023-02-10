@@ -6,7 +6,7 @@
 
 Supported modifier keys, map to [KeyboardEvent](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)<!-- -->'s [altkey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/altKey)<!-- -->, [ctrlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/ctrlKey)<!-- -->, [shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/shiftKey)<!-- -->, [metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/metaKey)<!-- -->.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';

@@ -6,7 +6,7 @@
 
 create a idiomatic svelte store to use with `toc` action
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export declare function createTocStore(): {
@@ -16,7 +16,7 @@ export declare function createTocStore(): {
     id: () => string | undefined;
 };
 ```
-<b>Returns:</b>
+**Returns:**
 
 { subscribe: (this: void, run: import("svelte/store").Subscriber&lt;[TocStoreValue](./toc.tocstorevalue.md)<!-- -->&gt;, invalidate?: ((value?: [TocStoreValue](./toc.tocstorevalue.md) \| undefined) =&gt; void) \| undefined) =&gt; import("svelte/store").Unsubscriber; set: (this: void, value: [TocStoreValue](./toc.tocstorevalue.md)<!-- -->) =&gt; void; update: (this: void, updater: import("svelte/store").Updater&lt;[TocStoreValue](./toc.tocstorevalue.md)<!-- -->&gt;) =&gt; void; id: () =&gt; string \| undefined; }
 

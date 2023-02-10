@@ -6,7 +6,7 @@
 
 component to render in modal layout
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 component: ComponentType<Component>;

@@ -6,7 +6,7 @@
 
 options to add to `addEventListener`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 options?: AddEventListenerOptions | boolean;

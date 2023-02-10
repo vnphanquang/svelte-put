@@ -6,7 +6,7 @@
 
 svelte action parameters to config behavior of `movable`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface MovableParameters 
@@ -20,10 +20,10 @@ export interface MovableParameters
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [cursor?](./movable.movableparameters.cursor.md) |  | boolean | <i>(Optional)</i> automatically change cursor to <code>grab</code> on hover and <code>grabbing</code> on mousedown of \`<!-- -->handle |
-|  [enabled?](./movable.movableparameters.enabled.md) |  | boolean | <i>(Optional)</i> whether to activate the action. Default to <code>true</code> |
-|  [handle?](./movable.movableparameters.handle.md) |  | HTMLElement | <i>(Optional)</i> A node that triggers mousedown event, otherwise the node itself is the handle |
-|  [ignore?](./movable.movableparameters.ignore.md) |  | string \| string\[\] | <i>(Optional)</i> CSS selectors within the <code>handle</code> node to exclude from triggering <code>movable</code>. Use this options with caution because it might affect performance. |
-|  [limit?](./movable.movableparameters.limit.md) |  | [MovableLimit](./movable.movablelimit.md) | <i>(Optional)</i> Set a limit within which node can be moved |
-|  [trigger?](./movable.movableparameters.trigger.md) |  | HTMLElement | <i>(Optional)</i> |
+|  [cursor?](./movable.movableparameters.cursor.md) |  | boolean | _(Optional)_ automatically change cursor to <code>grab</code> on hover and <code>grabbing</code> on mousedown of \`<!-- -->handle |
+|  [enabled?](./movable.movableparameters.enabled.md) |  | boolean | _(Optional)_ whether to activate the action. Default to <code>true</code> |
+|  [handle?](./movable.movableparameters.handle.md) |  | HTMLElement | _(Optional)_ A node that triggers mousedown event, otherwise the node itself is the handle |
+|  [ignore?](./movable.movableparameters.ignore.md) |  | string \| string\[\] | _(Optional)_ CSS selectors within the <code>handle</code> node to exclude from triggering <code>movable</code>. Use this options with caution because it might affect performance. |
+|  [limit?](./movable.movableparameters.limit.md) |  | [MovableLimit](./movable.movablelimit.md) | _(Optional)_ Set a limit within which node can be moved |
+|  [trigger?](./movable.movableparameters.trigger.md) |  | HTMLElement | _(Optional)_ |
 

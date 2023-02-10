@@ -6,7 +6,7 @@
 
 whether to add `IntersectionObserver` to each matching toc element to track active active element in the viewport. Default to: `true`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 enabled?: boolean;

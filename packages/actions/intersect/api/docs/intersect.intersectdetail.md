@@ -6,7 +6,7 @@
 
 `detail` payload for `intersect` and `intersectonce` CustomEvent
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface IntersectDetail 

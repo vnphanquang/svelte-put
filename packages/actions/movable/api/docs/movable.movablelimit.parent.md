@@ -6,7 +6,7 @@
 
 Move node within this parent node or within screen
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 parent?: HTMLElement | 'screen';

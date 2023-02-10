@@ -6,7 +6,7 @@
 
 svelte action parameters to config behavior of `shortcut`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface ShortcutParameters 
@@ -16,7 +16,7 @@ export interface ShortcutParameters
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [enabled?](./shortcut.shortcutparameters.enabled.md) |  | boolean | <i>(Optional)</i> whether to activate the action. Default to <code>true</code> |
+|  [enabled?](./shortcut.shortcutparameters.enabled.md) |  | boolean | _(Optional)_ whether to activate the action. Default to <code>true</code> |
 |  [trigger](./shortcut.shortcutparameters.trigger.md) |  | Array&lt;[ShortcutTrigger](./shortcut.shortcuttrigger.md)<!-- -->&gt; \| [ShortcutTrigger](./shortcut.shortcuttrigger.md) | Either a single [ShortcutTrigger](./shortcut.shortcuttrigger.md) definition or an array of multiple ones |
-|  [type?](./shortcut.shortcutparameters.type.md) |  | 'keydown' \| 'keyup' | <i>(Optional)</i> event type to place on node. Default to <code>keydown</code> |
+|  [type?](./shortcut.shortcutparameters.type.md) |  | 'keydown' \| 'keyup' | _(Optional)_ event type to place on node. Default to <code>keydown</code> |
 

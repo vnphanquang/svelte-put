@@ -6,7 +6,7 @@
 
 Rating to request
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 rating?: 'g' | 'pg' | 'r' | 'x';

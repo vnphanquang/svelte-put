@@ -4,7 +4,7 @@
 
 ## SelectProperties.required property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 required?: boolean;

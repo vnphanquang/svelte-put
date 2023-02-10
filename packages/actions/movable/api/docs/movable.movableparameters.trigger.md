@@ -9,7 +9,7 @@
 > use `handle` instead (same functionality, just more sensible naming)
 > 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 trigger?: HTMLElement;

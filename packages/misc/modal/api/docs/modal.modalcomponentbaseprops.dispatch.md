@@ -6,7 +6,7 @@
 
 svelte event dispatcher. Should only pass this prop if extending the events. See [ExtendedModalEvents](./modal.extendedmodalevents.md) for more details an dexamples
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 dispatch?: ReturnType<typeof createEventDispatcher>;

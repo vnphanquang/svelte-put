@@ -12,7 +12,7 @@ how the backdrop should render or behave. Defaults to `true`
 
 - `static` - backdrop that does not dismiss modal
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 backdrop?: 'static' | boolean;

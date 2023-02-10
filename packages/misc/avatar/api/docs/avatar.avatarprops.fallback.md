@@ -6,7 +6,7 @@
 
 The fallback url string. This option takes lowest priority. It defaults to the internal fallback (https://www.gravatar.com/avatar?d=mp). If you provide a different url that is not a valid resource, the internal fallback will be used.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 fallback?: string;

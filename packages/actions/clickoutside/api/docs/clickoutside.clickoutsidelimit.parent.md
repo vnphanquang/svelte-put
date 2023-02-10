@@ -6,7 +6,7 @@
 
 Click event beyond the `boundingRect` of this parent node will not trigger `clickoutside`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 parent: HTMLElement;

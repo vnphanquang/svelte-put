@@ -6,7 +6,7 @@
 
 `MouseEvent` or `PointerEvent` (`down`<!-- -->, `up`<!-- -->, `leave`<!-- -->, `move`<!-- -->)
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 event: 'mouse' | 'pointer';

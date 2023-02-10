@@ -6,7 +6,7 @@
 
 whether to enable this configuration Default to: `false`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 enabled?: boolean;

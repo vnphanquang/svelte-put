@@ -6,7 +6,7 @@
 
 Font size in percentage of size, between 0.1 and 1. Default to 0.5
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 'font-size'?: number;

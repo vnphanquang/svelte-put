@@ -6,7 +6,7 @@
 
 event to register callback. Default to `click`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 event?: string;

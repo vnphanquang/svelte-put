@@ -6,7 +6,7 @@
 
 see [ModalStorePop](./modal.modalstorepop.md)
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 pop: ModalStorePop;

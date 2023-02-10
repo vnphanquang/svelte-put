@@ -6,7 +6,7 @@
 
 Either a single [ShortcutTrigger](./shortcut.shortcuttrigger.md) definition or an array of multiple ones
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 trigger: Array<ShortcutTrigger> | ShortcutTrigger;

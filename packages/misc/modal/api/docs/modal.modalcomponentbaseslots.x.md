@@ -6,7 +6,7 @@
 
 `x` button
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 x: {

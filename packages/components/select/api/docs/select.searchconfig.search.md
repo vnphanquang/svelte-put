@@ -4,7 +4,7 @@
 
 ## SearchConfig.search property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 search: Searcher<Option>;

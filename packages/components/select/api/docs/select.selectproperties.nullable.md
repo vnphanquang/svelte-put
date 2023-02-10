@@ -4,7 +4,7 @@
 
 ## SelectProperties.nullable property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 nullable?: boolean;

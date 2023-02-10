@@ -4,7 +4,7 @@
 
 ## SelectProperties.clearable property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 clearable?: boolean;

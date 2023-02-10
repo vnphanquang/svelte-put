@@ -6,7 +6,7 @@
 
 whether to make the modal "movable" (drag around). Can be provided as boolean or the parameter object to [@svelte-put/movable](https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/api/docs/movable.movableparameters.md) Defaults to `false`<!-- -->.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 movable?: boolean | MovableParameters;

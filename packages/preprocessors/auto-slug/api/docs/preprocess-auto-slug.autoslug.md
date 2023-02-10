@@ -8,7 +8,7 @@ create svelte preprocessor to generate slug from text content of matching tags
 
 By default, it will search for all headings tag and add the generated slug to the tag's id attribute.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 declare function autoSlug(input?: AutoSlugInput): PreprocessorGroup;
@@ -18,9 +18,9 @@ declare function autoSlug(input?: AutoSlugInput): PreprocessorGroup;
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  input | [AutoSlugInput](./preprocess-auto-slug.autosluginput.md) | <i>(Optional)</i> |
+|  input | [AutoSlugInput](./preprocess-auto-slug.autosluginput.md) | _(Optional)_ |
 
-<b>Returns:</b>
+**Returns:**
 
 PreprocessorGroup
 

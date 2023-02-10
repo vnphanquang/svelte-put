@@ -8,7 +8,7 @@ a svelte store that, if provides, will update with the list of extracted toc ele
 
 Default to: undefined
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 store?: TocStore;

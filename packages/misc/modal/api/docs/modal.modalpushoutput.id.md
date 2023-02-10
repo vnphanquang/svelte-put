@@ -6,7 +6,7 @@
 
 id of the pushed modal, pass to `pop` to dismiss modal
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 id: string;

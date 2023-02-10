@@ -6,7 +6,7 @@
 
 Hex color for background, without the hash (\#)
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 background?: string;

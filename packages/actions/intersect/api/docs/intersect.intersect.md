@@ -6,7 +6,7 @@
 
 Create an IntersectionObserver that observers the node
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 intersect: Action<HTMLElement, IntersectParameters, IntersectAttributes>

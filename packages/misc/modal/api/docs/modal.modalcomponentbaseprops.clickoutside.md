@@ -8,7 +8,7 @@ whether to dismiss modal when clicking outside. Most useful when you want to not
 
 Can be provided as boolean or the parameter object to [@svelte-put/clickoutside](https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/clickoutside/api/docs/clickoutside.clickoutsideparameters.md)
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 clickoutside?: boolean | ClickOutsideParameters;

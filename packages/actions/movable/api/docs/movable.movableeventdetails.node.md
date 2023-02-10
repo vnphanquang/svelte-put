@@ -6,7 +6,7 @@
 
 the node that the action was placed on
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 node: HTMLElement;

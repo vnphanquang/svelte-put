@@ -6,7 +6,7 @@
 
 Options for building [UIAvatar](https://ui-avatars.com) url. Each option should map to a supported UIAvatar setting item
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface UIAvatarOptions 
@@ -16,14 +16,14 @@ export interface UIAvatarOptions
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  ["font-size"?](./avatar.uiavataroptions._font-size_.md) |  | number | <i>(Optional)</i> Font size in percentage of size, between 0.1 and 1. Default to 0.5 |
-|  [background?](./avatar.uiavataroptions.background.md) |  | string | <i>(Optional)</i> Hex color for background, without the hash (\#) |
-|  [bold?](./avatar.uiavataroptions.bold.md) |  | boolean | <i>(Optional)</i> Whether the returned letters should use a bold font. Default to false |
-|  [color?](./avatar.uiavataroptions.color.md) |  | string | <i>(Optional)</i> Hex color for font, without the hash (\#) |
-|  [format?](./avatar.uiavataroptions.format.md) |  | 'svg' \| 'png' | <i>(Optional)</i> Format of returned image |
-|  [length?](./avatar.uiavataroptions.length.md) |  | number | <i>(Optional)</i> Length of the generated initials. Default to 2 |
+|  ["font-size"?](./avatar.uiavataroptions._font-size_.md) |  | number | _(Optional)_ Font size in percentage of size, between 0.1 and 1. Default to 0.5 |
+|  [background?](./avatar.uiavataroptions.background.md) |  | string | _(Optional)_ Hex color for background, without the hash (\#) |
+|  [bold?](./avatar.uiavataroptions.bold.md) |  | boolean | _(Optional)_ Whether the returned letters should use a bold font. Default to false |
+|  [color?](./avatar.uiavataroptions.color.md) |  | string | _(Optional)_ Hex color for font, without the hash (\#) |
+|  [format?](./avatar.uiavataroptions.format.md) |  | 'svg' \| 'png' | _(Optional)_ Format of returned image |
+|  [length?](./avatar.uiavataroptions.length.md) |  | number | _(Optional)_ Length of the generated initials. Default to 2 |
 |  [name](./avatar.uiavataroptions.name.md) |  | string | Name used to generate initials. Ex: John+Doe |
-|  [rounded?](./avatar.uiavataroptions.rounded.md) |  | boolean | <i>(Optional)</i> Whether the returnee image should be a circle. Default to false |
-|  [size?](./avatar.uiavataroptions.size.md) |  | number | <i>(Optional)</i> Image size in pixels, between 16 and 512. Default to 64 |
-|  [uppercase?](./avatar.uiavataroptions.uppercase.md) |  | boolean | <i>(Optional)</i> Whether to uppercase the initials. Default to true |
+|  [rounded?](./avatar.uiavataroptions.rounded.md) |  | boolean | _(Optional)_ Whether the returnee image should be a circle. Default to false |
+|  [size?](./avatar.uiavataroptions.size.md) |  | number | _(Optional)_ Image size in pixels, between 16 and 512. Default to 64 |
+|  [uppercase?](./avatar.uiavataroptions.uppercase.md) |  | boolean | _(Optional)_ Whether to uppercase the initials. Default to true |
 

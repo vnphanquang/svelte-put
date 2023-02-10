@@ -6,7 +6,7 @@
 
 instructions to add the anchor tag. Default to: `true`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 anchor?: TocAnchorParameters | boolean;

@@ -6,7 +6,7 @@
 
 default to `id`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 attributeName: string;

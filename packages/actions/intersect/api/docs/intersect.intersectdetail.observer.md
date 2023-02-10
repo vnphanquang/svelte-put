@@ -6,7 +6,7 @@
 
 the IntersectionObserver itself
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 readonly observer: IntersectionObserver;

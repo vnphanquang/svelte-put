@@ -6,7 +6,7 @@
 
 inline `scroll-margin-top` value applied matching elements. Default to: `0`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 scrollMarginTop?: number | string | ((element: HTMLElement) => number | string);

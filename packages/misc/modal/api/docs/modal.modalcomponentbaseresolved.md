@@ -6,12 +6,12 @@
 
 The base interface when modal is resolved
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type ModalComponentBaseResolved<ExtendedResolved extends Record<string, any> = {}> = {
     trigger: ResolveTrigger;
 } & ExtendedResolved;
 ```
-<b>References:</b> [ResolveTrigger](./modal.resolvetrigger.md)
+**References:** [ResolveTrigger](./modal.resolvetrigger.md)
 

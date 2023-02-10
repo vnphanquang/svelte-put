@@ -6,7 +6,7 @@
 
 content of the modal
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 default: Record<string, never>;

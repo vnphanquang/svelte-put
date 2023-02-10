@@ -6,7 +6,7 @@
 
 Dispatch a `clickoutside` [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) on click outside of node
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 clickoutside: Action<HTMLElement, Partial<ClickOutsideParameters>, ClickOutsideAttributes>

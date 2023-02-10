@@ -6,7 +6,7 @@
 
 Builds a [UIAvatar](https://ui-avatars.com) url
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export declare function uiAvatar(input: string | UIAvatarOptions): string;
@@ -18,7 +18,7 @@ export declare function uiAvatar(input: string | UIAvatarOptions): string;
 |  --- | --- | --- |
 |  input | string \| [UIAvatarOptions](./avatar.uiavataroptions.md) | name for UIAvatar or object of options |
 
-<b>Returns:</b>
+**Returns:**
 
 string
 

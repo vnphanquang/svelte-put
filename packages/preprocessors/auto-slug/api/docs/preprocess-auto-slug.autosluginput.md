@@ -6,10 +6,10 @@
 
 input to preprocessor. Either on object of options or a function that returns one (with the defaultOptions as its parameter).
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 type AutoSlugInput = PartialAutoSlugOptions | ((defaultOptions: AutoSlugOptions) => PartialAutoSlugOptions);
 ```
-<b>References:</b> [AutoSlugOptions](./preprocess-auto-slug.autoslugoptions.md)
+**References:** [AutoSlugOptions](./preprocess-auto-slug.autoslugoptions.md)
 

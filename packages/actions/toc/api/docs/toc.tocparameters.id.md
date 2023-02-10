@@ -6,7 +6,7 @@
 
 A unique ID representing the operation. This is used for caching so that if the action is run multiple times it can use the results from previous execution. Default to: `crypto.randomUUID()`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 id?: string;

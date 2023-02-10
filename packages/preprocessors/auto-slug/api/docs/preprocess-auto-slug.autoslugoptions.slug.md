@@ -6,7 +6,7 @@
 
 slug resolver
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 slug: (SlugResolverInput: any) => string;

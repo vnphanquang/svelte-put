@@ -6,10 +6,10 @@
 
 Modal component for use as is or as a base for building other modals.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export default class Modal extends SvelteComponentTyped<ModalProps, ModalEvents, ModalSlots> 
 ```
-<b>Extends:</b> SvelteComponentTyped&lt;ModalProps, ModalEvents, ModalSlots&gt;
+**Extends:** SvelteComponentTyped&lt;ModalProps, ModalEvents, ModalSlots&gt;
 

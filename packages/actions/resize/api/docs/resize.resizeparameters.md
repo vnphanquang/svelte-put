@@ -6,7 +6,7 @@
 
 svelte action parameters to config behavior of `resize`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface ResizeParameters 
@@ -16,6 +16,6 @@ export interface ResizeParameters
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [enabled?](./resize.resizeparameters.enabled.md) |  | boolean | <i>(Optional)</i> whether to activate the action. Default to <code>true</code> |
-|  [observer?](./resize.resizeparameters.observer.md) |  | 'singleton' \| 'new' \| ResizeObserver | <i>(Optional)</i> |
+|  [enabled?](./resize.resizeparameters.enabled.md) |  | boolean | _(Optional)_ whether to activate the action. Default to <code>true</code> |
+|  [observer?](./resize.resizeparameters.observer.md) |  | 'singleton' \| 'new' \| ResizeObserver | _(Optional)_ |
 

@@ -6,7 +6,7 @@
 
 whether to dismiss modal when `esc` key is pressed. Defaults to `true`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 escape?: boolean;

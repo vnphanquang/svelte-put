@@ -4,7 +4,7 @@
 
 ## ClickOutsideAttributes."on:clickoutside" property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 'on:clickoutside'?: (event: CustomEvent<MouseEvent>) => void;

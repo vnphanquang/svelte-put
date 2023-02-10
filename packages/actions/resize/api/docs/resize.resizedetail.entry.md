@@ -6,7 +6,7 @@
 
 list of ResizeObserverEntry passed from ResizeObserver callback
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 readonly entry: ResizeObserverEntry;

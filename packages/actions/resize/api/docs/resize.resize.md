@@ -6,7 +6,7 @@
 
 Create an [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) that observers this node
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 resize: Action<HTMLElement, ResizeParameters, ResizeAttributes>

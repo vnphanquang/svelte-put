@@ -6,7 +6,7 @@
 
 Additional attributes extended from `svelte-put/copy`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface CopyAttributes 
@@ -33,5 +33,5 @@ The ambient types for these extended attributes should be available automaticall
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  ["on:copied"?](./copy.copyattributes._on_copied_.md) |  | (event: CustomEvent&lt;[CopyDetail](./copy.copydetail.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
+|  ["on:copied"?](./copy.copyattributes._on_copied_.md) |  | (event: CustomEvent&lt;[CopyDetail](./copy.copydetail.md)<!-- -->&gt;) =&gt; void | _(Optional)_ |
 

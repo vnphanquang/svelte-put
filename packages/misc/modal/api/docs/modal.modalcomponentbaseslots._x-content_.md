@@ -6,7 +6,7 @@
 
 content of `x` button
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 'x-content': Record<string, never>;

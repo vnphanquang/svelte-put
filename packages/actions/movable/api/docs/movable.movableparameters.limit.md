@@ -6,7 +6,7 @@
 
 Set a limit within which node can be moved
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 limit?: MovableLimit;

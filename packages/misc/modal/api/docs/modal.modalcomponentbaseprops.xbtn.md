@@ -8,7 +8,7 @@ whether to render the `x` button (for dismissing modal). Defaults to `true`
 
 if you are overriding the `x` slot, this prop is forwarded to the slot template. See [ModalComponentBaseSlots](./modal.modalcomponentbaseslots.md)
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 xBtn?: boolean;

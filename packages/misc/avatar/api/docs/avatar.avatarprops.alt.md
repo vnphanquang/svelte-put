@@ -6,7 +6,7 @@
 
 value for "alt" attribute of <img>. Default to uiAvatar.name or gravatar.email if any. Will have no effect if default slot is overridden
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 alt?: string;

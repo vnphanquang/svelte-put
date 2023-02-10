@@ -6,7 +6,7 @@
 
 automatically change cursor to `grab` on hover and `grabbing` on mousedown of \`<!-- -->handle
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 cursor?: boolean;

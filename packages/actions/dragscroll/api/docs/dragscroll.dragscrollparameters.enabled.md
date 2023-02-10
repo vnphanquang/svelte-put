@@ -6,7 +6,7 @@
 
 whether to run this action
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 enabled: boolean;

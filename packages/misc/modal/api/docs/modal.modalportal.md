@@ -6,10 +6,10 @@
 
 Register this 'portal' where you want to render the modal stack, ideally as the direct descendant of the root element of your app.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export default class ModalPortal extends SvelteComponentTyped<ModalPortalProps, ModalPortalEvents, ModalPortalSlots> 
 ```
-<b>Extends:</b> SvelteComponentTyped&lt;ModalPortalProps, ModalPortalEvents, ModalPortalSlots&gt;
+**Extends:** SvelteComponentTyped&lt;ModalPortalProps, ModalPortalEvents, ModalPortalSlots&gt;
 

@@ -6,7 +6,7 @@
 
 boolean attribute(s) to indicate if this is linking to the active toc item
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 attribute?: string | string[] | boolean;

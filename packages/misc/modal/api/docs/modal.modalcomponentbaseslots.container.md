@@ -6,7 +6,7 @@
 
 modal container
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 container: {

@@ -4,7 +4,7 @@
 
 ## SelectProperties.hideExpansionIndicator property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 hideExpansionIndicator?: boolean;

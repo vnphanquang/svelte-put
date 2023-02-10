@@ -6,7 +6,7 @@
 
 Format of returned image
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 format?: 'svg' | 'png';

@@ -4,7 +4,7 @@
 
 ## SearchConfig.clearOnSelection property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 clearOnSelection: boolean;

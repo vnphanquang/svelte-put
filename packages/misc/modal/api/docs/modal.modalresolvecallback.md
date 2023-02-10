@@ -6,10 +6,10 @@
 
 callback as one passed to ModalStore `onPop`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type ModalResolveCallback<Component extends ModalComponentBase = ModalComponentBase> = (resolved: ModalResolved<Component>) => void;
 ```
-<b>References:</b> [ModalComponentBase](./modal.modalcomponentbase.md)<!-- -->, [ModalResolved](./modal.modalresolved.md)
+**References:** [ModalComponentBase](./modal.modalcomponentbase.md)<!-- -->, [ModalResolved](./modal.modalresolved.md)
 

@@ -6,10 +6,10 @@
 
 a sync/async function that return the text to be copied
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type TextResolver<K extends keyof HTMLElementEventMap> = (input: TextResolverInput<K>) => string | Promise<string>;
 ```
-<b>References:</b> [TextResolverInput](./copy.textresolverinput.md)
+**References:** [TextResolverInput](./copy.textresolverinput.md)
 

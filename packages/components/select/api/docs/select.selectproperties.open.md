@@ -4,7 +4,7 @@
 
 ## SelectProperties.open property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 open?: boolean;

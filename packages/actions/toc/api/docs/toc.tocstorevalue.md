@@ -6,7 +6,7 @@
 
 value of the `store` provided to [TocParameters](./toc.tocparameters.md)
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type TocStoreValue = {
@@ -15,5 +15,5 @@ export type TocStoreValue = {
     activeItem?: TocChangeEventDetails['activeItem'];
 };
 ```
-<b>References:</b> [TocInitEventDetails](./toc.tociniteventdetails.md)<!-- -->, [TocChangeEventDetails](./toc.tocchangeeventdetails.md)
+**References:** [TocInitEventDetails](./toc.tociniteventdetails.md)<!-- -->, [TocChangeEventDetails](./toc.tocchangeeventdetails.md)
 

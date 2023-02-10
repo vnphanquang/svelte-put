@@ -6,7 +6,7 @@
 
 generated slug, by default slug will resolve to this
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 generated: string;

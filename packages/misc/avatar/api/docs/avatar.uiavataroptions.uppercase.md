@@ -6,7 +6,7 @@
 
 Whether to uppercase the initials. Default to true
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 uppercase?: boolean;

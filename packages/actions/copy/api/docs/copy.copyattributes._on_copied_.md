@@ -4,7 +4,7 @@
 
 ## CopyAttributes."on:copied" property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 'on:copied'?: (event: CustomEvent<CopyDetail>) => void;

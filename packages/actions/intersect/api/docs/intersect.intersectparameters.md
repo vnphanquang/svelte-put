@@ -6,12 +6,12 @@
 
 svelte action parameters to config behavior of `intersect`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface IntersectParameters extends IntersectionObserverInit 
 ```
-<b>Extends:</b> IntersectionObserverInit
+**Extends:** IntersectionObserverInit
 
 ## Remarks
 
@@ -21,5 +21,5 @@ parameters for `intersect` extends [IntersectionObserverInit](https://developer.
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [enabled?](./intersect.intersectparameters.enabled.md) |  | boolean | <i>(Optional)</i> whether to activate the action. Default to <code>true</code> |
+|  [enabled?](./intersect.intersectparameters.enabled.md) |  | boolean | _(Optional)_ whether to activate the action. Default to <code>true</code> |
 

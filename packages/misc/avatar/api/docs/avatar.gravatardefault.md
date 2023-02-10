@@ -6,7 +6,7 @@
 
 URL or option to fallback when email hash returns no match from Gravatar. See [Gravatar](https://en.gravatar.com/site/implement/images) for detailed explanation of each option.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type GravatarDefault = '404' | 'mp' | 'identicon' | 'monsterid' | 'wavatar' | 'retro' | 'robohash' | 'blank' | `${'http' | 'https'}://${string}.${'png' | 'jpg' | 'jpeg' | 'gif'}`;

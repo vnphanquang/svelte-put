@@ -6,7 +6,7 @@
 
 whether to ignore this element when searching for matching elements
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 'data-toc-ignore'?: boolean;

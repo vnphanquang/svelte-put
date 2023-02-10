@@ -6,7 +6,7 @@
 
 The event to trigger the copy action, passed to `addEventListener` on `trigger`<!-- -->. Default to `click`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 event: K | K[];

@@ -6,7 +6,7 @@
 
 the event that triggered the listener
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 event: HTMLElementEventMap[K];

@@ -6,7 +6,7 @@
 
 whether to dispatch a synthetic `copy` event. Defaults to `false`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 synthetic: boolean;

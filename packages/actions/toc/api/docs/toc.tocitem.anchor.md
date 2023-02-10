@@ -6,7 +6,7 @@
 
 the anchor element inserted by the `toc` action unless the `anchor.enabled` option from [TocParameters](./toc.tocparameters.md) is `false`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 anchor?: HTMLAnchorElement;

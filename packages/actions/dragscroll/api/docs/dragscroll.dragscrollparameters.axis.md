@@ -6,7 +6,7 @@
 
 scrolling axis
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 axis: 'x' | 'y' | 'both';

@@ -6,7 +6,7 @@
 
 svelte action parameters to config behavior of `clickoutside`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface ClickOutsideParameters 
@@ -17,7 +17,7 @@ export interface ClickOutsideParameters
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
 |  [enabled](./clickoutside.clickoutsideparameters.enabled.md) |  | boolean | whether to activate the action. Default to <code>true</code> |
-|  [event?](./clickoutside.clickoutsideparameters.event.md) |  | string | <i>(Optional)</i> event to register callback. Default to <code>click</code> |
-|  [limit?](./clickoutside.clickoutsideparameters.limit.md) |  | [ClickOutsideLimit](./clickoutside.clickoutsidelimit.md) | <i>(Optional)</i> limit to which the click event will trigger <code>clickoutside</code> |
-|  [options?](./clickoutside.clickoutsideparameters.options.md) |  | AddEventListenerOptions \| boolean | <i>(Optional)</i> options to add to <code>addEventListener</code> |
+|  [event?](./clickoutside.clickoutsideparameters.event.md) |  | string | _(Optional)_ event to register callback. Default to <code>click</code> |
+|  [limit?](./clickoutside.clickoutsideparameters.limit.md) |  | [ClickOutsideLimit](./clickoutside.clickoutsidelimit.md) | _(Optional)_ limit to which the click event will trigger <code>clickoutside</code> |
+|  [options?](./clickoutside.clickoutsideparameters.options.md) |  | AddEventListenerOptions \| boolean | _(Optional)_ options to add to <code>addEventListener</code> |
 

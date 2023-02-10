@@ -6,12 +6,12 @@
 
 Utility type for building custom props type from the base Modal component
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type ExtendedModalProps<ExtendedProps extends Record<string, any> = {}> = ComponentProps<Modal> & ExtendedProps;
 ```
-<b>References:</b> [Modal](./modal.modal.md)
+**References:** [Modal](./modal.modal.md)
 
 ## Example
 

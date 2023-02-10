@@ -6,12 +6,12 @@
 
 Create a svelte store for handling modal
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export declare function createModalStore(): ModalStore;
 ```
-<b>Returns:</b>
+**Returns:**
 
 [ModalStore](./modal.modalstore.md)
 

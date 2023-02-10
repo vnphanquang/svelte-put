@@ -4,7 +4,7 @@
 
 ## SearchConfig interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface SearchConfig<Option> 

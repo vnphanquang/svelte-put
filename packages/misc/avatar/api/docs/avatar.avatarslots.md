@@ -6,7 +6,7 @@
 
 Slots of Avatar component
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface AvatarSlots 

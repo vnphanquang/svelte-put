@@ -6,7 +6,7 @@
 
 whether to insert an anchor tag for each matching node
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 enabled: boolean;

@@ -6,7 +6,7 @@
 
 Additional attributes extended from `svelte-put/clickoutside`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface ClickOutsideAttributes 
@@ -32,5 +32,5 @@ The ambient types for these extended attributes should be available automaticall
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  ["on:clickoutside"?](./clickoutside.clickoutsideattributes._on_clickoutside_.md) |  | (event: CustomEvent&lt;MouseEvent&gt;) =&gt; void | <i>(Optional)</i> |
+|  ["on:clickoutside"?](./clickoutside.clickoutsideattributes._on_clickoutside_.md) |  | (event: CustomEvent&lt;MouseEvent&gt;) =&gt; void | _(Optional)_ |
 

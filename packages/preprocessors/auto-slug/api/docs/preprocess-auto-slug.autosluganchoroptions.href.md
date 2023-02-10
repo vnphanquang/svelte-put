@@ -6,7 +6,7 @@
 
 href attribute of the inserted anchor tag
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 href: (slug: string) => string;

@@ -6,7 +6,7 @@
 
 href attribute of the inserted anchor tag Default to: `href: (id) => '#' + id`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 href?: (id: string) => string;

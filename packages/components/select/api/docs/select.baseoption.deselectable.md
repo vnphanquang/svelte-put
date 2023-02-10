@@ -4,7 +4,7 @@
 
 ## BaseOption.deselectable property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 deselectable?: boolean;

@@ -6,7 +6,7 @@
 
 information passed as parameter to slug resolver
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 interface SlugResolverInput 

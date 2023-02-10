@@ -6,7 +6,7 @@
 
 The base slots for modal
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface ModalComponentBaseSlots 

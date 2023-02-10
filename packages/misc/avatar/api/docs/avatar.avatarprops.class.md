@@ -4,7 +4,7 @@
 
 ## AvatarProps.class property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 class?: string;

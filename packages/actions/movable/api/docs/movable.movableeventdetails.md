@@ -6,7 +6,7 @@
 
 `detail` payload for `movableend` and `movablestart` [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent)
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface MovableEventDetails 

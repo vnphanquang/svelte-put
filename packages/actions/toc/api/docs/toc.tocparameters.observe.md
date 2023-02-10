@@ -6,7 +6,7 @@
 
 instructions to track the active element in the viewport using `IntersectionObserver`<!-- -->. Default to: `false`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 observe?: TocObserveParameters | boolean;

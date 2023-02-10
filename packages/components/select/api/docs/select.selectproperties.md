@@ -4,7 +4,7 @@
 
 ## SelectProperties interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface SelectProperties<O extends BaseOption<V>, M extends true | false | undefined, V = O['value']> 
@@ -14,22 +14,22 @@ export interface SelectProperties<O extends BaseOption<V>, M extends true | fals
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [class?](./select.selectproperties.class.md) |  | string | <i>(Optional)</i> |
-|  [clearable?](./select.selectproperties.clearable.md) |  | boolean | <i>(Optional)</i> |
-|  [collapseOnSelection?](./select.selectproperties.collapseonselection.md) |  | boolean | <i>(Optional)</i> |
-|  [disabled?](./select.selectproperties.disabled.md) |  | boolean | <i>(Optional)</i> |
-|  [generateLiId?](./select.selectproperties.generateliid.md) |  | (option: O) =&gt; string | <i>(Optional)</i> |
-|  [generateUlId?](./select.selectproperties.generateulid.md) |  | () =&gt; string | <i>(Optional)</i> |
-|  [group?](./select.selectproperties.group.md) |  | [GroupProp](./select.groupprop.md)<!-- -->&lt;O&gt; | <i>(Optional)</i> |
-|  [hideExpansionIndicator?](./select.selectproperties.hideexpansionindicator.md) |  | boolean | <i>(Optional)</i> |
-|  [id?](./select.selectproperties.id.md) |  | string | <i>(Optional)</i> |
-|  [multiple?](./select.selectproperties.multiple.md) |  | M | <i>(Optional)</i> |
-|  [nullable?](./select.selectproperties.nullable.md) |  | boolean | <i>(Optional)</i> |
-|  [open?](./select.selectproperties.open.md) |  | boolean | <i>(Optional)</i> |
+|  [class?](./select.selectproperties.class.md) |  | string | _(Optional)_ |
+|  [clearable?](./select.selectproperties.clearable.md) |  | boolean | _(Optional)_ |
+|  [collapseOnSelection?](./select.selectproperties.collapseonselection.md) |  | boolean | _(Optional)_ |
+|  [disabled?](./select.selectproperties.disabled.md) |  | boolean | _(Optional)_ |
+|  [generateLiId?](./select.selectproperties.generateliid.md) |  | (option: O) =&gt; string | _(Optional)_ |
+|  [generateUlId?](./select.selectproperties.generateulid.md) |  | () =&gt; string | _(Optional)_ |
+|  [group?](./select.selectproperties.group.md) |  | [GroupProp](./select.groupprop.md)<!-- -->&lt;O&gt; | _(Optional)_ |
+|  [hideExpansionIndicator?](./select.selectproperties.hideexpansionindicator.md) |  | boolean | _(Optional)_ |
+|  [id?](./select.selectproperties.id.md) |  | string | _(Optional)_ |
+|  [multiple?](./select.selectproperties.multiple.md) |  | M | _(Optional)_ |
+|  [nullable?](./select.selectproperties.nullable.md) |  | boolean | _(Optional)_ |
+|  [open?](./select.selectproperties.open.md) |  | boolean | _(Optional)_ |
 |  [options](./select.selectproperties.options.md) |  | O\[\] |  |
-|  [placeholder?](./select.selectproperties.placeholder.md) |  | string | <i>(Optional)</i> |
-|  [required?](./select.selectproperties.required.md) |  | boolean | <i>(Optional)</i> |
-|  [search?](./select.selectproperties.search.md) |  | [SearchProp](./select.searchprop.md)<!-- -->&lt;O&gt; | <i>(Optional)</i> |
-|  [selected?](./select.selectproperties.selected.md) |  | undefined extends M ? O : true extends M ? O\[\] : O | <i>(Optional)</i> |
-|  [value?](./select.selectproperties.value.md) |  | undefined extends M ? V : true extends M ? V\[\] : V | <i>(Optional)</i> |
+|  [placeholder?](./select.selectproperties.placeholder.md) |  | string | _(Optional)_ |
+|  [required?](./select.selectproperties.required.md) |  | boolean | _(Optional)_ |
+|  [search?](./select.selectproperties.search.md) |  | [SearchProp](./select.searchprop.md)<!-- -->&lt;O&gt; | _(Optional)_ |
+|  [selected?](./select.selectproperties.selected.md) |  | undefined extends M ? O : true extends M ? O\[\] : O | _(Optional)_ |
+|  [value?](./select.selectproperties.value.md) |  | undefined extends M ? V : true extends M ? V\[\] : V | _(Optional)_ |
 

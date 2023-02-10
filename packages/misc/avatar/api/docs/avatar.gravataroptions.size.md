@@ -6,7 +6,7 @@
 
 Size in pixel, from 1px up to 2048px
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 size?: number;

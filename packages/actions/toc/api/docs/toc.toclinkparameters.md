@@ -6,7 +6,7 @@
 
 options to configure the behavior of the `toclink` svelte action
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface TocLinkParameters 
@@ -16,8 +16,8 @@ export interface TocLinkParameters
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [observe?](./toc.toclinkparameters.observe.md) |  | [TocLinkObserveParameters](./toc.toclinkobserveparameters.md) \| boolean | <i>(Optional)</i> connect and reflect the <code>observe</code> functionality of <code>toc</code> |
-|  [store?](./toc.toclinkparameters.store.md) |  | [TocStore](./toc.tocstore.md) | <i>(Optional)</i> svelte store as used in <code>use:toc</code> |
-|  [tocId?](./toc.toclinkparameters.tocid.md) |  | string | <i>(Optional)</i> the ID of the toc operations. If not provided will search for the closest toc root (where <code>use:toc</code> is used) |
-|  [tocItem?](./toc.toclinkparameters.tocitem.md) |  | string \| [TocItem](./toc.tocitem.md) | <i>(Optional)</i> the matching toc item or its id to link to |
+|  [observe?](./toc.toclinkparameters.observe.md) |  | [TocLinkObserveParameters](./toc.toclinkobserveparameters.md) \| boolean | _(Optional)_ connect and reflect the <code>observe</code> functionality of <code>toc</code> |
+|  [store?](./toc.toclinkparameters.store.md) |  | [TocStore](./toc.tocstore.md) | _(Optional)_ svelte store as used in <code>use:toc</code> |
+|  [tocId?](./toc.toclinkparameters.tocid.md) |  | string | _(Optional)_ the ID of the toc operations. If not provided will search for the closest toc root (where <code>use:toc</code> is used) |
+|  [tocItem?](./toc.toclinkparameters.tocitem.md) |  | string \| [TocItem](./toc.tocitem.md) | _(Optional)_ the matching toc item or its id to link to |
 

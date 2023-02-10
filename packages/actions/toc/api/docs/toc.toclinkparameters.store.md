@@ -6,7 +6,7 @@
 
 svelte store as used in `use:toc`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 store?: TocStore;

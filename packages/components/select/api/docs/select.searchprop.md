@@ -4,10 +4,10 @@
 
 ## SearchProp type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type SearchProp<Option> = boolean | Searcher<Option> | Partial<SearchConfig<Option>>;
 ```
-<b>References:</b> [Searcher](./select.searcher.md)<!-- -->, [SearchConfig](./select.searchconfig.md)
+**References:** [Searcher](./select.searcher.md)<!-- -->, [SearchConfig](./select.searchconfig.md)
 

@@ -6,7 +6,7 @@
 
 the copied text
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 text: string;

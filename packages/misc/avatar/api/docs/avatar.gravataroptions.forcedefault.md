@@ -6,7 +6,7 @@
 
 Whether to force using default image
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 forcedefault?: 'y';

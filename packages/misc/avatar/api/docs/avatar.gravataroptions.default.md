@@ -6,7 +6,7 @@
 
 fallback image. See [Gravatar](https://en.gravatar.com/site/implement/images) for detailed explanation
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 default?: GravatarDefault;

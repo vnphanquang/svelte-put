@@ -6,7 +6,7 @@
 
 Limit by creating a bounding box of movable area `[-delta, +delta]` in both axes
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type MovableLimitDelta = `${number}px` | `${number}%`;

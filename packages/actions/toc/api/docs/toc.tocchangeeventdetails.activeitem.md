@@ -4,7 +4,7 @@
 
 ## TocChangeEventDetails.activeItem property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 activeItem: TocItem;

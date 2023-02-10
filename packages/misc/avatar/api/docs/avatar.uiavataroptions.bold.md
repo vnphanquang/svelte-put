@@ -6,7 +6,7 @@
 
 Whether the returned letters should use a bold font. Default to false
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 bold?: boolean;

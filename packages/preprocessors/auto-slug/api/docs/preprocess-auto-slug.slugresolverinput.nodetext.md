@@ -6,7 +6,7 @@
 
 text extracted from original node
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 nodeText: string;

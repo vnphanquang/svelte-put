@@ -6,7 +6,7 @@
 
 the input passed to [TextResolver](./copy.textresolver.md)
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface TextResolverInput<K extends keyof HTMLElementEventMap> 

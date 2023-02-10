@@ -6,7 +6,7 @@
 
 Either the email for [Gravatar](https://en.gravatar.com/site/implement/images) or [GravatarOptions](./avatar.gravataroptions.md) object. This option take second priority.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 gravatar?: GravatarOptions | string;

@@ -4,7 +4,7 @@
 
 ## Grouper type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type Grouper<Option> = (option: Option) => string;

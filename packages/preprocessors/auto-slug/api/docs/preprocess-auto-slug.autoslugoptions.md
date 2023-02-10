@@ -6,7 +6,7 @@
 
 options to config preprocess-auto-slug
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 interface AutoSlugOptions 

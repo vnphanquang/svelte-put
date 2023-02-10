@@ -6,7 +6,7 @@
 
 wait for the modal to resolve, and return the promise wrapping the resolved value
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 resolve: () => Promise<Resolved>;

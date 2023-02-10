@@ -6,7 +6,7 @@
 
 The return of the `push` method of modal store
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface ModalPushOutput<Component extends ModalComponentBase, Resolved extends ModalComponentBaseResolved = ModalResolved<Component>> 

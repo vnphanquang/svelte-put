@@ -6,7 +6,7 @@
 
 svelte action parameters to config behavior of `copy`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface CopyParameters<K extends keyof HTMLElementEventMap> 

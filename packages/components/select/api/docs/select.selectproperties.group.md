@@ -4,7 +4,7 @@
 
 ## SelectProperties.group property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 group?: GroupProp<O>;

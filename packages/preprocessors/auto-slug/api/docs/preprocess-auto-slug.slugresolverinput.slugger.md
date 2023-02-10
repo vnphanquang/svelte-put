@@ -6,7 +6,7 @@
 
 the [BananaSlug](https://github.com/Flet/github-slugger) object
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 slugger: BananaSlug;

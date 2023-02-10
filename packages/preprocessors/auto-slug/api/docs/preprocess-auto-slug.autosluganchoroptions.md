@@ -6,7 +6,7 @@
 
 instructions for adding anchor tag
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 interface AutoSlugAnchorOptions 

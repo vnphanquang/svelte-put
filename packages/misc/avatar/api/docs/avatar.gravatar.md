@@ -6,7 +6,7 @@
 
 Builds a [Gravatar](https://en.gravatar.com/site/implement/images) url
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export declare function gravatar(input: string | GravatarOptions): string;
@@ -18,7 +18,7 @@ export declare function gravatar(input: string | GravatarOptions): string;
 |  --- | --- | --- |
 |  input | string \| [GravatarOptions](./avatar.gravataroptions.md) | email for Gravatar or object of options |
 
-<b>Returns:</b>
+**Returns:**
 
 string
 

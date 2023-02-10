@@ -4,7 +4,7 @@
 
 ## IntersectAttributes."on:intersect" property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 'on:intersect'?: (event: CustomEvent<IntersectDetail>) => void;

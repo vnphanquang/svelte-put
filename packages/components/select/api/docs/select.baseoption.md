@@ -4,7 +4,7 @@
 
 ## BaseOption interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface BaseOption<Value> 
@@ -14,9 +14,9 @@ export interface BaseOption<Value>
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [deselectable?](./select.baseoption.deselectable.md) |  | boolean | <i>(Optional)</i> |
-|  [disabled?](./select.baseoption.disabled.md) |  | boolean | <i>(Optional)</i> |
-|  [group?](./select.baseoption.group.md) |  | string | <i>(Optional)</i> |
+|  [deselectable?](./select.baseoption.deselectable.md) |  | boolean | _(Optional)_ |
+|  [disabled?](./select.baseoption.disabled.md) |  | boolean | _(Optional)_ |
+|  [group?](./select.baseoption.group.md) |  | string | _(Optional)_ |
 |  [id](./select.baseoption.id.md) |  | string |  |
 |  [label](./select.baseoption.label.md) |  | string |  |
 |  [value](./select.baseoption.value.md) |  | Value |  |

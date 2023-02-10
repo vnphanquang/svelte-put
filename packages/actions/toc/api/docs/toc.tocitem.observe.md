@@ -6,7 +6,7 @@
 
 the resolved observe config during extraction unless the `observe.enabled` option from [TocParameters](./toc.tocparameters.md) is `false`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 observe?: {

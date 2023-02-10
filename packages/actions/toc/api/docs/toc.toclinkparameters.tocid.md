@@ -6,7 +6,7 @@
 
 the ID of the toc operations. If not provided will search for the closest toc root (where `use:toc` is used)
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 tocId?: string;

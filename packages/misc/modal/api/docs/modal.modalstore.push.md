@@ -6,7 +6,7 @@
 
 see [ModalStorePush](./modal.modalstorepush.md)
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 push: ModalStorePush;

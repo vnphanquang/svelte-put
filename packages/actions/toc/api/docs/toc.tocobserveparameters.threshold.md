@@ -6,7 +6,7 @@
 
 threshold passed to `IntersectionObserver`<!-- -->. Default to: `(element) => Math.min((0.8 * window.innerHeight) / element.offsetHeight, 1)`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 threshold?: number | ((element: HTMLElement) => number);

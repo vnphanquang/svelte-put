@@ -4,7 +4,7 @@
 
 ## SearchConfig.debounced property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 debounced: false | number;

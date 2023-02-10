@@ -6,14 +6,14 @@
 
 Utility type for building custom events type from the base Modal component. Use in conjunction with [createModalEventDispatcher()](./modal.createmodaleventdispatcher.md)
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type ExtendedModalEvents<ExtendedResolved extends Record<string, any> = {}, ExtendedEvents extends Record<string, CustomEvent<any>> = {}> = {
     resolve: CustomEvent<ModalComponentBaseResolved & Partial<ExtendedResolved>>;
 } & ExtendedEvents;
 ```
-<b>References:</b> [ModalComponentBaseResolved](./modal.modalcomponentbaseresolved.md)
+**References:** [ModalComponentBaseResolved](./modal.modalcomponentbaseresolved.md)
 
 ## Remarks
 

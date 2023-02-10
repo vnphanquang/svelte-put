@@ -6,7 +6,7 @@
 
 the trigger element, as specified by the action parameter, otherwise same as `node`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 trigger: HTMLElement;

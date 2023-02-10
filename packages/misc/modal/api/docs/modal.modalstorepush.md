@@ -6,10 +6,10 @@
 
 Push a new modal to the stack
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type ModalStorePush = <Component extends ModalComponentBase>(input: ModalPushInput<Component>) => ModalPushOutput<Component>;
 ```
-<b>References:</b> [ModalComponentBase](./modal.modalcomponentbase.md)<!-- -->, [ModalPushInput](./modal.modalpushinput.md)<!-- -->, [ModalPushOutput](./modal.modalpushoutput.md)
+**References:** [ModalComponentBase](./modal.modalcomponentbase.md)<!-- -->, [ModalPushInput](./modal.modalpushinput.md)<!-- -->, [ModalPushOutput](./modal.modalpushoutput.md)
 

@@ -6,7 +6,7 @@
 
 content of the inserted anchor tag, ignored when behavior is `wrap`<!-- -->. Default to: '\#
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 content?: string;

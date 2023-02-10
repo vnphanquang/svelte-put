@@ -6,12 +6,12 @@
 
 `event.detail` of `on:tocchange`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface TocChangeEventDetails extends TocInitEventDetails 
 ```
-<b>Extends:</b> [TocInitEventDetails](./toc.tociniteventdetails.md)
+**Extends:** [TocInitEventDetails](./toc.tociniteventdetails.md)
 
 ## Properties
 

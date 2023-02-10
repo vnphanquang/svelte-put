@@ -6,7 +6,7 @@
 
 props passed to modal component
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 props: ComponentProps<Component>;

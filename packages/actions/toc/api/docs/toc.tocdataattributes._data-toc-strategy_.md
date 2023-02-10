@@ -6,7 +6,7 @@
 
 override the `strategy` for this element to use in creating `IntersectionObserver` This only has effect if the `observe` option is enabled in [TocParameters](./toc.tocparameters.md)
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 'data-toc-strategy'?: TocObserveParameters['strategy'];

@@ -6,7 +6,7 @@
 
 ambient typing for `toc` event handlers
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface TocEventAttributes 
@@ -16,6 +16,6 @@ export interface TocEventAttributes
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  ["on:tocchange"?](./toc.toceventattributes._on_tocchange_.md) |  | (event: CustomEvent&lt;[TocChangeEventDetails](./toc.tocchangeeventdetails.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
-|  ["on:tocinit"?](./toc.toceventattributes._on_tocinit_.md) |  | (event: CustomEvent&lt;[TocInitEventDetails](./toc.tociniteventdetails.md)<!-- -->&gt;) =&gt; void | <i>(Optional)</i> |
+|  ["on:tocchange"?](./toc.toceventattributes._on_tocchange_.md) |  | (event: CustomEvent&lt;[TocChangeEventDetails](./toc.tocchangeeventdetails.md)<!-- -->&gt;) =&gt; void | _(Optional)_ |
+|  ["on:tocinit"?](./toc.toceventattributes._on_tocinit_.md) |  | (event: CustomEvent&lt;[TocInitEventDetails](./toc.tociniteventdetails.md)<!-- -->&gt;) =&gt; void | _(Optional)_ |
 

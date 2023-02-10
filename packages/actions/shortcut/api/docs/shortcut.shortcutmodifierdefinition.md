@@ -6,12 +6,12 @@
 
 Possible variations for modifier definition
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type ShortcutModifierDefinition = ShortcutModifier | ShortcutModifier[] | ShortcutModifier[][];
 ```
-<b>References:</b> [ShortcutModifier](./shortcut.shortcutmodifier.md)
+**References:** [ShortcutModifier](./shortcut.shortcutmodifier.md)
 
 ## Example 1
 

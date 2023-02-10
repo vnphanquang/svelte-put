@@ -4,7 +4,7 @@
 
 ## ResizeParameters.observer property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 observer?: 'singleton' | 'new' | ResizeObserver;

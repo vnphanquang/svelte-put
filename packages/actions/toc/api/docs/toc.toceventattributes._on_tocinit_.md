@@ -4,7 +4,7 @@
 
 ## TocEventAttributes."on:tocinit" property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 'on:tocinit'?: (event: CustomEvent<TocInitEventDetails>) => void;

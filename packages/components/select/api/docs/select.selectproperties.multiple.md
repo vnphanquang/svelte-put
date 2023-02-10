@@ -4,7 +4,7 @@
 
 ## SelectProperties.multiple property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 multiple?: M;

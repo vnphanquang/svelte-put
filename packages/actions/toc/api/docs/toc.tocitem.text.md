@@ -6,7 +6,7 @@
 
 the `textContent` of `element`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 text: string;

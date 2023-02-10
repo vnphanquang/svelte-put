@@ -6,7 +6,7 @@
 
 scrolling direction
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 readonly direction: 'up' | 'down';

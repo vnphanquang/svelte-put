@@ -6,7 +6,7 @@
 
 event type to place on node. Default to `keydown`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 type?: 'keydown' | 'keyup';

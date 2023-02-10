@@ -14,7 +14,7 @@ strategy to observe matching toc elements.
 
 Default to: `auto`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 strategy?: 'parent' | 'self' | 'auto';

@@ -6,7 +6,7 @@
 
 query selector(s) that match DOM elements to ignore Each selector is used as `:not(selector)`<!-- -->. Default to: `.toc-exclude`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 ignore?: string[] | string;

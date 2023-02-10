@@ -4,7 +4,7 @@
 
 ## MovableAttributes."on:movableend" property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 'on:movableend'?: (event: CustomEvent<MovableEventDetails>) => void;

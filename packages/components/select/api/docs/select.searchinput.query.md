@@ -4,7 +4,7 @@
 
 ## SearchInput.query property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 query: string;

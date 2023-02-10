@@ -4,7 +4,25 @@
 
 ```ts
 
+import { AnimationEventHandler } from 'svelte/elements';
+import { AriaRole } from 'svelte/elements';
+import { Booleanish } from 'svelte/elements';
+import { ClipboardEventHandler } from 'svelte/elements';
+import { CompositionEventHandler } from 'svelte/elements';
+import { DragEventHandler } from 'svelte/elements';
+import { EventHandler } from 'svelte/elements';
+import { FocusEventHandler } from 'svelte/elements';
+import { FormEventHandler } from 'svelte/elements';
+import type { HTMLImgAttributes } from 'svelte/elements';
+import { KeyboardEventHandler } from 'svelte/elements';
+import { MessageEventHandler } from 'svelte/elements';
+import { MouseEventHandler } from 'svelte/elements';
+import { PointerEventHandler } from 'svelte/elements';
 import { SvelteComponentTyped } from 'svelte';
+import { TouchEventHandler } from 'svelte/elements';
+import { TransitionEventHandler } from 'svelte/elements';
+import { UIEventHandler } from 'svelte/elements';
+import { WheelEventHandler } from 'svelte/elements';
 
 // Warning: (ae-forgotten-export) The symbol "AvatarEvents" needs to be exported by the entry point index.d.ts
 //
@@ -13,7 +31,7 @@ export class Avatar extends SvelteComponentTyped<AvatarProps, AvatarEvents, Avat
 }
 
 // @public
-export interface AvatarProps {
+export interface AvatarProps extends HTMLImgAttributes {
     alt?: string;
     // (undocumented)
     class?: string;

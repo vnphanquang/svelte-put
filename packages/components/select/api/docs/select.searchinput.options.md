@@ -4,7 +4,7 @@
 
 ## SearchInput.options property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 options: Option[];

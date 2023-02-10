@@ -6,7 +6,7 @@
 
 Image size in pixels, between 16 and 512. Default to 64
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 size?: number;

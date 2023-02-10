@@ -6,7 +6,7 @@
 
 Either the name for building initials with [UIAvatar](https://ui-avatars.com) or [UIAvatarOptions](./avatar.uiavataroptions.md) object. This option take third priority.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 uiAvatar?: string | UIAvatarOptions;

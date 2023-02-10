@@ -6,12 +6,12 @@
 
 The resolved type for modal
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type ModalResolved<Component extends ModalComponentBase> = ComponentEvents<Component>['resolve']['detail'];
 ```
-<b>References:</b> [ModalComponentBase](./modal.modalcomponentbase.md)
+**References:** [ModalComponentBase](./modal.modalcomponentbase.md)
 
 ## Example
 

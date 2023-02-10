@@ -5,10 +5,10 @@
 ## ModalStoreSubscribe type
 
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type ModalStoreSubscribe = Writable<ModalStoreValue>['subscribe'];
 ```
-<b>References:</b> [ModalStoreValue](./modal.modalstorevalue.md)
+**References:** [ModalStoreValue](./modal.modalstorevalue.md)
 

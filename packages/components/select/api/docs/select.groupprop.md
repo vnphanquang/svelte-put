@@ -4,10 +4,10 @@
 
 ## GroupProp type
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type GroupProp<Option> = boolean | Grouper<Option> | Partial<GroupConfig<Option>>;
 ```
-<b>References:</b> [Grouper](./select.grouper.md)<!-- -->, [GroupConfig](./select.groupconfig.md)
+**References:** [Grouper](./select.grouper.md)<!-- -->, [GroupConfig](./select.groupconfig.md)
 

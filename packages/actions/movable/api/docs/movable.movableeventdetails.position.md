@@ -6,7 +6,7 @@
 
 last known position, as in styles.position
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 position: {

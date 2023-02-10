@@ -6,7 +6,7 @@
 
 connect and reflect the `observe` functionality of `toc`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 observe?: TocLinkObserveParameters | boolean;

@@ -6,7 +6,7 @@
 
 Whether the returnee image should be a circle. Default to false
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 rounded?: boolean;

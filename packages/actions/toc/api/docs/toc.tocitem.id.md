@@ -6,7 +6,7 @@
 
 the id of `element` or the "slugified" string from `textContent`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 id: string;

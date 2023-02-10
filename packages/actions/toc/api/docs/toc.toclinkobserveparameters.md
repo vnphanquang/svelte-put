@@ -6,7 +6,7 @@
 
 configure relationship between the `observe` functionality of `toc` and `toclink`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface TocLinkObserveParameters 
@@ -16,7 +16,7 @@ export interface TocLinkObserveParameters
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [attribute?](./toc.toclinkobserveparameters.attribute.md) |  | string \| string\[\] \| boolean | <i>(Optional)</i> boolean attribute(s) to indicate if this is linking to the active toc item |
-|  [enabled?](./toc.toclinkobserveparameters.enabled.md) |  | boolean | <i>(Optional)</i> whether to enable this configuration Default to: <code>false</code> |
-|  [throttleOnClick?](./toc.toclinkobserveparameters.throttleonclick.md) |  | number | <i>(Optional)</i> throttle the observe of <code>use:toc</code> on click |
+|  [attribute?](./toc.toclinkobserveparameters.attribute.md) |  | string \| string\[\] \| boolean | _(Optional)_ boolean attribute(s) to indicate if this is linking to the active toc item |
+|  [enabled?](./toc.toclinkobserveparameters.enabled.md) |  | boolean | _(Optional)_ whether to enable this configuration Default to: <code>false</code> |
+|  [throttleOnClick?](./toc.toclinkobserveparameters.throttleonclick.md) |  | number | _(Optional)_ throttle the observe of <code>use:toc</code> on click |
 

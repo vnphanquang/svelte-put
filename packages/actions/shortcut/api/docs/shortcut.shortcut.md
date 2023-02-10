@@ -6,7 +6,7 @@
 
 Listen for keyboard event and trigger `shortcut` [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent)
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 shortcut: Action<HTMLElement, ShortcutParameters, ShortcutAttributes>

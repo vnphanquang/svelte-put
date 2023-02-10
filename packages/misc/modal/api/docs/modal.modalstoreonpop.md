@@ -6,12 +6,12 @@
 
 callback for when a modal is popped. Can be called multiple times to registered multiple callbacks
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export type ModalStoreOnPop = <Component extends ModalComponentBase = ModalComponentBase>(modalId: string, callback: ModalResolveCallback<Component>) => () => void;
 ```
-<b>References:</b> [ModalComponentBase](./modal.modalcomponentbase.md)<!-- -->, [ModalResolveCallback](./modal.modalresolvecallback.md)
+**References:** [ModalComponentBase](./modal.modalcomponentbase.md)<!-- -->, [ModalResolveCallback](./modal.modalresolvecallback.md)
 
 ## Remarks
 

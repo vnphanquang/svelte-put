@@ -6,7 +6,7 @@
 
 whether to activate the action. Default to `true`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 enabled: boolean;

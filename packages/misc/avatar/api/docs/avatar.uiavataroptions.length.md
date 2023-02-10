@@ -6,7 +6,7 @@
 
 Length of the generated initials. Default to 2
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 length?: number;

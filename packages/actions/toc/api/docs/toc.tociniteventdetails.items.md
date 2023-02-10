@@ -4,7 +4,7 @@
 
 ## TocInitEventDetails.items property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 items: Record<string, TocItem>;

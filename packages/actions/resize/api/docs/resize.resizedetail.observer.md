@@ -6,7 +6,7 @@
 
 the ResizeObserver itself
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 readonly observer: ResizeObserver;

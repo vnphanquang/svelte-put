@@ -4,7 +4,7 @@
 
 ## MovableAttributes."on:movablestart" property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 'on:movablestart'?: (event: CustomEvent<MovableEventDetails>) => void;

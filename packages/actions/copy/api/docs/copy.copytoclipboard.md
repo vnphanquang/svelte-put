@@ -6,7 +6,7 @@
 
 Copy a text to the clipboard. Will attempt to use the new `navigator.clipboard` API, but will fallback to the `execCommand()` if `navigator.clipboard` is not available.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export declare function copyToClipboard(text: string): Promise<void> | undefined;
@@ -18,7 +18,7 @@ export declare function copyToClipboard(text: string): Promise<void> | undefined
 |  --- | --- | --- |
 |  text | string | text to copy |
 
-<b>Returns:</b>
+**Returns:**
 
 Promise&lt;void&gt; \| undefined
 

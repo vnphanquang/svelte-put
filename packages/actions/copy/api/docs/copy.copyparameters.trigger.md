@@ -6,7 +6,7 @@
 
 the `HTMLElement` to register event on. Default to the `node` on which the action is registered.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 trigger: HTMLElement;

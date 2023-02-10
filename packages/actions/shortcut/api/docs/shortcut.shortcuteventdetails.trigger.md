@@ -6,7 +6,7 @@
 
 the shortcut trigger of this event
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 trigger: ShortcutTrigger;

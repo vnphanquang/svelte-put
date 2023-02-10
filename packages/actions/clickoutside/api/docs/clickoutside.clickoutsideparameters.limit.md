@@ -6,7 +6,7 @@
 
 limit to which the click event will trigger `clickoutside`
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 limit?: ClickOutsideLimit;

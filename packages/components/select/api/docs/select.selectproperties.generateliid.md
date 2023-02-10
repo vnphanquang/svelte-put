@@ -4,7 +4,7 @@
 
 ## SelectProperties.generateLiId property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 generateLiId?: (option: O) => string;

@@ -8,7 +8,7 @@ search for matching elements, inject anchor element, watch for active element in
 
 For comprehensive documentation, see [docs site](https://svelte-put.vnphanquang.com/docs/toc)
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 toc: Action<HTMLElement, TocParameters, TocEventAttributes>

@@ -4,7 +4,7 @@
 
 ## SelectProperties.collapseOnSelection property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 collapseOnSelection?: boolean;

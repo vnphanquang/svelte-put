@@ -4,7 +4,7 @@
 
 ## ShortcutAttributes."on:shortcut" property
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 'on:shortcut'?: (event: CustomEvent<ShortcutEventDetails>) => void;

@@ -6,7 +6,7 @@
 
 the matching toc item or its id to link to
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 tocItem?: string | TocItem;

@@ -6,7 +6,7 @@
 
 Hex color for font, without the hash (\#)
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 color?: string;

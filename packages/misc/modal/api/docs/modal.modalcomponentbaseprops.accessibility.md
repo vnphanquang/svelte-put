@@ -6,7 +6,7 @@
 
 Some accessibility attributes passed to the modal container element as discussed in [MDN Accessibility - Dialog](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role)
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 accessibility?: {

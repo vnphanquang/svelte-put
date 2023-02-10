@@ -6,7 +6,7 @@
 
 A definition of a shortcut trigger
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface ShortcutTrigger 
@@ -16,10 +16,10 @@ export interface ShortcutTrigger
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [callback?](./shortcut.shortcuttrigger.callback.md) |  | (detail: [ShortcutEventDetails](./shortcut.shortcuteventdetails.md)<!-- -->) =&gt; void | <i>(Optional)</i> callback for when the trigger is matched |
-|  [enabled?](./shortcut.shortcuttrigger.enabled.md) |  | boolean | <i>(Optional)</i> whether to enable this triggered. Default to <code>true</code> |
-|  [id?](./shortcut.shortcuttrigger.id.md) |  | string | <i>(Optional)</i> id to distinguish this trigger from others |
+|  [callback?](./shortcut.shortcuttrigger.callback.md) |  | (detail: [ShortcutEventDetails](./shortcut.shortcuteventdetails.md)<!-- -->) =&gt; void | _(Optional)_ callback for when the trigger is matched |
+|  [enabled?](./shortcut.shortcuttrigger.enabled.md) |  | boolean | _(Optional)_ whether to enable this triggered. Default to <code>true</code> |
+|  [id?](./shortcut.shortcuttrigger.id.md) |  | string | _(Optional)_ id to distinguish this trigger from others |
 |  [key](./shortcut.shortcuttrigger.key.md) |  | string | the [KeyboardEvent](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)<!-- -->.key to listen to |
-|  [modifier?](./shortcut.shortcuttrigger.modifier.md) |  | [ShortcutModifierDefinition](./shortcut.shortcutmodifierdefinition.md) | <i>(Optional)</i> modifier key to listen to in conjunction of <code>key</code> |
-|  [preventDefault?](./shortcut.shortcuttrigger.preventdefault.md) |  | boolean | <i>(Optional)</i> whether to call <code>event.preventDefault</code> before firing callback. Default to <code>false</code> |
+|  [modifier?](./shortcut.shortcuttrigger.modifier.md) |  | [ShortcutModifierDefinition](./shortcut.shortcutmodifierdefinition.md) | _(Optional)_ modifier key to listen to in conjunction of <code>key</code> |
+|  [preventDefault?](./shortcut.shortcuttrigger.preventdefault.md) |  | boolean | _(Optional)_ whether to call <code>event.preventDefault</code> before firing callback. Default to <code>false</code> |
 

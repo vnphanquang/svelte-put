@@ -4,7 +4,7 @@
 
 ## GroupConfig interface
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface GroupConfig<Option> 
