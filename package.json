@@ -35,7 +35,7 @@
     "prettier-plugin-svelte": "^2.9.0",
     "simple-git-hooks": "^2.8.1",
     "stylelint": "^15.0.0",
-    "stylelint-config-clean-order": "^2.3.1",
+    "stylelint-config-clean-order": "^4.0.0",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-standard": "^30.0.1",
     "svelte": "^3.55.1",
