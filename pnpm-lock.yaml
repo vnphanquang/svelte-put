@@ -16,7 +16,7 @@ importers:
       prettier-plugin-svelte: ^2.9.0
       simple-git-hooks: ^2.8.1
       stylelint: ^15.1.0
-      stylelint-config-clean-order: ^4.0.0
+      stylelint-config-clean-order: ^5.0.0
       stylelint-config-html: ^1.1.0
       stylelint-config-standard: ^30.0.1
       svelte: ^3.55.1
@@ -35,7 +35,7 @@ importers:
       prettier-plugin-svelte: 2.9.0_jrsxveqmsx2uadbqiuq74wlc4u
       simple-git-hooks: 2.8.1
       stylelint: 15.1.0
-      stylelint-config-clean-order: 4.0.0_stylelint@15.1.0
+      stylelint-config-clean-order: 5.0.0_stylelint@15.1.0
       stylelint-config-html: 1.1.0_qaaem4ytw5dycdgwcgrc5pmjki
       stylelint-config-standard: 30.0.1_stylelint@15.1.0
       svelte: 3.55.1
@@ -6178,8 +6178,8 @@ packages:
       postcss-selector-parser: 6.0.11
     dev: true
 
-  /stylelint-config-clean-order/4.0.0_stylelint@15.1.0:
-    resolution: {integrity: sha512-c+bNVJHfGk4c1ZteHFUkQU9wzEmXE6luFGseXFL0gwMylR1/CvPZgF/gG3X5cTKwaT6fMelmqL5gWA5PBTr8BA==}
+  /stylelint-config-clean-order/5.0.0_stylelint@15.1.0:
+    resolution: {integrity: sha512-X4k3relU0KmkNE7Q+K7WslN8Xk1nJBCT30OMeEwF0MAKqV8C9uh3vGbCcrR3/6Oxcv+83m1AxNsQAkrBDtV2sw==}
     peerDependencies:
       stylelint: '>=14'
     dependencies:
