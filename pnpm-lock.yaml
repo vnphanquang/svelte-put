@@ -15,8 +15,8 @@ importers:
       prettier: ^2.8.4
       prettier-plugin-svelte: ^2.9.0
       simple-git-hooks: ^2.8.1
-      stylelint: ^15.0.0
-      stylelint-config-clean-order: ^2.3.1
+      stylelint: ^15.1.0
+      stylelint-config-clean-order: ^4.0.0
       stylelint-config-html: ^1.1.0
       stylelint-config-standard: ^30.0.1
       svelte: ^3.55.1
@@ -34,10 +34,10 @@ importers:
       prettier: 2.8.4
       prettier-plugin-svelte: 2.9.0_jrsxveqmsx2uadbqiuq74wlc4u
       simple-git-hooks: 2.8.1
-      stylelint: 15.0.0
-      stylelint-config-clean-order: 2.3.1_stylelint@15.0.0
-      stylelint-config-html: 1.1.0_ong57vzpbjrcurauedxppyaroq
-      stylelint-config-standard: 30.0.1_stylelint@15.0.0
+      stylelint: 15.1.0
+      stylelint-config-clean-order: 4.0.0_stylelint@15.1.0
+      stylelint-config-html: 1.1.0_qaaem4ytw5dycdgwcgrc5pmjki
+      stylelint-config-standard: 30.0.1_stylelint@15.1.0
       svelte: 3.55.1
       turbo: 1.7.4
       typescript: 4.9.5
@@ -211,7 +211,7 @@ importers:
       '@svelte-put/apirc': workspace:^0.0.0
       '@svelte-put/tsconfig': workspace:^0.0.0
       '@sveltejs/adapter-auto': 2.0.0
-      '@sveltejs/kit': 1.5.5
+      '@sveltejs/kit': 1.5.6
       '@sveltejs/package': 1.0.2
       npm-run-all: ^4.1.5
       svelte: ^3.55.1
@@ -226,8 +226,8 @@ importers:
       '@microsoft/api-extractor': 7.34.4
       '@svelte-put/apirc': link:../../../configs/apirc
       '@svelte-put/tsconfig': link:../../../configs/tsconfig
-      '@sveltejs/adapter-auto': 2.0.0_@sveltejs+kit@1.5.5
-      '@sveltejs/kit': 1.5.5_svelte@3.55.1+vite@4.1.1
+      '@sveltejs/adapter-auto': 2.0.0_@sveltejs+kit@1.5.6
+      '@sveltejs/kit': 1.5.6_svelte@3.55.1+vite@4.1.1
       '@sveltejs/package': 1.0.2_4x7phaipmicbaooxtnresslofa
       npm-run-all: 4.1.5
       svelte: 3.55.1
@@ -247,7 +247,7 @@ importers:
       '@svelte-put/shortcut': ^1.0.2
       '@svelte-put/tsconfig': workspace:^0.0.0
       '@sveltejs/adapter-auto': 2.0.0
-      '@sveltejs/kit': 1.5.5
+      '@sveltejs/kit': 1.5.6
       '@sveltejs/package': 1.0.2
       npm-run-all: ^4.1.5
       svelte: ^3.55.1
@@ -265,8 +265,8 @@ importers:
       '@microsoft/api-extractor': 7.34.4
       '@svelte-put/apirc': link:../../../configs/apirc
       '@svelte-put/tsconfig': link:../../../configs/tsconfig
-      '@sveltejs/adapter-auto': 2.0.0_@sveltejs+kit@1.5.5
-      '@sveltejs/kit': 1.5.5_svelte@3.55.1+vite@4.1.1
+      '@sveltejs/adapter-auto': 2.0.0_@sveltejs+kit@1.5.6
+      '@sveltejs/kit': 1.5.6_svelte@3.55.1+vite@4.1.1
       '@sveltejs/package': 1.0.2_4x7phaipmicbaooxtnresslofa
       npm-run-all: 4.1.5
       svelte: 3.55.1
@@ -284,7 +284,7 @@ importers:
       '@svelte-put/apirc': workspace:^0.0.0
       '@svelte-put/tsconfig': workspace:^0.0.0
       '@sveltejs/adapter-auto': 2.0.0
-      '@sveltejs/kit': 1.5.5
+      '@sveltejs/kit': 1.5.6
       '@sveltejs/package': 1.0.2
       '@types/md5': ^2.3.2
       md5: ^2.3.0
@@ -303,8 +303,8 @@ importers:
       '@microsoft/api-extractor': 7.34.4
       '@svelte-put/apirc': link:../../../configs/apirc
       '@svelte-put/tsconfig': link:../../../configs/tsconfig
-      '@sveltejs/adapter-auto': 2.0.0_@sveltejs+kit@1.5.5
-      '@sveltejs/kit': 1.5.5_svelte@3.55.1+vite@4.1.1
+      '@sveltejs/adapter-auto': 2.0.0_@sveltejs+kit@1.5.6
+      '@sveltejs/kit': 1.5.6_svelte@3.55.1+vite@4.1.1
       '@sveltejs/package': 1.0.2_4x7phaipmicbaooxtnresslofa
       '@types/md5': 2.3.2
       npm-run-all: 4.1.5
@@ -326,7 +326,7 @@ importers:
       '@svelte-put/shortcut': ^1.1.1
       '@svelte-put/tsconfig': workspace:^0.0.0
       '@sveltejs/adapter-auto': 2.0.0
-      '@sveltejs/kit': 1.5.5
+      '@sveltejs/kit': 1.5.6
       '@sveltejs/package': 1.0.2
       npm-run-all: ^4.1.5
       svelte: ^3.55.1
@@ -345,8 +345,8 @@ importers:
       '@microsoft/api-extractor': 7.34.4
       '@svelte-put/apirc': link:../../../configs/apirc
       '@svelte-put/tsconfig': link:../../../configs/tsconfig
-      '@sveltejs/adapter-auto': 2.0.0_@sveltejs+kit@1.5.5
-      '@sveltejs/kit': 1.5.5_svelte@3.55.1+vite@4.1.1
+      '@sveltejs/adapter-auto': 2.0.0_@sveltejs+kit@1.5.6
+      '@sveltejs/kit': 1.5.6_svelte@3.55.1+vite@4.1.1
       '@sveltejs/package': 1.0.2_4x7phaipmicbaooxtnresslofa
       npm-run-all: 4.1.5
       svelte: 3.55.1
@@ -364,14 +364,14 @@ importers:
       '@svelte-put/apirc': workspace:^0.0.0
       '@types/estree': ^1.0.0
       github-slugger: ^2.0.0
-      magic-string: ^0.27.0
+      magic-string: ^0.29.0
       npm-run-all: ^4.1.5
       svelte: ^3.55.1
       svelte-parse-markup: ^0.1.1
-      tsup: ^6.6.0
+      tsup: ^6.6.2
     dependencies:
       github-slugger: 2.0.0
-      magic-string: 0.27.0
+      magic-string: 0.29.0
       svelte-parse-markup: 0.1.1_svelte@3.55.1
     devDependencies:
       '@microsoft/api-documenter': 7.21.5
@@ -380,7 +380,7 @@ importers:
       '@types/estree': 1.0.0
       npm-run-all: 4.1.5
       svelte: 3.55.1
-      tsup: 6.6.0
+      tsup: 6.6.2
 
   packages/transitions:
     specifiers:
@@ -423,7 +423,7 @@ importers:
       '@svelte-put/toc': workspace:*
       '@svelte-put/transitions': workspace:^1.0.0
       '@sveltejs/adapter-vercel': 2.0.2
-      '@sveltejs/kit': 1.5.5
+      '@sveltejs/kit': 1.5.6
       '@tailwindash/triangle': ^1.0.5
       '@tailwindcss/typography': ^0.5.9
       '@types/color': ^3.0.3
@@ -484,8 +484,8 @@ importers:
       '@svelte-put/shortcut': link:../../packages/actions/shortcut
       '@svelte-put/toc': link:../../packages/actions/toc
       '@svelte-put/transitions': link:../../packages/transitions
-      '@sveltejs/adapter-vercel': 2.0.2_@sveltejs+kit@1.5.5
-      '@sveltejs/kit': 1.5.5_svelte@3.55.1+vite@4.1.1
+      '@sveltejs/adapter-vercel': 2.0.2_@sveltejs+kit@1.5.6
+      '@sveltejs/kit': 1.5.6_svelte@3.55.1+vite@4.1.1
       '@tailwindash/triangle': 1.0.5_tailwindcss@3.2.6
       '@tailwindcss/typography': 0.5.9_tailwindcss@3.2.6
       '@types/color': 3.0.3
@@ -1517,21 +1517,21 @@ packages:
       string-argv: 0.3.1
     dev: true
 
-  /@sveltejs/adapter-auto/2.0.0_@sveltejs+kit@1.5.5:
+  /@sveltejs/adapter-auto/2.0.0_@sveltejs+kit@1.5.6:
     resolution: {integrity: sha512-b+gkHFZgD771kgV3aO4avHFd7y1zhmMYy9i6xOK7m/rwmwaRO8gnF5zBc0Rgca80B2PMU1bKNxyBTHA14OzUAQ==}
     peerDependencies:
       '@sveltejs/kit': ^1.0.0
     dependencies:
-      '@sveltejs/kit': 1.5.5_svelte@3.55.1+vite@4.1.1
+      '@sveltejs/kit': 1.5.6_svelte@3.55.1+vite@4.1.1
       import-meta-resolve: 2.2.0
     dev: true
 
-  /@sveltejs/adapter-vercel/2.0.2_@sveltejs+kit@1.5.5:
+  /@sveltejs/adapter-vercel/2.0.2_@sveltejs+kit@1.5.6:
     resolution: {integrity: sha512-Mn80jy3rPNWB9iBp93MHXWwOh1qyxNzMNal0Dd80rD3As5Qi5L3lGhr1cIZ3T3Y3giwAVxzjMiHEflaUb8sjqg==}
     peerDependencies:
       '@sveltejs/kit': ^1.5.0
     dependencies:
-      '@sveltejs/kit': 1.5.5_svelte@3.55.1+vite@4.1.1
+      '@sveltejs/kit': 1.5.6_svelte@3.55.1+vite@4.1.1
       '@vercel/nft': 0.22.6
       esbuild: 0.16.17
     transitivePeerDependencies:
@@ -1539,8 +1539,8 @@ packages:
       - supports-color
     dev: true
 
-  /@sveltejs/kit/1.5.5_svelte@3.55.1+vite@4.1.1:
-    resolution: {integrity: sha512-NJry1mvcIBITVe9WyAGu39Cf33z8wRKzut/Oug4zqMVUpX+i7fG17+GyvLCh9GXdmIkqwSeSMROHDKRODvd6BA==}
+  /@sveltejs/kit/1.5.6_svelte@3.55.1+vite@4.1.1:
+    resolution: {integrity: sha512-CHVeQpbcwSIUekF6WwevmExKXyfHnzM5nlCEUv13lGgfJ0zKA0ny5YwIe40vccrm5w5Caec7jMTt9Ih3McJr5g==}
     engines: {node: ^16.14 || >=18}
     hasBin: true
     requiresBuild: true
@@ -4437,6 +4437,14 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.14
+    dev: true
+
+  /magic-string/0.29.0:
+    resolution: {integrity: sha512-WcfidHrDjMY+eLjlU+8OvwREqHwpgCeKVBUpQ3OhYYuvfaYCUgcbuBzappNzZvg/v8onU3oQj+BYpkOJe9Iw4Q==}
+    engines: {node: '>=12'}
+    dependencies:
+      '@jridgewell/sourcemap-codec': 1.4.14
+    dev: false
 
   /make-dir/3.1.0:
     resolution: {integrity: sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==}
@@ -5492,10 +5500,10 @@ packages:
       postcss: 8.4.21
     dev: true
 
-  /postcss-sorting/7.0.1_postcss@8.4.21:
-    resolution: {integrity: sha512-iLBFYz6VRYyLJEJsBJ8M3TCqNcckVzz4wFounSc5Oez35ogE/X+aoC5fFu103Ot7NyvjU3/xqIXn93Gp3kJk4g==}
+  /postcss-sorting/8.0.1_postcss@8.4.21:
+    resolution: {integrity: sha512-go9Zoxx7KQH+uLrJ9xa5wRErFeXu01ydA6O8m7koPXkmAN7Ts//eRcIqjo0stBR4+Nir2gMYDOWAOx7O5EPUZA==}
     peerDependencies:
-      postcss: ^8.3.9
+      postcss: ^8.4.20
     dependencies:
       postcss: 8.4.21
     dev: true
@@ -6170,16 +6178,16 @@ packages:
       postcss-selector-parser: 6.0.11
     dev: true
 
-  /stylelint-config-clean-order/2.3.1_stylelint@15.0.0:
-    resolution: {integrity: sha512-4pja7gI5cQ+U92RDQcivGhx7dLn1lTWZ8Wc46od6YBrWPAG8Kas8hHCtGIG3F0k5/1LHtbCzKaOQ0depnp6HlQ==}
+  /stylelint-config-clean-order/4.0.0_stylelint@15.1.0:
+    resolution: {integrity: sha512-c+bNVJHfGk4c1ZteHFUkQU9wzEmXE6luFGseXFL0gwMylR1/CvPZgF/gG3X5cTKwaT6fMelmqL5gWA5PBTr8BA==}
     peerDependencies:
       stylelint: '>=14'
     dependencies:
-      stylelint: 15.0.0
-      stylelint-order: 5.0.0_stylelint@15.0.0
+      stylelint: 15.1.0
+      stylelint-order: 6.0.2_stylelint@15.1.0
     dev: true
 
-  /stylelint-config-html/1.1.0_ong57vzpbjrcurauedxppyaroq:
+  /stylelint-config-html/1.1.0_qaaem4ytw5dycdgwcgrc5pmjki:
     resolution: {integrity: sha512-IZv4IVESjKLumUGi+HWeb7skgO6/g4VMuAYrJdlqQFndgbj6WJAXPhaysvBiXefX79upBdQVumgYcdd17gCpjQ==}
     engines: {node: ^12 || >=14}
     peerDependencies:
@@ -6187,38 +6195,38 @@ packages:
       stylelint: '>=14.0.0'
     dependencies:
       postcss-html: 1.5.0
-      stylelint: 15.0.0
+      stylelint: 15.1.0
     dev: true
 
-  /stylelint-config-recommended/10.0.1_stylelint@15.0.0:
+  /stylelint-config-recommended/10.0.1_stylelint@15.1.0:
     resolution: {integrity: sha512-TQ4xQ48tW4QSlODcti7pgSRqBZcUaBzuh0jPpfiMhwJKBPkqzTIAU+IrSWL/7BgXlOM90DjB7YaNgFpx8QWhuA==}
     peerDependencies:
       stylelint: ^15.0.0
     dependencies:
-      stylelint: 15.0.0
+      stylelint: 15.1.0
     dev: true
 
-  /stylelint-config-standard/30.0.1_stylelint@15.0.0:
+  /stylelint-config-standard/30.0.1_stylelint@15.1.0:
     resolution: {integrity: sha512-NbeHOmpRQhjZh5XB1B/S4MLRWvz4xxAxeDBjzl0tY2xEcayNhLbaRGF0ZQzq+DQZLCcPpOHeS2Ru1ydbkhkmLg==}
     peerDependencies:
       stylelint: ^15.0.0
     dependencies:
-      stylelint: 15.0.0
-      stylelint-config-recommended: 10.0.1_stylelint@15.0.0
+      stylelint: 15.1.0
+      stylelint-config-recommended: 10.0.1_stylelint@15.1.0
     dev: true
 
-  /stylelint-order/5.0.0_stylelint@15.0.0:
-    resolution: {integrity: sha512-OWQ7pmicXufDw5BlRqzdz3fkGKJPgLyDwD1rFY3AIEfIH/LQY38Vu/85v8/up0I+VPiuGRwbc2Hg3zLAsJaiyw==}
+  /stylelint-order/6.0.2_stylelint@15.1.0:
+    resolution: {integrity: sha512-yuac0BE6toHd27wUPvYVVQicAJthKFIv1HPQFH3Q0dExiO3Z6Uam7geoO0tUd5Z9ddsATYK++1qWNDX4RxMH5Q==}
     peerDependencies:
-      stylelint: ^14.0.0
+      stylelint: ^14.0.0 || ^15.0.0
     dependencies:
       postcss: 8.4.21
-      postcss-sorting: 7.0.1_postcss@8.4.21
-      stylelint: 15.0.0
+      postcss-sorting: 8.0.1_postcss@8.4.21
+      stylelint: 15.1.0
     dev: true
 
-  /stylelint/15.0.0:
-    resolution: {integrity: sha512-K97Jgy0ZYMSs6gXoboXbWvc0KvvGnUftiI1Tiv70mQ/DpeDTHOlqQSk3o65Ien+ddYAJeLjzkYM0O6TWiHdoSg==}
+  /stylelint/15.1.0:
+    resolution: {integrity: sha512-Tw8OyIiYhxnIHUzgoLlCyWgCUKsPYiP3TDgs7M1VbayS+q5qZly2yxABg+YPe/hFRWiu0cOtptCtpyrn1CrnYw==}
     engines: {node: ^14.13.1 || >=16.0.0}
     hasBin: true
     dependencies:
@@ -6707,8 +6715,8 @@ packages:
     resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==}
     dev: true
 
-  /tsup/6.6.0:
-    resolution: {integrity: sha512-HxZE7Hj5yNxLFftCXdcJ+Jsax8dI4oKb0bt8fIvd1g/W0FZ46sU1pFBVo15WpOERFcEMH7Hykey/Q+hKO4s9RQ==}
+  /tsup/6.6.2:
+    resolution: {integrity: sha512-+yQ6SI4rVtp1+YpcYOePumJLEVQ896CDNRt9dJ2L/DeMnLf1+FTOCVw5eioLBH0xLdHgogO9NQ6vPNF5MfkSJw==}
     engines: {node: '>=14'}
     hasBin: true
     peerDependencies:
