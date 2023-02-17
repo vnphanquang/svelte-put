@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.0.1
+
+### Patch Changes
+
+- [`b2e3f02`](https://github.com/vnphanquang/svelte-put/commit/b2e3f023f24f30ef52bd39d6af10140dd0792dcf) Thanks [@vnphanquang](https://github.com/vnphanquang)! - support reactive attribute update for elements using `toclink`. This fixes issue where toclink is reused (in layouts, for example) across page transitions.
+
 ## 3.0.0
 
 ### Major Changes
