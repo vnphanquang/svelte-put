@@ -243,8 +243,8 @@ importers:
       '@microsoft/api-documenter': ^7.21.5
       '@microsoft/api-extractor': ^7.34.4
       '@svelte-put/apirc': workspace:^0.0.0
-      '@svelte-put/clickoutside': ^1.0.4
-      '@svelte-put/shortcut': ^1.0.2
+      '@svelte-put/clickoutside': ^2.0.0
+      '@svelte-put/shortcut': ^2.0.0
       '@svelte-put/tsconfig': workspace:^0.0.0
       '@sveltejs/adapter-auto': 2.0.0
       '@sveltejs/kit': 1.7.1
@@ -321,9 +321,9 @@ importers:
       '@microsoft/api-documenter': ^7.21.5
       '@microsoft/api-extractor': ^7.34.4
       '@svelte-put/apirc': workspace:^0.0.0
-      '@svelte-put/clickoutside': ^1.2.1
-      '@svelte-put/movable': ^1.4.1
-      '@svelte-put/shortcut': ^1.1.1
+      '@svelte-put/clickoutside': ^2.0.0
+      '@svelte-put/movable': ^2.0.0
+      '@svelte-put/shortcut': ^2.0.0
       '@svelte-put/tsconfig': workspace:^0.0.0
       '@sveltejs/adapter-auto': 2.0.0
       '@sveltejs/kit': 1.7.1
@@ -421,7 +421,7 @@ importers:
       '@svelte-put/select': workspace:*
       '@svelte-put/shortcut': workspace:*
       '@svelte-put/toc': workspace:*
-      '@svelte-put/transitions': workspace:^1.0.0
+      '@svelte-put/transitions': workspace:^1.1.0
       '@sveltejs/adapter-vercel': 2.0.2
       '@sveltejs/kit': 1.7.1
       '@tailwindash/triangle': ^1.0.5
