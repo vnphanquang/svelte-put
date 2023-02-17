@@ -1,5 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import type { Action, ActionReturn } from 'svelte/action';
+import type { Action } from 'svelte/action';
 
 import { ClickOutsideAttributes, ClickOutsideParameters } from './clickoutside.types';
 
@@ -57,7 +56,7 @@ import { ClickOutsideAttributes, ClickOutsideParameters } from './clickoutside.t
  *
  * @param node - node outside of which `click` event will trigger `clickoutside`
  * @param parameters - instructions for `clickoutside` behavior
- * @returns svelte {@link ActionReturn}
+ * @returns svelte {@link svelte/action#ActionReturn | ActionReturn}
  */
 export const clickoutside: Action<
   HTMLElement,

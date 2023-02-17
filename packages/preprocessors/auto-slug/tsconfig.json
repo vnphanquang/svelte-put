@@ -11,7 +11,7 @@
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
-    "outDir": "./lib",
-    "declarationDir": "./lib"
+    "outDir": "./dist",
+    "declarationDir": "./dist"
   }
 }

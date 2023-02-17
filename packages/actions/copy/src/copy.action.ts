@@ -9,7 +9,7 @@ import type { CopyParameters, TextResolver, CopyAttributes, CopyDetail } from '.
  *
  * @param node - HTMLElement to register action
  * @param parameters - svelte action parameters
- * @returns svelte {@link ActionReturn }
+ * @returns svelte {@link svelte/action#ActionReturn}
  */
 export function copy<K extends keyof HTMLElementEventMap>(
   node: HTMLElement,

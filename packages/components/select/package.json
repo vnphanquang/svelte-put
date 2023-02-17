@@ -3,19 +3,19 @@
   "version": "0.1.0",
   "description": "Svelte feature-rich, extensible, type-safe, accessible select component",
   "type": "module",
-  "svelte": "./lib/index.js",
-  "main": "./lib/index.js",
-  "module": "./lib/index.js",
+  "svelte": "./dist/index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "exports": {
     "./package.json": "./package.json",
-    "./Select.svelte": "./lib/Select.svelte",
-    ".": "./lib/index.js"
+    "./Select.svelte": "./dist/Select.svelte",
+    ".": "./dist/index.js"
   },
-  "types": "lib/index.d.ts",
+  "types": "dist/index.d.ts",
   "typesVersions": {
     "*": {
       "Select.svelte": [
-        "./lib/Select.svelte.d.ts"
+        "./dist/Select.svelte.d.ts"
       ]
     }
   },
@@ -23,9 +23,7 @@
     "access": "public"
   },
   "files": [
-    "lib",
-    "!lib/package.json",
-    "!lib/CHANGELOG.md"
+    "dist"
   ],
   "scripts": {
     "dev": "vite dev",
@@ -68,8 +66,8 @@
     "@svelte-put/apirc": "workspace:^0.0.0",
     "@svelte-put/tsconfig": "workspace:^0.0.0",
     "@sveltejs/adapter-auto": "2.0.0",
-    "@sveltejs/kit": "1.5.6",
-    "@sveltejs/package": "1.0.2",
+    "@sveltejs/kit": "1.7.1",
+    "@sveltejs/package": "2.0.0",
     "npm-run-all": "^4.1.5",
     "svelte": "^3.55.1",
     "svelte-check": "^3.0.3",

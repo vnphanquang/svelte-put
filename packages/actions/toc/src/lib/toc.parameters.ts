@@ -319,7 +319,7 @@ export interface TocLinkParameters {
   tocItem?: string | TocItem;
   /**
    * connect and reflect the `observe` functionality of `toc`
-   * @see {@link TocLinkClickParameters}
+   * @see {@link TocObserveParameters}
    *
    * Default to: `false`
    */

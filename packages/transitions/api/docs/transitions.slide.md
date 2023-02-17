@@ -19,8 +19,8 @@ export declare function slide(node: HTMLElement, params?: Partial<SlideParams>):
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  node | HTMLElement |  |
-|  params | Partial&lt;[SlideParams](./transitions.slideparams.md)<!-- -->&gt; | _(Optional)_ |
+|  node | HTMLElement | node to apply transition to |
+|  params | Partial&lt;[SlideParams](./transitions.slideparams.md)<!-- -->&gt; | _(Optional)_ transition parameters |
 
 **Returns:**
 

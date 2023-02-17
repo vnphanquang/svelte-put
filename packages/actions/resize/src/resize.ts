@@ -1,5 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import type { Action, ActionReturn } from 'svelte/action';
+import type { Action } from 'svelte/action';
 
 import { ResizeAttributes, ResizeDetail, ResizeParameters } from './resize.types';
 
@@ -42,7 +41,7 @@ import { ResizeAttributes, ResizeDetail, ResizeParameters } from './resize.types
  *
  * @param node - HTMLElement to observe
  * @param parameters - svelte action parameters
- * @returns svelte {@link ActionReturn}
+ * @returns svelte {@link svelte/action#ActionReturn | ActionReturn}
  */
 export const resize: Action<HTMLElement, ResizeParameters, ResizeAttributes> = function (
   node,

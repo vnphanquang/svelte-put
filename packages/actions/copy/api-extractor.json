@@ -2,5 +2,5 @@
   "$schema": "https://developer.microsoft.com/json-schemas/api-extractor/v7/api-extractor.schema.json",
   "extends": "@svelte-put/apirc/base.json",
   "projectFolder": ".",
-  "mainEntryPointFilePath": "<projectFolder>/lib/src/index.d.ts"
+  "mainEntryPointFilePath": "<projectFolder>/dist/src/index.d.ts"
 }

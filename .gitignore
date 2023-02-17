@@ -8,10 +8,11 @@ node_modules
 # testing
 coverage
 
-# next.js
+# built files
 .next/
 out/
 build/
+dist
 
 # misc
 .DS_Store
@@ -32,7 +33,7 @@ build/
 temp/
 
 # svelte-kit
-.svelte-kit/
+.svelte-kit
 .vercel
 
 # vite temp

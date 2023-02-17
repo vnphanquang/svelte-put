@@ -22,11 +22,20 @@ export declare function createTocStore(): {
 
 ## Example
 
-\`\`\`<!-- -->html <script lang="ts"> import { toc, createTocStore } from '<!-- -->@<!-- -->svelte-put/clickoutside';
 
-const tocStore = createTocStore();
+```html
+<script lang="ts">
+  import { toc, createTocStore  } from '@svelte-put/clickoutside';
 
-$: { const { activeItem, items } = $tocStore; console.log('all extracted toc items', items); console.log('activeItem', activeItem); // only if `observer: true` } </script>
+  const tocStore = createTocStore();
 
-&lt;<!-- -->main use:toc=<!-- -->{<!-- -->{ store: tocStore, observe: true }<!-- -->}<!-- -->&gt;<!-- -->...<!-- -->&lt;<!-- -->/main
+  $: {
+     const { activeItem, items } = $tocStore;
+     console.log('all extracted toc items', items);
+     console.log('activeItem', activeItem); // only if `observer: true`
+  }
+</script>
+
+<main use:toc={{ store: tocStore, observe: true }}>...</main
+```
 

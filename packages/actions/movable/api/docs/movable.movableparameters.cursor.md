@@ -4,7 +4,7 @@
 
 ## MovableParameters.cursor property
 
-automatically change cursor to `grab` on hover and `grabbing` on mousedown of \`<!-- -->handle
+automatically change cursor to `grab` on hover and `grabbing` on mousedown of `handle`
 
 **Signature:**
 

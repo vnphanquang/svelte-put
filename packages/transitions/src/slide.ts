@@ -23,8 +23,8 @@ export const SLIDE_DEFAULT_PARAMS = {
 
 /**
  * @public
- * @param {HTMLElement} - node
- * @param {Partial<SlideParams>} - params
+ * @param node - node to apply transition to
+ * @param params - transition parameters
  * @returns
  */
 export function slide(node: HTMLElement, params: Partial<SlideParams> = {}) {

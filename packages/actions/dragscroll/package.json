@@ -2,15 +2,15 @@
   "name": "@svelte-put/dragscroll",
   "version": "1.1.1",
   "description": "Svelte action for drag-to-scroll behavior",
-  "main": "lib/index.js",
-  "module": "lib/index.js",
-  "types": "lib/src/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/src/index.d.ts",
   "type": "module",
   "publishConfig": {
     "access": "public"
   },
   "files": [
-    "lib"
+    "dist"
   ],
   "scripts": {
     "lint": "eslint --ignore-path .gitignore \"./**/*/*{ts,js,cjs}\"",

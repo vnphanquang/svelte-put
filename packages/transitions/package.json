@@ -2,17 +2,18 @@
   "name": "@svelte-put/transitions",
   "version": "1.0.0",
   "description": "Collection of custom svelte transitions",
-  "main": "lib/index.js",
-  "module": "lib/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "exports": {
-    ".": "./lib/index.js",
-    "./slide": "./lib/slide.js"
+    "./package.json": "./package.json",
+    ".": "./dist/index.js",
+    "./slide": "./dist/slide.js"
   },
-  "types": "lib/src/index.d.ts",
+  "types": "dist/src/index.d.ts",
   "typesVersions": {
     "*": {
       "slide": [
-        "./lib/slide.d.ts"
+        "./dist/src/slide.d.ts"
       ]
     }
   },
@@ -22,7 +23,7 @@
     "access": "public"
   },
   "files": [
-    "lib"
+    "dist"
   ],
   "scripts": {
     "lint": "eslint --ignore-path .gitignore \"./**/*/*{ts,js,cjs}\"",

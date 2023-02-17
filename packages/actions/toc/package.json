@@ -3,47 +3,47 @@
   "version": "2.1.3",
   "description": "Action & utilities for building table of contents",
   "type": "module",
-  "svelte": "./lib/index.js",
-  "main": "./lib/index.js",
-  "module": "./lib/index.js",
+  "svelte": "dist/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "exports": {
     "./package.json": "./package.json",
-    ".": "./lib/index.js",
-    "./action": "./lib/toc.action.js",
-    "./attributes": "./lib/toc.attributes.js",
-    "./events": "./lib/toc.events.js",
-    "./internal": "./lib/toc.internal.js",
-    "./item": "./lib/toc.item.js",
-    "./parameters": "./lib/toc.parameters.js",
-    "./store": "./lib/toc.store.js",
-    "./utils": "./lib/toc.utils.js"
+    ".": "./dist/index.js",
+    "./action": "./dist/toc.action.js",
+    "./attributes": "./dist/toc.attributes.js",
+    "./events": "./dist/toc.events.js",
+    "./internal": "./dist/toc.internal.js",
+    "./item": "./dist/toc.item.js",
+    "./parameters": "./dist/toc.parameters.js",
+    "./store": "./dist/toc.store.js",
+    "./utils": "./dist/toc.utils.js"
   },
-  "types": "lib/index.d.ts",
+  "types": "dist/index.d.ts",
   "typesVersions": {
     "*": {
       "action": [
-        "./lib/toc.action.d.ts"
+        "./dist/toc.action.d.ts"
       ],
       "attributes": [
-        "./lib/toc.attributes.d.ts"
+        "./dist/toc.attributes.d.ts"
       ],
       "events": [
-        "./lib/toc.events.d.ts"
+        "./dist/toc.events.d.ts"
       ],
       "internal": [
-        "./lib/toc.internal.d.ts"
+        "./dist/toc.internal.d.ts"
       ],
       "item": [
-        "./lib/toc.item.d.ts"
+        "./dist/toc.item.d.ts"
       ],
       "parameters": [
-        "./lib/toc.parameters.d.ts"
+        "./dist/toc.parameters.d.ts"
       ],
       "store": [
-        "./lib/toc.store.d.ts"
+        "./dist/toc.store.d.ts"
       ],
       "utils": [
-        "./lib/toc.utils.d.ts"
+        "./dist/toc.utils.d.ts"
       ]
     }
   },
@@ -51,9 +51,7 @@
     "access": "public"
   },
   "files": [
-    "lib",
-    "!lib/package.json",
-    "!lib/CHANGELOG.md"
+    "dist"
   ],
   "scripts": {
     "dev": "vite dev",
@@ -102,8 +100,8 @@
     "@svelte-put/apirc": "workspace:^0.0.0",
     "@svelte-put/tsconfig": "workspace:^0.0.0",
     "@sveltejs/adapter-auto": "2.0.0",
-    "@sveltejs/kit": "1.5.6",
-    "@sveltejs/package": "1.0.2",
+    "@sveltejs/kit": "1.7.1",
+    "@sveltejs/package": "2.0.0",
     "npm-run-all": "^4.1.5",
     "svelte": "^3.55.1",
     "svelte-check": "^3.0.3",

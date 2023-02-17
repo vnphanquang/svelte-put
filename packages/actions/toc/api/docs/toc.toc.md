@@ -24,39 +24,54 @@ As with any svelte action, `clickoutside` should be use with element and not com
 
 <-- incorrect usage-->
 <Component use:toc/>
+```
 
-@example
+## Example 1
 
 Minimal use with idiomatic svelte store
 
+```html
+<script lang="ts">
+  import { toc, createTocStore  } from '@svelte-put/clickoutside';
+
+  const tocStore = createTocStore();
+
+  $: {
+     const { activeItem, items } = $tocStore;
+     console.log('all extracted toc items', items);
+     console.log('activeItem', activeItem); // only if `observer: true`
+  }
+</script>
+
+<main use:toc={{ store: tocStore, observe: true }}>
+  <h1>Page heading</h1>
+  <section>
+    <h2>Section heading</h2>
+  </section>
+  ...
+</main>
 ```
-html <script lang="ts"> import { toc, createTocStore } from '<!-- -->@<!-- -->svelte-put/clickoutside';
 
-const tocStore = createTocStore();
-
-$: { const { activeItem, items } = $tocStore; console.log('all extracted toc items', items); console.log('activeItem', activeItem); // only if `observer: true` } </script>
-
-&lt;<!-- -->main use:toc=<!-- -->{<!-- -->{ store: tocStore, observe: true }<!-- -->}<!-- -->&gt; <h1>Page heading</h1> <section> <h2>Section heading</h2> </section> ... </main>
-
-```
-
-@example
+## Example 2
 
 Usage with callbacks (alternative to svelte store)
 
-```
-html <script lang="ts"> import { toc } from '<!-- -->@<!-- -->svelte-put/clickoutside'; import type { TocInitEventDetails, TocChangeEventDetails } from '<!-- -->@<!-- -->svelte-put/clickoutside';
+```html
+<script lang="ts">
+  import { toc } from '@svelte-put/clickoutside';
+  import type { TocInitEventDetails, TocChangeEventDetails } from '@svelte-put/clickoutside';
 
-function handleTocInit(event: CustomEvent<TocInitEventDetails>) { const { items } = event.detail; }
+  function handleTocInit(event: CustomEvent<TocInitEventDetails>) {
+     const { items } = event.detail;
+  }
 
-function handleTocChange(event: CustomEvent<TocChangeEventDetails>) { const { activeItem } = event.detail; } </script>
+  function handleTocChange(event: CustomEvent<TocChangeEventDetails>) {
+     const { activeItem } = event.detail;
+  }
+</script>
 
-&lt;<!-- -->main use:toc=<!-- -->{<!-- -->{ observe: true }<!-- -->} on:tocinit=<!-- -->{<!-- -->handleTocInit<!-- -->} on:tocchange=<!-- -->{<!-- -->handleTocChange<!-- -->}<!-- -->&gt; ... </main>
-
-```
-
-@param node - root node to search for matching elements in descendants
-@param parameters - instructions for `toc` behavior
-@returns svelte {@link ActionReturn}
+<main use:toc={{ observe: true }} on:tocinit={handleTocInit} on:tocchange={handleTocChange}>
+ ...
+</main>
 ```
 

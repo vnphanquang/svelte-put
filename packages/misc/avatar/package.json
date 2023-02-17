@@ -3,23 +3,23 @@
   "version": "1.0.16",
   "description": "Component and utils for handling avatar",
   "type": "module",
-  "svelte": "./lib/index.js",
-  "main": "./lib/index.js",
-  "module": "./lib/index.js",
+  "svelte": "./dist/index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "exports": {
     "./package.json": "./package.json",
-    "./Avatar.svelte": "./lib/Avatar.svelte",
-    "./avatar": "./lib/avatar.js",
-    ".": "./lib/index.js"
+    "./Avatar.svelte": "./dist/Avatar.svelte",
+    "./avatar": "./dist/avatar.js",
+    ".": "./dist/index.js"
   },
-  "types": "lib/index.d.ts",
+  "types": "dist/index.d.ts",
   "typesVersions": {
     "*": {
       "avatar": [
-        "./lib/avatar.d.ts"
+        "./dist/avatar.d.ts"
       ],
       "Avatar.svelte": [
-        "./lib/Avatar.svelte.d.ts"
+        "./dist/Avatar.svelte.d.ts"
       ]
     }
   },
@@ -27,9 +27,7 @@
     "access": "public"
   },
   "files": [
-    "lib",
-    "!lib/package.json",
-    "!lib/CHANGELOG.md"
+    "dist"
   ],
   "scripts": {
     "dev": "vite dev",
@@ -68,8 +66,8 @@
     "@svelte-put/apirc": "workspace:^0.0.0",
     "@svelte-put/tsconfig": "workspace:^0.0.0",
     "@sveltejs/adapter-auto": "2.0.0",
-    "@sveltejs/kit": "1.5.6",
-    "@sveltejs/package": "1.0.2",
+    "@sveltejs/kit": "1.7.1",
+    "@sveltejs/package": "2.0.0",
     "@types/md5": "^2.3.2",
     "npm-run-all": "^4.1.5",
     "svelte": "^3.55.1",

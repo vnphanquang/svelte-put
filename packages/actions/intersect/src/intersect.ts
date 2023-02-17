@@ -1,5 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import type { Action, ActionReturn } from 'svelte/action';
+import type { Action } from 'svelte/action';
 
 import { IntersectAttributes, IntersectDetail, IntersectParameters } from './intersect.types';
 
@@ -94,7 +93,7 @@ import { IntersectAttributes, IntersectDetail, IntersectParameters } from './int
  *
  * @param node - HTMLElement to observe
  * @param parameters - svelte action parameters
- * @returns svelte {@link ActionReturn}
+ * @returns svelte {@link svelte/action#ActionReturn | ActionReturn}
  */
 export const intersect: Action<HTMLElement, IntersectParameters, IntersectAttributes> = function (
   node,

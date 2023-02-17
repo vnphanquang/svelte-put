@@ -20,7 +20,7 @@ export interface MovableParameters
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [cursor?](./movable.movableparameters.cursor.md) |  | boolean | _(Optional)_ automatically change cursor to <code>grab</code> on hover and <code>grabbing</code> on mousedown of \`<!-- -->handle |
+|  [cursor?](./movable.movableparameters.cursor.md) |  | boolean | _(Optional)_ automatically change cursor to <code>grab</code> on hover and <code>grabbing</code> on mousedown of <code>handle</code> |
 |  [enabled?](./movable.movableparameters.enabled.md) |  | boolean | _(Optional)_ whether to activate the action. Default to <code>true</code> |
 |  [handle?](./movable.movableparameters.handle.md) |  | HTMLElement | _(Optional)_ A node that triggers mousedown event, otherwise the node itself is the handle |
 |  [ignore?](./movable.movableparameters.ignore.md) |  | string \| string\[\] | _(Optional)_ CSS selectors within the <code>handle</code> node to exclude from triggering <code>movable</code>. Use this options with caution because it might affect performance. |

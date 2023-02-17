@@ -36,6 +36,7 @@ export type TocStoreValue = {
  * </script>
  *
  * <main use:toc={{ store: tocStore, observe: true }}>...</main
+ * ```
  */
 export function createTocStore() {
   let id: string | undefined = undefined;

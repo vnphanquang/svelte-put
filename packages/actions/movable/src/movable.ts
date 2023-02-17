@@ -1,5 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import type { Action, ActionReturn } from 'svelte/action';
+import type { Action } from 'svelte/action';
 
 import type { MovableAttributes, MovableEventDetails, MovableParameters } from './movable.types';
 import { input } from './utils';
@@ -99,7 +98,7 @@ import { input } from './utils';
  *
  * @param node - HTMLElement to be moved
  * @param parameters - svelte action parameters
- * @returns svelte {@link ActionReturn}
+ * @returns svelte {@link svelte/action#ActionReturn | ActionReturn}
  *
  */
 export const movable: Action<HTMLElement, MovableParameters, MovableAttributes> = function (

@@ -6,7 +6,7 @@ const config: RollupOptions = {
   input: 'src/index.ts',
   output: {
     sourcemap: true,
-    dir: './lib',
+    dir: './dist',
     format: 'esm',
   },
   plugins: [

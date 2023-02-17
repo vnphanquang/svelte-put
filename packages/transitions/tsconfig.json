@@ -2,10 +2,9 @@
   "include": ["src/**/*.ts", "rollup.config.ts"],
   "extends": "@svelte-put/tsconfig/base.package.json",
   "compilerOptions": {
-    "outDir": "./lib",
+    "outDir": "dist",
     "baseUrl": ".",
     "declaration": true,
-    "declarationDir": "./lib",
     "resolveJsonModule": true
   }
 }

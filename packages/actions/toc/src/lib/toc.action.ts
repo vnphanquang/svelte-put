@@ -1,6 +1,5 @@
 import { tick } from 'svelte';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import type { Action, ActionReturn } from 'svelte/action';
+import type { Action } from 'svelte/action';
 import type { Unsubscriber } from 'svelte/store';
 
 import type { TocEventAttributes } from './toc.attributes';
@@ -44,6 +43,7 @@ import { updateStore } from './toc.store';
  *
  * <-- incorrect usage-->
  * <Component use:toc/>
+ * ```
  *
  * @example
  *
@@ -96,8 +96,7 @@ import { updateStore } from './toc.store';
  *
  * @param node - root node to search for matching elements in descendants
  * @param parameters - instructions for `toc` behavior
- * @returns svelte {@link ActionReturn}
- * ```
+ * @returns svelte {@link svelte/action#ActionReturn | ActionReturn}
  */
 export const toc: Action<HTMLElement, TocParameters, TocEventAttributes> = function (
   node,

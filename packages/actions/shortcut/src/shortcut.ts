@@ -1,5 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import type { Action, ActionReturn } from 'svelte/action';
+import type { Action } from 'svelte/action';
 
 import type {
   ShortcutEventDetails,
@@ -101,7 +100,7 @@ import type {
  *
  * @param node - HTMLElement to add event listener to
  * @param params - svelte action parameters
- * @returns svelte {@link ActionReturn}
+ * @returns svelte {@link svelte/action#ActionReturn | ActionReturn}
  */
 export const shortcut: Action<HTMLElement, ShortcutParameters, ShortcutAttributes> = function (
   node,

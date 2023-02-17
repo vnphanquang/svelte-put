@@ -1,5 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import type { Action, ActionReturn } from 'svelte/action';
+import type { Action } from 'svelte/action';
 
 import type { DragScrollParameters } from './dragscroll.types';
 
@@ -30,7 +29,7 @@ function resolveParameters(parameters: Partial<DragScrollParameters> = {}) {
  *
  * @param node - node to apply the action
  * @param parameters - instructions for customizing action behavior
- * @returns svelte {@link ActionReturn}
+ * @returns svelte {@link svelte/action#ActionReturn | ActionReturn}
  */
 export const dragscroll: Action<HTMLElement, Partial<DragScrollParameters>> = function (
   node,
