@@ -1,6 +1,6 @@
 {
   "name": "@svelte-put/select",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Svelte feature-rich, extensible, type-safe, accessible select component",
   "type": "module",
   "svelte": "./dist/index.js",
@@ -57,8 +57,8 @@
   },
   "homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/components/select",
   "dependencies": {
-    "@svelte-put/clickoutside": "^1.0.4",
-    "@svelte-put/shortcut": "^1.0.2"
+    "@svelte-put/clickoutside": "^2.0.0",
+    "@svelte-put/shortcut": "^2.0.0"
   },
   "devDependencies": {
     "@microsoft/api-documenter": "^7.21.5",
