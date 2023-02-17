@@ -320,8 +320,8 @@ export const toclink: Action<HTMLAnchorElement, TocLinkParameters> = function (
     }
   }
 
-  function execute() {
-    tocItemId = node.href.slice(1);
+  function resolveAttributes() {
+    let tocItemId = node.href.split('#')[1] ?? '';
     if (resolved.tocItem) {
       tocItemId = typeof resolved.tocItem === 'string' ? resolved.tocItem : resolved.tocItem.id;
       if (!node.href) {
@@ -332,6 +332,10 @@ export const toclink: Action<HTMLAnchorElement, TocLinkParameters> = function (
       }
     }
     node.setAttribute(ATTRIBUTES.linkFor, tocItemId);
+  }
+
+  function execute() {
+    resolveAttributes();
 
     tocRoot = findTocRoot(node, resolved.tocId ?? resolved.store?.id());
     if (!tocRoot || !resolved.observe.enabled) return;
@@ -341,7 +345,7 @@ export const toclink: Action<HTMLAnchorElement, TocLinkParameters> = function (
     if (resolved.observe.attribute.length) {
       if (resolved.store) {
         storeUnsubscribe = resolved.store.subscribe(({ activeItem }) => {
-          updateCurrent(activeItem?.id === tocItemId);
+          updateCurrent(activeItem?.id === node.getAttribute(ATTRIBUTES.linkFor));
         });
       } else {
         mutationObserver = new MutationObserver((mutationList) => {
@@ -353,7 +357,7 @@ export const toclink: Action<HTMLAnchorElement, TocLinkParameters> = function (
               const currentTocId = (mutation.target as HTMLElement).getAttribute(
                 ATTRIBUTES.observeActiveId,
               );
-              updateCurrent(currentTocId === tocItemId);
+              updateCurrent(currentTocId === node.getAttribute(ATTRIBUTES.linkFor));
             }
           }
         });
@@ -376,6 +380,7 @@ export const toclink: Action<HTMLAnchorElement, TocLinkParameters> = function (
   return {
     update(update = {}) {
       resolved = resolveTocLinkParameters(update);
+      resolveAttributes();
       // as with `toc` action, we do not support dynamic update right now
     },
     destroy() {
