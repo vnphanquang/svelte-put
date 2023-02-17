@@ -31,7 +31,7 @@ jobs:
           node-version: 16
           cache: pnpm
       - name: Install dependencies
-        run: pnpm install --ignore-scripts
+        run: pnpm install --ignore-scripts --no-frozen-lockfile
       - name: Create release PR or Publish to npm
         uses: changesets/action@v1
         with:
