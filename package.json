@@ -34,12 +34,12 @@
     "prettier": "^2.8.4",
     "prettier-plugin-svelte": "^2.9.0",
     "simple-git-hooks": "^2.8.1",
-    "stylelint": "^15.1.0",
+    "stylelint": "^15.2.0",
     "stylelint-config-clean-order": "^5.0.0",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-standard": "^30.0.1",
     "svelte": "^3.55.1",
-    "turbo": "^1.7.4",
+    "turbo": "^1.8.1",
     "typescript": "^4.9.5"
   },
   "engines": {
