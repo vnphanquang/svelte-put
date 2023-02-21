@@ -422,7 +422,7 @@ importers:
       '@svelte-put/shortcut': workspace:*
       '@svelte-put/toc': workspace:*
       '@svelte-put/transitions': workspace:^1.1.0
-      '@sveltejs/adapter-vercel': 2.0.4
+      '@sveltejs/adapter-vercel': 2.1.0
       '@sveltejs/kit': 1.8.3
       '@tailwindash/triangle': ^1.0.5
       '@tailwindcss/typography': ^0.5.9
@@ -484,7 +484,7 @@ importers:
       '@svelte-put/shortcut': link:../../packages/actions/shortcut
       '@svelte-put/toc': link:../../packages/actions/toc
       '@svelte-put/transitions': link:../../packages/transitions
-      '@sveltejs/adapter-vercel': 2.0.4_@sveltejs+kit@1.8.3
+      '@sveltejs/adapter-vercel': 2.1.0_@sveltejs+kit@1.8.3
       '@sveltejs/kit': 1.8.3_svelte@3.55.1+vite@4.1.3
       '@tailwindash/triangle': 1.0.5_tailwindcss@3.2.7
       '@tailwindcss/typography': 0.5.9_tailwindcss@3.2.7
@@ -1526,8 +1526,8 @@ packages:
       import-meta-resolve: 2.2.0
     dev: true
 
-  /@sveltejs/adapter-vercel/2.0.4_@sveltejs+kit@1.8.3:
-    resolution: {integrity: sha512-5tN3sCMQtN/ZV7O26hEVpylIZMMPNkDaDmXxDdEyUZGYpO9x9FOa2CN1CbMQBBGAiCuMxgmtjlWFz4GkYXRU+Q==}
+  /@sveltejs/adapter-vercel/2.1.0_@sveltejs+kit@1.8.3:
+    resolution: {integrity: sha512-cK0R40ALUNDQG9OhaDBYtU55eob6CD1BXCcVSoC1N+GOq/N6FQaMkWXFVGLl98Ja0EZwoZeFAwf2m0Pnc3uq2Q==}
     peerDependencies:
       '@sveltejs/kit': ^1.5.0
     dependencies:
