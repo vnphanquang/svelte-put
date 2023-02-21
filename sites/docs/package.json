@@ -40,7 +40,7 @@
     "@svelte-put/shortcut": "workspace:*",
     "@svelte-put/toc": "workspace:*",
     "@svelte-put/transitions": "workspace:^1.1.0",
-    "@sveltejs/adapter-vercel": "2.0.4",
+    "@sveltejs/adapter-vercel": "2.1.0",
     "@sveltejs/kit": "1.8.3",
     "@tailwindash/triangle": "^1.0.5",
     "@tailwindcss/typography": "^0.5.9",
