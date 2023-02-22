@@ -1,0 +1,30 @@
+{
+  "name": "@svelte-put/preprocess-helpers",
+  "version": "0.0.0",
+  "description": "utilities & types for building preprocessors",
+  "type": "module",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "types": "src/index.ts",
+  "private": true,
+  "scripts": {
+    "lint": "eslint --ignore-path .gitignore \"./**/*/*{ts,js,cjs}\"",
+    "format": "prettier --check --ignore-path .gitignore \"./**/*.{ts,js,cjs,json}\""
+  },
+  "author": "Quang Phan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vnphanquang/svelte-put/issues"
+  },
+  "homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocessors/auto-slug",
+  "devDependencies": {
+    "@types/estree": "^1.0.0",
+    "@types/node": "^18.14.0",
+    "npm-run-all": "^4.1.5",
+    "svelte": "^3.55.1",
+    "typescript": "^4.9.5"
+  },
+  "peerDependencies": {
+    "svelte": "^3.37.0"
+  }
+}

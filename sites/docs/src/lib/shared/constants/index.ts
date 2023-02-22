@@ -18,6 +18,9 @@ export const { node: APP_ROUTE_TREE } = tBuild('APP_ROUTE_TREE', {
             .addChild('preprocessAutoSlug', {
               pathResolver: () => 'preprocess-auto-slug',
             })
+            .addChild('preprocessInlineSvg', {
+              pathResolver: () => 'preprocess-inline-svg',
+            })
             .addChild('select')
             .addChild('shortcut')
             .addChild('toc'),

@@ -20,7 +20,7 @@
     "format": "turbo run format --parallel",
     "api": "turbo run api",
     "ci:version": "changeset version",
-    "ci:publish": "pnpm build && changeset publish"
+    "ci:publish": "pnpm build && changeset publish && pnpm install"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.8",

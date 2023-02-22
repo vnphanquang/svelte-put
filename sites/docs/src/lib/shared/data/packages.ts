@@ -121,7 +121,7 @@ export const packages = {
     path: APP_ROUTE_TREE.docs.preprocessAutoSlug.$.path(),
     replId: undefined,
     category: 'preprocessor',
-    status: 'new',
+    status: 'stable',
     ready: true,
     githubUrl:
       'https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocessors/auto-slug',
@@ -129,6 +129,23 @@ export const packages = {
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocessors/preprocess-auto-slug/CHANGELOG.md',
     apiUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocessors/auto-slug/api/docs/index.md',
+  },
+  'preprocess-inline-svg': {
+    id: 'preprocess-inline-svg',
+    name: '@svelte-put/preprocess-inline-svg',
+    publishedAt: 1677056235319,
+    description: 'svelte preprocessor to inline svg static svg at build time',
+    path: APP_ROUTE_TREE.docs.preprocessInlineSvg.$.path(),
+    replId: undefined,
+    category: 'preprocessor',
+    status: 'new',
+    ready: false,
+    githubUrl:
+      'https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocessors/inline-svg',
+    changelogUrl:
+      'https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocessors/inline-svg/CHANGELOG.md',
+    apiUrl:
+      'https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocessors/inline-svg/api/docs/index.md',
   },
   resize: {
     id: 'resize',
@@ -186,7 +203,7 @@ export const packages = {
     path: APP_ROUTE_TREE.docs.toc.$.path(),
     replId: 'd9c896ac62cd41d49f80ffa249d292e6',
     category: 'action',
-    status: 'new',
+    status: 'stable',
     ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/toc',
     changelogUrl:
