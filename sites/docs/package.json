@@ -35,7 +35,7 @@
     "@svelte-put/modal": "workspace:*",
     "@svelte-put/movable": "workspace:*",
     "@svelte-put/preprocess-auto-slug": "workspace:*",
-    "@svelte-put/preprocess-inline-svg": "workspace:^0.0.0",
+    "@svelte-put/preprocess-inline-svg": "workspace:^1.0.0",
     "@svelte-put/resize": "workspace:*",
     "@svelte-put/select": "workspace:*",
     "@svelte-put/shortcut": "workspace:*",
