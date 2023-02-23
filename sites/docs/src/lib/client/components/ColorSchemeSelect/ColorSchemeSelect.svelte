@@ -5,23 +5,18 @@
 
   import type { ColorScheme } from '$shared/types';
 
-  import DarkMode from '../icons/material/DarkMode.svelte';
-  import LightMode from '../icons/material/LightMode.svelte';
-  import SettingsSuggest from '../icons/material/SettingsSuggest.svelte';
+  import ColorSchemeIcon from './ColorSchemeIcon.svelte';
 
   export let scheme: ColorScheme;
   const SCHEMES = {
     light: {
       scheme: 'light',
-      icon: LightMode,
     },
     dark: {
       scheme: 'dark',
-      icon: DarkMode,
     },
     system: {
       scheme: 'system',
-      icon: SettingsSuggest,
     },
   } as const;
 
@@ -44,7 +39,7 @@
       aria-expanded={open}
       in:fade|local={{ duration: 150 }}
     >
-      <svelte:component this={SCHEMES[scheme].icon} height="24" width="24" />
+      <ColorSchemeIcon {scheme} />
     </button>
   {/key}
   {#key open}
@@ -65,7 +60,7 @@
               class="flex w-full items-center space-x-2 py-2 px-4 text-xs font-bold capitalize hover:bg-border hover:text-primary"
               class:text-primary={scheme === s.scheme}
             >
-              <svelte:component this={s.icon} height="24" width="24" />
+              <ColorSchemeIcon scheme={s.scheme} />
               <span>{s.scheme}</span>
             </button>
           </li>

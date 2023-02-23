@@ -1,8 +1,6 @@
 <script lang="ts">
   import clsx from 'clsx';
 
-  import Svg from '$client/components/icons/Svg.svelte';
-
   export let align: 'left' | 'right' = 'left';
   let cls = '';
   export { cls as class };
@@ -18,14 +16,14 @@
   )}
   on:click|stopPropagation
 >
-  <Svg
+  <svg
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
-    title="Menu"
     height="24"
     width="24"
     class={clsx('inline', align === 'right' && '-scale-x-100')}
   >
+    <title>Menu</title>
     <path
       class="{commonPathClasses} group-hover:scale-x-75"
       d="M21,7H3C2.4,7,2,6.6,2,6s0.4-1,1-1h18c0.6,0,1,0.4,1,1S21.6,7,21,7z"
@@ -42,7 +40,7 @@
       class="{commonPathClasses} group-hover:scale-x-125"
       d="M17,19H3c-0.6,0-1-0.4-1-1s0.4-1,1-1h14c0.6,0,1,0.4,1,1S17.6,19,17,19z"
     />
-  </Svg>
+  </svg>
   {#if $$slots.default}
     <span><slot /></span>
   {/if}

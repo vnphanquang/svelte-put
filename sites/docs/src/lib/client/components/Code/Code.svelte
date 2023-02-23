@@ -19,14 +19,6 @@
   import HighlightSvelte from 'svelte-highlight/HighlightSvelte.svelte';
   import { fade, slide } from 'svelte/transition';
 
-  import IconCode from '$client/components/icons/material/Code.svelte';
-  import IconCopy from '$client/components/icons/material/Copy.svelte';
-  import IconDone from '$client/components/icons/material/Done.svelte';
-  import IconError from '$client/components/icons/material/Error.svelte';
-  import IconExpandLess from '$client/components/icons/material/ExpandLess.svelte';
-  import IconInfo from '$client/components/icons/material/Info.svelte';
-  import IconWarning from '$client/components/icons/material/Warning.svelte';
-
   type $$Props = CodeProps;
   export let lang: $$Props['lang'] = 'svelte';
   export let code: $$Props['code'];
@@ -67,13 +59,13 @@
     <p class="flex flex-1 items-center space-x-2 font-fira text-sm">
       <span class="w-6" title="indicator">
         {#if icon === 'code'}
-          <IconCode />
+          <svg data-inline-src="google/code" />
         {:else if icon === 'info'}
-          <IconInfo class="text-green-500" />
+          <svg data-inline-src="google/info" class="text-green-500" />
         {:else if icon === 'warning'}
-          <IconWarning class="text-yellow-500" />
+          <svg data-inline-src="google/warning" class="text-yellow-500" />
         {:else if icon === 'error'}
-          <IconError class="text-red-500" />
+          <svg data-inline-src="google/error" class="text-red-500" />
         {/if}
       </span>
       <span>
@@ -96,9 +88,9 @@
           in:fade|local={{ duration: 150 }}
         >
           {#if copied}
-            <IconDone class="inline-block" />
+            <svg data-inline-src="google/done" class="inline-block" />
           {:else}
-            <IconCopy class="inline-block" />
+            <svg data-inline-src="google/content-copy" class="inline-block" />
           {/if}
         </span>
       {/key}
@@ -112,7 +104,8 @@
         aria-label="Toggle expansion"
       >
         <span class={clsx('h-5', expanded ? 'inline-grid place-items-center' : 'animate-bounce')}>
-          <IconExpandLess
+          <svg
+            data-inline-src="google/expand-less"
             class="inline-block transition-transform {!expanded ? 'rotate-180' : ''}"
             height="20"
             width="20"

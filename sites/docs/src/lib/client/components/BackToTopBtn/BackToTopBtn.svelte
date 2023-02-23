@@ -1,8 +1,6 @@
 <script lang="ts">
   import { fly } from 'svelte/transition';
 
-  import ArrowUp from '$client/components/icons/material/ArrowUp.svelte';
-
   let cls = '';
   export { cls as class };
 
@@ -25,6 +23,6 @@
     class="grid place-items-center rounded-full bg-fg p-2 text-bg shadow transition-opacity duration-150 hover:opacity-100 md:opacity-50 {cls}"
     aria-label="Back to top"
   >
-    <ArrowUp height="24" width="24" />
+    <svg data-inline-src="google/arrow-upward" height="24" width="24" />
   </button>
 {/if}

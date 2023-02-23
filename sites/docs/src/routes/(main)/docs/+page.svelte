@@ -2,7 +2,6 @@
   import EditThisPageLink from '$client/components/EditThisPageLink/EditThisPageLink.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
   import StatusBadge from '$client/components/StatusBadge/StatusBadge.svelte';
-  import Github from '$client/components/icons/Github.svelte';
   import { packagesByCategory } from '$shared/data/packages';
   import { createNpmBadgeUrl, createNpmUrl } from '$shared/utils/badge';
 </script>
@@ -111,7 +110,7 @@
     Source code can be found at
     <span class="">
       <ResourceLink key="github">
-        github <Github class="inline-block h-6 w-6 align-top" />
+        github <svg data-inline-src="simpleicon/github" class="inline-block h-6 w-6 align-top" />
       </ResourceLink>
     </span>. If you have any suggestions or found a bug, please read the
     <ResourceLink href="https://github.com/vnphanquang/svelte-put/blob/main/CONTRIBUTING.md"
