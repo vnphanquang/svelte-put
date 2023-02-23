@@ -6,7 +6,6 @@
   import Code from '$client/components/Code/Code.svelte';
   import Installation from '$client/components/Installation/Installation.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
-  import Copy from '$client/components/icons/material/Copy.svelte';
   import endImg from '$shared/assets/images/copy-meme.webp';
 
   import type { PageData } from './$types';
@@ -55,8 +54,12 @@
   <section>
     <h3><sup class="c-footnote-red">2</sup> Customizing the Trigger</h3>
     <p class="c-callout-info">
-      The <Copy class="inline text-primary" height="16" width="16" /> button seen in all code blocks
-      on this site is powered by this very action.
+      The <svg
+        data-inline-src="google/content-copy"
+        class="inline text-primary"
+        height="16"
+        width="16"
+      /> button seen in all code blocks on this site is powered by this very action.
     </p>
     <p>A typical use case is clicking on a node to copy the text of some other node.</p>
     <fieldset class="w-full border-2 border-violet-500 p-4">

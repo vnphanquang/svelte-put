@@ -2,8 +2,6 @@
   import BackToTopBtn from '$client/components/BackToTopBtn/BackToTopBtn.svelte';
   import EditThisPageLink from '$client/components/EditThisPageLink/EditThisPageLink.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
-  import Empty from '$client/components/icons/Empty.svelte';
-  import Github from '$client/components/icons/Github.svelte';
   import {
     createBundlephobiaBadgeUrl,
     createBundlephobiaUrl,
@@ -24,7 +22,7 @@
   <h1 class="flex items-center justify-between font-fingerpaint">
     {data.package.name}
     <ResourceLink href={data.package.githubUrl} class="text-fg active:text-primary">
-      <Github class="inline" height="28" width="28" />
+      <svg data-inline-src="simpleicon/github" class="inline" height="28" width="28" />
     </ResourceLink>
   </h1>
   {#if data.package.description}
@@ -114,7 +112,7 @@
 {:else}
   <div class="grid w-full place-items-center text-center">
     <p class="text-lg font-bold">Wow, such empty</p>
-    <Empty />
+    <svg data-inline-src="empty" />
     <p>Documentation is being put together and will be available very soon.</p>
     <p>
       In the mean time, you can visit

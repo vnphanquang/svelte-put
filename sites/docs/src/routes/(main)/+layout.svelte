@@ -13,13 +13,6 @@
   import MenuButton from '$client/components/MenuButton/MenuButton.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
   import StatusBadge from '$client/components/StatusBadge/StatusBadge.svelte';
-  import Github from '$client/components/icons/Github.svelte';
-  import Svelte from '$client/components/icons/Svelte.svelte';
-  import Tailwind from '$client/components/icons/Tailwind.svelte';
-  import Vercel from '$client/components/icons/Vercel.svelte';
-  import AccountTree from '$client/components/icons/material/AccountTree.svelte';
-  import Rss from '$client/components/icons/material/Rss.svelte';
-  import VolunteerActivism from '$client/components/icons/material/VolunteerActivism.svelte';
   import { getPrefersColorScheme } from '$client/utils/color-scheme';
   import { LOAD_DEPENDENCIES, APP_ROUTE_TREE } from '$shared/constants';
   import { packagesByCategory } from '$shared/data/packages';
@@ -102,7 +95,7 @@
       <div class="flex flex-1 items-center justify-end space-x-4">
         <ColorSchemeSelect scheme={clientColorScheme} on:select={changeColorScheme} />
         <ResourceLink class="c-link" key="github">
-          <Github height="24" width="24" />
+          <svg data-inline-src="simpleicon/github" height="24" width="24" />
         </ResourceLink>
       </div>
     </nav>
@@ -227,13 +220,18 @@
       >
         <p>
           <a href="/sitemap.xml" class="c-link" target="_blank">
-            <AccountTree class="inline-block" title="Sitemap" height="16" width="16" />
+            <svg
+              data-inline-src="google/account-tree"
+              class="inline-block"
+              height="16"
+              width="16"
+            />
             <span>Sitemap</span>
           </a>
         </p>
         <p>
           <a href="/rss.xml" class="c-link" target="_blank">
-            <Rss class="inline-block" height="16" width="16" />
+            <svg data-inline-src="google/rss-feed" class="inline-block" height="16" width="16" />
             <span>RSS</span>
           </a>
         </p>
@@ -245,13 +243,13 @@
         <p>
           Powered by
           <ResourceLink key="svelte-kit">
-            <Svelte class="inline" height="16" width="16" />
+            <svg data-inline-src="svelte" class="inline" height="16" width="16" />
           </ResourceLink>
           <ResourceLink key="TailwindCSS">
-            <Tailwind class="inline" height="16" width="16" />
+            <svg data-inline-src="simpleicon/tailwindcss" class="inline" height="16" width="16" />
           </ResourceLink>
           <ResourceLink key="vercel">
-            <Vercel class="inline" height="16" width="16" />
+            <svg data-inline-src="simpleicon/vercel" class="inline" height="16" width="16" />
           </ResourceLink>
         </p>
       </div>
@@ -259,7 +257,13 @@
         <p>
           <a href="/docs#donating" class="c-link">
             <span>Donate</span>
-            <VolunteerActivism class="inline-block" height="16" width="16" />
+
+            <svg
+              data-inline-src="google/volunteer-activism"
+              class="inline-block"
+              height="16"
+              width="16"
+            />
           </a>
         </p>
       </div>
