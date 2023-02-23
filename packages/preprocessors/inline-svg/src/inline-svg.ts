@@ -4,6 +4,7 @@ import path from 'path';
 import { getAttributes } from '@svelte-put/preprocess-helpers';
 import type { Node } from '@svelte-put/preprocess-helpers';
 import { toHtml } from 'hast-util-to-html';
+import type { Options as HastUtilToHtmlOptions } from 'hast-util-to-html';
 import MagicString from 'magic-string';
 import { parse } from 'svelte-parse-markup';
 import { walk } from 'svelte/compiler';
@@ -29,6 +30,10 @@ interface InlineSvgInput {
    * but be overridden by the attributes from the element itself (in svelte source).
    */
   attributes?: Record<string, string>;
+  /**
+   * options for `hast-util-to-html` during serialization.
+   */
+  serializeOptions?: HastUtilToHtmlOptions;
 }
 
 /**
@@ -40,6 +45,10 @@ export const DEFAULT_INLINE_SVG_INPUT = {
   inlineSrcAttributeName: 'data-inline-src',
   directories: [] as string[],
   attributes: {} as Record<string, string>,
+  serializeOptions: {
+    space: 'svg',
+    allowDangerousCharacters: true,
+  },
 } satisfies InlineSvgInput;
 
 function resolveInput(input?: InlineSvgInput | InlineSvgInput[]) {
@@ -54,7 +63,18 @@ function resolveInput(input?: InlineSvgInput | InlineSvgInput[]) {
         ? input.directories
         : [input.directories]
       : DEFAULT_INLINE_SVG_INPUT.directories,
-    attributes: input?.attributes ?? DEFAULT_INLINE_SVG_INPUT.attributes,
+    attributes: input?.attributes
+      ? { ...DEFAULT_INLINE_SVG_INPUT.attributes, ...input.attributes }
+      : {
+          ...DEFAULT_INLINE_SVG_INPUT.attributes,
+          ...input.attributes,
+        },
+    serializeOptions: input?.serializeOptions
+      ? {
+          ...DEFAULT_INLINE_SVG_INPUT.serializeOptions,
+          ...input.serializeOptions,
+        }
+      : DEFAULT_INLINE_SVG_INPUT.serializeOptions,
   }));
 }
 
@@ -181,7 +201,7 @@ export function inlineSvg(input?: InlineSvgInput | InlineSvgInput[]): Preprocess
           };
 
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          const html = toHtml(hast as any, { space: 'svg' });
+          const html = toHtml(hast as any, resolvedInput.serializeOptions);
           s.update(node.start, node.end, html);
         },
       });
