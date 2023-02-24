@@ -134,12 +134,12 @@ export const packages = {
     id: 'preprocess-inline-svg',
     name: '@svelte-put/preprocess-inline-svg',
     publishedAt: 1677056235319,
-    description: 'svelte preprocessor to inline svg static svg at build time',
+    description: 'svelte preprocessor to inline static svg at build time',
     path: APP_ROUTE_TREE.docs.preprocessInlineSvg.$.path(),
     replId: undefined,
     category: 'preprocessor',
     status: 'new',
-    ready: false,
+    ready: true,
     githubUrl:
       'https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocessors/inline-svg',
     changelogUrl:

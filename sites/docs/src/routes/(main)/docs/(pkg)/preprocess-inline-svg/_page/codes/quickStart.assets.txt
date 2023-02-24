@@ -1,0 +1,12 @@
+src/assets
+    |
+    |-- icons
+         |-- svelte.svg
+         |
+         |-- google
+               |-- arrow-right.svg
+         |-- simpleicons
+               |-- github.svg
+    |
+    |-- pictograms
+         |-- diagram.svg
