@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.1.0
+
+### Minor Changes
+
+- [`d9a5fe2`](https://github.com/vnphanquang/svelte-put/commit/d9a5fe2d78054fd60a711a489b4ad85461bdcc89) Thanks [@vnphanquang](https://github.com/vnphanquang)! - deprecate `tagName` (no reason to support this); better options vs input naming; more reasonable input resolution and support only one default config
+
+### Patch Changes
+
+- [`80863bd`](https://github.com/vnphanquang/svelte-put/commit/80863bd7a5f396162241bc442cf1cbadc4d7428e) Thanks [@vnphanquang](https://github.com/vnphanquang)! - add option to keep data-inline-src after build (default to `false`)
+
+- [`b8aab08`](https://github.com/vnphanquang/svelte-put/commit/b8aab089301a7ff48d281b596334c46246cbfed4) Thanks [@vnphanquang](https://github.com/vnphanquang)! - complete docs site
+
+- [`54be131`](https://github.com/vnphanquang/svelte-put/commit/54be131c9b2bd7adf3d207e0cb6152abf120d25e) Thanks [@vnphanquang](https://github.com/vnphanquang)! - case input is provide as a single object, search for both local and in `directories` (if provided)
+
 ## 1.0.1
 
 ### Patch Changes
