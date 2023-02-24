@@ -9,14 +9,14 @@ preprocess svelte markup and inline matching svgs
 **Signature:**
 
 ```typescript
-declare function inlineSvg(input?: InlineSvgInput | InlineSvgInput[]): PreprocessorGroup;
+declare function inlineSvg(input?: InlineSvgOptions | InlineSvgOptions[]): PreprocessorGroup;
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  input | InlineSvgInput \| InlineSvgInput\[\] | _(Optional)_ configuration options |
+|  input | InlineSvgOptions \| InlineSvgOptions\[\] | _(Optional)_ configuration options |
 
 **Returns:**
 

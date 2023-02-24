@@ -4,30 +4,33 @@
 
 ```ts
 
+import * as hast_util_to_html_lib_types from 'hast-util-to-html/lib/types';
 import { Options } from 'hast-util-to-html';
 import { PreprocessorGroup } from 'svelte/types/compiler/preprocess';
 
-// Warning: (ae-internal-missing-underscore) The name "DEFAULT_INLINE_SVG_INPUT" should be prefixed with an underscore because the declaration is marked as @internal
+// Warning: (ae-internal-missing-underscore) The name "DEFAULT_INLINE_SVG_OPTIONS" should be prefixed with an underscore because the declaration is marked as @internal
 //
 // @internal
-export const DEFAULT_INLINE_SVG_INPUT: {
-    tagName: string;
+export const DEFAULT_INLINE_SVG_OPTIONS: {
     inlineSrcAttributeName: string;
     keepInlineSrcAttribute: false;
     directories: string[];
     attributes: Record<string, string>;
-    serializeOptions: {
-        space: "svg";
-        allowDangerousCharacters: true;
-    };
+    serializeOptions: hast_util_to_html_lib_types.Options;
 };
 
-// Warning: (ae-forgotten-export) The symbol "InlineSvgInput" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "InlineSvgOptions" needs to be exported by the entry point index.d.ts
 //
 // @public
-function inlineSvg(input?: InlineSvgInput | InlineSvgInput[]): PreprocessorGroup;
+function inlineSvg(input?: InlineSvgOptions | InlineSvgOptions[]): PreprocessorGroup;
 export default inlineSvg;
 export { inlineSvg }
+
+// Warning: (ae-forgotten-export) The symbol "resolveOptions" needs to be exported by the entry point index.d.ts
+// Warning: (ae-internal-missing-underscore) The name "ResolvedInlineSvgOptions" should be prefixed with an underscore because the declaration is marked as @internal
+//
+// @internal (undocumented)
+export type ResolvedInlineSvgOptions = ReturnType<typeof resolveOptions>;
 
 // (No @packageDocumentation comment for this package)
 

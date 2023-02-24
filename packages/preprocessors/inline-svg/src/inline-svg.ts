@@ -16,9 +16,7 @@ import { parse as parseSvg } from 'svg-parser';
  * @public
  * options for configuring behaviors of the inline-svg preprocessor
  */
-interface InlineSvgInput {
-  /** tag name to transform, default to `svg` */
-  tagName?: string;
+interface InlineSvgOptions {
   /** attribute to get the svg source from, default to `data-inline-src` */
   inlineSrcAttributeName?: string;
   /** whether to keep the inline src attribute after build, default to `false` */
@@ -42,8 +40,7 @@ interface InlineSvgInput {
  * @internal
  * default config of the inline-svg preprocessor
  */
-export const DEFAULT_INLINE_SVG_INPUT = {
-  tagName: 'svg',
+export const DEFAULT_INLINE_SVG_OPTIONS = {
   inlineSrcAttributeName: 'data-inline-src',
   keepInlineSrcAttribute: false,
   directories: [] as string[],
@@ -51,36 +48,90 @@ export const DEFAULT_INLINE_SVG_INPUT = {
   serializeOptions: {
     space: 'svg',
     allowDangerousCharacters: true,
-  },
-} satisfies InlineSvgInput;
+  } as HastUtilToHtmlOptions,
+} satisfies InlineSvgOptions;
 
-function resolveInput(input?: InlineSvgInput | InlineSvgInput[]) {
-  if (!input) return [DEFAULT_INLINE_SVG_INPUT];
-  const inputs = Array.isArray(input) ? input : [input];
-  return inputs.map((input) => ({
-    tagName: input?.tagName ?? DEFAULT_INLINE_SVG_INPUT.tagName,
+/**
+ * @internal
+ */
+export type ResolvedInlineSvgOptions = ReturnType<typeof resolveOptions>;
+
+/**
+ * @internal
+ */
+function resolveOptions(options?: InlineSvgOptions) {
+  return {
     inlineSrcAttributeName:
-      input?.inlineSrcAttributeName ?? DEFAULT_INLINE_SVG_INPUT.inlineSrcAttributeName,
+      options?.inlineSrcAttributeName ?? DEFAULT_INLINE_SVG_OPTIONS.inlineSrcAttributeName,
     keepInlineSrcAttribute:
-      input?.keepInlineSrcAttribute ?? DEFAULT_INLINE_SVG_INPUT.keepInlineSrcAttribute,
-    directories: input?.directories
-      ? Array.isArray(input.directories)
-        ? input.directories
-        : [input.directories]
-      : DEFAULT_INLINE_SVG_INPUT.directories,
-    attributes: input?.attributes
-      ? { ...DEFAULT_INLINE_SVG_INPUT.attributes, ...input.attributes }
-      : {
-          ...DEFAULT_INLINE_SVG_INPUT.attributes,
-          ...input.attributes,
-        },
-    serializeOptions: input?.serializeOptions
+      options?.keepInlineSrcAttribute ?? DEFAULT_INLINE_SVG_OPTIONS.keepInlineSrcAttribute,
+    directories: options?.directories
+      ? Array.isArray(options.directories)
+        ? options.directories
+        : [options.directories]
+      : DEFAULT_INLINE_SVG_OPTIONS.directories,
+    attributes: options?.attributes
+      ? { ...DEFAULT_INLINE_SVG_OPTIONS.attributes, ...options.attributes }
+      : DEFAULT_INLINE_SVG_OPTIONS.attributes,
+    serializeOptions: options?.serializeOptions
       ? {
-          ...DEFAULT_INLINE_SVG_INPUT.serializeOptions,
-          ...input.serializeOptions,
+          ...DEFAULT_INLINE_SVG_OPTIONS.serializeOptions,
+          ...options.serializeOptions,
         }
-      : DEFAULT_INLINE_SVG_INPUT.serializeOptions,
-  }));
+      : DEFAULT_INLINE_SVG_OPTIONS.serializeOptions,
+  };
+}
+
+/**
+ * resolve config input and search for a default
+ * If none is found, use DEFAULT_INLINE_SVG_OPTIONS.
+ * If multiple of such input are found, throw an error.
+ * @internal
+ */
+function resolveInput(input?: InlineSvgOptions | InlineSvgOptions[]) {
+  if (!input)
+    return {
+      local: DEFAULT_INLINE_SVG_OPTIONS,
+      dirs: [],
+    };
+  const inputs = Array.isArray(input) ? input : [input];
+  const inputsWithoutDirectories = inputs.filter((input) => !input.directories);
+  if (inputsWithoutDirectories.length > 1) {
+    throw new Error(
+      '\n@svelte-put/preprocess-inline-svg: only one default input (one without `directories` option) is allowed',
+    );
+  }
+
+  return {
+    local: resolveOptions(inputsWithoutDirectories[0]),
+    dirs: inputs.filter((input) => input.directories).map(resolveOptions),
+  };
+}
+
+/** @internal */
+function findSrc(
+  filename: string,
+  directories: string[],
+  inlineSrc?: string,
+  // throwWhenNotFound = false,
+): string | undefined {
+  let resolvedSrc: string | undefined = undefined;
+  if (inlineSrc) {
+    if (!inlineSrc.endsWith('.svg')) inlineSrc += '.svg';
+    if (directories.length === 0) {
+      resolvedSrc = path.join(path.dirname(filename), inlineSrc);
+      if (!fs.existsSync(resolvedSrc)) resolvedSrc = undefined;
+    }
+    for (const dir of directories) {
+      resolvedSrc = path.join(dir, inlineSrc);
+      if (!path.isAbsolute(resolvedSrc)) {
+        resolvedSrc = path.join(process.cwd(), resolvedSrc);
+      }
+      if (fs.existsSync(resolvedSrc)) break;
+      else resolvedSrc = undefined;
+    }
+  }
+  return resolvedSrc;
 }
 
 /**
@@ -157,8 +208,9 @@ function resolveInput(input?: InlineSvgInput | InlineSvgInput[]) {
  * @param input - configuration options
  * @returns svelte preprocessor
  */
-export function inlineSvg(input?: InlineSvgInput | InlineSvgInput[]): PreprocessorGroup {
-  const inputs = resolveInput(input);
+export function inlineSvg(input?: InlineSvgOptions | InlineSvgOptions[]): PreprocessorGroup {
+  const { local, dirs } = resolveInput(input);
+
   return {
     markup(o) {
       const { content, filename } = o;
@@ -167,48 +219,43 @@ export function inlineSvg(input?: InlineSvgInput | InlineSvgInput[]): Preprocess
 
       walk(ast.html, {
         enter(node: Node) {
-          if (node.type !== 'Element') return;
+          if (node.type !== 'Element' || node.name !== 'svg') return;
           const srcAttributes = getAttributes(content, node);
-          let resolvedInput: (typeof inputs)[0] | undefined;
-          let resolvedSrc = '';
-          let inlineSrc = '';
-          inputLoop: for (resolvedInput of inputs) {
-            const { tagName, inlineSrcAttributeName, directories } = resolvedInput;
-            if (node.name !== tagName || !(inlineSrcAttributeName in srcAttributes)) return;
 
-            inlineSrc = srcAttributes[inlineSrcAttributeName];
-            if (!inlineSrc.endsWith('.svg')) inlineSrc += '.svg';
-            resolvedSrc = path.join(path.dirname(filename), inlineSrc);
-            if (!fs.existsSync(resolvedSrc)) {
-              for (const dir of directories) {
-                resolvedSrc = path.join(dir, inlineSrc);
-                if (!path.isAbsolute(resolvedSrc)) {
-                  resolvedSrc = path.join(process.cwd(), resolvedSrc);
-                }
-                if (fs.existsSync(resolvedSrc)) break inputLoop;
-              }
+          let options = local;
+          let inlineSrc = srcAttributes[options.inlineSrcAttributeName];
+          let src = findSrc(filename, options.directories, inlineSrc);
+          if (!src) {
+            for (let i = 0; i < dirs.length; i++) {
+              options = dirs[i];
+              inlineSrc = srcAttributes[options.inlineSrcAttributeName];
+              src = findSrc(filename, options.directories, inlineSrc);
+              if (src) break;
             }
           }
 
-          if (!fs.existsSync(resolvedSrc)) {
+          if (!inlineSrc) return;
+          if (!src) {
             throw new Error(
               `\n@svelte-put/preprocess-inline-svg: cannot find svg source for ${inlineSrc} at ${filename}`,
             );
           }
 
-          const hast = parseSvg(fs.readFileSync(resolvedSrc, 'utf8'));
+          const { keepInlineSrcAttribute, inlineSrcAttributeName, attributes, serializeOptions } =
+            options;
+          const hast = parseSvg(fs.readFileSync(src, 'utf8'));
           const svg = hast.children[0] as ElementNode;
-          if (!resolvedInput.keepInlineSrcAttribute) {
-            delete srcAttributes[resolvedInput.inlineSrcAttributeName];
+          if (!keepInlineSrcAttribute) {
+            delete srcAttributes[inlineSrcAttributeName];
           }
           svg.properties = {
             ...svg.properties,
-            ...resolvedInput.attributes,
+            ...attributes,
             ...srcAttributes,
           };
 
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          const html = toHtml(hast as any, resolvedInput.serializeOptions);
+          const html = toHtml(hast as any, serializeOptions);
           s.update(node.start, node.end, html);
         },
       });
