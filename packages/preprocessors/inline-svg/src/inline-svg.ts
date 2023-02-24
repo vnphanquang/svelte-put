@@ -89,13 +89,23 @@ function resolveOptions(options?: InlineSvgOptions) {
  * @internal
  */
 function resolveInput(input?: InlineSvgOptions | InlineSvgOptions[]) {
-  if (!input)
-    return {
-      local: DEFAULT_INLINE_SVG_OPTIONS,
-      dirs: [],
+  if (!input) return { local: DEFAULT_INLINE_SVG_OPTIONS, dirs: [] };
+  if (!Array.isArray(input)) {
+    if (!input.directories) {
+      return {
+        local: resolveOptions(input),
+        dirs: [],
+      };
+    }
+    const dir = resolveOptions(input);
+    const local = {
+      ...dir,
+      directories: [],
     };
-  const inputs = Array.isArray(input) ? input : [input];
-  const inputsWithoutDirectories = inputs.filter((input) => !input.directories);
+    return { local, dirs: [dir] };
+  }
+
+  const inputsWithoutDirectories = input.filter((i) => !i.directories);
   if (inputsWithoutDirectories.length > 1) {
     throw new Error(
       '\n@svelte-put/preprocess-inline-svg: only one default input (one without `directories` option) is allowed',
@@ -104,7 +114,7 @@ function resolveInput(input?: InlineSvgOptions | InlineSvgOptions[]) {
 
   return {
     local: resolveOptions(inputsWithoutDirectories[0]),
-    dirs: inputs.filter((input) => input.directories).map(resolveOptions),
+    dirs: input.filter((i) => !!i.directories).map(resolveOptions),
   };
 }
 
@@ -121,14 +131,15 @@ function findSrc(
     if (directories.length === 0) {
       resolvedSrc = path.join(path.dirname(filename), inlineSrc);
       if (!fs.existsSync(resolvedSrc)) resolvedSrc = undefined;
-    }
-    for (const dir of directories) {
-      resolvedSrc = path.join(dir, inlineSrc);
-      if (!path.isAbsolute(resolvedSrc)) {
-        resolvedSrc = path.join(process.cwd(), resolvedSrc);
+    } else {
+      for (const dir of directories) {
+        resolvedSrc = path.join(dir, inlineSrc);
+        if (!path.isAbsolute(resolvedSrc)) {
+          resolvedSrc = path.join(process.cwd(), resolvedSrc);
+        }
+        if (fs.existsSync(resolvedSrc)) break;
+        else resolvedSrc = undefined;
       }
-      if (fs.existsSync(resolvedSrc)) break;
-      else resolvedSrc = undefined;
     }
   }
   return resolvedSrc;
