@@ -15,7 +15,7 @@
 </script>
 
 <section>
-  <h2>Prior Arts</h2>
+  <h2>Prior Art</h2>
   <ul>
     <li>
       <ResourceLink href="https://github.com/Gennnji/svelte-actions-resize"
