@@ -39,7 +39,7 @@
 </a>
 
 <style lang="postcss">
-  :global(*) .c-link:not(:has(:global(:is(img, svg)))) {
+  :global(main .c-link:not(:has(:is(img, svg)))) {
     @apply text-primary hover:underline;
   }
 </style>
