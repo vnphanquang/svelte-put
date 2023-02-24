@@ -45,7 +45,7 @@ const config = {
 export default config;
 ```
 
-and the assets files as follow
+and the asset files as follow
 
 ```tree
 src/assets

@@ -21,17 +21,19 @@ interface InlineSvgInput {
   tagName?: string;
   /** attribute to get the svg source from, default to `data-inline-src` */
   inlineSrcAttributeName?: string;
+  /** whether to keep the inline src attribute after build, default to `false` */
+  keepInlineSrcAttribute?: boolean;
   /**
-   * directories to resolve the svg source by name.
+   * directories relative to which the svg source path will be resolved
    */
   directories?: string[] | string;
   /**
    * default attributes to add to the svg element, will override the attributes from the svg source,
-   * but be overridden by the attributes from the element itself (in svelte source).
+   * but be overridden by the attributes from the element itself (in svelte source)
    */
   attributes?: Record<string, string>;
   /**
-   * options for `hast-util-to-html` during serialization.
+   * options for `hast-util-to-html` during serialization
    */
   serializeOptions?: HastUtilToHtmlOptions;
 }
@@ -43,6 +45,7 @@ interface InlineSvgInput {
 export const DEFAULT_INLINE_SVG_INPUT = {
   tagName: 'svg',
   inlineSrcAttributeName: 'data-inline-src',
+  keepInlineSrcAttribute: false,
   directories: [] as string[],
   attributes: {} as Record<string, string>,
   serializeOptions: {
@@ -58,6 +61,8 @@ function resolveInput(input?: InlineSvgInput | InlineSvgInput[]) {
     tagName: input?.tagName ?? DEFAULT_INLINE_SVG_INPUT.tagName,
     inlineSrcAttributeName:
       input?.inlineSrcAttributeName ?? DEFAULT_INLINE_SVG_INPUT.inlineSrcAttributeName,
+    keepInlineSrcAttribute:
+      input?.keepInlineSrcAttribute ?? DEFAULT_INLINE_SVG_INPUT.keepInlineSrcAttribute,
     directories: input?.directories
       ? Array.isArray(input.directories)
         ? input.directories
@@ -193,7 +198,9 @@ export function inlineSvg(input?: InlineSvgInput | InlineSvgInput[]): Preprocess
 
           const hast = parseSvg(fs.readFileSync(resolvedSrc, 'utf8'));
           const svg = hast.children[0] as ElementNode;
-          delete srcAttributes[resolvedInput.inlineSrcAttributeName];
+          if (!resolvedInput.keepInlineSrcAttribute) {
+            delete srcAttributes[resolvedInput.inlineSrcAttributeName];
+          }
           svg.properties = {
             ...svg.properties,
             ...resolvedInput.attributes,

@@ -4,6 +4,7 @@
 
 ```ts
 
+import { Options } from 'hast-util-to-html';
 import { PreprocessorGroup } from 'svelte/types/compiler/preprocess';
 
 // Warning: (ae-internal-missing-underscore) The name "DEFAULT_INLINE_SVG_INPUT" should be prefixed with an underscore because the declaration is marked as @internal
@@ -12,8 +13,13 @@ import { PreprocessorGroup } from 'svelte/types/compiler/preprocess';
 export const DEFAULT_INLINE_SVG_INPUT: {
     tagName: string;
     inlineSrcAttributeName: string;
+    keepInlineSrcAttribute: false;
     directories: string[];
     attributes: Record<string, string>;
+    serializeOptions: {
+        space: "svg";
+        allowDangerousCharacters: true;
+    };
 };
 
 // Warning: (ae-forgotten-export) The symbol "InlineSvgInput" needs to be exported by the entry point index.d.ts

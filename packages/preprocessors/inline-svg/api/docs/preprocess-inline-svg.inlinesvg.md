@@ -68,11 +68,12 @@ src/assets
                |-- github.svg
     |
     |-- pictograms
-           |-- diagram.svg
+         |-- diagram.svg
 ```
 We can now do
 
 ```html
+<!-- this will have width="20" height="20" as specified in the config -->
 <svg data-inline-src="svelte"></svg>
 
 <!-- nested -->
