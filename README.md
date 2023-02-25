@@ -45,7 +45,7 @@ Useful svelte stuff to put in your projects
 | [@svelte-put/intersect][github.intersect]       | wrapper for IntersectionObserver                  | [![npm.intersect.badge]][npm.intersect]       | [Changelog][github.intersect.changelog]    | [API][github.intersect.docs]    | [![docs.badge]][docs.intersect]    |
 | [@svelte-put/movable][github.movable]           | move node on mousedown                            | [![npm.movable.badge]][npm.movable]           | [Changelog][github.movable.changelog]      | [API][github.movable.docs]      | [![docs.badge]][docs.movable]      |
 | [@svelte-put/shortcut][github.shortcut]         | add keyboard shortcuts to node                    | [![npm.shortcut.badge]][npm.shortcut]         | [Changelog][github.shortcut.changelog]     | [API][github.shortcut.docs]     | [![docs.badge]][docs.shortcut]     |
-| [@svelte-put/toc][github.toc]                   | action & component for building table of contents | [![npm.toc.badge]][npm.toc]                   | [Changelog][github.toc.changelog]          | [API][github.toc.docs]          | [![docs.badge]][docs.toc]          |
+| [@svelte-put/toc][github.toc]                   | action & utilities for building table of contents | [![npm.toc.badge]][npm.toc]                   | [Changelog][github.toc.changelog]          | [API][github.toc.docs]          | [![docs.badge]][docs.toc]          |
 
 ### Miscellaneous
 
@@ -56,9 +56,10 @@ Useful svelte stuff to put in your projects
 
 ### Preprocessors
 
-| Package                                                         | Short Description                          | Version                                                       | Changelog                                          | API                                     | Docs                                       |
-| --------------------------------------------------------------- | ------------------------------------------ | ------------------------------------------------------------- | -------------------------------------------------- | --------------------------------------- | ------------------------------------------ |
-| [@svelte-put/preprocess-auto-slug][github.preprocess-auto-slug] | auto add `id` and anchor to selected nodes | [![npm.preprocess-auto-slug.badge]][npm.preprocess-auto-slug] | [Changelog][github.preprocess-auto-slug.changelog] | [API][github.preprocess-auto-slug.docs] | [![docs.badge]][docs.preprocess-auto-slug] |
+| Package                                                           | Short Description                          | Version                                                         | Changelog                                           | API                                      | Docs                                        |
+| ----------------------------------------------------------------- | ------------------------------------------ | --------------------------------------------------------------- | --------------------------------------------------- | ---------------------------------------- | ------------------------------------------- |
+| [@svelte-put/preprocess-auto-slug][github.preprocess-auto-slug]   | auto add `id` and anchor to selected nodes | [![npm.preprocess-auto-slug.badge]][npm.preprocess-auto-slug]   | [Changelog][github.preprocess-auto-slug.changelog]  | [API][github.preprocess-auto-slug.docs]  | [![docs.badge]][docs.preprocess-auto-slug]  |
+| [@svelte-put/preprocess-inline-svg][github.preprocess-inline-svg] | inline static SVGs at build time           | [![npm.preprocess-inline-svg.badge]][npm.preprocess-inline-svg] | [Changelog][github.preprocess-inline-svg.changelog] | [API][github.preprocess-inline-svg.docs] | [![docs.badge]][docs.preprocess-inline-svg] |
 
 ### In the Pipeline
 
@@ -127,6 +128,9 @@ pnpm turbo
 [github.preprocess-auto-slug]: https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocessors/auto-slug
 [github.preprocess-auto-slug.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocessors/auto-slug/CHANGELOG.md
 [github.preprocess-auto-slug.docs]: https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocessors/auto-slug/api/docs/index.md
+[github.preprocess-inline-svg]: https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocessors/inline-svg
+[github.preprocess-inline-svg.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocessors/inline-svg/CHANGELOG.md
+[github.preprocess-inline-svg.docs]: https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocessors/inline-svg/api/docs/index.md
 [github.select]: https://github.com/vnphanquang/svelte-put/tree/main/packages/components/select
 [github.select.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/components/select/CHANGELOG.md
 [github.select.docs]: https://github.com/vnphanquang/svelte-put/blob/main/packages/components/select/api/docs/index.md
@@ -162,6 +166,8 @@ pnpm turbo
 [npm.movable]: https://www.npmjs.com/package/@svelte-put/movable
 [npm.preprocess-auto-slug.badge]: https://img.shields.io/npm/v/@svelte-put/preprocess-auto-slug
 [npm.preprocess-auto-slug]: https://www.npmjs.com/package/@svelte-put/preprocess-auto-slug
+[npm.preprocess-inline-svg.badge]: https://img.shields.io/npm/v/@svelte-put/preprocess-inline-svg
+[npm.preprocess-inline-svg]: https://www.npmjs.com/package/@svelte-put/preprocess-inline-svg
 [npm.shortcut.badge]: https://img.shields.io/npm/v/@svelte-put/shortcut
 [npm.shortcut]: https://www.npmjs.com/package/@svelte-put/shortcut
 [npm.toc.badge]: https://img.shields.io/npm/v/@svelte-put/toc
@@ -182,6 +188,7 @@ pnpm turbo
 [docs.modal]: https://svelte-put.vnphanquang.com/docs/modal
 [docs.movable]: https://svelte-put.vnphanquang.com/docs/movable
 [docs.preprocess-auto-slug]: https://svelte-put.vnphanquang.com/docs/preprocess-auto-slug
+[docs.preprocess-inline-svg]: https://svelte-put.vnphanquang.com/docs/preprocess-inline-svg
 [docs.select]: https://svelte-put.vnphanquang.com/docs/select
 [docs.shortcut]: https://svelte-put.vnphanquang.com/docs/shortcut
 [docs.toc]: https://svelte-put.vnphanquang.com/docs/toc
