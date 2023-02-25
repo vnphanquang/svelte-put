@@ -139,7 +139,7 @@
                   <a
                     data-sveltekit-preload-data="hover"
                     href={path}
-                    data-current={data.pathname.includes(id)}
+                    data-current={data.pathname.includes(`/${id}`)}
                     class="c-link -ml-px block border-l border-transparent py-1 pl-3 data-current:border-primary"
                     on:click={closeLeftSidebar}
                   >

@@ -65,6 +65,22 @@ export const packages = {
     apiUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/dragscroll/api/docs/index.md',
   },
+  'inline-svg': {
+    id: 'inline-svg',
+    name: '@svelte-put/inline-svg',
+    publishedAt: 1677319462005,
+    description: 'solution for inlining SVGs in svelte land',
+    path: APP_ROUTE_TREE.docs.inlineSvg.$.path(),
+    replId: undefined,
+    category: 'action',
+    status: 'new',
+    ready: true,
+    githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/inline-svg',
+    changelogUrl:
+      'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/inline-svg/CHANGELOG.md',
+    apiUrl:
+      'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/inline-svg/api/docs/index.md',
+  },
   intersect: {
     id: 'intersect',
     name: '@svelte-put/intersect',

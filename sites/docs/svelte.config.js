@@ -1,5 +1,5 @@
+import inlineSvg from '@svelte-put/inline-svg/preprocess';
 import autoSlug from '@svelte-put/preprocess-auto-slug';
-import inlineSvg from '@svelte-put/preprocess-inline-svg';
 import adapter from '@sveltejs/adapter-vercel';
 import { vitePreprocess } from '@sveltejs/kit/vite';
 

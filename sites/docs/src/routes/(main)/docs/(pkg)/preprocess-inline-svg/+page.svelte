@@ -29,11 +29,6 @@
     which will automatically read from the source svg and inline it at build time. Additional
     styling and attributes can now be added idiomatically as with any other html element.
   </p>
-  <p>
-    This is best for static svgs like icons and pictograms. For dynamic svgs (i.e loaded from
-    network), I plan to add in the near future a <code>use:inlineSvg</code> action that provides runtime
-    logics for such cases without the need for a component.
-  </p>
 </section>
 
 <section>
@@ -56,6 +51,31 @@
       convert SVG files to svelte components.
     </li>
   </ul>
+</section>
+
+<section>
+  <h2>Runtime Solution</h2>
+
+  <p>
+    This processor is best for static svgs like icons and pictograms. For dynamic svgs (i.e loaded
+    from network), use <ResourceLink key="@svelte-put/inline-svg" /> - an action-based strategy with
+    a similar api.
+  </p>
+  <Code
+    code={`<svg use:inlineSrc={'https://example.com/icon.svg'}></svg>`}
+    title="runtime alternative"
+  />
+
+  <p>
+    This preprocessor package is also re-exported from <ResourceLink key="@svelte-put/inline-svg" />
+    for convenience. If you find yourself needing both runtime & build time solutions, just install <ResourceLink
+      key="@svelte-put/inline-svg"
+    />.
+  </p>
+  <Code
+    code={`import inlineSvg from '@svelte-put/inline-svg/preprocess'`}
+    title="runtime alternative"
+  />
 </section>
 
 <Installation pkg={data.package.name} />

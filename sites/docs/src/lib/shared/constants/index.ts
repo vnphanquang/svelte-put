@@ -11,6 +11,9 @@ export const { node: APP_ROUTE_TREE } = tBuild('APP_ROUTE_TREE', {
             .addChild('clickoutside')
             .addChild('copy')
             .addChild('dragscroll')
+            .addChild('inlineSvg', {
+              pathResolver: () => 'inline-svg',
+            })
             .addChild('intersect')
             .addChild('resize')
             .addChild('modal')

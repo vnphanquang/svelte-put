@@ -43,6 +43,7 @@ Useful svelte stuff to put in your projects
 | [@svelte-put/copy][github.copy]                 | copy text to clipboard                            | [![npm.copy.badge]][npm.copy]                 | [Changelog][github.copy.changelog]         | [API][github.copy.docs]         | [![docs.badge]][docs.copy]         |
 | [@svelte-put/dragscroll][github.dragscroll]     | add drag-to-scroll behavior                       | [![npm.dragscroll.badge]][npm.dragscroll]     | [Changelog][github.dragscroll.changelog]   | [API][github.dragscroll.docs]   | [![docs.badge]][docs.dragscroll]   |
 | [@svelte-put/intersect][github.intersect]       | wrapper for IntersectionObserver                  | [![npm.intersect.badge]][npm.intersect]       | [Changelog][github.intersect.changelog]    | [API][github.intersect.docs]    | [![docs.badge]][docs.intersect]    |
+| [@svelte-put/inline-svg][github.inline-svg]     | dynamically inline SVGs                           | [![npm.inline-svg.badge]][npm.inline-svg]     | [Changelog][github.inline-svg.changelog]   | [API][github.inline-svg.docs]   | [![docs.badge]][docs.inline-svg]   |
 | [@svelte-put/movable][github.movable]           | move node on mousedown                            | [![npm.movable.badge]][npm.movable]           | [Changelog][github.movable.changelog]      | [API][github.movable.docs]      | [![docs.badge]][docs.movable]      |
 | [@svelte-put/shortcut][github.shortcut]         | add keyboard shortcuts to node                    | [![npm.shortcut.badge]][npm.shortcut]         | [Changelog][github.shortcut.changelog]     | [API][github.shortcut.docs]     | [![docs.badge]][docs.shortcut]     |
 | [@svelte-put/toc][github.toc]                   | action & utilities for building table of contents | [![npm.toc.badge]][npm.toc]                   | [Changelog][github.toc.changelog]          | [API][github.toc.docs]          | [![docs.badge]][docs.toc]          |
@@ -119,6 +120,9 @@ pnpm turbo
 [github.intersect]: https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/intersect
 [github.intersect.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/intersect/CHANGELOG.md
 [github.intersect.docs]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/intersect/api/docs/index.md
+[github.inline-svg]: https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/inline-svg
+[github.inline-svg.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/inline-svg/CHANGELOG.md
+[github.inline-svg.docs]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/inline-svg/api/docs/index.md
 [github.modal]: https://github.com/vnphanquang/svelte-put/tree/main/packages/misc/modal
 [github.modal.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/modal/CHANGELOG.md
 [github.modal.docs]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/modal/api/docs/index.md
@@ -160,6 +164,8 @@ pnpm turbo
 [npm.dragscroll]: https://www.npmjs.com/package/@svelte-put/dragscroll
 [npm.intersect.badge]: https://img.shields.io/npm/v/@svelte-put/intersect
 [npm.intersect]: https://www.npmjs.com/package/@svelte-put/intersect
+[npm.inline-svg.badge]: https://img.shields.io/npm/v/@svelte-put/inline-svg
+[npm.inline-svg]: https://www.npmjs.com/package/@svelte-put/inline-svg
 [npm.modal.badge]: https://img.shields.io/npm/v/@svelte-put/modal
 [npm.modal]: https://www.npmjs.com/package/@svelte-put/modal
 [npm.movable.badge]: https://img.shields.io/npm/v/@svelte-put/movable
@@ -185,6 +191,7 @@ pnpm turbo
 [docs.copy]: https://svelte-put.vnphanquang.com/docs/copy
 [docs.dragscroll]: https://svelte-put.vnphanquang.com/docs/dragscroll
 [docs.intersect]: https://svelte-put.vnphanquang.com/docs/intersect
+[docs.inline-svg]: https://svelte-put.vnphanquang.com/docs/inline-svg
 [docs.modal]: https://svelte-put.vnphanquang.com/docs/modal
 [docs.movable]: https://svelte-put.vnphanquang.com/docs/movable
 [docs.preprocess-auto-slug]: https://svelte-put.vnphanquang.com/docs/preprocess-auto-slug

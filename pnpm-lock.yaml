@@ -116,6 +116,28 @@ importers:
       tslib: 2.5.0
       typescript: 4.9.5
 
+  packages/actions/inline-svg:
+    specifiers:
+      '@microsoft/api-documenter': ^7.21.5
+      '@microsoft/api-extractor': ^7.34.4
+      '@svelte-put/apirc': workspace:^0.0.0
+      '@svelte-put/preprocess-inline-svg': workspace:^1.1.0
+      '@svelte-put/tsconfig': workspace:^0.0.0
+      npm-run-all: ^4.1.5
+      tslib: ^2.5.0
+      tsup: ^6.6.3
+      typescript: ^4.9.5
+    devDependencies:
+      '@microsoft/api-documenter': 7.21.5
+      '@microsoft/api-extractor': 7.34.4
+      '@svelte-put/apirc': link:../../../configs/apirc
+      '@svelte-put/preprocess-inline-svg': link:../../preprocessors/inline-svg
+      '@svelte-put/tsconfig': link:../../../configs/tsconfig
+      npm-run-all: 4.1.5
+      tslib: 2.5.0
+      tsup: 6.6.3_typescript@4.9.5
+      typescript: 4.9.5
+
   packages/actions/intersect:
     specifiers:
       '@microsoft/api-documenter': ^7.21.5
@@ -464,16 +486,17 @@ importers:
       '@svelte-put/clickoutside': workspace:*
       '@svelte-put/copy': workspace:*
       '@svelte-put/dragscroll': workspace:*
+      '@svelte-put/inline-svg': workspace:*
       '@svelte-put/intersect': workspace:*
       '@svelte-put/modal': workspace:*
       '@svelte-put/movable': workspace:*
       '@svelte-put/preprocess-auto-slug': workspace:*
-      '@svelte-put/preprocess-inline-svg': workspace:^1.0.0
+      '@svelte-put/preprocess-inline-svg': workspace:*
       '@svelte-put/resize': workspace:*
       '@svelte-put/select': workspace:*
       '@svelte-put/shortcut': workspace:*
       '@svelte-put/toc': workspace:*
-      '@svelte-put/transitions': workspace:^1.1.0
+      '@svelte-put/transitions': workspace:*
       '@sveltejs/adapter-vercel': 2.1.0
       '@sveltejs/kit': 1.8.3
       '@tailwindash/triangle': ^1.0.5
@@ -527,6 +550,7 @@ importers:
       '@svelte-put/clickoutside': link:../../packages/actions/clickoutside
       '@svelte-put/copy': link:../../packages/actions/copy
       '@svelte-put/dragscroll': link:../../packages/actions/dragscroll
+      '@svelte-put/inline-svg': link:../../packages/actions/inline-svg
       '@svelte-put/intersect': link:../../packages/actions/intersect
       '@svelte-put/modal': link:../../packages/misc/modal
       '@svelte-put/movable': link:../../packages/actions/movable
@@ -6035,14 +6059,6 @@ packages:
       glob: 7.2.3
     dev: true
 
-  /rollup/3.15.0:
-    resolution: {integrity: sha512-F9hrCAhnp5/zx/7HYmftvsNBkMfLfk/dXUh73hPSM2E3CRgap65orDNJbLetoiUFwSAk6iHPLvBrZ5iHYvzqsg==}
-    engines: {node: '>=14.18.0', npm: '>=8.0.0'}
-    hasBin: true
-    optionalDependencies:
-      fsevents: 2.3.2
-    dev: true
-
   /rollup/3.17.2:
     resolution: {integrity: sha512-qMNZdlQPCkWodrAZ3qnJtvCAl4vpQ8q77uEujVCCbC/6CLB7Lcmvjq7HyiOSnf4fxTT9XgsE36oLHJBH49xjqA==}
     engines: {node: '>=14.18.0', npm: '>=8.0.0'}
@@ -6993,7 +7009,7 @@ packages:
       joycon: 3.1.1
       postcss-load-config: 3.1.4
       resolve-from: 5.0.0
-      rollup: 3.15.0
+      rollup: 3.17.2
       source-map: 0.8.0-beta.0
       sucrase: 3.29.0
       tree-kill: 1.2.2
@@ -7028,7 +7044,43 @@ packages:
       joycon: 3.1.1
       postcss-load-config: 3.1.4_ts-node@10.9.1
       resolve-from: 5.0.0
-      rollup: 3.15.0
+      rollup: 3.17.2
+      source-map: 0.8.0-beta.0
+      sucrase: 3.29.0
+      tree-kill: 1.2.2
+      typescript: 4.9.5
+    transitivePeerDependencies:
+      - supports-color
+      - ts-node
+    dev: true
+
+  /tsup/6.6.3_typescript@4.9.5:
+    resolution: {integrity: sha512-OLx/jFllYlVeZQ7sCHBuRVEQBBa1tFbouoc/gbYakyipjVQdWy/iQOvmExUA/ewap9iQ7tbJf9pW0PgcEFfJcQ==}
+    engines: {node: '>=14.18'}
+    hasBin: true
+    peerDependencies:
+      '@swc/core': ^1
+      postcss: ^8.4.12
+      typescript: ^4.1.0
+    peerDependenciesMeta:
+      '@swc/core':
+        optional: true
+      postcss:
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      bundle-require: 4.0.1_esbuild@0.17.8
+      cac: 6.7.14
+      chokidar: 3.5.3
+      debug: 4.3.4
+      esbuild: 0.17.8
+      execa: 5.1.1
+      globby: 11.1.0
+      joycon: 3.1.1
+      postcss-load-config: 3.1.4
+      resolve-from: 5.0.0
+      rollup: 3.17.2
       source-map: 0.8.0-beta.0
       sucrase: 3.29.0
       tree-kill: 1.2.2
