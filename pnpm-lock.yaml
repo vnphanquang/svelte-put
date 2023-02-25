@@ -53,8 +53,8 @@ importers:
       '@microsoft/api-documenter': ^7.21.5
       '@microsoft/api-extractor': ^7.34.4
       '@rollup/plugin-typescript': ^11.0.0
-      '@svelte-put/apirc': workspace:^0.0.0
-      '@svelte-put/tsconfig': workspace:^0.0.0
+      '@svelte-put/apirc': workspace:*
+      '@svelte-put/tsconfig': workspace:*
       '@types/node': ^18.14.0
       npm-run-all: ^4.1.5
       rollup: ^3.17.2
@@ -77,8 +77,8 @@ importers:
       '@microsoft/api-documenter': ^7.21.5
       '@microsoft/api-extractor': ^7.34.4
       '@rollup/plugin-typescript': ^11.0.0
-      '@svelte-put/apirc': workspace:^0.0.0
-      '@svelte-put/tsconfig': workspace:^0.0.0
+      '@svelte-put/apirc': workspace:*
+      '@svelte-put/tsconfig': workspace:*
       npm-run-all: ^4.1.5
       rollup: ^3.17.2
       tslib: ^2.5.0
@@ -99,8 +99,8 @@ importers:
       '@microsoft/api-documenter': ^7.21.5
       '@microsoft/api-extractor': ^7.34.4
       '@rollup/plugin-typescript': ^11.0.0
-      '@svelte-put/apirc': workspace:^0.0.0
-      '@svelte-put/tsconfig': workspace:^0.0.0
+      '@svelte-put/apirc': workspace:*
+      '@svelte-put/tsconfig': workspace:*
       npm-run-all: ^4.1.5
       rollup: ^3.17.2
       tslib: ^2.5.0
@@ -120,9 +120,9 @@ importers:
     specifiers:
       '@microsoft/api-documenter': ^7.21.5
       '@microsoft/api-extractor': ^7.34.4
-      '@svelte-put/apirc': workspace:^0.0.0
-      '@svelte-put/preprocess-inline-svg': workspace:^1.1.0
-      '@svelte-put/tsconfig': workspace:^0.0.0
+      '@svelte-put/apirc': workspace:*
+      '@svelte-put/preprocess-inline-svg': workspace:*
+      '@svelte-put/tsconfig': workspace:*
       npm-run-all: ^4.1.5
       tslib: ^2.5.0
       tsup: ^6.6.3
@@ -143,8 +143,8 @@ importers:
       '@microsoft/api-documenter': ^7.21.5
       '@microsoft/api-extractor': ^7.34.4
       '@rollup/plugin-typescript': ^11.0.0
-      '@svelte-put/apirc': workspace:^0.0.0
-      '@svelte-put/tsconfig': workspace:^0.0.0
+      '@svelte-put/apirc': workspace:*
+      '@svelte-put/tsconfig': workspace:*
       npm-run-all: ^4.1.5
       rollup: ^3.17.2
       tslib: ^2.5.0
@@ -165,8 +165,8 @@ importers:
       '@microsoft/api-documenter': ^7.21.5
       '@microsoft/api-extractor': ^7.34.4
       '@rollup/plugin-typescript': ^11.0.0
-      '@svelte-put/apirc': workspace:^0.0.0
-      '@svelte-put/tsconfig': workspace:^0.0.0
+      '@svelte-put/apirc': workspace:*
+      '@svelte-put/tsconfig': workspace:*
       npm-run-all: ^4.1.5
       rollup: ^3.17.2
       tslib: ^2.5.0
@@ -187,8 +187,8 @@ importers:
       '@microsoft/api-documenter': ^7.21.5
       '@microsoft/api-extractor': ^7.34.4
       '@rollup/plugin-typescript': ^11.0.0
-      '@svelte-put/apirc': workspace:^0.0.0
-      '@svelte-put/tsconfig': workspace:^0.0.0
+      '@svelte-put/apirc': workspace:*
+      '@svelte-put/tsconfig': workspace:*
       npm-run-all: ^4.1.5
       rollup: ^3.17.2
       tslib: ^2.5.0
@@ -209,8 +209,8 @@ importers:
       '@microsoft/api-documenter': ^7.21.5
       '@microsoft/api-extractor': ^7.34.4
       '@rollup/plugin-typescript': ^11.0.0
-      '@svelte-put/apirc': workspace:^0.0.0
-      '@svelte-put/tsconfig': workspace:^0.0.0
+      '@svelte-put/apirc': workspace:*
+      '@svelte-put/tsconfig': workspace:*
       npm-run-all: ^4.1.5
       rollup: ^3.17.2
       tslib: ^2.5.0
@@ -230,8 +230,8 @@ importers:
     specifiers:
       '@microsoft/api-documenter': ^7.21.5
       '@microsoft/api-extractor': ^7.34.4
-      '@svelte-put/apirc': workspace:^0.0.0
-      '@svelte-put/tsconfig': workspace:^0.0.0
+      '@svelte-put/apirc': workspace:*
+      '@svelte-put/tsconfig': workspace:*
       '@sveltejs/adapter-auto': 2.0.0
       '@sveltejs/kit': 1.8.3
       '@sveltejs/package': 2.0.2
@@ -264,10 +264,10 @@ importers:
     specifiers:
       '@microsoft/api-documenter': ^7.21.5
       '@microsoft/api-extractor': ^7.34.4
-      '@svelte-put/apirc': workspace:^0.0.0
+      '@svelte-put/apirc': workspace:*
       '@svelte-put/clickoutside': ^2.0.0
       '@svelte-put/shortcut': ^2.0.0
-      '@svelte-put/tsconfig': workspace:^0.0.0
+      '@svelte-put/tsconfig': workspace:*
       '@sveltejs/adapter-auto': 2.0.0
       '@sveltejs/kit': 1.8.3
       '@sveltejs/package': 2.0.2
@@ -303,8 +303,8 @@ importers:
     specifiers:
       '@microsoft/api-documenter': ^7.21.5
       '@microsoft/api-extractor': ^7.34.4
-      '@svelte-put/apirc': workspace:^0.0.0
-      '@svelte-put/tsconfig': workspace:^0.0.0
+      '@svelte-put/apirc': workspace:*
+      '@svelte-put/tsconfig': workspace:*
       '@sveltejs/adapter-auto': 2.0.0
       '@sveltejs/kit': 1.8.3
       '@sveltejs/package': 2.0.2
@@ -342,11 +342,11 @@ importers:
     specifiers:
       '@microsoft/api-documenter': ^7.21.5
       '@microsoft/api-extractor': ^7.34.4
-      '@svelte-put/apirc': workspace:^0.0.0
+      '@svelte-put/apirc': workspace:*
       '@svelte-put/clickoutside': ^2.0.0
       '@svelte-put/movable': ^2.0.0
       '@svelte-put/shortcut': ^2.0.0
-      '@svelte-put/tsconfig': workspace:^0.0.0
+      '@svelte-put/tsconfig': workspace:*
       '@sveltejs/adapter-auto': 2.0.0
       '@sveltejs/kit': 1.8.3
       '@sveltejs/package': 2.0.2
@@ -383,7 +383,7 @@ importers:
     specifiers:
       '@microsoft/api-documenter': ^7.21.5
       '@microsoft/api-extractor': ^7.34.4
-      '@svelte-put/apirc': workspace:^0.0.0
+      '@svelte-put/apirc': workspace:*
       '@types/estree': ^1.0.0
       github-slugger: ^2.0.0
       magic-string: ^0.30.0
@@ -422,8 +422,8 @@ importers:
     specifiers:
       '@microsoft/api-documenter': ^7.21.5
       '@microsoft/api-extractor': ^7.34.4
-      '@svelte-put/apirc': workspace:^0.0.0
-      '@svelte-put/preprocess-helpers': workspace:^0.0.0
+      '@svelte-put/apirc': workspace:*
+      '@svelte-put/preprocess-helpers': workspace:*
       '@types/estree': ^1.0.0
       '@types/node': ^18.14.0
       '@types/svg-parser': ^2.0.3
@@ -460,8 +460,8 @@ importers:
       '@microsoft/api-documenter': ^7.21.5
       '@microsoft/api-extractor': ^7.34.4
       '@rollup/plugin-typescript': ^11.0.0
-      '@svelte-put/apirc': workspace:^0.0.0
-      '@svelte-put/tsconfig': workspace:^0.0.0
+      '@svelte-put/apirc': workspace:*
+      '@svelte-put/tsconfig': workspace:*
       '@types/node': ^18.14.0
       npm-run-all: ^4.1.5
       rollup: ^3.17.2
