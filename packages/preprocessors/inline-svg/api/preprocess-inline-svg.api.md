@@ -19,18 +19,18 @@ export const DEFAULT_INLINE_SVG_OPTIONS: {
     serializeOptions: hast_util_to_html_lib_types.Options;
 };
 
-// Warning: (ae-forgotten-export) The symbol "InlineSvgOptions" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "InlineSvgPreprocessConfig" needs to be exported by the entry point index.d.ts
 //
 // @public
-function inlineSvg(input?: InlineSvgOptions | InlineSvgOptions[]): PreprocessorGroup;
+function inlineSvg(input?: InlineSvgPreprocessConfig | InlineSvgPreprocessConfig[]): PreprocessorGroup;
 export default inlineSvg;
 export { inlineSvg }
 
 // Warning: (ae-forgotten-export) The symbol "resolveOptions" needs to be exported by the entry point index.d.ts
-// Warning: (ae-internal-missing-underscore) The name "ResolvedInlineSvgOptions" should be prefixed with an underscore because the declaration is marked as @internal
+// Warning: (ae-internal-missing-underscore) The name "ResolvedInlineSvgPreprocessConfig" should be prefixed with an underscore because the declaration is marked as @internal
 //
 // @internal (undocumented)
-export type ResolvedInlineSvgOptions = ReturnType<typeof resolveOptions>;
+export type ResolvedInlineSvgPreprocessConfig = ReturnType<typeof resolveOptions>;
 
 // (No @packageDocumentation comment for this package)
 

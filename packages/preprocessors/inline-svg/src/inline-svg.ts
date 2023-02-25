@@ -16,7 +16,7 @@ import { parse as parseSvg } from 'svg-parser';
  * @public
  * options for configuring behaviors of the inline-svg preprocessor
  */
-interface InlineSvgOptions {
+interface InlineSvgPreprocessConfig {
   /** attribute to get the svg source from, default to `data-inline-src` */
   inlineSrcAttributeName?: string;
   /** whether to keep the inline src attribute after build, default to `false` */
@@ -49,17 +49,17 @@ export const DEFAULT_INLINE_SVG_OPTIONS = {
     space: 'svg',
     allowDangerousCharacters: true,
   } as HastUtilToHtmlOptions,
-} satisfies InlineSvgOptions;
+} satisfies InlineSvgPreprocessConfig;
 
 /**
  * @internal
  */
-export type ResolvedInlineSvgOptions = ReturnType<typeof resolveOptions>;
+export type ResolvedInlineSvgPreprocessConfig = ReturnType<typeof resolveOptions>;
 
 /**
  * @internal
  */
-function resolveOptions(options?: InlineSvgOptions) {
+function resolveOptions(options?: InlineSvgPreprocessConfig) {
   return {
     inlineSrcAttributeName:
       options?.inlineSrcAttributeName ?? DEFAULT_INLINE_SVG_OPTIONS.inlineSrcAttributeName,
@@ -88,7 +88,7 @@ function resolveOptions(options?: InlineSvgOptions) {
  * If multiple of such input are found, throw an error.
  * @internal
  */
-function resolveInput(input?: InlineSvgOptions | InlineSvgOptions[]) {
+function resolveInput(input?: InlineSvgPreprocessConfig | InlineSvgPreprocessConfig[]) {
   if (!input) return { local: DEFAULT_INLINE_SVG_OPTIONS, dirs: [] };
   if (!Array.isArray(input)) {
     if (!input.directories) {
@@ -219,7 +219,9 @@ function findSrc(
  * @param input - configuration options
  * @returns svelte preprocessor
  */
-export function inlineSvg(input?: InlineSvgOptions | InlineSvgOptions[]): PreprocessorGroup {
+export function inlineSvg(
+  input?: InlineSvgPreprocessConfig | InlineSvgPreprocessConfig[],
+): PreprocessorGroup {
   const { local, dirs } = resolveInput(input);
 
   return {
