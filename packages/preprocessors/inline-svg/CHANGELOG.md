@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.1
+
+### Patch Changes
+
+- [`5652c7e`](https://github.com/vnphanquang/svelte-put/commit/5652c7e0c229639c5670db185ad11fb3ad2b8bf4) Thanks [@vnphanquang](https://github.com/vnphanquang)! - rename `InlineSvgOptions` to `InlineSvgPreprocessConfig` (better name, separation from the runtime action package)
+
 ## 1.1.0
 
 ### Minor Changes
