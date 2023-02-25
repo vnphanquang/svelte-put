@@ -51,6 +51,10 @@
         href="https://github.com/svg/svgo">svgo</ResourceLink
       >.
     </li>
+    <li>
+      <ResourceLink href="https://github.com/metonym/svg-to-svelte">svg-to-svelte</ResourceLink>:
+      convert SVG files to svelte components.
+    </li>
   </ul>
 </section>
 
