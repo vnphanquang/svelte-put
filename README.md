@@ -6,7 +6,7 @@
 
 Useful svelte stuff to put in your projects
 
-![svelte-put](https://github.com/vnphanquang/svelte-put/blob/main/sites/docs/static/images/og/svelte-put.png)
+![svelte-put](https://github.com/vnphanquang/svelte-put/blob/main/sites/docs/static/images/og/svelte-put.jpg)
 
 </div>
 
@@ -45,6 +45,7 @@ Useful svelte stuff to put in your projects
 | [@svelte-put/intersect][github.intersect]       | wrapper for IntersectionObserver                  | [![npm.intersect.badge]][npm.intersect]       | [Changelog][github.intersect.changelog]    | [API][github.intersect.docs]    | [![docs.badge]][docs.intersect]    |
 | [@svelte-put/inline-svg][github.inline-svg]     | dynamically inline SVGs                           | [![npm.inline-svg.badge]][npm.inline-svg]     | [Changelog][github.inline-svg.changelog]   | [API][github.inline-svg.docs]   | [![docs.badge]][docs.inline-svg]   |
 | [@svelte-put/movable][github.movable]           | move node on mousedown                            | [![npm.movable.badge]][npm.movable]           | [Changelog][github.movable.changelog]      | [API][github.movable.docs]      | [![docs.badge]][docs.movable]      |
+| [@svelte-put/resize][github.resize]             | move node on mousedown                            | [![npm.resize.badge]][npm.resize]             | [Changelog][github.resize.changelog]       | [API][github.resize.docs]       | [![docs.badge]][docs.resize]       |
 | [@svelte-put/shortcut][github.shortcut]         | add keyboard shortcuts to node                    | [![npm.shortcut.badge]][npm.shortcut]         | [Changelog][github.shortcut.changelog]     | [API][github.shortcut.docs]     | [![docs.badge]][docs.shortcut]     |
 | [@svelte-put/toc][github.toc]                   | action & utilities for building table of contents | [![npm.toc.badge]][npm.toc]                   | [Changelog][github.toc.changelog]          | [API][github.toc.docs]          | [![docs.badge]][docs.toc]          |
 
@@ -135,6 +136,9 @@ pnpm turbo
 [github.preprocess-inline-svg]: https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocessors/inline-svg
 [github.preprocess-inline-svg.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocessors/inline-svg/CHANGELOG.md
 [github.preprocess-inline-svg.docs]: https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocessors/inline-svg/api/docs/index.md
+[github.resize]: https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/resize
+[github.resize.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/resize/CHANGELOG.md
+[github.resize.docs]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/resize/api/docs/index.md
 [github.select]: https://github.com/vnphanquang/svelte-put/tree/main/packages/components/select
 [github.select.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/components/select/CHANGELOG.md
 [github.select.docs]: https://github.com/vnphanquang/svelte-put/blob/main/packages/components/select/api/docs/index.md
@@ -174,6 +178,8 @@ pnpm turbo
 [npm.preprocess-auto-slug]: https://www.npmjs.com/package/@svelte-put/preprocess-auto-slug
 [npm.preprocess-inline-svg.badge]: https://img.shields.io/npm/v/@svelte-put/preprocess-inline-svg
 [npm.preprocess-inline-svg]: https://www.npmjs.com/package/@svelte-put/preprocess-inline-svg
+[npm.resize.badge]: https://img.shields.io/npm/v/@svelte-put/resize
+[npm.resize]: https://www.npmjs.com/package/@svelte-put/resize
 [npm.shortcut.badge]: https://img.shields.io/npm/v/@svelte-put/shortcut
 [npm.shortcut]: https://www.npmjs.com/package/@svelte-put/shortcut
 [npm.toc.badge]: https://img.shields.io/npm/v/@svelte-put/toc
@@ -197,6 +203,7 @@ pnpm turbo
 [docs.preprocess-auto-slug]: https://svelte-put.vnphanquang.com/docs/preprocess-auto-slug
 [docs.preprocess-inline-svg]: https://svelte-put.vnphanquang.com/docs/preprocess-inline-svg
 [docs.select]: https://svelte-put.vnphanquang.com/docs/select
+[docs.resize]: https://svelte-put.vnphanquang.com/docs/resize
 [docs.shortcut]: https://svelte-put.vnphanquang.com/docs/shortcut
 [docs.toc]: https://svelte-put.vnphanquang.com/docs/toc
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue

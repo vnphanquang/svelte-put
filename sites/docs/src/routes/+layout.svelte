@@ -23,7 +23,7 @@
   $: ogDescription = meta?.og?.description ?? description;
   $: ogType = meta?.og?.type ?? 'website';
   $: ogUrl = meta?.og?.url ?? `${PUBLIC_ROOT_URL}${$page.url.pathname}`;
-  $: ogImage = meta?.og?.image ?? `${PUBLIC_ROOT_URL}/images/og/svelte-put.png`;
+  $: ogImage = meta?.og?.image ?? `${PUBLIC_ROOT_URL}/images/og/svelte-put.jpg`;
   $: ogImageAlt = meta?.og?.imageAlt ?? 'svelte-put';
 
   $: twitterTitle = meta?.twitter?.title ?? ogTitle;
