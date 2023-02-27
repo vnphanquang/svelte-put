@@ -58,10 +58,34 @@
 </section>
 
 <section>
+  <h2>Attributes & Inner HTML</h2>
+  <p>
+    Attributes provided to the source <code>svg</code> element will be <strong>kept</strong> after build
+    and override if existed in the inlined SVG.
+  </p>
+  <Code
+    code={`<svg use:inlineSvg={'...'} width="100" height="100" class="c-icon"></svg>`}
+    title="merging attributes"
+  />
+  <p>
+    InnerHTML of the source <code>svg</code> element will be <strong>replaced</strong> with the that
+    from the inlined SVG.
+  </p>
+  <Code
+    code={`<svg use:inlineSvg={'...'}>anything in here will be replaced</svg>`}
+    title="merging attributes"
+  />
+  <p>
+    If you have a use case where it is useful to append/prepend the innerHTML of inlined SVGs rather
+    than replace it, please <ResourceLink key="issue">raise an issue over at github</ResourceLink>.
+    For now, let's keep things simple.
+  </p>
+</section>
+
+<section>
   <h2>Customization</h2>
   <p class="c-callout-warning">
     Note that <code>inlineSvg</code> should only be used on <code>svg</code> elements!<br />
-    Keep <code>innerHTML</code> empty because it will be replaced by the fetched SVG.
   </p>
 
   <p>

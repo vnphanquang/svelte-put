@@ -96,6 +96,64 @@
 </section>
 
 <section>
+  <h2>Attributes & Inner HTML</h2>
+  <p>
+    Attributes provided to the source <code>svg</code> element will be <strong>kept</strong> after build
+    and override if existed in the inlined SVG.
+  </p>
+  <Code
+    code={`<svg data-inline-src="path/icon" width="100" height="100" class="c-icon"></svg>`}
+    title="merging attributes"
+  />
+  <p>
+    InnerHTML of the source <code>svg</code> element will be <strong>replaced</strong> with the that
+    from the inlined SVG.
+  </p>
+  <Code
+    code={`<svg data-inline-src="path/icon">anything in here will be replaced</svg>`}
+    title="merging attributes"
+  />
+  <p>
+    If you have a use case where it is useful to append/prepend the innerHTML of inlined SVGs rather
+    than replace it, please <ResourceLink key="issue">raise an issue over at github</ResourceLink>.
+    For now, let's keep things simple.
+  </p>
+</section>
+
+<section>
+  <h2>Limitations</h2>
+  <p>
+    <code>preprocess-inline-svg</code> only works in svelte markup, i.e in the template part of svelte
+    source files. The following will not work
+  </p>
+  <Code code={codes.limitation.markup} title="only support svelte markup" />
+  <p>
+    <code>preprocess-inline-svg</code> does not support <code>data-inline-src</code> as a variable. I.e,
+    the following will not work
+  </p>
+  <Code code={codes.limitation.variable} title="dynamic attribute is not support" />
+  <p>
+    This is because it is difficult for the preprocessor to analyze the variable to determine is
+    immutability at build time, i.e the variable is meant to be changed. In these case, some
+    workarounds are
+  </p>
+  <ul>
+    <li>
+      use <code>if-else</code> statements to switch between different <code>data-inline-src</code> as
+      literal strings, or
+    </li>
+    <li>
+      use <ResourceLink key="@svelte-put/inline-svg" /> as a runtime action-based strategy instead.
+    </li>
+  </ul>
+  <p>
+    If you have an idea for improvements, please <ResourceLink key="issue"
+      >raise an issue over at github</ResourceLink
+    >. Thanks!
+  </p>
+</section>
+
+<section>
   <h2>Customization</h2>
   <p>
     All options are optional. By default <code>inline-svg</code> can be used with no config at all, in
@@ -199,6 +257,10 @@
   <ul>
     <li>Support for svgo?</li>
     <li>Support for fetching remote svg in <code>data-inline-src</code> at build time?</li>
+    <li>
+      Make this into a vite plugin and do these inline operation as part of the pre-rendering
+      pipeline?
+    </li>
   </ul>
 </section>
 

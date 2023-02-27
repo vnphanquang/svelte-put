@@ -140,7 +140,7 @@
                     data-sveltekit-preload-data="hover"
                     href={path}
                     data-current={data.pathname.includes(`/${id}`)}
-                    class="c-link -ml-px block border-l border-transparent py-1 pl-3 data-current:border-primary"
+                    class="c-link -ml-px block whitespace-nowrap border-l border-transparent py-1 pl-3 data-current:border-primary"
                     on:click={closeLeftSidebar}
                   >
                     <span class="h-full w-1 bg-primary" />
@@ -198,7 +198,7 @@
                       attribute: 'data-current',
                     },
                   }}
-                  class="c-link -ml-px block border-l border-transparent py-1 data-current:border-primary"
+                  class="c-link -ml-px block border-l border-transparent py-1 capitalize data-current:border-primary"
                   class:pl-3={level === '2'}
                   class:pl-5={level === '3'}
                   class:pl-7={level === '4'}
