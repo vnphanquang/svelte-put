@@ -503,7 +503,6 @@ importers:
       '@tailwindcss/typography': ^0.5.9
       '@types/color': ^3.0.3
       '@types/cookie': ^0.5.1
-      '@types/glob': ^8.1.0
       '@types/gtag.js': ^0.0.12
       '@types/node': ^18.14.1
       '@types/postcss-mixins': ^9.0.0
@@ -516,7 +515,6 @@ importers:
       cookie: ^0.5.0
       cssnano: ^5.1.15
       eslint: ^8.35.0
-      glob: ^8.1.0
       handlebars: ^4.7.7
       highlight.js: ^11.7.0
       npm-run-all: ^4.1.5
@@ -532,7 +530,9 @@ importers:
       svelte: ^3.55.1
       svelte-check: ^3.0.4
       svelte-highlight: ^7.2.0
+      svelte-preprocess: ^5.0.1
       tailwindcss: ^3.2.7
+      tiny-glob: ^0.2.9
       ts-node: ^10.9.1
       tslib: ^2.5.0
       typescript: ^4.9.5
@@ -567,7 +567,6 @@ importers:
       '@tailwindcss/typography': 0.5.9_tailwindcss@3.2.7
       '@types/color': 3.0.3
       '@types/cookie': 0.5.1
-      '@types/glob': 8.1.0
       '@types/gtag.js': 0.0.12
       '@types/node': 18.14.1
       '@types/postcss-mixins': 9.0.0
@@ -578,7 +577,6 @@ importers:
       color: 4.2.3
       cssnano: 5.1.15_postcss@8.4.21
       eslint: 8.35.0
-      glob: 8.1.0
       highlight.js: 11.7.0
       npm-run-all: 4.1.5
       postcss: 8.4.21
@@ -592,7 +590,9 @@ importers:
       svelte: 3.55.1
       svelte-check: 3.0.4_gqx7lw3sljhsd4bstor5m2aa2u
       svelte-highlight: 7.2.0
+      svelte-preprocess: 5.0.1_b25a55hc532q56kmuqlrolam2i
       tailwindcss: 3.2.7_aesdjsunmf4wiehhujt67my7tu
+      tiny-glob: 0.2.9
       ts-node: 10.9.1_uayvamxqnl5yeiojjysxwopmsy
       tslib: 2.5.0
       typescript: 4.9.5
@@ -1644,7 +1644,7 @@ packages:
       svelte: 3.55.1
       tiny-glob: 0.2.9
       undici: 5.20.0
-      vite: 4.1.4
+      vite: 4.1.4_@types+node@18.14.1
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1678,7 +1678,7 @@ packages:
       magic-string: 0.29.0
       svelte: 3.55.1
       svelte-hmr: 0.15.1_svelte@3.55.1
-      vite: 4.1.4
+      vite: 4.1.4_@types+node@18.14.1
       vitefu: 0.2.4_vite@4.1.4
     transitivePeerDependencies:
       - supports-color
@@ -1753,13 +1753,6 @@ packages:
     resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
     dev: true
 
-  /@types/glob/8.1.0:
-    resolution: {integrity: sha512-IO+MJPVhoqz+28h1qLAcBEH2+xHMK6MTyHJc7MTnnYb6wsoLR29POVGJ7LycmVXIqyy/4/2ShP5sUwTXuOwb/w==}
-    dependencies:
-      '@types/minimatch': 5.1.2
-      '@types/node': 18.14.1
-    dev: true
-
   /@types/gtag.js/0.0.12:
     resolution: {integrity: sha512-YQV9bUsemkzG81Ea295/nF/5GijnD2Af7QhEofh7xu+kvCN6RdodgNwwGWXB5GMI3NoyvQo0odNctoH/qLMIpg==}
     dev: true
@@ -1786,10 +1779,6 @@ packages:
 
   /@types/md5/2.3.2:
     resolution: {integrity: sha512-v+JFDu96+UYJ3/UWzB0mEglIS//MZXgRaJ4ubUPwOM0gvLc/kcQ3TWNYwENEK7/EcXGQVrW8h/XqednSjBd/Og==}
-    dev: true
-
-  /@types/minimatch/5.1.2:
-    resolution: {integrity: sha512-K0VQKziLUWkVKiRVrx4a40iPaxTUefQmjtkQofBkYRcoaaL/8rhwDWww9qWbrgicNOgnpIsMxyNIUM4+n6dUIA==}
     dev: true
 
   /@types/minimist/1.2.2:
@@ -2427,12 +2416,6 @@ packages:
     dependencies:
       balanced-match: 1.0.2
       concat-map: 0.0.1
-    dev: true
-
-  /brace-expansion/2.0.1:
-    resolution: {integrity: sha512-XnAIvQ8eM+kC6aULx6wuQiwVsnzsi9d3WxzV3FpWTGA19F621kwdbsAcFKXgKUHZWsy+mY6iL1sHTxWEFCytDA==}
-    dependencies:
-      balanced-match: 1.0.2
     dev: true
 
   /braces/3.0.2:
@@ -3846,17 +3829,6 @@ packages:
       path-is-absolute: 1.0.1
     dev: true
 
-  /glob/8.1.0:
-    resolution: {integrity: sha512-r8hpEjiQEYlF2QU0df3dS+nxxSIreXQS1qRhMJM0Q5NDdR386C7jb7Hwwod8Fgiuex+k0GFjgft18yvxm5XoCQ==}
-    engines: {node: '>=12'}
-    dependencies:
-      fs.realpath: 1.0.0
-      inflight: 1.0.6
-      inherits: 2.0.4
-      minimatch: 5.1.5
-      once: 1.4.0
-    dev: true
-
   /global-modules/2.0.0:
     resolution: {integrity: sha512-NGbfmJBp9x8IxyJSd1P+otYK8vonoJactOogrVfFRIAEY1ukil8RSKDz2Yo7wh1oihl51l/r6W4epkeKJHqL8A==}
     engines: {node: '>=6'}
@@ -4789,13 +4761,6 @@ packages:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
     dependencies:
       brace-expansion: 1.1.11
-    dev: true
-
-  /minimatch/5.1.5:
-    resolution: {integrity: sha512-CI8wwdrll4ehjPAqs8TL8lBPyNnpZlQI02Wn8C1weNz/QbUbjh3OMxgMKSnvqfKFdLlks3EzHB9tO0BqGc3phQ==}
-    engines: {node: '>=10'}
-    dependencies:
-      brace-expansion: 2.0.1
     dev: true
 
   /minimist-options/4.1.0:
@@ -7455,7 +7420,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 4.1.4
+      vite: 4.1.4_@types+node@18.14.1
     dev: true
 
   /wcwidth/1.0.1:
