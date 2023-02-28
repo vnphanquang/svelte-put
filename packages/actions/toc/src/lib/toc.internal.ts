@@ -9,6 +9,7 @@ export type TocCacheItem = {
   parameters: ResolvedTocParameters;
   items: Record<string, TocItem>;
   activeTocItemId?: string;
+  observeThrottled: boolean;
 };
 
 /**
