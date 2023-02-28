@@ -186,7 +186,7 @@
         {#if Object.values($tocStore.items).length}
           <p class="py-2 font-bold uppercase">On This Page</p>
           <ul class="space-y-1 border-l border-border">
-            {#each Object.values($tocStore.items) as tocItem}
+            {#each Object.values($tocStore.items) as tocItem (tocItem.id)}
               {@const level = tocItem.element.tagName.slice(1)}
               <li>
                 <!-- svelte-ignore a11y-missing-attribute -->

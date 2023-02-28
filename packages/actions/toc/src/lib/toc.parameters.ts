@@ -180,7 +180,7 @@ export function resolveTocParameters(parameters: TocParameters) {
     ignore = Array.isArray(parameters.ignore) ? parameters.ignore : [parameters.ignore];
   }
   return {
-    id: parameters?.id ?? crypto.randomUUID(),
+    id: parameters?.id ?? parameters?.store?.id() ?? crypto.randomUUID(),
     selector: `${parameters.selector ?? DEFAULT_TOC_PARAMETERS.selector}${ignore
       .map((i) => `:not(${i})`)
       .join('')}`,
@@ -364,7 +364,7 @@ export function resolveTocLinkParameters(parameters: TocLinkParameters) {
         ? { ...DEFAULT_TOC_LINK_PARAMETERS.observe, enabled: parameters.observe }
         : {
             enabled: parameters.observe.enabled ?? true,
-            attribute: resolveTocLinkAttribute(parameters.observe.attribute),
+            attribute: resolveTocLinkObserveAttribute(parameters.observe.attribute),
             throttleOnClick:
               parameters.observe.throttleOnClick ??
               DEFAULT_TOC_LINK_PARAMETERS.observe.throttleOnClick,
@@ -374,10 +374,17 @@ export function resolveTocLinkParameters(parameters: TocLinkParameters) {
 }
 
 /** @internal */
-function resolveTocLinkAttribute(attribute?: TocLinkObserveParameters['attribute']): string[] {
+function resolveTocLinkObserveAttribute(
+  attribute?: TocLinkObserveParameters['attribute'],
+): string[] {
   if (!attribute) return DEFAULT_TOC_LINK_PARAMETERS.observe.attribute;
   if (typeof attribute === 'boolean') return DEFAULT_TOC_LINK_PARAMETERS.observe.attribute;
   if (typeof attribute === 'string')
     return [...DEFAULT_TOC_LINK_PARAMETERS.observe.attribute, attribute];
   return [...DEFAULT_TOC_LINK_PARAMETERS.observe.attribute, ...attribute];
+}
+
+/** @internal */
+export function compareTocLinkParameters(a: TocLinkParameters, b: TocLinkParameters): boolean {
+  return a.store === b.store && JSON.stringify(a) === JSON.stringify(b);
 }

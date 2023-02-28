@@ -21,6 +21,7 @@ import {
   resolveTocLinkParameters,
   type TocLinkParameters,
   DEFAULT_TOC_LINK_PARAMETERS,
+  compareTocLinkParameters,
 } from './toc.parameters';
 import type { TocParameters } from './toc.parameters';
 import { updateStore } from './toc.store';
@@ -103,16 +104,14 @@ export const toc: Action<HTMLElement, TocParameters, TocEventAttributes> = funct
   parameters = {},
 ) {
   let resolved = resolveTocParameters(parameters);
-  let items: TocCacheItem['items'] = {};
 
   // stay minimal by reusing as few `IntersectionObserver` as possible
   // only create new `IntersectionObserver` for each new `threshold`
   const intersectionObservers: Record<number, IntersectionObserver> = {};
   let mutationObserver: MutationObserver;
 
-  let observeThrottled = false;
   function change(activeTocItemId = '') {
-    if (!observeThrottled) {
+    if (!cache[resolved.id].observeThrottled) {
       node.setAttribute(ATTRIBUTES.observeActiveId, activeTocItemId);
     }
   }
@@ -120,6 +119,7 @@ export const toc: Action<HTMLElement, TocParameters, TocEventAttributes> = funct
   let tocObserveThrottleTimeoutId: ReturnType<typeof setTimeout>;
   function observeActiveIdAttribute() {
     mutationObserver = new MutationObserver((mutationList) => {
+      if (!node.isConnected) return;
       for (const mutation of mutationList) {
         if (mutation.type === 'attributes') {
           switch (mutation.attributeName) {
@@ -127,14 +127,18 @@ export const toc: Action<HTMLElement, TocParameters, TocEventAttributes> = funct
               const activeTocItemId = (mutation.target as HTMLElement).getAttribute(
                 ATTRIBUTES.observeActiveId,
               );
-              if (activeTocItemId && activeTocItemId !== cache[resolved.id].activeTocItemId) {
-                cache[resolved.id].activeTocItemId = activeTocItemId;
-                const detail = dispatchChange(node, {
-                  activeItem: items[activeTocItemId] as TocItem,
-                  id: resolved.id,
-                  items,
-                });
-                updateStore(resolved.store, detail);
+              const cached = cache[resolved.id];
+              if (activeTocItemId && activeTocItemId !== cached.activeTocItemId) {
+                cached.activeTocItemId = activeTocItemId;
+                const activeItem = cached.items[activeTocItemId];
+                if (activeItem) {
+                  const detail = dispatchChange(node, {
+                    activeItem,
+                    id: resolved.id,
+                    items: cached.items,
+                  });
+                  updateStore(resolved.store, detail);
+                }
               }
               break;
             }
@@ -142,13 +146,14 @@ export const toc: Action<HTMLElement, TocParameters, TocEventAttributes> = funct
               const throttled = (mutation.target as HTMLElement).getAttribute(
                 ATTRIBUTES.observeThrottled,
               );
-              if (!observeThrottled && throttled) {
-                observeThrottled = true;
+              const cached = cache[resolved.id];
+              if (!cached.observeThrottled && throttled) {
+                cached.observeThrottled = true;
                 clearTimeout(tocObserveThrottleTimeoutId);
                 let ms = parseInt(throttled);
                 if (Number.isNaN(ms)) ms = DEFAULT_TOC_LINK_PARAMETERS.observe.throttleOnClick;
                 tocObserveThrottleTimeoutId = setTimeout(() => {
-                  observeThrottled = false;
+                  cached.observeThrottled = false;
                   node.toggleAttribute(ATTRIBUTES.observeThrottled, false);
                 }, ms);
               }
@@ -168,54 +173,50 @@ export const toc: Action<HTMLElement, TocParameters, TocEventAttributes> = funct
     const { id, selector, anchor, observe, scrollMarginTop } = resolved;
     const elements: HTMLElement[] = Array.from(node.querySelectorAll(selector));
     const observePromises: Promise<TocItem['observe']>[] = [];
-    if (cache[id]) {
-      items = cache[id].items;
-    } else {
-      items = {};
 
-      for (const element of elements) {
-        if (element.hasAttribute(ATTRIBUTES.ignore)) continue;
+    const cached: TocCacheItem = {
+      parameters: resolved,
+      items: {},
+      activeTocItemId: '',
+      observeThrottled: false,
+    };
+    cache[id] = cached;
+    node.setAttribute(ATTRIBUTES.observeActiveId, '');
+    for (const element of elements) {
+      if (element.hasAttribute(ATTRIBUTES.ignore)) continue;
 
-        const text = extractElementText(element);
+      const text = extractElementText(element);
 
-        const tocId = extractTocItemId(element, text);
-        element.id = tocId;
+      const tocId = extractTocItemId(element, text);
+      element.id = tocId;
 
-        processScrollMarginTop(element, scrollMarginTop);
-        const a = processAnchor(element, anchor, tocId);
+      processScrollMarginTop(element, scrollMarginTop);
+      const a = processAnchor(element, anchor, tocId);
 
-        items[tocId] = { element, id: tocId, text, anchor: a };
+      cached.items[tocId] = { element, id: tocId, text, anchor: a };
 
-        if (observe.enabled) {
-          // process observe async to avoid blocking main thread,
-          // which should be prioritized for rendering initial TOC
-          observePromises.push(
-            new Promise((resolve) => {
-              const rObserve = processObserve(
-                element,
-                observe,
-                tocId,
-                change,
-                intersectionObservers,
-              );
-              items[tocId].observe = rObserve;
-              resolve(rObserve);
-            }),
-          );
-        }
-
-        // mark that this element has been processed by `toc`
-        element.toggleAttribute(ATTRIBUTES.toc, true);
+      if (observe.enabled) {
+        // process observe async to avoid blocking main thread,
+        // which should be prioritized for rendering initial TOC
+        observePromises.push(
+          new Promise((resolve) => {
+            const rObserve = processObserve(element, observe, tocId, change, intersectionObservers);
+            cached.items[tocId].observe = rObserve;
+            resolve(rObserve);
+          }),
+        );
       }
-      cache[id] = { parameters: resolved, items };
+
+      // mark that this element has been processed by `toc`
+      element.toggleAttribute(ATTRIBUTES.toc, true);
     }
 
-    const detail = dispatchInit(node, { id, items });
+    const detail = dispatchInit(node, { id, items: cached.items });
     updateStore(resolved.store, detail);
     if (observePromises.length) {
       Promise.all(observePromises).then(() => {
         observeActiveIdAttribute();
-        change(cache[id].activeTocItemId);
+        change(cached.activeTocItemId);
       });
     }
 
@@ -234,10 +235,10 @@ export const toc: Action<HTMLElement, TocParameters, TocEventAttributes> = funct
       // - re-run operations
     },
     destroy() {
+      mutationObserver?.disconnect();
       for (const observer of Object.values(intersectionObservers)) {
         observer.disconnect();
       }
-      mutationObserver?.disconnect();
       clearTimeout(tocObserveThrottleTimeoutId);
     },
   };
@@ -298,6 +299,10 @@ export const toclink: Action<HTMLAnchorElement, TocLinkParameters> = function (
   node,
   parameters = {},
 ) {
+  // initial safe keep
+  const initialHref = node.href;
+  const initialTextContent = node.textContent;
+
   let resolved = resolveTocLinkParameters(parameters);
   let tocRoot: Element | null = null;
   let tocItemId: string;
@@ -306,11 +311,11 @@ export const toclink: Action<HTMLAnchorElement, TocLinkParameters> = function (
 
   function handleClick() {
     if (tocRoot && tocItemId) {
-      tocRoot.setAttribute(ATTRIBUTES.observeActiveId, tocItemId);
       tocRoot.setAttribute(
         ATTRIBUTES.observeThrottled,
         resolved.observe.throttleOnClick.toString(),
       );
+      tocRoot.setAttribute(ATTRIBUTES.observeActiveId, tocItemId);
     }
   }
 
@@ -321,13 +326,13 @@ export const toclink: Action<HTMLAnchorElement, TocLinkParameters> = function (
   }
 
   function resolveAttributes() {
-    let tocItemId = node.href.split('#')[1] ?? '';
+    tocItemId = node.href.split('#')[1] ?? '';
     if (resolved.tocItem) {
       tocItemId = typeof resolved.tocItem === 'string' ? resolved.tocItem : resolved.tocItem.id;
-      if (!node.href) {
+      if (!initialHref) {
         node.href = `#${tocItemId}`;
       }
-      if (!node.textContent && typeof resolved.tocItem !== 'string') {
+      if (!initialTextContent && typeof resolved.tocItem !== 'string') {
         node.textContent = resolved.tocItem.text;
       }
     }
@@ -345,7 +350,7 @@ export const toclink: Action<HTMLAnchorElement, TocLinkParameters> = function (
     if (resolved.observe.attribute.length) {
       if (resolved.store) {
         storeUnsubscribe = resolved.store.subscribe(({ activeItem }) => {
-          updateCurrent(activeItem?.id === node.getAttribute(ATTRIBUTES.linkFor));
+          updateCurrent(activeItem?.id === tocItemId);
         });
       } else {
         mutationObserver = new MutationObserver((mutationList) => {
@@ -357,7 +362,7 @@ export const toclink: Action<HTMLAnchorElement, TocLinkParameters> = function (
               const currentTocId = (mutation.target as HTMLElement).getAttribute(
                 ATTRIBUTES.observeActiveId,
               );
-              updateCurrent(currentTocId === node.getAttribute(ATTRIBUTES.linkFor));
+              updateCurrent(currentTocId === tocItemId);
             }
           }
         });
@@ -370,18 +375,24 @@ export const toclink: Action<HTMLAnchorElement, TocLinkParameters> = function (
   }
 
   function cleanup() {
+    mutationObserver?.disconnect();
     node.removeEventListener('click', handleClick);
     storeUnsubscribe?.();
-    mutationObserver?.disconnect();
+    updateCurrent(false);
   }
 
   execute();
 
   return {
     update(update = {}) {
-      resolved = resolveTocLinkParameters(update);
-      resolveAttributes();
-      // as with `toc` action, we do not support dynamic update right now
+      if (!compareTocLinkParameters(parameters, update)) {
+        cleanup();
+        parameters = update;
+        resolved = resolveTocLinkParameters(parameters);
+        resolveAttributes();
+        execute();
+      }
+      tocRoot = findTocRoot(node, resolved.tocId ?? resolved.store?.id());
     },
     destroy() {
       cleanup();
