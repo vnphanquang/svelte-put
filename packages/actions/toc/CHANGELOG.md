@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.0.2
+
+### Patch Changes
+
+- [#160](https://github.com/vnphanquang/svelte-put/pull/160) [`2ab1c3e`](https://github.com/vnphanquang/svelte-put/commit/2ab1c3ed3f1f72d479993c31393c5d9d0f69bed4) Thanks [@vnphanquang](https://github.com/vnphanquang)! - Logic correction to correctly cache & reset operations when toc is used in layout and across page navigation
+
 ## 3.0.1
 
 ### Patch Changes
