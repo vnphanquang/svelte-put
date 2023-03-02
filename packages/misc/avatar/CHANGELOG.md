@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.1
+
+### Patch Changes
+
+- [`a992ecc`](https://github.com/vnphanquang/svelte-put/commit/a992ecc9470776fcbdce3c398edd607db0148646) Thanks [@vnphanquang](https://github.com/vnphanquang)! - fix erroneous request to `/undefined` when no sources are provided (thanks @jamesbirtles with report in #151)
+
+- [`da8df76`](https://github.com/vnphanquang/svelte-put/commit/da8df7621b58b82ca31c50ba7aeca32379a42ed0) Thanks [@vnphanquang](https://github.com/vnphanquang)! - fix package.json exports for helpers entry
+
 ## 2.0.0
 
 ### Major Changes
