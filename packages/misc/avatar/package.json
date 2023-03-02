@@ -9,14 +9,14 @@
   "exports": {
     "./package.json": "./package.json",
     "./Avatar.svelte": "./dist/Avatar.svelte",
-    "./avatar": "./dist/avatar.js",
+    "./helpers": "./dist/avatar.helpers.js",
     ".": "./dist/index.js"
   },
   "types": "dist/index.d.ts",
   "typesVersions": {
     "*": {
-      "avatar": [
-        "./dist/avatar.d.ts"
+      "helpers": [
+        "./dist/avatar.helpers.d.ts"
       ],
       "Avatar.svelte": [
         "./dist/Avatar.svelte.d.ts"

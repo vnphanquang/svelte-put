@@ -74,7 +74,9 @@ export function resolveSize(
   }
 }
 
+/** @internal */
 export const DEFINITIVE_FALLBACK = 'https://www.gravatar.com/avatar?d=mp';
+/** @internal */
 export function resolveSrc(
   src?: string,
   gravatar?: AvatarProps['gravatar'],
