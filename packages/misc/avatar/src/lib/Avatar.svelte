@@ -37,7 +37,7 @@
           rElement.src = rSrc = DEFINITIVE_FALLBACK;
         }
       });
-      rElement.src = rSrc = sources[currentSourceIndex];
+      rElement.src = rSrc = sources[currentSourceIndex] ?? DEFINITIVE_FALLBACK;
     }
   });
 </script>
