@@ -16,9 +16,9 @@
 <section>
   <h2>Introduction</h2>
   <p>
-    Existing solutions for inlining SVGs in svelte land often relies on component, which proves
+    Existing solutions for inlining SVGs in svelte land often rely on component, which proves
     painful when it comes to styling and event handling. This package attempts to achieve a minimal
-    usage api using svelte action.
+    usage api using <ResourceLink key="svelte action" />.
   </p>
 </section>
 
