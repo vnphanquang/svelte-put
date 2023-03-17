@@ -37,7 +37,7 @@
     "stylelint": "^15.2.0",
     "stylelint-config-clean-order": "^5.0.0",
     "stylelint-config-html": "^1.1.0",
-    "stylelint-config-standard": "^30.0.1",
+    "stylelint-config-standard": "^31.0.0",
     "svelte": "^3.55.1",
     "turbo": "^1.8.3",
     "typescript": "^5.0.0"
