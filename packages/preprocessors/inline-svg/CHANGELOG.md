@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.1
+
+### Patch Changes
+
+- [`0166fa5`](https://github.com/vnphanquang/svelte-put/commit/0166fa5521c5c99054aa0415977892be6c16d9d3) Thanks [@vnphanquang](https://github.com/vnphanquang)! - remove runtime console.log
+
 ## 1.2.0
 
 ### Minor Changes
