@@ -99,7 +99,7 @@
   <h2>Attributes & Inner HTML</h2>
   <p>
     Attributes provided to the source <code>svg</code> element will be <strong>kept</strong> after build
-    and override if existed in the inlined SVG.
+    and override the existed ones in the inlined SVG.
   </p>
   <Code
     code={`<svg data-inline-src="path/icon" width="100" height="100" class="c-icon"></svg>`}
