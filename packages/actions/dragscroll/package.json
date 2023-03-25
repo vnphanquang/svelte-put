@@ -40,13 +40,13 @@
   },
   "homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/dragscroll",
   "devDependencies": {
-    "@microsoft/api-documenter": "^7.21.5",
+    "@microsoft/api-documenter": "^7.21.6",
     "@microsoft/api-extractor": "^7.34.4",
     "@rollup/plugin-typescript": "^11.0.0",
     "@svelte-put/apirc": "workspace:*",
     "@svelte-put/tsconfig": "workspace:*",
     "npm-run-all": "^4.1.5",
-    "rollup": "^3.17.3",
+    "rollup": "^3.20.2",
     "tslib": "^2.5.0",
     "typescript": "^5.0.0"
   }
