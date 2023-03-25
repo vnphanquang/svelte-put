@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.0
+
+### Minor Changes
+
+- [`33c9472`](https://github.com/vnphanquang/svelte-put/commit/33c94721534663754cf891aebf3c38c5bc539124) Thanks [@vnphanquang](https://github.com/vnphanquang)! - Export experimental typing generation for `Source` (type inference for the data-inline-src attribute)
+
 ## 1.1.1
 
 ### Patch Changes
