@@ -118,6 +118,44 @@ function resolveInput(input?: InlineSvgPreprocessConfig | InlineSvgPreprocessCon
   };
 }
 
+function findSvgRecursively(dir: string): string[] {
+  /** find all svg files in provided directory */
+  const files = fs
+    .readdirSync(dir)
+    .map((f) => path.join(dir, f))
+    .filter((f) => {
+      const stat = fs.statSync(f);
+      if (stat.isDirectory()) return true;
+      if (stat.isFile()) return f.endsWith('.svg');
+      return false;
+    });
+  /** find all svg files in sub directories */
+  const directories = files.filter((f) => fs.statSync(f).isDirectory());
+  const subFiles = directories.flatMap(findSvgRecursively);
+  return [...files, ...subFiles];
+}
+
+async function generateSourceTyping(input: ReturnType<typeof resolveInput>) {
+  const { local, dirs } = input;
+  const sourcePath = path.join(
+    process.cwd(),
+    'node_modules/@svelte-put/preprocess-inline-svg/dist/sources.d.ts',
+  );
+  const directories = [...local.directories, ...dirs.flatMap((d) => d.directories)];
+  const svgs = new Set<string>();
+  for (const dir of directories) {
+    const files = findSvgRecursively(dir);
+    for (const file of files) {
+      const svg = path.relative(dir, file).replace('.svg', '');
+      svgs.add(`'${svg}'`);
+    }
+  }
+  const typing = Array.from(svgs).join(' | ');
+  const source = `export type Source = ${typing};`;
+  console.log(source, sourcePath);
+  fs.writeFileSync(sourcePath, source);
+}
+
 /** @internal */
 function findSrc(
   filename: string,
@@ -222,14 +260,17 @@ function findSrc(
 export function inlineSvg(
   input?: InlineSvgPreprocessConfig | InlineSvgPreprocessConfig[],
 ): PreprocessorGroup {
-  const { local, dirs } = resolveInput(input);
+  const rInput = resolveInput(input);
+
+  generateSourceTyping(rInput);
+
+  const { local, dirs } = rInput;
 
   return {
     markup(o) {
       const { content, filename } = o;
       const s = new MagicString(content);
       const ast = parse(content, { filename });
-
       walk(ast.html, {
         enter(node: Node) {
           if (node.type !== 'Element' || node.name !== 'svg') return;

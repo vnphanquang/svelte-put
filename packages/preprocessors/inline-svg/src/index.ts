@@ -8,6 +8,7 @@
 
 import { inlineSvg } from './inline-svg';
 
+export * from './sources';
 export * from './inline-svg';
 
 export default inlineSvg;
