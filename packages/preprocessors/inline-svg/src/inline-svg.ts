@@ -152,7 +152,6 @@ async function generateSourceTyping(input: ReturnType<typeof resolveInput>) {
   }
   const typing = Array.from(svgs).join(' | ');
   const source = `export type Source = ${typing};`;
-  console.log(source, sourcePath);
   fs.writeFileSync(sourcePath, source);
 }
 
