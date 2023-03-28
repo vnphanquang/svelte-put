@@ -133,8 +133,8 @@
   </p>
   <Code code={codes.limitation.variable} title="dynamic attribute is not support" />
   <p>
-    This is because it is difficult for the preprocessor to analyze the variable to determine is
-    immutability at build time, i.e the variable is meant to be changed. In these case, some
+    This is because it is difficult for the preprocessor to analyze a variable to determine is
+    immutability at build time, i.e a variable is meant to be changed. In these case, some
     workarounds are
   </p>
   <ul>
@@ -175,7 +175,7 @@
   </p>
   <p>When input is an array of configs, the following applies:</p>
   <p class="c-callout-warning">
-    There can only one config object without the <code>directories</code> option (<strong
+    There can only be one config object without the <code>directories</code> option (<strong
       >default config</strong
     >).<br />
     If multiple are found, an error will be thrown at build. If none is provided, the internal default
@@ -249,7 +249,7 @@
   <h2>Further Work</h2>
   <p>
     This package is kept minimal as it has served its purpose for all of my need. If you find this
-    package to lack certain features / support essential to your use cases, please <ResourceLink
+    package to lack certain features that are essential to your use cases, please <ResourceLink
       key="issue">file an issue at github</ResourceLink
     > and let me know. Thank you!
   </p>
