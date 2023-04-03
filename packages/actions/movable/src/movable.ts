@@ -1,3 +1,4 @@
+import { tick } from 'svelte';
 import type { Action } from 'svelte/action';
 
 import type { MovableAttributes, MovableEventDetails, MovableParameters } from './movable.types';
@@ -112,17 +113,21 @@ export const movable: Action<HTMLElement, MovableParameters, MovableAttributes> 
   let ΣΔx = 0; // total displacement in x-axis
   let ΣΔy = 0; // total displacement in y-axis
 
-  const updateLastMousePosition = (event: MouseEvent) => {
+  function getIgnoredElements(): HTMLElement[] {
+    return ignore ? Array.from(handle.querySelectorAll(ignore)) : [];
+  }
+
+  function updateLastMousePosition(event: MouseEvent) {
     lastMousePosition.x = event.clientX;
     lastMousePosition.y = event.clientY;
-  };
+  }
 
-  const updateLastNodePosition = ({ top, left }: typeof lastNodePosition) => {
+  function updateLastNodePosition({ top, left }: typeof lastNodePosition) {
     lastNodePosition.top = top;
     lastNodePosition.left = left;
-  };
+  }
 
-  const onMouseMove = (event: MouseEvent) => {
+  function onMouseMove(event: MouseEvent) {
     const Δx = event.clientX - lastMousePosition.x;
     const Δy = event.clientY - lastMousePosition.y;
     updateLastMousePosition(event);
@@ -209,7 +214,7 @@ export const movable: Action<HTMLElement, MovableParameters, MovableAttributes> 
     ΣΔx += left - lastNodePosition.left;
     ΣΔy += top - lastNodePosition.top;
     updateLastNodePosition({ top, left });
-  };
+  }
 
   const end = () => {
     document.body.style.userSelect = '';
@@ -227,10 +232,9 @@ export const movable: Action<HTMLElement, MovableParameters, MovableAttributes> 
   };
 
   const onMouseDown = (event: MouseEvent) => {
-    if (ignore.length) {
-      if (ignore.some((node) => node.isSameNode(event.target as HTMLElement))) {
-        return;
-      }
+    const ignoredElements = getIgnoredElements();
+    if (ignoredElements.some((node) => node.isSameNode(event.target as HTMLElement))) {
+      return;
     }
 
     const computedStyles = getComputedStyle(node);
@@ -264,11 +268,10 @@ export const movable: Action<HTMLElement, MovableParameters, MovableAttributes> 
   function addCursor() {
     if (cursor) {
       handle.style.cursor = 'grab';
-      if (ignore.length) {
-        for (const e of ignore) {
-          if (!e.style.cursor) {
-            e.style.cursor = 'auto';
-          }
+      const ignoredElements = getIgnoredElements();
+      for (const e of ignoredElements) {
+        if (!e.style.cursor) {
+          e.style.cursor = 'auto';
         }
       }
     }
@@ -278,19 +281,20 @@ export const movable: Action<HTMLElement, MovableParameters, MovableAttributes> 
       if (handle?.style.cursor === 'grab') {
         handle.style.removeProperty('cursor');
       }
-      if (ignore.length) {
-        for (const e of ignore) {
-          if (e.style.cursor === 'auto') {
-            e.style.removeProperty('cursor');
-          }
+      const ignoredElements = getIgnoredElements();
+      for (const e of ignoredElements) {
+        if (e.style.cursor === 'auto') {
+          e.style.removeProperty('cursor');
         }
       }
     }
   }
 
   if (enabled) {
-    addCursor();
     handle.addEventListener('mousedown', onMouseDown, true);
+    tick().then(() => {
+      addCursor();
+    });
   }
   return {
     update(update) {
@@ -299,8 +303,10 @@ export const movable: Action<HTMLElement, MovableParameters, MovableAttributes> 
       ({ parent, normalizedDelta, handle, enabled, ignore, cursor } = input(node, update));
 
       if (enabled) {
-        addCursor();
         handle.addEventListener('mousedown', onMouseDown, true);
+        tick().then(() => {
+          addCursor();
+        });
       }
     },
     destroy() {

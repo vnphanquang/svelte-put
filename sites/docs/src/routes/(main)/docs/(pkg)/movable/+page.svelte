@@ -129,7 +129,7 @@
 </section>
 
 <section>
-  <h2>Ignore Children Nodes from Triggering <code>movable</code> on Click</h2>
+  <h2 id="ignore-children">Ignore Children Nodes from Triggering <code>movable</code> on Click</h2>
   <p class="c-callout-info">
     Prefer <code>handle</code> in favor of <code>ignore</code> when possible for better predictability.
   </p>
@@ -154,6 +154,12 @@
     <code>cursor: grabbing</code>
     on <code>mousedown</code> to both <code>handle</code> and <code>window.body</code>. This can be
     disabled by setting the <code>cursor</code> parameter to <code>false</code>.
+  </p>
+  <p class="c-callout-warning">
+    Automatic cursor handling is done on action initialization and update. It won't work for
+    <ResourceLink id="ignore-children">ignored children</ResourceLink>
+    that are dynamically rendered at runtime. In such cases, disable <code>cursor</code> or add cursor
+    styles manually to the ignored children.
   </p>
   <Code code={codes.cursor} title="disabling cursor" />
 </section>
