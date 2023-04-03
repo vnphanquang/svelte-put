@@ -19,10 +19,10 @@
   "homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocessors/auto-slug",
   "devDependencies": {
     "@types/estree": "^1.0.0",
-    "@types/node": "^18.15.8",
+    "@types/node": "^18.15.11",
     "npm-run-all": "^4.1.5",
-    "svelte": "^3.57.0",
-    "typescript": "^5.0.0"
+    "svelte": "^3.58.0",
+    "typescript": "^5.0.3"
   },
   "peerDependencies": {
     "svelte": "^3.37.0"
