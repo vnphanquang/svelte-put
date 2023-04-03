@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.1
+
+### Patch Changes
+
+- [`028ef5d`](https://github.com/vnphanquang/svelte-put/commit/028ef5d7a2c8f078aa95eeb8a6ff0a8607df4783) Thanks [@vnphanquang](https://github.com/vnphanquang)! - Defer `ignore` element searching until runtime (support dynmaically-rendered children) - #178
+
 ## 2.0.0
 
 ### Major Changes
