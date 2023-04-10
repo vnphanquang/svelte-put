@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.0.0
+
+### Major Changes
+
+- [`06c3733`](https://github.com/vnphanquang/svelte-put/commit/06c3733200c407b740d4d98212da1e7b95bc9120) Thanks [@vnphanquang](https://github.com/vnphanquang)! - [BREAKING] deprecate `inlineSrcAttributeName` & `keepInlineSrcAttribute` options for individual source config, use the global `PreprocessConfig` (second arg to preprocess) instead
+
+### Patch Changes
+
+- [`06c3733`](https://github.com/vnphanquang/svelte-put/commit/06c3733200c407b740d4d98212da1e7b95bc9120) Thanks [@vnphanquang](https://github.com/vnphanquang)! - remove experimental source typing: DX is not acceptable. Maybe we can try doing this in a vite plugin instead
+
 ## 1.2.1
 
 ### Patch Changes
