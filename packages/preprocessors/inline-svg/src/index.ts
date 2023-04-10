@@ -6,8 +6,8 @@
  * @packageDocumentation
  */
 
-import { inlineSvg } from './inline-svg';
+import { inlineSvg } from './preprocessor';
 
-export * from './inline-svg';
+export * from './preprocessor';
 
 export default inlineSvg;

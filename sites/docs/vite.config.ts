@@ -1,8 +1,25 @@
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+import { inlineSvg } from '@svelte-put/preprocess-inline-svg/vite';
 import { sveltekit } from '@sveltejs/kit/vite';
 import type { UserConfig } from 'vite';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 const config: UserConfig = {
-  plugins: [sveltekit()],
+  plugins: [
+    inlineSvg([
+      {
+        directories: [path.resolve(__dirname, 'src/lib/shared/assets/images/svg')],
+        attributes: {
+          width: '20',
+          height: '20',
+        },
+      },
+    ]),
+    sveltekit(),
+  ],
   optimizeDeps: {
     include: ['highlight.js', 'highlight.js/lib/core'],
   },

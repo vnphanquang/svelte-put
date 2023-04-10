@@ -1,7 +1,6 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import inlineSvg from '@svelte-put/inline-svg/preprocess';
 import autoSlug from '@svelte-put/preprocess-auto-slug';
 import adapter from '@sveltejs/adapter-vercel';
 import { vitePreprocess } from '@sveltejs/kit/vite';
@@ -22,15 +21,6 @@ const config = {
         },
       },
     })),
-    inlineSvg([
-      {
-        directories: [path.resolve(__dirname, 'src/lib/shared/assets/images/svg')],
-        attributes: {
-          width: 20,
-          height: 20,
-        },
-      },
-    ]),
     vitePreprocess(),
   ],
   kit: {

@@ -24,9 +24,11 @@ export type SourceConfig = {
  * @public
  * global options for configuring behaviors of the inline-svg preprocessor
  */
-export type PreprocessConfig = {
+export type InlineSvgConfig = {
   /** attribute to get the svg source from, default to `data-inline-src` */
   inlineSrcAttributeName?: string;
   /** whether to keep the inline src attribute after build, default to `false` */
   keepInlineSrcAttribute?: boolean;
+  /** file extensions to search & transform */
+  extension?: string | string[];
 };
