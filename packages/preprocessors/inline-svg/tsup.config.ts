@@ -1,7 +1,7 @@
 import { defineConfig } from 'tsup';
 
 export default defineConfig({
-  entry: ['src/index.ts', 'src/vite.ts'],
+  entry: ['src/index.ts', 'src/vite/index.ts', 'src/sources.generated.ts'],
   outDir: 'dist',
   format: ['esm'],
   dts: true,

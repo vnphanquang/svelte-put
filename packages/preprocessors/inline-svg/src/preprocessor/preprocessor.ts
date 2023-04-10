@@ -1,7 +1,7 @@
 import { PreprocessorGroup } from 'svelte/types/compiler/preprocess';
 
-import { resolveConfig, resolveSources, transform } from './internals';
-import type { InlineSvgConfig, SourceConfig } from './types';
+import { resolveInlineSvgConfig, resolveSources, transform } from './preprocessor.internals';
+import type { InlineSvgConfig, SourceConfig } from './preprocessor.types';
 
 /**
  * preprocess svelte markup and inline matching svgs
@@ -79,10 +79,10 @@ import type { InlineSvgConfig, SourceConfig } from './types';
  */
 export function inlineSvg(
   sources?: SourceConfig | SourceConfig[],
-  config?: Omit<InlineSvgConfig, 'extension'>,
+  config?: InlineSvgConfig,
 ): PreprocessorGroup {
   const rSources = resolveSources(sources);
-  const rConfig = resolveConfig(config);
+  const rConfig = resolveInlineSvgConfig(config);
 
   return {
     markup({ content, filename }) {

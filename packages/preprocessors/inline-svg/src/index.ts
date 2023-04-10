@@ -9,5 +9,6 @@
 import { inlineSvg } from './preprocessor';
 
 export * from './preprocessor';
+export * from './sources.generated';
 
 export default inlineSvg;

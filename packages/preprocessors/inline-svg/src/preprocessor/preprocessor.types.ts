@@ -29,6 +29,4 @@ export type InlineSvgConfig = {
   inlineSrcAttributeName?: string;
   /** whether to keep the inline src attribute after build, default to `false` */
   keepInlineSrcAttribute?: boolean;
-  /** file extensions to search & transform */
-  extension?: string | string[];
 };

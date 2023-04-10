@@ -11,7 +11,7 @@ import { parse } from 'svelte-parse-markup';
 import type { ElementNode } from 'svg-parser';
 import { parse as parseSvg } from 'svg-parser';
 
-import type { InlineSvgConfig, SourceConfig } from './types';
+import { InlineSvgConfig, SourceConfig } from './preprocessor.types';
 
 /**
  * @internal
@@ -29,16 +29,7 @@ export const DEFAULT_SOURCES_CONFIG = {
 /**
  * @internal
  */
-export const DEFAULT_PREPROCESSOR_CONFIG = {
-  inlineSrcAttributeName: 'data-inline-src',
-  keepInlineSrcAttribute: false,
-  extension: ['svelte'],
-} satisfies InlineSvgConfig;
-
-/**
- * @internal
- */
-function resolveSourceOptions(options?: SourceConfig) {
+export function resolveSourceOptions(options?: SourceConfig) {
   return {
     directories: options?.directories
       ? Array.isArray(options.directories)
@@ -96,17 +87,20 @@ export function resolveSources(sources?: SourceConfig | SourceConfig[]) {
 /**
  * @internal
  */
-export function resolveConfig(config?: InlineSvgConfig) {
+export const DEFAULT_INLINE_SVG_CONFIG = {
+  inlineSrcAttributeName: 'data-inline-src',
+  keepInlineSrcAttribute: false,
+} satisfies InlineSvgConfig;
+
+/**
+ * @internal
+ */
+export function resolveInlineSvgConfig(config?: InlineSvgConfig) {
   return {
-    extension: config.extension
-      ? Array.isArray(config.extension)
-        ? config.extension
-        : [config.extension]
-      : DEFAULT_PREPROCESSOR_CONFIG.extension,
     inlineSrcAttributeName:
-      config.inlineSrcAttributeName ?? DEFAULT_PREPROCESSOR_CONFIG.inlineSrcAttributeName,
+      config.inlineSrcAttributeName ?? DEFAULT_INLINE_SVG_CONFIG.inlineSrcAttributeName,
     keepInlineSrcAttribute:
-      config.keepInlineSrcAttribute ?? DEFAULT_PREPROCESSOR_CONFIG.keepInlineSrcAttribute,
+      config.keepInlineSrcAttribute ?? DEFAULT_INLINE_SVG_CONFIG.keepInlineSrcAttribute,
   } satisfies InlineSvgConfig;
 }
 
@@ -115,7 +109,6 @@ export function findSvgSrc(
   filename: string,
   directories: string[],
   inlineSrc?: string,
-  // throwWhenNotFound = false,
 ): string | undefined {
   let resolvedSrc: string | undefined = undefined;
   if (inlineSrc) {
@@ -144,7 +137,7 @@ export function transform(
   code: string,
   filename: string,
   sources: ReturnType<typeof resolveSources>,
-  config: ReturnType<typeof resolveConfig>,
+  config: ReturnType<typeof resolveInlineSvgConfig>,
 ) {
   const { local, dirs } = sources;
   const { inlineSrcAttributeName, keepInlineSrcAttribute } = config;
