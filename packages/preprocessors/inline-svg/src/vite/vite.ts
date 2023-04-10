@@ -37,10 +37,14 @@ export function inlineSvg(
       }
     },
     configureServer(server) {
-      generateSourceTyping(rSources);
+      if (rConfig.sourceTypingGeneration) {
+        generateSourceTyping(rSources);
+      }
 
       const updateSourceTyping = debounce(() => {
-        generateSourceTyping(rSources);
+        if (rConfig.sourceTypingGeneration) {
+          generateSourceTyping(rSources);
+        }
         hotReload(server);
       });
 

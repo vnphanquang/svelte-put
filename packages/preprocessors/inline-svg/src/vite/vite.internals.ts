@@ -30,6 +30,8 @@ export function resolveViteInlineSvgConfig(config?: ViteInlineSvgConfig) {
     ...resolveInlineSvgConfig(config),
     extension: resolveExtension(config?.extension, DEFAULT_VITE_PLUGIN_CONFIG.extension),
     svgExtension: resolveExtension(config?.svgExtension, DEFAULT_VITE_PLUGIN_CONFIG.svgExtension),
+    sourceTypingGeneration:
+      config?.sourceTypingGeneration ?? DEFAULT_VITE_PLUGIN_CONFIG.sourceTypingGeneration,
   } satisfies ViteInlineSvgConfig;
 }
 
