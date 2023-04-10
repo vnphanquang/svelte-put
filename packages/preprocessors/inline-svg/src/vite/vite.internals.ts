@@ -74,8 +74,9 @@ export function generateSourceTyping(sources: ReturnType<typeof resolveSources>)
         svgs.add(`'${svg}'`);
       }
     }
+    const nonTyped = '`./${string}` | `../${string}`';
     const typing = Array.from(svgs).join(' | ');
-    const source = `export type Source = ${typing};`;
+    const source = `export type Source = ${nonTyped} | ${typing};`;
     fs.writeFileSync(sourcePath, source);
   } catch (error) {
     console.error('[svelte-preprocess-inline-svg]', error);
