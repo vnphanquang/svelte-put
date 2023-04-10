@@ -1,186 +1,17 @@
 import fs from 'fs';
-import path from 'path';
 
 import { getAttributes } from '@svelte-put/preprocess-helpers';
 import type { Node } from '@svelte-put/preprocess-helpers';
 import { toHtml } from 'hast-util-to-html';
-import type { Options as HastUtilToHtmlOptions } from 'hast-util-to-html';
 import MagicString from 'magic-string';
-import { parse } from 'svelte-parse-markup';
 import { walk } from 'svelte/compiler';
 import { PreprocessorGroup } from 'svelte/types/compiler/preprocess';
+import { parse } from 'svelte-parse-markup';
 import type { ElementNode } from 'svg-parser';
 import { parse as parseSvg } from 'svg-parser';
 
-/**
- * @public
- * options for configuring behaviors of the inline-svg preprocessor
- */
-interface InlineSvgPreprocessConfig {
-  /** attribute to get the svg source from, default to `data-inline-src` */
-  inlineSrcAttributeName?: string;
-  /** whether to keep the inline src attribute after build, default to `false` */
-  keepInlineSrcAttribute?: boolean;
-  /**
-   * directories relative to which the svg source path will be resolved
-   */
-  directories?: string[] | string;
-  /**
-   * default attributes to add to the svg element, will override the attributes from the svg source,
-   * but be overridden by the attributes from the element itself (in svelte source)
-   */
-  attributes?: Record<string, string>;
-  /**
-   * options for `hast-util-to-html` during serialization
-   */
-  serializeOptions?: HastUtilToHtmlOptions;
-}
-
-/**
- * @internal
- * default config of the inline-svg preprocessor
- */
-export const DEFAULT_INLINE_SVG_OPTIONS = {
-  inlineSrcAttributeName: 'data-inline-src',
-  keepInlineSrcAttribute: false,
-  directories: [] as string[],
-  attributes: {} as Record<string, string>,
-  serializeOptions: {
-    space: 'svg',
-    allowDangerousCharacters: true,
-  } as HastUtilToHtmlOptions,
-} satisfies InlineSvgPreprocessConfig;
-
-/**
- * @internal
- */
-export type ResolvedInlineSvgPreprocessConfig = ReturnType<typeof resolveOptions>;
-
-/**
- * @internal
- */
-function resolveOptions(options?: InlineSvgPreprocessConfig) {
-  return {
-    inlineSrcAttributeName:
-      options?.inlineSrcAttributeName ?? DEFAULT_INLINE_SVG_OPTIONS.inlineSrcAttributeName,
-    keepInlineSrcAttribute:
-      options?.keepInlineSrcAttribute ?? DEFAULT_INLINE_SVG_OPTIONS.keepInlineSrcAttribute,
-    directories: options?.directories
-      ? Array.isArray(options.directories)
-        ? options.directories
-        : [options.directories]
-      : DEFAULT_INLINE_SVG_OPTIONS.directories,
-    attributes: options?.attributes
-      ? { ...DEFAULT_INLINE_SVG_OPTIONS.attributes, ...options.attributes }
-      : DEFAULT_INLINE_SVG_OPTIONS.attributes,
-    serializeOptions: options?.serializeOptions
-      ? {
-          ...DEFAULT_INLINE_SVG_OPTIONS.serializeOptions,
-          ...options.serializeOptions,
-        }
-      : DEFAULT_INLINE_SVG_OPTIONS.serializeOptions,
-  };
-}
-
-/**
- * resolve config input and search for a default
- * If none is found, use DEFAULT_INLINE_SVG_OPTIONS.
- * If multiple of such input are found, throw an error.
- * @internal
- */
-function resolveInput(input?: InlineSvgPreprocessConfig | InlineSvgPreprocessConfig[]) {
-  if (!input) return { local: DEFAULT_INLINE_SVG_OPTIONS, dirs: [] };
-  if (!Array.isArray(input)) {
-    if (!input.directories) {
-      return {
-        local: resolveOptions(input),
-        dirs: [],
-      };
-    }
-    const dir = resolveOptions(input);
-    const local = {
-      ...dir,
-      directories: [],
-    };
-    return { local, dirs: [dir] };
-  }
-
-  const inputsWithoutDirectories = input.filter((i) => !i.directories);
-  if (inputsWithoutDirectories.length > 1) {
-    throw new Error(
-      '\n@svelte-put/preprocess-inline-svg: only one default input (one without `directories` option) is allowed',
-    );
-  }
-
-  return {
-    local: resolveOptions(inputsWithoutDirectories[0]),
-    dirs: input.filter((i) => !!i.directories).map(resolveOptions),
-  };
-}
-
-function findSvgRecursively(dir: string): string[] {
-  /** find all svg files in provided directory */
-  const files = fs
-    .readdirSync(dir)
-    .map((f) => path.join(dir, f))
-    .filter((f) => {
-      const stat = fs.statSync(f);
-      if (stat.isDirectory()) return true;
-      if (stat.isFile()) return f.endsWith('.svg');
-      return false;
-    });
-  /** find all svg files in sub directories */
-  const directories = files.filter((f) => fs.statSync(f).isDirectory());
-  const subFiles = directories.flatMap(findSvgRecursively);
-  return [...files, ...subFiles];
-}
-
-async function generateSourceTyping(input: ReturnType<typeof resolveInput>) {
-  const { local, dirs } = input;
-  const sourcePath = path.join(
-    process.cwd(),
-    'node_modules/@svelte-put/preprocess-inline-svg/dist/sources.d.ts',
-  );
-  const directories = [...local.directories, ...dirs.flatMap((d) => d.directories)];
-  const svgs = new Set<string>();
-  for (const dir of directories) {
-    const files = findSvgRecursively(dir);
-    for (const file of files) {
-      const svg = path.relative(dir, file).replace('.svg', '');
-      svgs.add(`'${svg}'`);
-    }
-  }
-  const typing = Array.from(svgs).join(' | ');
-  const source = `export type Source = ${typing};`;
-  fs.writeFileSync(sourcePath, source);
-}
-
-/** @internal */
-function findSrc(
-  filename: string,
-  directories: string[],
-  inlineSrc?: string,
-  // throwWhenNotFound = false,
-): string | undefined {
-  let resolvedSrc: string | undefined = undefined;
-  if (inlineSrc) {
-    if (!inlineSrc.endsWith('.svg')) inlineSrc += '.svg';
-    if (directories.length === 0) {
-      resolvedSrc = path.join(path.dirname(filename), inlineSrc);
-      if (!fs.existsSync(resolvedSrc)) resolvedSrc = undefined;
-    } else {
-      for (const dir of directories) {
-        resolvedSrc = path.join(dir, inlineSrc);
-        if (!path.isAbsolute(resolvedSrc)) {
-          resolvedSrc = path.join(process.cwd(), resolvedSrc);
-        }
-        if (fs.existsSync(resolvedSrc)) break;
-        else resolvedSrc = undefined;
-      }
-    }
-  }
-  return resolvedSrc;
-}
+import { findSrc, resolveConfig, resolveSources } from './inline-svg.internals';
+import type { PreprocessConfig, SourceConfig } from './inline-svg.types';
 
 /**
  * preprocess svelte markup and inline matching svgs
@@ -257,13 +88,13 @@ function findSrc(
  * @returns svelte preprocessor
  */
 export function inlineSvg(
-  input?: InlineSvgPreprocessConfig | InlineSvgPreprocessConfig[],
+  sources?: SourceConfig | SourceConfig[],
+  config?: PreprocessConfig,
 ): PreprocessorGroup {
-  const rInput = resolveInput(input);
+  const rSources = resolveSources(sources);
+  const { inlineSrcAttributeName, keepInlineSrcAttribute } = resolveConfig(config);
 
-  generateSourceTyping(rInput);
-
-  const { local, dirs } = rInput;
+  const { local, dirs } = rSources;
 
   return {
     markup(o) {
@@ -276,12 +107,12 @@ export function inlineSvg(
           const srcAttributes = getAttributes(content, node);
 
           let options = local;
-          let inlineSrc = srcAttributes[options.inlineSrcAttributeName];
+          let inlineSrc = srcAttributes[inlineSrcAttributeName];
           let src = findSrc(filename, options.directories, inlineSrc);
           if (!src) {
             for (let i = 0; i < dirs.length; i++) {
               options = dirs[i];
-              inlineSrc = srcAttributes[options.inlineSrcAttributeName];
+              inlineSrc = srcAttributes[inlineSrcAttributeName];
               src = findSrc(filename, options.directories, inlineSrc);
               if (src) break;
             }
@@ -294,8 +125,7 @@ export function inlineSvg(
             );
           }
 
-          const { keepInlineSrcAttribute, inlineSrcAttributeName, attributes, serializeOptions } =
-            options;
+          const { attributes, serializeOptions } = options;
           const hast = parseSvg(fs.readFileSync(src, 'utf8'));
           const svg = hast.children[0] as ElementNode;
           if (!keepInlineSrcAttribute) {
