@@ -23,6 +23,6 @@
     class="grid place-items-center rounded-full bg-fg p-2 text-bg shadow transition-opacity duration-150 hover:opacity-100 md:opacity-50 {cls}"
     aria-label="Back to top"
   >
-    <svg data-inline-src="google/arrow-upward" height="24" width="24" />
+    <svg inline-src="google/arrow-upward" height="24" width="24" />
   </button>
 {/if}

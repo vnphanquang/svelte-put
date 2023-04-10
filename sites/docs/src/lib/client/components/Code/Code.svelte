@@ -15,9 +15,9 @@
   import { copy } from '@svelte-put/copy';
   import { clsx } from 'clsx';
   import type { ComponentProps } from 'svelte';
+  import { fade, slide } from 'svelte/transition';
   import Highlight from 'svelte-highlight/Highlight.svelte';
   import HighlightSvelte from 'svelte-highlight/HighlightSvelte.svelte';
-  import { fade, slide } from 'svelte/transition';
 
   type $$Props = CodeProps;
   export let lang: $$Props['lang'] = 'svelte';
@@ -59,13 +59,13 @@
     <p class="flex flex-1 items-center space-x-2 font-fira text-sm">
       <span class="w-6" title="indicator">
         {#if icon === 'code'}
-          <svg data-inline-src="google/code" />
+          <svg inline-src="google/code" />
         {:else if icon === 'info'}
-          <svg data-inline-src="google/info" class="text-green-500" />
+          <svg inline-src="google/info" class="text-green-500" />
         {:else if icon === 'warning'}
-          <svg data-inline-src="google/warning" class="text-yellow-500" />
+          <svg inline-src="google/warning" class="text-yellow-500" />
         {:else if icon === 'error'}
-          <svg data-inline-src="google/error" class="text-red-500" />
+          <svg inline-src="google/error" class="text-red-500" />
         {/if}
       </span>
       <span>
@@ -88,9 +88,9 @@
           in:fade|local={{ duration: 150 }}
         >
           {#if copied}
-            <svg data-inline-src="google/done" class="inline-block" />
+            <svg inline-src="google/done" class="inline-block" />
           {:else}
-            <svg data-inline-src="google/content-copy" class="inline-block" />
+            <svg inline-src="google/content-copy" class="inline-block" />
           {/if}
         </span>
       {/key}
@@ -105,7 +105,7 @@
       >
         <span class={clsx('h-5', expanded ? 'inline-grid place-items-center' : 'animate-bounce')}>
           <svg
-            data-inline-src="google/expand-less"
+            inline-src="google/expand-less"
             class="inline-block transition-transform {!expanded ? 'rotate-180' : ''}"
             height="20"
             width="20"

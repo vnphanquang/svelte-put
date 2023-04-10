@@ -24,7 +24,7 @@
     This package tries to achieve <strong>zero runtime footprint</strong> with
     <strong>no additional component</strong>. The idea is to enable this:
   </p>
-  <Code code={`<svg data-inline-src="google/info"></svg>`} title="minimal usage api" />
+  <Code code={`<svg inline-src="google/info"></svg>`} title="minimal usage api" />
   <p>
     which will automatically read from the source svg and inline it at build time. Additional
     styling and attributes can now be added idiomatically as with any other html element.
@@ -91,7 +91,7 @@
 
   <p class="c-callout-info">
     The <code>.svg</code> extension may be omitted from the path provided to
-    <code>data-inline-src</code>.
+    <code>inline-src</code>.
   </p>
 </section>
 
@@ -102,7 +102,7 @@
     and override the existed ones in the inlined SVG.
   </p>
   <Code
-    code={`<svg data-inline-src="path/icon" width="100" height="100" class="c-icon"></svg>`}
+    code={`<svg inline-src="path/icon" width="100" height="100" class="c-icon"></svg>`}
     title="merging attributes"
   />
   <p>
@@ -110,7 +110,7 @@
     from the inlined SVG.
   </p>
   <Code
-    code={`<svg data-inline-src="path/icon">anything in here will be replaced</svg>`}
+    code={`<svg inline-src="path/icon">anything in here will be replaced</svg>`}
     title="merging attributes"
   />
   <p>
@@ -128,8 +128,8 @@
   </p>
   <Code code={codes.limitation.markup} title="only support svelte markup" />
   <p>
-    <code>preprocess-inline-svg</code> does not support <code>data-inline-src</code> as a variable. I.e,
-    the following will not work
+    <code>preprocess-inline-svg</code> does not support <code>inline-src</code> as a variable. I.e, the
+    following will not work
   </p>
   <Code code={codes.limitation.variable} title="dynamic attribute is not support" />
   <p>
@@ -139,8 +139,8 @@
   </p>
   <ul>
     <li>
-      use <code>if-else</code> statements to switch between different <code>data-inline-src</code> as
-      literal strings, or
+      use <code>if-else</code> statements to switch between different <code>inline-src</code> as literal
+      strings, or
     </li>
     <li>
       use <ResourceLink key="@svelte-put/inline-svg" /> as a runtime action-based strategy instead.
@@ -160,7 +160,7 @@
     which case svg source paths are resolved relative to the svelte source file it is specified in.
   </p>
   <p class="c-callout-warning">
-    Note that path alias is not supported in <code>data-inline-src</code>! For example,
+    Note that path alias is not supported in <code>inline-src</code>! For example,
     <code>"$lib/src/assets/..."</code> will not work.
   </p>
   <p>
@@ -230,7 +230,7 @@
       the attribute to get the svg source from<br />
       <span class="inline-block pt-2 text-sm">
         <strong>type</strong>: <code>string</code><br />
-        <strong>default</strong>: <code>'data-inline-src'</code>
+        <strong>default</strong>: <code>'inline-src'</code>
       </span>
     </p>
     <p><code>keepInlineSrcAttribute</code></p>
@@ -256,7 +256,7 @@
   <p>Some possibilities:</p>
   <ul>
     <li>Support for svgo?</li>
-    <li>Support for fetching remote svg in <code>data-inline-src</code> at build time?</li>
+    <li>Support for fetching remote svg in <code>inline-src</code> at build time?</li>
     <li>
       Make this into a vite plugin and do these inline operation as part of the pre-rendering
       pipeline?

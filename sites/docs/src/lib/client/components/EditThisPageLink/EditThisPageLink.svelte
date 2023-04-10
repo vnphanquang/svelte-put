@@ -12,7 +12,7 @@
 </script>
 
 <ResourceLink href={rHref} class="inline-flex items-center space-x-2">
-  <svg data-inline-src="google/edit-square" height="16" width="16" />
+  <svg inline-src="google/edit-square" height="16" width="16" />
   <span> Edit this page on </span>
-  <svg data-inline-src="simpleicon/github" height="16" width="16" />
+  <svg inline-src="simpleicon/github" height="16" width="16" />
 </ResourceLink>

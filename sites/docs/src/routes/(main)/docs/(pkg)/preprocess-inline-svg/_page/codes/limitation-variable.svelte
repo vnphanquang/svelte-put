@@ -2,4 +2,4 @@
   export let icon: string;
 </script>
 
-<svg data-inline-src={icon} />
+<svg inline-src={icon} />

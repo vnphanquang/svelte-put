@@ -55,7 +55,7 @@
     <h3><sup class="c-footnote-red">2</sup> Customizing the Trigger</h3>
     <p class="c-callout-info">
       The <svg
-        data-inline-src="google/content-copy"
+        inline-src="google/content-copy"
         class="inline text-primary"
         height="16"
         width="16"

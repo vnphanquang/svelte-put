@@ -22,7 +22,7 @@
   <h1 class="flex items-center justify-between font-fingerpaint">
     {data.package.name}
     <ResourceLink href={data.package.githubUrl} class="text-fg active:text-primary">
-      <svg data-inline-src="simpleicon/github" class="inline" height="28" width="28" />
+      <svg inline-src="simpleicon/github" class="inline" height="28" width="28" />
     </ResourceLink>
   </h1>
   {#if data.package.description}
@@ -112,7 +112,7 @@
 {:else}
   <div class="grid w-full place-items-center text-center">
     <p class="text-lg font-bold">Wow, such empty</p>
-    <svg data-inline-src="empty" height="200" width="200" />
+    <svg inline-src="empty" height="200" width="200" />
     <p>Documentation is being put together and will be available very soon.</p>
     <p>
       In the mean time, you can visit

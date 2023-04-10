@@ -5,9 +5,9 @@
 </script>
 
 {#if scheme === 'light'}
-  <svg data-inline-src="google/light-mode" height="24" width="24" />
+  <svg inline-src="google/light-mode" height="24" width="24" />
 {:else if scheme === 'dark'}
-  <svg data-inline-src="google/dark-mode" height="24" width="24" />
+  <svg inline-src="google/dark-mode" height="24" width="24" />
 {:else}
-  <svg data-inline-src="google/settings-suggest" height="24" width="24" />
+  <svg inline-src="google/settings-suggest" height="24" width="24" />
 {/if}

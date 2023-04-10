@@ -9,15 +9,20 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const config: UserConfig = {
   plugins: [
-    inlineSvg([
-      {
-        directories: [path.resolve(__dirname, 'src/lib/shared/assets/images/svg')],
-        attributes: {
-          width: '20',
-          height: '20',
+    inlineSvg(
+      [
+        {
+          directories: [path.resolve(__dirname, 'src/lib/shared/assets/images/svg')],
+          attributes: {
+            width: '20',
+            height: '20',
+          },
         },
+      ],
+      {
+        inlineSrcAttributeName: 'inline-src',
       },
-    ]),
+    ),
     sveltekit(),
   ],
   optimizeDeps: {

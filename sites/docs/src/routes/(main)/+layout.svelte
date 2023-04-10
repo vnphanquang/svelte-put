@@ -2,9 +2,9 @@
   import { clickoutside } from '@svelte-put/clickoutside';
   import { toc, toclink, createTocStore } from '@svelte-put/toc';
   import { slide } from '@svelte-put/transitions';
+  import { fade } from 'svelte/transition';
   import gruvboxDark from 'svelte-highlight/styles/gruvbox-dark-soft';
   import gruvboxLight from 'svelte-highlight/styles/gruvbox-light-soft';
-  import { fade } from 'svelte/transition';
 
   import { browser } from '$app/environment';
   import { invalidate } from '$app/navigation';
@@ -95,7 +95,7 @@
       <div class="flex flex-1 items-center justify-end space-x-4">
         <ColorSchemeSelect scheme={clientColorScheme} on:select={changeColorScheme} />
         <ResourceLink class="c-link" key="github">
-          <svg data-inline-src="simpleicon/github" height="24" width="24" />
+          <svg inline-src="simpleicon/github" height="24" width="24" />
         </ResourceLink>
       </div>
     </nav>
@@ -220,18 +220,13 @@
       >
         <p>
           <a href="/sitemap.xml" class="c-link" target="_blank">
-            <svg
-              data-inline-src="google/account-tree"
-              class="inline-block"
-              height="16"
-              width="16"
-            />
+            <svg inline-src="google/account-tree" class="inline-block" height="16" width="16" />
             <span>Sitemap</span>
           </a>
         </p>
         <p>
           <a href="/rss.xml" class="c-link" target="_blank">
-            <svg data-inline-src="google/rss-feed" class="inline-block" height="16" width="16" />
+            <svg inline-src="google/rss-feed" class="inline-block" height="16" width="16" />
             <span>RSS</span>
           </a>
         </p>
@@ -243,13 +238,13 @@
         <p>
           Powered by
           <ResourceLink key="svelte-kit">
-            <svg data-inline-src="svelte" class="inline" height="16" width="16" />
+            <svg inline-src="svelte" class="inline" height="16" width="16" />
           </ResourceLink>
           <ResourceLink key="TailwindCSS">
-            <svg data-inline-src="simpleicon/tailwindcss" class="inline" height="16" width="16" />
+            <svg inline-src="simpleicon/tailwindcss" class="inline" height="16" width="16" />
           </ResourceLink>
           <ResourceLink key="vercel">
-            <svg data-inline-src="simpleicon/vercel" class="inline" height="16" width="16" />
+            <svg inline-src="simpleicon/vercel" class="inline" height="16" width="16" />
           </ResourceLink>
         </p>
       </div>
@@ -259,7 +254,7 @@
             <span>Donate</span>
 
             <svg
-              data-inline-src="google/volunteer-activism"
+              inline-src="google/volunteer-activism"
               class="inline-block"
               height="16"
               width="16"

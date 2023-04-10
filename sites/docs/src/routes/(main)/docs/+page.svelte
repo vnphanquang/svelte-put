@@ -110,7 +110,7 @@
     Source code can be found at
     <span class="">
       <ResourceLink key="github">
-        github <svg data-inline-src="simpleicon/github" class="inline-block h-6 w-6 align-top" />
+        github <svg inline-src="simpleicon/github" class="inline-block h-6 w-6 align-top" />
       </ResourceLink>
     </span>. If you have any suggestions or found a bug, please read the
     <ResourceLink href="https://github.com/vnphanquang/svelte-put/blob/main/CONTRIBUTING.md"

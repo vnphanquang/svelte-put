@@ -34,7 +34,7 @@
     title="complementary preprocessor: no runtime logics"
     lang={javascript}
   />
-  <Code code={`<svg data-inline-src="google/info"></svg>`} title="preprocess: usage example" />
+  <Code code={`<svg inline-src="google/info"></svg>`} title="preprocess: usage example" />
   <p>
     See more examples & documentation at <ResourceLink key="@svelte-put/preprocess-inline-svg" />.
   </p>
