@@ -3,8 +3,6 @@
 /// <reference types="vite/client" />
 /// <reference types="@types/gtag.js" />
 
-import type { TocDataAttributes } from '@svelte-put/toc';
-
 import type { ColorScheme } from '$shared/types';
 
 // See https://kit.svelte.dev/docs/types#app

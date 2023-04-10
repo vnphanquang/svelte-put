@@ -94,26 +94,6 @@ export function resolveConfig(config?: PreprocessConfig) {
   } as const satisfies PreprocessConfig;
 }
 
-/**
- * @internal
- */
-export function findSvgRecursively(dir: string): string[] {
-  /** find all svg files in provided directory */
-  const files = fs
-    .readdirSync(dir)
-    .map((f) => path.join(dir, f))
-    .filter((f) => {
-      const stat = fs.statSync(f);
-      if (stat.isDirectory()) return true;
-      if (stat.isFile()) return f.endsWith('.svg');
-      return false;
-    });
-  /** find all svg files in sub directories */
-  const directories = files.filter((f) => fs.statSync(f).isDirectory());
-  const subFiles = directories.flatMap(findSvgRecursively);
-  return [...files, ...subFiles];
-}
-
 /** @internal */
 export function findSrc(
   filename: string,

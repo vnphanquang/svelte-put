@@ -1,7 +1,12 @@
+import path from 'path';
+import { fileURLToPath } from 'url';
+
 import inlineSvg from '@svelte-put/inline-svg/preprocess';
 import autoSlug from '@svelte-put/preprocess-auto-slug';
 import adapter from '@sveltejs/adapter-vercel';
 import { vitePreprocess } from '@sveltejs/kit/vite';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -19,7 +24,7 @@ const config = {
     })),
     inlineSvg([
       {
-        directories: ['src/lib/shared/assets/images/svg'],
+        directories: [path.resolve(__dirname, 'src/lib/shared/assets/images/svg')],
         attributes: {
           width: 20,
           height: 20,
@@ -31,10 +36,10 @@ const config = {
   kit: {
     adapter: adapter(),
     alias: {
-      $routes: 'src/routes',
-      $client: 'src/lib/client',
-      $server: 'src/lib/server',
-      $shared: 'src/lib/shared',
+      $routes: path.resolve(__dirname, 'src/routes'),
+      $client: path.resolve(__dirname, 'src/lib/client'),
+      $server: path.resolve(__dirname, 'src/lib/server'),
+      $shared: path.resolve(__dirname, 'src/lib/shared'),
     },
   },
   vitePlugin: {
