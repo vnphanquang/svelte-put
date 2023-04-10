@@ -1,10 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 
-import { getAttributes } from '@svelte-put/preprocess-helpers';
+import { getAttribute } from '@svelte-put/preprocess-helpers';
 import type { Node } from '@svelte-put/preprocess-helpers';
 import { toHtml } from 'hast-util-to-html';
-import type { Options as HastUtilToHtmlOptions } from 'hast-util-to-html';
 import MagicString from 'magic-string';
 import { walk } from 'svelte/compiler';
 import { parse } from 'svelte-parse-markup';
@@ -20,10 +19,6 @@ import { InlineSvgConfig, SourceConfig } from './preprocessor.types';
 export const DEFAULT_SOURCES_CONFIG = {
   directories: [] as string[],
   attributes: {} as Record<string, string>,
-  serializeOptions: {
-    space: 'svg',
-    allowDangerousCharacters: true,
-  } as HastUtilToHtmlOptions,
 } satisfies SourceConfig;
 
 /**
@@ -39,12 +34,6 @@ export function resolveSourceOptions(options?: SourceConfig) {
     attributes: options?.attributes
       ? { ...DEFAULT_SOURCES_CONFIG.attributes, ...options.attributes }
       : DEFAULT_SOURCES_CONFIG.attributes,
-    serializeOptions: options?.serializeOptions
-      ? {
-          ...DEFAULT_SOURCES_CONFIG.serializeOptions,
-          ...options.serializeOptions,
-        }
-      : DEFAULT_SOURCES_CONFIG.serializeOptions,
   };
 }
 
@@ -148,15 +137,13 @@ export function transform(
   walk(ast.html, {
     enter(node: Node) {
       if (node.type !== 'Element' || node.name !== 'svg') return;
-      const srcAttributes = getAttributes(code, node);
-
       let options = local;
-      let inlineSrc = srcAttributes[inlineSrcAttributeName];
+      let inlineSrc = getAttribute(code, node, inlineSrcAttributeName);
       let svgSource = findSvgSrc(filename, options.directories, inlineSrc);
       if (!svgSource) {
         for (let i = 0; i < dirs.length; i++) {
           options = dirs[i];
-          inlineSrc = srcAttributes[inlineSrcAttributeName];
+          inlineSrc = getAttribute(code, node, inlineSrcAttributeName);
           svgSource = findSvgSrc(filename, options.directories, inlineSrc);
           if (svgSource) break;
         }
@@ -169,21 +156,38 @@ export function transform(
         );
       }
 
-      const { attributes, serializeOptions } = options;
       const hast = parseSvg(fs.readFileSync(svgSource, 'utf8'));
       const svg = hast.children[0] as ElementNode;
-      if (!keepInlineSrcAttribute) {
-        delete srcAttributes[inlineSrcAttributeName];
-      }
-      svg.properties = {
+
+      const attributes = {
         ...svg.properties,
-        ...attributes,
-        ...srcAttributes,
+        ...options.attributes,
       };
 
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const html = toHtml(hast as any, serializeOptions);
-      s.update(node.start, node.end, html);
+      node.attributes.map((attr) => {
+        if (attr.type === 'Attribute') {
+          if (attr.name === inlineSrcAttributeName && !keepInlineSrcAttribute) {
+            s.remove(attr.start, attr.end);
+          }
+          if (attributes[attr.name] && attr.value.length === 1) {
+            delete attributes[attr.name];
+          }
+        }
+      });
+
+      for (const [name, value] of Object.entries(attributes)) {
+        s.update(node.start, node.start + '<svg'.length, `<svg ${name}="${value}" `);
+      }
+
+      let insertIndex = node.end - '/>'.length;
+      if (s.slice(insertIndex, node.end) !== '/>') {
+        insertIndex = node.end - '</svg>'.length;
+      }
+
+      const content = toHtml(svg.children as any, {
+        allowDangerousCharacters: true,
+      });
+      s.update(insertIndex, node.end, `>${content}</svg>`);
     },
   });
 

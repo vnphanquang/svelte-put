@@ -1,14 +1,8 @@
-import type { Options as HastUtilToHtmlOptions } from 'hast-util-to-html';
-
 /**
  * @public
  * sources for the inline svg
  */
 export type SourceConfig = {
-  /**
-   * options for `hast-util-to-html` during serialization
-   */
-  serializeOptions?: HastUtilToHtmlOptions;
   /**
    * directories relative to which the svg source path will be resolved
    */

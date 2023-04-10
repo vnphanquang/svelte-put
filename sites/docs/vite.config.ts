@@ -21,6 +21,7 @@ const config: UserConfig = {
       ],
       {
         inlineSrcAttributeName: 'inline-src',
+        keepInlineSrcAttribute: true,
       },
     ),
     sveltekit(),

@@ -8,7 +8,7 @@ export interface Node extends BaseNode {
   name: string;
   start: number;
   end: number;
-  attributes: Array<{ name: string; type: string }>;
+  attributes: Array<{ name: string; type: string; value?: any[]; start: number; end: number }>;
   children?: Array<Node>;
   data?: any;
 }
