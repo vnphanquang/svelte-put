@@ -176,7 +176,7 @@ export function transform(
       });
 
       for (const [name, value] of Object.entries(attributes)) {
-        s.update(node.start, node.start + '<svg'.length, `<svg ${name}="${value}" `);
+        s.appendRight(node.start + '<svg'.length, ` ${name}="${value}" `);
       }
 
       let insertIndex = node.end - '/>'.length;
@@ -184,6 +184,7 @@ export function transform(
         insertIndex = node.end - '</svg>'.length;
       }
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const content = toHtml(svg.children as any, {
         allowDangerousCharacters: true,
       });
