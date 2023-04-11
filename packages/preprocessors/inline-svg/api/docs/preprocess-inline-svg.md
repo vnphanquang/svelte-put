@@ -8,5 +8,13 @@
 
 |  Function | Description |
 |  --- | --- |
-|  [inlineSvg(input)](./preprocess-inline-svg.inlinesvg.md) | preprocess svelte markup and inline matching svgs |
+|  [inlineSvg(sources, config)](./preprocess-inline-svg.inlinesvg.md) | preprocess svelte markup and inline matching svgs |
+
+## Type Aliases
+
+|  Type Alias | Description |
+|  --- | --- |
+|  [InlineSvgConfig](./preprocess-inline-svg.inlinesvgconfig.md) | global options for configuring behaviors of the inline-svg preprocessor |
+|  [Source](./preprocess-inline-svg.source.md) | generated typing for the <code>inline-src</code> attribute |
+|  [SourceConfig](./preprocess-inline-svg.sourceconfig.md) | sources for the inline svg |
 

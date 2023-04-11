@@ -4,33 +4,87 @@
 
 ```ts
 
-import * as hast_util_to_html_lib_types from 'hast-util-to-html/lib/types';
-import { Options } from 'hast-util-to-html';
+import * as magic_string from 'magic-string';
 import { PreprocessorGroup } from 'svelte/types/compiler/preprocess';
 
-// Warning: (ae-internal-missing-underscore) The name "DEFAULT_INLINE_SVG_OPTIONS" should be prefixed with an underscore because the declaration is marked as @internal
+// Warning: (ae-internal-missing-underscore) The name "DEFAULT_INLINE_SVG_CONFIG" should be prefixed with an underscore because the declaration is marked as @internal
 //
-// @internal
-export const DEFAULT_INLINE_SVG_OPTIONS: {
+// @internal (undocumented)
+export const DEFAULT_INLINE_SVG_CONFIG: {
     inlineSrcAttributeName: string;
     keepInlineSrcAttribute: false;
-    directories: string[];
-    attributes: Record<string, string>;
-    serializeOptions: hast_util_to_html_lib_types.Options;
 };
 
-// Warning: (ae-forgotten-export) The symbol "InlineSvgPreprocessConfig" needs to be exported by the entry point index.d.ts
+// Warning: (ae-internal-missing-underscore) The name "DEFAULT_SOURCES_CONFIG" should be prefixed with an underscore because the declaration is marked as @internal
 //
+// @internal
+export const DEFAULT_SOURCES_CONFIG: {
+    directories: string[];
+    attributes: Record<string, string>;
+};
+
+// Warning: (ae-internal-missing-underscore) The name "findSvgSrc" should be prefixed with an underscore because the declaration is marked as @internal
+//
+// @internal (undocumented)
+export function findSvgSrc(filename: string, directories: string[], inlineSrc?: string): string | undefined;
+
 // @public
-function inlineSvg(input?: InlineSvgPreprocessConfig | InlineSvgPreprocessConfig[]): PreprocessorGroup;
+function inlineSvg(sources?: SourceConfig | SourceConfig[], config?: InlineSvgConfig): PreprocessorGroup;
 export default inlineSvg;
 export { inlineSvg }
 
-// Warning: (ae-forgotten-export) The symbol "resolveOptions" needs to be exported by the entry point index.d.ts
-// Warning: (ae-internal-missing-underscore) The name "ResolvedInlineSvgPreprocessConfig" should be prefixed with an underscore because the declaration is marked as @internal
+// @public
+export type InlineSvgConfig = {
+    inlineSrcAttributeName?: string;
+    keepInlineSrcAttribute?: boolean;
+};
+
+// Warning: (ae-internal-missing-underscore) The name "resolveInlineSvgConfig" should be prefixed with an underscore because the declaration is marked as @internal
 //
 // @internal (undocumented)
-export type ResolvedInlineSvgPreprocessConfig = ReturnType<typeof resolveOptions>;
+export function resolveInlineSvgConfig(config?: InlineSvgConfig): {
+    inlineSrcAttributeName: string;
+    keepInlineSrcAttribute: boolean;
+};
+
+// Warning: (ae-internal-missing-underscore) The name "resolveSourceOptions" should be prefixed with an underscore because the declaration is marked as @internal
+//
+// @internal (undocumented)
+export function resolveSourceOptions(options?: SourceConfig): {
+    directories: string[];
+    attributes: Record<string, string>;
+};
+
+// Warning: (ae-internal-missing-underscore) The name "resolveSources" should be prefixed with an underscore because the declaration is marked as @internal
+//
+// @internal
+export function resolveSources(sources?: SourceConfig | SourceConfig[]): {
+    local: {
+        directories: any[];
+        attributes: Record<string, string>;
+    };
+    dirs: {
+        directories: string[];
+        attributes: Record<string, string>;
+    }[];
+};
+
+// @public
+export type Source = 'to-be-generated';
+
+// @public
+export type SourceConfig = {
+    directories?: string[] | string;
+    attributes?: Record<string, string>;
+};
+
+// Warning: (ae-internal-missing-underscore) The name "transform" should be prefixed with an underscore because the declaration is marked as @internal
+//
+// @internal (undocumented)
+export function transform(code: string, filename: string, sources: ReturnType<typeof resolveSources>, config: ReturnType<typeof resolveInlineSvgConfig>): {
+    code: string;
+    map: magic_string.SourceMap;
+};
 
 // (No @packageDocumentation comment for this package)
 

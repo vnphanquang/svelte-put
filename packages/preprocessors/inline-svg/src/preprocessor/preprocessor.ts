@@ -74,7 +74,8 @@ import type { InlineSvgConfig, SourceConfig } from './preprocessor.types';
  * ```
  *
  * @public
- * @param input - configuration options
+ * @param sources - config for svg sources
+ * @param config - global config for the svelte preprocessor
  * @returns svelte preprocessor
  */
 export function inlineSvg(
