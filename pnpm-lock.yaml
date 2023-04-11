@@ -174,9 +174,6 @@ importers:
       '@svelte-put/apirc':
         specifier: workspace:*
         version: link:../../../configs/apirc
-      '@svelte-put/preprocess-inline-svg':
-        specifier: workspace:*
-        version: link:../../preprocessors/inline-svg
       '@svelte-put/tsconfig':
         specifier: workspace:*
         version: link:../../../configs/tsconfig

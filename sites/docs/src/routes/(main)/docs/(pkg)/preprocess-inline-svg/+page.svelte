@@ -133,7 +133,7 @@
   </p>
   <Code code={codes.limitation.variable} title="dynamic attribute is not support" />
   <p>
-    This is because it is difficult for the preprocessor to analyze a variable to determine is
+    This is because it is difficult for the preprocessor to analyze a variable to determine its
     immutability at build time, i.e a variable is meant to be changed. In these case, some
     workarounds are
   </p>
