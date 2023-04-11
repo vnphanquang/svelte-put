@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0
+
+### Major Changes
+
+- [`1179376`](https://github.com/vnphanquang/svelte-put/commit/11793763c6579ed092a114eea0e8fc6f56f3a845) Thanks [@vnphanquang](https://github.com/vnphanquang)! - [breaking] deprecate re-export of [@svelte-put/preprocess-inline-svg](https://svelte-put.vnphanquang.com/docs/preprocess-inline-svg) following its introduction of vite plugin, please install it separately (sorry)
+
 ## 1.0.0
 
 ### Major Changes
