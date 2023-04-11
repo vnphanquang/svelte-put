@@ -130,14 +130,16 @@
     vs svelte preprocessor config.
   </p>
   <p>
-    <code>preprocess-inline-svg</code> vite plugin provides automatic typing generation for the
-    <code>inline-src</code> attribute when multiple svg sources are configured (enabled by default).
-    There are a couple of steps needed to get this working.
+    <code>preprocess-inline-svg</code> vite plugin provides automatic typing generation (enabled by
+    default) for the
+    <code>inline-src</code> attribute when multiple svg sources are configured. There are a couple of
+    steps needed to get this working.
   </p>
 
   <p>
-    1. Set the <code>inlineSrcAttributeName</code> option to a non `data` attribute (this is because
-    currently `data` attributes do not get intellisense with `svelte-check`, for some reason).
+    1. Set the <code>inlineSrcAttributeName</code> option to a non <code>data</code> attribute (this
+    is because currently data attributes do not get intellisense with <code>svelte-check</code>, for
+    some strange reason).
   </p>
   <Code code={codes.typing.inlineSrcAttributeName} title="setting inlineSrcAttributeName" />
 
@@ -150,7 +152,8 @@
   <Code code={codes.typing.additionalSvelteTyping} title="src/additional-svelte-typing.d.ts" />
 
   <p>
-    The `inline-src` attribute should be strongly typed now. With the assets as shown in the
+    The <code>inline-src</code> attribute should be strongly typed now. For example, with the assets
+    as shown in the
     <ResourceLink id="quick-start">Quick Start</ResourceLink> section, the typing should be the following:
   </p>
   <Code code={codes.typing.types} title="Source" />
