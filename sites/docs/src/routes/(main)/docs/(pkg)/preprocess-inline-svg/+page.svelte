@@ -65,24 +65,26 @@
     code={`<svg use:inlineSrc={'https://example.com/icon.svg'}></svg>`}
     title="runtime alternative"
   />
-
-  <p>
-    This preprocessor package is also re-exported from <ResourceLink key="@svelte-put/inline-svg" />
-    for convenience. If you find yourself needing both runtime & build time solutions, just install <ResourceLink
-      key="@svelte-put/inline-svg"
-    />.
-  </p>
-  <Code
-    code={`import inlineSvg from '@svelte-put/inline-svg/preprocess'`}
-    title="runtime alternative"
-  />
 </section>
 
 <Installation pkg={data.package.name} />
 
 <section>
-  <h2>Quick Start</h2>
-  <p>Given the following (<code>svelte.config.js</code>)</p>
+  <h2 id="quick-start">Quick Start</h2>
+  <p class="c-callout-info">
+    <code>preprocess-inline-svg</code> provides both a <ResourceLink
+      href="https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocessors/inline-svg/src/vite/vite.ts"
+      >vite plugin</ResourceLink
+    >
+    and a <ResourceLink
+      href="https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocessors/inline-svg/src/preprocessor/preprocessor.ts"
+      >svelte preprocessor</ResourceLink
+    > with the same core functionality.
+    <br />
+    Use svelte preprocessor if you are not using <code>vite</code>. Otherwise, vite plugin is
+    recommended.
+  </p>
+  <p>Given the following (<code>vite.config.ts,js</code> or <code>svelte.config.js</code>)</p>
   <Code code={codes.quickStart.config} title="quick start - config" lang={javascript} />
   <p>and the asset files as follow</p>
   <Code code={codes.quickStart.assets} title="quick start - assets" />
@@ -117,6 +119,45 @@
     If you have a use case where it is useful to append/prepend the innerHTML of inlined SVGs rather
     than replace it, please <ResourceLink key="issue">raise an issue over at github</ResourceLink>.
     For now, let's keep things simple.
+  </p>
+</section>
+
+<section>
+  <h2>Typing the `inline-src` Attribute</h2>
+  <p class="c-callout-warning">
+    This feature is only available when the vite plugin is used, see
+    <ResourceLink id="quick-start">Quick Start</ResourceLink> for more information about vite plugin
+    vs svelte preprocessor config.
+  </p>
+  <p>
+    <code>preprocess-inline-svg</code> vite plugin provides automatic typing generation for the
+    <code>inline-src</code> attribute when multiple svg sources are configured (enabled by default).
+    There are a couple of steps needed to get this working.
+  </p>
+
+  <p>
+    1. Set the <code>inlineSrcAttributeName</code> option to a non `data` attribute (this is because
+    currently `data` attributes do not get intellisense with `svelte-check`, for some reason).
+  </p>
+  <Code code={codes.typing.inlineSrcAttributeName} title="setting inlineSrcAttributeName" />
+
+  <p>
+    2. Set typing in a <code>additional-svelte-typing.d.ts</code> file, following <ResourceLink
+      href="https://github.com/sveltejs/language-tools/blob/master/docs/preprocessors/typescript.md#im-using-an-attributeevent-on-a-dom-element-and-it-throws-a-type-error"
+      >instruction here from the svelte language-tools team</ResourceLink
+    >
+  </p>
+  <Code code={codes.typing.additionalSvelteTyping} title="src/additional-svelte-typing.d.ts" />
+
+  <p>
+    The `inline-src` attribute should be strongly typed now. With the assets as shown in the
+    <ResourceLink id="quick-start">Quick Start</ResourceLink> section, the typing should be the following:
+  </p>
+  <Code code={codes.typing.types} title="Source" />
+
+  <p>
+    To disable this typing generation, set <code>sourceTypingGeneration</code> option to
+    <code>false</code>.
   </p>
 </section>
 

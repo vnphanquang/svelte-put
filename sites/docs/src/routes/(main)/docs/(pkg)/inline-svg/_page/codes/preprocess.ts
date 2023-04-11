@@ -1,7 +1,7 @@
-import inlineSvg from '@svelte-put/inline-svg/preprocess';
+import { inlineSvg } from '@svelte-put/preprocess-inline-svg/vite';
+import { sveltekit } from '@sveltejs/kit/vite';
+import { defineConfig } from 'vite';
 
-/** @type {import('@sveltejs/kit').Config} */
-const config = {
-  preprocess: [inlineSvg()],
-};
-export default config;
+export default defineConfig({
+  plugins: [inlineSvg(), sveltekit()],
+});

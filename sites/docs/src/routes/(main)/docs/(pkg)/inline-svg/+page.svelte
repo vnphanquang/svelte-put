@@ -27,7 +27,7 @@
   <p>
     For an alternative solution to statically inline SVG at build time, use <ResourceLink
       key="@svelte-put/preprocess-inline-svg"
-    />, which is conveniently re-exported from this package as well.
+    />.
   </p>
   <Code
     code={codes.preprocess}
