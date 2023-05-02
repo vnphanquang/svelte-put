@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.1.1
+
+### Patch Changes
+
+- [`1bd7028`](https://github.com/vnphanquang/svelte-put/commit/1bd70281741ad393c3e8b99517e23b88ed4f76cf) Thanks [@vnphanquang](https://github.com/vnphanquang)! - default config argument to empty object (resolves #191)
+
 ## 2.1.0
 
 ### Minor Changes
