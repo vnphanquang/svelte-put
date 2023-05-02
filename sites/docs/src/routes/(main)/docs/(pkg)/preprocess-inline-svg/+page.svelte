@@ -301,10 +301,6 @@
   <ul>
     <li>Support for svgo?</li>
     <li>Support for fetching remote svg in <code>inline-src</code> at build time?</li>
-    <li>
-      Make this into a vite plugin and do these inline operation as part of the pre-rendering
-      pipeline?
-    </li>
   </ul>
 </section>
 

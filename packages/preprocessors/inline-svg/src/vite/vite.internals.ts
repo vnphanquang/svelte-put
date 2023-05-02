@@ -25,13 +25,13 @@ export function resolveExtension(extension?: string | string[], fallback: string
 /**
  * @internal
  */
-export function resolveViteInlineSvgConfig(config?: ViteInlineSvgConfig) {
+export function resolveViteInlineSvgConfig(config: ViteInlineSvgConfig = {}) {
   return {
     ...resolveInlineSvgConfig(config),
-    extension: resolveExtension(config?.extension, DEFAULT_VITE_PLUGIN_CONFIG.extension),
-    svgExtension: resolveExtension(config?.svgExtension, DEFAULT_VITE_PLUGIN_CONFIG.svgExtension),
+    extension: resolveExtension(config.extension, DEFAULT_VITE_PLUGIN_CONFIG.extension),
+    svgExtension: resolveExtension(config.svgExtension, DEFAULT_VITE_PLUGIN_CONFIG.svgExtension),
     sourceTypingGeneration:
-      config?.sourceTypingGeneration ?? DEFAULT_VITE_PLUGIN_CONFIG.sourceTypingGeneration,
+      config.sourceTypingGeneration ?? DEFAULT_VITE_PLUGIN_CONFIG.sourceTypingGeneration,
   } satisfies ViteInlineSvgConfig;
 }
 

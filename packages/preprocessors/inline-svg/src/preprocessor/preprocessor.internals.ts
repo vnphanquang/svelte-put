@@ -84,7 +84,7 @@ export const DEFAULT_INLINE_SVG_CONFIG = {
 /**
  * @internal
  */
-export function resolveInlineSvgConfig(config?: InlineSvgConfig) {
+export function resolveInlineSvgConfig(config: InlineSvgConfig = {}) {
   return {
     inlineSrcAttributeName:
       config.inlineSrcAttributeName ?? DEFAULT_INLINE_SVG_CONFIG.inlineSrcAttributeName,
