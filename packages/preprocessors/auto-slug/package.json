@@ -54,7 +54,7 @@
     "tsup": "^6.7.0"
   },
   "peerDependencies": {
-    "svelte": "^3.37.0"
+    "svelte": "^3.55.0 || ^4.0.0"
   },
   "dependencies": {
     "github-slugger": "^2.0.0",

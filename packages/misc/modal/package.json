@@ -90,6 +90,6 @@
     "vite": "^4.2.1"
   },
   "peerDependencies": {
-    "svelte": "^3.2.0"
+    "svelte": "^3.55.0 || ^4.0.0"
   }
 }
