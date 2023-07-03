@@ -47,8 +47,8 @@ importers:
         specifier: ^1.1.0
         version: 1.1.0(postcss-html@1.5.0)(stylelint@15.6.0)
       stylelint-config-standard:
-        specifier: ^32.0.0
-        version: 32.0.0(stylelint@15.6.0)
+        specifier: ^33.0.0
+        version: 33.0.0(stylelint@15.6.0)
       svelte:
         specifier: ^3.58.0
         version: 3.58.0
@@ -6376,21 +6376,21 @@ packages:
       stylelint: 15.6.0
     dev: true
 
-  /stylelint-config-recommended@11.0.0(stylelint@15.6.0):
-    resolution: {integrity: sha512-SoGIHNI748OCZn6BxFYT83ytWoYETCINVHV3LKScVAWQQauWdvmdDqJC5YXWjpBbxg2E761Tg5aUGKLFOVhEkA==}
+  /stylelint-config-recommended@12.0.0(stylelint@15.6.0):
+    resolution: {integrity: sha512-x6x8QNARrGO2sG6iURkzqL+Dp+4bJorPMMRNPScdvaUK8PsynriOcMW7AFDKqkWAS5wbue/u8fUT/4ynzcmqdQ==}
     peerDependencies:
-      stylelint: ^15.3.0
+      stylelint: ^15.5.0
     dependencies:
       stylelint: 15.6.0
     dev: true
 
-  /stylelint-config-standard@32.0.0(stylelint@15.6.0):
-    resolution: {integrity: sha512-UnGJxYDyYFrIE9CjDMZRkrNh2o4lOtO+MVZ9qG5b8yARfsWho0GMx4YvhHfsv8zKKgHeWX2wfeyxmuoqcaYZ4w==}
+  /stylelint-config-standard@33.0.0(stylelint@15.6.0):
+    resolution: {integrity: sha512-eyxnLWoXImUn77+ODIuW9qXBDNM+ALN68L3wT1lN2oNspZ7D9NVGlNHb2QCUn4xDug6VZLsh0tF8NyoYzkgTzg==}
     peerDependencies:
-      stylelint: ^15.4.0
+      stylelint: ^15.5.0
     dependencies:
       stylelint: 15.6.0
-      stylelint-config-recommended: 11.0.0(stylelint@15.6.0)
+      stylelint-config-recommended: 12.0.0(stylelint@15.6.0)
     dev: true
 
   /stylelint-order@6.0.3(stylelint@15.6.0):
