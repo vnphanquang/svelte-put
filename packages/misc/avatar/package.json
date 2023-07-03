@@ -1,6 +1,6 @@
 {
   "name": "@svelte-put/avatar",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Component and utils for handling avatar",
   "type": "module",
   "svelte": "./dist/index.js",
