@@ -4,10 +4,14 @@
 
 ```ts
 
-import type { Action } from 'svelte/action';
+import { Action } from 'svelte/action';
+import { ActionReturn } from 'svelte/action';
 
-// @public
-export const clickoutside: Action<HTMLElement, Partial<ClickOutsideParameters>, ClickOutsideAttributes>;
+// @public (undocumented)
+export type ClickOutsideAction = Action<HTMLElement, ClickOutsideParameters, ClickOutsideAttributes>;
+
+// @public (undocumented)
+export type ClickOutsideActionReturn = ActionReturn<ClickOutsideParameters, ClickOutsideAttributes>;
 
 // @public
 export interface ClickOutsideAttributes {
@@ -28,15 +32,6 @@ export interface ClickOutsideParameters {
     options?: AddEventListenerOptions | boolean;
 }
 
-// Warning: (ae-internal-missing-underscore) The name "resolveParameters" should be prefixed with an underscore because the declaration is marked as @internal
-//
-// @internal (undocumented)
-export function resolveParameters(parameters: Partial<ClickOutsideParameters>): {
-    enabled: boolean;
-    nodeForEvent: HTMLElement | Document;
-    eventType: string;
-    options: boolean | AddEventListenerOptions | undefined;
-    capture: boolean | undefined;
-};
+// (No @packageDocumentation comment for this package)
 
 ```

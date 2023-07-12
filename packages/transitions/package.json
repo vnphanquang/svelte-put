@@ -48,8 +48,8 @@
   },
   "homepage": "https://svelte-put.vnphanquang.com/docs/transition",
   "devDependencies": {
-    "@microsoft/api-documenter": "^7.21.6",
-    "@microsoft/api-extractor": "^7.34.4",
+    "@microsoft/api-documenter": "^7.22.25",
+    "@microsoft/api-extractor": "^7.36.1",
     "@rollup/plugin-typescript": "^11.0.0",
     "@svelte-put/apirc": "workspace:*",
     "@svelte-put/tsconfig": "workspace:*",

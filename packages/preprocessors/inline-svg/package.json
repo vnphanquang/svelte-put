@@ -52,8 +52,8 @@
   },
   "homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocessors/inline-svg",
   "devDependencies": {
-    "@microsoft/api-documenter": "^7.21.6",
-    "@microsoft/api-extractor": "^7.34.4",
+    "@microsoft/api-documenter": "^7.22.25",
+    "@microsoft/api-extractor": "^7.36.1",
     "@svelte-put/apirc": "workspace:*",
     "@svelte-put/preprocess-helpers": "workspace:*",
     "@types/estree": "^1.0.0",

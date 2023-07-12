@@ -8,5 +8,5 @@
 
 |  Package | Description |
 |  --- | --- |
-|  [@svelte-put/clickoutside](./clickoutside.md) | <code>use:clickoutside</code> - svelte action that emits the <code>clickoutside</code> event when the user clicks outside of a node. |
+|  [@svelte-put/clickoutside](./clickoutside.md) |  |
 
