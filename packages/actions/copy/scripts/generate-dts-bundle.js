@@ -4,6 +4,6 @@ await createBundle({
   project: 'tsconfig.json',
   output: 'types/index.d.ts',
   modules: {
-    '@svelte-put/clickoutside': 'src/index.js',
+    '@svelte-put/copy': 'src/index.js',
   },
 });
