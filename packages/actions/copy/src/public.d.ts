@@ -1,3 +1,5 @@
+import { Action, ActionReturn } from 'svelte/action';
+
 /**
  * the input passed to {@link TextResolver}
  * @public
@@ -79,3 +81,13 @@ export interface CopyDetail {
 export interface CopyAttributes {
   'on:copied'?: (event: CustomEvent<CopyDetail>) => void;
 }
+
+export type CopyAction<K extends keyof HTMLElementEventMap> = Action<
+  HTMLElement,
+  CopyParameters<K>,
+  CopyAttributes
+>;
+export type CopyReturn<K extends keyof HTMLElementEventMap> = ActionReturn<
+  Partial<CopyParameters<K>>,
+  CopyAttributes
+>;

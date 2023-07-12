@@ -6,6 +6,5 @@
  * @packageDocumentation
  */
 
-export * from './copy.action';
-export * from './copy.helpers';
-export * from './copy.types';
+export * from './copy.action.js';
+export * from './copy.helpers.js';
