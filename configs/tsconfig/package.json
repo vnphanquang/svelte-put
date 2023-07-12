@@ -6,6 +6,7 @@
   "author": "Quang Phan",
   "files": [
     "base.json",
-    "base.package.json"
+    "base.package.json",
+    "base.package.js.json"
   ]
 }

@@ -72,45 +72,21 @@ importers:
 
   packages/actions/clickoutside:
     devDependencies:
-      '@microsoft/api-documenter':
-        specifier: ^7.21.6
-        version: 7.22.3(@types/node@18.16.3)
-      '@microsoft/api-extractor':
-        specifier: ^7.34.4
-        version: 7.34.7(@types/node@18.16.3)
-      '@rollup/plugin-typescript':
-        specifier: ^11.0.0
-        version: 11.1.0(rollup@3.21.3)(tslib@2.5.0)(typescript@5.0.4)
-      '@svelte-put/apirc':
-        specifier: workspace:*
-        version: link:../../../configs/apirc
       '@svelte-put/tsconfig':
         specifier: workspace:*
         version: link:../../../configs/tsconfig
-      '@types/node':
-        specifier: ^18.15.11
-        version: 18.16.3
-      npm-run-all:
-        specifier: ^4.1.5
-        version: 4.1.5
-      rollup:
-        specifier: ^3.20.2
-        version: 3.21.3
-      tslib:
-        specifier: ^2.5.0
-        version: 2.5.0
-      typescript:
-        specifier: ^5.0.3
-        version: 5.0.4
+      dts-buddy:
+        specifier: ^0.1.7
+        version: 0.1.7
 
   packages/actions/copy:
     devDependencies:
       '@microsoft/api-documenter':
-        specifier: ^7.21.6
-        version: 7.22.3(@types/node@18.16.3)
+        specifier: ^7.22.25
+        version: 7.22.25(@types/node@18.16.3)
       '@microsoft/api-extractor':
-        specifier: ^7.34.4
-        version: 7.34.7(@types/node@18.16.3)
+        specifier: ^7.36.1
+        version: 7.36.1(@types/node@18.16.3)
       '@rollup/plugin-typescript':
         specifier: ^11.0.0
         version: 11.1.0(rollup@3.21.3)(tslib@2.5.0)(typescript@5.0.4)
@@ -136,11 +112,11 @@ importers:
   packages/actions/dragscroll:
     devDependencies:
       '@microsoft/api-documenter':
-        specifier: ^7.21.6
-        version: 7.22.3(@types/node@18.16.3)
+        specifier: ^7.22.25
+        version: 7.22.25(@types/node@18.16.3)
       '@microsoft/api-extractor':
-        specifier: ^7.34.4
-        version: 7.34.7(@types/node@18.16.3)
+        specifier: ^7.36.1
+        version: 7.36.1(@types/node@18.16.3)
       '@rollup/plugin-typescript':
         specifier: ^11.0.0
         version: 11.1.0(rollup@3.21.3)(tslib@2.5.0)(typescript@5.0.4)
@@ -166,11 +142,11 @@ importers:
   packages/actions/inline-svg:
     devDependencies:
       '@microsoft/api-documenter':
-        specifier: ^7.21.6
-        version: 7.22.3(@types/node@18.16.3)
+        specifier: ^7.22.25
+        version: 7.22.25(@types/node@18.16.3)
       '@microsoft/api-extractor':
-        specifier: ^7.34.4
-        version: 7.34.7(@types/node@18.16.3)
+        specifier: ^7.36.1
+        version: 7.36.1(@types/node@18.16.3)
       '@svelte-put/apirc':
         specifier: workspace:*
         version: link:../../../configs/apirc
@@ -193,11 +169,11 @@ importers:
   packages/actions/intersect:
     devDependencies:
       '@microsoft/api-documenter':
-        specifier: ^7.21.6
-        version: 7.22.3(@types/node@18.16.3)
+        specifier: ^7.22.25
+        version: 7.22.25(@types/node@18.16.3)
       '@microsoft/api-extractor':
-        specifier: ^7.34.4
-        version: 7.34.7(@types/node@18.16.3)
+        specifier: ^7.36.1
+        version: 7.36.1(@types/node@18.16.3)
       '@rollup/plugin-typescript':
         specifier: ^11.0.0
         version: 11.1.0(rollup@3.21.3)(tslib@2.5.0)(typescript@5.0.4)
@@ -223,11 +199,11 @@ importers:
   packages/actions/movable:
     devDependencies:
       '@microsoft/api-documenter':
-        specifier: ^7.21.6
-        version: 7.22.3(@types/node@18.16.3)
+        specifier: ^7.22.25
+        version: 7.22.25(@types/node@18.16.3)
       '@microsoft/api-extractor':
-        specifier: ^7.34.4
-        version: 7.34.7(@types/node@18.16.3)
+        specifier: ^7.36.1
+        version: 7.36.1(@types/node@18.16.3)
       '@rollup/plugin-typescript':
         specifier: ^11.0.0
         version: 11.1.0(rollup@3.21.3)(tslib@2.5.0)(typescript@5.0.4)
@@ -253,11 +229,11 @@ importers:
   packages/actions/resize:
     devDependencies:
       '@microsoft/api-documenter':
-        specifier: ^7.21.6
-        version: 7.22.3(@types/node@18.16.3)
+        specifier: ^7.22.25
+        version: 7.22.25(@types/node@18.16.3)
       '@microsoft/api-extractor':
-        specifier: ^7.34.4
-        version: 7.34.7(@types/node@18.16.3)
+        specifier: ^7.36.1
+        version: 7.36.1(@types/node@18.16.3)
       '@rollup/plugin-typescript':
         specifier: ^11.0.0
         version: 11.1.0(rollup@3.21.3)(tslib@2.5.0)(typescript@5.0.4)
@@ -283,11 +259,11 @@ importers:
   packages/actions/shortcut:
     devDependencies:
       '@microsoft/api-documenter':
-        specifier: ^7.21.6
-        version: 7.22.3(@types/node@18.16.3)
+        specifier: ^7.22.25
+        version: 7.22.25(@types/node@18.16.3)
       '@microsoft/api-extractor':
-        specifier: ^7.34.4
-        version: 7.34.7(@types/node@18.16.3)
+        specifier: ^7.36.1
+        version: 7.36.1(@types/node@18.16.3)
       '@rollup/plugin-typescript':
         specifier: ^11.0.0
         version: 11.1.0(rollup@3.21.3)(tslib@2.5.0)(typescript@5.0.4)
@@ -313,11 +289,11 @@ importers:
   packages/actions/toc:
     devDependencies:
       '@microsoft/api-documenter':
-        specifier: ^7.21.6
-        version: 7.22.3(@types/node@18.16.3)
+        specifier: ^7.22.25
+        version: 7.22.25(@types/node@18.16.3)
       '@microsoft/api-extractor':
-        specifier: ^7.34.4
-        version: 7.34.7(@types/node@18.16.3)
+        specifier: ^7.36.1
+        version: 7.36.1(@types/node@18.16.3)
       '@svelte-put/apirc':
         specifier: workspace:*
         version: link:../../../configs/apirc
@@ -368,11 +344,11 @@ importers:
         version: link:../../actions/shortcut
     devDependencies:
       '@microsoft/api-documenter':
-        specifier: ^7.21.6
-        version: 7.22.3(@types/node@18.16.3)
+        specifier: ^7.22.25
+        version: 7.22.25(@types/node@18.16.3)
       '@microsoft/api-extractor':
-        specifier: ^7.34.4
-        version: 7.34.7(@types/node@18.16.3)
+        specifier: ^7.36.1
+        version: 7.36.1(@types/node@18.16.3)
       '@svelte-put/apirc':
         specifier: workspace:*
         version: link:../../../configs/apirc
@@ -420,11 +396,11 @@ importers:
         version: 2.3.0
     devDependencies:
       '@microsoft/api-documenter':
-        specifier: ^7.21.6
-        version: 7.22.3(@types/node@18.16.3)
+        specifier: ^7.22.25
+        version: 7.22.25(@types/node@18.16.3)
       '@microsoft/api-extractor':
-        specifier: ^7.34.4
-        version: 7.34.7(@types/node@18.16.3)
+        specifier: ^7.36.1
+        version: 7.36.1(@types/node@18.16.3)
       '@svelte-put/apirc':
         specifier: workspace:*
         version: link:../../../configs/apirc
@@ -481,11 +457,11 @@ importers:
         version: link:../../actions/shortcut
     devDependencies:
       '@microsoft/api-documenter':
-        specifier: ^7.21.6
-        version: 7.22.3(@types/node@18.16.3)
+        specifier: ^7.22.25
+        version: 7.22.25(@types/node@18.16.3)
       '@microsoft/api-extractor':
-        specifier: ^7.34.4
-        version: 7.34.7(@types/node@18.16.3)
+        specifier: ^7.36.1
+        version: 7.36.1(@types/node@18.16.3)
       '@svelte-put/apirc':
         specifier: workspace:*
         version: link:../../../configs/apirc
@@ -539,11 +515,11 @@ importers:
         version: 0.1.1(svelte@3.58.0)
     devDependencies:
       '@microsoft/api-documenter':
-        specifier: ^7.21.6
-        version: 7.22.3(@types/node@18.16.3)
+        specifier: ^7.22.25
+        version: 7.22.25(@types/node@18.16.3)
       '@microsoft/api-extractor':
-        specifier: ^7.34.4
-        version: 7.34.7(@types/node@18.16.3)
+        specifier: ^7.36.1
+        version: 7.36.1(@types/node@18.16.3)
       '@svelte-put/apirc':
         specifier: workspace:*
         version: link:../../../configs/apirc
@@ -597,11 +573,11 @@ importers:
         version: 2.0.4
     devDependencies:
       '@microsoft/api-documenter':
-        specifier: ^7.21.6
-        version: 7.22.3(@types/node@18.16.3)
+        specifier: ^7.22.25
+        version: 7.22.25(@types/node@18.16.3)
       '@microsoft/api-extractor':
-        specifier: ^7.34.4
-        version: 7.34.7(@types/node@18.16.3)
+        specifier: ^7.36.1
+        version: 7.36.1(@types/node@18.16.3)
       '@svelte-put/apirc':
         specifier: workspace:*
         version: link:../../../configs/apirc
@@ -646,11 +622,11 @@ importers:
         version: 3.58.0
     devDependencies:
       '@microsoft/api-documenter':
-        specifier: ^7.21.6
-        version: 7.22.3(@types/node@18.16.3)
+        specifier: ^7.22.25
+        version: 7.22.25(@types/node@18.16.3)
       '@microsoft/api-extractor':
-        specifier: ^7.34.4
-        version: 7.34.7(@types/node@18.16.3)
+        specifier: ^7.36.1
+        version: 7.36.1(@types/node@18.16.3)
       '@rollup/plugin-typescript':
         specifier: ^11.0.0
         version: 11.1.0(rollup@3.21.3)(tslib@2.5.0)(typescript@5.0.4)
@@ -1612,6 +1588,13 @@ packages:
     engines: {node: '>=6.0.0'}
     dev: true
 
+  /@jridgewell/source-map@0.3.5:
+    resolution: {integrity: sha512-UTYAUj/wviwdsMfzoSJspJxbkH5o1snzwX0//0ENX1u/55kkZZkcTZP6u9bwKGkv+dkk9at4m1Cpt0uY80kcpQ==}
+    dependencies:
+      '@jridgewell/gen-mapping': 0.3.3
+      '@jridgewell/trace-mapping': 0.3.18
+    dev: true
+
   /@jridgewell/sourcemap-codec@1.4.14:
     resolution: {integrity: sha512-XPSJHWmi394fuUuzDnGz1wiKqWfo1yXecHQMRf2l6hztTO+nPru658AyDngaBe7isIxEkRsPR3FZh+s7iVa4Uw==}
     dev: true
@@ -1686,14 +1669,14 @@ packages:
       - '@types/node'
     dev: false
 
-  /@microsoft/api-documenter@7.22.3(@types/node@18.16.3):
-    resolution: {integrity: sha512-K94pvKlePz5ow8KR8+DnjL+PXJX+Iw+C4vRS7tDM0fg17k0LvJn/lzZKQf4S5RaOwDiVjLpXUpngFO+/yURFTg==}
+  /@microsoft/api-documenter@7.22.25(@types/node@18.16.3):
+    resolution: {integrity: sha512-8OnDpHu6XVLZx229jDypIl7vn2AzZc0LlPbbUI/uVPsUZiQv1AXdK6VV9DJEqJ550haaxcXEukTW4bEnL9dUqQ==}
     hasBin: true
     dependencies:
-      '@microsoft/api-extractor-model': 7.26.7(@types/node@18.16.3)
+      '@microsoft/api-extractor-model': 7.27.4(@types/node@18.16.3)
       '@microsoft/tsdoc': 0.14.2
-      '@rushstack/node-core-library': 3.58.0(@types/node@18.16.3)
-      '@rushstack/ts-command-line': 4.13.2
+      '@rushstack/node-core-library': 3.59.5(@types/node@18.16.3)
+      '@rushstack/ts-command-line': 4.15.1
       colors: 1.2.5
       js-yaml: 3.13.1
       resolve: 1.22.2
@@ -1711,12 +1694,12 @@ packages:
       - '@types/node'
     dev: false
 
-  /@microsoft/api-extractor-model@7.26.7(@types/node@18.16.3):
-    resolution: {integrity: sha512-rx3Tq632VG3ddR74kPuPbv1qmUgO2IuCvn1z16hbNWNS5RhnTQqNPWIm7NVoi6lCh2E7uxzfmdnWXIXiJhM5IQ==}
+  /@microsoft/api-extractor-model@7.27.4(@types/node@18.16.3):
+    resolution: {integrity: sha512-HjqQFmuGPOS20rtnu+9Jj0QrqZyR59E+piUWXPMZTTn4jaZI+4UmsHSf3Id8vyueAhOBH2cgwBuRTE5R+MfSMw==}
     dependencies:
       '@microsoft/tsdoc': 0.14.2
       '@microsoft/tsdoc-config': 0.16.2
-      '@rushstack/node-core-library': 3.58.0(@types/node@18.16.3)
+      '@rushstack/node-core-library': 3.59.5(@types/node@18.16.3)
     transitivePeerDependencies:
       - '@types/node'
     dev: true
@@ -1741,22 +1724,22 @@ packages:
       - '@types/node'
     dev: false
 
-  /@microsoft/api-extractor@7.34.7(@types/node@18.16.3):
-    resolution: {integrity: sha512-8CrrYyOBWqc4XFviR1KSuHSlmJjlnC5CVpPkcFB8HXiLABUVaVWFTsOzJIwUU6z8mc4BZPZ8tSGAg/mwFDU31Q==}
+  /@microsoft/api-extractor@7.36.1(@types/node@18.16.3):
+    resolution: {integrity: sha512-2SPp1jq6wDY5IOsRLUv/4FxngslctBZJlztAJ3uWpCAwqKQG7ESdL3DhEza+StbYLtBQmu1Pk6q1Vkhl7qD/bg==}
     hasBin: true
     dependencies:
-      '@microsoft/api-extractor-model': 7.26.7(@types/node@18.16.3)
+      '@microsoft/api-extractor-model': 7.27.4(@types/node@18.16.3)
       '@microsoft/tsdoc': 0.14.2
       '@microsoft/tsdoc-config': 0.16.2
-      '@rushstack/node-core-library': 3.58.0(@types/node@18.16.3)
-      '@rushstack/rig-package': 0.3.18
-      '@rushstack/ts-command-line': 4.13.2
+      '@rushstack/node-core-library': 3.59.5(@types/node@18.16.3)
+      '@rushstack/rig-package': 0.4.0
+      '@rushstack/ts-command-line': 4.15.1
       colors: 1.2.5
       lodash: 4.17.21
       resolve: 1.22.2
       semver: 7.3.8
       source-map: 0.6.1
-      typescript: 4.8.4
+      typescript: 5.0.4
     transitivePeerDependencies:
       - '@types/node'
     dev: true
@@ -1857,8 +1840,8 @@ packages:
       z-schema: 5.0.5
     dev: false
 
-  /@rushstack/node-core-library@3.58.0(@types/node@18.16.3):
-    resolution: {integrity: sha512-DHAZ3LTOEq2/EGURznpTJDnB3SNE2CKMDXuviQ6afhru6RykE3QoqXkeyjbpLb5ib5cpIRCPE/wykNe0xmQj3w==}
+  /@rushstack/node-core-library@3.59.5(@types/node@18.16.3):
+    resolution: {integrity: sha512-1IpV7LufrI1EoVO8hYsb3t6L8L+yp40Sa0OaOV2CIu1zx4e6ZeVNaVIEXFgMXBKdGXkAh21MnCaIzlDNpG6ZQw==}
     peerDependencies:
       '@types/node': '*'
     peerDependenciesMeta:
@@ -1880,6 +1863,14 @@ packages:
     dependencies:
       resolve: 1.22.2
       strip-json-comments: 3.1.1
+    dev: false
+
+  /@rushstack/rig-package@0.4.0:
+    resolution: {integrity: sha512-FnM1TQLJYwSiurP6aYSnansprK5l8WUK8VG38CmAaZs29ZeL1msjK0AP1VS4ejD33G0kE/2cpsPsS9jDenBMxw==}
+    dependencies:
+      resolve: 1.22.2
+      strip-json-comments: 3.1.1
+    dev: true
 
   /@rushstack/ts-command-line@4.13.2:
     resolution: {integrity: sha512-bCU8qoL9HyWiciltfzg7GqdfODUeda/JpI0602kbN5YH22rzTxyqYvv7aRLENCM7XCQ1VRs7nMkEqgJUOU8Sag==}
@@ -1888,6 +1879,16 @@ packages:
       argparse: 1.0.10
       colors: 1.2.5
       string-argv: 0.3.2
+    dev: false
+
+  /@rushstack/ts-command-line@4.15.1:
+    resolution: {integrity: sha512-EL4jxZe5fhb1uVL/P/wQO+Z8Rc8FMiWJ1G7VgnPDvdIt5GVjRfK7vwzder1CZQiX3x0PY6uxENYLNGTFd1InRQ==}
+    dependencies:
+      '@types/argparse': 1.0.38
+      argparse: 1.0.10
+      colors: 1.2.5
+      string-argv: 0.3.2
+    dev: true
 
   /@sveltejs/adapter-auto@2.0.0(@sveltejs/kit@1.15.2):
     resolution: {integrity: sha512-b+gkHFZgD771kgV3aO4avHFd7y1zhmMYy9i6xOK7m/rwmwaRO8gnF5zBc0Rgca80B2PMU1bKNxyBTHA14OzUAQ==}
@@ -3205,6 +3206,22 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
+  /dts-buddy@0.1.7:
+    resolution: {integrity: sha512-zqKumjFt/RXVTPV3DT/L7NBDuc763NeAZEIJATicoSvxDnOnCFzV0WUc4JV8KZB3cwMCAktmEtL6ERXz+jJMrA==}
+    hasBin: true
+    dependencies:
+      '@jridgewell/source-map': 0.3.5
+      '@jridgewell/sourcemap-codec': 1.4.15
+      globrex: 0.1.2
+      kleur: 4.1.5
+      locate-character: 3.0.0
+      magic-string: 0.30.0
+      sade: 1.8.1
+      tiny-glob: 0.2.9
+      ts-api-utils: 0.0.46(typescript@5.0.4)
+      typescript: 5.0.4
+    dev: true
+
   /eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
     dev: true
@@ -4260,6 +4277,12 @@ packages:
     resolution: {integrity: sha512-RECHCBCd/viahWmwj6enj19sKbHfJrddi/6cBDsNTKbNq0f7VeaUkBo60BqzvPqo/W54ChS62Z5qyun7cfOMqQ==}
     dependencies:
       has: 1.0.3
+    dev: true
+
+  /is-core-module@2.12.1:
+    resolution: {integrity: sha512-Q4ZuBAe2FUsKtyQJoQHlvP8OvBERxO3jEmy1I7hcRXcJBGGHFh/aJBswbXuS9sgrDH2QUO8ilkwNPHvHMd8clg==}
+    dependencies:
+      has: 1.0.3
 
   /is-date-object@1.0.5:
     resolution: {integrity: sha512-9YQaSxsAiSwcvS33MBk3wTCVnWK+HhF8VZR2jRxehM16QcVOdHqPn4VPHmRK4lSr38n9JriurInLcP90xsYNfQ==}
@@ -4567,6 +4590,10 @@ packages:
       js-yaml: 3.14.1
       pify: 4.0.1
       strip-bom: 3.0.0
+    dev: true
+
+  /locate-character@3.0.0:
+    resolution: {integrity: sha512-SW13ws7BjaeJ6p7Q6CO2nchbYEc3X3J6WrmTTDto7yMPqVSZTUyY5Tjbid+Ab8gLnATtygYtiDIJGQRRn2ZOiA==}
     dev: true
 
   /locate-path@5.0.0:
@@ -5918,14 +5945,14 @@ packages:
   /resolve@1.19.0:
     resolution: {integrity: sha512-rArEXAgsBG4UgRGcynxWIWKFvh/XZCcS8UJdHhwy91zwAvCZIbcs+vAbflgBnNjYMs/i/i+/Ux6IZhML1yPvxg==}
     dependencies:
-      is-core-module: 2.12.0
+      is-core-module: 2.12.1
       path-parse: 1.0.7
 
   /resolve@1.22.2:
     resolution: {integrity: sha512-Sb+mjNHOULsBv818T40qSPeRiuWLyaGMa5ewydRLFimneixmVy2zdivRl+AF6jaYPC8ERxGDmFSiqui6SfPd+g==}
     hasBin: true
     dependencies:
-      is-core-module: 2.12.0
+      is-core-module: 2.12.1
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
 
@@ -6766,6 +6793,15 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /ts-api-utils@0.0.46(typescript@5.0.4):
+    resolution: {integrity: sha512-YKJeSx39n0mMk+hrpyHKyTgxA3s7Pz/j1cXYR+t8HcwwZupzOR5xDGKnOEw3gmLaUeFUQt3FJD39AH9Ajn/mdA==}
+    engines: {node: '>=16.13.0'}
+    peerDependencies:
+      typescript: '>=4.2.0'
+    dependencies:
+      typescript: 5.0.4
+    dev: true
+
   /ts-interface-checker@0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
     dev: true
@@ -6989,6 +7025,7 @@ packages:
     resolution: {integrity: sha512-QCh+85mCy+h0IGff8r5XWzOVSbBO+KfeYrMQh7NJ58QujwcE22u+NUSmUxqF+un70P9GXKxa2HCNiTTMJknyjQ==}
     engines: {node: '>=4.2.0'}
     hasBin: true
+    dev: false
 
   /typescript@5.0.4:
     resolution: {integrity: sha512-cW9T5W9xY37cc+jfEnaUvX91foxtHkza3Nw3wkoF4sSlKn0MONdkdEndig/qPBWXNkmplh3NzayQzCiHM4/hqw==}

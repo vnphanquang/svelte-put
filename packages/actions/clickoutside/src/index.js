@@ -6,5 +6,4 @@
  * @packageDocumentation
  */
 
-export * from './clickoutside';
-export * from './clickoutside.types';
+export * from './clickoutside.js';

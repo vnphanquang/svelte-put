@@ -1,6 +1,4 @@
-import type { Action } from 'svelte/action';
-
-import { ClickOutsideAttributes, ClickOutsideParameters } from './clickoutside.types';
+/** @typedef {import('svelte/action').Action} Action */
 
 /**
  * Dispatch a `clickoutside` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent } on click outside of node
@@ -54,21 +52,22 @@ import { ClickOutsideAttributes, ClickOutsideParameters } from './clickoutside.t
  * <Component use:clickoutside/>
  * ```
  *
- * @param node - node outside of which `click` event will trigger `clickoutside`
- * @param parameters - instructions for `clickoutside` behavior
- * @returns svelte {@link svelte/action#ActionReturn | ActionReturn}
+ * @param {HTMLElement} node - node outside of which `click` event will trigger `clickoutside`
+ * @param {import('./public').ClickOutsideParameters} parameters - instructions for `clickoutside` behavior
+ * @returns {import('./public').ClickOutsideActionReturn}
  */
-export const clickoutside: Action<
-  HTMLElement,
-  Partial<ClickOutsideParameters>,
-  ClickOutsideAttributes
-> = function (node, parameters = { enabled: true }) {
+export function clickoutside(node, parameters = { enabled: true }) {
   let { enabled, eventType, nodeForEvent, options, capture } = resolveParameters(parameters);
-  const handle = (event: Event) => {
-    if (node && !node.contains(event.target as Node) && !event.defaultPrevented) {
+
+  /**
+   * @param {Event} event
+   */
+  function handle(event) {
+    if (!event.target) return;
+    if (node && !node.contains(/** @type {Node} */ (event.target)) && !event.defaultPrevented) {
       node.dispatchEvent(new CustomEvent('clickoutside', { detail: event }));
     }
-  };
+  }
 
   if (parameters.enabled !== false) {
     nodeForEvent.addEventListener(eventType, handle, options);
@@ -84,10 +83,13 @@ export const clickoutside: Action<
       nodeForEvent.removeEventListener(eventType, handle, capture);
     },
   };
-};
+}
 
-/** @internal */
-export function resolveParameters(parameters: Partial<ClickOutsideParameters>) {
+/**
+ * @internal
+ * @param {Partial<import('./public').ClickOutsideParameters>} parameters
+ */
+export function resolveParameters(parameters) {
   return {
     enabled: parameters.enabled ?? true,
     nodeForEvent: parameters.limit?.parent ?? document,

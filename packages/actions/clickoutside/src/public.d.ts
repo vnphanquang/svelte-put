@@ -1,3 +1,5 @@
+import { ActionReturn, Action } from 'svelte/action';
+
 /**
  * Additional attributes extended from `svelte-put/clickoutside`
  * @public
@@ -48,3 +50,13 @@ export interface ClickOutsideParameters {
   /** options to add to `addEventListener` */
   options?: AddEventListenerOptions | boolean;
 }
+
+/** @public */
+export type ClickOutsideAction = Action<
+  HTMLElement,
+  ClickOutsideParameters,
+  ClickOutsideAttributes
+>;
+
+/** @public */
+export type ClickOutsideActionReturn = ActionReturn<ClickOutsideParameters, ClickOutsideAttributes>;
