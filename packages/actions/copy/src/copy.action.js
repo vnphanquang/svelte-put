@@ -1,5 +1,3 @@
-/** @typedef {import('svelte/action').ActionReturn} */
-
 import { copyToClipboard } from './copy.helpers.js';
 
 /**
@@ -8,11 +6,11 @@ import { copyToClipboard } from './copy.helpers.js';
  *
  * @template {keyof HTMLElementEventMap} K
  * @param {HTMLElement} node - HTMLElement to register action
- * @param {Partial<import('./public.js').CopyParameters<K>> | undefined} parameters - svelte action parameters
+ * @param {import('./public.js').CopyParameter<K>} parameter - svelte action parameters
  * @returns {import('./public.js').CopyReturn<K>}
  */
-export function copy(node, parameters = {}) {
-  let { trigger, enabled, text, events, synthetic } = resolveParameters(node, parameters);
+export function copy(node, parameter = {}) {
+  let { trigger, enabled, text, events, synthetic } = resolveConfig(node, parameter);
 
   /** @param {HTMLElementEventMap[K]} e */
   async function handler(e) {
@@ -57,7 +55,7 @@ export function copy(node, parameters = {}) {
   return {
     update(update = {}) {
       removeEvents();
-      ({ trigger, enabled, text, events, synthetic } = resolveParameters(node, update));
+      ({ trigger, enabled, text, events, synthetic } = resolveConfig(node, update));
       addEvents();
     },
     destroy() {
@@ -70,17 +68,14 @@ export function copy(node, parameters = {}) {
  * @internal
  * @template {keyof HTMLElementEventMap} K
  * @param {HTMLElement} node
- * @param {Partial<import('./public').CopyParameters<K>>} parameters
+ * @param {import('./public').CopyParameter<K>} param
  */
-function resolveParameters(node, parameters = {}) {
-  const { trigger = node, enabled = true, synthetic = false } = parameters;
+function resolveConfig(node, param = {}) {
+  const { trigger = node, enabled = true, synthetic = false } = param;
   const text =
-    typeof parameters.text === 'function'
-      ? parameters.text
-      : /** @type {import('./public.js').TextResolver<K>} */ (
-          () => parameters.text ?? node.innerText
-        );
-  const events =
-    typeof parameters.event === 'string' ? [parameters.event] : parameters.event ?? ['click'];
+    typeof param.text === 'function'
+      ? param.text
+      : /** @type {import('./public.js').TextResolver<K>} */ (() => param.text ?? node.innerText);
+  const events = typeof param.event === 'string' ? [param.event] : param.event ?? ['click'];
   return { trigger, enabled, text, events, synthetic };
 }

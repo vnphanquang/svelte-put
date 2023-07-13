@@ -28,7 +28,7 @@ export type TextResolver<K extends keyof HTMLElementEventMap> = (
  * svelte action parameters to config behavior of `copy`
  * @public
  */
-export interface CopyParameters<K extends keyof HTMLElementEventMap> {
+export interface CopyConfig<K extends keyof HTMLElementEventMap> {
   /** whether to activate the action. Default to `true` */
   enabled: boolean;
   /**
@@ -47,6 +47,12 @@ export interface CopyParameters<K extends keyof HTMLElementEventMap> {
   /** whether to dispatch a synthetic `copy` event. Defaults to `false` */
   synthetic: boolean;
 }
+
+/**
+ * the input received from action
+ * @public
+ */
+export type CopyParameter<K extends keyof HTMLElementEventMap> = Partial<CopyConfig<K>> | undefined;
 
 /**
  * `detail` payload for `copy` `CustomEvent`
@@ -84,10 +90,10 @@ export interface CopyAttributes {
 
 export type CopyAction<K extends keyof HTMLElementEventMap> = Action<
   HTMLElement,
-  CopyParameters<K>,
+  CopyParameter<K>,
   CopyAttributes
 >;
 export type CopyReturn<K extends keyof HTMLElementEventMap> = ActionReturn<
-  Partial<CopyParameters<K>>,
+  CopyParameter<K>,
   CopyAttributes
 >;
