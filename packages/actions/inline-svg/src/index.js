@@ -7,4 +7,3 @@
  */
 
 export * from './inline-svg.action.js';
-export * from './inline-svg.utils.js';

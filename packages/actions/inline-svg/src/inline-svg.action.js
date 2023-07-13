@@ -1,4 +1,4 @@
-import { calculateDimensions } from './inline-svg.utils.js';
+import { calculateDimensions } from './inline-svg.internal.js';
 
 /**
  * @public
