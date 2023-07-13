@@ -1,5 +1,3 @@
-/** @typedef {import('svelte/action').Action} Action */
-
 /**
  * Dispatch a `clickoutside` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent } on click outside of node
  * @public
@@ -53,11 +51,11 @@
  * ```
  *
  * @param {HTMLElement} node - node outside of which `click` event will trigger `clickoutside`
- * @param {import('./public').ClickOutsideParameters} parameters - instructions for `clickoutside` behavior
+ * @param {import('./public').ClickOutsideParameter} param - instructions for `clickoutside` behavior
  * @returns {import('./public').ClickOutsideActionReturn}
  */
-export function clickoutside(node, parameters = { enabled: true }) {
-  let { enabled, eventType, nodeForEvent, options, capture } = resolveParameters(parameters);
+export function clickoutside(node, param = { enabled: true }) {
+  let { enabled, eventType, nodeForEvent, options, capture } = resolveConfig(param);
 
   /**
    * @param {Event} event
@@ -69,14 +67,14 @@ export function clickoutside(node, parameters = { enabled: true }) {
     }
   }
 
-  if (parameters.enabled !== false) {
+  if (param.enabled !== false) {
     nodeForEvent.addEventListener(eventType, handle, options);
   }
 
   return {
     update(update) {
       nodeForEvent.removeEventListener(eventType, handle, capture);
-      ({ enabled, eventType, nodeForEvent, options, capture } = resolveParameters(update));
+      ({ enabled, eventType, nodeForEvent, options, capture } = resolveConfig(update));
       if (enabled) nodeForEvent.addEventListener(eventType, handle, options);
     },
     destroy() {
@@ -87,15 +85,14 @@ export function clickoutside(node, parameters = { enabled: true }) {
 
 /**
  * @internal
- * @param {Partial<import('./public').ClickOutsideParameters>} parameters
+ * @param {import('./public').ClickOutsideParameter} param
  */
-export function resolveParameters(parameters) {
+export function resolveConfig(param = {}) {
   return {
-    enabled: parameters.enabled ?? true,
-    nodeForEvent: parameters.limit?.parent ?? document,
-    eventType: parameters.event ?? 'click',
-    options: parameters.options,
-    capture:
-      typeof parameters.options === 'object' ? parameters.options?.capture : parameters.options,
+    enabled: param.enabled ?? true,
+    nodeForEvent: param.limit?.parent ?? document,
+    eventType: param.event ?? 'click',
+    options: param.options,
+    capture: typeof param.options === 'object' ? param.options?.capture : param.options,
   };
 }
