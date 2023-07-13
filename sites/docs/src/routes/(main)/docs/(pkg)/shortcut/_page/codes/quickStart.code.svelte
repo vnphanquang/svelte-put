@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { shortcut, type ShortcutEventDetails } from '@svelte-put/shortcut';
+  import { shortcut, type ShortcutEventDetail } from '@svelte-put/shortcut';
 
-  function handleK(detail: ShortcutEventDetails) {
+  function handleK(detail: ShortcutEventDetail) {
     console.log('attached node:', detail.node);
     console.log('original trigger config:', detail.trigger);
   }

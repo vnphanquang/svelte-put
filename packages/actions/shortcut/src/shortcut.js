@@ -1,12 +1,3 @@
-import type { Action } from 'svelte/action';
-
-import type {
-  ShortcutEventDetails,
-  ShortcutModifier,
-  ShortcutParameters,
-  ShortcutAttributes,
-} from './types';
-
 /**
  * Listen for keyboard event and trigger `shortcut` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent }
  * @public
@@ -15,7 +6,7 @@ import type {
  *
  * ```svelte
  * <script lang="ts">
- *  import { shortcut, type ShortcutEventDetails } from '@svelte-put/shortcut';
+ *  import { shortcut, type ShortcutEventDetail } from '@svelte-put/shortcut';
  *
  *  let commandPalette = false;
  *
@@ -26,12 +17,12 @@ import type {
  *    commandPalette = false;
  *  }
  *
- *  function doSomethingElse(details: ShortcutEventDetails) {
+ *  function doSomethingElse(details: ShortcutEventDetail) {
  *    console.log('Action was placed on:', details.node);
  *    console.log('Trigger:', details.trigger);
  *  }
  *
- *  function onShortcut(event: CustomEvent<ShortcutEventDetails>) {
+ *  function onShortcut(event: CustomEvent<ShortcutEventDetail>) {
  *    if (event.detail.trigger.id === 'do-something-else') {
  *      console.log('Same as doSomethingElse()');
  *      // be careful here doSomethingElse would have been called too
@@ -98,21 +89,20 @@ import type {
  * Either way, only use `callback` or `on:shortcut` and not both to
  * avoid handler duplication.
  *
- * @param node - HTMLElement to add event listener to
- * @param params - svelte action parameters
- * @returns svelte {@link svelte/action#ActionReturn | ActionReturn}
+ * @param {HTMLElement} node - HTMLElement to add event listener to
+ * @param {import('./public').ShortcutParameter} param - svelte action parameters
+ * @returns {import('./public').ShortcutActionReturn}
  */
-export const shortcut: Action<HTMLElement, ShortcutParameters, ShortcutAttributes> = function (
-  node,
-  params,
-) {
-  if (!params?.trigger)
-    throw new Error('@svelte-put/shortcut requires a parameter object with a `trigger` property');
-  let { enabled = true, trigger, type = 'keydown' } = params;
+export function shortcut(node, param) {
+  let { enabled = true, trigger, type = 'keydown' } = param;
 
-  const handler = (event: KeyboardEvent) => {
+  /**
+   * @param {KeyboardEvent} event
+   */
+  function handler(event) {
     const normalizedTriggers = Array.isArray(trigger) ? trigger : [trigger];
-    const modifiedMap: Record<ShortcutModifier, boolean> = {
+    /** @type {Record<import('./public').ShortcutModifier, boolean>} */
+    const modifiedMap = {
       alt: event.altKey,
       ctrl: event.ctrlKey,
       shift: event.shiftKey,
@@ -138,13 +128,14 @@ export const shortcut: Action<HTMLElement, ShortcutParameters, ShortcutAttribute
         }
         if (event.key === key) {
           if (preventDefault) event.preventDefault();
-          const detail: ShortcutEventDetails = { node, trigger: mergedTrigger };
+          /** @type {import('./public').ShortcutEventDetail} */
+          const detail = { node, trigger: mergedTrigger };
           node.dispatchEvent(new CustomEvent('shortcut', { detail }));
           callback?.(detail);
         }
       }
     }
-  };
+  }
 
   if (enabled) node.addEventListener(type, handler);
 
@@ -166,4 +157,4 @@ export const shortcut: Action<HTMLElement, ShortcutParameters, ShortcutAttribute
       node.removeEventListener(type, handler);
     },
   };
-};
+}
