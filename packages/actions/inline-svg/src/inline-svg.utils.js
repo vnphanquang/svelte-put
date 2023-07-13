@@ -1,24 +1,27 @@
-/** @internal */
-export type Dimension = {
-  width: number;
-  height: number;
-};
+/**
+ * @internal
+ * @typedef {{ width: number; height: number }} Dimension
+ * @typedef {{ width: number } | { height: number }} DimensionConstraint
+ */
 
-/** @internal */
-export type DimensionConstraint = Pick<Dimension, 'width'> | Pick<Dimension, 'height'>;
-
-/** @internal */
-export function extractDimensionNumberAndUnit(dimension: string) {
+/**
+ * @internal
+ * @param {string} dimension
+ * @returns
+ */
+export function extractDimensionNumberAndUnit(dimension) {
   const regex = /(\d+)(\D*)/;
   const [, number = '0', unit = ''] = dimension.match(regex) || [];
   return { number: parseInt(number, 10), unit };
 }
 
-/** @internal */
-export function calculateNewDimensions(
-  base: Dimension,
-  constraint: DimensionConstraint,
-): Dimension {
+/**
+ * @internal
+ * @param {Dimension} base
+ * @param {DimensionConstraint} constraint
+ * @returns {Dimension}
+ */
+export function calculateNewDimensions(base, constraint) {
   const { width, height } = base;
   if ('width' in constraint) {
     const { width: constraintWidth } = constraint;
@@ -34,8 +37,13 @@ export function calculateNewDimensions(
   };
 }
 
-/** @internal */
-export function calculateDimensions(local: SVGElement, remote: HTMLElement) {
+/**
+ * @internal
+ * @param {SVGElement} local
+ * @param {HTMLElement} remote
+ * @returns {{ width: string, height: string }}
+ */
+export function calculateDimensions(local, remote) {
   const lWidthStr = local.getAttribute('width');
   const lHeightStr = local.getAttribute('height');
   if (lWidthStr && lHeightStr) {

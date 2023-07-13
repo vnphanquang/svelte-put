@@ -1,7 +1,4 @@
-import type { Action } from 'svelte/action';
-
-import { resolveParameters, type InlineSvgActionParameters } from './inline-svg.parameters';
-import { calculateDimensions } from './inline-svg.utils';
+import { calculateDimensions } from './inline-svg.utils.js';
 
 /**
  * @public
@@ -26,22 +23,18 @@ import { calculateDimensions } from './inline-svg.utils';
  * // svelte.config.js
  * import inlineSvg from '@svelte-put/preprocess-inline-svg';
  *
- * \/** @type {import('@sveltejs/kit').Config} *\/
  * const config = {
  *   preprocess: [inlineSvg()],
  * };
  * export default config;
  * ```
  *
- * @param node - SVGElement to inline SVG into
- * @param parameters - config for the action.
- * @returns
+ * @param {SVGElement} node - SVGElement to inline SVG into
+ * @param {import('./public.js').InlineSvgParameter} param - config for the action.
+ * @returns {import('./public').InlineSvgActionReturn}
  */
-export const inlineSvg: Action<SVGElement, InlineSvgActionParameters> = function (
-  node,
-  parameters,
-) {
-  let config = resolveParameters(parameters);
+export function inlineSvg(node, param) {
+  let config = resolveConfig(param);
   async function op() {
     if (config.src) {
       const response = await fetch(config.src, { cache: config.cache });
@@ -67,8 +60,39 @@ export const inlineSvg: Action<SVGElement, InlineSvgActionParameters> = function
   op();
   return {
     update(update) {
-      config = resolveParameters(update);
+      config = resolveConfig(update);
       op();
     },
   };
+}
+
+/**
+ * @internal
+ * @type {Required<import('./public.js').InlineSvgConfig>}
+ */
+export const DEFAULT_INLINE_SVG_ACTION_CONFIG = {
+  src: '',
+  cache: 'no-cache',
+  autoDimensions: true,
+  transform: (svg) => svg,
 };
+
+/**
+ * resolve the input parameters of `inlineSvg` action to an internally usable config
+ * @internal
+ * @param {import('./public').InlineSvgParameter | undefined} param
+ * @returns {Required<import('./public.js').InlineSvgConfig>}
+ */
+export function resolveConfig(param = '') {
+  if (typeof param === 'string') {
+    return {
+      ...DEFAULT_INLINE_SVG_ACTION_CONFIG,
+      src: param,
+    };
+  }
+
+  return {
+    ...DEFAULT_INLINE_SVG_ACTION_CONFIG,
+    ...param,
+  };
+}
