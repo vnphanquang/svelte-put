@@ -1,12 +1,9 @@
-import type { Action } from 'svelte/action';
-
-import type { DragScrollParameters } from './dragscroll.types';
-
 /**
  * @internal
+ * @param {import('./public').DragScrollParameter} param
  */
-function resolveParameters(parameters: Partial<DragScrollParameters> = {}) {
-  const { cursor = true, enabled = true, axis = 'x', event = 'pointer' } = parameters;
+export function resolveConfig(param = {}) {
+  const { cursor = true, enabled = true, axis = 'x', event = 'pointer' } = param;
   return {
     enabled,
     axes: {
@@ -14,10 +11,20 @@ function resolveParameters(parameters: Partial<DragScrollParameters> = {}) {
       y: axis === 'y' || axis === 'both',
     },
     events: {
-      down: event === 'pointer' ? ('pointerdown' as const) : ('mousedown' as const),
-      up: event === 'pointer' ? ('pointerup' as const) : ('mouseup' as const),
-      move: event === 'pointer' ? ('pointermove' as const) : ('mousemove' as const),
-      leave: event === 'pointer' ? ('pointerleave' as const) : ('mouseleave' as const),
+      down:
+        event === 'pointer'
+          ? /** @type {const} */ ('pointerdown')
+          : /** @type {const} */ ('mousedown'),
+      up:
+        event === 'pointer' ? /** @type {const} */ ('pointerup') : /** @type {const} */ ('mouseup'),
+      move:
+        event === 'pointer'
+          ? /** @type {const} */ ('pointermove')
+          : /** @type {const} */ ('mousemove'),
+      leave:
+        event === 'pointer'
+          ? /** @type {const} */ ('pointerleave')
+          : /** @type {const} */ ('mouseleave'),
     },
     cursor,
   };
@@ -27,22 +34,26 @@ function resolveParameters(parameters: Partial<DragScrollParameters> = {}) {
  * svelte action `use:dragscroll` for adding 'drag-to-scroll' behavior
  * @public
  *
- * @param node - node to apply the action
- * @param parameters - instructions for customizing action behavior
- * @returns svelte {@link svelte/action#ActionReturn | ActionReturn}
+ * @param {HTMLElement} node - node to apply the action
+ * @param {import('./public').DragScrollParameter} param - instructions for customizing action behavior
+ * @returns {import('./public').DragScrollActionReturn}
  */
-export const dragscroll: Action<HTMLElement, Partial<DragScrollParameters>> = function (
-  node,
-  parameters = {},
-) {
+export function dragscroll(node, param = {}) {
   let isDown = false;
-  let startX: number;
-  let startY: number;
-  let scrollLeft: number;
-  let scrollTop: number;
-  let { enabled, axes, events, cursor } = resolveParameters(parameters);
+  /** @type {number} */
+  let startX;
+  /** @type {number} */
+  let startY;
+  /** @type {number} */
+  let scrollLeft;
+  /** @type {number} */
+  let scrollTop;
+  let { enabled, axes, events, cursor } = resolveConfig(param);
 
-  function handlePointerDown(e: PointerEvent | MouseEvent) {
+  /**
+   * @param {PointerEvent | MouseEvent} e
+   */
+  function handlePointerDown(e) {
     changeCursor(true);
     isDown = true;
     startX = e.pageX - node.offsetLeft;
@@ -56,7 +67,10 @@ export const dragscroll: Action<HTMLElement, Partial<DragScrollParameters>> = fu
     isDown = false;
   }
 
-  function handlePointerMove(e: PointerEvent | MouseEvent) {
+  /**
+   * @param {PointerEvent | MouseEvent} e
+   */
+  function handlePointerMove(e) {
     if (!isDown) return;
     e.preventDefault();
     if (axes.x) {
@@ -104,7 +118,7 @@ export const dragscroll: Action<HTMLElement, Partial<DragScrollParameters>> = fu
   return {
     update(update = {}) {
       removeEvents();
-      ({ enabled, axes, events, cursor } = resolveParameters(update));
+      ({ enabled, axes, events, cursor } = resolveConfig(update));
       changeCursor();
       addEvents();
     },
@@ -112,4 +126,4 @@ export const dragscroll: Action<HTMLElement, Partial<DragScrollParameters>> = fu
       removeEvents();
     },
   };
-};
+}

@@ -51,6 +51,10 @@ export interface ClickOutsideConfig {
   options?: AddEventListenerOptions | boolean;
 }
 
+/**
+ * parameter received from action input
+ * @public
+ */
 export type ClickOutsideParameter = Partial<ClickOutsideConfig> | undefined;
 
 /** @public */
