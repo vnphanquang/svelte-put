@@ -19,6 +19,7 @@
     "lint": "turbo run lint --parallel",
     "format": "turbo run format --parallel",
     "api": "turbo run api",
+    "dts": "turbo run dts",
     "ci:version": "changeset version && pnpm install",
     "ci:publish": "pnpm build && changeset publish && pnpm install"
   },

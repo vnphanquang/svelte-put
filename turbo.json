@@ -17,6 +17,9 @@
     "api": {
       "dependsOn": ["^build", "build"],
       "outputs": ["api/**"]
+    },
+    "dts": {
+      "outputs": ["types/index.d.ts", "types/index.d.ts.map"]
     }
   }
 }
