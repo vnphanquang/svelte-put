@@ -1,8 +1,10 @@
+import { ActionReturn, Action } from 'svelte/action';
+
 /**
  * verbose config for `inlineSvg` action
  * @public
  */
-export interface InlineSvgActionConfig {
+export interface InlineSvgConfig {
   /** svg remote URI */
   src: string;
   /** cache policy for use in fetch from svg `src` */
@@ -26,37 +28,14 @@ export interface InlineSvgActionConfig {
    */
   transform?: (svg: string) => string;
 }
-
-/** @internal */
-export const DEFAULT_INLINE_SVG_ACTION_CONFIG: Required<InlineSvgActionConfig> = {
-  src: '',
-  cache: 'no-cache',
-  autoDimensions: true,
-  transform: (svg) => svg,
-};
-
 /**
  * @public
  * input parameters for `inlineSvg` action
  */
-export type InlineSvgActionParameters = string | InlineSvgActionConfig;
+export type InlineSvgParameter = string | InlineSvgConfig;
 
-/**
- * @internal
- * resolve the input parameters of `inlineSvg` action to an internally usable config
- */
-export function resolveParameters(
-  parameters: InlineSvgActionParameters = '',
-): Required<InlineSvgActionConfig> {
-  if (typeof parameters === 'string') {
-    return {
-      ...DEFAULT_INLINE_SVG_ACTION_CONFIG,
-      src: parameters,
-    };
-  }
+/** @public */
+export type InlineSvgAction = Action<SVGElement, InlineSvgParameter>;
 
-  return {
-    ...DEFAULT_INLINE_SVG_ACTION_CONFIG,
-    ...parameters,
-  };
-}
+/** @public */
+export type InlineSvgActionReturn = ActionReturn<InlineSvgParameter>;

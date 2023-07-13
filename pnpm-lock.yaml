@@ -99,30 +99,12 @@ importers:
 
   packages/actions/inline-svg:
     devDependencies:
-      '@microsoft/api-documenter':
-        specifier: ^7.22.25
-        version: 7.22.25(@types/node@18.16.3)
-      '@microsoft/api-extractor':
-        specifier: ^7.36.1
-        version: 7.36.1(@types/node@18.16.3)
-      '@svelte-put/apirc':
-        specifier: workspace:*
-        version: link:../../../configs/apirc
       '@svelte-put/tsconfig':
         specifier: workspace:*
         version: link:../../../configs/tsconfig
-      npm-run-all:
-        specifier: ^4.1.5
-        version: 4.1.5
-      tslib:
-        specifier: ^2.5.0
-        version: 2.5.0
-      tsup:
-        specifier: ^6.7.0
-        version: 6.7.0(postcss@8.4.25)(ts-node@10.9.1)(typescript@5.0.4)
-      typescript:
-        specifier: ^5.0.3
-        version: 5.0.4
+      dts-buddy:
+        specifier: ^0.1.7
+        version: 0.1.7
 
   packages/actions/intersect:
     devDependencies:

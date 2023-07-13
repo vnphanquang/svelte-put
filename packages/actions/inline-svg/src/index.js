@@ -6,6 +6,5 @@
  * @packageDocumentation
  */
 
-export * from './inline-svg.action';
-export * from './inline-svg.parameters';
-export * from './inline-svg.utils';
+export * from './inline-svg.action.js';
+export * from './inline-svg.utils.js';
