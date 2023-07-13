@@ -1,7 +1,6 @@
 <script lang="ts">
   import { javascript } from 'svelte-highlight/languages';
 
-  import ApiReference from '$client/components/ApiReference/ApiReference.svelte';
   import Code from '$client/components/Code/Code.svelte';
   import Installation from '$client/components/Installation/Installation.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
@@ -129,5 +128,3 @@
     </p>
   </div>
 </section>
-
-<ApiReference href={data.package.apiUrl} />
