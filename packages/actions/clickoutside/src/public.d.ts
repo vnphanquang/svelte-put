@@ -40,7 +40,7 @@ export interface ClickOutsideLimit {
  * svelte action parameters to config behavior of `clickoutside`
  * @public
  */
-export interface ClickOutsideParameters {
+export interface ClickOutsideConfig {
   /** whether to activate the action. Default to `true` */
   enabled: boolean;
   /** limit to which the click event will trigger `clickoutside` */
@@ -51,12 +51,10 @@ export interface ClickOutsideParameters {
   options?: AddEventListenerOptions | boolean;
 }
 
-/** @public */
-export type ClickOutsideAction = Action<
-  HTMLElement,
-  ClickOutsideParameters,
-  ClickOutsideAttributes
->;
+export type ClickOutsideParameter = Partial<ClickOutsideConfig> | undefined;
 
 /** @public */
-export type ClickOutsideActionReturn = ActionReturn<ClickOutsideParameters, ClickOutsideAttributes>;
+export type ClickOutsideAction = Action<HTMLElement, ClickOutsideParameter, ClickOutsideAttributes>;
+
+/** @public */
+export type ClickOutsideActionReturn = ActionReturn<ClickOutsideParameter, ClickOutsideAttributes>;
