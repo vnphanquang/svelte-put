@@ -3,7 +3,6 @@
   import typescript from 'svelte-highlight/languages/typescript';
 
   import ActionUsageNotice from '$client/components/ActionUsageNotice/ActionUsageNotice.svelte';
-  import ApiReference from '$client/components/ApiReference/ApiReference.svelte';
   import ApiUnitReference from '$client/components/ApiUnitReference/ApiUnitReference.svelte';
   import Code from '$client/components/Code/Code.svelte';
   import { ConnectedList, ConnectedListItem } from '$client/components/ConnectedList';
@@ -517,8 +516,6 @@
     </div>
   </section>
 </section>
-
-<ApiReference href={data.package.apiUrl} />
 
 <img
   src={endImg}
