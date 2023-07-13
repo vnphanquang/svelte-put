@@ -10,7 +10,8 @@
     "access": "public"
   },
   "files": [
-    "src"
+    "src",
+    "types"
   ],
   "scripts": {
     "lint": "eslint --ignore-path .gitignore \"./**/*/*{ts,js,cjs}\"",
