@@ -39,11 +39,7 @@
     <code>movable</code> provide two <ResourceLink key="CustomEvent" />s,
     <code>movablestart</code> and <code>movableend,</code>
     with <code>event.detail</code> set to
-    <ResourceLink
-      href="https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/api/docs/movable.movableeventdetails.md"
-      >MovableEventDetails</ResourceLink
-    >
-    .
+    <code>MovableEventDetail</code>.
   </p>
   <Code code={codes.events} title="events" />
 </section>
