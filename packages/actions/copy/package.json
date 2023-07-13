@@ -6,6 +6,12 @@
   "module": "src/index.js",
   "types": "types/index.d.ts",
   "type": "module",
+  "exports": {
+    ".": {
+      "import": "./src/index.js",
+      "types": "./types/index.d.ts"
+    }
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -16,7 +22,7 @@
   "scripts": {
     "lint": "eslint --ignore-path .gitignore \"./**/*/*{ts,js,cjs}\"",
     "format": "prettier --check --ignore-path .gitignore --plugin-search-dir=. \"./**/*.{ts,js,cjs}\"",
-    "dts": "node scripts/generate-dts-bundle.js",
+    "dts": "dts-buddy",
     "prepublishOnly": "pnpm dts"
   },
   "repository": {
