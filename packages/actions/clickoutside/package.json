@@ -6,12 +6,6 @@
   "module": "src/index.js",
   "types": "types/index.d.ts",
   "type": "module",
-  "exports": {
-    ".": {
-      "types": "./types/index.d.ts",
-      "import": "./src/index.js"
-    }
-  },
   "publishConfig": {
     "access": "public"
   },
