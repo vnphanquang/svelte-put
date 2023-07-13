@@ -1,3 +1,5 @@
+import { ActionReturn, Action } from 'svelte/action';
+
 /**
  * Additional attributes extended from `svelte-put/resize`
  * @public
@@ -23,11 +25,10 @@ export interface ResizeAttributes {
 }
 
 /**
- * svelte action parameters to config behavior of `resize`
+ * config behavior of `resize`
  * @public
- *
  */
-export interface ResizeParameters {
+export interface ResizeConfig {
   /**
    * whether to activate the action. Default to `true`
    * @defaultValue true
@@ -45,6 +46,12 @@ export interface ResizeParameters {
 }
 
 /**
+ * parameter received from action input
+ * @public
+ */
+export type ResizeParameter = ResizeConfig | undefined;
+
+/**
  * `detail` payload for `resize` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent}
  * @public
  */
@@ -54,3 +61,9 @@ export interface ResizeDetail {
   /** list of ResizeObserverEntry passed from ResizeObserver callback */
   readonly entry: ResizeObserverEntry;
 }
+
+/** @public */
+export type ResizeAction = Action<HTMLElement, ResizeParameter, ResizeAttributes>;
+
+/** @public */
+export type ResizeActionReturn = ActionReturn<ResizeParameter, ResizeAttributes>;

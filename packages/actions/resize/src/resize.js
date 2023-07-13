@@ -1,7 +1,3 @@
-import type { Action } from 'svelte/action';
-
-import { ResizeAttributes, ResizeDetail, ResizeParameters } from './resize.types';
-
 /**
  * Create an {@link https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver | ResizeObserver} that observers this node
  * @public
@@ -39,15 +35,12 @@ import { ResizeAttributes, ResizeDetail, ResizeParameters } from './resize.types
  * <Component use:resize/>
  * ```
  *
- * @param node - HTMLElement to observe
- * @param parameters - svelte action parameters
- * @returns svelte {@link svelte/action#ActionReturn | ActionReturn}
+ * @param {HTMLElement} node - HTMLElement to observe
+ * @param {import('./public').ResizeParameter} param - svelte action parameters
+ * @returns {import('./public').ResizeActionReturn}
  */
-export const resize: Action<HTMLElement, ResizeParameters, ResizeAttributes> = function (
-  node,
-  parameters = {},
-) {
-  let { enabled = true, observer = 'singleton' } = parameters;
+export function resize(node, param = {}) {
+  let { enabled = true, observer = 'singleton' } = param;
 
   let rObserver = resolveObserver(observer);
 
@@ -55,7 +48,7 @@ export const resize: Action<HTMLElement, ResizeParameters, ResizeAttributes> = f
     rObserver.observe(node);
   }
   return {
-    update(update) {
+    update(update = {}) {
       const newObserver = update.observer ?? 'singleton';
       const newEnabled = update.enabled ?? true;
 
@@ -77,30 +70,34 @@ export const resize: Action<HTMLElement, ResizeParameters, ResizeAttributes> = f
       rObserver.disconnect();
     },
   };
-};
+}
 
 /**
- * ResizeObserverCallback
  * @internal
+ * @type {ResizeObserverCallback}
  */
-const callback: ResizeObserverCallback = function (entries) {
+function callback(entries) {
   for (const entry of entries) {
-    const detail: ResizeDetail = { observer: observerSingleton, entry };
+    /** @type {import('./public').ResizeDetail} */
+    const detail = { observer: observerSingleton, entry };
     entry.target.dispatchEvent(new CustomEvent('resized', { detail }));
   }
-};
+}
 
 /**
  * singleton for all actions to use
  * @internal
+ * @type {ResizeObserver}
  */
-let observerSingleton: ResizeObserver;
+let observerSingleton;
 
 /**
  * resolve to a ResizeObserver for use in action
  * @internal
+ * @param {import('./public').ResizeConfig['observer']} input
+ * @returns {ResizeObserver}
  */
-function resolveObserver(input: ResizeParameters['observer'] = 'singleton'): ResizeObserver {
+function resolveObserver(input = 'singleton') {
   if (input === 'singleton') {
     if (!observerSingleton) {
       observerSingleton = new ResizeObserver(callback);

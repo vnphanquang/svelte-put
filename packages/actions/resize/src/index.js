@@ -6,5 +6,4 @@
  * @packageDocumentation
  */
 
-export * from './resize';
-export * from './resize.types';
+export * from './resize.js';
