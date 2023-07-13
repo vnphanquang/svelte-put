@@ -6,5 +6,4 @@
  * @packageDocumentation
  */
 
-export * from './movable';
-export * from './movable.types';
+export * from './movable.js';

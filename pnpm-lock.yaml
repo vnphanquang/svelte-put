@@ -135,33 +135,12 @@ importers:
 
   packages/actions/movable:
     devDependencies:
-      '@microsoft/api-documenter':
-        specifier: ^7.22.25
-        version: 7.22.25(@types/node@18.16.3)
-      '@microsoft/api-extractor':
-        specifier: ^7.36.1
-        version: 7.36.1(@types/node@18.16.3)
-      '@rollup/plugin-typescript':
-        specifier: ^11.0.0
-        version: 11.1.0(rollup@3.21.3)(tslib@2.5.0)(typescript@5.0.4)
-      '@svelte-put/apirc':
-        specifier: workspace:*
-        version: link:../../../configs/apirc
       '@svelte-put/tsconfig':
         specifier: workspace:*
         version: link:../../../configs/tsconfig
-      npm-run-all:
-        specifier: ^4.1.5
-        version: 4.1.5
-      rollup:
-        specifier: ^3.20.2
-        version: 3.21.3
-      tslib:
-        specifier: ^2.5.0
-        version: 2.5.0
-      typescript:
-        specifier: ^5.0.3
-        version: 5.0.4
+      dts-buddy:
+        specifier: ^0.1.7
+        version: 0.1.7
 
   packages/actions/resize:
     devDependencies:

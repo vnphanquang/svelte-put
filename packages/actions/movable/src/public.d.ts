@@ -1,3 +1,5 @@
+import { ActionReturn, Action } from 'svelte/action';
+
 /**
  * Additional attributes extended from `svelte-put/intersect`
  * @public
@@ -87,7 +89,7 @@ export interface MovableLimit {
 }
 
 /**
- * svelte action parameters to config behavior of `movable`
+ * config behavior of `movable`
  * @public
  *
  * @remarks
@@ -95,7 +97,7 @@ export interface MovableLimit {
  * `movable` support reactive parameters.
  * That means they can be updated after initialization.
  */
-export interface MovableParameters {
+export interface MovableConfig {
   /** whether to activate the action. Default to `true` */
   enabled?: boolean;
   /** Set a limit within which node can be moved */
@@ -133,6 +135,12 @@ export interface MovableParameters {
 }
 
 /**
+ * parameter received from action input
+ * @public
+ */
+export type MovableParameter = MovableConfig | undefined;
+
+/**
  * `detail` payload for `movableend` and `movablestart` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent }
  * @public
  *
@@ -165,3 +173,9 @@ export interface MovableEventDetails {
     top: number;
   };
 }
+
+/** @public */
+export type MovableAction = Action<HTMLElement, MovableParameter, MovableAttributes>;
+
+/** @public */
+export type MovableActionReturn = ActionReturn<MovableParameter, MovableAttributes>;
