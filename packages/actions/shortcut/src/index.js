@@ -6,5 +6,4 @@
  * @packageDocumentation
  */
 
-export { shortcut } from './shortcut';
-export * from './types';
+export { shortcut } from './shortcut.js';

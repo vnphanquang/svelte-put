@@ -1,3 +1,5 @@
+import { ActionReturn, Action } from 'svelte/action';
+
 /**
  * Additional attributes extended from `svelte-put/shortcut`
  *  @public
@@ -7,7 +9,7 @@
  * whenever `svelte-put/shorcut` is imported.
  */
 export interface ShortcutAttributes {
-  'on:shortcut'?: (event: CustomEvent<ShortcutEventDetails>) => void;
+  'on:shortcut'?: (event: CustomEvent<ShortcutEventDetail>) => void;
 }
 
 /**
@@ -130,16 +132,16 @@ export interface ShortcutTrigger {
   /** the {@link https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent | KeyboardEvent}.key to listen to */
   key: string;
   /** callback for when the trigger is matched */
-  callback?: (detail: ShortcutEventDetails) => void;
+  callback?: (detail: ShortcutEventDetail) => void;
   /** whether to call `event.preventDefault` before firing callback. Default to `false` */
   preventDefault?: boolean;
 }
 
 /**
- * svelte action parameters to config behavior of `shortcut`
+ * svelte action parameter to config behavior of `shortcut`
  * @public
  */
-export interface ShortcutParameters {
+export interface ShortcutParameter {
   /**
    * whether to activate the action. Default to `true`
    *
@@ -165,9 +167,9 @@ export interface ShortcutParameters {
  *
  * ```html
  * <script>
- *  import { shortcut, type ShortcutEventDetails } from '@svelte-put/shortcut';
+ *  import { shortcut, type ShortcutEventDetail } from '@svelte-put/shortcut';
  *
- *  function onShortcut(event: CustomEvent<ShortcutEventDetails>) {
+ *  function onShortcut(event: CustomEvent<ShortcutEventDetail>) {
  *    if (event.detail.trigger.id === 'my-shortcut') {
  *      console.log('do something');
  *    }
@@ -186,9 +188,15 @@ export interface ShortcutParameters {
  * />
  * ```
  */
-export interface ShortcutEventDetails {
+export interface ShortcutEventDetail {
   /** the node that the action was placed on */
   node: HTMLElement;
   /** the shortcut trigger of this event */
   trigger: ShortcutTrigger;
 }
+
+/** @public */
+export type ShortcutAction = Action<HTMLElement, ShortcutParameter, ShortcutAttributes>;
+
+/** @public */
+export type ShortcutActionReturn = ActionReturn<ShortcutParameter, ShortcutAttributes>;

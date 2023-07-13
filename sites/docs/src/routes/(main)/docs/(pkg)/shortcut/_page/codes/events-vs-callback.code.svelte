@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { shortcut, type ShortcutEventDetails } from '@svelte-put/shortcut';
+  import { shortcut, type ShortcutEventDetail } from '@svelte-put/shortcut';
 
   let commandPalette = false;
   function onOpenCommandPalette() {
@@ -9,12 +9,12 @@
     commandPalette = false;
   }
 
-  function doSomethingElse(details: ShortcutEventDetails) {
+  function doSomethingElse(details: ShortcutEventDetail) {
     console.log('Action was placed on:', details.node);
     console.log('Trigger:', details.trigger);
   }
 
-  function onShortcut(event: CustomEvent<ShortcutEventDetails>) {
+  function onShortcut(event: CustomEvent<ShortcutEventDetail>) {
     if (event.detail.trigger.id === 'do-something-else') {
       console.log('Same as doSomethingElse()');
       // be careful here doSomethingElse would have been called too
