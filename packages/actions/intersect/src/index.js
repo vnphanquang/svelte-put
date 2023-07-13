@@ -6,5 +6,4 @@
  * @packageDocumentation
  */
 
-export * from './intersect';
-export * from './intersect.types';
+export * from './intersect.js';

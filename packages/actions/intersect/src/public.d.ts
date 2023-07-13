@@ -1,3 +1,5 @@
+import { ActionReturn, Action } from 'svelte/action';
+
 /**
  * Additional attributes extended from `svelte-put/intersect`
  * @public
@@ -25,7 +27,7 @@ export interface IntersectAttributes {
 }
 
 /**
- * svelte action parameters to config behavior of `intersect`
+ * config behavior of `intersect`
  * @public
  *
  * @remarks
@@ -33,7 +35,7 @@ export interface IntersectAttributes {
  * parameters for `intersect` extends {@link https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver | IntersectionObserverInit }
  * (second parameter passed to IntersectionObserver constructor)
  */
-export interface IntersectParameters extends IntersectionObserverInit {
+export interface IntersectConfig extends IntersectionObserverInit {
   /** whether to activate the action. Default to `true` */
   enabled?: boolean;
 }
@@ -50,3 +52,15 @@ export interface IntersectDetail {
   /** scrolling direction */
   readonly direction: 'up' | 'down';
 }
+
+/**
+ * parameter received from action input
+ * @public
+ */
+export type IntersectParameter = IntersectConfig | undefined;
+
+/** @public */
+export type IntersectAction = Action<HTMLElement, IntersectParameter, IntersectAttributes>;
+
+/** @public */
+export type IntersectActionReturn = ActionReturn<IntersectParameter, IntersectAttributes>;

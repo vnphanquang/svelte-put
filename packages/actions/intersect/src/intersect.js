@@ -1,7 +1,3 @@
-import type { Action } from 'svelte/action';
-
-import { IntersectAttributes, IntersectDetail, IntersectParameters } from './intersect.types';
-
 /**
  * Create an IntersectionObserver that observers the node
  * @public
@@ -91,23 +87,23 @@ import { IntersectAttributes, IntersectDetail, IntersectParameters } from './int
  * <Component use:intersect/>
  * ```
  *
- * @param node - HTMLElement to observe
- * @param parameters - svelte action parameters
- * @returns svelte {@link svelte/action#ActionReturn | ActionReturn}
+ * @param {HTMLElement} node - HTMLElement to observe
+ * @param {import('./public').IntersectParameter} param - svelte action parameters
+ * @returns {import('./public').IntersectActionReturn}
  */
-export const intersect: Action<HTMLElement, IntersectParameters, IntersectAttributes> = function (
-  node,
-  parameters = { enabled: true },
-) {
+export function intersect(node, param = { enabled: true }) {
   let hasIntersect = false;
   let previousY = 0;
 
-  let { root, rootMargin, threshold, enabled = true } = parameters;
-  const callback: IntersectionObserverCallback = (entries, observer) => {
+  let { root, rootMargin, threshold, enabled = true } = param;
+
+  /** @type {IntersectionObserverCallback} */
+  const callback = (entries, observer) => {
     const y = entries[0].boundingClientRect.y ?? 0;
     if (entries.some((e) => !!e.intersectionRatio)) {
       const direction = y < previousY ? 'down' : 'up';
-      const detail: IntersectDetail = {
+      /** @type {import('./public').IntersectDetail} */
+      const detail = {
         observer,
         entries,
         direction,
@@ -163,4 +159,4 @@ export const intersect: Action<HTMLElement, IntersectParameters, IntersectAttrib
       observer.disconnect();
     },
   };
-};
+}

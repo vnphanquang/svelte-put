@@ -2,7 +2,6 @@
   import typescript from 'svelte-highlight/languages/typescript';
 
   import ActionUsageNotice from '$client/components/ActionUsageNotice/ActionUsageNotice.svelte';
-  import ApiReference from '$client/components/ApiReference/ApiReference.svelte';
   import Code from '$client/components/Code/Code.svelte';
   import Installation from '$client/components/Installation/Installation.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
@@ -110,8 +109,6 @@
     expanded={false}
   />
 </section>
-
-<ApiReference href={data.package.apiUrl} />
 
 <img
   src={endImg}
