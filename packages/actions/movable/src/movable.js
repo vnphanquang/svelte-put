@@ -1,8 +1,4 @@
 import { tick } from 'svelte';
-import type { Action } from 'svelte/action';
-
-import type { MovableAttributes, MovableEventDetails, MovableParameters } from './movable.types';
-import { input } from './utils';
 
 /**
  * Trigger node displacement on mousedown (via position.left & position.top)
@@ -97,37 +93,46 @@ import { input } from './utils';
  *
  * - document.body.cursor is set to `move` after `mousedown` and restored on `mouseup`
  *
- * @param node - HTMLElement to be moved
- * @param parameters - svelte action parameters
- * @returns svelte {@link svelte/action#ActionReturn | ActionReturn}
+ * @param {HTMLElement} node - HTMLElement to be moved
+ * @param {import('./public').MovableParameter} param - svelte action parameters
+ * @returns {import('./public').MovableActionReturn}
  *
  */
-export const movable: Action<HTMLElement, MovableParameters, MovableAttributes> = function (
-  node,
-  parameters = { enabled: true },
-) {
-  let { parent, normalizedDelta, handle, enabled, ignore, cursor } = input(node, parameters);
+export function movable(node, param = { enabled: true }) {
+  let { parent, normalizedDelta, handle, enabled, ignore, cursor } = input(node, param);
 
   const lastMousePosition = { x: 0, y: 0 };
   const lastNodePosition = { top: 0, left: 0 };
   let ΣΔx = 0; // total displacement in x-axis
   let ΣΔy = 0; // total displacement in y-axis
 
-  function getIgnoredElements(): HTMLElement[] {
+  /**
+   * @returns {HTMLElement[]}
+   */
+  function getIgnoredElements() {
     return ignore ? Array.from(handle.querySelectorAll(ignore)) : [];
   }
 
-  function updateLastMousePosition(event: MouseEvent) {
+  /**
+   * @param {MouseEvent} event
+   */
+  function updateLastMousePosition(event) {
     lastMousePosition.x = event.clientX;
     lastMousePosition.y = event.clientY;
   }
 
-  function updateLastNodePosition({ top, left }: typeof lastNodePosition) {
+  /**
+   * @param {typeof lastNodePosition} param0
+   */
+  function updateLastNodePosition({ top, left }) {
     lastNodePosition.top = top;
     lastNodePosition.left = left;
   }
 
-  function onMouseMove(event: MouseEvent) {
+  /**
+   * @param {MouseEvent} event
+   */
+  function onMouseMove(event) {
     const Δx = event.clientX - lastMousePosition.x;
     const Δy = event.clientY - lastMousePosition.y;
     updateLastMousePosition(event);
@@ -157,7 +162,8 @@ export const movable: Action<HTMLElement, MovableParameters, MovableAttributes> 
     }
 
     if (parent) {
-      let insideBoundingRect: Record<'top' | 'bottom' | 'left' | 'right', number>;
+      /** @type {Pick<DOMRectReadOnly, 'top' | 'bottom' | 'left' | 'right'>} */
+      let insideBoundingRect;
       if (parent === 'screen') {
         insideBoundingRect = {
           top: 0,
@@ -216,7 +222,7 @@ export const movable: Action<HTMLElement, MovableParameters, MovableAttributes> 
     updateLastNodePosition({ top, left });
   }
 
-  const end = () => {
+  function end() {
     document.body.style.userSelect = '';
     if (cursor) {
       if (document.body.style.cursor === 'grabbing') {
@@ -227,13 +233,19 @@ export const movable: Action<HTMLElement, MovableParameters, MovableAttributes> 
     window.removeEventListener('mousemove', onMouseMove);
     window.removeEventListener('mouseup', end);
 
-    const detail: MovableEventDetails = { node, position: lastNodePosition };
+    /** @type {import('./public').MovableEventDetails} */
+    const detail = { node, position: lastNodePosition };
     node.dispatchEvent(new CustomEvent('movableend', { detail }));
-  };
+  }
 
-  const onMouseDown = (event: MouseEvent) => {
+  /**
+   * @param {MouseEvent} event
+   */
+  function onMouseDown(event) {
     const ignoredElements = getIgnoredElements();
-    if (ignoredElements.some((node) => node.isSameNode(event.target as HTMLElement))) {
+    if (
+      ignoredElements.some((node) => node.isSameNode(/** @type {HTMLElement} */ (event.target)))
+    ) {
       return;
     }
 
@@ -245,7 +257,8 @@ export const movable: Action<HTMLElement, MovableParameters, MovableAttributes> 
     const top = parseInt(computedStyles.getPropertyValue('top').match(regex)?.[0] ?? '0');
     updateLastNodePosition({ left, top });
 
-    const detail: MovableEventDetails = { node, position: lastNodePosition };
+    /** @type {import('./public').MovableEventDetails} */
+    const detail = { node, position: lastNodePosition };
     node.dispatchEvent(new CustomEvent('movablestart', { detail }));
 
     // init position style
@@ -263,7 +276,7 @@ export const movable: Action<HTMLElement, MovableParameters, MovableAttributes> 
     }
     window.addEventListener('mousemove', onMouseMove);
     window.addEventListener('mouseup', end);
-  };
+  }
 
   function addCursor() {
     if (cursor) {
@@ -314,4 +327,88 @@ export const movable: Action<HTMLElement, MovableParameters, MovableAttributes> 
       removeCursor();
     },
   };
-};
+}
+
+/**
+ * @internal
+ * @typedef {{
+ *  unit: 'px' | '%';
+ *  value: number;
+ * }} NormalizedLimit
+ * MovableLimit interface normalized to use in runtime
+ *
+ * @typedef {'px' | '%'} SpacingUnit
+ * @typedef {'x' | 'y'} Axis
+ */
+
+/**
+ * @internal
+ *
+ * @param {import('./public').MovableLimit['delta']} delta - MovableLimit to normalize
+ * @returns {{ x: NormalizedLimit, y: NormalizedLimit }}
+ */
+export function normalizeDelta(delta) {
+  /** @type {NormalizedLimit} */
+  const x = { unit: 'px', value: 0 };
+  /** @type {NormalizedLimit} */
+  const y = { unit: 'px', value: 0 };
+
+  /**
+   *
+   * @param {string} text
+   * @param {Axis | undefined} axis
+   * @returns {SpacingUnit}
+   */
+  function extractUnit(text, axis = undefined) {
+    /** @type {SpacingUnit} */
+    let unit = 'px';
+    if (text.slice(-1) === '%') {
+      unit = '%';
+    } else if (text.slice(-2) === 'px') {
+      unit = 'px';
+    } else {
+      throw new Error(`Invalid delta ${axis ?? ''} unit. Only 'px' and '%' are supported.`);
+    }
+    return unit;
+  }
+
+  if (delta) {
+    if (typeof delta === 'string') {
+      x.unit = y.unit = extractUnit(delta);
+      x.value = y.value = parseInt(delta, 10);
+      x.value = y.value = parseInt(delta.slice(0, -1));
+    } else {
+      x.unit = extractUnit(delta.x, 'x');
+      x.value = parseInt(delta.x.slice(0, -1));
+
+      y.unit = extractUnit(delta.y, 'y');
+      y.value = parseInt(delta.y.slice(0, -1));
+    }
+  }
+
+  return { x, y };
+}
+
+/**
+ *
+ * @internal
+ *
+ * @param {HTMLElement} node
+ * @param {import('./public').MovableParameter} param
+ * @returns
+ */
+export function input(node, param = {}) {
+  return {
+    enabled: param.enabled ?? true,
+    parent: param.limit?.parent,
+    normalizedDelta: normalizeDelta(param.limit?.delta),
+    handle: param.handle ?? param.trigger ?? node,
+    ignore: (param.ignore
+      ? typeof param.ignore === 'string'
+        ? [param.ignore]
+        : param.ignore
+      : []
+    ).join(','),
+    cursor: param.cursor ?? true,
+  };
+}
