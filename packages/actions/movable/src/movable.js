@@ -233,7 +233,7 @@ export function movable(node, param = { enabled: true }) {
     window.removeEventListener('mousemove', onMouseMove);
     window.removeEventListener('mouseup', end);
 
-    /** @type {import('./public').MovableEventDetails} */
+    /** @type {import('./public').MovableEventDetail} */
     const detail = { node, position: lastNodePosition };
     node.dispatchEvent(new CustomEvent('movableend', { detail }));
   }
@@ -257,7 +257,7 @@ export function movable(node, param = { enabled: true }) {
     const top = parseInt(computedStyles.getPropertyValue('top').match(regex)?.[0] ?? '0');
     updateLastNodePosition({ left, top });
 
-    /** @type {import('./public').MovableEventDetails} */
+    /** @type {import('./public').MovableEventDetail} */
     const detail = { node, position: lastNodePosition };
     node.dispatchEvent(new CustomEvent('movablestart', { detail }));
 

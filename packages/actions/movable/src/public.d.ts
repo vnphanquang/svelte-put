@@ -22,8 +22,8 @@ import { ActionReturn, Action } from 'svelte/action';
  * ```
  */
 export interface MovableAttributes {
-  'on:movablestart'?: (event: CustomEvent<MovableEventDetails>) => void;
-  'on:movableend'?: (event: CustomEvent<MovableEventDetails>) => void;
+  'on:movablestart'?: (event: CustomEvent<MovableEventDetail>) => void;
+  'on:movableend'?: (event: CustomEvent<MovableEventDetail>) => void;
 }
 
 /**
@@ -162,7 +162,7 @@ export type MovableParameter = MovableConfig | undefined;
  * />
  * ```
  */
-export interface MovableEventDetails {
+export interface MovableEventDetail {
   /** the node that the action was placed on */
   node: HTMLElement;
   /** last known position, as in styles.position */
