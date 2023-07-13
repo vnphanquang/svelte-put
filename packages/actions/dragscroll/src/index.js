@@ -6,5 +6,4 @@
  * @packageDocumentation
  */
 
-export * from './dragscroll.action';
-export * from './dragscroll.types';
+export * from './dragscroll.action.js';
