@@ -42,7 +42,7 @@ export function createTocStore() {
 
 /**
  * @internal
- * @param {import('../parameter/parameter').ResolvedTocParameters['store']} store
+ * @param {import('../parameter/parameter').ResolvedTocConfig['store']} store
  * @param {Partial<import('./store').TocStoreValue>} param1
  */
 export function updateStore(store, { activeItem, id, items }) {

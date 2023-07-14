@@ -64,7 +64,7 @@ export function extractTocItemId(element, fallbackText) {
 /**
  * @internal
  * @param {HTMLElement} element
- * @param {import('../parameter/parameter').ResolvedTocParameters['scrollMarginTop']} scrollMarginTop
+ * @param {import('../parameter/parameter').ResolvedTocConfig['scrollMarginTop']} scrollMarginTop
  * @returns {string}
  */
 export function processScrollMarginTop(element, scrollMarginTop) {
@@ -90,7 +90,7 @@ export function isAutoSlugInjectedAnchor(element) {
 /**
  * @internal
  * @param {HTMLElement} element
- * @param {import('../parameter/parameter').ResolvedTocParameters['anchor']} anchor
+ * @param {import('../parameter/parameter').ResolvedTocConfig['anchor']} anchor
  * @param {string} tocId
  * @returns {HTMLAnchorElement | undefined}
  */
@@ -187,7 +187,7 @@ export function processAnchor(element, anchor, tocId) {
 /**
  * @internal
  * @param {HTMLElement} element
- * @param {import('../parameter/parameter').ResolvedTocParameters['observe']} observe
+ * @param {import('../parameter/parameter').ResolvedTocConfig['observe']} observe
  * @param {string} tocId
  * @param {(activeTocItemId?: string) => void} updateActiveTocItem
  * @param {Record<number, IntersectionObserver>} observerPool
@@ -196,10 +196,10 @@ export function processAnchor(element, anchor, tocId) {
 export function processObserve(element, observe, tocId, updateActiveTocItem, observerPool) {
   if (!observe.enabled) return undefined;
   const parentElement = element.parentElement;
-  /** @type {Exclude<import('../parameter/parameter').ResolvedTocParameters['observe']['strategy'], 'auto'>} */
+  /** @type {Exclude<import('../parameter/parameter').ResolvedTocConfig['observe']['strategy'], 'auto'>} */
   let rStrategy;
   const userDefinedStrategy =
-    /** @type {import('../parameter/parameter').ResolvedTocParameters['observe']['strategy']} */ (
+    /** @type {import('../parameter/parameter').ResolvedTocConfig['observe']['strategy']} */ (
       element.getAttribute(ATTRIBUTES.strategy)
     ) || observe.strategy;
   if (typeof userDefinedStrategy !== 'number' && userDefinedStrategy !== 'auto') {

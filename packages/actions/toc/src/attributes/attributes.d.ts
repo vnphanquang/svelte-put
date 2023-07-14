@@ -1,5 +1,5 @@
-import type { TocChangeEventDetails, TocInitEventDetails } from '../events/events.d.ts';
-import type { TocObserveParameters } from '../parameter/parameter.d.ts';
+import type { TocChangeEventDetail, TocInitEventDetail } from '../events/events.d.ts';
+import type { TocObserveConfig } from '../parameter/parameter.d.ts';
 
 /**
  * Data attributes to override `toc` behavior per matching element
@@ -19,7 +19,7 @@ export interface TocDataAttributes {
    * `IntersectionObserver` This only has effect if the `observe`
    * option is enabled in {@link TocParameters}
    */
-  'data-toc-strategy'?: TocObserveParameters['strategy'];
+  'data-toc-strategy'?: TocObserveConfig['strategy'];
   /**
    * override the `threshold` for this element to use in creating
    * `IntersectionObserver` This only has effect if the `observe`
@@ -33,6 +33,6 @@ export interface TocDataAttributes {
  * @public
  */
 export interface TocEventAttributes {
-  'on:tocinit'?: (event: CustomEvent<TocInitEventDetails>) => void;
-  'on:tocchange'?: (event: CustomEvent<TocChangeEventDetails>) => void;
+  'on:tocinit'?: (event: CustomEvent<TocInitEventDetail>) => void;
+  'on:tocchange'?: (event: CustomEvent<TocChangeEventDetail>) => void;
 }

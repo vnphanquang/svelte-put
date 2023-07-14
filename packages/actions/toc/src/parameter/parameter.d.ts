@@ -1,14 +1,14 @@
 import type { TocItem } from '../action/action.d.ts';
 import type { TocStore } from '../store/store.d.ts';
 
-import type { resolveTocParameters } from './index.js';
+import type { resolveTocConfig } from './index.js';
 
 /**
  * options to config how `toc` action create `IntersectionObserver` for each
  * matching toc element
  * @public
  */
-export interface TocObserveParameters extends Omit<IntersectionObserverInit, 'threshold'> {
+export interface TocObserveConfig extends Omit<IntersectionObserverInit, 'threshold'> {
   /**
    * whether to add `IntersectionObserver` to each matching toc element
    * to track active active element in the viewport.
@@ -49,7 +49,7 @@ export interface TocObserveParameters extends Omit<IntersectionObserverInit, 'th
  * options to config how `toc` action inject anchor tag for each matching toc element
  * @public
  */
-export interface TocAnchorParameters {
+export interface TocAnchorConfig {
   /** whether to insert an anchor tag for each matching node */
   enabled?: boolean;
   /**
@@ -88,7 +88,7 @@ export interface TocAnchorParameters {
 /**
  * @public
  */
-export interface TocParameters {
+export interface TocConfig {
   /**
    * A unique ID representing
    * the operation. This is used for caching so that if the action
@@ -123,12 +123,12 @@ export interface TocParameters {
    * instructions to add the anchor tag.
    * Default to: `true`
    */
-  anchor?: TocAnchorParameters | boolean;
+  anchor?: TocAnchorConfig | boolean;
   /**
    * instructions to track the active element in the viewport using `IntersectionObserver`.
    * Default to: `false`
    */
-  observe?: TocObserveParameters | boolean;
+  observe?: TocObserveConfig | boolean;
   /**
    * a svelte store that, if provides, will update with the list of extracted
    * toc elements, and the active one (if `observe` is enabled)
@@ -141,11 +141,14 @@ export interface TocParameters {
   store?: TocStore;
 }
 
+/** @public */
+export type TocParameter = TocConfig | undefined;
+
 /**
  * @public
  * configure relationship between the `observe` functionality of `toc` and `toclink`
  */
-export interface TocLinkObserveParameters {
+export interface TocLinkObserveConfig {
   /**
    * whether to enable this configuration
    * Default to: `false`
@@ -188,7 +191,7 @@ export interface TocLinkObserveParameters {
  * @public
  * options to configure the behavior of the `toclink` svelte action
  */
-export interface TocLinkParameters {
+export interface TocLinkConfig {
   /**
    * the ID of the toc operations.
    * If not provided will search for the closest toc root
@@ -217,11 +220,11 @@ export interface TocLinkParameters {
   tocItem?: string | TocItem;
   /**
    * connect and reflect the `observe` functionality of `toc`
-   * @see {@link TocObserveParameters}
+   * @see {@link TocObserveConfig}
    *
    * Default to: `false`
    */
-  observe?: TocLinkObserveParameters | boolean;
+  observe?: TocLinkObserveConfig | boolean;
   /**
    * svelte store as used in `use:toc`
    *
@@ -231,5 +234,8 @@ export interface TocLinkParameters {
   store?: TocStore;
 }
 
+/** @public */
+export type TocLinkParameter = TocLinkConfig | undefined;
+
 /** @internal */
-export type ResolvedTocParameters = ReturnType<typeof resolveTocParameters>;
+export type ResolvedTocConfig = ReturnType<typeof resolveTocConfig>;
