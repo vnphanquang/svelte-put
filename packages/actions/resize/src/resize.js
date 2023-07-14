@@ -109,3 +109,8 @@ function resolveObserver(input = 'singleton') {
   }
   return input;
 }
+
+/**
+ * Deprecated, use `ResizeConfig` and `ResizeParameter` instead
+ * @typedef {import('./public').ResizeConfig} ResizeParameters
+ */
