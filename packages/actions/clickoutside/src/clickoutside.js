@@ -1,9 +1,4 @@
 /**
- * Deprecated, use `ClickOutsideParameter` and `ClickOutsideConfig` instead
- * @typedef {import('./public').ClickOutsideConfig} ClickOutsideParameters
- */
-
-/**
  * Dispatch a `clickoutside` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent } on click outside of node
  * @public
  *
@@ -101,3 +96,8 @@ export function resolveConfig(param = {}) {
     capture: typeof param.options === 'object' ? param.options?.capture : param.options,
   };
 }
+
+/**
+ * Deprecated, use `ClickOutsideParameter` and `ClickOutsideConfig` instead
+ * @typedef {import('./public').ClickOutsideConfig} ClickOutsideParameters
+ */

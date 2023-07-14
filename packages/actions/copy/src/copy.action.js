@@ -1,9 +1,3 @@
-/**
- * Deprecated, use `CopyParameter` and `CopyConfig` instead
- * @typedef {import('./public').CopyConfig<K>} CopyParameters
- * @template {keyof HTMLElementEventMap} K
- */
-
 import { copyToClipboard } from './copy.helpers.js';
 
 /**
@@ -85,3 +79,9 @@ function resolveConfig(node, param = {}) {
   const events = typeof param.event === 'string' ? [param.event] : param.event ?? ['click'];
   return { trigger, enabled, text, events, synthetic };
 }
+
+/**
+ * Deprecated, use `CopyParameter` and `CopyConfig` instead
+ * @typedef {import('./public').CopyConfig<K>} CopyParameters
+ * @template {keyof HTMLElementEventMap} K
+ */

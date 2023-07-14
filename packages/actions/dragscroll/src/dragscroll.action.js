@@ -1,9 +1,4 @@
 /**
- * Deprecated, use `DragScrollParameter` and `DragScrollConfig` instead
- * @typedef {import('./public').DragScrollConfig} DragScrollParameters
- */
-
-/**
  * @internal
  * @param {import('./public').DragScrollParameter} param
  */
@@ -132,3 +127,8 @@ export function dragscroll(node, param = {}) {
     },
   };
 }
+
+/**
+ * Deprecated, use `DragScrollParameter` and `DragScrollConfig` instead
+ * @typedef {import('./public').DragScrollConfig} DragScrollParameters
+ */
