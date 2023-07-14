@@ -1,4 +1,9 @@
 /**
+ * Deprecated, use `ClickOutsideParameter` and `ClickOutsideConfig` instead
+ * @typedef {import('./public').ClickOutsideConfig} ClickOutsideParameters
+ */
+
+/**
  * Dispatch a `clickoutside` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent } on click outside of node
  * @public
  *
