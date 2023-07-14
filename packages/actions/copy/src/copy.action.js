@@ -1,3 +1,9 @@
+/**
+ * Deprecated, use `CopyParameter` and `CopyConfig` instead
+ * @typedef {import('./public').CopyConfig<K>} CopyParameters
+ * @template {keyof HTMLElementEventMap} K
+ */
+
 import { copyToClipboard } from './copy.helpers.js';
 
 /**
