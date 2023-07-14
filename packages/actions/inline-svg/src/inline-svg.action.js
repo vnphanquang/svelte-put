@@ -1,3 +1,8 @@
+/**
+ * Deprecated, use `InlineSvgParameter` and `InlineSvgConfig` instead
+ * @typedef {import('./public').InlineSvgParameter} InlineSvgParameters
+ */
+
 import { calculateDimensions } from './inline-svg.internal.js';
 
 /**
