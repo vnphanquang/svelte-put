@@ -10,8 +10,8 @@ const EVENTS = {
 /**
  * @internal
  * @param {HTMLElement} node
- * @param {import('./events').TocChangeEventDetails} detail
- * @returns {import('./events').TocChangeEventDetails}
+ * @param {import('./events').TocChangeEventDetail} detail
+ * @returns {import('./events').TocChangeEventDetail}
  */
 export function dispatchChange(node, detail) {
   node.dispatchEvent(new CustomEvent(EVENTS.change, { detail }));
@@ -21,10 +21,25 @@ export function dispatchChange(node, detail) {
 /**
  * @internal
  * @param {HTMLElement} node
- * @param {import('./events').TocInitEventDetails} detail
- * @returns {import('./events').TocInitEventDetails}
+ * @param {import('./events').TocInitEventDetail} detail
+ * @returns {import('./events').TocInitEventDetail}
  */
 export function dispatchInit(node, detail) {
   node.dispatchEvent(new CustomEvent(EVENTS.init, { detail }));
   return detail;
 }
+
+/**
+ * Deprecated, use `TocInitEventDetail` instead
+ * @typedef {import('./events').TocInitEventDetail} TocInitEventDetails
+ */
+
+/**
+ * Deprecated, use `TocChangeEventDetail` instead
+ * @typedef {import('./events').TocChangeEventDetail} TocChangeEventDetails
+ */
+
+/**
+ * Deprecated, use `TocEventDetail` instead
+ * @typedef {import('./events').TocEventDetail} TocEventDetails
+ */

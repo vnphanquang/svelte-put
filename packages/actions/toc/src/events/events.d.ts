@@ -3,7 +3,7 @@ import type { TocItem } from '../action/action.d.ts';
 /**
  * @public
  */
-export interface TocEventDetails {
+export interface TocEventDetail {
   /** the ID of this toc operation. see {@link TocParameters} */
   id: string;
 }
@@ -12,7 +12,7 @@ export interface TocEventDetails {
  * `event.detail` of `on:tocinit`
  * @public
  */
-export interface TocInitEventDetails extends TocEventDetails {
+export interface TocInitEventDetail extends TocEventDetail {
   items: Record<string, TocItem>;
 }
 
@@ -20,6 +20,6 @@ export interface TocInitEventDetails extends TocEventDetails {
  * `event.detail` of `on:tocchange`
  * @public
  */
-export interface TocChangeEventDetails extends TocInitEventDetails {
+export interface TocChangeEventDetail extends TocInitEventDetail {
   activeItem: TocItem;
 }

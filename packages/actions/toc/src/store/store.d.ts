@@ -1,4 +1,4 @@
-import type { TocChangeEventDetails, TocInitEventDetails } from '../events/events.d.ts';
+import type { TocChangeEventDetail, TocInitEventDetail } from '../events/events.d.ts';
 
 import type { createTocStore } from './index.js';
 
@@ -10,9 +10,9 @@ export type TocStoreValue = {
   /** the ID of this toc operation. see {@link TocParameters}, set on mount (`tocinit`) */
   id?: string;
   /** the extracted toc items, populated on mount (`tocinit`) */
-  items: TocInitEventDetails['items'];
+  items: TocInitEventDetail['items'];
   /** the active toc items, set on update (`tocchange`) if `observer` is set to true */
-  activeItem?: TocChangeEventDetails['activeItem'];
+  activeItem?: TocChangeEventDetail['activeItem'];
 };
 
 /**

@@ -11,11 +11,11 @@ import {
   processObserve,
   processScrollMarginTop,
 } from '../internal/index.js';
-import { DEFAULT_TOC_LINK_PARAMETERS } from '../parameter/const.js';
+import { DEFAULT_TOC_LINK_PARAMETER } from '../parameter/const.js';
 import {
-  resolveTocParameters,
-  resolveTocLinkParameters,
-  compareTocLinkParameters,
+  resolveTocConfig,
+  resolveTocLinkConfig,
+  compareTocLinkConfig,
 } from '../parameter/index.js';
 import { updateStore } from '../store/index.js';
 
@@ -89,11 +89,11 @@ import { updateStore } from '../store/index.js';
  * ```
  *
  * @param {HTMLElement} node - root node to search for matching elements in descendants
- * @param {import('../parameter/parameter').TocParameters} parameters - instructions for `toc` behavior
+ * @param {import('../parameter/parameter').TocParameter} param - instructions for `toc` behavior
  * @returns {import('./action').TocActionReturn}
  */
-export function toc(node, parameters = {}) {
-  let resolved = resolveTocParameters(parameters);
+export function toc(node, param = {}) {
+  let resolved = resolveTocConfig(param);
 
   // stay minimal by reusing as few `IntersectionObserver` as possible
   // only create new `IntersectionObserver` for each new `threshold`
@@ -144,7 +144,7 @@ export function toc(node, parameters = {}) {
                 cached.observeThrottled = true;
                 clearTimeout(tocObserveThrottleTimeoutId);
                 let ms = parseInt(throttled);
-                if (Number.isNaN(ms)) ms = DEFAULT_TOC_LINK_PARAMETERS.observe.throttleOnClick;
+                if (Number.isNaN(ms)) ms = DEFAULT_TOC_LINK_PARAMETER.observe.throttleOnClick;
                 tocObserveThrottleTimeoutId = setTimeout(() => {
                   cached.observeThrottled = false;
                   node.toggleAttribute(ATTRIBUTES.observeThrottled, false);
@@ -171,7 +171,7 @@ export function toc(node, parameters = {}) {
 
     /** @type {import('../internal/internal').TocCacheItem} */
     const cached = {
-      parameters: resolved,
+      config: resolved,
       items: {},
       activeTocItemId: '',
       observeThrottled: false,
@@ -222,7 +222,7 @@ export function toc(node, parameters = {}) {
 
   return {
     update(update) {
-      resolved = resolveTocParameters(update);
+      resolved = resolveTocConfig(update);
       // right now `toc` does not support dynamic parameter updates
       // meaning it'll only run once on component initialization
       // and not on subsequent updates
@@ -290,15 +290,15 @@ export function toc(node, parameters = {}) {
  * </main>
  * ```
  * @param {HTMLAnchorElement} node
- * @param {import('../parameter/parameter').TocLinkParameters} parameters
+ * @param {import('../parameter/parameter').TocLinkParameter} param
  * @returns {import('./action').TocLinkActionReturn}
  */
-export function toclink(node, parameters = {}) {
+export function toclink(node, param = {}) {
   // initial safe keep
   const initialHref = node.href;
   const initialTextContent = node.textContent;
 
-  let resolved = resolveTocLinkParameters(parameters);
+  let resolved = resolveTocLinkConfig(param);
   /** @type {Element | null} */
   let tocRoot = null;
   /** @type {string} */
@@ -387,10 +387,10 @@ export function toclink(node, parameters = {}) {
 
   return {
     update(update = {}) {
-      if (!compareTocLinkParameters(parameters, update)) {
+      if (!compareTocLinkConfig(param, update)) {
         cleanup();
-        parameters = update;
-        resolved = resolveTocLinkParameters(parameters);
+        param = update;
+        resolved = resolveTocLinkConfig(param);
         resolveAttributes();
         execute();
       }
