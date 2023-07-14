@@ -1,13 +1,3 @@
-/**
- * Deprecated, use `MovableEventDetail` instead
- * @typedef {import('./public').MovableEventDetail} MovableEventDetails
- */
-
-/**
- * Deprecated, use `MovableParameter` and `MovableConfig` instead
- * @typedef {import('./public').MovableConfig} MovableParameters
- */
-
 import { tick } from 'svelte';
 
 /**
@@ -422,3 +412,13 @@ export function input(node, param = {}) {
     cursor: param.cursor ?? true,
   };
 }
+
+/**
+ * Deprecated, use `MovableEventDetail` instead
+ * @typedef {import('./public').MovableEventDetail} MovableEventDetails
+ */
+
+/**
+ * Deprecated, use `MovableParameter` and `MovableConfig` instead
+ * @typedef {import('./public').MovableConfig} MovableParameters
+ */
