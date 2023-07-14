@@ -1,4 +1,9 @@
 /**
+ * Deprecated, use `IntersectParameter` and `IntersectConfig` instead
+ * @typedef {import('./public').IntersectConfig} IntersectParameters
+ */
+
+/**
  * Create an IntersectionObserver that observers the node
  * @public
  *
