@@ -1,4 +1,9 @@
 /**
+ * Deprecated, use `DragScrollParameter` and `DragScrollConfig` instead
+ * @typedef {import('./public').DragScrollConfig} DragScrollParameters
+ */
+
+/**
  * @internal
  * @param {import('./public').DragScrollParameter} param
  */
