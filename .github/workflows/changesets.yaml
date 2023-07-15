@@ -14,7 +14,7 @@ env:
   TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
 jobs:
   Version:
-    timeout-minutes: 15
+    timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -24,7 +24,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 8.4.0
+          version: 8.6.7
       - name: Setup node
         uses: actions/setup-node@v3
         with:

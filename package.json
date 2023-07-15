@@ -20,7 +20,7 @@
     "format": "turbo run format --parallel",
     "api": "turbo run api",
     "dts": "turbo run dts",
-    "ci:version": "changeset version && pnpm install",
+    "ci:version": "changeset version && pnpm install --no-frozen-lockfile",
     "ci:publish": "pnpm build && changeset publish && pnpm install"
   },
   "devDependencies": {
@@ -46,10 +46,10 @@
     "typescript": "^5.1.6"
   },
   "engines": {
-    "pnpm": ">=7.5.0",
+    "pnpm": ">=8.6.0",
     "node": ">=16.14.2"
   },
-  "packageManager": "pnpm@8.4.0",
+  "packageManager": "pnpm@8.6.0",
   "volta": {
     "node": "18.16.0"
   }
