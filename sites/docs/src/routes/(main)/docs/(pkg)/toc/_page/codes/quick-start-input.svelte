@@ -13,6 +13,7 @@
         {#each Object.values($tocStore.items) as tocItem}
           <li>
             <!-- svelte-ignore a11y-missing-attribute -->
+            <!-- eslint-disable-next-line svelte/valid-compile -->
             <a use:toclink={{ store: tocStore, tocItem, observe: true }} />
           </li>
         {/each}

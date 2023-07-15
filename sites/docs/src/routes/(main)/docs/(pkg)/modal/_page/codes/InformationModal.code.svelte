@@ -3,6 +3,7 @@
   import Modal from '@svelte-put/modal/Modal.svelte';
 
   // just reexporting props here
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   type $$Props = ExtendedModalProps;
 </script>
 

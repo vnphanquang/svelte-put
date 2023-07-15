@@ -47,11 +47,13 @@
   }
 </script>
 
+<!-- eslint-disable-next-line svelte/valid-compile -->
 <div
   class="group relative my-6 max-w-full overflow-hidden rounded-md text-code-fg shadow-md hover:shadow-lg {cls}"
   on:mouseleave={onMouseLeave}
 >
   <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <!-- eslint-disable-next-line svelte/valid-compile -->
   <div
     class="not-prose flex cursor-pointer items-center bg-code-header py-2 pl-6 pr-2"
     on:click={toggleExpansion}

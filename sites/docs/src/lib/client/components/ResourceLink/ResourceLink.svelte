@@ -2,7 +2,9 @@
   import { resources as globalResources } from '$shared/data/resources';
   import type { ResourceId } from '$shared/data/resources';
 
+  // eslint-disable-next-line no-undef
   type Resources = $$Generic<Record<string, string> | undefined>;
+  // type Resources = R;
   type ResourceKeys = keyof Resources;
   type Key = undefined extends Resources ? ResourceId : ResourceId | ResourceKeys;
 

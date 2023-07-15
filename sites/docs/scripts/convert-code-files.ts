@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 
-import { typescript } from 'svelte-preprocess';
 import { preprocess } from 'svelte/compiler';
+import { typescript } from 'svelte-preprocess';
 import glob from 'tiny-glob';
 
 (async function () {

@@ -13,7 +13,7 @@
   // create a custom event dispatcher with built-in helper
   const dispatch = createModalEventDispatcher<$$Events>();
 
-  function resolve(confirmed: boolean) {
+  function resolve(confirmed: $$Props['disabled']) {
     // should get type autocompletion for dispatch here
     dispatch('resolve', {
       trigger: 'custom',
