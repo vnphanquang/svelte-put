@@ -1,9 +1,3 @@
-<script lang="ts">
-  import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
-  export let href: string;
-  export let shouldRecommendTypescript = true;
-</script>
-
 <section>
   <h2>API Reference</h2>
 

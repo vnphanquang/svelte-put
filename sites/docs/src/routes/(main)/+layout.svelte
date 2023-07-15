@@ -26,20 +26,16 @@
   let innerWidth = 0;
   $: isLg = innerWidth > 1024;
   $: leftSidebarOpen = isLg;
-  let leftSidebarTogglerClick = 0;
   function toggleLeftSidebar() {
     leftSidebarOpen = !leftSidebarOpen;
-    leftSidebarTogglerClick++;
   }
   function closeLeftSidebar() {
     leftSidebarOpen = false;
   }
   $: isXl = innerWidth > 1280;
   $: rightSidebarOpen = isXl;
-  let rightSidebarTogglerClick = 0;
   function toggleRightSidebar() {
     rightSidebarOpen = !rightSidebarOpen;
-    rightSidebarTogglerClick++;
   }
 
   const tocStore = createTocStore();
@@ -64,8 +60,10 @@
 
 <svelte:head>
   {#if rColorScheme === 'light'}
+    <!-- eslint-disable-next-line svelte/no-at-html-tags -->
     {@html gruvboxLight}
   {:else}
+    <!-- eslint-disable-next-line svelte/no-at-html-tags -->
     {@html gruvboxDark}
   {/if}
 </svelte:head>
