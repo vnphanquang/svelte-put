@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 importers:
 
   .:
@@ -193,10 +197,10 @@ importers:
         version: 3.58.0
       svelte-check:
         specifier: ^3.1.4
-        version: 3.2.0(postcss-load-config@4.0.1)(postcss@8.4.23)(svelte@3.58.0)
+        version: 3.2.0(postcss@8.4.25)(svelte@3.58.0)
       svelte-preprocess:
         specifier: ^5.0.3
-        version: 5.0.3(postcss-load-config@4.0.1)(postcss@8.4.23)(svelte@3.58.0)(typescript@5.0.4)
+        version: 5.0.3(postcss@8.4.25)(svelte@3.58.0)(typescript@5.0.4)
       svelte2tsx:
         specifier: ^0.6.10
         version: 0.6.11(svelte@3.58.0)(typescript@5.0.4)
@@ -248,10 +252,10 @@ importers:
         version: 3.58.0
       svelte-check:
         specifier: ^3.1.4
-        version: 3.2.0(postcss-load-config@4.0.1)(postcss@8.4.23)(svelte@3.58.0)
+        version: 3.2.0(postcss@8.4.25)(svelte@3.58.0)
       svelte-preprocess:
         specifier: ^5.0.3
-        version: 5.0.3(postcss-load-config@4.0.1)(postcss@8.4.23)(svelte@3.58.0)(typescript@5.0.4)
+        version: 5.0.3(postcss@8.4.25)(svelte@3.58.0)(typescript@5.0.4)
       svelte2tsx:
         specifier: ^0.6.10
         version: 0.6.11(svelte@3.58.0)(typescript@5.0.4)
@@ -306,10 +310,10 @@ importers:
         version: 3.58.0
       svelte-check:
         specifier: ^3.1.4
-        version: 3.2.0(postcss-load-config@4.0.1)(postcss@8.4.23)(svelte@3.58.0)
+        version: 3.2.0(postcss@8.4.25)(svelte@3.58.0)
       svelte-preprocess:
         specifier: ^5.0.3
-        version: 5.0.3(postcss-load-config@4.0.1)(postcss@8.4.23)(svelte@3.58.0)(typescript@5.0.4)
+        version: 5.0.3(postcss@8.4.25)(svelte@3.58.0)(typescript@5.0.4)
       svelte2tsx:
         specifier: ^0.6.10
         version: 0.6.11(svelte@3.58.0)(typescript@5.0.4)
@@ -355,25 +359,23 @@ importers:
         version: 3.58.0
       tsup:
         specifier: ^6.7.0
-        version: 6.7.0(postcss@8.4.25)(ts-node@10.9.1)(typescript@5.0.4)
+        version: 6.7.0(postcss@8.4.25)(typescript@5.1.6)
 
   packages/preprocessors/helpers:
+    dependencies:
+      svelte:
+        specifier: ^3.55.0 || ^4.0.0
+        version: 3.58.0
     devDependencies:
+      '@svelte-put/tsconfig':
+        specifier: workspace:*
+        version: link:../../../configs/tsconfig
       '@types/estree':
         specifier: ^1.0.0
         version: 1.0.1
-      '@types/node':
-        specifier: ^18.15.11
-        version: 18.16.3
-      npm-run-all:
-        specifier: ^4.1.5
-        version: 4.1.5
-      svelte:
-        specifier: ^3.58.0
-        version: 3.58.0
-      typescript:
-        specifier: ^5.0.3
-        version: 5.0.4
+      dts-buddy:
+        specifier: ^0.1.7
+        version: 0.1.7
 
   packages/preprocessors/inline-svg:
     dependencies:
@@ -6826,6 +6828,33 @@ packages:
       - sugarss
     dev: true
 
+  /svelte-check@3.2.0(postcss@8.4.25)(svelte@3.58.0):
+    resolution: {integrity: sha512-6ZnscN8dHEN5Eq5LgIzjj07W9nc9myyBH+diXsUAuiY/3rt0l65/LCIQYlIuoFEjp2F1NhXqZiJwV9omPj9tMw==}
+    hasBin: true
+    peerDependencies:
+      svelte: ^3.55.0
+    dependencies:
+      '@jridgewell/trace-mapping': 0.3.18
+      chokidar: 3.5.3
+      fast-glob: 3.2.12
+      import-fresh: 3.3.0
+      picocolors: 1.0.0
+      sade: 1.8.1
+      svelte: 3.58.0
+      svelte-preprocess: 5.0.3(postcss@8.4.25)(svelte@3.58.0)(typescript@5.0.4)
+      typescript: 5.0.4
+    transitivePeerDependencies:
+      - '@babel/core'
+      - coffeescript
+      - less
+      - postcss
+      - postcss-load-config
+      - pug
+      - sass
+      - stylus
+      - sugarss
+    dev: true
+
   /svelte-highlight@7.2.1:
     resolution: {integrity: sha512-Qyxd4CFbvufKo661AmtIFLFh7bW8BZ6G5vUGYdRlyhaoWEOCyCgKimdKW8/8aJ4/kKidSFbgY/2/fyzwYDEjWg==}
     dependencies:
@@ -6892,6 +6921,54 @@ packages:
       magic-string: 0.27.0
       postcss: 8.4.23
       postcss-load-config: 4.0.1(postcss@8.4.23)(ts-node@10.9.1)
+      sorcery: 0.11.0
+      strip-indent: 3.0.0
+      svelte: 3.58.0
+      typescript: 5.0.4
+    dev: true
+
+  /svelte-preprocess@5.0.3(postcss@8.4.25)(svelte@3.58.0)(typescript@5.0.4):
+    resolution: {integrity: sha512-GrHF1rusdJVbOZOwgPWtpqmaexkydznKzy5qIC2FabgpFyKN57bjMUUUqPRfbBXK5igiEWn1uO/DXsa2vJ5VHA==}
+    engines: {node: '>= 14.10.0'}
+    requiresBuild: true
+    peerDependencies:
+      '@babel/core': ^7.10.2
+      coffeescript: ^2.5.1
+      less: ^3.11.3 || ^4.0.0
+      postcss: ^7 || ^8
+      postcss-load-config: ^2.1.0 || ^3.0.0 || ^4.0.0
+      pug: ^3.0.0
+      sass: ^1.26.8
+      stylus: ^0.55.0
+      sugarss: ^2.0.0 || ^3.0.0 || ^4.0.0
+      svelte: ^3.23.0
+      typescript: '>=3.9.5 || ^4.0.0 || ^5.0.0'
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+      coffeescript:
+        optional: true
+      less:
+        optional: true
+      postcss:
+        optional: true
+      postcss-load-config:
+        optional: true
+      pug:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      '@types/pug': 2.0.6
+      detect-indent: 6.1.0
+      magic-string: 0.27.0
+      postcss: 8.4.25
       sorcery: 0.11.0
       strip-indent: 3.0.0
       svelte: 3.58.0
@@ -7168,6 +7245,43 @@ packages:
       sucrase: 3.32.0
       tree-kill: 1.2.2
       typescript: 5.0.4
+    transitivePeerDependencies:
+      - supports-color
+      - ts-node
+    dev: true
+
+  /tsup@6.7.0(postcss@8.4.25)(typescript@5.1.6):
+    resolution: {integrity: sha512-L3o8hGkaHnu5TdJns+mCqFsDBo83bJ44rlK7e6VdanIvpea4ArPcU3swWGsLVbXak1PqQx/V+SSmFPujBK+zEQ==}
+    engines: {node: '>=14.18'}
+    hasBin: true
+    peerDependencies:
+      '@swc/core': ^1
+      postcss: ^8.4.12
+      typescript: '>=4.1.0'
+    peerDependenciesMeta:
+      '@swc/core':
+        optional: true
+      postcss:
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      bundle-require: 4.0.1(esbuild@0.17.18)
+      cac: 6.7.14
+      chokidar: 3.5.3
+      debug: 4.3.4
+      esbuild: 0.17.18
+      execa: 5.1.1
+      globby: 11.1.0
+      joycon: 3.1.1
+      postcss: 8.4.25
+      postcss-load-config: 3.1.4(postcss@8.4.25)(ts-node@10.9.1)
+      resolve-from: 5.0.0
+      rollup: 3.21.3
+      source-map: 0.8.0-beta.0
+      sucrase: 3.32.0
+      tree-kill: 1.2.2
+      typescript: 5.1.6
     transitivePeerDependencies:
       - supports-color
       - ts-node
