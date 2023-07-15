@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["github>whitesource/merge-confidence:beta", "config:base", "group:allNonMajor"],
-  "schedule": ["after 10pm and before 5am every weekday"],
+  "schedule": ["before 5am on monday"],
   "timezone": "Asia/Ho_Chi_Minh"
 }
