@@ -134,8 +134,9 @@ export function transform(
   const s = new MagicString(code);
   const ast = parse(code, { filename });
 
-  walk(ast.html, {
-    enter(node: Node) {
+  walk(ast.html as any, {
+    enter(_node) {
+      const node = _node as Node;
       if (node.type !== 'Element' || node.name !== 'svg') return;
       let options = local;
       let inlineSrc = getAttribute(code, node, inlineSrcAttributeName);
