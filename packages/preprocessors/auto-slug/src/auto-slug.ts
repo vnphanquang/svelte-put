@@ -1,8 +1,8 @@
 import BananaSlug from 'github-slugger';
 import MagicString from 'magic-string';
-import { parse } from 'svelte-parse-markup';
 import { walk } from 'svelte/compiler';
 import { PreprocessorGroup } from 'svelte/types/compiler/preprocess';
+import { parse } from 'svelte-parse-markup';
 
 import { DEFAULT_AUTO_SLUG_OPTIONS } from './auto-slug.constants';
 import type { AutoSlugInput, Node } from './auto-slug.types';
@@ -37,8 +37,10 @@ export function autoSlug(input: AutoSlugInput = {}): PreprocessorGroup {
       const ast = parse(content, { filename });
       const slugger = new BananaSlug();
 
-      walk(ast.html, {
-        enter(node) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      walk(ast.html as any, {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        enter(node: any) {
           const tNode = node as Node;
           if (
             node.type === 'Element' &&

@@ -1,4 +1,4 @@
-/* Partytown 0.7.6 - MIT builder.io */
+/* Partytown 0.8.0 - MIT builder.io */
 (self => {
     const WinIdKey = Symbol();
     const InstanceIdKey = Symbol();
@@ -78,10 +78,11 @@
         }
         return refId;
     };
-    const getOrCreateNodeInstance = (winId, instanceId, nodeName, namespace, instance) => {
+    const getOrCreateNodeInstance = (winId, instanceId, nodeName, namespace, instance, prevInstanceId) => {
         instance = webWorkerInstances.get(instanceId);
         if (!instance && nodeName && environments[winId]) {
-            instance = environments[winId].$createNode$(nodeName, instanceId, namespace);
+            const prevInstance = webWorkerInstances.get(prevInstanceId || "");
+            instance = environments[winId].$createNode$(nodeName, instanceId, namespace, prevInstance);
             webWorkerInstances.set(instanceId, instance);
         }
         return instance;
@@ -209,7 +210,7 @@
             }
         }
     };
-    const getOrCreateSerializedInstance = ([winId, instanceId, nodeName]) => instanceId === winId && environments[winId] ? environments[winId].$window$ : getOrCreateNodeInstance(winId, instanceId, nodeName);
+    const getOrCreateSerializedInstance = ([winId, instanceId, nodeName, prevInstanceId]) => instanceId === winId && environments[winId] ? environments[winId].$window$ : getOrCreateNodeInstance(winId, instanceId, nodeName, void 0, void 0, prevInstanceId);
     const deserializeRefFromMain = (applyPath, {$winId$: $winId$, $instanceId$: $instanceId$, $nodeName$: $nodeName$, $refId$: $refId$}) => {
         webWorkerRefsByRefId[$refId$] || webWorkerRefIdsByRef.set(webWorkerRefsByRefId[$refId$] = function(...args) {
             const instance = getOrCreateNodeInstance($winId$, $instanceId$, $nodeName$);
@@ -727,7 +728,7 @@
         return resolvedUrl;
     };
     const resolveUrl = (env, url, type) => resolveToUrl(env, url, type) + "";
-    const getPartytownScript = () => `<script src="${partytownLibUrl("partytown.js?v=0.7.6")}"><\/script>`;
+    const getPartytownScript = () => `<script src="${partytownLibUrl("partytown.js?v=0.8.0")}"><\/script>`;
     const createImageConstructor = env => class HTMLImageElement {
         constructor() {
             this.s = "";
@@ -1307,6 +1308,7 @@
         let cstrInstanceId;
         let cstrNodeName;
         let cstrNamespace;
+        let cstrPrevInstance;
         const WorkerBase = class {
             constructor(winId, instanceId, applyPath, instanceData, namespace) {
                 this[WinIdKey] = winId || $winId$;
@@ -1314,7 +1316,7 @@
                 this[ApplyPathKey] = applyPath || [];
                 this[InstanceDataKey] = instanceData || cstrNodeName;
                 this[NamespaceKey] = namespace || cstrNamespace;
-                this[InstanceStateKey] = {};
+                this[InstanceStateKey] = cstrPrevInstance && cstrPrevInstance[InstanceStateKey] || {};
                 cstrInstanceId = cstrNodeName = cstrNamespace = void 0;
             }
         };
@@ -1355,7 +1357,7 @@
                         (() => {
                             if (!webWorkerCtx.$initWindowMedia$) {
                                 self.$bridgeToMedia$ = [ getter, setter, callMethod, constructGlobal, definePrototypePropertyDescriptor, randomId, WinIdKey, InstanceIdKey, ApplyPathKey ];
-                                webWorkerCtx.$importScripts$(partytownLibUrl("partytown-media.js?v=0.7.6"));
+                                webWorkerCtx.$importScripts$(partytownLibUrl("partytown-media.js?v=0.8.0"));
                                 webWorkerCtx.$initWindowMedia$ = self.$bridgeFromMedia$;
                                 delete self.$bridgeFromMedia$;
                             }
@@ -1365,12 +1367,13 @@
                     }
                 };
                 let nodeCstrs = {};
-                let $createNode$ = (nodeName, instanceId, namespace) => {
+                let $createNode$ = (nodeName, instanceId, namespace, prevInstance) => {
                     htmlMedia.includes(nodeName) && initWindowMedia();
                     const NodeCstr = nodeCstrs[nodeName] ? nodeCstrs[nodeName] : nodeName.includes("-") ? nodeCstrs.UNKNOWN : nodeCstrs.I;
                     cstrInstanceId = instanceId;
                     cstrNodeName = nodeName;
                     cstrNamespace = namespace;
+                    cstrPrevInstance = prevInstance;
                     return new NodeCstr;
                 };
                 win.Window = WorkerWindow;

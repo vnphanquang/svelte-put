@@ -1,4 +1,4 @@
-/* Partytown 0.7.6 - MIT builder.io */
+/* Partytown 0.8.0 - MIT builder.io */
 !function(win, doc, nav, top, useAtomics, config, libPath, timeout, scripts, sandbox, mainForwardFn, isReady) {
     function ready() {
         if (!isReady) {
@@ -38,8 +38,8 @@
             sandbox.setAttribute("style", "display:block;width:0;height:0;border:0;visibility:hidden");
             sandbox.setAttribute("aria-hidden", !0);
         }
-        sandbox.src = libPath + "partytown-" + (isAtomics ? "atomics.js?v=0.7.6" : "sandbox-sw.html?" + Date.now());
-        doc.body.appendChild(sandbox);
+        sandbox.src = libPath + "partytown-" + (isAtomics ? "atomics.js?v=0.8.0" : "sandbox-sw.html?" + Date.now());
+        doc.querySelector(config.sandboxParent || "body").appendChild(sandbox);
     }
     function fallback(i, script) {
         console.warn("Partytown script fallback");
