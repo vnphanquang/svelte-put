@@ -1,6 +1,4 @@
 <script lang="ts">
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  import { partytownSnippet } from '@builder.io/partytown/integration';
   import ModalPortal from '@svelte-put/modal/ModalPortal.svelte';
   import { onMount } from 'svelte';
 
@@ -8,6 +6,7 @@
   import { page } from '$app/stores';
   import { modalStore } from '$client/services/modal';
   import { PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID, PUBLIC_ROOT_URL } from '$env/static/public';
+  import { createGtagScriptTag, createPartytownSnippetScriptTag } from '$shared/utils/htmlScript';
 
   import '../lib/client/styles/app.css';
 
@@ -80,20 +79,24 @@
   <link type="text/plain" rel="author" href="{PUBLIC_ROOT_URL}/humans.txt" />
 
   <!-- partytown scripts -->
+  <!-- partytown scripts -->
   <script>
     partytown = {
       // forward the necessary functions to the web worker layer
       forward: ['gtag'],
     };
   </script>
-  {@html `<script>${partytownSnippet()}</script>`}
+  <!-- eslint-disable-next-line svelte/no-at-html-tags -->
+  {@html createPartytownSnippetScriptTag()}
 
   {#if analyticsEnabled}
+    <!-- vercel analytics -->
     <!-- vercel analytics -->
     <script src="/_vercel/insights/script.js" type="text/partytown"></script>
 
     <!-- Google tag (gtag.js) -->
-    {@html `<script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id="${PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID}"></script>`}
+    <!-- eslint-disable-next-line svelte/no-at-html-tags -->
+    {@html createGtagScriptTag(PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID)}
     <script type="text/partytown">
       window.dataLayer = window.dataLayer || [];
       window.gtag = function () {
