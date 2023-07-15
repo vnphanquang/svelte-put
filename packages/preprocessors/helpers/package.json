@@ -2,7 +2,6 @@
   "name": "@svelte-put/preprocess-helpers",
   "version": "0.0.1",
   "description": "utilities & types for building preprocessors",
-  "private": true,
   "main": "src/index.js",
   "module": "src/index.js",
   "types": "types/index.d.ts",
@@ -12,6 +11,9 @@
       "import": "./src/index.js",
       "types": "./types/index.d.ts"
     }
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "files": [
     "src",
@@ -25,10 +27,22 @@
   },
   "author": "Quang Phan",
   "license": "MIT",
+  "keywords": [
+    "svelte-put",
+    "svelte",
+    "preprocessor",
+    "helpers",
+    "utilities",
+    "types"
+  ],
   "bugs": {
     "url": "https://github.com/vnphanquang/svelte-put/issues"
   },
-  "homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocessors/auto-slug",
+  "homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocessors/helpers",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vnphanquang/svelte-put.git"
+  },
   "devDependencies": {
     "@types/estree": "^1.0.0",
     "@svelte-put/tsconfig": "workspace:*",
