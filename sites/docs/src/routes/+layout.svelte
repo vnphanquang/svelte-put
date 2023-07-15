@@ -43,7 +43,7 @@
       analyticsId,
     });
   }
-  $: if (browser && gtag && analyticsEnabled) {
+  $: if (browser && analyticsEnabled && gtag) {
     gtag('config', PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID, {
       page_title: document.title,
       page_location: $page.url.href,
@@ -80,6 +80,7 @@
 
   <!-- partytown scripts -->
   <!-- partytown scripts -->
+  <!-- partytown scripts -->
   <script>
     partytown = {
       // forward the necessary functions to the web worker layer
@@ -90,6 +91,7 @@
   {@html createPartytownSnippetScriptTag()}
 
   {#if analyticsEnabled}
+    <!-- vercel analytics -->
     <!-- vercel analytics -->
     <!-- vercel analytics -->
     <script src="/_vercel/insights/script.js" type="text/partytown"></script>
