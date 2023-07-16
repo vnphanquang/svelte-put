@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.2
+
+### Patch Changes
+
+- Updated dependencies [[`d298f41`](https://github.com/vnphanquang/svelte-put/commit/d298f417280160d9d3ed3ace7b30db3d0357ff0e), [`daae196`](https://github.com/vnphanquang/svelte-put/commit/daae196cbe917ac11a7ab105b30e561e0d05f5c6), [`a0cba7f`](https://github.com/vnphanquang/svelte-put/commit/a0cba7fd8f77a4d92a15887503a2349a8dc6fa9b), [`cd6ba44`](https://github.com/vnphanquang/svelte-put/commit/cd6ba4480fdc2eb4469f8af5abe983c070471257), [`daae196`](https://github.com/vnphanquang/svelte-put/commit/daae196cbe917ac11a7ab105b30e561e0d05f5c6), [`cd6ba44`](https://github.com/vnphanquang/svelte-put/commit/cd6ba4480fdc2eb4469f8af5abe983c070471257), [`aa58e5e`](https://github.com/vnphanquang/svelte-put/commit/aa58e5e2d2294ce94deda01bc3ac8d2406c22ab7)]:
+  - @svelte-put/clickoutside@3.0.0
+  - @svelte-put/shortcut@3.0.0
+  - @svelte-put/movable@3.0.0
+
 ## 1.0.1
 
 ### Patch Changes

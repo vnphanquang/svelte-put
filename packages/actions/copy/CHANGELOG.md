@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.0.0
+
+### Major Changes
+
+- [#204](https://github.com/vnphanquang/svelte-put/pull/204) [`52a7b75`](https://github.com/vnphanquang/svelte-put/commit/52a7b75532d921593365548cae1e7536cfa8e830) Thanks [@vnphanquang](https://github.com/vnphanquang)! - Better naming for parameter types
+
+- [#204](https://github.com/vnphanquang/svelte-put/pull/204) [`fbf2642`](https://github.com/vnphanquang/svelte-put/commit/fbf2642ed298a67408177d78c283d226d94c7e45) Thanks [@vnphanquang](https://github.com/vnphanquang)! - Migrated to vanilla JS (tracked at #203)
+
 ## 2.0.0
 
 ### Major Changes

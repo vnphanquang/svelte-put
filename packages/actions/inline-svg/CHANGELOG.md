@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.0.0
+
+### Major Changes
+
+- [#204](https://github.com/vnphanquang/svelte-put/pull/204) [`cbb3c95`](https://github.com/vnphanquang/svelte-put/commit/cbb3c95408971b114edcf22ef3f930912f3144f5) Thanks [@vnphanquang](https://github.com/vnphanquang)! - Migrated to vanilla JS (tracked at #203)
+
+- [#204](https://github.com/vnphanquang/svelte-put/pull/204) [`cbb3c95`](https://github.com/vnphanquang/svelte-put/commit/cbb3c95408971b114edcf22ef3f930912f3144f5) Thanks [@vnphanquang](https://github.com/vnphanquang)! - Better naming for typing
+
+- [#204](https://github.com/vnphanquang/svelte-put/pull/204) [`f9ff596`](https://github.com/vnphanquang/svelte-put/commit/f9ff5968a9ffdfbdcb4988afcb6068fbe6069f07) Thanks [@vnphanquang](https://github.com/vnphanquang)! - internal utils are no longer exposed (reduce pacakge pollution)
+
 ## 2.0.0
 
 ### Major Changes

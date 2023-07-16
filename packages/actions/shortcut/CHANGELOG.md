@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.0.0
+
+### Major Changes
+
+- [#204](https://github.com/vnphanquang/svelte-put/pull/204) [`daae196`](https://github.com/vnphanquang/svelte-put/commit/daae196cbe917ac11a7ab105b30e561e0d05f5c6) Thanks [@vnphanquang](https://github.com/vnphanquang)! - Migrated to vanilla JS (tracked at #203)
+
+- [#204](https://github.com/vnphanquang/svelte-put/pull/204) [`daae196`](https://github.com/vnphanquang/svelte-put/commit/daae196cbe917ac11a7ab105b30e561e0d05f5c6) Thanks [@vnphanquang](https://github.com/vnphanquang)! - better naming for types
+
 ## 2.0.0
 
 ### Major Changes
