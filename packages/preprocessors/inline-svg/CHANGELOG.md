@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.1.3
+
+### Patch Changes
+
+- [#204](https://github.com/vnphanquang/svelte-put/pull/204) [`30d3c21`](https://github.com/vnphanquang/svelte-put/commit/30d3c2165afb7aae582a6d30396344dae19063bf) Thanks [@vnphanquang](https://github.com/vnphanquang)! - bump dependencies
+
 ## 2.1.2
 
 ### Patch Changes

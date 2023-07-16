@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.0.0
+
+### Major Changes
+
+- [#204](https://github.com/vnphanquang/svelte-put/pull/204) [`52b4677`](https://github.com/vnphanquang/svelte-put/commit/52b467750edf6ae93e93ad3218a1b7a41bfb66f1) Thanks [@vnphanquang](https://github.com/vnphanquang)! - Migrated to vanilla JS (tracked at #203)
+
+- [#204](https://github.com/vnphanquang/svelte-put/pull/204) [`52b4677`](https://github.com/vnphanquang/svelte-put/commit/52b467750edf6ae93e93ad3218a1b7a41bfb66f1) Thanks [@vnphanquang](https://github.com/vnphanquang)! - `DEFAULT_TOC_PARAMETERS` & `DEFAULT_TOC_LINK_PARAMETERS` are no longer exxported
+
 ## 3.0.3
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@svelte-put/preprocess-helpers",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "utilities & types for building preprocessors",
   "main": "src/index.js",
   "module": "src/index.js",

@@ -168,10 +168,10 @@ importers:
   packages/components/select:
     dependencies:
       '@svelte-put/clickoutside':
-        specifier: ^2.0.0
+        specifier: ^3.0.0
         version: link:../../actions/clickoutside
       '@svelte-put/shortcut':
-        specifier: ^2.0.0
+        specifier: ^3.0.0
         version: link:../../actions/shortcut
     devDependencies:
       '@microsoft/api-documenter':
@@ -278,13 +278,13 @@ importers:
   packages/misc/modal:
     dependencies:
       '@svelte-put/clickoutside':
-        specifier: ^2.0.0
+        specifier: ^3.0.0
         version: link:../../actions/clickoutside
       '@svelte-put/movable':
-        specifier: ^2.0.0
+        specifier: ^3.0.0
         version: link:../../actions/movable
       '@svelte-put/shortcut':
-        specifier: ^2.0.0
+        specifier: ^3.0.0
         version: link:../../actions/shortcut
     devDependencies:
       '@microsoft/api-documenter':

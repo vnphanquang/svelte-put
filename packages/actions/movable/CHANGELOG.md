@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.0.0
+
+### Major Changes
+
+- [#204](https://github.com/vnphanquang/svelte-put/pull/204) [`a0cba7f`](https://github.com/vnphanquang/svelte-put/commit/a0cba7fd8f77a4d92a15887503a2349a8dc6fa9b) Thanks [@vnphanquang](https://github.com/vnphanquang)! - change `MovableEventDetails` to `MovableEventDetail` (better naming that goes along with `event.detail` api)
+
+- [#204](https://github.com/vnphanquang/svelte-put/pull/204) [`cd6ba44`](https://github.com/vnphanquang/svelte-put/commit/cd6ba4480fdc2eb4469f8af5abe983c070471257) Thanks [@vnphanquang](https://github.com/vnphanquang)! - Migrated to vanilla JS (tracked at #203)
+
+- [#204](https://github.com/vnphanquang/svelte-put/pull/204) [`cd6ba44`](https://github.com/vnphanquang/svelte-put/commit/cd6ba4480fdc2eb4469f8af5abe983c070471257) Thanks [@vnphanquang](https://github.com/vnphanquang)! - Better naming for action parameter type
+
 ## 2.0.1
 
 ### Patch Changes
