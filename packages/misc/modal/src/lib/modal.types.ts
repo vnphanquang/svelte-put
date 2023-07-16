@@ -139,12 +139,12 @@ export interface ModalComponentBaseProps {
    * you want to not have a backdrop but still dismiss modal when clicking
    * outside the modal. Defaults to `false`.
    *
-   * Can be provided as boolean or the parameter object to {@link https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/clickoutside/api/docs/clickoutside.clickoutsideparameters.md | @svelte-put/clickoutside}
+   * Can be provided as boolean or the parameter object
    */
   clickoutside?: boolean | ClickOutsideParameters;
   /**
    * whether to make the modal "movable" (drag around).
-   * Can be provided as boolean or the parameter object to {@link https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/api/docs/movable.movableparameters.md | @svelte-put/movable}
+   * Can be provided as boolean or the parameter object.
    * Defaults to `false`.
    */
   movable?: boolean | MovableParameters;

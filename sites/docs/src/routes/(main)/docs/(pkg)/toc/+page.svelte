@@ -130,7 +130,8 @@
     <h3 slot="heading" let:heading>{heading}</h3>
   </ActionUsageNotice>
 
-  <section>
+  <!-- FIXME: documentation for toc params? -->
+  <!-- <section>
     <h3>Parameters</h3>
     <p>
       <code>toc</code> is highly customizable. Please visit the extracted
@@ -140,7 +141,7 @@
         TocParameters
       </ResourceLink> API page for details.
     </p>
-  </section>
+  </section> -->
 
   <section>
     <h3>No Dynamic Update</h3>
@@ -188,10 +189,7 @@
       <li>
         When <code>observe</code> is <code>true</code>, expect a <code>tocchange</code> event that
         follows shortly after <code>tocinit</code>. The <code>observe</code> property of each
-        extracted <ResourceLink
-          href="https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/toc/api/docs/toc.tocitem.md"
-          >TocItem</ResourceLink
-        > is only guaranteed to be populated in this
+        extracted <code>TocItem</code> is only guaranteed to be populated in this
         <code>tocchange</code> event and not <code>tocinit</code>. This is because
         <code>observe</code>
         initialization operations are run asynchronously to avoid blocking any potential work with the
@@ -343,13 +341,14 @@
     next one might already intersects with the viewport and become the active one.
   </p>
 
-  <p>
+  <!-- FIXME: add docs? -->
+  <!-- <p>
     For customization details, see the
     <ResourceLink
       href="https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/toc/api/docs/toc.toclink.md"
       >extracted API page</ResourceLink
     >.
-  </p>
+  </p> -->
 </section>
 
 <section>
@@ -408,14 +407,15 @@
       </p>
     </div>
 
-    <p>
+    <!-- FIXME: docs? -->
+    <!-- <p>
       These attributes are also be referenced from the extracted
       <ResourceLink
         href="https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/toc/api/docs/toc.tocdataattributes.md"
       >
         TocDataAttributes
       </ResourceLink> API page.
-    </p>
+    </p> -->
 
     <p>Below instructions show how to add type support for these attributes</p>
     <Code code={codes.dataAttributes} title="app.d.ts" />

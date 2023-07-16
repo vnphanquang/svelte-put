@@ -25,10 +25,8 @@
 <section>
   <h2>Key Combination</h2>
   <p>
-    In each <code>use:shortcut</code>, one or an array of <ResourceLink
-      href="https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/shortcut/api/docs/shortcut.shortcuttrigger.md"
-      >ShortcutTrigger</ResourceLink
-    > can be provided to the <code>trigger</code> parameter.
+    In each <code>use:shortcut</code>, one or an array of <code>ShortcutTrigger</code> can be
+    provided to the <code>trigger</code> parameter.
   </p>
   <Code code={codes.keys} title="key" />
   <p>

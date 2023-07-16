@@ -46,9 +46,6 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
 [github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/CHANGELOG.md
 [github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
-[github.api]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/api/docs/index.md
-[github.api.movableparameters]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/api/docs/movable.movableparameters.md
-[github.api.movable]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/api/docs/movable.movable.md
 
 <!-- heading badge -->
 

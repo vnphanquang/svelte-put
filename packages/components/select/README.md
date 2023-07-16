@@ -57,22 +57,25 @@ pnpm add -D @svelte-put/select
 </p>
 
 <!-- github specifics -->
+
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
 [github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/components/select/CHANGELOG.md
 [github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
-[github.api]: https://github.com/vnphanquang/svelte-put/blob/main/packages/components/select/api/docs/index.md
 [github.Select]: https://github.com/vnphanquang/svelte-put/blob/main/packages/components/select/src/lib/Select.svelte
 
 <!-- heading badge -->
+
 [npm.badge]: https://img.shields.io/npm/v/@svelte-put/select
 [npm]: https://www.npmjs.com/package/@svelte-put/select
 [bundlephobia.badge]: https://img.shields.io/bundlephobia/minzip/@svelte-put/select?label=minzipped
 [bundlephobia]: https://bundlephobia.com/package/@svelte-put/select
 
 <!-- external resources -->
+
 [svelte]: https://svelte.dev/
 [typescript]: https://www.typescriptlang.org/
 
 <!-- repl -->
+
 [repl]: https://svelte.dev/repl/4f0d701ab5ed411ebbc9a71b0955385d
 [repl.badge]: https://img.shields.io/static/v1?label=&message=Svelte+REPL&logo=svelte&logoColor=fff&color=ff3e00

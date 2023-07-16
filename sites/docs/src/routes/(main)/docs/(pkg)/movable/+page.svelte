@@ -87,7 +87,8 @@
       takes a <code>number</code> with unit of <code>%</code> or <code>px</code> in one or both
       axes, and can be set in isolation or in combination with <code>limit.parent</code>.
     </p>
-    <p>
+    <!-- FIXME: add details docs & examples  -->
+    <!-- <p>
       Check out the
       <ResourceLink
         href="https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/api/docs/movable.movablelimitdelta.md"
@@ -95,7 +96,7 @@
         API reference
       </ResourceLink>
       for delta to see detailed explanation and examples.
-    </p>
+    </p> -->
     <Code code={codes.limit.delta.instruction} title="limit delta" />
     <div class="grid place-items-center border-2 border-violet-500 p-4">
       <p class="text-center">
