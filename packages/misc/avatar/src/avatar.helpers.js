@@ -1,14 +1,13 @@
 import md5 from 'md5';
 
-import type { GravatarOptions, UIAvatarOptions } from './avatar.types';
 /**
  * Builds a {@link https://ui-avatars.com | UIAvatar } url
  * @public
  *
- * @param input - name for UIAvatar or object of options
- * @returns UIAvatar url
+ * @param {string | import('./Avatar.svelte.d.ts').UIAvatarOptions} input - name for UIAvatar or object of options
+ * @returns {string}
  */
-export function uiAvatar(input: string | UIAvatarOptions): string {
+export function uiAvatar(input) {
   let output = '';
   if (typeof input === 'string') {
     output = `https://ui-avatars.com/api/?name=${input}`;
@@ -28,12 +27,13 @@ export function uiAvatar(input: string | UIAvatarOptions): string {
  * Builds a {@link https://en.gravatar.com/site/implement/images | Gravatar } url
  * @public
  *
- * @param input - email for Gravatar or object of options
+ * @param {string | import('./Avatar.svelte.d.ts').GravatarOptions} input - email for Gravatar or object of options
  * @returns Gravatar url
  */
-export function gravatar(input: string | GravatarOptions): string {
+export function gravatar(input) {
   let email = '';
-  let options: Omit<GravatarOptions, 'email'> = {};
+  /** @type {Omit<import('./Avatar.svelte.d.ts').GravatarOptions, 'email'>} */
+  let options = {};
   if (typeof input === 'string') {
     email = input;
   } else {

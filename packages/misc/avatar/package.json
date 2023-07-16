@@ -3,23 +3,33 @@
   "version": "2.0.2",
   "description": "Component and utils for handling avatar",
   "type": "module",
-  "svelte": "./dist/index.js",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
+  "svelte": "./src/index.js",
+  "main": "./src/index.js",
+  "module": "./src/index.js",
+  "types": "./types/index.d.ts",
   "exports": {
-    "./package.json": "./package.json",
-    "./Avatar.svelte": "./dist/Avatar.svelte",
-    "./helpers": "./dist/avatar.helpers.js",
-    ".": "./dist/index.js"
+    ".": {
+      "types": "./types/index.d.ts",
+      "svelte": "./src/index.js",
+      "import": "./src/index.js"
+    },
+    "./Avatar.svelte": {
+      "types": "./src/Avatar.svelte.d.ts",
+      "svelte": "./src/Avatar.svelte"
+    },
+    "./helpers": {
+      "types": "./types/index.d.ts",
+      "svelte": "./src/avatar.helpers.js",
+      "import": "./src/avatar.helpers.js"
+    }
   },
-  "types": "dist/index.d.ts",
   "typesVersions": {
     "*": {
       "helpers": [
-        "./dist/avatar.helpers.d.ts"
+        "./types/index.d.ts"
       ],
       "Avatar.svelte": [
-        "./dist/Avatar.svelte.d.ts"
+        "./src/Avatar.svelte.d.ts"
       ]
     }
   },
@@ -27,20 +37,16 @@
     "access": "public"
   },
   "files": [
-    "dist"
+    "src",
+    "types"
   ],
   "scripts": {
-    "dev": "vite dev",
-    "build": "svelte-kit sync && svelte-package",
-    "preview": "vite preview",
-    "sync": "svelte-kit sync",
-    "check": "svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
     "lint": "eslint --ignore-path .gitignore \"./**/*/*{ts,js,cjs,svelte}\"",
     "format": "prettier --check --ignore-path .gitignore \"./**/*.{ts,js,cjs,json,svelte,css}\"",
-    "api:extract": "api-extractor run --local --verbose",
-    "api:document": "api-documenter markdown -i api/temp -o api/docs",
-    "api": "run-s api:extract api:document"
+    "dts": "node scripts/generate-dts-bundle.js && publint",
+    "prepublishOnly": "pnpm dts"
   },
   "repository": {
     "type": "git",
@@ -61,22 +67,12 @@
   },
   "homepage": "https://svelte-put.vnphanquang.com/docs/avatar",
   "devDependencies": {
-    "@microsoft/api-documenter": "^7.22.25",
-    "@microsoft/api-extractor": "^7.36.1",
     "@svelte-put/apirc": "workspace:*",
     "@svelte-put/tsconfig": "workspace:*",
-    "@sveltejs/adapter-auto": "2.0.0",
-    "@sveltejs/kit": "1.15.2",
-    "@sveltejs/package": "2.0.2",
     "@types/md5": "^2.3.2",
-    "npm-run-all": "^4.1.5",
-    "svelte": "^3.58.0",
-    "svelte-check": "^3.1.4",
-    "svelte-preprocess": "^5.0.3",
-    "svelte2tsx": "^0.6.10",
-    "tslib": "^2.5.0",
-    "typescript": "^5.0.3",
-    "vite": "^4.2.1"
+    "dts-buddy": "^0.1.7",
+    "publint": "^0.1.9",
+    "svelte": "^4.0.5"
   },
   "peerDependencies": {
     "svelte": "^3.55.0 || ^4.0.0"

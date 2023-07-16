@@ -1,13 +1,14 @@
 import {
   gravatar as constructGravatarUrl,
   uiAvatar as constructUIAvatarUrl,
-} from './avatar.helpers';
-import type { AvatarProps } from './avatar.types';
+} from './avatar.helpers.js';
 
 /**
  * @internal
+ * @param {string} url
+ * @returns {number | undefined}
  */
-function getSizeFromUrl(url: string): number | undefined {
+function getSizeFromUrl(url) {
   const matchS = url.match(/s=(\d+)/g) ?? [];
   const matchSize = url.match(/size=(\d+)/g) ?? [];
   const match = [...matchS, ...matchSize].filter((m) => url[url.indexOf(m) - 1] !== '-');
@@ -17,8 +18,12 @@ function getSizeFromUrl(url: string): number | undefined {
   return undefined;
 }
 
-/** @internal */
-function getAltFromUrl(url: string): string {
+/**
+ * @internal
+ * @param {string} url
+ * @returns {string}
+ */
+function getAltFromUrl(url) {
   // match "name" or "email" query param from url
   const match = url.match(/(name|email)=([^&]+)/);
   if (match) {
@@ -29,21 +34,29 @@ function getAltFromUrl(url: string): string {
 
 /**
  * @internal
+ * @template TValue
+ * @param {TValue | null | undefined} value
+ * @returns {value is TValue}
  */
-function nonNullableFilter<TValue>(value: TValue | null | undefined): value is TValue {
+function nonNullableFilter(value) {
   if (value === null || value === undefined) return false;
   return true;
 }
 
 /**
  * @internal
+ * @param {string | undefined} alt
+ * @param {import('./Avatar.svelte.d.ts').AvatarProps['gravatar'] | undefined} gravatar
+ * @param {import('./Avatar.svelte.d.ts').AvatarProps['uiAvatar'] | undefined} uiAvatar
+ * @param {string | undefined } src
+ * @returns {string}
  */
 export function resolveAlt(
-  alt?: string,
-  gravatar?: AvatarProps['gravatar'],
-  uiAvatar?: AvatarProps['uiAvatar'],
-  src?: string,
-): string {
+  alt = undefined,
+  gravatar = undefined,
+  uiAvatar = undefined,
+  src = undefined,
+) {
   if (alt) return alt;
   if (typeof gravatar === 'object' && gravatar.email) return gravatar.email;
   if (typeof gravatar === 'string' && gravatar) return gravatar;
@@ -55,14 +68,20 @@ export function resolveAlt(
 
 /**
  * @internal
+ * @param {number} fallback
+ * @param {number | undefined} size
+ * @param {string | undefined} src
+ * @param {import('./Avatar.svelte.d.ts').AvatarProps['gravatar'] | undefined} gravatar
+ * @param {import('./Avatar.svelte.d.ts').AvatarProps['uiAvatar'] | undefined} uiAvatar
+ * @returns {number}
  */
 export function resolveSize(
-  fallback: number,
-  size?: number,
-  src?: string,
-  gravatar?: AvatarProps['gravatar'],
-  uiAvatar?: AvatarProps['uiAvatar'],
-): number {
+  fallback,
+  size = undefined,
+  src = undefined,
+  gravatar = undefined,
+  uiAvatar = undefined,
+) {
   try {
     if (size) return size;
     if (gravatar && typeof gravatar === 'object' && gravatar.size) return gravatar.size;
@@ -76,24 +95,32 @@ export function resolveSize(
 
 /** @internal */
 export const DEFINITIVE_FALLBACK = 'https://www.gravatar.com/avatar?d=mp';
-/** @internal */
+/**
+ * @internal
+ * @param {string | undefined} src
+ * @param {import('./Avatar.svelte.d.ts').AvatarProps['gravatar'] | undefined} gravatar
+ * @param {import('./Avatar.svelte.d.ts').AvatarProps['uiAvatar'] | undefined} uiAvatar
+ * @param {string | undefined} fallback
+ * @returns {string[]}
+ */
 export function resolveSrc(
-  src?: string,
-  gravatar?: AvatarProps['gravatar'],
-  uiAvatar?: AvatarProps['uiAvatar'],
-  fallback?: string,
-): string[] {
+  src = undefined,
+  gravatar = undefined,
+  uiAvatar = undefined,
+  fallback = undefined,
+) {
   const rUIAvatar = uiAvatar ? constructUIAvatarUrl(uiAvatar) : null;
-  let rGravatar: string | null = null;
+  /** @type {string | null} */
+  let rGravatar = null;
   if (gravatar) {
     if (rUIAvatar || fallback) {
       if (typeof gravatar === 'object' && !gravatar.default) {
         gravatar.default = '404';
       } else {
-        gravatar = {
+        gravatar = /** @type {typeof gravatar} */ ({
           email: gravatar,
           default: '404',
-        } as typeof gravatar;
+        });
       }
     }
     rGravatar = constructGravatarUrl(gravatar);
