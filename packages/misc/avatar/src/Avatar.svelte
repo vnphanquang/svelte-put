@@ -1,25 +1,28 @@
-<script lang="ts">
+<script>
   import { onMount } from 'svelte';
 
-  import type { AvatarSlots, AvatarProps } from './avatar.types';
-  import { resolveAlt, resolveSize, resolveSrc, DEFINITIVE_FALLBACK } from './avatar.utils';
+  import { resolveAlt, resolveSize, resolveSrc, DEFINITIVE_FALLBACK } from './avatar.utils.js';
 
-  type $$Props = AvatarProps;
-  type $$Slots = AvatarSlots;
-
-  export let src: $$Props['src'] = undefined;
-  export let gravatar: $$Props['gravatar'] = undefined;
-  export let uiAvatar: $$Props['uiAvatar'] = undefined;
-  export let fallback: $$Props['fallback'] = undefined;
-  export let size: $$Props['size'] = undefined;
-  export let alt: $$Props['alt'] = undefined;
+  /** @type {import('./Avatar.svelte.d.ts').AvatarProps['src']} */
+  export let src = undefined;
+  /** @type {import('./Avatar.svelte.d.ts').AvatarProps['gravatar']} */
+  export let gravatar = undefined;
+  /** @type {import('./Avatar.svelte.d.ts').AvatarProps['uiAvatar']} */
+  export let uiAvatar = undefined;
+  /** @type {import('./Avatar.svelte.d.ts').AvatarProps['fallback']} */
+  export let fallback = undefined;
+  /** @type {import('./Avatar.svelte.d.ts').AvatarProps['size']} */
+  export let size = undefined;
+  /** @type {import('./Avatar.svelte.d.ts').AvatarProps['alt']} */
+  export let alt = undefined;
 
   $: rAlt = resolveAlt(alt, gravatar, uiAvatar, src);
   $: rSize = resolveSize(32, size, src, gravatar, uiAvatar);
   $: sources = resolveSrc(src, gravatar, uiAvatar, fallback);
   let rSrc = DEFINITIVE_FALLBACK;
 
-  let element: HTMLImageElement;
+  /** @type {HTMLImageElement} */
+  let element;
   onMount(async () => {
     let rElement = element;
     if ($$slots.default) {
@@ -29,7 +32,7 @@
     }
     let currentSourceIndex = 0;
     if (rElement) {
-      rElement.addEventListener('error', (e) => {
+      rElement.addEventListener('error', (_) => {
         if (currentSourceIndex < sources.length - 1) {
           currentSourceIndex++;
           rElement.src = rSrc = sources[currentSourceIndex];

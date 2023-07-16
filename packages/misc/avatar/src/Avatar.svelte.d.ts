@@ -1,3 +1,4 @@
+import type { SvelteComponent } from 'svelte';
 import type { HTMLImgAttributes } from 'svelte/elements';
 
 /**
@@ -126,3 +127,6 @@ export interface UIAvatarOptions {
   /** Format of returned image */
   format?: 'svg' | 'png';
 }
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+export default class Avatar extends SvelteComponent<AvatarProps, {}, AvatarSlots> {}
