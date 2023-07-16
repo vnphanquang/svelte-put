@@ -2,9 +2,10 @@
   import ModalPortal from '@svelte-put/modal/ModalPortal.svelte';
   import { onMount } from 'svelte';
 
-  import { dev, browser } from '$app/environment';
+  import { browser } from '$app/environment';
   import { page } from '$app/stores';
   import { modalStore } from '$client/services/modal';
+  import { PUBLIC_MODE } from '$env/static/public';
   import { PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID, PUBLIC_ROOT_URL } from '$env/static/public';
   import { createGtagScriptTag, createPartytownSnippetScriptTag } from '$shared/utils/htmlScript';
 
@@ -32,7 +33,7 @@
   $: twitterImageAlt = meta?.twitter?.imageAlt ?? '@svelte-put site';
   $: twitterSite = meta?.twitter?.site ?? '@vnphanquang';
 
-  $: analyticsEnabled = !dev;
+  $: analyticsEnabled = PUBLIC_MODE === 'production';
 
   let analyticsId = $page.data.vercelAnalyticsId;
   let webVitals: typeof import('$client/services/web-vitals').webVitals;
@@ -81,6 +82,7 @@
   <!-- partytown scripts -->
   <!-- partytown scripts -->
   <!-- partytown scripts -->
+  <!-- partytown scripts -->
   <script>
     partytown = {
       // forward the necessary functions to the web worker layer
@@ -91,6 +93,7 @@
   {@html createPartytownSnippetScriptTag()}
 
   {#if analyticsEnabled}
+    <!-- vercel analytics -->
     <!-- vercel analytics -->
     <!-- vercel analytics -->
     <!-- vercel analytics -->
