@@ -1,7 +1,6 @@
 <script lang="ts">
   import { javascript } from 'svelte-highlight/languages';
 
-  import ApiReference from '$client/components/ApiReference/ApiReference.svelte';
   import Code from '$client/components/Code/Code.svelte';
   import Installation from '$client/components/Installation/Installation.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
@@ -303,5 +302,3 @@
     <li>Support for fetching remote svg in <code>inline-src</code> at build time?</li>
   </ul>
 </section>
-
-<ApiReference href={data.package.apiUrl} shouldRecommendTypescript={false} />

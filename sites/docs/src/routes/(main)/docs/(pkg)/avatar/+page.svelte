@@ -1,5 +1,4 @@
 <script lang="ts">
-  import ApiReference from '$client/components/ApiReference/ApiReference.svelte';
   import Code from '$client/components/Code/Code.svelte';
   import { ConnectedList, ConnectedListItem } from '$client/components/ConnectedList';
   import Installation from '$client/components/Installation/Installation.svelte';
@@ -285,8 +284,6 @@
     </section>
   </section>
 </section>
-
-<ApiReference href={data.package.apiUrl} />
 
 <img src={avatarAangImg} alt="avatar?" width="300" height="168.6" loading="lazy" decoding="async" />
 

@@ -1,7 +1,6 @@
 <script lang="ts">
   import typescript from 'svelte-highlight/languages/typescript';
 
-  import ApiReference from '$client/components/ApiReference/ApiReference.svelte';
   import Code from '$client/components/Code/Code.svelte';
   import Installation from '$client/components/Installation/Installation.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
@@ -281,7 +280,7 @@
         <legend>backdrop</legend>
         <fieldset class="relative w-5/6 border-2 border-green-500 bg-green-200 p-8">
           <legend>container</legend>
-          <fieldset class="absolute -top-7 -right-0.5 border-2 border-orange-500 bg-orange-200 p-1">
+          <fieldset class="absolute -right-0.5 -top-7 border-2 border-orange-500 bg-orange-200 p-1">
             <legend>x</legend>
             <fieldset class="border-2 border-yellow-500 bg-yellow-200 p-1 py-2 text-xs">
               <legend>x-content</legend>
@@ -490,8 +489,6 @@
     >.
   </p>
 </section>
-
-<ApiReference href={data.package.apiUrl} />
 
 <img
   src={endImg}
