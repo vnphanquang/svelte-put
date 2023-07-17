@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.0.0
+
+### Major Changes
+
+- [#206](https://github.com/vnphanquang/svelte-put/pull/206) [`acac425`](https://github.com/vnphanquang/svelte-put/commit/acac425cbe2274eea9f68e4dcfa801c90d2844dc) Thanks [@vnphanquang](https://github.com/vnphanquang)! - migrated to vanilla JS (tracked in #203)
+
 ## 2.0.2
 
 ### Patch Changes
