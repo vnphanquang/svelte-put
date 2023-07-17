@@ -38,16 +38,16 @@ Useful svelte stuff to put in your projects
 ### Svelte Actions
 
 | Package                                         | Short Description                                 | Version                                       | Changelog                                  | Docs                               |
-| ----------------------------------------------- | ------------------------------------------------- | --------------------------------------------- | ------------------------------------------ | ---------------------------------- | -------------------------------- |
+| ----------------------------------------------- | ------------------------------------------------- | --------------------------------------------- | ------------------------------------------ | ---------------------------------- |
 | [@svelte-put/clickoutside][github.clickoutside] | event for clicking outside node                   | [![npm.clickoutside.badge]][npm.clickoutside] | [Changelog][github.clickoutside.changelog] | [![docs.badge]][docs.clickoutside] |
-| [@svelte-put/copy][github.copy]                 | copy text to clipboard                            | [![npm.copy.badge]][npm.copy]                 | [Changelog][github.copy.changelog]         |                                    | [![docs.badge]][docs.copy]       |
-| [@svelte-put/dragscroll][github.dragscroll]     | add drag-to-scroll behavior                       | [![npm.dragscroll.badge]][npm.dragscroll]     | [Changelog][github.dragscroll.changelog]   |                                    | [![docs.badge]][docs.dragscroll] |
-| [@svelte-put/intersect][github.intersect]       | wrapper for IntersectionObserver                  | [![npm.intersect.badge]][npm.intersect]       | [Changelog][github.intersect.changelog]    |                                    | [![docs.badge]][docs.intersect]  |
-| [@svelte-put/inline-svg][github.inline-svg]     | dynamically inline SVGs                           | [![npm.inline-svg.badge]][npm.inline-svg]     | [Changelog][github.inline-svg.changelog]   |                                    | [![docs.badge]][docs.inline-svg] |
-| [@svelte-put/movable][github.movable]           | move node on mousedown                            | [![npm.movable.badge]][npm.movable]           | [Changelog][github.movable.changelog]      |                                    | [![docs.badge]][docs.movable]    |
-| [@svelte-put/resize][github.resize]             | wrapper for ResizeObserver                        | [![npm.resize.badge]][npm.resize]             | [Changelog][github.resize.changelog]       |                                    | [![docs.badge]][docs.resize]     |
-| [@svelte-put/shortcut][github.shortcut]         | add keyboard shortcuts to node                    | [![npm.shortcut.badge]][npm.shortcut]         | [Changelog][github.shortcut.changelog]     |                                    | [![docs.badge]][docs.shortcut]   |
-| [@svelte-put/toc][github.toc]                   | action & utilities for building table of contents | [![npm.toc.badge]][npm.toc]                   | [Changelog][github.toc.changelog]          |                                    | [![docs.badge]][docs.toc]        |
+| [@svelte-put/copy][github.copy]                 | copy text to clipboard                            | [![npm.copy.badge]][npm.copy]                 | [Changelog][github.copy.changelog]         | [![docs.badge]][docs.copy]         |
+| [@svelte-put/dragscroll][github.dragscroll]     | add drag-to-scroll behavior                       | [![npm.dragscroll.badge]][npm.dragscroll]     | [Changelog][github.dragscroll.changelog]   | [![docs.badge]][docs.dragscroll]   |
+| [@svelte-put/intersect][github.intersect]       | wrapper for IntersectionObserver                  | [![npm.intersect.badge]][npm.intersect]       | [Changelog][github.intersect.changelog]    | [![docs.badge]][docs.intersect]    |
+| [@svelte-put/inline-svg][github.inline-svg]     | dynamically inline SVGs                           | [![npm.inline-svg.badge]][npm.inline-svg]     | [Changelog][github.inline-svg.changelog]   | [![docs.badge]][docs.inline-svg]   |
+| [@svelte-put/movable][github.movable]           | move node on mousedown                            | [![npm.movable.badge]][npm.movable]           | [Changelog][github.movable.changelog]      | [![docs.badge]][docs.movable]      |
+| [@svelte-put/resize][github.resize]             | wrapper for ResizeObserver                        | [![npm.resize.badge]][npm.resize]             | [Changelog][github.resize.changelog]       | [![docs.badge]][docs.resize]       |
+| [@svelte-put/shortcut][github.shortcut]         | add keyboard shortcuts to node                    | [![npm.shortcut.badge]][npm.shortcut]         | [Changelog][github.shortcut.changelog]     | [![docs.badge]][docs.shortcut]     |
+| [@svelte-put/toc][github.toc]                   | action & utilities for building table of contents | [![npm.toc.badge]][npm.toc]                   | [Changelog][github.toc.changelog]          | [![docs.badge]][docs.toc]          |
 
 ### Miscellaneous
 
