@@ -39,3 +39,6 @@ export const { node: APP_ROUTE_TREE } = tBuild('APP_ROUTE_TREE', {
 export const LOAD_DEPENDENCIES = {
   COLOR_SCHEME: 'app:color-scheme',
 } as const;
+
+export const PACKAGE_MANAGERS = ['npm', 'pnpm', 'yarn'] as const;
+export type PackageManager = (typeof PACKAGE_MANAGERS)[number];
