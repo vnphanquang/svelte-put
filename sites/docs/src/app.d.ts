@@ -3,6 +3,7 @@
 /// <reference types="vite/client" />
 /// <reference types="@types/gtag.js" />
 
+import type { PackageManager } from '$shared/constants';
 import type { ColorScheme } from '$shared/types';
 
 // See https://kit.svelte.dev/docs/types#app
@@ -13,9 +14,11 @@ declare global {
     interface Locals {
       userId: string;
       colorScheme: ColorScheme;
+      packageManager: PackageManager;
     }
     interface PageData {
       colorScheme: ColorScheme;
+      packageManager: PackageManager;
       vercelAnalyticsId?: string;
       meta?: {
         title?: string;

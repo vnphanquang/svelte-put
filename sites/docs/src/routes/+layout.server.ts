@@ -11,6 +11,7 @@ export const load: LayoutServerLoad = async ({ url, locals, depends }) => {
     pathname: url.pathname,
     vercelAnalyticsId: VERCEL_ANALYTICS_ID,
     colorScheme: locals.colorScheme,
+    packageManager: locals.packageManager,
   };
 };
 
