@@ -10,23 +10,6 @@ Useful svelte stuff to put in your projects
 
 </div>
 
-## Table of Contents
-
-<details open>
-  <summary>Show / hide</summary>
-
-- [@svelte-put](#svelte-put)
-  - [Table of Contents](#table-of-contents)
-  - [Documentation](#documentation)
-  - [Packages](#packages)
-    - [Svelte Actions](#svelte-actions)
-    - [Miscellaneous](#miscellaneous)
-    - [Preprocessors](#preprocessors)
-    - [In the Pipeline](#in-the-pipeline)
-  - [Contributing](#contributing)
-
-</details>
-
 ## Documentation
 
 [See the dedicated documentation page here][docs].
@@ -45,6 +28,7 @@ Useful svelte stuff to put in your projects
 | [@svelte-put/intersect][github.intersect]       | wrapper for IntersectionObserver                  | [![npm.intersect.badge]][npm.intersect]       | [Changelog][github.intersect.changelog]    | [![docs.badge]][docs.intersect]    |
 | [@svelte-put/inline-svg][github.inline-svg]     | dynamically inline SVGs                           | [![npm.inline-svg.badge]][npm.inline-svg]     | [Changelog][github.inline-svg.changelog]   | [![docs.badge]][docs.inline-svg]   |
 | [@svelte-put/movable][github.movable]           | move node on mousedown                            | [![npm.movable.badge]][npm.movable]           | [Changelog][github.movable.changelog]      | [![docs.badge]][docs.movable]      |
+| [@svelte-put/lockscroll][github.lockscroll]     | lock scroll, hide scrollbar                       | [![npm.lockscroll.badge]][npm.lockscroll]     | [Changelog][github.lockscroll.changelog]   | [![docs.badge]][docs.lockscroll]   |
 | [@svelte-put/resize][github.resize]             | wrapper for ResizeObserver                        | [![npm.resize.badge]][npm.resize]             | [Changelog][github.resize.changelog]       | [![docs.badge]][docs.resize]       |
 | [@svelte-put/shortcut][github.shortcut]         | add keyboard shortcuts to node                    | [![npm.shortcut.badge]][npm.shortcut]         | [Changelog][github.shortcut.changelog]     | [![docs.badge]][docs.shortcut]     |
 | [@svelte-put/toc][github.toc]                   | action & utilities for building table of contents | [![npm.toc.badge]][npm.toc]                   | [Changelog][github.toc.changelog]          | [![docs.badge]][docs.toc]          |
@@ -118,6 +102,8 @@ pnpm turbo
 [github.intersect.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/intersect/CHANGELOG.md
 [github.inline-svg]: https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/inline-svg
 [github.inline-svg.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/inline-svg/CHANGELOG.md
+[github.lockscroll]: https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/lockscroll
+[github.lockscroll.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/lockscroll/CHANGELOG.md
 [github.modal]: https://github.com/vnphanquang/svelte-put/tree/main/packages/misc/modal
 [github.modal.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/modal/CHANGELOG.md
 [github.movable]: https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/movable
@@ -156,6 +142,8 @@ pnpm turbo
 [npm.intersect]: https://www.npmjs.com/package/@svelte-put/intersect
 [npm.inline-svg.badge]: https://img.shields.io/npm/v/@svelte-put/inline-svg
 [npm.inline-svg]: https://www.npmjs.com/package/@svelte-put/inline-svg
+[npm.lockscroll.badge]: https://img.shields.io/npm/v/@svelte-put/lockscroll
+[npm.lockscroll]: https://www.npmjs.com/package/@svelte-put/lockscroll
 [npm.modal.badge]: https://img.shields.io/npm/v/@svelte-put/modal
 [npm.modal]: https://www.npmjs.com/package/@svelte-put/modal
 [npm.movable.badge]: https://img.shields.io/npm/v/@svelte-put/movable
@@ -184,6 +172,7 @@ pnpm turbo
 [docs.dragscroll]: https://svelte-put.vnphanquang.com/docs/dragscroll
 [docs.intersect]: https://svelte-put.vnphanquang.com/docs/intersect
 [docs.inline-svg]: https://svelte-put.vnphanquang.com/docs/inline-svg
+[docs.lockscroll]: https://svelte-put.vnphanquang.com/docs/lockscroll
 [docs.modal]: https://svelte-put.vnphanquang.com/docs/modal
 [docs.movable]: https://svelte-put.vnphanquang.com/docs/movable
 [docs.preprocess-auto-slug]: https://svelte-put.vnphanquang.com/docs/preprocess-auto-slug

@@ -125,6 +125,15 @@ importers:
         specifier: ^0.1.7
         version: 0.1.7
 
+  packages/actions/lockscroll:
+    devDependencies:
+      '@svelte-put/tsconfig':
+        specifier: workspace:*
+        version: link:../../../configs/tsconfig
+      dts-buddy:
+        specifier: ^0.1.7
+        version: 0.1.7
+
   packages/actions/movable:
     devDependencies:
       '@svelte-put/tsconfig':
@@ -487,6 +496,9 @@ importers:
       '@svelte-put/intersect':
         specifier: workspace:*
         version: link:../../packages/actions/intersect
+      '@svelte-put/lockscroll':
+        specifier: workspace:*
+        version: link:../../packages/actions/lockscroll
       '@svelte-put/modal':
         specifier: workspace:*
         version: link:../../packages/misc/modal

@@ -65,7 +65,7 @@ export const packages = {
     path: APP_ROUTE_TREE.docs.inlineSvg.$.path(),
     replId: undefined,
     category: 'action',
-    status: 'new',
+    status: 'stable',
     ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/inline-svg',
     changelogUrl:
@@ -84,6 +84,20 @@ export const packages = {
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/intersect',
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/intersect/CHANGELOG.md',
+  },
+  lockscroll: {
+    id: 'lockscroll',
+    name: '@svelte-put/lockscroll',
+    publishedAt: 1690110240955,
+    description: 'locking scroll and hide scrollbar within an HTML element',
+    path: APP_ROUTE_TREE.docs.lockscroll.$.path(),
+    replId: '8bfbdc1af58e43b2af4d625f63358a35',
+    category: 'action',
+    status: 'new',
+    ready: true,
+    githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/lockscroll',
+    changelogUrl:
+      'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/lockscroll/CHANGELOG.md',
   },
   modal: {
     id: 'modal',
@@ -136,7 +150,7 @@ export const packages = {
     path: APP_ROUTE_TREE.docs.preprocessInlineSvg.$.path(),
     replId: undefined,
     category: 'preprocessor',
-    status: 'new',
+    status: 'stable',
     ready: true,
     githubUrl:
       'https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocessors/inline-svg',

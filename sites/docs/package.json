@@ -33,6 +33,7 @@
     "@svelte-put/dragscroll": "workspace:*",
     "@svelte-put/inline-svg": "workspace:*",
     "@svelte-put/intersect": "workspace:*",
+    "@svelte-put/lockscroll": "workspace:*",
     "@svelte-put/modal": "workspace:*",
     "@svelte-put/movable": "workspace:*",
     "@svelte-put/preprocess-auto-slug": "workspace:*",
