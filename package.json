@@ -39,7 +39,7 @@
     "stylelint": "^15.10.1",
     "stylelint-config-clean-order": "^5.0.1",
     "stylelint-config-html": "^1.1.0",
-    "stylelint-config-standard": "^32.0.0",
+    "stylelint-config-standard": "^34.0.0",
     "svelte": "^4.0.5",
     "tslib": "^2.6.0",
     "turbo": "^1.10.7",

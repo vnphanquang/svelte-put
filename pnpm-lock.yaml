@@ -1,4 +1,4 @@
-lockfileVersion: '6.0'
+lockfileVersion: '6.1'
 
 settings:
   autoInstallPeers: true
@@ -54,8 +54,8 @@ importers:
         specifier: ^1.1.0
         version: 1.1.0(postcss-html@1.5.0)(stylelint@15.10.1)
       stylelint-config-standard:
-        specifier: ^32.0.0
-        version: 32.0.0(stylelint@15.10.1)
+        specifier: ^34.0.0
+        version: 34.0.0(stylelint@15.10.1)
       svelte:
         specifier: ^4.0.5
         version: 4.0.5
@@ -6632,21 +6632,23 @@ packages:
       stylelint: 15.10.1
     dev: true
 
-  /stylelint-config-recommended@11.0.0(stylelint@15.10.1):
-    resolution: {integrity: sha512-SoGIHNI748OCZn6BxFYT83ytWoYETCINVHV3LKScVAWQQauWdvmdDqJC5YXWjpBbxg2E761Tg5aUGKLFOVhEkA==}
+  /stylelint-config-recommended@13.0.0(stylelint@15.10.1):
+    resolution: {integrity: sha512-EH+yRj6h3GAe/fRiyaoO2F9l9Tgg50AOFhaszyfov9v6ayXJ1IkSHwTxd7lB48FmOeSGDPLjatjO11fJpmarkQ==}
+    engines: {node: ^14.13.1 || >=16.0.0}
     peerDependencies:
-      stylelint: ^15.3.0
+      stylelint: ^15.10.0
     dependencies:
       stylelint: 15.10.1
     dev: true
 
-  /stylelint-config-standard@32.0.0(stylelint@15.10.1):
-    resolution: {integrity: sha512-UnGJxYDyYFrIE9CjDMZRkrNh2o4lOtO+MVZ9qG5b8yARfsWho0GMx4YvhHfsv8zKKgHeWX2wfeyxmuoqcaYZ4w==}
+  /stylelint-config-standard@34.0.0(stylelint@15.10.1):
+    resolution: {integrity: sha512-u0VSZnVyW9VSryBG2LSO+OQTjN7zF9XJaAJRX/4EwkmU0R2jYwmBSN10acqZisDitS0CLiEiGjX7+Hrq8TAhfQ==}
+    engines: {node: ^14.13.1 || >=16.0.0}
     peerDependencies:
-      stylelint: ^15.4.0
+      stylelint: ^15.10.0
     dependencies:
       stylelint: 15.10.1
-      stylelint-config-recommended: 11.0.0(stylelint@15.10.1)
+      stylelint-config-recommended: 13.0.0(stylelint@15.10.1)
     dev: true
 
   /stylelint-order@6.0.3(stylelint@15.10.1):
