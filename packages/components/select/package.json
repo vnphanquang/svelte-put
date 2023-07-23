@@ -69,7 +69,7 @@
     "@sveltejs/kit": "1.15.2",
     "@sveltejs/package": "2.0.2",
     "npm-run-all": "^4.1.5",
-    "svelte": "^3.58.0",
+    "svelte": "^4.0.0",
     "svelte-check": "^3.1.4",
     "svelte-preprocess": "^5.0.3",
     "svelte2tsx": "^0.6.10",
