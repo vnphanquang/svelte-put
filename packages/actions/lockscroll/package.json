@@ -8,8 +8,8 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./src/index.js",
-      "types": "./types/index.d.ts"
+      "types": "./types/index.d.ts",
+      "import": "./src/index.js"
     }
   },
   "publishConfig": {
@@ -22,7 +22,7 @@
   "scripts": {
     "lint": "eslint --ignore-path .gitignore \"./**/*/*{ts,js,cjs}\"",
     "format": "prettier --check --ignore-path .gitignore \"./**/*.{ts,js,cjs}\"",
-    "dts": "dts-buddy",
+    "dts": "dts-buddy && prettier types/index.d.ts --write && publint",
     "prepublishOnly": "pnpm dts"
   },
   "repository": {
@@ -43,6 +43,6 @@
   "homepage": "https://svelte-put.vnphanquang.com/docs/lockscroll",
   "devDependencies": {
     "@svelte-put/tsconfig": "workspace:*",
-    "dts-buddy": "^0.1.7"
+    "dts-buddy": "^0.1.8"
   }
 }

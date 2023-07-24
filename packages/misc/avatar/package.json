@@ -45,7 +45,7 @@
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
     "lint": "eslint --ignore-path .gitignore \"./**/*/*{ts,js,cjs,svelte}\"",
     "format": "prettier --check --ignore-path .gitignore \"./**/*.{ts,js,cjs,json,svelte,css}\"",
-    "dts": "node scripts/generate-dts-bundle.js && publint",
+    "dts": "node scripts/generate-dts-bundle.js && prettier types/index.d.ts --write && publint",
     "prepublishOnly": "pnpm dts"
   },
   "repository": {
@@ -70,8 +70,7 @@
     "@svelte-put/apirc": "workspace:*",
     "@svelte-put/tsconfig": "workspace:*",
     "@types/md5": "^2.3.2",
-    "dts-buddy": "^0.1.7",
-    "publint": "^0.1.16",
+    "dts-buddy": "^0.1.8",
     "svelte": "^4.1.1"
   },
   "peerDependencies": {

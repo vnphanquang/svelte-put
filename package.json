@@ -35,6 +35,7 @@
     "postcss-html": "^1.5.0",
     "prettier": "^3.0.0",
     "prettier-plugin-svelte": "^3.0.0",
+    "publint": "^0.1.16",
     "simple-git-hooks": "^2.9.0",
     "stylelint": "^15.10.2",
     "stylelint-config-clean-order": "^5.0.1",
