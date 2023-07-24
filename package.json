@@ -50,8 +50,8 @@
     "pnpm": ">=8.6.0",
     "node": ">=18.16.0"
   },
-  "packageManager": "pnpm@8.6.0",
+  "packageManager": "pnpm@8.6.10",
   "volta": {
-    "node": "18.16.0"
+    "node": "18.17.0"
   }
 }
