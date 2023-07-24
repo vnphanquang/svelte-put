@@ -21,7 +21,7 @@
   ],
   "scripts": {
     "lint": "eslint --ignore-path .gitignore \"./**/*/*{ts,js,cjs}\"",
-    "format": "prettier --check --ignore-path .gitignore --plugin-search-dir=. \"./**/*.{ts,js,cjs}\"",
+    "format": "prettier --check --ignore-path .gitignore \"./**/*.{ts,js,cjs}\"",
     "dts": "dts-buddy",
     "prepublishOnly": "pnpm dts"
   },
