@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { lockscroll, createLockScrollStore } from '@svelte-put/lockscroll';
+  import { lockscroll } from '@svelte-put/lockscroll';
 
-  const locked = createLockScrollStore();
+  let locked = false;
 </script>
 
-<button class="c-btn-primary" on:click={() => locked.toggle()}
+<button class="c-btn-primary" on:click={() => (locked = !locked)}
   >Toggle lock scroll for below section</button
 >
 <section class="mt-4 max-h-[400px] overflow-auto rounded bg-bg-soft px-6" use:lockscroll={locked}>
