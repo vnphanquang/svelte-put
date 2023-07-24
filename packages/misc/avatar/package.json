@@ -71,7 +71,7 @@
     "@svelte-put/tsconfig": "workspace:*",
     "@types/md5": "^2.3.2",
     "dts-buddy": "^0.1.7",
-    "publint": "^0.1.9",
+    "publint": "^0.1.16",
     "svelte": "^4.1.1"
   },
   "peerDependencies": {
