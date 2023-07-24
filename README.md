@@ -51,13 +51,11 @@ Useful svelte stuff to put in your projects
 
 These are some packages that will be added in the future (as soon as I find time, and the implementation has matured & become generic enough).
 
-| Package                             | Category  | Short Description                                                            | Status             | Docs        |
-| ----------------------------------- | --------- | ---------------------------------------------------------------------------- | ------------------ | ----------- |
-| [@svelte-put/select][github.select] | component | minimal & extensible `select`                                                | active development | coming soon |
-| @svelte-put/popover                 | action    | trigger tooltip & detailed popover, using [popperjs](https://popper.js.org/) | prototype          |
-| @svelte-put/noti                    | utility   | fire async toast-like notification                                           | prototype          |
-| @svelte-put/inputcache              | action    | cache & restore value of input into/from local/session storage               | prototype          |
-| @svelte-put/form                    | action    | auto collect type-safe input value from form (???)                           | inception          |
+| Package                             | Category  | Short Description                                              | Status             | Docs        |
+| ----------------------------------- | --------- | -------------------------------------------------------------- | ------------------ | ----------- |
+| [@svelte-put/select][github.select] | component | minimal & extensible `select`                                  | active development | coming soon |
+| @svelte-put/noti                    | utility   | fire async toast-like notification                             | prototype          |
+| @svelte-put/inputcache              | action    | cache & restore value of input into/from local/session storage | prototype          |
 
 Names for those packages may change.
 
