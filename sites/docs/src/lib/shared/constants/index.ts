@@ -27,7 +27,8 @@ export const { node: APP_ROUTE_TREE } = tBuild('APP_ROUTE_TREE', {
             })
             .addChild('select')
             .addChild('shortcut')
-            .addChild('toc'),
+            .addChild('toc')
+            .addChild('tooltip'),
       })
       .addChild('humans', {
         pathResolver: () => 'humans.txt',

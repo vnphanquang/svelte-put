@@ -1,0 +1,21 @@
+{
+	"version": 3,
+	"file": "index.d.ts",
+	"names": [
+		"useTooltip",
+		"tooltip",
+		"TooltipComponentBaseProps",
+		"TooltipRenderTarget",
+		"TooltipConfig",
+		"TooltipParameter"
+	],
+	"sources": [
+		"../src/tooltip.js",
+		"../src/public.d.ts"
+	],
+	"sourcesContent": [
+		null,
+		null
+	],
+	"mappings": ";;iBAIgBA,UAAUA;;iBAuBVC,OAAOA;;OCtBXC,yBAAyBA;;;OAGzBC,mBAAmBA;;;OAGnBC,aAAaA;;;;;;;;;;;;;;;;;OAiBbC,gBAAgBA"
+}

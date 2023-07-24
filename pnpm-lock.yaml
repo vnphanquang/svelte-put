@@ -177,6 +177,15 @@ importers:
         specifier: ^0.1.8
         version: 0.1.8
 
+  packages/actions/tooltip:
+    devDependencies:
+      '@svelte-put/tsconfig':
+        specifier: workspace:*
+        version: link:../../../configs/tsconfig
+      dts-buddy:
+        specifier: ^0.1.8
+        version: 0.1.8
+
   packages/components/select:
     dependencies:
       '@svelte-put/clickoutside':
@@ -523,6 +532,9 @@ importers:
       '@svelte-put/toc':
         specifier: workspace:*
         version: link:../../packages/actions/toc
+      '@svelte-put/tooltip':
+        specifier: workspace:^
+        version: link:../../packages/actions/tooltip
       '@svelte-put/transitions':
         specifier: workspace:*
         version: link:../../packages/transitions

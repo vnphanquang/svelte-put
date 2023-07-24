@@ -213,6 +213,20 @@ export const packages = {
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/toc/CHANGELOG.md',
   },
+  tooltip: {
+    id: 'tooltip',
+    name: '@svelte-put/tooltip',
+    publishedAt: 1670126470519,
+    description: 'dipslay tooltip over an HTML element',
+    path: APP_ROUTE_TREE.docs.tooltip.$.path(),
+    replId: undefined,
+    category: 'action',
+    status: 'new',
+    ready: true,
+    githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/tooltip',
+    changelogUrl:
+      'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/tooltip/CHANGELOG.md',
+  },
 } as const;
 
 export type PackageId = keyof typeof packages;
