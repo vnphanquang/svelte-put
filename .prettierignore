@@ -31,3 +31,4 @@ api/
 **/*generated/
 *.css
 ~partytown/
+**/types/index.d.ts.map

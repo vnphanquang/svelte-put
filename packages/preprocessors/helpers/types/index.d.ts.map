@@ -1,0 +1,16 @@
+{
+	"version": 3,
+	"file": "index.d.ts",
+	"names": [
+		"getAttribute",
+		"getAttributes",
+		"BaseNode"
+	],
+	"sources": [
+		"../src/index.js"
+	],
+	"sourcesContent": [
+		null
+	],
+	"mappings": ";iBAuBgBA,YAAYA;;iBAkBZC,aAAaA;aAvCCC,QAAQA"
+}
