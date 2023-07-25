@@ -118,6 +118,23 @@ const sveltePut = plugin(
       '.c-footnote-red': {
         '@apply c-footnote bg-red-700 text-white': {},
       },
+      '.c-tooltip': {
+        /* Float on top of the UI */
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        /* Avoid layout interference */
+        width: 'max-content',
+        backgroundColor: 'theme("colors.bg.soft")',
+        borderRadius: 'theme("borderRadius.DEFAULT")',
+        opacity: 0,
+        transition: 'opacity 250ms ease-in-out',
+        zIndex: 'theme("zIndex.tooltip")',
+        '&[data-open="true"]': {
+          opacity: 1,
+        },
+        padding: 'theme("spacing.1") theme("spacing.2")',
+      },
     });
 
     const cCalloutValues = {

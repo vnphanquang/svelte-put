@@ -2,12 +2,15 @@
 	"version": 3,
 	"file": "index.d.ts",
 	"names": [
-		"useTooltip",
+		"compose",
 		"tooltip",
 		"TooltipComponentBaseProps",
 		"TooltipRenderTarget",
-		"TooltipConfig",
-		"TooltipParameter"
+		"TooltipContentConfig",
+		"TooltipComputeParam",
+		"TooltipParameter",
+		"TooltipAttributes",
+		"TooltipActionReturn"
 	],
 	"sources": [
 		"../src/tooltip.js",
@@ -17,5 +20,5 @@
 		null,
 		null
 	],
-	"mappings": ";;iBAIgBA,UAAUA;;iBAuBVC,OAAOA;;OCtBXC,yBAAyBA;;;OAGzBC,mBAAmBA;;;OAGnBC,aAAaA;;;;;;;;;;;;;;;;;OAiBbC,gBAAgBA"
+	"mappings": ";;;iBAkBgBA,OAAOA;;iBAwCPC,OAAOA;;OCrDXC,yBAAyBA;;;;;;OAMzBC,mBAAmBA;;;;;;;;OAQnBC,oBAAoBA;;;;;;;;;;;;;;;;OAgBpBC,mBAAmBA;;;;;;;;;;;OAWnBC,gBAAgBA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;OA0ChBC,iBAAiBA;;;;;;OAWjBC,mBAAmBA"
 }

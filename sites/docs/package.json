@@ -27,6 +27,7 @@
     "web-vitals": "^3.4.0"
   },
   "devDependencies": {
+    "@floating-ui/dom": "^1.4.5",
     "@svelte-put/avatar": "workspace:*",
     "@svelte-put/clickoutside": "workspace:*",
     "@svelte-put/copy": "workspace:*",
