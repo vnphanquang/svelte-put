@@ -138,8 +138,8 @@ const sveltePut = plugin(
       '.c-tooltip-arrow': {
         position: 'absolute',
         zIndex: '-1',
-        width: '16px',
-        height: '16px',
+        width: '14px',
+        height: '14px',
         transform: 'rotate(45deg)',
         backgroundColor: 'theme("colors.bg.muted")',
       },

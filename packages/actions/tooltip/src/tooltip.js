@@ -4,19 +4,48 @@ let autoincrement = 0;
 
 /**
  * @template {import('./public').TooltipComponentBaseProps} Props
- * @template {import('./public').TooltipContent<Props>} Content
- * @param {import('./public').TooltipParameter<Props, Content>} param
+ * @template {Record<string, any>} Events
+ * @template {Record<string, any>} Slots
+ * @overload
+ * @param {import('./public').TooltipContainer & {
+ *  content: import('svelte').ComponentType<import('svelte').SvelteComponent<Props, Events, Slots>>;
+ *  compute?: import('./public').TooltipCompute<Props, import('svelte').SvelteComponent<Props, Events, Slots>>;
+ * }} param
+ * @returns {import('./public').PreparedTooltipAction<Props>}
  */
-export function compose(param) {
-  /**
-   * @param {HTMLElement} node
-   * @param {undefined | (Content extends string ? string : Props)} composedParam
-   * @returns {import('./public').TooltipComposedActionReturn<Props, Content>}
-   */
-  return function (node, composedParam = undefined) {
+/**
+ * @template {import('./public').TooltipComponentBaseProps} Props
+ * @template {Record<string, any>} Events
+ * @template {Record<string, any>} Slots
+ * @overload
+ * @param {import('./public').TooltipContainer & {
+ *  content: {
+ *   component: import('svelte').ComponentType<import('svelte').SvelteComponent<Props, Events, Slots>>;
+ *   props?: Props,
+ *  },
+ *  compute?: import('./public').TooltipCompute<Props, import('svelte').SvelteComponent<Props, Events, Slots>>;
+ * }} param
+ * @returns {import('./public').PreparedTooltipAction<Props>}
+ */
+/**
+ * @overload
+ * @param {import('./public').TooltipContainer & {
+ *  content: string;
+ *  compute?: import('./public').TooltipCompute<Props, string>;
+ * }} param
+ * @returns {import('./public').PreparedTooltipAction<string>}
+ */
+/**
+ * @template {import('./public').TooltipComponentBaseProps} Props
+ * @template {import('./public').TooltipContent<Props>} Content
+ * @template {import('./public').TooltipComputeContent<Props>} ComputeContent
+ * @param {import('./public').PreparedTooltipParameter<Props, Content, ComputeContent>} param
+ * @returns {import('./public').PreparedTooltipAction<any>}
+ */
+export function prepare(param) {
+  return function (node, composedParam) {
     let content = param.content;
 
-    /** @type {any} */
     let composedContent;
     if (typeof content === 'string' && typeof composedParam === 'string') {
       composedContent = composedParam;
@@ -30,23 +59,28 @@ export function compose(param) {
         component: content.component,
         props: {
           ...content.props,
-          .../** @type {Props} */ (composedParam),
+          ...composedParam,
         },
       };
     } else {
       composedContent = content;
     }
 
-    return /** @type {any}*/ (tooltip(node, { ...param, content: composedContent }));
+    return tooltip(
+      node,
+      /** @type {any} */ ({
+        ...param,
+        content: composedContent,
+      }),
+    );
   };
 }
 
 /**
  * @template {import('./public').TooltipComponentBaseProps} Props
- * @template {import('./public').TooltipContent<Props>} Content
  * @param {HTMLElement} node
- * @param {import('./public').TooltipParameter<Props, Content>} param
- * @returns {import('./public').TooltipActionReturn<Props, Content>}
+ * @param {import('./public').TooltipParameter<Props>} param
+ * @returns {import('./public').TooltipActionReturn<Props>}
  */
 export function tooltip(node, param) {
   const { tag = 'div', content, target = 'parent', compute, debounce: debounceMs } = param;

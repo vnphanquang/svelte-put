@@ -3,10 +3,12 @@
   import Code from '$client/components/Code/Code.svelte';
   import Installation from '$client/components/Installation/Installation.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
+  // import endImage from '$shared/assets/images/scroll-lock.webp';
 
   import type { PageData } from './$types';
-  import Compose from './_page/code/compose.svelte';
-  import QuickStart from './_page/code/quickStart.svelte';
+  import { codes } from './_page/codes';
+  import Prepare from './_page/codes/prepare.code.svelte';
+  import QuickStart from './_page/codes/quickStart.code.svelte';
 
   export let data: PageData;
 </script>
@@ -15,13 +17,33 @@
 
 <section>
   <h2>Quick Start</h2>
-
-  <QuickStart />
+  <fieldset class="border-2 border-violet-500 p-4">
+    <legend>Example</legend>
+    <p class="mt-0">Hover or tab into focus to trigger tooltip</p>
+    <QuickStart />
+  </fieldset>
+  <Code lang="svelte" code={codes.quickStart} title="works with any scroll container" />
 </section>
 
 <ActionUsageNotice action={data.package.id} />
 
 <section>
   <h2>Composing Action</h2>
-  <Compose />
+  <fieldset class="border-2 border-violet-500 p-4">
+    <legend>Example</legend>
+    <p class="mt-0">Hover or tab into focus to trigger tooltip</p>
+    <Prepare />
+  </fieldset>
+  <Code lang="svelte" code={codes.quickStart} title="works with any scroll container" />
 </section>
+
+<!-- <img
+  src={endImage}
+  alt="mouse click faster"
+  width="300"
+  height="175"
+  loading="lazy"
+  decoding="async"
+/>
+
+<p>Happy locking scroll! 👨‍💻</p> -->

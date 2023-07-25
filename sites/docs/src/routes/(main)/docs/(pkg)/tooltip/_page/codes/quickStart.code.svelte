@@ -17,5 +17,5 @@
     },
   }}
 >
-  A button
+  A button with tooltip
 </button>

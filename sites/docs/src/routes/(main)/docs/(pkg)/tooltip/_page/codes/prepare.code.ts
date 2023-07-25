@@ -1,9 +1,9 @@
 import { arrow, computePosition, offset } from '@floating-ui/dom';
-import { compose } from '@svelte-put/tooltip';
+import { prepare } from '@svelte-put/tooltip';
 
 import Tooltip from './Tooltip.component.svelte';
 
-export const helloTip = compose({
+export const helloTip = prepare({
   content: {
     component: Tooltip,
     props: {
@@ -22,7 +22,7 @@ export const helloTip = compose({
     const { x, y, middlewareData, placement } = await computePosition(node, tooltip, {
       placement: 'right',
       middleware: [
-        offset(20),
+        offset(16),
         arrow({
           element: arrowEl,
         }),

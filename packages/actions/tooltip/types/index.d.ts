@@ -1,36 +1,46 @@
 declare module '@svelte-put/tooltip' {
   import type { SvelteComponent, ComponentType } from 'svelte';
-  import type { ActionReturn } from 'svelte/action';
+  import type { ActionReturn, Action } from 'svelte/action';
   /// <reference types="svelte" />
-
-  export function compose<
+  export function prepare<
     Props extends TooltipComponentBaseProps,
-    Content extends TooltipContent<Props>,
+    Events extends Record<string, any>,
+    Slots extends Record<string, any>,
   >(
-    param: TooltipParameter<
-      Props,
-      Content,
-      Content extends string ? string : import('svelte').SvelteComponent<Props, any, any>
-    >,
-  ): (
-    node: HTMLElement,
-    composedParam?: Content extends string ? string : Props,
-  ) => TooltipComposedActionReturn<Props, Content>;
-
-  export function tooltip<
+    param: TooltipContainer & {
+      content: import('svelte').ComponentType<
+        import('svelte').SvelteComponent<Props, Events, Slots>
+      >;
+      compute?: TooltipCompute<Props, import('svelte').SvelteComponent<Props, Events, Slots>>;
+    },
+  ): PreparedTooltipAction<Props>;
+  export function prepare<
     Props extends TooltipComponentBaseProps,
-    Content extends TooltipContent<Props>,
+    Events extends Record<string, any>,
+    Slots extends Record<string, any>,
   >(
+    param: TooltipContainer & {
+      content: {
+        component: import('svelte').ComponentType<
+          import('svelte').SvelteComponent<Props, Events, Slots>
+        >;
+        props?: Props;
+      };
+      compute?: TooltipCompute<Props, import('svelte').SvelteComponent<Props, Events, Slots>>;
+    },
+  ): PreparedTooltipAction<Props>;
+  export function prepare(
+    param: TooltipContainer & {
+      content: string;
+      compute?: TooltipCompute<Props, string>;
+    },
+  ): PreparedTooltipAction<string>;
+
+  export function tooltip<Props extends TooltipComponentBaseProps>(
     node: HTMLElement,
-    param: TooltipParameter<
-      Props,
-      Content,
-      Content extends string ? string : import('svelte').SvelteComponent<Props, any, any>
-    >,
-  ): TooltipActionReturn<Props, Content>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    param: TooltipParameter<Props>,
+  ): TooltipActionReturn<Props>;
   type TooltipComponentBaseProps = Record<string, any>;
-
   /**
    * @public
    * Where to render the tooltip container
@@ -98,26 +108,21 @@ declare module '@svelte-put/tooltip' {
     'aria-describedby'?: string;
   };
 
-  type TooltipParameter<
-    Props extends TooltipComponentBaseProps,
-    Content extends TooltipContent<Props>,
-    ComputeContent extends TooltipComputeContent<Props> = Content extends string
-      ? string
-      : SvelteComponent<Props>,
-  > = TooltipContainer & {
+  type TooltipParameter<Props extends TooltipComponentBaseProps> = TooltipContainer & {
     content: TooltipContent<Props>;
-    compute: TooltipCompute<Props, ComputeContent>;
+    compute?: TooltipCompute<Props, TooltipComputeContent<Props>>;
   };
 
-  type TooltipActionReturn<
-    Props extends TooltipComponentBaseProps,
-    Content extends TooltipContent<Props>,
-  > = ActionReturn<TooltipParameter<Props, Content>, TooltipAttributes>;
+  type TooltipActionReturn<Props extends TooltipComponentBaseProps> = ActionReturn<
+    TooltipParameter<Props>,
+    TooltipAttributes
+  >;
 
-  type TooltipComposedActionReturn<
-    Props extends TooltipComponentBaseProps,
-    Content extends TooltipContent<Props>,
-  > = ActionReturn<Content extends string ? string : Props, TooltipAttributes>;
+  type PreparedTooltipAction<Parameter> = Action<
+    HTMLElement,
+    Parameter | undefined,
+    TooltipAttributes
+  >;
 }
 
 //# sourceMappingURL=index.d.ts.map

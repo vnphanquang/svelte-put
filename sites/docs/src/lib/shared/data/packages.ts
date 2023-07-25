@@ -217,7 +217,7 @@ export const packages = {
     id: 'tooltip',
     name: '@svelte-put/tooltip',
     publishedAt: 1670126470519,
-    description: 'dipslay tooltip over an HTML element',
+    description: 'type-safe, headless,  and extensible svelte tooltip',
     path: APP_ROUTE_TREE.docs.tooltip.$.path(),
     replId: undefined,
     category: 'action',
@@ -234,12 +234,15 @@ export type Package = (typeof packages)[PackageId];
 export type PackageName = Package['name'];
 export type PackageCategory = (typeof packages)[PackageId]['category'];
 
-export const packagesByCategory = Object.values(packages).reduce((map, pkg) => {
-  const category = pkg.category;
-  if (!map[category]) map[category] = [];
-  map[category].push(pkg);
-  return map;
-}, {} as Record<PackageCategory, Package[]>);
+export const packagesByCategory = Object.values(packages).reduce(
+  (map, pkg) => {
+    const category = pkg.category;
+    if (!map[category]) map[category] = [];
+    map[category].push(pkg);
+    return map;
+  },
+  {} as Record<PackageCategory, Package[]>,
+);
 
 export const pkgToPath = Object.fromEntries(
   Object.values(packages).map((p) => [p.name, p.path]),
