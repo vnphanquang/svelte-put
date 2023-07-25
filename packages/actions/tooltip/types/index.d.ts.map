@@ -6,10 +6,12 @@
 		"tooltip",
 		"TooltipComponentBaseProps",
 		"TooltipRenderTarget",
-		"TooltipContentConfig",
-		"TooltipComputeParam",
-		"TooltipParameter",
+		"TooltipContent",
+		"TooltipContainer",
+		"TooltipComputeContent",
+		"TooltipComputeParameter",
 		"TooltipAttributes",
+		"TooltipParameter",
 		"TooltipActionReturn"
 	],
 	"sources": [
@@ -20,5 +22,5 @@
 		null,
 		null
 	],
-	"mappings": ";;;iBAkBgBA,OAAOA;;iBAwCPC,OAAOA;;OCrDXC,yBAAyBA;;;;;;OAMzBC,mBAAmBA;;;;;;;;OAQnBC,oBAAoBA;;;;;;;;;;;;;;;;OAgBpBC,mBAAmBA;;;;;;;;;;;OAWnBC,gBAAgBA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;OA0ChBC,iBAAiBA;;;;;;OAWjBC,mBAAmBA"
+	"mappings": ";;;;;iBASgBA,OAAOA;;iBAyCPC,OAAOA;;OC7CXC,yBAAyBA;;;;;;OAMzBC,mBAAmBA;;;;;;;;OAQnBC,cAAcA;;;;;;;;;;;;;;;;OAgBdC,gBAAgBA;;;;;;;;;;;;;;;;OAgBhBC,qBAAqBA;;;OAGrBC,uBAAuBA;;;;;;;;;;;;;;;;;;OAkBvBC,iBAAiBA;;;;;;OAMjBC,gBAAgBA;;;;;;;;;;OAUhBC,mBAAmBA"
 }

@@ -125,15 +125,23 @@ const sveltePut = plugin(
         left: 0,
         /* Avoid layout interference */
         width: 'max-content',
-        backgroundColor: 'theme("colors.bg.soft")',
+        backgroundColor: 'theme("colors.bg.muted")',
         borderRadius: 'theme("borderRadius.DEFAULT")',
         opacity: 0,
-        transition: 'opacity 250ms ease-in-out',
+        transition: 'opacity 150ms ease-in-out',
         zIndex: 'theme("zIndex.tooltip")',
+        padding: 'theme("spacing.1") theme("spacing.2")',
         '&[data-open="true"]': {
           opacity: 1,
         },
-        padding: 'theme("spacing.1") theme("spacing.2")',
+      },
+      '.c-tooltip-arrow': {
+        position: 'absolute',
+        zIndex: '-1',
+        width: '16px',
+        height: '16px',
+        transform: 'rotate(45deg)',
+        backgroundColor: 'theme("colors.bg.muted")',
       },
     });
 

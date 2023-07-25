@@ -1,5 +1,5 @@
-<script>
-  import { exampleTooltip } from './tooltip';
+<script lang="ts">
+  import { helloTip } from './tooltip';
 </script>
 
-<button use:exampleTooltip class="c-btn-primary relative"> A button </button>
+<button use:helloTip class="c-btn-primary relative">Hello Button</button>

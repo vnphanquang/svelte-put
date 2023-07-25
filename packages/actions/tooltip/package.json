@@ -1,7 +1,7 @@
 {
   "name": "@svelte-put/tooltip",
   "version": "0.0.0",
-  "description": "type-safe minimal and extensible svelte tooltip",
+  "description": "type-safe headless and extensible svelte tooltip",
   "main": "src/index.js",
   "module": "src/index.js",
   "types": "types/index.d.ts",
@@ -33,7 +33,7 @@
     "svelte",
     "action",
     "tooltip",
-    "minimal",
+    "headless",
     "extensible",
     "typescript",
     "type-safe"

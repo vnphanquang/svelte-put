@@ -1,25 +1,17 @@
-/**
- * @template {import('./legacy').TooltipComponentBaseProps} Props
- * @param {import('./legacy').TooltipContentConfig<Props>} content
- * @returns {content is (import('svelte').ComponentType<import('svelte').SvelteComponent<Props>>)}
- */
-function isContentConfigDirectComponent(content) {
-  return typeof content !== 'string' && !('component' in content);
-}
+import { debounce, isContentConfigDirectComponent } from './utils.js';
 
 let autoincrement = 0;
 
 /**
- * @template {import('./legacy').TooltipComponentBaseProps} Props
- * @template {import('./legacy').TooltipContentConfig<Props>} Content
- * @param {import('./legacy').TooltipParameter<Props, Content>} param
- * @returns
+ * @template {import('./public').TooltipComponentBaseProps} Props
+ * @template {import('./public').TooltipContent<Props>} Content
+ * @param {import('./public').TooltipParameter<Props, Content>} param
  */
 export function compose(param) {
   /**
    * @param {HTMLElement} node
-   * @param {undefined | import('./legacy').ComposedTooltipParameter<Props, Content>} composedParam
-   * @returns {import('./legacy').TooltipActionReturn<Props, Content>}
+   * @param {undefined | (Content extends string ? string : Props)} composedParam
+   * @returns {import('./public').TooltipComposedActionReturn<Props, Content>}
    */
   return function (node, composedParam = undefined) {
     let content = param.content;
@@ -38,26 +30,26 @@ export function compose(param) {
         component: content.component,
         props: {
           ...content.props,
-          composedParam,
+          .../** @type {Props} */ (composedParam),
         },
       };
     } else {
       composedContent = content;
     }
 
-    return tooltip(node, { ...param, content: composedContent });
+    return /** @type {any}*/ (tooltip(node, { ...param, content: composedContent }));
   };
 }
 
 /**
- * @template {import('./legacy').TooltipComponentBaseProps} Props
- * @template {import('./legacy').TooltipContentConfig<Props>} Content
+ * @template {import('./public').TooltipComponentBaseProps} Props
+ * @template {import('./public').TooltipContent<Props>} Content
  * @param {HTMLElement} node
- * @param {import('./legacy').TooltipParameter<Props, Content>} param
- * @returns {import('./legacy').TooltipActionReturn<Props, Content>}
+ * @param {import('./public').TooltipParameter<Props, Content>} param
+ * @returns {import('./public').TooltipActionReturn<Props, Content>}
  */
 export function tooltip(node, param) {
-  const { tag = 'div', content, target = 'parent', compute } = param;
+  const { tag = 'div', content, target = 'parent', compute, debounce: debounceMs } = param;
 
   const tooltipId = node.getAttribute('aria-describedby') ?? `tooltip-${++autoincrement}`;
   if (!node.hasAttribute('aria-describedby')) {
@@ -102,26 +94,52 @@ export function tooltip(node, param) {
     });
   }
 
-  function onMouseLeave() {
-    tooltip.dataset.open = 'false';
+  /**
+   * @param {boolean | undefined} force
+   */
+  function toggle(force = undefined) {
+    const open = force ?? (tooltip.dataset.open === 'true' ? false : true);
+    tooltip.dataset.open = open.toString();
+    tooltip.style.pointerEvents = open ? 'all' : 'none';
+    if (open) {
+      window.addEventListener('keydown', listenForEscape);
+    } else {
+      window.removeEventListener('keydown', listenForEscape);
+    }
+  }
+  const debounceToggle = debounce(toggle, debounceMs || 0);
+
+  /**
+   * @param {KeyboardEvent} e
+   */
+  function listenForEscape(e) {
+    if (e.key === 'Escape') {
+      hide();
+    }
   }
 
-  function onMouseEnter() {
-    tooltip.dataset.open = 'true';
+  function show() {
+    debounceToggle(true);
   }
 
-  node.addEventListener('mouseenter', onMouseEnter);
-  node.addEventListener('mouseleave', onMouseLeave);
+  function hide() {
+    debounceToggle(false);
+  }
+
+  node.addEventListener('mouseenter', show);
+  node.addEventListener('mouseleave', hide);
+  node.addEventListener('focus', show);
+  node.addEventListener('blur', hide);
+
+  tooltip.addEventListener('mouseenter', show);
+  tooltip.addEventListener('mouseleave', hide);
 
   /** @type {undefined | (() => void)} */
   let computeCleanUp = undefined;
   const computed = compute?.({
     node,
     tooltip,
-    param,
-    content: /** @type {import('./legacy').TooltipComputeParam<Props, Content>['content']} */ (
-      computedContent
-    ),
+    content: /** @type {any} */ (computedContent),
   });
   if (typeof computed === 'function') {
     computeCleanUp = computed;
@@ -135,8 +153,13 @@ export function tooltip(node, param) {
 
   return {
     destroy() {
-      node.removeEventListener('mouseenter', onMouseEnter);
-      node.removeEventListener('mouseleave', onMouseLeave);
+      node.removeEventListener('mouseenter', show);
+      node.removeEventListener('mouseleave', hide);
+      node.removeEventListener('focus', show);
+      node.removeEventListener('blur', hide);
+
+      tooltip.addEventListener('mouseenter', show);
+      tooltip.addEventListener('mouseleave', hide);
       computeCleanUp?.();
     },
   };

@@ -1,20 +1,33 @@
 declare module '@svelte-put/tooltip' {
   import type { SvelteComponent, ComponentType } from 'svelte';
   import type { ActionReturn } from 'svelte/action';
+  /// <reference types="svelte" />
+
   export function compose<
     Props extends TooltipComponentBaseProps,
-    Param extends TooltipParameter<Props>,
+    Content extends TooltipContent<Props>,
   >(
-    param: Param,
+    param: TooltipParameter<
+      Props,
+      Content,
+      Content extends string ? string : import('svelte').SvelteComponent<Props, any, any>
+    >,
   ): (
     node: HTMLElement,
-    composedParam?: string extends Param['content'] ? string : Props,
-  ) => TooltipActionReturn<Props>;
+    composedParam?: Content extends string ? string : Props,
+  ) => TooltipComposedActionReturn<Props, Content>;
 
-  export function tooltip<Props extends TooltipComponentBaseProps>(
+  export function tooltip<
+    Props extends TooltipComponentBaseProps,
+    Content extends TooltipContent<Props>,
+  >(
     node: HTMLElement,
-    param: TooltipParameter<Props>,
-  ): TooltipActionReturn<Props>;
+    param: TooltipParameter<
+      Props,
+      Content,
+      Content extends string ? string : import('svelte').SvelteComponent<Props, any, any>
+    >,
+  ): TooltipActionReturn<Props, Content>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   type TooltipComponentBaseProps = Record<string, any>;
 
@@ -29,7 +42,7 @@ declare module '@svelte-put/tooltip' {
     | HTMLElement
     | ((node: HTMLElement, tooltip: HTMLElement) => void);
 
-  type TooltipContentConfig<Props extends TooltipComponentBaseProps> =
+  type TooltipContent<Props extends TooltipComponentBaseProps> =
     | string
     | ComponentType<SvelteComponent<Props>>
     | {
@@ -44,17 +57,7 @@ declare module '@svelte-put/tooltip' {
         props?: Props;
       };
 
-  type TooltipComputeParam<
-    Props extends TooltipComponentBaseProps,
-    Content extends TooltipContentConfig<Props>,
-  > = {
-    node: HTMLElement;
-    tooltip: HTMLElement;
-    param: TooltipParameter<Props>;
-    content: string extends Content ? string : SvelteComponent<Props>;
-  };
-
-  type TooltipParameter<Props extends TooltipComponentBaseProps> = {
+  type TooltipContainer = {
     /**
      * HTML tag to render the tooltip container. Defaults to `div`
      */
@@ -64,40 +67,100 @@ declare module '@svelte-put/tooltip' {
      */
     target?: TooltipRenderTarget;
     /**
-     * A custom function for operating on the reference node (node action is placed on) and
-     * the tooltip container, typically to calculate the position or assign classes to the tooltip.
+     * number of milliseconds to debounce the open / close action of the tooltip.
+     * Defaults to `false` (close / open immediately).
      */
-    compute?: (
-      param: TooltipComputeParam<Props, TooltipParameter<Props>['content']>,
-    ) => void | (() => void) | Promise<void | (() => void)>;
-    /**
-     * content config
-     */
-    content:
-      | string
-      | ComponentType<SvelteComponent<Props>>
-      | {
-          /**
-           * Svelte component to render as tooltip
-           */
-          component: ComponentType<SvelteComponent<Props>>;
-          /**
-           * Props to pass to component, if any. Note that if required props are not passed down,
-           * a runtime error will be thrown.
-           */
-          props?: Props;
-        };
+    debounce?: false | number;
   };
+
+  type TooltipComputeContent<Props extends TooltipComponentBaseProps> =
+    | string
+    | SvelteComponent<Props>;
+
+  type TooltipComputeParameter<
+    Props extends TooltipComponentBaseProps,
+    ComputeContent extends TooltipComputeContent<Props>,
+  > = {
+    node: HTMLElement;
+    tooltip: HTMLElement;
+    content: ComputeContent;
+  };
+
+  type TooltipCompute<
+    Props extends TooltipComponentBaseProps,
+    ComputeContent extends TooltipComputeContent<Props>,
+  > = (
+    param: TooltipComputeParameter<Props, ComputeContent>,
+  ) => void | (() => void) | Promise<void | (() => void)>;
 
   type TooltipAttributes = {
     /** if provided will be set to `id` of the tooltip element, auto-generated otherwise  */
     'aria-describedby'?: string;
   };
 
-  type TooltipActionReturn<Props extends TooltipComponentBaseProps> = ActionReturn<
-    TooltipParameter<Props>,
-    TooltipAttributes
-  >;
+  type TooltipParameter<
+    Props extends TooltipComponentBaseProps,
+    Content extends TooltipContent<Props>,
+    ComputeContent extends TooltipComputeContent<Props> = Content extends string
+      ? string
+      : SvelteComponent<Props>,
+  > = TooltipContainer & {
+    content: Content;
+    compute: TooltipCompute<Props, ComputeContent>;
+  };
+
+  type TooltipActionReturn<
+    Props extends TooltipComponentBaseProps,
+    Content extends TooltipContent<Props>,
+  > = ActionReturn<TooltipParameter<Props, Content>, TooltipAttributes>;
+
+  type TooltipComposedActionReturn<
+    Props extends TooltipComponentBaseProps,
+    Content extends TooltipContent<Props>,
+  > = ActionReturn<Content extends string ? string : Props, TooltipAttributes>;
+
+  // /**
+  //  * @template {import('./public').TooltipComponentBaseProps} Props
+  //  * @template {import('./public').TooltipContent<Props>} Content
+  //  * @param {import('./public').TooltipContainer} container
+  //  * @param {Content} content
+  //  * @param {import('./public').TooltipCompute<Props, Content>} compute
+  //  */
+  // export function compose(container, content, compute) {
+  //   /**
+  //    * @param {HTMLElement} node
+  //    * @param {undefined | (Content extends string ? string : Props)} composedParam
+  //    * @returns {import('./public').TooltipComposedActionReturn<Props, Content>}
+  //    */
+  //   return function (node, composedParam = undefined) {
+  //     /** @type {import('./public').TooltipParameter<Props, Content>} */
+  //     let composed = {
+  //       ...container,
+  //       content,
+  //       compute,
+  //     };
+  //     if (typeof content === 'string' && typeof composedParam === 'string') {
+  //       composed.content = composedParam;
+  //     } else if (isContentConfigDirectComponent(content)) {
+  //       composed.content = {
+  //         component: /** @type {any} */(composed.content),
+  //         props: /** @type {Props} */(composedParam),
+  //       };
+  //     } else if ('component' in /** @type {any} */ (content)) {
+  //       composed.content = {
+  //         component: content.component,
+  //         props: {
+  //           ...content.props,
+  //           .../** @type {Props} */(composedParam),
+  //         },
+  //       };
+  //     } else {
+  //       composed.content = content;
+  //     }
+
+  //     return /** @type {any}*/(tooltip(node, composed));
+  //   };
+  // }
 }
 
 //# sourceMappingURL=index.d.ts.map
