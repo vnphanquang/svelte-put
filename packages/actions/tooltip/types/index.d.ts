@@ -105,7 +105,7 @@ declare module '@svelte-put/tooltip' {
       ? string
       : SvelteComponent<Props>,
   > = TooltipContainer & {
-    content: Content;
+    content: TooltipContent<Props>;
     compute: TooltipCompute<Props, ComputeContent>;
   };
 
@@ -118,49 +118,6 @@ declare module '@svelte-put/tooltip' {
     Props extends TooltipComponentBaseProps,
     Content extends TooltipContent<Props>,
   > = ActionReturn<Content extends string ? string : Props, TooltipAttributes>;
-
-  // /**
-  //  * @template {import('./public').TooltipComponentBaseProps} Props
-  //  * @template {import('./public').TooltipContent<Props>} Content
-  //  * @param {import('./public').TooltipContainer} container
-  //  * @param {Content} content
-  //  * @param {import('./public').TooltipCompute<Props, Content>} compute
-  //  */
-  // export function compose(container, content, compute) {
-  //   /**
-  //    * @param {HTMLElement} node
-  //    * @param {undefined | (Content extends string ? string : Props)} composedParam
-  //    * @returns {import('./public').TooltipComposedActionReturn<Props, Content>}
-  //    */
-  //   return function (node, composedParam = undefined) {
-  //     /** @type {import('./public').TooltipParameter<Props, Content>} */
-  //     let composed = {
-  //       ...container,
-  //       content,
-  //       compute,
-  //     };
-  //     if (typeof content === 'string' && typeof composedParam === 'string') {
-  //       composed.content = composedParam;
-  //     } else if (isContentConfigDirectComponent(content)) {
-  //       composed.content = {
-  //         component: /** @type {any} */(composed.content),
-  //         props: /** @type {Props} */(composedParam),
-  //       };
-  //     } else if ('component' in /** @type {any} */ (content)) {
-  //       composed.content = {
-  //         component: content.component,
-  //         props: {
-  //           ...content.props,
-  //           .../** @type {Props} */(composedParam),
-  //         },
-  //       };
-  //     } else {
-  //       composed.content = content;
-  //     }
-
-  //     return /** @type {any}*/(tooltip(node, composed));
-  //   };
-  // }
 }
 
 //# sourceMappingURL=index.d.ts.map

@@ -7,7 +7,7 @@ export const helloTip = compose({
   content: {
     component: Tooltip,
     props: {
-      content: 'Hello world',
+      content: 'Hello world!',
     },
   },
   target: 'parent',
