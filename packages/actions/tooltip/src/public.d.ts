@@ -1,5 +1,5 @@
 import type { SvelteComponent, ComponentType } from 'svelte';
-import type { ActionReturn, Action } from 'svelte/action';
+import type { Action } from 'svelte/action';
 
 /** @public */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -126,18 +126,6 @@ export type TooltipAttributes = {
 };
 
 /** @public */
-export type TooltipParameter<Props extends TooltipComponentBaseProps> = TooltipContainer & {
-  content: TooltipContent<Props>;
-  compute?: TooltipCompute<Props, TooltipComputeContent<Props>>;
-};
-
-/** @public */
-export type TooltipActionReturn<Props extends TooltipComponentBaseProps> = ActionReturn<
-  TooltipParameter<Props>,
-  TooltipAttributes
->;
-
-/** @public */
 export type PreparedTooltipAction<Parameter> = Action<
   HTMLElement,
   Parameter | undefined,
@@ -145,7 +133,7 @@ export type PreparedTooltipAction<Parameter> = Action<
 >;
 
 /** @public */
-export type PreparedTooltipParameter<
+export type TooltipParameter<
   Props extends TooltipComponentBaseProps,
   Content extends TooltipContent<Props>,
   ComputeContent extends TooltipComputeContent<Props>,

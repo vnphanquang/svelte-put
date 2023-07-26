@@ -3,9 +3,9 @@ import { debounce, isContentConfigDirectComponent } from './utils.js';
 let autoincrement = 0;
 
 /**
- * @template {import('./public').TooltipComponentBaseProps} Props
  * @template {Record<string, any>} Events
  * @template {Record<string, any>} Slots
+ * @template {import('./public').TooltipComponentBaseProps} Props
  * @overload
  * @param {import('./public').TooltipContainer & {
  *  content: import('svelte').ComponentType<import('svelte').SvelteComponent<Props, Events, Slots>>;
@@ -14,9 +14,9 @@ let autoincrement = 0;
  * @returns {import('./public').PreparedTooltipAction<Props>}
  */
 /**
- * @template {import('./public').TooltipComponentBaseProps} Props
  * @template {Record<string, any>} Events
  * @template {Record<string, any>} Slots
+ * @template {import('./public').TooltipComponentBaseProps} Props
  * @overload
  * @param {import('./public').TooltipContainer & {
  *  content: {
@@ -31,7 +31,7 @@ let autoincrement = 0;
  * @overload
  * @param {import('./public').TooltipContainer & {
  *  content: string;
- *  compute?: import('./public').TooltipCompute<Props, string>;
+ *  compute?: import('./public').TooltipCompute<{}, string>;
  * }} param
  * @returns {import('./public').PreparedTooltipAction<string>}
  */
@@ -39,7 +39,7 @@ let autoincrement = 0;
  * @template {import('./public').TooltipComponentBaseProps} Props
  * @template {import('./public').TooltipContent<Props>} Content
  * @template {import('./public').TooltipComputeContent<Props>} ComputeContent
- * @param {import('./public').PreparedTooltipParameter<Props, Content, ComputeContent>} param
+ * @param {import('./public').TooltipParameter<Props, Content, ComputeContent>} param
  * @returns {import('./public').PreparedTooltipAction<any>}
  */
 export function prepare(param) {
@@ -75,12 +75,53 @@ export function prepare(param) {
     );
   };
 }
-
+/**
+ * @template {Record<string, any>} Events
+ * @template {Record<string, any>} Slots
+ * @template {import('./public').TooltipComponentBaseProps} Props
+ * @template {import('./public').TooltipContent<Props>} Content
+ * @template {import('./public').TooltipComputeContent<Props>} ComputeContent
+ * @overload
+ * @param {HTMLElement} node
+ * @param {import('./public').TooltipContainer & {
+ *  content: import('svelte').ComponentType<import('svelte').SvelteComponent<Props, Events, Slots>>;
+ *  compute?: import('./public').TooltipCompute<Props, import('svelte').SvelteComponent<Props, Events, Slots>>;
+ * }} param
+ * @returns {import('svelte/action').ActionReturn<import('./public').TooltipParameter<Props, Content, ComputeContent>, import('./public').TooltipAttributes>}
+ */
+/**
+ * @template {Record<string, any>} Events
+ * @template {Record<string, any>} Slots
+ * @template {import('./public').TooltipComponentBaseProps} Props
+ * @template {import('./public').TooltipContent<Props>} Content
+ * @template {import('./public').TooltipComputeContent<Props>} ComputeContent
+ * @overload
+ * @param {HTMLElement} node
+ * @param {import('./public').TooltipContainer & {
+ *  content: {
+ *   component: import('svelte').ComponentType<import('svelte').SvelteComponent<Props, Events, Slots>>;
+ *   props?: Props,
+ *  },
+ *  compute?: import('./public').TooltipCompute<Props, import('svelte').SvelteComponent<Props, Events, Slots>>;
+ * }} param
+ * @returns {import('svelte/action').ActionReturn<import('./public').TooltipParameter<Props, Content, ComputeContent>, import('./public').TooltipAttributes>}
+ */
+/**
+ * @overload
+ * @param {HTMLElement} Node
+ * @param {import('./public').TooltipContainer & {
+ *  content: string;
+ *  compute?: import('./public').TooltipCompute<{}, string>;
+ * }} param
+ * @returns {import('svelte/action').ActionReturn<import('./public').TooltipParameter<Props, string, string>, import('./public').TooltipAttributes>}
+ */
 /**
  * @template {import('./public').TooltipComponentBaseProps} Props
+ * @template {import('./public').TooltipContent<Props>} Content
+ * @template {import('./public').TooltipComputeContent<Props>} ComputeContent
  * @param {HTMLElement} node
- * @param {import('./public').TooltipParameter<Props>} param
- * @returns {import('./public').TooltipActionReturn<Props>}
+ * @param {import('./public').TooltipParameter<Props, Content, ComputeContent>} param
+ * @returns {import('svelte/action').ActionReturn<import('./public').TooltipParameter<Props, Content, ComputeContent>, import('./public').TooltipAttributes>}
  */
 export function tooltip(node, param) {
   const { tag = 'div', content, target = 'parent', compute, debounce: debounceMs } = param;

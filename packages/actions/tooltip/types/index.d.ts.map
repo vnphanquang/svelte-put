@@ -2,7 +2,6 @@
 	"version": 3,
 	"file": "index.d.ts",
 	"names": [
-		"tooltip",
 		"TooltipComponentBaseProps",
 		"TooltipRenderTarget",
 		"TooltipContent",
@@ -11,17 +10,14 @@
 		"TooltipComputeParameter",
 		"TooltipCompute",
 		"TooltipAttributes",
-		"TooltipParameter",
-		"TooltipActionReturn",
-		"PreparedTooltipAction"
+		"PreparedTooltipAction",
+		"TooltipParameter"
 	],
 	"sources": [
-		"../src/tooltip.js",
 		"../src/public.d.ts"
 	],
 	"sourcesContent": [
-		null,
 		null
 	],
-	"mappings": ";;;;;;;;;;;;;;;;;;;;iBAsFgBA,OAAOA;;OCjFXC,yBAAyBA;;;;;;OAMzBC,mBAAmBA;;;;;;;;OAQnBC,cAAcA;;;;;;;;;;;;;;;;OAgBdC,gBAAgBA;;;;;;;;;;;;;;;;;;;;;;;;OAwBhBC,qBAAqBA;;;;;OAKrBC,uBAAuBA;;;;;;;;;;OAUvBC,cAAcA;;;;;;;;OAQdC,iBAAiBA;;;;;;OAMjBC,gBAAgBA;;;;;;OAMhBC,mBAAmBA;;;;;;OAMnBC,qBAAqBA"
+	"mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;OAKYA,yBAAyBA;;;;;;OAMzBC,mBAAmBA;;;;;;;;OAQnBC,cAAcA;;;;;;;;;;;;;;;;OAgBdC,gBAAgBA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;OAgEhBC,qBAAqBA;;;;;OAKrBC,uBAAuBA;;;;;;;;;;OAUvBC,cAAcA;;;;;;;;OAQdC,iBAAiBA;;;;;;OAMjBC,qBAAqBA;;;;;;;OAOrBC,gBAAgBA"
 }
