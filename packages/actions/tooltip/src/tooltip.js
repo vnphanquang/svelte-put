@@ -143,38 +143,45 @@ export function tooltip(node, param) {
     default: 'none',
     visible: 'all',
   };
-  if (param.pointerEvents) {
-    if (typeof param.pointerEvents === 'boolean') {
-      if (!param.pointerEvents) {
-        pointerEvents = {
-          default: '',
-          visible: '',
-        };
-      }
-    } else {
+  if (typeof param.pointerEvents === 'boolean') {
+    if (!param.pointerEvents) {
       pointerEvents = {
-        ...pointerEvents,
-        ...param.pointerEvents,
+        default: '',
+        visible: '',
       };
     }
+  } else {
+    pointerEvents = {
+      ...pointerEvents,
+      ...param.pointerEvents,
+    };
   }
 
-  let visibleAttribute = 'data-visible';
-  if (param.visibleAttribute) {
-    if (typeof param.visibleAttribute === 'boolean') {
-      if (!param.visibleAttribute) visibleAttribute = '';
-    } else {
-      visibleAttribute = param.visibleAttribute;
-    }
+  let visibleAttribute = '';
+  if (param.visibleAttribute === true || param.visibleAttribute === undefined) {
+    visibleAttribute = 'data-visible';
+  } else if (param.visibleAttribute) {
+    visibleAttribute = param.visibleAttribute;
   }
 
-  const tooltipId = node.getAttribute('aria-describedby') ?? `tooltip-${++autoincrement}`;
-  if (!node.hasAttribute('aria-describedby')) {
-    node.setAttribute('aria-describedby', tooltipId);
+  let aria = { role: '', id: '' };
+  if (param.aria === undefined || param.aria === true) {
+    aria.role = 'tooltip';
+    aria.id = node.getAttribute('aria-describedby') ?? `tooltip-${++autoincrement}`;
+  } else if (param.aria) {
+    aria.role = param.aria.role ?? 'tooltip';
+    aria.id =
+      param.aria.id ?? node.getAttribute('aria-describedby') ?? `tooltip-${++autoincrement}`;
   }
+
   const tooltip = document.createElement(tag);
-  tooltip.role = 'tooltip';
-  tooltip.id = tooltipId;
+  if (aria.role) tooltip.role = aria.role;
+  if (aria.id) {
+    if (!node.hasAttribute('aria-describedby')) {
+      node.setAttribute('aria-describedby', aria.id);
+    }
+    tooltip.id = aria.id;
+  }
   tooltip.style.pointerEvents = pointerEvents.default;
   if (visibleAttribute) tooltip.setAttribute(visibleAttribute, 'false');
   if (classes.default) tooltip.classList.toggle(classes.default, true);

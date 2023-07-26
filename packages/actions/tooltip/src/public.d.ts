@@ -60,6 +60,7 @@ export type TooltipContainer = {
       };
   /**
    * config for handling of `pointer-events` on the container element
+   * Defaults to `true`
    *
    * @remarks
    * By default `pointer-events` is set to `none` by default, and `auto` when triggered.
@@ -83,15 +84,16 @@ export type TooltipContainer = {
   visibleAttribute?: boolean | string;
   /**
    * config for accessibility
+   * Defaults to `true`
    *
    * @remarks
-   * By default, on the tooltip container element, `role` is set to `tooltip`, and `id` is auto-generated
+   * By default, on the tooltip container element, `role` is set to `tooltip`, and `id` is auto-generated.
+   * Set to `false`
    */
   aria?:
     | boolean
-    | string
     | {
-        role?: boolean;
+        role?: string;
         id?: string;
       };
 };
