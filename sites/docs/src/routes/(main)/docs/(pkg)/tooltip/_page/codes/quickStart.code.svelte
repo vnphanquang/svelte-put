@@ -9,8 +9,9 @@
     content: 'An example tooltip',
     class: 'c-tooltip',
     compute: async ({ node, tooltip, content }) => {
+      console.log(content);
       const { x, y } = await computePosition(node, tooltip, {
-        placement: 'right',
+        placement: 'top',
       });
       tooltip.style.left = `${x}px`;
       tooltip.style.top = `${y}px`;

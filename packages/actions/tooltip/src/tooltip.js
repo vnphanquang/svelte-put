@@ -1,5 +1,3 @@
-import { tick } from 'svelte';
-
 import { debounce, isContentConfigDirectComponent } from './utils.js';
 
 let autoincrement = 0;
@@ -100,15 +98,45 @@ export function tooltip(node, param) {
     };
   }
 
+  let pointerEvents = {
+    default: 'none',
+    visible: 'all',
+  };
+  if (param.pointerEvents) {
+    if (typeof param.pointerEvents === 'boolean') {
+      if (!param.pointerEvents) {
+        pointerEvents = {
+          default: '',
+          visible: '',
+        };
+      }
+    } else {
+      pointerEvents = {
+        ...pointerEvents,
+        ...param.pointerEvents,
+      };
+    }
+  }
+
+  let visibleAttribute = 'data-visible';
+  if (param.visibleAttribute) {
+    if (typeof param.visibleAttribute === 'boolean') {
+      if (!param.visibleAttribute) visibleAttribute = '';
+    } else {
+      visibleAttribute = param.visibleAttribute;
+    }
+  }
+
   const tooltipId = node.getAttribute('aria-describedby') ?? `tooltip-${++autoincrement}`;
   if (!node.hasAttribute('aria-describedby')) {
     node.setAttribute('aria-describedby', tooltipId);
   }
   const tooltip = document.createElement(tag);
   tooltip.role = 'tooltip';
-  tooltip.dataset.visible = 'false';
   tooltip.id = tooltipId;
-  tooltip.classList.toggle(classes.default, true);
+  tooltip.style.pointerEvents = pointerEvents.default;
+  if (visibleAttribute) tooltip.setAttribute(visibleAttribute, 'false');
+  if (classes.default) tooltip.classList.toggle(classes.default, true);
 
   if (target === 'parent') {
     if (node.parentElement) {
@@ -129,6 +157,39 @@ export function tooltip(node, param) {
   } else {
     target.appendChild(tooltip);
   }
+
+  /** @type {string | import('svelte').SvelteComponent<Props>} */
+  let computedContent;
+  /** @type {undefined | (() => void)} */
+  let computeCleanUp = undefined;
+  const wait = 'requestIdleCallback' in window ? requestIdleCallback : setTimeout;
+  wait(() => {
+    if (typeof content === 'string') {
+      computedContent = tooltip.innerHTML = content;
+    } else if (isContentConfigDirectComponent(content)) {
+      computedContent = new content({ target: tooltip });
+    } else {
+      const { component: Component, props } = content;
+      computedContent = new Component({
+        target: tooltip,
+        props,
+      });
+    }
+    const computed = compute?.({
+      node,
+      tooltip,
+      content: /** @type {any} */ (computedContent),
+    });
+    if (typeof computed === 'function') {
+      computeCleanUp = computed;
+    } else if (computed !== undefined) {
+      computed.then((resolved) => {
+        if (resolved) {
+          computeCleanUp = resolved;
+        }
+      });
+    }
+  });
 
   let isMouseWithinNode = false;
   let isMouseWithinTooltip = false;
@@ -163,9 +224,9 @@ export function tooltip(node, param) {
    */
   function toggle(force = undefined) {
     const visible = force ?? (isMouseWithinNode || isMouseWithinTooltip || isNodeInFocus);
-    tooltip.dataset.visible = visible.toString();
-    tooltip.style.pointerEvents = visible ? 'all' : 'none';
-    tooltip.classList.toggle(classes.visible, visible);
+    if (visibleAttribute) tooltip.setAttribute(visibleAttribute, visible.toString());
+    tooltip.style.pointerEvents = visible ? pointerEvents.visible : pointerEvents.default;
+    if (classes.visible) tooltip.classList.toggle(classes.visible, visible);
     if (visible) {
       window.addEventListener('keydown', listenForEscape);
     } else {
@@ -190,40 +251,6 @@ export function tooltip(node, param) {
   tooltip.addEventListener('mouseenter', onMouseEnterTooltip);
   tooltip.addEventListener('mouseleave', onMouseLeaveTooltip);
 
-  /** @type {undefined | (() => void)} */
-  let computeCleanUp = undefined;
-
-  tick().then(() => {
-    /** @type {string | import('svelte').SvelteComponent<Props>} */
-    let computedContent;
-    if (typeof content === 'string') {
-      computedContent = tooltip.innerHTML = content;
-    } else if (isContentConfigDirectComponent(content)) {
-      computedContent = new content({ target: tooltip });
-    } else {
-      const { component: Component, props } = content;
-      computedContent = new Component({
-        target: tooltip,
-        props,
-      });
-    }
-
-    const computed = compute?.({
-      node,
-      tooltip,
-      content: /** @type {any} */ (computedContent),
-    });
-    if (typeof computed === 'function') {
-      computeCleanUp = computed;
-    } else if (computed !== undefined) {
-      computed.then((resolved) => {
-        if (resolved) {
-          computeCleanUp = resolved;
-        }
-      });
-    }
-  });
-
   return {
     destroy() {
       node.removeEventListener('mouseenter', onMouseEnterNode);
@@ -232,6 +259,7 @@ export function tooltip(node, param) {
       node.removeEventListener('blur', onBlurNode);
       tooltip.removeEventListener('mouseenter', onMouseEnterTooltip);
       tooltip.removeEventListener('mouseleave', onMouseLeaveTooltip);
+      window.removeEventListener('keydown', listenForEscape);
 
       computeCleanUp?.();
     },

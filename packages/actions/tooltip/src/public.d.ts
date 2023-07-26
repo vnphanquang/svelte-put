@@ -53,8 +53,46 @@ export type TooltipContainer = {
   class?:
     | string
     | {
+        /** default value */
         default?: string;
+        /** value when tooltip is visible */
         visible?: string;
+      };
+  /**
+   * config for handling of `pointer-events` on the container element
+   *
+   * @remarks
+   * By default `pointer-events` is set to `none` by default, and `auto` when triggered.
+   * Set to `false` to disable behavior, or provide an object to customize the values.
+   */
+  pointerEvents?:
+    | boolean
+    | {
+        /** default value */
+        default?: string;
+        /** value when tooltip is visible */
+        visible?: string;
+      };
+  /**
+   * the attribute to toggle in respond to tooltip's visibility state.
+   * Defaults to `data-visible`.
+   *
+   * @remarks
+   * Set to `false` to disable, or provide a string to use as attribute name.
+   */
+  visibleAttribute?: boolean | string;
+  /**
+   * config for accessibility
+   *
+   * @remarks
+   * By default, on the tooltip container element, `role` is set to `tooltip`, and `id` is auto-generated
+   */
+  aria?:
+    | boolean
+    | string
+    | {
+        role?: boolean;
+        id?: string;
       };
 };
 
