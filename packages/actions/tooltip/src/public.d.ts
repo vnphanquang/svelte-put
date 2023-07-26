@@ -47,6 +47,15 @@ export type TooltipContainer = {
    * Defaults to `false` (close / open immediately).
    */
   debounce?: false | number;
+  /**
+   * class name(s) to assign to tooltip container. Helpful to avoid flash of content
+   */
+  class?:
+    | string
+    | {
+        default?: string;
+        visible?: string;
+      };
 };
 
 /** @public */

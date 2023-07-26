@@ -131,7 +131,7 @@ const sveltePut = plugin(
         transition: 'opacity 150ms ease-in-out',
         zIndex: 'theme("zIndex.tooltip")',
         padding: 'theme("spacing.1") theme("spacing.2")',
-        '&[data-open="true"]': {
+        '&[data-visible="true"]': {
           opacity: 1,
         },
       },

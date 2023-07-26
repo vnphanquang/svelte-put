@@ -12,9 +12,8 @@ export const helloTip = prepare({
   },
   target: 'parent',
   debounce: 120,
+  class: 'c-tooltip',
   compute: async ({ node, tooltip, content }) => {
-    tooltip.classList.toggle('c-tooltip', true);
-
     const arrowEl = document.createElement('div');
     arrowEl.className = 'c-tooltip-arrow';
     tooltip.prepend(arrowEl);

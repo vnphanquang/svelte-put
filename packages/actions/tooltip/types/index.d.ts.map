@@ -17,11 +17,11 @@
 	],
 	"sources": [
 		"../src/tooltip.js",
-		"../src/public.ts"
+		"../src/public.d.ts"
 	],
 	"sourcesContent": [
 		null,
 		null
 	],
-	"mappings": ";;;;;;;;;;;;;;;;;;;;iBAyHgBA,OAAOA;MCpHXC,yBAAyBA;;;;;MAMzBC,mBAAmBA;;MAQnBC,cAAcA;;;;;;;;;;;;MAgBdC,gBAAgBA;;;;;;;;;;;;;;;;MAiBhBC,qBAAqBA;;MAKrBC,uBAAuBA;;;;;;MAUvBC,cAAcA;;MAQdC,iBAAiBA;;;;;MAMjBC,gBAAgBA;;;;;MAOhBC,mBAAmBA;;MAKnBC,qBAAqBA"
+	"mappings": ";;;;;;;;;;;;;;;;;;;;iBAsFgBA,OAAOA;;OCjFXC,yBAAyBA;;;;;;OAMzBC,mBAAmBA;;;;;;;;OAQnBC,cAAcA;;;;;;;;;;;;;;;;OAgBdC,gBAAgBA;;;;;;;;;;;;;;;;;;;;;;;;OAwBhBC,qBAAqBA;;;;;OAKrBC,uBAAuBA;;;;;;;;;;OAUvBC,cAAcA;;;;;;;;OAQdC,iBAAiBA;;;;;;OAMjBC,gBAAgBA;;;;;;OAMhBC,mBAAmBA;;;;;;OAMnBC,qBAAqBA"
 }

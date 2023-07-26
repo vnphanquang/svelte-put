@@ -1,3 +1,5 @@
+import { tick } from 'svelte';
+
 import { debounce, isContentConfigDirectComponent } from './utils.js';
 
 let autoincrement = 0;
@@ -85,14 +87,28 @@ export function prepare(param) {
 export function tooltip(node, param) {
   const { tag = 'div', content, target = 'parent', compute, debounce: debounceMs } = param;
 
+  let classes = {
+    default: '',
+    visible: '',
+  };
+  if (typeof param.class === 'string') {
+    classes.default = param.class;
+  } else if (param.class) {
+    classes = {
+      ...classes,
+      ...param.class,
+    };
+  }
+
   const tooltipId = node.getAttribute('aria-describedby') ?? `tooltip-${++autoincrement}`;
   if (!node.hasAttribute('aria-describedby')) {
     node.setAttribute('aria-describedby', tooltipId);
   }
   const tooltip = document.createElement(tag);
   tooltip.role = 'tooltip';
-  tooltip.dataset.open = 'false';
+  tooltip.dataset.visible = 'false';
   tooltip.id = tooltipId;
+  tooltip.classList.toggle(classes.default, true);
 
   if (target === 'parent') {
     if (node.parentElement) {
@@ -114,28 +130,43 @@ export function tooltip(node, param) {
     target.appendChild(tooltip);
   }
 
-  /** @type {string | import('svelte').SvelteComponent<Props>} */
-  let computedContent;
-  if (typeof content === 'string') {
-    computedContent = tooltip.innerHTML = content;
-  } else if (isContentConfigDirectComponent(content)) {
-    computedContent = new content({ target: tooltip });
-  } else {
-    const { component: Component, props } = content;
-    computedContent = new Component({
-      target: tooltip,
-      props,
-    });
+  let isMouseWithinNode = false;
+  let isMouseWithinTooltip = false;
+  let isNodeInFocus = false;
+  function onMouseEnterNode() {
+    isMouseWithinNode = true;
+    debounceToggle();
+  }
+  function onMouseLeaveNode() {
+    isMouseWithinNode = false;
+    debounceToggle();
+  }
+  function onFocusNode() {
+    isNodeInFocus = true;
+    debounceToggle();
+  }
+  function onBlurNode() {
+    isNodeInFocus = false;
+    debounceToggle();
+  }
+  function onMouseEnterTooltip() {
+    isMouseWithinTooltip = true;
+    debounceToggle();
+  }
+  function onMouseLeaveTooltip() {
+    isMouseWithinTooltip = false;
+    debounceToggle();
   }
 
   /**
    * @param {boolean | undefined} force
    */
   function toggle(force = undefined) {
-    const open = force ?? (tooltip.dataset.open === 'true' ? false : true);
-    tooltip.dataset.open = open.toString();
-    tooltip.style.pointerEvents = open ? 'all' : 'none';
-    if (open) {
+    const visible = force ?? (isMouseWithinNode || isMouseWithinTooltip || isNodeInFocus);
+    tooltip.dataset.visible = visible.toString();
+    tooltip.style.pointerEvents = visible ? 'all' : 'none';
+    tooltip.classList.toggle(classes.visible, visible);
+    if (visible) {
       window.addEventListener('keydown', listenForEscape);
     } else {
       window.removeEventListener('keydown', listenForEscape);
@@ -148,52 +179,60 @@ export function tooltip(node, param) {
    */
   function listenForEscape(e) {
     if (e.key === 'Escape') {
-      hide();
+      debounceToggle(false);
     }
   }
 
-  function show() {
-    debounceToggle(true);
-  }
-
-  function hide() {
-    debounceToggle(false);
-  }
-
-  node.addEventListener('mouseenter', show);
-  node.addEventListener('mouseleave', hide);
-  node.addEventListener('focus', show);
-  node.addEventListener('blur', hide);
-
-  tooltip.addEventListener('mouseenter', show);
-  tooltip.addEventListener('mouseleave', hide);
+  node.addEventListener('mouseenter', onMouseEnterNode);
+  node.addEventListener('mouseleave', onMouseLeaveNode);
+  node.addEventListener('focus', onFocusNode);
+  node.addEventListener('blur', onBlurNode);
+  tooltip.addEventListener('mouseenter', onMouseEnterTooltip);
+  tooltip.addEventListener('mouseleave', onMouseLeaveTooltip);
 
   /** @type {undefined | (() => void)} */
   let computeCleanUp = undefined;
-  const computed = compute?.({
-    node,
-    tooltip,
-    content: /** @type {any} */ (computedContent),
-  });
-  if (typeof computed === 'function') {
-    computeCleanUp = computed;
-  } else if (computed !== undefined) {
-    computed.then((resolved) => {
-      if (resolved) {
-        computeCleanUp = resolved;
-      }
+
+  tick().then(() => {
+    /** @type {string | import('svelte').SvelteComponent<Props>} */
+    let computedContent;
+    if (typeof content === 'string') {
+      computedContent = tooltip.innerHTML = content;
+    } else if (isContentConfigDirectComponent(content)) {
+      computedContent = new content({ target: tooltip });
+    } else {
+      const { component: Component, props } = content;
+      computedContent = new Component({
+        target: tooltip,
+        props,
+      });
+    }
+
+    const computed = compute?.({
+      node,
+      tooltip,
+      content: /** @type {any} */ (computedContent),
     });
-  }
+    if (typeof computed === 'function') {
+      computeCleanUp = computed;
+    } else if (computed !== undefined) {
+      computed.then((resolved) => {
+        if (resolved) {
+          computeCleanUp = resolved;
+        }
+      });
+    }
+  });
 
   return {
     destroy() {
-      node.removeEventListener('mouseenter', show);
-      node.removeEventListener('mouseleave', hide);
-      node.removeEventListener('focus', show);
-      node.removeEventListener('blur', hide);
+      node.removeEventListener('mouseenter', onMouseEnterNode);
+      node.removeEventListener('mouseleave', onMouseLeaveNode);
+      node.removeEventListener('focus', onFocusNode);
+      node.removeEventListener('blur', onBlurNode);
+      tooltip.removeEventListener('mouseenter', onMouseEnterTooltip);
+      tooltip.removeEventListener('mouseleave', onMouseLeaveTooltip);
 
-      tooltip.addEventListener('mouseenter', show);
-      tooltip.addEventListener('mouseleave', hide);
       computeCleanUp?.();
     },
   };

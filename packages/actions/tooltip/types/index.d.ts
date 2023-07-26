@@ -40,7 +40,9 @@ declare module '@svelte-put/tooltip' {
     node: HTMLElement,
     param: TooltipParameter<Props>,
   ): TooltipActionReturn<Props>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   type TooltipComponentBaseProps = Record<string, any>;
+
   /**
    * @public
    * Where to render the tooltip container
@@ -81,6 +83,15 @@ declare module '@svelte-put/tooltip' {
      * Defaults to `false` (close / open immediately).
      */
     debounce?: false | number;
+    /**
+     * class name(s) to assign to tooltip container. Helpful to avoid flash of content
+     */
+    class?:
+      | string
+      | {
+          default?: string;
+          visible?: string;
+        };
   };
 
   type TooltipComputeContent<Props extends TooltipComponentBaseProps> =

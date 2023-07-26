@@ -22,19 +22,19 @@
     <p class="mt-0">Hover or tab into focus to trigger tooltip</p>
     <QuickStart />
   </fieldset>
-  <Code lang="svelte" code={codes.quickStart} title="works with any scroll container" />
+  <Code lang="svelte" code={codes.quickStart} title="using tooltip action" />
 </section>
 
 <ActionUsageNotice action={data.package.id} />
 
 <section>
-  <h2>Composing Action</h2>
+  <h2>Preparing Your Own Tooltip Action</h2>
   <fieldset class="border-2 border-violet-500 p-4">
     <legend>Example</legend>
     <p class="mt-0">Hover or tab into focus to trigger tooltip</p>
     <Prepare />
   </fieldset>
-  <Code lang="svelte" code={codes.quickStart} title="works with any scroll container" />
+  <Code lang="svelte" code={codes.prepare.svelte} title="using prepared action" />
 </section>
 
 <!-- <img

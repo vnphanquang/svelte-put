@@ -7,8 +7,8 @@
   class="c-btn-primary relative"
   use:tooltip={{
     content: 'An example tooltip',
+    class: 'c-tooltip',
     compute: async ({ node, tooltip, content }) => {
-      tooltip.classList.toggle('c-tooltip', true);
       const { x, y } = await computePosition(node, tooltip, {
         placement: 'right',
       });
