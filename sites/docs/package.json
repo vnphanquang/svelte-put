@@ -27,6 +27,7 @@
     "web-vitals": "^3.4.0"
   },
   "devDependencies": {
+    "@floating-ui/dom": "^1.4.5",
     "@svelte-put/avatar": "workspace:*",
     "@svelte-put/clickoutside": "workspace:*",
     "@svelte-put/copy": "workspace:*",
@@ -42,6 +43,7 @@
     "@svelte-put/select": "workspace:*",
     "@svelte-put/shortcut": "workspace:*",
     "@svelte-put/toc": "workspace:*",
+    "@svelte-put/tooltip": "workspace:^",
     "@svelte-put/transitions": "workspace:*",
     "@sveltejs/adapter-vercel": "^3.0.2",
     "@sveltejs/kit": "^1.22.3",

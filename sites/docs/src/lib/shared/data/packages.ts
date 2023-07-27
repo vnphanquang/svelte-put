@@ -213,6 +213,21 @@ export const packages = {
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/toc/CHANGELOG.md',
   },
+  tooltip: {
+    id: 'tooltip',
+    name: '@svelte-put/tooltip',
+    publishedAt: 1670126470519,
+    description:
+      'over-engineered, type-safe, headless,  and extensible tooltip builder via Svelte action',
+    path: APP_ROUTE_TREE.docs.tooltip.$.path(),
+    replId: 'ac411d28f87b4b6d9942e050fa29e0cd',
+    category: 'action',
+    status: 'new',
+    ready: true,
+    githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/tooltip',
+    changelogUrl:
+      'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/tooltip/CHANGELOG.md',
+  },
 } as const;
 
 export type PackageId = keyof typeof packages;
@@ -220,12 +235,15 @@ export type Package = (typeof packages)[PackageId];
 export type PackageName = Package['name'];
 export type PackageCategory = (typeof packages)[PackageId]['category'];
 
-export const packagesByCategory = Object.values(packages).reduce((map, pkg) => {
-  const category = pkg.category;
-  if (!map[category]) map[category] = [];
-  map[category].push(pkg);
-  return map;
-}, {} as Record<PackageCategory, Package[]>);
+export const packagesByCategory = Object.values(packages).reduce(
+  (map, pkg) => {
+    const category = pkg.category;
+    if (!map[category]) map[category] = [];
+    map[category].push(pkg);
+    return map;
+  },
+  {} as Record<PackageCategory, Package[]>,
+);
 
 export const pkgToPath = Object.fromEntries(
   Object.values(packages).map((p) => [p.name, p.path]),
