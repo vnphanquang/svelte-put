@@ -87,17 +87,6 @@ declare module '@svelte-put/tooltip' {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   type TooltipComponentBaseProps = Record<string, any>;
 
-  /**
-   * @public
-   * Where to render the tooltip container
-   */
-  type TooltipRenderTarget =
-    | 'parent'
-    | 'self'
-    | 'body'
-    | HTMLElement
-    | ((node: HTMLElement, tooltip: HTMLElement) => void);
-
   type TooltipContent<Props extends TooltipComponentBaseProps> =
     | string
     | ComponentType<SvelteComponent<Props>>
@@ -121,7 +110,12 @@ declare module '@svelte-put/tooltip' {
     /**
      * HTMLElement to render the tooltip container. Defaults to `parent` of the node action is placed on
      */
-    target?: TooltipRenderTarget;
+    target?:
+      | 'parent'
+      | 'self'
+      | 'body'
+      | HTMLElement
+      | ((node: HTMLElement, tooltip: HTMLElement) => void);
     /**
      * number of milliseconds to debounce the open / close action of the tooltip.
      * Defaults to `false` (close / open immediately).
@@ -140,6 +134,7 @@ declare module '@svelte-put/tooltip' {
         };
     /**
      * config for handling of `pointer-events` on the container element
+     * Defaults to `true`
      *
      * @remarks
      * By default `pointer-events` is set to `none` by default, and `auto` when triggered.
@@ -163,15 +158,24 @@ declare module '@svelte-put/tooltip' {
     visibleAttribute?: boolean | string;
     /**
      * config for accessibility
+     * Defaults to `true`
      *
      * @remarks
-     * By default, on the tooltip container element, `role` is set to `tooltip`, and `id` is auto-generated
+     * By default:
+     *   - (container element) `role` is set to `tooltip`,
+     *   - (container element) `id` is taken from `aria-describedby` of
+     *     the node action is placed on (if any),
+     *     or auto-generated from a global counter,
+     *   - (node action is placed on) `aria-describedby` is set to the `id` of
+     *     the container element (if not already exists)
+     *
+     * Set to `false` to disable default behavior, or provide string(s) to
+     * the corresponding attribute
      */
     aria?:
       | boolean
-      | string
       | {
-          role?: boolean;
+          role?: string;
           id?: string;
         };
   };

@@ -220,7 +220,10 @@ export function tooltip(node, param) {
       const { component: Component, props } = content;
       computedContent = new Component({
         target: tooltip,
-        props,
+        props: /** @type {any} */ ({
+          ...props,
+          visible: false,
+        }),
       });
     }
     const computed = compute?.({
@@ -275,6 +278,7 @@ export function tooltip(node, param) {
     if (visibleAttribute) tooltip.setAttribute(visibleAttribute, visible.toString());
     tooltip.style.pointerEvents = visible ? pointerEvents.visible : pointerEvents.default;
     if (classes.visible) tooltip.classList.toggle(classes.visible, visible);
+    if (typeof computedContent !== 'string') computedContent.$set(/** @type {any} */ ({ visible }));
     if (visible) {
       window.addEventListener('keydown', listenForEscape);
     } else {

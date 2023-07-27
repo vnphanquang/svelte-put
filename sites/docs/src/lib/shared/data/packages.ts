@@ -217,7 +217,8 @@ export const packages = {
     id: 'tooltip',
     name: '@svelte-put/tooltip',
     publishedAt: 1670126470519,
-    description: 'type-safe, headless,  and extensible tooltip builder via Svelte action',
+    description:
+      'over-engineered, type-safe, headless,  and extensible tooltip builder via Svelte action',
     path: APP_ROUTE_TREE.docs.tooltip.$.path(),
     replId: 'ac411d28f87b4b6d9942e050fa29e0cd',
     category: 'action',

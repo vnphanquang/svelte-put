@@ -14,6 +14,8 @@ export const helloTip = prepare({
   debounce: 120,
   class: 'c-tooltip',
   compute: async ({ node, tooltip, content }) => {
+    console.log('Content rendered, string or Svelte component instance', content);
+
     const arrowEl = document.createElement('div');
     arrowEl.className = 'c-tooltip-arrow';
     tooltip.prepend(arrowEl);

@@ -1,27 +1,3 @@
-import type { SvelteComponent, ComponentType } from 'svelte';
-import type { Action } from 'svelte/action';
-
-/** @public */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type TooltipComponentBaseProps = Record<string, any>;
-
-/** @public */
-export type TooltipContent<Props extends TooltipComponentBaseProps> =
-  | string
-  | ComponentType<SvelteComponent<Props>>
-  | {
-      /**
-       * Svelte component to render as tooltip
-       */
-      component: ComponentType<SvelteComponent<Props>>;
-      /**
-       * Props to pass to component, if any. Note that if required props are not passed down,
-       * a runtime error will be thrown.
-       */
-      props?: Props;
-    };
-
-/** @public */
 export type TooltipContainer = {
   /**
    * class name(s) to assign to tooltip container. Typically needed depending
@@ -31,7 +7,7 @@ export type TooltipContainer = {
     | string
     | {
         default?: string;
-        /** toggled on when tooltip is visible */
+        /** value when tooltip is visible */
         visible?: string;
       };
   /**
@@ -66,9 +42,8 @@ export type TooltipContainer = {
   pointerEvents?:
     | boolean
     | {
-        /** default value */
         default?: string;
-        /** value when tooltip is visible */
+        /** toggled on when tooltip is visible */
         visible?: string;
       };
   /**
@@ -101,50 +76,4 @@ export type TooltipContainer = {
         role?: string;
         id?: string;
       };
-};
-
-/** @public */
-export type TooltipComputeContent<Props extends TooltipComponentBaseProps> =
-  | string
-  | SvelteComponent<Props>;
-
-/** @public */
-export type TooltipComputeParameter<
-  Props extends TooltipComponentBaseProps,
-  ComputeContent extends TooltipComputeContent<Props>,
-> = {
-  node: HTMLElement;
-  tooltip: HTMLElement;
-  content: ComputeContent;
-};
-
-/** @public */
-export type TooltipCompute<
-  Props extends TooltipComponentBaseProps,
-  ComputeContent extends TooltipComputeContent<Props>,
-> = (
-  param: TooltipComputeParameter<Props, ComputeContent>,
-) => void | (() => void) | Promise<void | (() => void)>;
-
-/** @public */
-export type TooltipAttributes = {
-  /** if provided will be set to `id` of the tooltip element, auto-generated otherwise  */
-  'aria-describedby'?: string;
-};
-
-/** @public */
-export type PreparedTooltipAction<Parameter> = Action<
-  HTMLElement,
-  Parameter | undefined,
-  TooltipAttributes
->;
-
-/** @public */
-export type TooltipParameter<
-  Props extends TooltipComponentBaseProps,
-  Content extends TooltipContent<Props>,
-  ComputeContent extends TooltipComputeContent<Props>,
-> = TooltipContainer & {
-  content: Content;
-  compute?: TooltipCompute<TooltipComponentBaseProps, ComputeContent>;
 };

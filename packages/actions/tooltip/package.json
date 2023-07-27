@@ -1,7 +1,7 @@
 {
   "name": "@svelte-put/tooltip",
   "version": "0.0.0",
-  "description": "type-safe, headless, and extensible tooltip builder vs Svelte action",
+  "description": "over-engineered, type-safe, headless, and extensible tooltip builder vs Svelte action",
   "main": "src/index.js",
   "module": "src/index.js",
   "types": "types/index.d.ts",

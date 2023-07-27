@@ -36,7 +36,14 @@
   };
 </script>
 
-<a href={rHref} {...!id && { target: '_blank' }} class="c-link {cls}" {title} {...additionalProps}>
+<a
+  href={rHref}
+  {...!id && { target: '_blank' }}
+  class="c-link {cls}"
+  {title}
+  {...additionalProps}
+  on:click
+>
   <slot>{key}</slot>
 </a>
 

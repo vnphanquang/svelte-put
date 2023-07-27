@@ -3,7 +3,6 @@
 	"file": "index.d.ts",
 	"names": [
 		"TooltipComponentBaseProps",
-		"TooltipRenderTarget",
 		"TooltipContent",
 		"TooltipContainer",
 		"TooltipComputeContent",
@@ -19,5 +18,5 @@
 	"sourcesContent": [
 		null
 	],
-	"mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;OAKYA,yBAAyBA;;;;;;OAMzBC,mBAAmBA;;;;;;;;OAQnBC,cAAcA;;;;;;;;;;;;;;;;OAgBdC,gBAAgBA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;OAgEhBC,qBAAqBA;;;;;OAKrBC,uBAAuBA;;;;;;;;;;OAUvBC,cAAcA;;;;;;;;OAQdC,iBAAiBA;;;;;;OAMjBC,qBAAqBA;;;;;;;OAOrBC,gBAAgBA"
+	"mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;OAKYA,yBAAyBA;;;OAGzBC,cAAcA;;;;;;;;;;;;;;;;OAgBdC,gBAAgBA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;OA+EhBC,qBAAqBA;;;;;OAKrBC,uBAAuBA;;;;;;;;;;OAUvBC,cAAcA;;;;;;;;OAQdC,iBAAiBA;;;;;;OAMjBC,qBAAqBA;;;;;;;OAOrBC,gBAAgBA"
 }
