@@ -46,7 +46,7 @@
   "devDependencies": {
     "@svelte-put/tsconfig": "workspace:*",
     "@types/estree": "^1.0.0",
-    "dts-buddy": "^0.1.8"
+    "dts-buddy": "^0.1.9"
   },
   "peerDependencies": {
     "svelte": "^3.55.0 || ^4.0.0"

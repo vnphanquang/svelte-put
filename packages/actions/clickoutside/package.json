@@ -47,6 +47,6 @@
   "homepage": "https://svelte-put.vnphanquang.com/docs/clickoutside",
   "devDependencies": {
     "@svelte-put/tsconfig": "workspace:*",
-    "dts-buddy": "^0.1.8"
+    "dts-buddy": "^0.1.9"
   }
 }

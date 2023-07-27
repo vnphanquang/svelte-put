@@ -64,7 +64,7 @@
     "ts-node": "^10.9.1",
     "tsup": "^7.1.0",
     "typescript": "^5.1.6",
-    "vite": "^4.4.6"
+    "vite": "^4.4.7"
   },
   "peerDependencies": {
     "svelte": "^3.55.0 || ^4.0.0"

@@ -104,11 +104,24 @@ declare module '@svelte-put/tooltip' {
 
   type TooltipContainer = {
     /**
-     * HTML tag to render the tooltip container. Defaults to `div`
+     * class name(s) to assign to tooltip container. Typically needed depending
+     * on the positioning strategy
+     */
+    class?:
+      | string
+      | {
+          default?: string;
+          /** toggled on when tooltip is visible */
+          visible?: string;
+        };
+    /**
+     * HTML tag to render the tooltip container.
+     * Defaults to `div`
      */
     tag?: string;
     /**
-     * HTMLElement to render the tooltip container. Defaults to `parent` of the node action is placed on
+     * `HTMLElement` to render the tooltip container as child.
+     * Defaults to `parent` of the node action is placed on
      */
     target?:
       | 'parent'
@@ -117,28 +130,18 @@ declare module '@svelte-put/tooltip' {
       | HTMLElement
       | ((node: HTMLElement, tooltip: HTMLElement) => void);
     /**
-     * number of milliseconds to debounce the open / close action of the tooltip.
-     * Defaults to `false` (close / open immediately).
+     * number of milliseconds to debounce the show / hide action of the tooltip.
+     * Defaults to `false` (show / hide immediately)
      */
     debounce?: false | number;
-    /**
-     * class name(s) to assign to tooltip container. Helpful to avoid flash of content
-     */
-    class?:
-      | string
-      | {
-          /** default value */
-          default?: string;
-          /** value when tooltip is visible */
-          visible?: string;
-        };
     /**
      * config for handling of `pointer-events` on the container element
      * Defaults to `true`
      *
      * @remarks
      * By default `pointer-events` is set to `none` by default, and `auto` when triggered.
-     * Set to `false` to disable behavior, or provide an object to customize the values.
+     * Set to `false` to disable default behavior, or provide string(s) to
+     * corresponding states
      */
     pointerEvents?:
       | boolean
@@ -170,7 +173,7 @@ declare module '@svelte-put/tooltip' {
      *     the container element (if not already exists)
      *
      * Set to `false` to disable default behavior, or provide string(s) to
-     * the corresponding attribute
+     * the corresponding attributes
      */
     aria?:
       | boolean

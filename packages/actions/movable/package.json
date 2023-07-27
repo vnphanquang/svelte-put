@@ -48,6 +48,6 @@
   "homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/movable",
   "devDependencies": {
     "@svelte-put/tsconfig": "workspace:*",
-    "dts-buddy": "^0.1.8"
+    "dts-buddy": "^0.1.9"
   }
 }
