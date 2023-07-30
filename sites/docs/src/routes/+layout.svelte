@@ -61,6 +61,7 @@
   <title>{title}</title>
   <meta name="description" content={description} />
   <meta name="keywords" content={keywords.join(', ')} />
+  <meta name="mode" content={PUBLIC_MODE} />
 
   <meta property="og:title" content={ogTitle} />
   <meta property="og:description" content={ogDescription} />
@@ -87,7 +88,6 @@
   </script>
   <!-- eslint-disable-next-line svelte/no-at-html-tags -->
   {@html createPartytownSnippetScriptTag()}
-
   {#if analyticsEnabled}
     <script src="/_vercel/insights/script.js" type="text/partytown"></script>
 
