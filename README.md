@@ -32,6 +32,7 @@ Useful svelte stuff to put in your projects
 | [@svelte-put/resize][github.resize]             | wrapper for ResizeObserver                        | [![npm.resize.badge]][npm.resize]             | [Changelog][github.resize.changelog]       | [![docs.badge]][docs.resize]       |
 | [@svelte-put/shortcut][github.shortcut]         | add keyboard shortcuts to node                    | [![npm.shortcut.badge]][npm.shortcut]         | [Changelog][github.shortcut.changelog]     | [![docs.badge]][docs.shortcut]     |
 | [@svelte-put/toc][github.toc]                   | action & utilities for building table of contents | [![npm.toc.badge]][npm.toc]                   | [Changelog][github.toc.changelog]          | [![docs.badge]][docs.toc]          |
+| [@svelte-put/tooltip][github.tooltip]           | type-safe headless tooltip builder                | [![npm.tooltip.badge]][npm.tooltip]           | [Changelog][github.tooltip.changelog]      | [![docs.badge]][docs.tooltip]      |
 
 ### Miscellaneous
 
@@ -118,6 +119,8 @@ pnpm turbo
 [github.shortcut.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/shortcut/CHANGELOG.md
 [github.toc]: https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/toc
 [github.toc.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/toc/CHANGELOG.md
+[github.tooltip]: https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/tooltip
+[github.tooltip.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/tooltip/CHANGELOG.md
 
 <!-- heading badge -->
 
@@ -156,6 +159,8 @@ pnpm turbo
 [npm.shortcut]: https://www.npmjs.com/package/@svelte-put/shortcut
 [npm.toc.badge]: https://img.shields.io/npm/v/@svelte-put/toc
 [npm.toc]: https://www.npmjs.com/package/@svelte-put/toc
+[npm.tooltip.badge]: https://img.shields.io/npm/v/@svelte-put/tooltip
+[npm.tooltip]: https://www.npmjs.com/package/@svelte-put/tooltip
 
 <!-- svelte REPL -->
 
@@ -179,4 +184,5 @@ pnpm turbo
 [docs.resize]: https://svelte-put.vnphanquang.com/docs/resize
 [docs.shortcut]: https://svelte-put.vnphanquang.com/docs/shortcut
 [docs.toc]: https://svelte-put.vnphanquang.com/docs/toc
+[docs.tooltip]: https://svelte-put.vnphanquang.com/docs/tooltip
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue
