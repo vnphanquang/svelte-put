@@ -79,10 +79,6 @@
   <link href={ogUrl} rel="canonical" />
   <link type="text/plain" rel="author" href="{PUBLIC_ROOT_URL}/humans.txt" />
 
-  <!-- partytown scripts -->
-  <!-- partytown scripts -->
-  <!-- partytown scripts -->
-  <!-- partytown scripts -->
   <script>
     partytown = {
       // forward the necessary functions to the web worker layer
@@ -93,10 +89,6 @@
   {@html createPartytownSnippetScriptTag()}
 
   {#if analyticsEnabled}
-    <!-- vercel analytics -->
-    <!-- vercel analytics -->
-    <!-- vercel analytics -->
-    <!-- vercel analytics -->
     <script src="/_vercel/insights/script.js" type="text/partytown"></script>
 
     <!-- Google tag (gtag.js) -->
@@ -110,8 +102,6 @@
       gtag('js', new Date());
     </script>
   {/if}
-
-  <!-- partytown scripts -->
 </svelte:head>
 
 <slot />
