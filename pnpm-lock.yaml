@@ -146,6 +146,15 @@ importers:
         specifier: ^0.1.9
         version: 0.1.9
 
+  packages/actions/noti:
+    devDependencies:
+      '@svelte-put/tsconfig':
+        specifier: workspace:*
+        version: link:../../../configs/tsconfig
+      dts-buddy:
+        specifier: ^0.1.9
+        version: 0.1.9
+
   packages/actions/resize:
     devDependencies:
       '@svelte-put/tsconfig':
