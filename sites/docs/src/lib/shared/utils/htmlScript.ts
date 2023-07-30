@@ -1,7 +1,7 @@
 import { partytownSnippet } from '@builder.io/partytown/integration';
 
 export function createPartytownSnippetScriptTag() {
-  return `<script>${partytownSnippet}</script>`;
+  return `<script>${partytownSnippet()}</script>`;
 }
 
 export function createGtagScriptTag(id: string) {

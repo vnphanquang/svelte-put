@@ -91,7 +91,6 @@
   {#if analyticsEnabled}
     <script src="/_vercel/insights/script.js" type="text/partytown"></script>
 
-    <!-- Google tag (gtag.js) -->
     <!-- eslint-disable-next-line svelte/no-at-html-tags -->
     {@html createGtagScriptTag(PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID)}
     <script type="text/partytown">
