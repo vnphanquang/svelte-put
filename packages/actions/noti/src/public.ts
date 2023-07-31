@@ -19,18 +19,20 @@ const notiStore = store({
   })
   .build();
 
+const node = document.createElement('div');
+portal(node, notiStore);
+
 notiStore.push('error', {
   props: {
     content: 'noti error instance',
   },
 });
 
-notiStore.push('custom', {
+const pushed = notiStore.push('custom', {
   component: Noti,
   props: {
     content: 'custom instance',
   },
 });
 
-const node = document.createElement('div');
-portal(node, notiStore);
+const resolved = await pushed.resolve();

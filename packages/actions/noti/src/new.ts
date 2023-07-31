@@ -104,17 +104,17 @@ export class NotificationStoreBuilder<VariantMap extends Record<string, SvelteCo
     function push<
       Variant extends Extract<keyof VariantMap, string>,
       Component extends VariantMap[Variant] = VariantMap[Variant],
-    >(variant: Variant, config: NotificationByVariantPushConfig<Variant, Component>): void;
+    >(variant: Variant, config: NotificationByVariantPushConfig<Variant, Component>): any;
     function push<Component extends SvelteComponent>(
       variant: 'custom',
       config: NotificationCustomPushConfig<Component>,
-    ): void;
+    ): any;
     function push(
       variant: string,
       config:
         | NotificationByVariantPushConfig<string, SvelteComponent>
         | NotificationCustomPushConfig<SvelteComponent>,
-    ): void {
+    ) {
       if (!_portal)
         throw new Error(
           'Notification portal has not been registered or has unmounted. Add `use:portal={notiStore}` to an HTMLElement.',
@@ -172,6 +172,16 @@ export class NotificationStoreBuilder<VariantMap extends Record<string, SvelteCo
           config: instanceConfig,
         },
       });
+
+      let _resolve: undefined | ((value: unknown) => void) = undefined;
+      const promise = new Promise((resolve) => {
+        _resolve = resolve;
+      });
+
+      instance.$on('resolve', (event) => {
+        //
+      });
+
       const pushed: PushedNotification<string, SvelteComponent> = {
         ...instanceConfig,
         instance,
@@ -181,6 +191,11 @@ export class NotificationStoreBuilder<VariantMap extends Record<string, SvelteCo
         _notifications = [..._notifications, pushed];
         return { ...prev, _notifications };
       });
+
+      return {
+        id: pushed.id,
+        resolve: () => promise,
+      };
     }
 
     return {
@@ -203,7 +218,7 @@ export class NotificationStoreBuilder<VariantMap extends Record<string, SvelteCo
 }
 type NotificationPortalAttributes = {
   'on:noti:push'?: (event: CustomEvent) => void;
-  'on:noti:pop'?: (event: CustomEvent) => void;
+  'on:noti:resolve'?: (event: CustomEvent) => void;
 };
 
 type NotificationPortalActionReturn = ActionReturn<NotificationStore, NotificationPortalAttributes>;
