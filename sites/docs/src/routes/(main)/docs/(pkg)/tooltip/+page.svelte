@@ -132,14 +132,14 @@
 
   <p>
     Content can be provided as either a <code>string</code> (inserted as <code>innerHTML</code> to the
-    tooltip container),
+    tooltip container), ...
   </p>
   <Code lang="svelte" code={codes.content.examples.string} title="content as string" />
 
-  <p>or as any Svelte component,</p>
+  <p>... or as any Svelte component, ...</p>
   <Code lang="svelte" code={codes.content.examples.component} title="content as component" />
 
-  <p>and optionally with default props.</p>
+  <p>... and optionally with default props.</p>
   <p class="c-callout-warning">
     Note that if a component has required props and no default props are provided, you will get
     warning in browser console (and language server error if set up), and potentially runtime error
@@ -152,9 +152,10 @@
   />
 
   <p>
-    There is no restriction on Svelte component for tooltip content. However, you can optionally
-    declare a
-    <code>visible</code> prop which will be injected at runtime for you by
+    There is no restriction on Svelte component for tooltip content. You can optionally declare a <code
+      >visible</code
+    >
+    prop which will be injected at runtime for you by
     <code>@svelte-put/tooltip</code>.
   </p>
   <Code
@@ -198,7 +199,8 @@
       >Action Setup from example above</ResourceLink
     >,
     <ResourceLink href="https://floating-ui.com/">@floating-ui</ResourceLink> (previously
-    <code>popperjs</code>). It's a minimal & extensible library that pairs well with
+    <code>popperjs</code>) is used to handle the positioning logics. It's a minimal & extensible
+    library that pairs well with
     <code>@svelte-put/tooltip</code>. I recommend giving it a try.
   </p>
 </section>
@@ -224,8 +226,8 @@
 <img
   src={endImage}
   alt="mouse click faster"
-  width="250"
-  height="194.5"
+  width="300"
+  height="200"
   loading="lazy"
   decoding="async"
 />
