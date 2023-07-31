@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/ban-types */
 
 import { ComponentProps, ComponentType, SvelteComponent } from 'svelte';
+import { ActionReturn } from 'svelte/action';
 import { writable } from 'svelte/store';
 
 let globalCounter = 0;
@@ -57,7 +58,9 @@ type NotificationStoreValue = {
   notifications: PushedNotification<string, SvelteComponent>[];
 };
 
-export function prepare(config: NotificationCommonConfig<string, SvelteComponent>) {
+type NotificationStore = ReturnType<NotificationStoreBuilder['build']>;
+
+export function store(config: NotificationCommonConfig<string, SvelteComponent>) {
   return new NotificationStoreBuilder(config);
 }
 
@@ -91,19 +94,30 @@ export class NotificationStoreBuilder<VariantMap extends Record<string, SvelteCo
     const variantConfigMap = this.#variantConfigMap;
     const commonConfig = this.#commonConfig;
 
-    let portal: NotificationStoreValue['portal'] = null;
-    let notifications: NotificationStoreValue['notifications'] = [];
-    const { subscribe, update } = writable<NotificationStoreValue>({ portal, notifications });
+    let _portal: NotificationStoreValue['portal'] = null;
+    let _notifications: NotificationStoreValue['notifications'] = [];
+    const { subscribe, update } = writable<NotificationStoreValue>({
+      portal: _portal,
+      notifications: _notifications,
+    });
 
+    function push<
+      Variant extends Extract<keyof VariantMap, string>,
+      Component extends VariantMap[Variant] = VariantMap[Variant],
+    >(variant: Variant, config: NotificationByVariantPushConfig<Variant, Component>): void;
+    function push<Component extends SvelteComponent>(
+      variant: 'custom',
+      config: NotificationCustomPushConfig<Component>,
+    ): void;
     function push(
       variant: string,
       config:
         | NotificationByVariantPushConfig<string, SvelteComponent>
         | NotificationCustomPushConfig<SvelteComponent>,
-    ) {
-      if (!portal)
+    ): void {
+      if (!_portal)
         throw new Error(
-          'Notification portal has not been registered. Add `use:portal={notiStore}` to an HTMLElement.',
+          'Notification portal has not been registered or has unmounted. Add `use:portal={notiStore}` to an HTMLElement.',
         );
 
       let instanceConfig: NotificationInstanceConfig<string, SvelteComponent>;
@@ -152,7 +166,7 @@ export class NotificationStoreBuilder<VariantMap extends Record<string, SvelteCo
         instanceConfig.id = idResolver(instanceConfig);
       }
       const instance = new instanceConfig.component({
-        target: portal,
+        target: _portal,
         props: {
           ...instanceConfig.props,
           config: instanceConfig,
@@ -164,20 +178,56 @@ export class NotificationStoreBuilder<VariantMap extends Record<string, SvelteCo
       };
 
       update((prev) => {
-        notifications = [...notifications, pushed];
-        return { ...prev, notifications };
+        _notifications = [..._notifications, pushed];
+        return { ...prev, _notifications };
       });
     }
 
     return {
       subscribe,
-      set portal(node: HTMLElement) {
+      get notifications() {
+        return _notifications;
+      },
+      get portal(): HTMLElement | null {
+        return _portal;
+      },
+      set portal(node: HTMLElement | null) {
         update((prev) => {
-          portal = node;
-          return { ...prev, portal };
+          _portal = node;
+          return { ...prev, portal: _portal };
         });
       },
       push,
     };
   }
+}
+type NotificationPortalAttributes = {
+  'on:noti:push'?: (event: CustomEvent) => void;
+  'on:noti:pop'?: (event: CustomEvent) => void;
+};
+
+type NotificationPortalActionReturn = ActionReturn<NotificationStore, NotificationPortalAttributes>;
+
+/**
+ *
+ * @param {HTMLElement} node
+ * @param {NotificationStore} store
+ * @returns {NotificationPortalActionReturn}
+ */
+export function portal(
+  node: HTMLElement,
+  store: NotificationStore,
+): NotificationPortalActionReturn {
+  store.portal = node;
+
+  return {
+    update(newStore) {
+      store.portal = null;
+      store = newStore;
+      store.portal = node;
+    },
+    destroy() {
+      store.portal = null;
+    },
+  };
 }
