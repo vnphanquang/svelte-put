@@ -167,6 +167,7 @@ export class NotificationStoreBuilder {
       const promise = new Promise((resolve) => {
         _resolve = (...args) => {
           resolve(...args);
+          pushed.instance.$destroy();
           _portal?.dispatchEvent(
             new CustomEvent('on:noti:pop', {
               detail: pushed,

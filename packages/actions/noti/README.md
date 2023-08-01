@@ -4,7 +4,7 @@
 
 [![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia] [![docs.badge]][docs] [![repl.badge]][repl]
 
-Async notification via Svelte store & action
+Async type-safe headless notification builder
 
 ![demo](https://raw.githubusercontent.com/vnphanquang/svelte-put/main/packages/actions/noti/static/images/demo.gif)
 
@@ -79,7 +79,7 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 [npm]: https://www.npmjs.com/package/@svelte-put/noti
 [bundlephobia.badge]: https://img.shields.io/bundlephobia/minzip/@svelte-put/noti?label=minzipped
 [bundlephobia]: https://bundlephobia.com/package/@svelte-put/noti
-[repl]: https://svelte.dev/repl/9e5f9ee41c2c45aa8523993e357f6e78
+[repl]: https://svelte.dev/repl/5beb4357e32e427394f5f6f5ced7b5f1
 [repl.badge]: https://img.shields.io/static/v1?label=&message=Svelte+REPL&logo=svelte&logoColor=fff&color=ff3e00
 [docs]: https://svelte-put.vnphanquang.com/docs/noti
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue

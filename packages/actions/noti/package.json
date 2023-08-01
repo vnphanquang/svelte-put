@@ -1,7 +1,7 @@
 {
   "name": "@svelte-put/noti",
   "version": "0.0.0",
-  "description": "",
+  "description": "async type-safe headless notification builder",
   "main": "src/index.js",
   "module": "src/index.js",
   "types": "types/index.d.ts",

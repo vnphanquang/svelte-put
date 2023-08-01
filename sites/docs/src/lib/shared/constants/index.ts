@@ -19,6 +19,7 @@ export const { node: APP_ROUTE_TREE } = tBuild('APP_ROUTE_TREE', {
             .addChild('lockscroll')
             .addChild('modal')
             .addChild('movable')
+            .addChild('noti')
             .addChild('preprocessAutoSlug', {
               pathResolver: () => 'preprocess-auto-slug',
             })

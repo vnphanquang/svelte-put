@@ -505,6 +505,9 @@ importers:
       '@svelte-put/movable':
         specifier: workspace:*
         version: link:../../packages/actions/movable
+      '@svelte-put/noti':
+        specifier: workspace:^
+        version: link:../../packages/actions/noti
       '@svelte-put/preprocess-auto-slug':
         specifier: workspace:*
         version: link:../../packages/preprocessors/auto-slug
