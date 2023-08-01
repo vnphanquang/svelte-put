@@ -6,5 +6,5 @@
  * @packageDocumentation
  */
 
-export * from './portal.js';
-export * from './store.js';
+export { portal } from './portal.js';
+export { store } from './store.js';

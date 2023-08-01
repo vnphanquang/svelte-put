@@ -1,12 +1,15 @@
 <script lang="ts">
-  import { portal, store } from '@svelte-put/noti';
+  import { store } from '@svelte-put/noti';
+  import { flip } from 'svelte/animate';
+  import { fly, fade } from 'svelte/transition';
 
   import Notification from './Notification.svelte';
 
-  // setup somewhere global, reuse across app
+  // define somewhere global, reuse across app
   const notiStore = store()
     .variant('info', Notification)
     .variant('special', {
+      id: 'counter',
       component: Notification,
       props: {
         special: true,
@@ -22,8 +25,17 @@
 <!-- notification portal, typically setup at somewhere global like root layout -->
 <aside
   class="fixed z-notification inset-0 p-10 pointer-events-none flex flex-col-reverse gap-4 justify-end"
-  use:portal={notiStore}
-/>
+>
+  {#each $notiStore.notifications as noti (noti.id)}
+    <div animate:flip={{ duration: 200 }} in:fly={{ duration: 200 }} out:fade={{ duration: 120 }}>
+      <svelte:component
+        this={noti.component}
+        {...noti.props}
+        config={noti}
+      />
+    </div>
+  {/each}
+</aside>
 
 <!-- notification push triggers -->
 <button class="c-btn-primary" on:click={pushInfo}>Push an info notification</button>

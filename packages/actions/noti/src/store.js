@@ -101,15 +101,17 @@ export class NotificationStoreBuilder {
      * @returns {any}
      */
     function push(variant, config) {
-      if (!_portal) {
-        throw new Error(
-          'Notification portal has not been registered or has unmounted. Add `use:portal={notiStore}` to an HTMLElement.',
-        );
-      }
+      // if (!_portal) {
+      //   throw new Error(
+      //     'Notification portal has not been registered or has unmounted. Add `use:portal={notiStore}` to an HTMLElement.',
+      //   );
+      // }
 
       // STEP 1: resolve the input config, merge with global common config from constructor
       /** @type {import('./public').NotificationInstanceConfig<string, import('svelte').SvelteComponent>} */
       let instanceConfig;
+      /** @type {NonNullable<import('./public').NotificationCommonConfig<string, import('svelte').SvelteComponent>['id']>} */
+      let idResolver;
       if (variant === 'custom') {
         const rConfig =
           /** @type {import('./public').NotificationCustomPushConfig<import('svelte').SvelteComponent>} */ (
@@ -128,6 +130,7 @@ export class NotificationStoreBuilder {
           props: rConfig.props ?? {},
           id: '',
         };
+        idResolver = /** @type {any} */ (rConfig.id) ?? commonConfig.id;
       } else {
         const variantConfig = variantConfigMap[variant];
         if (!variantConfig)
@@ -146,13 +149,10 @@ export class NotificationStoreBuilder {
           },
           id: '',
         };
+        idResolver = /** @type {any} */ (config?.id) ?? variantConfig.id ?? commonConfig.id;
       }
 
       // STEP 2: resolve id for the notification
-      const idResolver =
-        /** @type {import('./public').NotificationCommonConfig<string, import('svelte').SvelteComponent>['id']} */ (
-          config?.id
-        ) ?? commonConfig.id;
       if (idResolver === 'counter') {
         instanceConfig.id = (++globalCounter).toString();
       } else if (idResolver === 'uuid') {
@@ -174,7 +174,16 @@ export class NotificationStoreBuilder {
       const promise = new Promise((resolve) => {
         _resolve = (...args) => {
           resolve(...args);
-          pushed.instance.$destroy();
+
+          // FIXME: outro transition will not run
+          // but hopefully will be supported after this PR https://github.com/sveltejs/svelte/pull/9056
+          pushed.instance?.$destroy();
+
+          update((prev) => {
+            _notifications = _notifications.filter((n) => n.id !== pushed.id);
+            return { ...prev, notifications: _notifications };
+          });
+
           _portal?.dispatchEvent(
             new CustomEvent('on:noti:pop', {
               detail: pushed,
@@ -184,17 +193,22 @@ export class NotificationStoreBuilder {
       });
 
       // STEP 4: instantiate the svelte component
-      const instance = new instanceConfig.component({
-        target: _portal,
-        props: {
-          ...instanceConfig.props,
-          config: instanceConfig,
-        },
-      });
-      instance.$on('resolve', (event) => {
-        clearTimeout(_timeoutId);
-        _resolve?.(event.detail);
-      });
+      /** @type {import('svelte').SvelteComponent | undefined} */
+      let instance = undefined;
+      if (_portal) {
+        instance = new instanceConfig.component({
+          target: _portal,
+          props: {
+            ...instanceConfig.props,
+            config: instanceConfig,
+          },
+          intro: true,
+        });
+        instance.$on('resolve', (event) => {
+          clearTimeout(_timeoutId);
+          _resolve?.(event.detail);
+        });
+      }
 
       // STEP 5: push to store
       pushed = {
@@ -203,9 +217,9 @@ export class NotificationStoreBuilder {
       };
       update((prev) => {
         _notifications = [..._notifications, pushed];
-        return { ...prev, _notifications };
+        return { ...prev, notifications: _notifications };
       });
-      _portal.dispatchEvent(
+      _portal?.dispatchEvent(
         new CustomEvent('on:noti:push', {
           detail: pushed,
         }),

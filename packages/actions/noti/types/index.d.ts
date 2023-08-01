@@ -17,7 +17,7 @@ declare module '@svelte-put/noti' {
    * builder for notification store
    *
    */
-  export class NotificationStoreBuilder<
+  class NotificationStoreBuilder<
     VariantMap extends Record<string, import('svelte').SvelteComponent<any, any, any>> = {},
   > {
     constructor(config: NotificationCommonConfig<string, import('svelte').SvelteComponent>);
@@ -107,7 +107,7 @@ declare module '@svelte-put/noti' {
     Variant extends string,
     Component extends SvelteComponent,
   > = NotificationInstanceConfig<Variant, Component> & {
-    instance: Component;
+    instance?: Component;
   };
 
   type NotificationStoreValue = {

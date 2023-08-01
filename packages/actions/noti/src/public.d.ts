@@ -49,7 +49,7 @@ type PushedNotification<
   Variant extends string,
   Component extends SvelteComponent,
 > = NotificationInstanceConfig<Variant, Component> & {
-  instance: Component;
+  instance?: Component;
 };
 
 type NotificationStoreValue = {

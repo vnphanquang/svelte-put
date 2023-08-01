@@ -4,7 +4,7 @@
 
 [![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia] [![docs.badge]][docs] [![repl.badge]][repl]
 
-Async type-safe headless notification builder
+Type-safe and headless async notification builder
 
 ![demo](https://raw.githubusercontent.com/vnphanquang/svelte-put/main/packages/actions/noti/static/images/demo.gif)
 
