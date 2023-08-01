@@ -3,7 +3,7 @@
 
 import { SvelteComponent } from 'svelte';
 
-import { store, portal } from './new';
+import { store, portal } from './index.js';
 
 class Noti extends SvelteComponent<{ content?: string }> {}
 
