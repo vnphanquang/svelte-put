@@ -3,9 +3,9 @@ import { writable } from 'svelte/store';
 let globalCounter = 0;
 
 /**
- * @param {import('./public').NotificationCommonConfig<string, import('svelte').SvelteComponent>} config
+ * @param {import('./public').NotificationCommonConfig<string, import('svelte').SvelteComponent>} [config]
  */
-export function store(config) {
+export function store(config = {}) {
   return new NotificationStoreBuilder(config);
 }
 
@@ -20,7 +20,7 @@ export class NotificationStoreBuilder {
     timeout: 3000,
   };
 
-  /** @type {Record<string, import('./public').NotificationComponentConfig<string, import('svelte').SvelteComponent>>} */
+  /** @type {Record<string, import('./public').NotificationVariantConfig<string, import('svelte').SvelteComponent>>} */
   #variantConfigMap = {};
 
   /**
@@ -39,14 +39,21 @@ export class NotificationStoreBuilder {
    * @template {string} Variant
    * @template {import('svelte').SvelteComponent} Component
    * @param {Variant} variant
-   * @param {Omit<import('./public').NotificationComponentConfig<Variant, Component>, 'variant'>} config
+   * @param {import('svelte').ComponentType<Component> | Omit<import('./public').NotificationVariantConfig<Variant, Component>, 'variant'>} config
    * @returns {NotificationStoreBuilder<VariantMap & Record<Variant, Component>> }
    */
   variant(variant, config) {
-    this.#variantConfigMap[variant] = /** @type {any} */ ({
-      ...config,
-      variant,
-    });
+    if ('component' in config) {
+      this.#variantConfigMap[variant] = /** @type {any} */ ({
+        ...config,
+        variant,
+      });
+    } else {
+      this.#variantConfigMap[variant] = /** @type {any} */ ({
+        component: config,
+        variant,
+      });
+    }
     return this;
   }
 
@@ -122,8 +129,8 @@ export class NotificationStoreBuilder {
           id: '',
         };
       } else {
-        const prebuild = variantConfigMap[variant];
-        if (!prebuild)
+        const variantConfig = variantConfigMap[variant];
+        if (!variantConfig)
           throw new Error(
             `No prebuilt config matches with provided variant. Variant should be on of {'custom', ${Object.keys(
               variantConfigMap,
@@ -131,10 +138,10 @@ export class NotificationStoreBuilder {
           );
         instanceConfig = {
           ...commonConfig,
-          ...prebuild,
+          ...variantConfig,
           ...config,
           props: {
-            ...prebuild.props,
+            ...variantConfig.props,
             ...config?.props,
           },
           id: '',

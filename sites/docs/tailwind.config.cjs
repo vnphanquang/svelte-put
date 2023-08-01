@@ -363,7 +363,7 @@ const sveltePut = plugin(
           tooltip: '120', // tooltip
           overlay: '150', // a full screen overlay
           // command: '200', // command palette
-          // notification: '300', // notification
+          notification: '300', // notification
         },
       },
     },

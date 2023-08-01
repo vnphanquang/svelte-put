@@ -10,23 +10,23 @@ type NotificationCommonConfig<Variant extends string, Component extends SvelteCo
   id?:
     | 'uuid'
     | 'counter'
-    | ((config: Required<Omit<NotificationComponentConfig<Variant, Component>, 'id'>>) => string);
+    | ((config: Required<Omit<NotificationVariantConfig<Variant, Component>, 'id'>>) => string);
   timeout?: number | false;
 };
 
-type NotificationComponentConfig<
+type NotificationVariantConfig<
   Variant extends string,
   Component extends SvelteComponent,
 > = NotificationCommonConfig<Variant, Component> & {
   variant: Variant;
   component: ComponentType<Component>;
-  props?: ComponentProps<Component>;
+  props?: Omit<ComponentProps<Component>, 'config'>;
 };
 
 type NotificationInstanceConfig<
-  Variant extends string,
-  Component extends SvelteComponent,
-> = Required<Omit<NotificationComponentConfig<Variant, Component>, 'id'>> & {
+  Variant extends string = string,
+  Component extends SvelteComponent = SvelteComponent,
+> = Required<Omit<NotificationVariantConfig<Variant, Component>, 'id'>> & {
   id: string;
 };
 
@@ -34,7 +34,7 @@ type NotificationByVariantPushConfig<
   Variant extends string,
   Component extends SvelteComponent,
 > = NotificationCommonConfig<Variant, Component> & {
-  props?: ComponentProps<Component>;
+  props?: Omit<ComponentProps<Component>, 'config'>;
 };
 
 type NotificationCustomPushConfig<Component extends SvelteComponent> = NotificationCommonConfig<
@@ -42,7 +42,7 @@ type NotificationCustomPushConfig<Component extends SvelteComponent> = Notificat
   Component
 > & {
   component: ComponentType<Component>;
-  props?: ComponentProps<Component>;
+  props?: Omit<ComponentProps<Component>, 'config'>;
 };
 
 type PushedNotification<
