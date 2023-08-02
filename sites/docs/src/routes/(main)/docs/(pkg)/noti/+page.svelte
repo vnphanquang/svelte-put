@@ -12,6 +12,7 @@
   import { codes } from './_page/codes';
   import Await from './_page/codes/await.svelte';
   import CustomPortal from './_page/codes/customPortal.svelte';
+  import Interactive from './_page/codes/interactive.svelte';
   import QuickStartPortal from './_page/codes/quickStart-portal.svelte';
   import QuickStartUsage from './_page/codes/quickStart-usage.svelte';
 
@@ -88,26 +89,34 @@
     <code>NotificationStore</code> is created with a builder pattern that provides type-safety for
     <code>push</code> invocations.
   </p>
-  <Code lang={typescript} code={codes.store.builder} title="notification store builder pattern" />
-  <p>
-    The <code>store</code> function accepts an optional config object that will be merged to all notification
-    instance config.
-  </p>
-  <Code
-    lang={typescript}
-    code={codes.store.commonConfig}
-    title="simplified interfaces of store & NotificationCommonConfig"
-  />
-  <p>
-    The <code>variant</code> method adds a predefined variant config that provides intellisense and
-    reusability. It accepts a mandatory <code>variant</code> string, and either a Svelte component or
-    a config object.
-  </p>
-  <Code
-    lang={typescript}
-    code={codes.store.variantConfig}
-    title="simplified interfaces of variant & NotificationVariantConfig"
-  />
+
+  <section>
+    <h3><code>store</code></h3>
+    <Code lang={typescript} code={codes.store.builder} title="notification store builder pattern" />
+    <p>
+      The <code>store</code> function accepts an optional config object that will be merged to all notification
+      instance config.
+    </p>
+    <Code
+      lang={typescript}
+      code={codes.store.commonConfig}
+      title="simplified interfaces of store & NotificationCommonConfig"
+    />
+  </section>
+
+  <section>
+    <h3 id="store-variant"><code>variant</code></h3>
+    <p>
+      The <code>variant</code> method adds a predefined variant config that provides intellisense
+      and reusability. It accepts a mandatory <code>variant</code> string, and either a Svelte component
+      or a config object.
+    </p>
+    <Code
+      lang={typescript}
+      code={codes.store.variantConfig}
+      title="simplified interfaces of variant & NotificationVariantConfig"
+    />
+  </section>
 
   <section>
     <h3 id="pushing">Pushing</h3>
@@ -226,7 +235,7 @@
   </section>
 
   <section>
-    <h3 class="custom-portal">Custom Portal</h3>
+    <h3 id="custom-portal">Custom Portal</h3>
     <p>
       Instead of <ResourceLink id="use-portal">use:portal</ResourceLink>, rendering of notifications
       can be manually handled by subscribing to the <code>notifications</code> array property of a <ResourceLink
@@ -283,11 +292,40 @@
       This is an optional prop that provides access to the corresponding <code
         >NotificationInstanceConfig</code
       >
+      (extends <ResourceLink id="store-variant">NotificationVariantConfig</ResourceLink>)
     </p>
-    <Code lang="svelte" code={codes.customPortal} title="quick start" />
+    <Code
+      lang={typescript}
+      code={codes.component.instanceConfig}
+      title="simplified NotificationInstanceConfig interface"
+    />
+    <p>
+      This is helpful, for example, if you want access to the <code>id</code> or
+      <code>variant</code> of the pushed notification.
+    </p>
+    <Code lang="svelte" code={codes.component.configExample} title="use case for config prop" />
   </section>
-
   <section>
     <h3><code>resolve</code> Event</h3>
+    <p>
+      If set up correctly, either automatically via <ResourceLink id="use-portal"
+        >use:portal</ResourceLink
+      > or manually in your <ResourceLink id="custom-portal">custom portal</ResourceLink>, a
+      <code>resolve</code>
+      action dispatched from the pushed instance will trigger <ResourceLink id="notification-store"
+        >NotificationStore</ResourceLink
+      >
+      to remove it from the current notification stack.
+    </p>
+    <p>
+      The detail of this <code>resolve</code>
+      <ResourceLink key="CustomEvent" /> can be awaited, allowing us to receive user actions from complex
+      interactive notifications such as the example below.
+    </p>
+    <fieldset class="border-2 border-violet-500 p-4">
+      <legend>Example</legend>
+      <Interactive />
+    </fieldset>
+    <Code lang="svelte" code={codes.component.interactive} title="interactive notification" />
   </section>
 </section>
