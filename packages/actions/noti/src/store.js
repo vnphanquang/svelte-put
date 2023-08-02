@@ -137,7 +137,7 @@ export class NotificationStoreBuilder {
      * @overload
      * @param {Variant} variant
      * @param {import('./public').NotificationByVariantPushConfig<Variant, Component>} [config]
-     * @returns {import('./public').NotificationPushOutput<ResolveDetail>}
+     * @returns {import('./public').NotificationPushOutput<Component>}
      */
     /**
      * @template {import('svelte').SvelteComponent} CustomComponent
@@ -145,12 +145,12 @@ export class NotificationStoreBuilder {
      * @overload
      * @param {'custom'} variant
      * @param {import('./public').NotificationCustomPushConfig<CustomComponent>} config
-     * @returns {import('./public').NotificationPushOutput<ResolveDetail>}
+     * @returns {import('./public').NotificationPushOutput<CustomComponent>}
      */
     /**
      * @param {string} variant
      * @param {import('./public').NotificationByVariantPushConfig<string, import('svelte').SvelteComponent> | import('./public').NotificationCustomPushConfig<import('svelte').SvelteComponent>} [config]
-     * @returns {import('./public').NotificationPushOutput<ResolveDetail>}
+     * @returns {import('./public').NotificationPushOutput<any>}
      */
     function push(variant, config) {
       // if (!_portal) {

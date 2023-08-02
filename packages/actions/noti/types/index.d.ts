@@ -64,14 +64,14 @@ declare module '@svelte-put/noti' {
         >(
           variant: Variant_1,
           config?: NotificationByVariantPushConfig<Variant_1, Component_1>,
-        ): NotificationPushOutput<ResolveDetail>;
+        ): NotificationPushOutput<Component_1>;
         <
           CustomComponent extends import('svelte').SvelteComponent<any, any, any>,
           ResolveDetail = import('svelte').ComponentEvents<Component_1>['resolve']['detail'],
         >(
           variant: 'custom',
           config: NotificationCustomPushConfig<CustomComponent>,
-        ): NotificationPushOutput<ResolveDetail>;
+        ): NotificationPushOutput<CustomComponent>;
       };
       pop: {
         (id?: string, detail?: any): void;
@@ -140,6 +140,7 @@ declare module '@svelte-put/noti' {
     Component extends SvelteComponent,
   > = NotificationInstanceConfig<Variant, Component> & {
     instance?: Component;
+    /** internal api for resolving a notification, effectively popping it from the stack */
     $resolve: (
       e: ComponentEvents<Component>['resolve'],
     ) => Promise<ComponentEvents<Component>['resolve']['detail']>;
@@ -162,9 +163,13 @@ declare module '@svelte-put/noti' {
     NotificationPortalAttributes
   >;
 
-  type NotificationPushOutput<ResolveDetail> = {
+  type NotificationPushOutput<Component extends SvelteComponent = SvelteComponent> = {
     id: string;
-    resolve: () => Promise<ResolveDetail>;
+    /**
+     * return a promise that resolves to a detail, either provided from invocation of {@link NotificationStore} pop method,
+     * or through the CustomEvent detail of the `resolve` event within the notification component
+     */
+    resolve: () => Promise<ComponentEvents<Component>['resolve']['detail']>;
   };
 }
 

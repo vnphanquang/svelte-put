@@ -67,6 +67,7 @@ type PushedNotification<
   Component extends SvelteComponent,
 > = NotificationInstanceConfig<Variant, Component> & {
   instance?: Component;
+  /** internal api for resolving a notification, effectively popping it from the stack */
   $resolve: (
     e: ComponentEvents<Component>['resolve'],
   ) => Promise<ComponentEvents<Component>['resolve']['detail']>;
@@ -86,7 +87,11 @@ type NotificationPortalAttributes = {
 
 type NotificationPortalActionReturn = ActionReturn<NotificationStore, NotificationPortalAttributes>;
 
-type NotificationPushOutput<ResolveDetail> = {
+type NotificationPushOutput<Component extends SvelteComponent = SvelteComponent> = {
   id: string;
-  resolve: () => Promise<ResolveDetail>;
+  /**
+   * return a promise that resolves to a detail, either provided from invocation of {@link NotificationStore} pop method,
+   * or through the CustomEvent detail of the `resolve` event within the notification component
+   */
+  resolve: () => Promise<ComponentEvents<Component>['resolve']['detail']>;
 };

@@ -84,19 +84,19 @@ const sveltePut = plugin(
       '.c-btn': {
         '@apply rounded py-2 px-4 shadow hover:shadow-lg': {},
         'min-width': '100px',
-        '&:active': {
+        '&:not(:disabled):active': {
           '@apply scale-[0.98]': {},
         },
       },
       '.c-btn-primary': {
         '@apply c-btn bg-primary text-white': {},
-        '&:hover': {
+        '&:not(:disabled):hover': {
           '@apply bg-primary-dark': {},
         },
       },
       '.c-btn-primary-outline': {
         '@apply c-btn text-primary border border-primary bg-bg': {},
-        '&:hover': {
+        '&:not(:disabled):hover': {
           '@apply text-bg bg-primary-dark': {},
         },
       },

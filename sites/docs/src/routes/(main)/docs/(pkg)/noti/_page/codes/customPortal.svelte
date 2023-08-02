@@ -32,6 +32,7 @@
         this={noti.component}
         {...noti.props}
         config={noti}
+        on:resolve={noti.$resolve}
       />
     </div>
   {/each}

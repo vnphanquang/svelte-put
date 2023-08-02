@@ -1,7 +1,10 @@
 import component from './Notification.svelte?raw';
+import awaitSvelte from './await.svelte?raw';
+import awaitTS from './await.ts?raw';
 import commonConfig from './common-config.ts?raw';
 import customPortal from './customPortal.svelte?raw';
 import quickStartStore from './notification-store?raw';
+import popStore from './pop.ts?raw';
 import quickStartPortal from './quickStart-portal.svelte?raw';
 import quickStartUsage from './quickStart-usage.svelte?raw';
 import variantConfig from './variant-config.ts?raw';
@@ -25,11 +28,20 @@ const notiStore = store({ /** optional common config */ })
   push: {
     variant: `notiStore.push('<variant>', { /** optional config & component props */ });`,
     custom: `notiStore.push('custom', {
-  component: NotificationComponent,
+  component: NotificationComponent, // required
   props: { /** props for NotificationComponent */ },
   id: () => 'one-time-id',
   timeout: false,
-})`,
+});`,
+    proxy: `export const info = (content: string) => notiStore.push('info', { props: { content } });
+// later
+info('An info notification...');
+`,
+  },
+  pop: {
+    store: popStore,
+    await: awaitTS,
+    demo: awaitSvelte,
   },
   customPortal,
 };
