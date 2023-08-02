@@ -21,6 +21,14 @@ declare module '@svelte-put/noti' {
     VariantMap extends Record<string, import('svelte').SvelteComponent<any, any, any>> = {},
   > {
     constructor(config: NotificationCommonConfig<string, import('svelte').SvelteComponent>);
+
+    commonConfig: Required<NotificationCommonConfig<string, import('svelte').SvelteComponent>>;
+
+    variantConfigMap: Record<
+      string,
+      NotificationVariantConfig<string, import('svelte').SvelteComponent>
+    >;
+    counter: number;
     /**
      * add config for a notification variant
      * */
@@ -62,25 +70,41 @@ declare module '@svelte-put/noti' {
         ): any;
       };
     };
-    #private;
   }
   type NotificationCommonConfig<Variant extends string, Component extends SvelteComponent> = {
+    /**
+     * id generator for notifications. Defaults to 'uuid'.
+     *
+     * @remarks
+     *   - counter - use an auto-incremented counter that is scoped to the store
+     *   - uuid - use `crypto.randomUUID()`, fallback to `counter` if not available
+     *   - function - custom function that accepts a {@link NotificationInstanceConfig} and returns a string as the id
+     */
     id?:
       | 'uuid'
       | 'counter'
-      | ((config: Required<Omit<NotificationVariantConfig<Variant, Component>, 'id'>>) => string);
+      | ((config: Required<Omit<NotificationInstanceConfig<Variant, Component>, 'id'>>) => string);
+    /**
+     * milliseconds to wait and automatically pop the notification.
+     * Defaults to `3000`. Set to `false` to disable
+     */
     timeout?: number | false;
   };
 
+  /** predefined variant config provided while building a {@link NotificationStore} */
   type NotificationVariantConfig<
     Variant extends string,
     Component extends SvelteComponent,
   > = NotificationCommonConfig<Variant, Component> & {
+    /** string variant representing this config, must be unique within a {@link NotificationStore}  */
     variant: Variant;
+    /** any Svelte component used for rendering notification UI */
     component: ComponentType<Component>;
+    /** inferred props from `component` */
     props?: Omit<ComponentProps<Component>, 'config'>;
   };
 
+  /** a resolved config for a {@link PushedNotification} */
   type NotificationInstanceConfig<
     Variant extends string = string,
     Component extends SvelteComponent = SvelteComponent,

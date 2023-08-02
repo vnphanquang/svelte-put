@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 
-let globalCounter = 0;
+import { NotFoundVariantConfig, MissingComponentInCustomPush } from './errors';
 
 /**
  * @param {import('./public').NotificationCommonConfig<string, import('svelte').SvelteComponent>} [config]
@@ -15,23 +15,25 @@ export function store(config = {}) {
  */
 export class NotificationStoreBuilder {
   /** @type {Required<import('./public').NotificationCommonConfig<string, import('svelte').SvelteComponent>>} */
-  #commonConfig = {
+  commonConfig = {
     id: 'uuid',
     timeout: 3000,
   };
 
   /** @type {Record<string, import('./public').NotificationVariantConfig<string, import('svelte').SvelteComponent>>} */
-  #variantConfigMap = {};
+  variantConfigMap = {};
+
+  counter = 0;
 
   /**
    * @param {import('./public').NotificationCommonConfig<string, import('svelte').SvelteComponent>} config
    */
   constructor(config) {
-    this.#commonConfig = {
-      ...this.#commonConfig,
+    this.commonConfig = {
+      ...this.commonConfig,
       ...config,
     };
-    this.#variantConfigMap = {};
+    this.variantConfigMap = {};
   }
 
   /**
@@ -44,12 +46,12 @@ export class NotificationStoreBuilder {
    */
   variant(variant, config) {
     if ('component' in config) {
-      this.#variantConfigMap[variant] = /** @type {any} */ ({
+      this.variantConfigMap[variant] = /** @type {any} */ ({
         ...config,
         variant,
       });
     } else {
-      this.#variantConfigMap[variant] = /** @type {any} */ ({
+      this.variantConfigMap[variant] = /** @type {any} */ ({
         component: config,
         variant,
       });
@@ -61,8 +63,8 @@ export class NotificationStoreBuilder {
    * Build the actual notification store
    */
   build() {
-    const variantConfigMap = this.#variantConfigMap;
-    const commonConfig = this.#commonConfig;
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
+    const builder = this;
 
     /**
      * @type {import('./public').NotificationStoreValue['portal']}
@@ -118,29 +120,22 @@ export class NotificationStoreBuilder {
             config
           );
         if (!rConfig || !rConfig.component) {
-          throw new Error(
-            'Notification custom push must have a config with at least component specified.',
-          );
+          throw new MissingComponentInCustomPush();
         }
         instanceConfig = {
-          ...commonConfig,
+          ...builder.commonConfig,
           ...rConfig,
           variant: 'custom',
           component: rConfig.component,
           props: rConfig.props ?? {},
           id: '',
         };
-        idResolver = /** @type {any} */ (rConfig.id) ?? commonConfig.id;
+        idResolver = /** @type {any} */ (rConfig.id) ?? builder.commonConfig.id;
       } else {
-        const variantConfig = variantConfigMap[variant];
-        if (!variantConfig)
-          throw new Error(
-            `No prebuilt config matches with provided variant. Variant should be on of {'custom', ${Object.keys(
-              variantConfigMap,
-            ).join(', ')}}`,
-          );
+        const variantConfig = builder.variantConfigMap[variant];
+        if (!variantConfig) throw new NotFoundVariantConfig(variant, builder);
         instanceConfig = {
-          ...commonConfig,
+          ...builder.commonConfig,
           ...variantConfig,
           ...config,
           props: {
@@ -149,17 +144,17 @@ export class NotificationStoreBuilder {
           },
           id: '',
         };
-        idResolver = /** @type {any} */ (config?.id) ?? variantConfig.id ?? commonConfig.id;
+        idResolver = /** @type {any} */ (config?.id) ?? variantConfig.id ?? builder.commonConfig.id;
       }
 
       // STEP 2: resolve id for the notification
       if (idResolver === 'counter') {
-        instanceConfig.id = (++globalCounter).toString();
+        instanceConfig.id = (++builder.counter).toString();
       } else if (idResolver === 'uuid') {
         instanceConfig.id =
           'crypto' in window && crypto.randomUUID
             ? crypto.randomUUID()
-            : (++globalCounter).toString();
+            : (++builder.counter).toString();
       } else {
         instanceConfig.id = idResolver(instanceConfig);
       }
