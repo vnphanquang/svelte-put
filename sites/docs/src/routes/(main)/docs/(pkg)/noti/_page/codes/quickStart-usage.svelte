@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { notiStore } from './notification-store.ts';
+  import { notiStore } from './notification-store';
 
   const pushInfo = () => notiStore.push('info', { props: { content: 'An info notification' } });
   const pushSpecial = () => notiStore.push('special');

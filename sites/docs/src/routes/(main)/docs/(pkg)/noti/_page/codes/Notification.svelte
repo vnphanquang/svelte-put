@@ -3,6 +3,7 @@
   import type { NotificationInstanceConfig } from '@svelte-put/noti';
   import { fly } from 'svelte/transition';
 
+  // optional, injected automatically by @svelte-put/noti
   export let config: NotificationInstanceConfig;
 
   export let content = 'Placeholder';

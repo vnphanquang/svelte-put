@@ -23,7 +23,7 @@
 <Installation pkg={data.package.name} />
 
 <section>
-  <h2>Quick Start</h2>
+  <h2 id="comprehensive-example">Comprehensive Example</h2>
   <fieldset class="border-2 border-violet-500 p-4">
     <legend>Example</legend>
     <p class="mt-0">Click to push toast notification</p>
@@ -69,7 +69,7 @@
   <Code
     lang="svelte"
     code={codes.quickStart}
-    title="quick start"
+    title="a comprehensive example"
     bind:variant={quickStartVariant}
   />
 </section>
@@ -78,11 +78,56 @@
   <h2 id="notification-store"><code>NotificationStore</code></h2>
   <p>
     The <code>NotificationStore</code> is the key part of <code>@svelte-put/not</code>. It holds all
-    internal logics and is used to <code>push</code> or <code>pop</code> a notification.
+    internal logics and is used for the <code>push</code> & <code>pop</code> mechanism. As shown in
+    the <ResourceLink
+      id="comprehensive-example"
+      on:click={() => (quickStartVariant = quickStartVariants[1])}
+      >Comprehensive Example</ResourceLink
+    > section,
+    <code>NotificationStore</code> is created via a builder pattern to provide type-safety for
+    <code>push</code> invocations.
   </p>
+  <Code lang={typescript} code={codes.store.builder} title="notification store builder pattern" />
+  <p>
+    The <code>store</code> function accepts an optional config object that will be merged to all notification
+    instance config.
+  </p>
+  <Code
+    lang={typescript}
+    code={codes.store.commonConfig}
+    title="simplified interfaces of store & NotificationCommonConfig"
+  />
+  <p>
+    The <code>variant</code> method adds a predefined variant config that provides intellisense and
+    reusability. It accepts a mandatory <code>variant</code> string, and either a Svelte component or
+    a config object.
+  </p>
+  <Code
+    lang={typescript}
+    code={codes.store.variantConfig}
+    title="simplified interfaces of variant & NotificationVariantConfig"
+  />
+
   <section>
     <h3>Push & Pop Mechanism</h3>
+    <p>
+      New notifications can be pushed with the <code>push</code> method on a<code
+        >NotificationStore</code
+      >. A <code>push</code> call can use either one of the predefined variant, as seen in the
+      <ResourceLink
+        id="comprehensive-example"
+        on:click={() => (quickStartVariant = quickStartVariants[0])}
+        >Comprehensive Example</ResourceLink
+      > section, ...
+    </p>
+    <Code lang={typescript} code={codes.push.variant} title="push from predefined variant config" />
+    <p>... or the <code>'custom'</code> variant, helpful for one-off notification for example.</p>
+    <Code lang={typescript} code={codes.push.custom} title="push with custom config" />
+    <p class="c-callout-warning">
+      Custom <code>push</code> must provide a component in its config.
+    </p>
   </section>
+
   <section>
     <h3>Await for Notification Resolution</h3>
   </section>
