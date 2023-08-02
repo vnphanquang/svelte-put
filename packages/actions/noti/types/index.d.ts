@@ -1,5 +1,5 @@
 declare module '@svelte-put/noti' {
-  import type { ComponentProps, ComponentType, SvelteComponent } from 'svelte';
+  import type { ComponentEvents, ComponentProps, ComponentType, SvelteComponent } from 'svelte';
   import type { ActionReturn } from 'svelte/action';
   /**
    * register an HTMLElement as the portal for the provided notification store
@@ -60,14 +60,22 @@ declare module '@svelte-put/noti' {
         <
           Variant_1 extends Extract<keyof VariantMap, string>,
           Component_1 extends VariantMap[Variant_1] = VariantMap[Variant_1],
+          ResolveDetail = import('svelte').ComponentEvents<Component_1>['resolve']['detail'],
         >(
           variant: Variant_1,
           config?: NotificationByVariantPushConfig<Variant_1, Component_1>,
-        ): any;
-        <CustomComponent extends import('svelte').SvelteComponent<any, any, any>>(
+        ): NotificationPushOutput<ResolveDetail>;
+        <
+          CustomComponent extends import('svelte').SvelteComponent<any, any, any>,
+          ResolveDetail = import('svelte').ComponentEvents<Component_1>['resolve']['detail'],
+        >(
           variant: 'custom',
           config: NotificationCustomPushConfig<CustomComponent>,
-        ): any;
+        ): NotificationPushOutput<ResolveDetail>;
+      };
+      pop: {
+        (id?: string, detail?: any): void;
+        (config?: { id?: string; detail?: any }): void;
       };
     };
   }
@@ -132,6 +140,9 @@ declare module '@svelte-put/noti' {
     Component extends SvelteComponent,
   > = NotificationInstanceConfig<Variant, Component> & {
     instance?: Component;
+    $resolve: (
+      e: ComponentEvents<Component>['resolve'],
+    ) => Promise<ComponentEvents<Component>['resolve']['detail']>;
   };
 
   type NotificationStoreValue = {
@@ -150,6 +161,11 @@ declare module '@svelte-put/noti' {
     NotificationStore,
     NotificationPortalAttributes
   >;
+
+  type NotificationPushOutput<ResolveDetail> = {
+    id: string;
+    resolve: () => Promise<ResolveDetail>;
+  };
 }
 
 //# sourceMappingURL=index.d.ts.map

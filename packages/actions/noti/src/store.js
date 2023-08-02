@@ -82,25 +82,75 @@ export class NotificationStoreBuilder {
       }),
     );
 
+    /** @typedef {{ id?: string, detail?: any }} NotificationPopVerboseInput */
+
+    /**
+     * @overload
+     * @param {string} [id]
+     * @param {any} [detail]
+     * @returns {void}
+     */
+    /**
+     * @overload
+     * @param {NotificationPopVerboseInput} [config]
+     * @returns {void}
+     */
+    /**
+     *
+     * @param {string | NotificationPopVerboseInput} [config]
+     * @param {any} [detail]
+     * @returns {void}
+     */
+    function pop(config, detail) {
+      /** @type {string | undefined} */
+      let id = undefined;
+
+      if (config) {
+        if (typeof config === 'string') {
+          id = config;
+        } else {
+          ({ id, detail } = config);
+        }
+      }
+
+      /** @type {import('./public').PushedNotification<string, import('svelte').SvelteComponent> | undefined} */
+      let pushed;
+      if (id) {
+        pushed = _notifications.find((n) => n.id === id);
+      } else {
+        pushed = _notifications.at(-1);
+      }
+
+      if (pushed) {
+        pushed.$resolve(detail);
+        update((prev) => {
+          _notifications = _notifications.filter((n) => n.id !== pushed?.id);
+          return { ...prev, notifications: _notifications };
+        });
+      }
+    }
+
     /**
      * @template {Extract<keyof VariantMap, string>} Variant
      * @template {VariantMap[Variant]} [Component=VariantMap[Variant]]
+     * @template [ResolveDetail=undefined | import('svelte').ComponentEvents<Component>['resolve']['detail']]
      * @overload
      * @param {Variant} variant
      * @param {import('./public').NotificationByVariantPushConfig<Variant, Component>} [config]
-     * @returns {any}
+     * @returns {import('./public').NotificationPushOutput<ResolveDetail>}
      */
     /**
      * @template {import('svelte').SvelteComponent} CustomComponent
+     * @template [ResolveDetail=undefined | import('svelte').ComponentEvents<Component>['resolve']['detail']]
      * @overload
      * @param {'custom'} variant
      * @param {import('./public').NotificationCustomPushConfig<CustomComponent>} config
-     * @returns {any}
+     * @returns {import('./public').NotificationPushOutput<ResolveDetail>}
      */
     /**
      * @param {string} variant
      * @param {import('./public').NotificationByVariantPushConfig<string, import('svelte').SvelteComponent> | import('./public').NotificationCustomPushConfig<import('svelte').SvelteComponent>} [config]
-     * @returns {any}
+     * @returns {import('./public').NotificationPushOutput<ResolveDetail>}
      */
     function push(variant, config) {
       // if (!_portal) {
@@ -164,7 +214,7 @@ export class NotificationStoreBuilder {
       let pushed;
       /** @type {ReturnType<typeof setTimeout> | undefined} */
       let _timeoutId = undefined;
-      /** @type {undefined | ((value?: unknown) => void)} */
+      /** @type {undefined | ((value?: ResolveDetail) => void)} */
       let _resolve = undefined;
       const promise = new Promise((resolve) => {
         _resolve = (...args) => {
@@ -209,6 +259,10 @@ export class NotificationStoreBuilder {
       pushed = {
         ...instanceConfig,
         instance,
+        $resolve: (e) => {
+          _resolve?.(e?.detail);
+          return promise;
+        },
       };
       update((prev) => {
         _notifications = [..._notifications, pushed];
@@ -250,6 +304,7 @@ export class NotificationStoreBuilder {
         });
       },
       push,
+      pop,
     };
   }
 }

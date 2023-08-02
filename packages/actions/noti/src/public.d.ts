@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-types */
 
-import { ComponentProps, ComponentType, SvelteComponent } from 'svelte';
+import { ComponentEvents, ComponentProps, ComponentType, SvelteComponent } from 'svelte';
 import { ActionReturn } from 'svelte/action';
 
 import { NotificationStoreBuilder } from './store';
@@ -67,6 +67,9 @@ type PushedNotification<
   Component extends SvelteComponent,
 > = NotificationInstanceConfig<Variant, Component> & {
   instance?: Component;
+  $resolve: (
+    e: ComponentEvents<Component>['resolve'],
+  ) => Promise<ComponentEvents<Component>['resolve']['detail']>;
 };
 
 type NotificationStoreValue = {
@@ -82,3 +85,8 @@ type NotificationPortalAttributes = {
 };
 
 type NotificationPortalActionReturn = ActionReturn<NotificationStore, NotificationPortalAttributes>;
+
+type NotificationPushOutput<ResolveDetail> = {
+  id: string;
+  resolve: () => Promise<ResolveDetail>;
+};
