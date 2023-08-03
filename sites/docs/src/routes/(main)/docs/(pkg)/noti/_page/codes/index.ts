@@ -18,7 +18,6 @@ export const codes = {
     'Portal Setup': quickStartPortal,
     Component: component,
   },
-  portalAction: `<div use:portal={notiStore} />`,
   store: {
     builder: `import { store } from '@svelte-put/noti';
 const notiStore = store({ /** optional common config */ })
@@ -45,7 +44,11 @@ info('An info notification...');
     await: awaitTS,
     demo: awaitSvelte,
   },
-  customPortal,
+  portal: {
+    action: `import { portal } from 'svelte-put/noti';
+<div use:portal={notiStore} />`,
+    custom: customPortal,
+  },
   component: {
     instanceConfig: `type NotificationInstanceConfig = {
   /** extends NotificationVariantConfig, omitted for conciseness */

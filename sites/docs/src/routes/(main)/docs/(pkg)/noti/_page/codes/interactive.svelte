@@ -8,7 +8,7 @@
       timeout: false,
       component: InteractiveNotification,
       props: {
-        message: 'You are invited to join the Svelte community',
+        message: 'You are invited to join the Svelte community!',
       },
     });
 

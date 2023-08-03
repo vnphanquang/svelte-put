@@ -6,7 +6,7 @@
   import { ConnectedList, ConnectedListItem } from '$client/components/ConnectedList';
   import Installation from '$client/components/Installation/Installation.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
-  // import endImage from '$shared/assets/images/tooltip.webp';
+  import endImage from '$shared/assets/images/notification.webp';
 
   import type { PageData } from './$types';
   import { codes } from './_page/codes';
@@ -26,6 +26,13 @@
 
 <section>
   <h2 id="comprehensive-example">Comprehensive Example</h2>
+  <p>
+    This section presents a working example of the package. You will notice that <code
+      >@svelte-put/noti</code
+    > only handles the core logics and leave UI up to you to configure. And for that reason, the setup
+    can be a bit verbose. However, this enables flexibility. We will unpack each part of the library
+    in later sections of the document to see how customization can be achieved.
+  </p>
   <fieldset class="border-2 border-violet-500 p-4">
     <legend>Example</legend>
     <p class="mt-0">Click to push toast notification</p>
@@ -39,7 +46,7 @@
           <button class="inline c-link" on:click={() => (quickStartVariant = quickStartVariants[3])}
             >Component Setup</button
           >
-          : a component is set up to be rendered as notification
+          : a component is set up to be rendered as notification,
         </p>
       </ConnectedListItem>
       <ConnectedListItem>
@@ -64,7 +71,7 @@
           >Usage</button
         >
         : notification is "<code>pushed</code>" using the previously created
-        <code>NotificationStore</code>
+        <code>NotificationStore</code>.
       </ConnectedListItem>
     </ConnectedList>
   </div>
@@ -94,8 +101,8 @@
     <h3><code>store</code></h3>
     <Code lang={typescript} code={codes.store.builder} title="notification store builder pattern" />
     <p>
-      The <code>store</code> function accepts an optional config object that will be merged to all notification
-      instance config.
+      The <code>store</code> function accepts an optional config object that will be merged to all
+      notification instance config on <code>push</code>.
     </p>
     <Code
       lang={typescript}
@@ -108,8 +115,12 @@
     <h3 id="store-variant"><code>variant</code></h3>
     <p>
       The <code>variant</code> method adds a predefined variant config that provides intellisense
-      and reusability. It accepts a mandatory <code>variant</code> string, and either a Svelte component
-      or a config object.
+      and reusability. It accepts a mandatory <code>variant</code> string, and either a Svelte
+      component or a config object (see <ResourceLink
+        id="comprehensive-example"
+        on:click={() => (quickStartVariant = quickStartVariants[1])}
+        >Comprehensive Example</ResourceLink
+      >).
     </p>
     <Code
       lang={typescript}
@@ -121,9 +132,9 @@
   <section>
     <h3 id="pushing">Pushing</h3>
     <p>
-      New notifications can be pushed with the <code>push</code> method on a<code
-        >NotificationStore</code
-      >. A <code>push</code> call can use either one of the predefined variant, as seen in the
+      New notifications can be pushed with the <code>NotificationStore.push</code> method. A
+      <code>push</code>
+      call can use either one of the predefined variant, as seen in the
       <ResourceLink
         id="comprehensive-example"
         on:click={() => (quickStartVariant = quickStartVariants[0])}
@@ -148,7 +159,7 @@
   </section>
 
   <section>
-    <h3>Popping and Awaiting for Resolution</h3>
+    <h3 id="popping">Popping and Awaiting for Resolution</h3>
     <p>An active notification can be popped either:</p>
     <ul>
       <li>
@@ -200,7 +211,11 @@
         >NotificationStore</ResourceLink
       >.
     </p>
-    <Code lang="svelte" code={codes.portalAction} title="Portal action" />
+    <Code lang="svelte" code={codes.portal.action} title="Portal action" />
+    <p class="c-callout-info">
+      Notification instances are rendered as direct children of the HTMLElement portal. Newest
+      instance is the last child.
+    </p>
 
     <ActionUsageNotice action="portal">
       <h3 let:heading slot="heading">{heading}</h3>
@@ -252,7 +267,7 @@
       <p class="mt-0">Click to push toast notification</p>
       <CustomPortal />
     </fieldset>
-    <Code lang="svelte" code={codes.customPortal} title="custom portal demo" />
+    <Code lang="svelte" code={codes.portal.custom} title="custom portal demo" />
     <div class="c-callout-warning">
       <p>
         Notice that there are a few extra setup to <code>svelte:component</code> to keep everything wired
@@ -264,7 +279,7 @@
         <li>
           (optional) register the internal <code>$resolve</code> method for the <code>resolve</code>
           event if your component can be popped from inside. See
-          <ResourceLink id="pushing">Pushing</ResourceLink> for more information.
+          <ResourceLink id="popping">Popping and Awaiting for Resolution</ResourceLink> for more information.
         </li>
         <li>
           (optional) pass <code>config</code> if used within the component. See
@@ -312,7 +327,7 @@
         >use:portal</ResourceLink
       > or manually in your <ResourceLink id="custom-portal">custom portal</ResourceLink>, a
       <code>resolve</code>
-      action dispatched from the pushed instance will trigger <ResourceLink id="notification-store"
+      action dispatched from the pushed instance will prompt <ResourceLink id="notification-store"
         >NotificationStore</ResourceLink
       >
       to remove it from the current notification stack.
@@ -329,3 +344,14 @@
     <Code lang="svelte" code={codes.component.interactive} title="interactive notification" />
   </section>
 </section>
+
+<img
+  src={endImage}
+  alt="mouse click faster"
+  width="320"
+  height="221"
+  loading="lazy"
+  decoding="async"
+/>
+
+<p>Happy notifying! 👨‍💻</p>

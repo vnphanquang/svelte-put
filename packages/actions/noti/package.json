@@ -35,10 +35,12 @@
     "notification",
     "toast",
     "async",
+    "push",
     "typescript",
     "type-safe",
     "headless",
-    "builder"
+    "builder",
+    "portal"
   ],
   "author": "Quang Phan",
   "license": "MIT",

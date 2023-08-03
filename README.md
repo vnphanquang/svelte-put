@@ -36,10 +36,11 @@ Useful svelte stuff to put in your projects
 
 ### Miscellaneous
 
-| Package                             | Short Description                | Version                           | Changelog                            | Docs                         |
-| ----------------------------------- | -------------------------------- | --------------------------------- | ------------------------------------ | ---------------------------- |
-| [@svelte-put/avatar][github.avatar] | component & utilities for avatar | [![npm.avatar.badge]][npm.avatar] | [Changelog][github.avatar.changelog] | [![docs.badge]][docs.avatar] |
-| [@svelte-put/modal][github.modal]   | type-safe async modal builder    | [![npm.modal.badge]][npm.modal]   | [Changelog][github.modal.changelog]  | [![docs.badge]][docs.modal]  |
+| Package                             | Short Description                               | Version                           | Changelog                            | Docs                         |
+| ----------------------------------- | ----------------------------------------------- | --------------------------------- | ------------------------------------ | ---------------------------- |
+| [@svelte-put/avatar][github.avatar] | component & utilities for avatar                | [![npm.avatar.badge]][npm.avatar] | [Changelog][github.avatar.changelog] | [![docs.badge]][docs.avatar] |
+| [@svelte-put/modal][github.modal]   | type-safe async modal builder                   | [![npm.modal.badge]][npm.modal]   | [Changelog][github.modal.changelog]  | [![docs.badge]][docs.modal]  |
+| [@svelte-put/noti][github.noti]     | type-safe & headless async notification builder | [![npm.noti.badge]][npm.noti]     | [Changelog][github.noti.changelog]   | [![docs.badge]][docs.noti]   |
 
 ### Preprocessors
 
@@ -52,11 +53,9 @@ Useful svelte stuff to put in your projects
 
 These are some packages that will be added in the future (as soon as I find time, and the implementation has matured & become generic enough).
 
-| Package                             | Category  | Short Description                                              | Status             | Docs        |
-| ----------------------------------- | --------- | -------------------------------------------------------------- | ------------------ | ----------- |
-| [@svelte-put/select][github.select] | component | minimal & extensible `select`                                  | active development | coming soon |
-| @svelte-put/noti                    | utility   | fire async toast-like notification                             | prototype          |
-| @svelte-put/inputcache              | action    | cache & restore value of input into/from local/session storage | prototype          |
+| Package                             | Category  | Short Description             | Status      | Docs        |
+| ----------------------------------- | --------- | ----------------------------- | ----------- | ----------- |
+| [@svelte-put/select][github.select] | component | minimal & extensible `select` | prototyping | coming soon |
 
 Names for those packages may change.
 
@@ -107,6 +106,8 @@ pnpm turbo
 [github.modal.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/modal/CHANGELOG.md
 [github.movable]: https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/movable
 [github.movable.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/CHANGELOG.md
+[github.noti]: https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/noti
+[github.noti.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/noti/CHANGELOG.md
 [github.preprocess-auto-slug]: https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocessors/auto-slug
 [github.preprocess-auto-slug.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocessors/auto-slug/CHANGELOG.md
 [github.preprocess-inline-svg]: https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocessors/inline-svg
@@ -149,6 +150,8 @@ pnpm turbo
 [npm.modal]: https://www.npmjs.com/package/@svelte-put/modal
 [npm.movable.badge]: https://img.shields.io/npm/v/@svelte-put/movable
 [npm.movable]: https://www.npmjs.com/package/@svelte-put/movable
+[npm.noti.badge]: https://img.shields.io/npm/v/@svelte-put/noti
+[npm.noti]: https://www.npmjs.com/package/@svelte-put/noti
 [npm.preprocess-auto-slug.badge]: https://img.shields.io/npm/v/@svelte-put/preprocess-auto-slug
 [npm.preprocess-auto-slug]: https://www.npmjs.com/package/@svelte-put/preprocess-auto-slug
 [npm.preprocess-inline-svg.badge]: https://img.shields.io/npm/v/@svelte-put/preprocess-inline-svg
@@ -178,6 +181,7 @@ pnpm turbo
 [docs.lockscroll]: https://svelte-put.vnphanquang.com/docs/lockscroll
 [docs.modal]: https://svelte-put.vnphanquang.com/docs/modal
 [docs.movable]: https://svelte-put.vnphanquang.com/docs/movable
+[docs.noti]: https://svelte-put.vnphanquang.com/docs/noti
 [docs.preprocess-auto-slug]: https://svelte-put.vnphanquang.com/docs/preprocess-auto-slug
 [docs.preprocess-inline-svg]: https://svelte-put.vnphanquang.com/docs/preprocess-inline-svg
 [docs.select]: https://svelte-put.vnphanquang.com/docs/select

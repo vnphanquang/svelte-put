@@ -81,22 +81,22 @@ declare module '@svelte-put/noti' {
   }
   type NotificationCommonConfig<Variant extends string, Component extends SvelteComponent> = {
     /**
-     * id generator for notifications. Defaults to 'uuid'.
-     *
-     * @remarks
-     *   - counter - use an auto-incremented counter that is scoped to the store
-     *   - uuid - use `crypto.randomUUID()`, fallback to `counter` if not available
-     *   - function - custom function that accepts a {@link NotificationInstanceConfig} and returns a string as the id
-     */
-    id?:
-      | 'uuid'
-      | 'counter'
-      | ((config: Required<Omit<NotificationInstanceConfig<Variant, Component>, 'id'>>) => string);
-    /**
      * milliseconds to wait and automatically pop the notification.
      * Defaults to `3000`. Set to `false` to disable
      */
     timeout?: number | false;
+    /**
+     * id generator for notifications. Defaults to 'uuid'.
+     *
+     * @remarks
+     *   - counter: use an auto-incremented counter that is scoped to the store
+     *   - uuid: use `crypto.randomUUID()`, fallback to `counter` if not available
+     *   - callback: a custom function that accepts {@link NotificationInstanceConfig} and returns a string as the id
+     */
+    id?:
+      | 'counter'
+      | 'uuid'
+      | ((config: Required<Omit<NotificationInstanceConfig<Variant, Component>, 'id'>>) => string);
   };
 
   /** predefined variant config provided while building a {@link NotificationStore} */
