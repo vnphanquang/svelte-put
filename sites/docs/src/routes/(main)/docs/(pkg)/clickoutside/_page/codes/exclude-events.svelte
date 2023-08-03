@@ -38,7 +38,7 @@
         cannot be toggled because <code>clickoutside</code> is also triggered right after "Toggle
         Left" button is clicked. It also triggers the toggling of
         <span class="text-green-500">Right side</span>
-        because it is technically "outside" of the green box.
+        because it is technically outside of the green box.
       </li>
       <li>
         <span class="text-green-500">Right side</span>

@@ -93,8 +93,8 @@
       icon="warning"
     />
     <p>
-      Another typical use case for this is shown below, where the same callback is registered for
-      both <code>on:clickoutside</code> and another click event.
+      Another typical use case for this is shown below, where the same toggle callback is registered
+      for both <code>on:clickoutside</code> and another click event.
     </p>
     <fieldset class="border-2 border-violet-500">
       <legend>Example</legend>
