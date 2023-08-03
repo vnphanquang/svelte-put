@@ -130,7 +130,7 @@ declare module '@svelte-put/tooltip' {
       | HTMLElement
       | ((node: HTMLElement, tooltip: HTMLElement) => void);
     /**
-     * number of milliseconds to debounce the show / hide action of the tooltip.
+     * number of milliseconds to debounce show / hide state of the tooltip.
      * Defaults to `false` (show / hide immediately)
      */
     debounce?: false | number;
@@ -146,7 +146,6 @@ declare module '@svelte-put/tooltip' {
     pointerEvents?:
       | boolean
       | {
-          /** default value */
           default?: string;
           /** value when tooltip is visible */
           visible?: string;
@@ -165,11 +164,11 @@ declare module '@svelte-put/tooltip' {
      *
      * @remarks
      * By default:
-     *   - (container element) `role` is set to `tooltip`,
-     *   - (container element) `id` is taken from `aria-describedby` of
+     *   - (for container element) `role` is set to `tooltip`,
+     *   - (for container element) `id` is taken from `aria-describedby` of
      *     the node action is placed on (if any),
      *     or auto-generated from a global counter,
-     *   - (node action is placed on) `aria-describedby` is set to the `id` of
+     *   - (for node on which action is used) `aria-describedby` is set to the `id` of
      *     the container element (if not already exists)
      *
      * Set to `false` to disable default behavior, or provide string(s) to

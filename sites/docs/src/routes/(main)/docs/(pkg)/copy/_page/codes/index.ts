@@ -8,8 +8,6 @@ import noParametersJs from './js.generated/no-parameters.code.js.svelte?raw';
 import syntheticJs from './js.generated/synthetic.code.js.svelte?raw';
 import noParametersTs from './no-parameters.code.svelte?raw';
 import syntheticTs from './synthetic.code.svelte?raw';
-import typescriptAuto from './typescript-auto-example.svelte?raw';
-import typescriptFallback from './typescript-fallback.d.ts?raw';
 
 export const codes = {
   usage: {
@@ -32,9 +30,5 @@ export const codes = {
       Javascript: syntheticJs,
     },
     helper,
-  },
-  typescriptSupport: {
-    auto: typescriptAuto,
-    fallback: typescriptFallback,
   },
 } as const;

@@ -3,8 +3,6 @@ import quickStartJs from './js.generated/quickStart.code.js.svelte?raw';
 import usageEventsJs from './js.generated/usage.events.code.js.svelte?raw';
 import onceJs from './js.generated/usage.once.code.js.svelte?raw';
 import quickStartTs from './quickStart.code.svelte?raw';
-import typescriptSupportAuto from './typescript-auto.svelte?raw';
-import typescriptSupportFallback from './typescript-fallback.d.ts?raw';
 import usageEventsTs from './usage.events.code.svelte?raw';
 import onceTs from './usage.once.code.svelte?raw';
 
@@ -23,9 +21,5 @@ export const codes = {
       Typescript: onceTs,
       Javascript: onceJs,
     },
-  },
-  typescriptSupport: {
-    auto: typescriptSupportAuto,
-    fallback: typescriptSupportFallback,
   },
 };

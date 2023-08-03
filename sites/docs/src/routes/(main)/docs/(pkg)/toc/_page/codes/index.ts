@@ -4,8 +4,6 @@ import eventsJs from './js.generated/events.code.js.svelte?raw';
 import quickStartInput from './quick-start-input.svelte?raw';
 import quickStartOutput from './quick-start-output.svelte?raw';
 import tocLinkMarkupEquivalence from './toclink-markup-equivalence.svelte?raw';
-import eventTypingAuto from './typescript-auto.svelte?raw';
-import eventTypingFallback from './typescript-fallback.d.ts?raw';
 
 const caveatFlat = `  <h2>Heading, whether it is h1,h2,...</h2>
   <p>...content...</p> `;
@@ -22,10 +20,6 @@ export const codes = {
     example: {
       Typescript: eventsTs,
       Javascript: eventsJs,
-    },
-    typing: {
-      auto: eventTypingAuto,
-      fallback: eventTypingFallback,
     },
   },
   observe: `<!-- use default options -->

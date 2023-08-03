@@ -3,8 +3,6 @@ import excludeEvents from './exclude-events.svelte?raw';
 import demoJs from './js.generated/demo.code.js.svelte?raw';
 import quickStartJs from './js.generated/quick-start.code.js.svelte?raw';
 import quickStartTs from './quick-start.code.svelte?raw';
-import typescriptAuto from './typescript-auto-example.svelte?raw';
-import typescriptFallback from './typescript-fallback.d.ts?raw';
 
 const limitParent = `<div bind:this={parentNode}>
   <div use:clickoutside={{ limit: { parent: parentNode } }}>...</div>
@@ -36,9 +34,5 @@ export const codes = {
       custom: excludingEventsCustom,
       demo: excludeEvents,
     },
-  },
-  typescriptSupport: {
-    auto: typescriptAuto,
-    fallback: typescriptFallback,
   },
 } as const;
