@@ -64,7 +64,7 @@
     be helpful for yours too.
   </p>
   <p>
-    There is already a great pool of svelte
+    There is already a great pool of
     <ResourceLink href="https://github.com/sw-yx/svelte-actions">
       svelte actions collected by Shawn and other contributors
     </ResourceLink>
