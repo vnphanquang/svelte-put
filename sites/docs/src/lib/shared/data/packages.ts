@@ -127,6 +127,20 @@ export const packages = {
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/movable/CHANGELOG.md',
   },
+  noti: {
+    id: 'noti',
+    name: '@svelte-put/noti',
+    publishedAt: 1670126470519,
+    description: 'type-safe and headless async notification builder',
+    path: APP_ROUTE_TREE.docs.noti.$.path(),
+    replId: '5beb4357e32e427394f5f6f5ced7b5f1',
+    category: 'miscellaneous',
+    status: 'new',
+    ready: true,
+    githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/noti',
+    changelogUrl:
+      'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/noti/CHANGELOG.md',
+  },
   'preprocess-auto-slug': {
     id: 'preprocess-auto-slug',
     name: '@svelte-put/preprocess-auto-slug',

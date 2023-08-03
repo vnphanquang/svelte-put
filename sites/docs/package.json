@@ -37,6 +37,7 @@
     "@svelte-put/lockscroll": "workspace:*",
     "@svelte-put/modal": "workspace:*",
     "@svelte-put/movable": "workspace:*",
+    "@svelte-put/noti": "workspace:^",
     "@svelte-put/preprocess-auto-slug": "workspace:*",
     "@svelte-put/preprocess-inline-svg": "workspace:*",
     "@svelte-put/resize": "workspace:*",

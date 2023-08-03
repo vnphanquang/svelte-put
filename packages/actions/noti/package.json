@@ -1,0 +1,55 @@
+{
+  "name": "@svelte-put/noti",
+  "version": "0.0.0",
+  "description": "type-safe and headless async notification builder",
+  "main": "src/index.js",
+  "module": "src/index.js",
+  "types": "types/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./src/index.js"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "src",
+    "types"
+  ],
+  "scripts": {
+    "lint": "eslint --ignore-path .gitignore \"./**/*/*{ts,js,cjs}\"",
+    "format": "prettier --check --ignore-path .gitignore \"./**/*.{ts,js,cjs}\"",
+    "dts": "dts-buddy && prettier types/index.d.ts --write && publint",
+    "prepublishOnly": "pnpm dts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vnphanquang/svelte-put.git"
+  },
+  "keywords": [
+    "svelte",
+    "action",
+    "notification",
+    "toast",
+    "async",
+    "push",
+    "typescript",
+    "type-safe",
+    "headless",
+    "builder",
+    "portal"
+  ],
+  "author": "Quang Phan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vnphanquang/svelte-put/issues"
+  },
+  "homepage": "https://svelte-put.vnphanquang.com/docs/noti",
+  "devDependencies": {
+    "@svelte-put/tsconfig": "workspace:*",
+    "dts-buddy": "^0.1.9"
+  }
+}

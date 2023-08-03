@@ -146,6 +146,15 @@ importers:
         specifier: ^0.1.9
         version: 0.1.9
 
+  packages/actions/noti:
+    devDependencies:
+      '@svelte-put/tsconfig':
+        specifier: workspace:*
+        version: link:../../../configs/tsconfig
+      dts-buddy:
+        specifier: ^0.1.9
+        version: 0.1.9
+
   packages/actions/resize:
     devDependencies:
       '@svelte-put/tsconfig':
@@ -496,6 +505,9 @@ importers:
       '@svelte-put/movable':
         specifier: workspace:*
         version: link:../../packages/actions/movable
+      '@svelte-put/noti':
+        specifier: workspace:^
+        version: link:../../packages/actions/noti
       '@svelte-put/preprocess-auto-slug':
         specifier: workspace:*
         version: link:../../packages/preprocessors/auto-slug

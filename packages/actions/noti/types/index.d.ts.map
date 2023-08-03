@@ -1,0 +1,18 @@
+{
+	"version": 3,
+	"file": "index.d.ts",
+	"names": [
+		"portal",
+		"store",
+		"NotificationStoreBuilder"
+	],
+	"sources": [
+		"../src/portal.js",
+		"../src/store.js"
+	],
+	"sourcesContent": [
+		null,
+		null
+	],
+	"mappings": ";;;;;;iBAMgBA,MAAMA;;;iBCCNC,KAAKA;;;;;OAQRC,wBAAwBA"
+}
