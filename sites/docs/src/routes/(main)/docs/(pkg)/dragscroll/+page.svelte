@@ -1,5 +1,4 @@
 <script lang="ts">
-  import ActionUsageNotice from '$client/components/ActionUsageNotice/ActionUsageNotice.svelte';
   import Code from '$client/components/Code/Code.svelte';
   import Installation from '$client/components/Installation/Installation.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
@@ -15,8 +14,6 @@
 </script>
 
 <Installation pkg={data.package.name} />
-
-<ActionUsageNotice action={data.package.id} />
 
 <section>
   <h2>Quick Start</h2>

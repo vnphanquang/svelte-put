@@ -2,7 +2,6 @@
   import { ATTRIBUTES } from '@svelte-put/toc/attributes';
   import typescript from 'svelte-highlight/languages/typescript';
 
-  import ActionUsageNotice from '$client/components/ActionUsageNotice/ActionUsageNotice.svelte';
   import ApiUnitReference from '$client/components/ApiUnitReference/ApiUnitReference.svelte';
   import Code from '$client/components/Code/Code.svelte';
   import { ConnectedList, ConnectedListItem } from '$client/components/ConnectedList';
@@ -126,10 +125,6 @@
     <Code code={`<svelte:body use:toc />`} />
   </p>
 
-  <ActionUsageNotice action={data.package.id}>
-    <h3 slot="heading" let:heading>{heading}</h3>
-  </ActionUsageNotice>
-
   <!-- FIXME: documentation for toc params? -->
   <!-- <section>
     <h3>Parameters</h3>
@@ -196,28 +191,6 @@
         extracted information from <code>tocinit</code> (such as rendering the table of content itself).
       </li>
     </ul>
-  </section>
-
-  <section>
-    <h3>Typescript Support</h3>
-    <p>
-      Ambient types for custom events should be available automatically where <code
-        >{data.package.id}</code
-      > is imported.
-    </p>
-    <Code
-      lang="svelte"
-      code={codes.events.typing.auto}
-      title="automatically typed - example source"
-      expanded={false}
-    />
-    <p>If the above is not working, fall back to this:</p>
-    <Code
-      lang={typescript}
-      code={codes.events.typing.fallback}
-      title="src/app.d.ts - fallback typescript support"
-      expanded={false}
-    />
   </section>
 </section>
 

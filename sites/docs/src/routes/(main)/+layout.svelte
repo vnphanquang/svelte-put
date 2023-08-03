@@ -15,9 +15,8 @@
   import StatusBadge from '$client/components/StatusBadge/StatusBadge.svelte';
   import { getPrefersColorScheme } from '$client/utils/color-scheme';
   import { LOAD_DEPENDENCIES, APP_ROUTE_TREE } from '$shared/constants';
-  import { packagesByCategory } from '$shared/data/packages';
+  import { packages } from '$shared/data/packages';
   import type { ColorScheme } from '$shared/types';
-  import { capitalize } from '$shared/utils/string';
 
   import type { LayoutData } from './$types';
 
@@ -115,45 +114,77 @@
       on:clickoutside={toggleLeftSidebar}
       data-open={leftSidebarOpen}
       aria-label="Pages"
+      data-sveltekit-preload-data="hover"
     >
-      <ul class="sidebar-content">
+      <ul class="sidebar-content space-y-4">
         <li>
-          <a
-            href={APP_ROUTE_TREE.docs.$.path()}
-            data-current={data.pathname === APP_ROUTE_TREE.docs.$.path()}
-            class="c-link block py-2 font-bold"
-            on:click={closeLeftSidebar}
-            data-sveltekit-preload-data="hover"
-          >
-            Introduction
-          </a>
+          <p class="font-bold uppercase">Overview</p>
+          <ul class="mt-3 space-y-1 border-l border-border">
+            <li>
+              <a
+                href={APP_ROUTE_TREE.docs.$.path()}
+                data-current={data.pathname === APP_ROUTE_TREE.docs.$.path()}
+                class="c-link -ml-px block whitespace-nowrap border-l border-transparent py-1 pl-3 data-current:border-primary"
+                on:click={closeLeftSidebar}
+              >
+                Introduction
+              </a>
+            </li>
+            <li>
+              <a
+                href={APP_ROUTE_TREE.docs.architecture.$.path()}
+                data-current={data.pathname === APP_ROUTE_TREE.docs.architecture.$.path()}
+                class="c-link -ml-px block whitespace-nowrap border-l border-transparent py-1 pl-3 data-current:border-primary"
+                on:click={closeLeftSidebar}
+              >
+                Architecture
+              </a>
+            </li>
+            <li>
+              <a
+                href={APP_ROUTE_TREE.docs.guidelines.$.path()}
+                data-current={data.pathname === APP_ROUTE_TREE.docs.guidelines.$.path()}
+                class="c-link -ml-px block whitespace-nowrap border-l border-transparent py-1 pl-3 data-current:border-primary"
+                on:click={closeLeftSidebar}
+              >
+                Guidelines
+              </a>
+            </li>
+            <li>
+              <a
+                href={APP_ROUTE_TREE.docs.contributing.$.path()}
+                data-current={data.pathname === APP_ROUTE_TREE.docs.contributing.$.path()}
+                class="c-link -ml-px block whitespace-nowrap border-l border-transparent py-1 pl-3 data-current:border-primary"
+                on:click={closeLeftSidebar}
+              >
+                Contributing
+              </a>
+            </li>
+          </ul>
         </li>
-        {#each Object.entries(packagesByCategory) as [category, packages]}
-          <li class="py-2">
-            <p class="font-bold">{capitalize(category)}</p>
-            <ul class="mt-2 space-y-1 border-l border-border">
-              {#each packages as { path, status, id }}
-                <li>
-                  <a
-                    data-sveltekit-preload-data="hover"
-                    href={path}
-                    data-current={data.pathname.includes(`/${id}`)}
-                    class="c-link -ml-px block whitespace-nowrap border-l border-transparent py-1 pl-3 data-current:border-primary"
-                    on:click={closeLeftSidebar}
-                  >
-                    <span class="h-full w-1 bg-primary" />
-                    {id}
-                    <sup>
-                      {#if status !== 'stable'}
-                        <StatusBadge {status} />
-                      {/if}
-                    </sup>
-                  </a>
-                </li>
-              {/each}
-            </ul>
-          </li>
-        {/each}
+        <li>
+          <p class="font-bold uppercase">Packages</p>
+          <ul class="mt-3 space-y-1 border-l border-border">
+            {#each Object.values(packages) as { path, status, id }}
+              <li>
+                <a
+                  href={path}
+                  data-current={data.pathname.includes(`/${id}`)}
+                  class="c-link -ml-px block whitespace-nowrap border-l border-transparent py-1 pl-3 data-current:border-primary"
+                  on:click={closeLeftSidebar}
+                >
+                  <span class="h-full w-1 bg-primary" />
+                  {id}
+                  <sup>
+                    {#if status !== 'stable'}
+                      <StatusBadge {status} />
+                    {/if}
+                  </sup>
+                </a>
+              </li>
+            {/each}
+          </ul>
+        </li>
       </ul>
     </nav>
     {#if leftSidebarOpen}
@@ -248,7 +279,7 @@
       </div>
       <div class="max-md:mt-4">
         <p>
-          <a href="/docs#donating" class="c-link">
+          <a href="/docs/contributing#money" class="c-link">
             <span>Donate</span>
 
             <svg
@@ -296,7 +327,7 @@
       padding-left: theme('spacing.4');
     }
 
-    @media (max-width: theme('screens.md-max')) {
+    @screen md-max {
       position: fixed;
       z-index: theme('zIndex.sidebar');
       top: 0;
@@ -348,7 +379,7 @@
       padding-top: theme('spacing.10');
     }
 
-    @media (max-width: theme('screens.lg-max')) {
+    @screen lg-max {
       position: fixed;
       z-index: theme('zIndex.sidebar');
       top: theme('spacing.header');

@@ -1,5 +1,4 @@
 <script lang="ts">
-  import ActionUsageNotice from '$client/components/ActionUsageNotice/ActionUsageNotice.svelte';
   import Code from '$client/components/Code/Code.svelte';
   import Installation from '$client/components/Installation/Installation.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
@@ -25,8 +24,6 @@
   </fieldset>
   <Code lang="svelte" code={codes.quickStart} title="apply scroll lock on the body element" />
 </section>
-
-<ActionUsageNotice action={data.package.id} />
 
 <section>
   <h2>Locking any Scroll Container</h2>

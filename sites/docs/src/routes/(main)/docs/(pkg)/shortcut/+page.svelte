@@ -1,7 +1,4 @@
 <script lang="ts">
-  import typescript from 'svelte-highlight/languages/typescript';
-
-  import ActionUsageNotice from '$client/components/ActionUsageNotice/ActionUsageNotice.svelte';
   import Code from '$client/components/Code/Code.svelte';
   import Installation from '$client/components/Installation/Installation.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
@@ -19,8 +16,6 @@
   <h2>Quick Start</h2>
   <Code lang="svelte" code={codes.quickStart} title="quick start" />
 </section>
-
-<ActionUsageNotice action={data.package.id} tag="svelte:window" />
 
 <section>
   <h2>Key Combination</h2>
@@ -56,28 +51,6 @@
     </li>
   </ol>
   <Code code={codes.eventsVsCallback} title="event vs callback" />
-</section>
-
-<section>
-  <h2>Typescript Support</h2>
-  <p>
-    Ambient types for custom events should be available automatically where <code
-      >{data.package.id}</code
-    > is imported.
-  </p>
-  <Code
-    lang="svelte"
-    code={codes.typescriptSupport.auto}
-    title="automatically typed - example source"
-    expanded={false}
-  />
-  <p>If the above is not working, fall back to this:</p>
-  <Code
-    lang={typescript}
-    code={codes.typescriptSupport.fallback}
-    title="src/app.d.ts - fallback typescript support"
-    expanded={false}
-  />
 </section>
 
 <img

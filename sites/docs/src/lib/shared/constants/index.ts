@@ -7,6 +7,10 @@ export const { node: APP_ROUTE_TREE } = tBuild('APP_ROUTE_TREE', {
       .addChild('docs', {
         build: (builder) =>
           builder
+            .addChild('architecture')
+            .addChild('guidelines')
+            .addChild('contributing')
+            // packages
             .addChild('avatar')
             .addChild('clickoutside')
             .addChild('copy')

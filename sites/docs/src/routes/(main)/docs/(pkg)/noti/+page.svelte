@@ -1,7 +1,6 @@
 <script lang="ts">
   import typescript from 'svelte-highlight/languages/typescript';
 
-  import ActionUsageNotice from '$client/components/ActionUsageNotice/ActionUsageNotice.svelte';
   import Code from '$client/components/Code/Code.svelte';
   import { ConnectedList, ConnectedListItem } from '$client/components/ConnectedList';
   import Installation from '$client/components/Installation/Installation.svelte';
@@ -216,10 +215,6 @@
       Notification instances are rendered as direct children of the HTMLElement portal. Newest
       instance is the last child.
     </p>
-
-    <ActionUsageNotice action="portal">
-      <h3 let:heading slot="heading">{heading}</h3>
-    </ActionUsageNotice>
 
     <section>
       <h3>Limitation</h3>

@@ -1,7 +1,6 @@
 <script lang="ts">
   import typescript from 'svelte-highlight/languages/typescript';
 
-  import ActionUsageNotice from '$client/components/ActionUsageNotice/ActionUsageNotice.svelte';
   import Code from '$client/components/Code/Code.svelte';
   import Installation from '$client/components/Installation/Installation.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
@@ -36,8 +35,6 @@
   </p>
   <Code lang="svelte" code={codes.quickStart} title="out-of-the-box tooltip action" />
 </section>
-
-<ActionUsageNotice action={data.package.id} />
 
 <section>
   <h2>Design Decisions</h2>
