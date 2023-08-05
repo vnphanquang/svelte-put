@@ -2,7 +2,7 @@
   import EditThisPageLink from '$client/components/EditThisPageLink/EditThisPageLink.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';
   import StatusBadge from '$client/components/StatusBadge/StatusBadge.svelte';
-  import { packagesByCategory } from '$shared/data/packages';
+  import { packages } from '$shared/data/packages';
   import { createNpmBadgeUrl, createNpmUrl } from '$shared/utils/badge';
 </script>
 
@@ -20,41 +20,36 @@
     Check out their corresponding documentation page for more details.
   </p>
 
-  {#each Object.entries(packagesByCategory) as [category, packages]}
-    <section>
-      <h3 id="{category}-packages" class="capitalize">{category}</h3>
-      <div
-        class="not-prose c-gtable-4 grid max-w-full grid-cols-[198px,1fr,140px,80px] items-center direct-children:p-4"
-      >
-        <p>ID</p>
-        <p>Description</p>
-        <p>Version</p>
-        <p>Status</p>
-        {#each packages as { id, description, name, path, status }}
-          <p>
-            <a href={path} class="c-link font-medium">
-              {id}
-            </a>
-          </p>
-          <p>{description}</p>
-          <div class="flex items-center">
-            <a href={createNpmUrl(name)} target="_blank" class="block" rel="noreferrer">
-              <img
-                class="block rounded"
-                src={createNpmBadgeUrl(name)}
-                alt={name}
-                height="25"
-                width="106"
-                loading="lazy"
-                decoding="async"
-              />
-            </a>
-          </div>
-          <p class="flex items-center"><StatusBadge {status} /></p>
-        {/each}
+  <div
+    class="not-prose c-gtable-4 grid max-w-full grid-cols-[198px,1fr,140px,80px] items-center direct-children:p-4"
+  >
+    <p>ID</p>
+    <p>Description</p>
+    <p>Version</p>
+    <p>Status</p>
+    {#each Object.values(packages) as { id, description, name, path, status }}
+      <p>
+        <a href={path} class="c-link font-medium">
+          {id}
+        </a>
+      </p>
+      <p>{description}</p>
+      <div class="flex items-center">
+        <a href={createNpmUrl(name)} target="_blank" class="block" rel="noreferrer">
+          <img
+            class="block rounded"
+            src={createNpmBadgeUrl(name)}
+            alt={name}
+            height="25"
+            width="106"
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
       </div>
-    </section>
-  {/each}
+      <p class="flex items-center"><StatusBadge {status} /></p>
+    {/each}
+  </div>
 </section>
 
 <section>

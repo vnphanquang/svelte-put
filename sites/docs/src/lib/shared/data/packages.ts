@@ -8,7 +8,6 @@ export const packages = {
     description: 'component & utilities for building avatars',
     path: APP_ROUTE_TREE.docs.avatar.$.path(),
     replId: 'd54381946b1c4ebd8e612e4568fbbbd0',
-    category: 'miscellaneous',
     status: 'stable',
     ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/misc/avatar',
@@ -22,7 +21,6 @@ export const packages = {
     description: 'event for clicking outside node',
     path: APP_ROUTE_TREE.docs.clickoutside.$.path(),
     replId: '9e5f9ee41c2c45aa8523993e357f6e78',
-    category: 'action',
     status: 'stable',
     ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/clickoutside',
@@ -36,7 +34,6 @@ export const packages = {
     description: 'action & utilities to copy text to clipboard',
     path: APP_ROUTE_TREE.docs.copy.$.path(),
     replId: undefined,
-    category: 'action',
     status: 'stable',
     ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/copy',
@@ -50,7 +47,6 @@ export const packages = {
     description: 'action to add "drag-to-scroll" behavior',
     path: APP_ROUTE_TREE.docs.dragscroll.$.path(),
     replId: undefined,
-    category: 'action',
     status: 'stable',
     ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/dragscroll',
@@ -64,7 +60,6 @@ export const packages = {
     description: 'solution for inlining SVGs in svelte land',
     path: APP_ROUTE_TREE.docs.inlineSvg.$.path(),
     replId: undefined,
-    category: 'action',
     status: 'stable',
     ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/inline-svg',
@@ -78,7 +73,6 @@ export const packages = {
     description: 'svelte action that wraps for IntersectionObserver',
     path: APP_ROUTE_TREE.docs.intersect.$.path(),
     replId: '835eacce6ac44aff95a7cb0bb5ca200d',
-    category: 'action',
     status: 'stable',
     ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/intersect',
@@ -92,7 +86,6 @@ export const packages = {
     description: 'locking scroll and hide scrollbar within an HTML element',
     path: APP_ROUTE_TREE.docs.lockscroll.$.path(),
     replId: '8bfbdc1af58e43b2af4d625f63358a35',
-    category: 'action',
     status: 'new',
     ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/lockscroll',
@@ -106,7 +99,6 @@ export const packages = {
     description: 'type-safe async modal builder',
     path: APP_ROUTE_TREE.docs.modal.$.path(),
     replId: '0a68001337544b8ab55995fb3d02d1f6',
-    category: 'miscellaneous',
     status: 'stable',
     ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/misc/modal',
@@ -120,7 +112,6 @@ export const packages = {
     description: 'move node on mousedown',
     path: APP_ROUTE_TREE.docs.movable.$.path(),
     replId: '88a7c1fc2e134db7b58786d5f385fc5d',
-    category: 'action',
     status: 'stable',
     ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/movable',
@@ -134,7 +125,6 @@ export const packages = {
     description: 'type-safe and headless async notification builder',
     path: APP_ROUTE_TREE.docs.noti.$.path(),
     replId: '5beb4357e32e427394f5f6f5ced7b5f1',
-    category: 'miscellaneous',
     status: 'new',
     ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/noti',
@@ -148,7 +138,6 @@ export const packages = {
     description: 'svelte preprocessor to add id attribute and anchor tag',
     path: APP_ROUTE_TREE.docs.preprocessAutoSlug.$.path(),
     replId: undefined,
-    category: 'preprocessor',
     status: 'stable',
     ready: true,
     githubUrl:
@@ -163,7 +152,6 @@ export const packages = {
     description: 'svelte preprocessor to inline static svg at build time',
     path: APP_ROUTE_TREE.docs.preprocessInlineSvg.$.path(),
     replId: undefined,
-    category: 'preprocessor',
     status: 'stable',
     ready: true,
     githubUrl:
@@ -178,7 +166,6 @@ export const packages = {
     description: 'svelte action that wraps for ResizeObserver',
     path: APP_ROUTE_TREE.docs.resize.$.path(),
     replId: undefined,
-    category: 'action',
     status: 'stable',
     ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/resize',
@@ -192,7 +179,6 @@ export const packages = {
     description: 'type-safe and extensible select',
     path: APP_ROUTE_TREE.docs.select.$.path(),
     replId: '4f0d701ab5ed411ebbc9a71b0955385d',
-    category: 'component',
     status: 'dev',
     ready: false,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/components/select',
@@ -206,7 +192,6 @@ export const packages = {
     description: 'add keyboard shortcuts to node',
     path: APP_ROUTE_TREE.docs.shortcut.$.path(),
     replId: undefined,
-    category: 'action',
     status: 'stable',
     ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/shortcut',
@@ -220,7 +205,6 @@ export const packages = {
     description: 'action and utilities for building table of contents',
     path: APP_ROUTE_TREE.docs.toc.$.path(),
     replId: 'd9c896ac62cd41d49f80ffa249d292e6',
-    category: 'action',
     status: 'stable',
     ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/toc',
@@ -235,7 +219,6 @@ export const packages = {
       'over-engineered, type-safe, headless,  and extensible tooltip builder via Svelte action',
     path: APP_ROUTE_TREE.docs.tooltip.$.path(),
     replId: 'ac411d28f87b4b6d9942e050fa29e0cd',
-    category: 'action',
     status: 'new',
     ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/tooltip',
@@ -247,17 +230,6 @@ export const packages = {
 export type PackageId = keyof typeof packages;
 export type Package = (typeof packages)[PackageId];
 export type PackageName = Package['name'];
-export type PackageCategory = (typeof packages)[PackageId]['category'];
-
-export const packagesByCategory = Object.values(packages).reduce(
-  (map, pkg) => {
-    const category = pkg.category;
-    if (!map[category]) map[category] = [];
-    map[category].push(pkg);
-    return map;
-  },
-  {} as Record<PackageCategory, Package[]>,
-);
 
 export const pkgToPath = Object.fromEntries(
   Object.values(packages).map((p) => [p.name, p.path]),

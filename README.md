@@ -18,36 +18,24 @@ Useful svelte stuff to put in your projects
 
 `@svelte-put` includes several packages that have self-managed release cycles, listed below. Check out their corresponding README for more details.
 
-### Svelte Actions
-
-| Package                                         | Short Description                                 | Version                                       | Changelog                                  | Docs                               |
-| ----------------------------------------------- | ------------------------------------------------- | --------------------------------------------- | ------------------------------------------ | ---------------------------------- |
-| [@svelte-put/clickoutside][github.clickoutside] | event for clicking outside node                   | [![npm.clickoutside.badge]][npm.clickoutside] | [Changelog][github.clickoutside.changelog] | [![docs.badge]][docs.clickoutside] |
-| [@svelte-put/copy][github.copy]                 | copy text to clipboard                            | [![npm.copy.badge]][npm.copy]                 | [Changelog][github.copy.changelog]         | [![docs.badge]][docs.copy]         |
-| [@svelte-put/dragscroll][github.dragscroll]     | add drag-to-scroll behavior                       | [![npm.dragscroll.badge]][npm.dragscroll]     | [Changelog][github.dragscroll.changelog]   | [![docs.badge]][docs.dragscroll]   |
-| [@svelte-put/intersect][github.intersect]       | wrapper for IntersectionObserver                  | [![npm.intersect.badge]][npm.intersect]       | [Changelog][github.intersect.changelog]    | [![docs.badge]][docs.intersect]    |
-| [@svelte-put/inline-svg][github.inline-svg]     | dynamically inline SVGs                           | [![npm.inline-svg.badge]][npm.inline-svg]     | [Changelog][github.inline-svg.changelog]   | [![docs.badge]][docs.inline-svg]   |
-| [@svelte-put/movable][github.movable]           | move node on mousedown                            | [![npm.movable.badge]][npm.movable]           | [Changelog][github.movable.changelog]      | [![docs.badge]][docs.movable]      |
-| [@svelte-put/lockscroll][github.lockscroll]     | lock scroll, hide scrollbar                       | [![npm.lockscroll.badge]][npm.lockscroll]     | [Changelog][github.lockscroll.changelog]   | [![docs.badge]][docs.lockscroll]   |
-| [@svelte-put/resize][github.resize]             | wrapper for ResizeObserver                        | [![npm.resize.badge]][npm.resize]             | [Changelog][github.resize.changelog]       | [![docs.badge]][docs.resize]       |
-| [@svelte-put/shortcut][github.shortcut]         | add keyboard shortcuts to node                    | [![npm.shortcut.badge]][npm.shortcut]         | [Changelog][github.shortcut.changelog]     | [![docs.badge]][docs.shortcut]     |
-| [@svelte-put/toc][github.toc]                   | action & utilities for building table of contents | [![npm.toc.badge]][npm.toc]                   | [Changelog][github.toc.changelog]          | [![docs.badge]][docs.toc]          |
-| [@svelte-put/tooltip][github.tooltip]           | type-safe headless tooltip builder                | [![npm.tooltip.badge]][npm.tooltip]           | [Changelog][github.tooltip.changelog]      | [![docs.badge]][docs.tooltip]      |
-
-### Miscellaneous
-
-| Package                             | Short Description                               | Version                           | Changelog                            | Docs                         |
-| ----------------------------------- | ----------------------------------------------- | --------------------------------- | ------------------------------------ | ---------------------------- |
-| [@svelte-put/avatar][github.avatar] | component & utilities for avatar                | [![npm.avatar.badge]][npm.avatar] | [Changelog][github.avatar.changelog] | [![docs.badge]][docs.avatar] |
-| [@svelte-put/modal][github.modal]   | type-safe async modal builder                   | [![npm.modal.badge]][npm.modal]   | [Changelog][github.modal.changelog]  | [![docs.badge]][docs.modal]  |
-| [@svelte-put/noti][github.noti]     | type-safe & headless async notification builder | [![npm.noti.badge]][npm.noti]     | [Changelog][github.noti.changelog]   | [![docs.badge]][docs.noti]   |
-
-### Preprocessors
-
-| Package                                                           | Short Description                          | Version                                                         | Changelog                                           | Docs                                        |
-| ----------------------------------------------------------------- | ------------------------------------------ | --------------------------------------------------------------- | --------------------------------------------------- | ------------------------------------------- |
-| [@svelte-put/preprocess-auto-slug][github.preprocess-auto-slug]   | auto add `id` and anchor to selected nodes | [![npm.preprocess-auto-slug.badge]][npm.preprocess-auto-slug]   | [Changelog][github.preprocess-auto-slug.changelog]  | [![docs.badge]][docs.preprocess-auto-slug]  |
-| [@svelte-put/preprocess-inline-svg][github.preprocess-inline-svg] | inline static SVGs at build time           | [![npm.preprocess-inline-svg.badge]][npm.preprocess-inline-svg] | [Changelog][github.preprocess-inline-svg.changelog] | [![docs.badge]][docs.preprocess-inline-svg] |
+| Package                                                           | Short Description                                 | Version                                                         | Changelog                                           | Docs                                        |
+| ----------------------------------------------------------------- | ------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------- | ------------------------------------------- |
+| [@svelte-put/avatar][github.avatar]                               | component & utilities for avatar                  | [![npm.avatar.badge]][npm.avatar]                               | [Changelog][github.avatar.changelog]                | [![docs.badge]][docs.avatar]                |
+| [@svelte-put/clickoutside][github.clickoutside]                   | event for clicking outside node                   | [![npm.clickoutside.badge]][npm.clickoutside]                   | [Changelog][github.clickoutside.changelog]          | [![docs.badge]][docs.clickoutside]          |
+| [@svelte-put/copy][github.copy]                                   | copy text to clipboard                            | [![npm.copy.badge]][npm.copy]                                   | [Changelog][github.copy.changelog]                  | [![docs.badge]][docs.copy]                  |
+| [@svelte-put/dragscroll][github.dragscroll]                       | add drag-to-scroll behavior                       | [![npm.dragscroll.badge]][npm.dragscroll]                       | [Changelog][github.dragscroll.changelog]            | [![docs.badge]][docs.dragscroll]            |
+| [@svelte-put/intersect][github.intersect]                         | wrapper for IntersectionObserver                  | [![npm.intersect.badge]][npm.intersect]                         | [Changelog][github.intersect.changelog]             | [![docs.badge]][docs.intersect]             |
+| [@svelte-put/inline-svg][github.inline-svg]                       | dynamically inline SVGs                           | [![npm.inline-svg.badge]][npm.inline-svg]                       | [Changelog][github.inline-svg.changelog]            | [![docs.badge]][docs.inline-svg]            |
+| [@svelte-put/lockscroll][github.lockscroll]                       | lock scroll, hide scrollbar                       | [![npm.lockscroll.badge]][npm.lockscroll]                       | [Changelog][github.lockscroll.changelog]            | [![docs.badge]][docs.lockscroll]            |
+| [@svelte-put/modal][github.modal]                                 | type-safe async modal builder                     | [![npm.modal.badge]][npm.modal]                                 | [Changelog][github.modal.changelog]                 | [![docs.badge]][docs.modal]                 |
+| [@svelte-put/movable][github.movable]                             | move node on mousedown                            | [![npm.movable.badge]][npm.movable]                             | [Changelog][github.movable.changelog]               | [![docs.badge]][docs.movable]               |
+| [@svelte-put/noti][github.noti]                                   | type-safe & headless async notification builder   | [![npm.noti.badge]][npm.noti]                                   | [Changelog][github.noti.changelog]                  | [![docs.badge]][docs.noti]                  |
+| [@svelte-put/preprocess-auto-slug][github.preprocess-auto-slug]   | auto add `id` and anchor to selected nodes        | [![npm.preprocess-auto-slug.badge]][npm.preprocess-auto-slug]   | [Changelog][github.preprocess-auto-slug.changelog]  | [![docs.badge]][docs.preprocess-auto-slug]  |
+| [@svelte-put/preprocess-inline-svg][github.preprocess-inline-svg] | inline static SVGs at build time                  | [![npm.preprocess-inline-svg.badge]][npm.preprocess-inline-svg] | [Changelog][github.preprocess-inline-svg.changelog] | [![docs.badge]][docs.preprocess-inline-svg] |
+| [@svelte-put/resize][github.resize]                               | wrapper for ResizeObserver                        | [![npm.resize.badge]][npm.resize]                               | [Changelog][github.resize.changelog]                | [![docs.badge]][docs.resize]                |
+| [@svelte-put/shortcut][github.shortcut]                           | add keyboard shortcuts to node                    | [![npm.shortcut.badge]][npm.shortcut]                           | [Changelog][github.shortcut.changelog]              | [![docs.badge]][docs.shortcut]              |
+| [@svelte-put/toc][github.toc]                                     | action & utilities for building table of contents | [![npm.toc.badge]][npm.toc]                                     | [Changelog][github.toc.changelog]                   | [![docs.badge]][docs.toc]                   |
+| [@svelte-put/tooltip][github.tooltip]                             | type-safe headless tooltip builder                | [![npm.tooltip.badge]][npm.tooltip]                             | [Changelog][github.tooltip.changelog]               | [![docs.badge]][docs.tooltip]               |
 
 ### In the Pipeline
 
