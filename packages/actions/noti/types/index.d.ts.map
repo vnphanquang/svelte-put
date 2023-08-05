@@ -4,15 +4,19 @@
 	"names": [
 		"portal",
 		"store",
-		"NotificationStoreBuilder"
+		"NotificationStoreBuilder",
+		"NotificationProps",
+		"Notification"
 	],
 	"sources": [
 		"../src/portal.js",
-		"../src/store.js"
+		"../src/store.js",
+		"../src/Notification.svelte.d.ts"
 	],
 	"sourcesContent": [
 		null,
+		null,
 		null
 	],
-	"mappings": ";;;;;;iBAMgBA,MAAMA;;;iBCCNC,KAAKA;;;;;OAQRC,wBAAwBA"
+	"mappings": ";;;;;;iBAMgBA,MAAMA;;;iBCCNC,KAAKA;;;;;OAQRC,wBAAwBA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;OCXzBC,iBAAiBA;;;;eAIRC,YAAYA"
 }

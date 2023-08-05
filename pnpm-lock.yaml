@@ -41,6 +41,9 @@ importers:
       prettier-plugin-svelte:
         specifier: ^3.0.1
         version: 3.0.1(prettier@3.0.0)(svelte@4.1.1)
+      prettier-plugin-tailwindcss:
+        specifier: ^0.4.1
+        version: 0.4.1(prettier-plugin-svelte@3.0.1)(prettier@3.0.0)
       publint:
         specifier: ^0.2.0
         version: 0.2.0
@@ -556,9 +559,6 @@ importers:
       '@types/postcss-mixins':
         specifier: ^9.0.0
         version: 9.0.0
-      '@vnphanquang/prettierrc':
-        specifier: ^1.0.1
-        version: 1.0.1
       autoprefixer:
         specifier: ^10.4.14
         version: 10.4.14(postcss@8.4.27)
@@ -589,12 +589,6 @@ importers:
       postcss-nesting:
         specifier: ^12.0.0
         version: 12.0.0(postcss@8.4.27)
-      prettier:
-        specifier: ^3.0.0
-        version: 3.0.0
-      prettier-plugin-tailwindcss:
-        specifier: ^0.4.1
-        version: 0.4.1(prettier-plugin-svelte@3.0.1)(prettier@3.0.0)
       svelte:
         specifier: ^4.1.1
         version: 4.1.1
