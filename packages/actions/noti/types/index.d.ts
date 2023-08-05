@@ -1,5 +1,5 @@
 declare module '@svelte-put/noti' {
-  import type { ComponentEvents, ComponentProps, ComponentType, SvelteComponent } from 'svelte';
+  import type { SvelteComponent, ComponentEvents, ComponentProps, ComponentType } from 'svelte';
   import type { ActionReturn } from 'svelte/action';
   /**
    * register an HTMLElement as the portal for the provided notification store
@@ -79,6 +79,11 @@ declare module '@svelte-put/noti' {
       };
     };
   }
+  type NotificationProps = {
+    notification: NotificationInstance;
+  };
+
+  export class Notification extends SvelteComponent<NotificationProps> {}
   type NotificationCommonConfig<Variant extends string, Component extends SvelteComponent> = {
     /**
      * milliseconds to wait and automatically pop the notification.

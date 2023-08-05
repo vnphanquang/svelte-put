@@ -1,5 +1,6 @@
 <script lang="ts">
   import { store } from '@svelte-put/noti';
+  import NotificationWrapper from '@svelte-put/noti/Notification.svelte';
   import { flip } from 'svelte/animate';
   import { fly, fade } from 'svelte/transition';
 
@@ -28,12 +29,7 @@
 >
   {#each $notiStore.notifications as notification (notification.id)}
     <div animate:flip={{ duration: 200 }} in:fly={{ duration: 200 }} out:fade={{ duration: 120 }}>
-      <svelte:component
-        this={notification.component}
-        {...notification.props}
-        {notification}
-        on:resolve={notification.$resolve}
-      />
+      <NotificationWrapper {notification} />
     </div>
   {/each}
 </aside>

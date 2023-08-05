@@ -268,28 +268,21 @@
       <CustomPortal />
     </fieldset>
     <Code lang="svelte" code={codes.portal.custom} title="custom portal demo" />
-    <div class="c-callout-warning">
-      <p>
-        Notice that there are a few extra setup to <code>svelte:component</code> to keep everything wired
-        up:
-      </p>
-      <ul>
-        <li>set <code>this</code> to the component class,</li>
-        <li>spread <code>props</code> from the notification instance,</li>
-        <li>
-          (optional) register the internal <code>$resolve</code> method for the <code>resolve</code>
-          event if your component can be popped from inside. See
-          <ResourceLink id="popping">Popping and Awaiting for Resolution</ResourceLink> for more information.
-        </li>
-        <li>
-          (optional) pass <code>config</code> if used within the component. See
-          <ResourceLink id="notification-component">Notification Component</ResourceLink> for more information.
-        </li>
-      </ul>
-      <p>
-        These are automatically taken care of with <code>use:portal</code>.
-      </p>
-    </div>
+    <p class="c-callout-info">
+      Notice the usage of <code>@svelte-put/noti/Notification.svelte</code> component above. It is
+      just a small abstraction on top of <ResourceLink
+        href="https://svelte.dev/docs/special-elements#svelte-component"
+        >svelte:component</ResourceLink
+      >
+      to provide the same functionality that <ResourceLink id="use-portal">use:portal</ResourceLink>
+      does.
+      <br />
+      You can even go more granular and not use it; just make sure to
+      <ResourceLink
+        href="https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/noti/src/Notification.svelte"
+        >provide the necessary props</ResourceLink
+      >.
+    </p>
   </section>
 </section>
 
