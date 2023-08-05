@@ -36,13 +36,13 @@ type NotificationVariantConfig<
   /** any Svelte component used for rendering notification UI */
   component: ComponentType<Component>;
   /** inferred props from `component` */
-  props?: Omit<ComponentProps<Component>, 'config'>;
+  props?: Omit<ComponentProps<Component>, 'notification'>;
 };
 
 /** a resolved config for a {@link NotificationInstance} */
 type NotificationInstanceConfig<
-  Variant extends string = string,
-  Component extends SvelteComponent = SvelteComponent,
+  Variant extends string,
+  Component extends SvelteComponent,
 > = Required<Omit<NotificationVariantConfig<Variant, Component>, 'id'>> & {
   id: string;
 };
@@ -51,7 +51,7 @@ type NotificationByVariantPushConfig<
   Variant extends string,
   Component extends SvelteComponent,
 > = NotificationCommonConfig<Variant, Component> & {
-  props?: Omit<ComponentProps<Component>, 'config'>;
+  props?: Omit<ComponentProps<Component>, 'notification'>;
 };
 
 type NotificationCustomPushConfig<Component extends SvelteComponent> = NotificationCommonConfig<
@@ -59,13 +59,14 @@ type NotificationCustomPushConfig<Component extends SvelteComponent> = Notificat
   Component
 > & {
   component: ComponentType<Component>;
-  props?: Omit<ComponentProps<Component>, 'config'>;
+  props?: Omit<ComponentProps<Component>, 'notification'>;
 };
 
 type NotificationInstance<
-  Variant extends string,
-  Component extends SvelteComponent,
+  Variant extends string = string,
+  Component extends SvelteComponent = SvelteComponent,
 > = NotificationInstanceConfig<Variant, Component> & {
+  /** reference to the rendered notification component */
   instance?: Component;
   /** internal api for resolving a notification, effectively popping it from the stack */
   $resolve: (
@@ -74,7 +75,9 @@ type NotificationInstance<
 };
 
 type NotificationStoreValue = {
+  /** an HTMLElement registered as portal by the `portal` action (use:portal) */
   portal: HTMLElement | null;
+  /** the notification stack */
   notifications: NotificationInstance<string, SvelteComponent>[];
 };
 

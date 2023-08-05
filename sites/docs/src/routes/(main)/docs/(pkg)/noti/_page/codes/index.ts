@@ -50,10 +50,18 @@ info('An info notification...');
     custom: customPortal,
   },
   component: {
-    instanceConfig: `type NotificationInstanceConfig = {
+    instance: `type NotificationInstanceConfig = {
   /** extends NotificationVariantConfig, omitted for conciseness */
   id: string;
-};`,
+};
+
+type NotificationInstance = NotificationInstanceConfig & {
+  /** reference to the rendered notification component */
+  instance?: SvelteComponent;
+  /** internal api for resolving a notification, effectively popping it from the stack */
+  $resolve: (e: ComponentEvents['resolve']) => Promise<ComponentEvents['resolve']['detail']>;
+}
+`,
     configExample: `<!-- SomeNotificationComponent.svelte -->
 <script lang="ts">
   import type { NotificationInstanceConfig } from '@svelte-put/noti';
