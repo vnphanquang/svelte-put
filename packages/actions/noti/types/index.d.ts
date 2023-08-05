@@ -150,6 +150,7 @@ declare module '@svelte-put/noti' {
     $resolve: (
       e: ComponentEvents<Component>['resolve'],
     ) => Promise<ComponentEvents<Component>['resolve']['detail']>;
+    progress: NotificationProgressStore;
   };
 
   type NotificationStoreValue = {
@@ -160,6 +161,11 @@ declare module '@svelte-put/noti' {
   };
 
   type NotificationStore = ReturnType<NotificationStoreBuilder['build']>;
+
+  type NotificationProgressStoreValue = {
+    state: 'idle' | 'running' | 'paused' | 'ended';
+  };
+  type NotificationProgressStore = ReturnType<typeof createProgressStore>;
 
   type NotificationPortalAttributes = {
     'on:noti:push'?: (event: CustomEvent<NotificationInstance<string, SvelteComponent>>) => void;
@@ -178,6 +184,21 @@ declare module '@svelte-put/noti' {
      * or through the CustomEvent detail of the `resolve` event within the notification component
      */
     resolve: () => Promise<ComponentEvents<Component>['resolve']['detail']>;
+  };
+  /// <reference types="svelte" />
+
+  function createProgressStore(
+    initial?: number | false,
+    onTimeOut?: () => void,
+  ): {
+    subscribe: (
+      this: void,
+      run: import('svelte/store').Subscriber<NotificationProgressStoreValue>,
+      invalidate?: import('svelte/store').Invalidator<NotificationProgressStoreValue>,
+    ) => import('svelte/store').Unsubscriber;
+    resume(): void;
+    pause(): void;
+    stop(): void;
   };
 }
 

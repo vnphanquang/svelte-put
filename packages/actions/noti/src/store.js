@@ -1,6 +1,7 @@
 import { writable } from 'svelte/store';
 
-import { NotFoundVariantConfig, MissingComponentInCustomPush } from './errors';
+import { NotFoundVariantConfig, MissingComponentInCustomPush } from './errors.js';
+import { createProgressStore } from './progress.js';
 
 /**
  * @param {import('./public').NotificationCommonConfig<string, import('svelte').SvelteComponent>} [config]
@@ -153,12 +154,6 @@ export class NotificationStoreBuilder {
      * @returns {import('./public').NotificationPushOutput<any>}
      */
     function push(variant, config) {
-      // if (!_portal) {
-      //   throw new Error(
-      //     'Notification portal has not been registered or has unmounted. Add `use:portal={notiStore}` to an HTMLElement.',
-      //   );
-      // }
-
       // STEP 1: resolve the input config, merge with global common config from constructor
       /** @type {import('./public').NotificationInstanceConfig<string, import('svelte').SvelteComponent>} */
       let instanceConfig;
@@ -210,16 +205,6 @@ export class NotificationStoreBuilder {
       }
 
       // STEP 3: prepare for the notification resolution
-      /** @type {import('./public').NotificationInstance<string, import('svelte').SvelteComponent>} */
-      let pushed = {
-        ...instanceConfig,
-        $resolve: (e) => {
-          _resolve?.(e?.detail);
-          return promise;
-        },
-      };
-      /** @type {ReturnType<typeof setTimeout> | undefined} */
-      let _timeoutId = undefined;
       /** @type {undefined | ((value?: ResolveDetail) => void)} */
       let _resolve = undefined;
       const promise = new Promise((resolve) => {
@@ -243,6 +228,18 @@ export class NotificationStoreBuilder {
         };
       });
 
+      const progress = createProgressStore(instanceConfig.timeout, () => _resolve?.());
+
+      /** @type {import('./public').NotificationInstance<string, import('svelte').SvelteComponent>} */
+      let pushed = {
+        ...instanceConfig,
+        $resolve: (e) => {
+          _resolve?.(e?.detail);
+          return promise;
+        },
+        progress,
+      };
+
       // STEP 4: instantiate the svelte component
       /** @type {import('svelte').SvelteComponent | undefined} */
       let instance = undefined;
@@ -259,7 +256,7 @@ export class NotificationStoreBuilder {
           intro: true,
         });
         instance.$on('resolve', (event) => {
-          clearTimeout(_timeoutId);
+          pushed.progress.stop();
           _resolve?.(event.detail);
         });
       }
@@ -277,11 +274,7 @@ export class NotificationStoreBuilder {
       );
 
       // STEP 6: start timer if any
-      if (pushed.timeout) {
-        _timeoutId = setTimeout(() => {
-          _resolve?.();
-        }, pushed.timeout);
-      }
+      pushed.progress.resume();
 
       return {
         id: pushed.id,

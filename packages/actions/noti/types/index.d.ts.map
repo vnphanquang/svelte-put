@@ -6,17 +6,20 @@
 		"store",
 		"NotificationStoreBuilder",
 		"NotificationProps",
-		"Notification"
+		"Notification",
+		"createProgressStore"
 	],
 	"sources": [
 		"../src/portal.js",
 		"../src/store.js",
-		"../src/Notification.svelte.d.ts"
+		"../src/Notification.svelte.d.ts",
+		"../src/progress.js"
 	],
 	"sourcesContent": [
 		null,
 		null,
+		null,
 		null
 	],
-	"mappings": ";;;;;;iBAMgBA,MAAMA;;;iBCCNC,KAAKA;;;;;OAQRC,wBAAwBA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;OCXzBC,iBAAiBA;;;;eAIRC,YAAYA"
+	"mappings": ";;;;;;iBAMgBA,MAAMA;;;iBCENC,KAAKA;;;;;OAQRC,wBAAwBA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;OCZzBC,iBAAiBA;;;;eAIRC,YAAYA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;UCFjBC,mBAAmBA"
 }

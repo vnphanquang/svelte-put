@@ -4,6 +4,7 @@
 import { ComponentEvents, ComponentProps, ComponentType, SvelteComponent } from 'svelte';
 import { ActionReturn } from 'svelte/action';
 
+import { createProgressStore } from './progress';
 import { NotificationStoreBuilder } from './store';
 
 type NotificationCommonConfig<Variant extends string, Component extends SvelteComponent> = {
@@ -72,6 +73,7 @@ type NotificationInstance<
   $resolve: (
     e: ComponentEvents<Component>['resolve'],
   ) => Promise<ComponentEvents<Component>['resolve']['detail']>;
+  progress: NotificationProgressStore;
 };
 
 type NotificationStoreValue = {
@@ -82,6 +84,11 @@ type NotificationStoreValue = {
 };
 
 type NotificationStore = ReturnType<NotificationStoreBuilder['build']>;
+
+type NotificationProgressStoreValue = {
+  state: 'idle' | 'running' | 'paused' | 'ended';
+};
+type NotificationProgressStore = ReturnType<typeof createProgressStore>;
 
 type NotificationPortalAttributes = {
   'on:noti:push'?: (event: CustomEvent<NotificationInstance<string, SvelteComponent>>) => void;
