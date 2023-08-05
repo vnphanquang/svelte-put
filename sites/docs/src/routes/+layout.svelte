@@ -16,7 +16,7 @@
   $: title = meta?.title ?? '@svelte-put';
   $: description =
     meta?.description ??
-    'Useful svelte actions, components, utilities battle-tested in real work projects';
+    'Useful svelte actions, components, utilities battle-tested in real world projects';
   $: keywords = meta?.keywords ?? ['svelte', 'put', 'action', 'component', 'utility', 'collection'];
 
   $: ogTitle = meta?.og?.title ?? title;

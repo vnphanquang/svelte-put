@@ -210,10 +210,15 @@
         >NotificationStore</ResourceLink
       >.
     </p>
+    <p>
+      When using the <code>portal</code> action, only one portal can be bound to a
+      <code>NotificationStore</code>, and vice versa.
+    </p>
     <Code lang="svelte" code={codes.portal.action} title="Portal action" />
     <p class="c-callout-info">
-      Notification instances are rendered as direct children of the HTMLElement portal. Newest
-      instance is the last child.
+      Notification instances are rendered as direct children of the HTMLElement <code
+        >use:portal</code
+      > is attached to. Newest instance is the last child.
     </p>
 
     <section>

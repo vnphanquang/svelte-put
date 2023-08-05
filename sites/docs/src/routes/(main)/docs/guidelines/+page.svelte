@@ -14,10 +14,10 @@
 </p>
 
 <section>
-  <h2>Action Usage Notice</h2>
+  <h2>Action as Element Directive</h2>
 
   <p>
-    Any <ResourceLink key="svelte action" /> exported by a package should be use with
+    Any <ResourceLink key="svelte action" /> exported by a package should be used with
     <code>element</code> and not <code>component</code>.
 
     <Code
@@ -32,12 +32,12 @@
 <section>
   <h2>Action Event Typescript Support</h2>
   <p>
-    If an action supports some <ResourceLink key="CustomEvent" /> but they are not picked up by your
-    editor or some type error is displayed, you are probably still on an older version of Svelte or its
-    eco toolings.
+    If an action supports some <ResourceLink key="CustomEvent">CustomEvents</ResourceLink> but they are
+    not picked up by your editor or some type error is displayed, you are probably still on an older
+    version of Svelte or its eco toolings. It is recommended to
     <ResourceLink href="https://svelte.dev/docs/v4-migration-guide"
-      >Migrating to Svelte 4</ResourceLink
-    > and upgrade to latest editor extension/plugin is recommended.
+      >migrate to Svelte 4</ResourceLink
+    > and upgrade to latest editor extension/plugin.
   </p>
   <Code lang="svelte" code={codes.actionEventTypingAuto} title="automatically typed action event" />
   <p>
@@ -56,14 +56,12 @@
 </section>
 
 <section>
-  <h2>
-    <ResourceLink
-      href="https://svelte.dev/docs/svelte-components#script-4-prefix-stores-with-$-to-access-their-values"
-      >Svelte store reactive syntax</ResourceLink
-    >
-  </h2>
+  <h2>Svelte store reactive syntax</h2>
   <p>
-    Note that the <code>$</code> syntax is only available in <code>.svelte</code> files and not in
-    JS/TS. Use <code>.subscribe</code> instead to watch for value change.
+    Note that <ResourceLink
+      >the <code>$</code> syntax for unpacking reactive store value</ResourceLink
+    > is only available in
+    <code>.svelte</code>
+    files and not in JS/TS. Use <code>.subscribe</code> instead in such cases.
   </p>
 </section>

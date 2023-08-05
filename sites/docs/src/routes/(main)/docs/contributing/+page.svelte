@@ -4,7 +4,7 @@
 
 <h1 class="font-fingerpaint">Contributing</h1>
 
-<p>This text is just to balance out the content to satisfy my OCD. Please skip to next section.</p>
+<p>This text is just to balance out the content to ease OCD. Please skip to next section.</p>
 
 <section>
   <h2>Code</h2>
@@ -14,7 +14,7 @@
       <ResourceLink key="github">
         github <svg inline-src="simpleicon/github" class="inline-block h-6 w-6 align-top" />
       </ResourceLink>
-    </span>. If you have any suggestions or found a bug, please read the
+    </span>. If you have any suggestion or bug report, please read the
     <ResourceLink href="https://github.com/vnphanquang/svelte-put/blob/main/CONTRIBUTING.md"
       >Contributing Guidelines</ResourceLink
     > and

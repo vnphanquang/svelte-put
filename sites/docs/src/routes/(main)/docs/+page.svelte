@@ -72,8 +72,8 @@
   </p>
   <ul>
     <li>
-      Shawn's project aims to be a source for RFCs into svelte; I believe the stuff I am putting
-      here should stay in user land.
+      Shawn's project aims to be a source for RFCs into svelte; I believe stuff I am putting here
+      should stay in user land.
     </li>
     <li>
       I prefer having separate packages for their dedicated purposes (instead of one package that

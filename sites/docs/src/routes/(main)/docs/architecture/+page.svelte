@@ -7,7 +7,7 @@
 <p class="c-callout-info">
   svelte-put is currently migrating away from Typescript for package source code to vanilla
   Javascript with JSDoc. This is very much inspired by the initiative taken by the svelte core team
-  to do the same for svelte & kit repo. You can track the progress at <ResourceLink
+  that did the same for svelte & kit repo. You can track the progress at <ResourceLink
     href="https://github.com/vnphanquang/svelte-put/issues/203">this Github issue</ResourceLink
   >.
   <br />Note that packages are still fully typed, the experience stays the same for Typescript
@@ -28,8 +28,8 @@
     patterns and lock-in solutions, and in turn enable greater flexibility for users.
   </li>
   <li>
-    Typescript support. Provide type-safety with self-documented code for good code discovery and
-    developer experience.
+    Typescript support. Provide type-safety with self-documented code for code discovery and
+    intellisense.
   </li>
 </ul>
 <p>
@@ -38,12 +38,12 @@
   necessary logics and leave the UI to be defined by users.
 </p>
 <p>
-  The tradeoff, however, is that sometimes it takes more verbose setup steps to achieve a desired
-  system (in packages such as <ResourceLink key="@svelte-put/noti" /> and <ResourceLink
+  The tradeoff, however, is that sometimes it takes more verbose setup to achieve a desired system
+  (in packages such as <ResourceLink key="@svelte-put/noti" /> and <ResourceLink
     key="@svelte-put/tooltip"
   />, for example). In my case, this forces me to "own" my code and get familiar with pieces of the
   package; if issues or customization demand arises, I will be more capable of providing solutions
-  than say if I were to be using a highly abstract prebuilt component.
+  than say if I were to use a highly abstract prebuilt component.
 </p>
 
 <p>

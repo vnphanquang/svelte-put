@@ -316,7 +316,7 @@
       overflow: auto;
 
       width: 100%;
-      padding-top: theme('spacing.10');
+      padding: theme('spacing.10') 0;
     }
   }
 
