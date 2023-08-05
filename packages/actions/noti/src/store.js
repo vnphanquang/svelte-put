@@ -113,7 +113,7 @@ export class NotificationStoreBuilder {
         }
       }
 
-      /** @type {import('./public').PushedNotification<string, import('svelte').SvelteComponent> | undefined} */
+      /** @type {import('./public').NotificationInstance<string, import('svelte').SvelteComponent> | undefined} */
       let pushed;
       if (id) {
         pushed = _notifications.find((n) => n.id === id);
@@ -210,7 +210,7 @@ export class NotificationStoreBuilder {
       }
 
       // STEP 3: prepare for the notification resolution
-      /** @type {import('./public').PushedNotification<string, import('svelte').SvelteComponent>} */
+      /** @type {import('./public').NotificationInstance<string, import('svelte').SvelteComponent>} */
       let pushed;
       /** @type {ReturnType<typeof setTimeout> | undefined} */
       let _timeoutId = undefined;

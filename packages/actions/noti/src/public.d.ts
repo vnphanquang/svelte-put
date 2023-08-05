@@ -39,7 +39,7 @@ type NotificationVariantConfig<
   props?: Omit<ComponentProps<Component>, 'config'>;
 };
 
-/** a resolved config for a {@link PushedNotification} */
+/** a resolved config for a {@link NotificationInstance} */
 type NotificationInstanceConfig<
   Variant extends string = string,
   Component extends SvelteComponent = SvelteComponent,
@@ -62,7 +62,7 @@ type NotificationCustomPushConfig<Component extends SvelteComponent> = Notificat
   props?: Omit<ComponentProps<Component>, 'config'>;
 };
 
-type PushedNotification<
+type NotificationInstance<
   Variant extends string,
   Component extends SvelteComponent,
 > = NotificationInstanceConfig<Variant, Component> & {
@@ -75,14 +75,14 @@ type PushedNotification<
 
 type NotificationStoreValue = {
   portal: HTMLElement | null;
-  notifications: PushedNotification<string, SvelteComponent>[];
+  notifications: NotificationInstance<string, SvelteComponent>[];
 };
 
 type NotificationStore = ReturnType<NotificationStoreBuilder['build']>;
 
 type NotificationPortalAttributes = {
-  'on:noti:push'?: (event: CustomEvent<PushedNotification<string, SvelteComponent>>) => void;
-  'on:noti:pop'?: (event: CustomEvent<PushedNotification<string, SvelteComponent>>) => void;
+  'on:noti:push'?: (event: CustomEvent<NotificationInstance<string, SvelteComponent>>) => void;
+  'on:noti:pop'?: (event: CustomEvent<NotificationInstance<string, SvelteComponent>>) => void;
 };
 
 type NotificationPortalActionReturn = ActionReturn<NotificationStore, NotificationPortalAttributes>;
