@@ -50,7 +50,7 @@ declare module '@svelte-put/noti' {
         run: import('svelte/store').Subscriber<NotificationStoreValue>,
         invalidate?: import('svelte/store').Invalidator<NotificationStoreValue>,
       ) => import('svelte/store').Unsubscriber;
-      readonly notifications: PushedNotification<
+      readonly notifications: NotificationInstance<
         string,
         import('svelte').SvelteComponent<any, any, any>
       >[];
@@ -109,13 +109,13 @@ declare module '@svelte-put/noti' {
     /** any Svelte component used for rendering notification UI */
     component: ComponentType<Component>;
     /** inferred props from `component` */
-    props?: Omit<ComponentProps<Component>, 'config'>;
+    props?: Omit<ComponentProps<Component>, 'notification'>;
   };
 
-  /** a resolved config for a {@link PushedNotification} */
+  /** a resolved config for a {@link NotificationInstance} */
   type NotificationInstanceConfig<
-    Variant extends string = string,
-    Component extends SvelteComponent = SvelteComponent,
+    Variant extends string,
+    Component extends SvelteComponent,
   > = Required<Omit<NotificationVariantConfig<Variant, Component>, 'id'>> & {
     id: string;
   };
@@ -124,7 +124,7 @@ declare module '@svelte-put/noti' {
     Variant extends string,
     Component extends SvelteComponent,
   > = NotificationCommonConfig<Variant, Component> & {
-    props?: Omit<ComponentProps<Component>, 'config'>;
+    props?: Omit<ComponentProps<Component>, 'notification'>;
   };
 
   type NotificationCustomPushConfig<Component extends SvelteComponent> = NotificationCommonConfig<
@@ -132,13 +132,14 @@ declare module '@svelte-put/noti' {
     Component
   > & {
     component: ComponentType<Component>;
-    props?: Omit<ComponentProps<Component>, 'config'>;
+    props?: Omit<ComponentProps<Component>, 'notification'>;
   };
 
-  type PushedNotification<
-    Variant extends string,
-    Component extends SvelteComponent,
+  type NotificationInstance<
+    Variant extends string = string,
+    Component extends SvelteComponent = SvelteComponent,
   > = NotificationInstanceConfig<Variant, Component> & {
+    /** reference to the rendered notification component */
     instance?: Component;
     /** internal api for resolving a notification, effectively popping it from the stack */
     $resolve: (
@@ -147,15 +148,17 @@ declare module '@svelte-put/noti' {
   };
 
   type NotificationStoreValue = {
+    /** an HTMLElement registered as portal by the `portal` action (use:portal) */
     portal: HTMLElement | null;
-    notifications: PushedNotification<string, SvelteComponent>[];
+    /** the notification stack */
+    notifications: NotificationInstance<string, SvelteComponent>[];
   };
 
   type NotificationStore = ReturnType<NotificationStoreBuilder['build']>;
 
   type NotificationPortalAttributes = {
-    'on:noti:push'?: (event: CustomEvent<PushedNotification<string, SvelteComponent>>) => void;
-    'on:noti:pop'?: (event: CustomEvent<PushedNotification<string, SvelteComponent>>) => void;
+    'on:noti:push'?: (event: CustomEvent<NotificationInstance<string, SvelteComponent>>) => void;
+    'on:noti:pop'?: (event: CustomEvent<NotificationInstance<string, SvelteComponent>>) => void;
   };
 
   type NotificationPortalActionReturn = ActionReturn<

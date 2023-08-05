@@ -302,17 +302,17 @@
   </p>
 
   <section>
-    <h3>Injected <code>config</code> Prop</h3>
+    <h3>Injected <code>notification</code> Prop</h3>
     <p>
       This is an optional prop that provides access to the corresponding <code
-        >NotificationInstanceConfig</code
+        >NotificationInstance</code
       >
-      (extends <ResourceLink id="store-variant">NotificationVariantConfig</ResourceLink>)
+      (element of notification stack from <code>NotificationStore</code>).
     </p>
     <Code
       lang={typescript}
-      code={codes.component.instanceConfig}
-      title="simplified NotificationInstanceConfig interface"
+      code={codes.component.instance}
+      title="simplified NotificationInstance interface"
     />
     <p>
       This is helpful, for example, if you want access to the <code>id</code> or

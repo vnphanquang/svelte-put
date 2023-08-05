@@ -26,13 +26,13 @@
 <aside
   class="fixed z-notification inset-0 p-10 pointer-events-none flex flex-col-reverse gap-4 justify-end"
 >
-  {#each $notiStore.notifications as noti (noti.id)}
+  {#each $notiStore.notifications as notification (notification.id)}
     <div animate:flip={{ duration: 200 }} in:fly={{ duration: 200 }} out:fade={{ duration: 120 }}>
       <svelte:component
-        this={noti.component}
-        {...noti.props}
-        config={noti}
-        on:resolve={noti.$resolve}
+        this={notification.component}
+        {...notification.props}
+        {notification}
+        on:resolve={notification.$resolve}
       />
     </div>
   {/each}

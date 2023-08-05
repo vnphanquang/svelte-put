@@ -211,7 +211,13 @@ export class NotificationStoreBuilder {
 
       // STEP 3: prepare for the notification resolution
       /** @type {import('./public').NotificationInstance<string, import('svelte').SvelteComponent>} */
-      let pushed;
+      let pushed = {
+        ...instanceConfig,
+        $resolve: (e) => {
+          _resolve?.(e?.detail);
+          return promise;
+        },
+      };
       /** @type {ReturnType<typeof setTimeout> | undefined} */
       let _timeoutId = undefined;
       /** @type {undefined | ((value?: ResolveDetail) => void)} */
@@ -245,7 +251,10 @@ export class NotificationStoreBuilder {
           target: _portal,
           props: {
             ...instanceConfig.props,
-            config: instanceConfig,
+            notification: {
+              ...pushed,
+              instance,
+            },
           },
           intro: true,
         });
@@ -256,14 +265,7 @@ export class NotificationStoreBuilder {
       }
 
       // STEP 5: push to store
-      pushed = {
-        ...instanceConfig,
-        instance,
-        $resolve: (e) => {
-          _resolve?.(e?.detail);
-          return promise;
-        },
-      };
+      pushed.instance = instance;
       update((prev) => {
         _notifications = [..._notifications, pushed];
         return { ...prev, notifications: _notifications };

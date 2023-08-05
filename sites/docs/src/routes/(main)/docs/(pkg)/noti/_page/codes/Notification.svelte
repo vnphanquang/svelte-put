@@ -1,11 +1,11 @@
 <!-- Notification.svelte -->
 <script lang="ts">
-  import type { NotificationInstanceConfig } from '@svelte-put/noti';
+  import type { NotificationInstance } from '@svelte-put/noti';
   import { createEventDispatcher } from 'svelte';
   import { fly } from 'svelte/transition';
 
   // optional, injected automatically by @svelte-put/noti
-  export let config: NotificationInstanceConfig;
+  export let notification: NotificationInstance;
 
   export let content = 'Placeholder';
   export let special = false;
@@ -20,7 +20,7 @@
   class:bg-pink-300={special}
   in:fly|global={{ duration: 200, y: -20 }}
 >
-  <p>Notification (variant: {config.variant}): {content} (id = {config.id})</p>
+  <p>Notification (variant: {notification.variant}): {content} (id = {notification.id})</p>
   <button on:click={dismiss}>
     <svg inline-src="google/close" width="20" height="20" />
   </button>
