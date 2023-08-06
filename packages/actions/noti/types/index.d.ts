@@ -77,6 +77,8 @@ declare module '@svelte-put/noti' {
         (id?: string, detail?: any): void;
         (config?: { id?: string; detail?: any }): void;
       };
+      pause: (id: string) => void;
+      resume: (id: string) => void;
     };
   }
   type NotificationProps = {
