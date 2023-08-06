@@ -195,6 +195,33 @@
     </fieldset>
     <Code lang="svelte" code={codes.pop.demo} title="demo: popping & awaiting" />
   </section>
+
+  <section>
+    <h3 id="timeout-and-progress">Timeout and Progress</h3>
+    <p>
+      If your notification has <code>timeout</code> specified in its config, a
+      <code>setTimeout</code>
+      is setup and automatically pop the <code>notification</code> from the stack on time. This
+      timeout can be <strong>paused</strong>
+      and <strong>resumed</strong>.
+    </p>
+    <Code
+      lang={typescript}
+      code={codes.store.progress}
+      title="NotificationStore - progress control"
+    />
+    <p>
+      The <code>pause</code> and <code>resume</code> methods on <code>NotificationStore</code> are
+      actually just proxy methods for the same ones on <code>NotificationInstance</code>, which is
+      accessible from within the Notification component via
+      <ResourceLink id="injected-notification-prop">the injected notification prop</ResourceLink>.
+    </p>
+    <Code
+      lang={typescript}
+      code={codes.store.proxy}
+      title="NotificationInstance - progress control"
+    />
+  </section>
 </section>
 
 <section>
@@ -255,10 +282,7 @@
       Instead of <ResourceLink id="use-portal">use:portal</ResourceLink>, rendering of notifications
       can be manually handled by subscribing to the <code>notifications</code> array property of a <ResourceLink
         id="notification-store">NotificationStore</ResourceLink
-      >.
-    </p>
-    <p>
-      This is helpful when more granular control over rendering is necessary. For example, to
+      >. This is helpful when more granular control over rendering is necessary. For example, to
       coordinate and animate smoothly the positions of the notifications, as done in the following
       demo.
     </p>
@@ -295,7 +319,7 @@
   </p>
 
   <section>
-    <h3>Injected <code>notification</code> Prop</h3>
+    <h3 id="injected-notification-prop">Injected <code>notification</code> Prop</h3>
     <p>
       This is an optional prop that provides access to the corresponding <code
         >NotificationInstance</code
@@ -312,6 +336,18 @@
       <code>variant</code> of the pushed notification.
     </p>
     <Code lang="svelte" code={codes.component.configExample} title="use case for config prop" />
+    <p>
+      The <code>notification</code> prop also allows access to the <code>progress</code> store for
+      controlling timeout. Check <ResourceLink id="timeout-and-progress"
+        >Timeout and Progress</ResourceLink
+      >
+      for more information. Also refer to the <code>Notification</code> component used in <ResourceLink
+        id="comprehensive-example"
+        on:click={() => (quickStartVariant = quickStartVariants[3])}
+        >Comprehensive Example</ResourceLink
+      >
+      which made use of the <code>progress</code> store to pause notification timeout on mouse hover.
+    </p>
   </section>
   <section>
     <h3><code>resolve</code> Event</h3>
