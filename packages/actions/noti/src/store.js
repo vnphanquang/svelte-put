@@ -282,6 +282,22 @@ export class NotificationStoreBuilder {
       };
     }
 
+    /**
+     * @param {string} id
+     */
+    function pause(id) {
+      const noti = _notifications.find((n) => n.id === id);
+      noti?.progress.pause();
+    }
+
+    /**
+     * @param {string} id
+     */
+    function resume(id) {
+      const noti = _notifications.find((n) => n.id === id);
+      noti?.progress.resume();
+    }
+
     return {
       subscribe,
       get notifications() {
@@ -300,6 +316,8 @@ export class NotificationStoreBuilder {
       },
       push,
       pop,
+      pause,
+      resume,
     };
   }
 }
