@@ -25,6 +25,19 @@ const notiStore = store({ /** optional common config */ })
   .build(); // remember to call this to build the actual store`,
     commonConfig,
     variantConfig,
+    progress: `notiStore.pause(notificationId);
+notiStore.resume(notificationId);`,
+    proxy: `<script lang="ts">
+  import type { NotificationInstance } from '@svelte-put/noti';
+
+  export let notification: NotificationInstance;
+
+  const { progress } = notification;
+
+  $: console.log($progress.state); // 'idle' | 'running' | 'paused' | 'ended'
+  const pause = () => progress.pause();
+  const resume = () => progress.resume();
+</script>`,
   },
   push: {
     variant: `notiStore.push('<variant>', { /** optional config & component props */ });`,
@@ -60,6 +73,8 @@ type NotificationInstance = NotificationInstanceConfig & {
   instance?: SvelteComponent;
   /** internal api for resolving a notification, effectively popping it from the stack */
   $resolve: (e: ComponentEvents['resolve']) => Promise<ComponentEvents['resolve']['detail']>;
+  /** svelte store with .pause & .resume methods for controlling automatic timeout */
+  progress: NotificationProgressStore;
 }
 `,
     configExample: `<!-- SomeNotificationComponent.svelte -->
