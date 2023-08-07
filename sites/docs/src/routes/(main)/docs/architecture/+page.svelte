@@ -45,8 +45,3 @@
   package; if issues or customization demand arises, I will be more capable of providing solutions
   than say if I were to use a highly abstract prebuilt component.
 </p>
-
-<p>
-  Shout out to <ResourceLink href="https://grail-ui.vercel.app/">Grail UI</ResourceLink>, one of a
-  few libraries with similar headless pattern. Make sure to give it a look.
-</p>
