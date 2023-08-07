@@ -335,7 +335,11 @@
       This is helpful, for example, if you want access to the <code>id</code> or
       <code>variant</code> of the pushed notification.
     </p>
-    <Code lang="svelte" code={codes.component.configExample} title="use case for config prop" />
+    <Code
+      lang="svelte"
+      code={codes.component.configExample}
+      title="use case for injected notification prop"
+    />
     <p>
       The <code>notification</code> prop also allows access to the <code>progress</code> store for
       controlling timeout. Check <ResourceLink id="timeout-and-progress"

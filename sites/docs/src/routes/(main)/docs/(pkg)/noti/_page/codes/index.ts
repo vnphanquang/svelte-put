@@ -79,12 +79,12 @@ type NotificationInstance = NotificationInstanceConfig & {
 `,
     configExample: `<!-- SomeNotificationComponent.svelte -->
 <script lang="ts">
-  import type { NotificationInstanceConfig } from '@svelte-put/noti';
+  import type { NotificationInstance } from '@svelte-put/noti';
 
-  export let config: NotificationInstanceConfig;
+  export let notification: NotificationInstance;
 </script>
 
-<div data-id={config.id} class="notification notification--{config.variant}" />`,
+<div data-id={notification.id} class="notification notification--{notification.variant}" />`,
     interactive: {
       Usage: interactiveTrigger,
       Component: interactiveComponent,
