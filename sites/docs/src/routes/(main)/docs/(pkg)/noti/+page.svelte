@@ -85,9 +85,9 @@
 <section>
   <h2 id="notification-store"><code>NotificationStore</code></h2>
   <p>
-    The <code>NotificationStore</code> is the key part of <code>@svelte-put/not</code>. It holds all
-    internal logics and is used for the <code>push</code> & <code>pop</code> mechanism. As shown in
-    the <ResourceLink
+    The <code>NotificationStore</code> is the key part of <code>@svelte-put/noti</code>. It holds
+    all internal logics and is used for the <code>push</code> & <code>pop</code> mechanism. As shown
+    in the <ResourceLink
       id="comprehensive-example"
       on:click={() => (quickStartVariant = quickStartVariants[1])}
       >Comprehensive Example</ResourceLink
@@ -201,7 +201,7 @@
     <p>
       If your notification has <code>timeout</code> specified in its config, a
       <code>setTimeout</code>
-      is setup and automatically pop the <code>notification</code> from the stack on time. This
+      is setup and the <code>notification</code> will be automatically popped from the stack. This
       timeout can be <strong>paused</strong>
       and <strong>resumed</strong>.
     </p>
@@ -356,7 +356,7 @@
         >use:portal</ResourceLink
       > or manually in your <ResourceLink id="custom-portal">custom portal</ResourceLink>, a
       <code>resolve</code>
-      action dispatched from the pushed instance will prompt <ResourceLink id="notification-store"
+      event dispatched from the pushed instance will prompt <ResourceLink id="notification-store"
         >NotificationStore</ResourceLink
       >
       to remove it from the current notification stack.
