@@ -4,7 +4,7 @@
 
 <h1 class="font-fingerpaint">Contributing</h1>
 
-<p>This text is just to balance out the content to ease OCD. Please skip to next section.</p>
+<p>This text is just to balance out the content to ease my OCD. Please skip to next section.</p>
 
 <section>
   <h2>Code</h2>
