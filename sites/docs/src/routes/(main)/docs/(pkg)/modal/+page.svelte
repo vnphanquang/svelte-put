@@ -107,6 +107,15 @@
   }
 </script>
 
+<p class="c-callout-warning">
+  I am experimenting with new solutions for <code>svelte-put/modal</code> that adopts a "headless"
+  approach and will hopefully reduce the current complexity and allow easier integration with any UI
+  preferences. Therefore, I recommend that you
+  <a href="#{SECTIONS.buildingYourOwnModal.id}" class="c-link">build your own modal</a>
+  instead of using the builtin <code>Modal</code> component (even though they will continue to work in
+  the future).
+</p>
+
 <Installation pkg={data.package.name} />
 
 <section>
