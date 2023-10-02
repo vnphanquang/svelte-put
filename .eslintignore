@@ -11,6 +11,5 @@ examples/**
 .svelte-kit/
 .vercel/
 **/*generated/
-~partytown/
 **/types/index.d.ts
 **/types/index.d.ts.map

@@ -72,14 +72,14 @@
       >API Reference</ResourceLink
     >, and check out the
     <ResourceLink
-      href="https://github.com/vnphanquang/svelte-put/blob/vercel/packages/preprocessors/auto-slug/src/auto-slug.constants.ts"
+      href="https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocessors/auto-slug/src/auto-slug.constants.ts"
       >default options</ResourceLink
     >.
   </p>
   <p>
     This documentation site uses this very package. Most <code>id</code>
     and link tag for headings are auto-generated during build. See <ResourceLink
-      href="https://github.com/vnphanquang/svelte-put/blob/vercel/sites/docs/svelte.config.js"
+      href="https://github.com/vnphanquang/svelte-put/blob/main/sites/docs/svelte.config.js"
       >svelte.config.js</ResourceLink
     >
     as an example for a more complex use case.

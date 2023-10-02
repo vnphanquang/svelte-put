@@ -272,8 +272,8 @@
           <ResourceLink key="TailwindCSS">
             <svg inline-src="simpleicon/tailwindcss" class="inline" height="16" width="16" />
           </ResourceLink>
-          <ResourceLink key="vercel">
-            <svg inline-src="simpleicon/vercel" class="inline" height="16" width="16" />
+          <ResourceLink key="cloudflare">
+            <svg inline-src="simpleicon/cloudflare" class="inline" height="16" width="16" />
           </ResourceLink>
         </p>
       </div>

@@ -1,7 +1,6 @@
 /// <reference types="@sveltejs/kit" />
 /// <reference types="svelte" />
 /// <reference types="vite/client" />
-/// <reference types="@types/gtag.js" />
 
 import type { PackageManager } from '$shared/constants';
 import type { ColorScheme } from '$shared/types';
@@ -19,7 +18,6 @@ declare global {
     interface PageData {
       colorScheme: ColorScheme;
       packageManager: PackageManager;
-      vercelAnalyticsId?: string;
       meta?: {
         title?: string;
         description?: string;

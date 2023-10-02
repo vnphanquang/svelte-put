@@ -17,5 +17,5 @@ IDE: VSCode
 Svelte: https://svelte.dev/
 Svelte-kit: https://kit.svelte.dev/
 Tailwind CSS: https://tailwindcss.com/
-Vercel: https://vercel.com/
+Cloudflare: https://cloudflare.com/
 Typescript: https://www.typescriptlang.org/

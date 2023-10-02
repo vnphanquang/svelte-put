@@ -1,15 +1,13 @@
-import type { Config } from '@sveltejs/adapter-vercel';
-import Handlebars from 'handlebars';
+import Mustache from 'mustache';
 
 import { BUILD_TIMESTAMP } from '$env/static/private';
 import { toW3CDate } from '$shared/utils/datetime';
 
 import type { RequestHandler } from './$types';
-import source from './humans.template.txt?raw';
+import template from './humans.template.txt?raw';
 
 export const GET: RequestHandler = async () => {
-  const template = Handlebars.compile(source);
-  const txt = template({
+  const txt = Mustache.render(template, {
     last_update: toW3CDate(parseInt(BUILD_TIMESTAMP, 10)),
   });
   const headers = {
@@ -17,8 +15,4 @@ export const GET: RequestHandler = async () => {
     'Content-Type': 'text/plain',
   };
   return new Response(txt, { headers });
-};
-
-export const config: Config = {
-  runtime: 'nodejs16.x',
 };

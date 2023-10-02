@@ -1,5 +1,4 @@
-import type { Config } from '@sveltejs/adapter-vercel';
-import Handlebars from 'handlebars';
+import Mustache from 'mustache';
 
 import { BUILD_TIMESTAMP } from '$env/static/private';
 import { PUBLIC_ROOT_URL } from '$env/static/public';
@@ -7,7 +6,7 @@ import { APP_ROUTE_TREE } from '$shared/constants';
 import { packages } from '$shared/data/packages';
 
 import type { RequestHandler } from './$types';
-import source from './rss.template.xml?raw';
+import template from './rss.template.xml?raw';
 
 type RssItem = {
   title: string;
@@ -18,7 +17,6 @@ type RssItem = {
 };
 
 export const GET: RequestHandler = () => {
-  const template = Handlebars.compile(source);
   const items: RssItem[] = [
     {
       title: 'Introduction',
@@ -35,10 +33,10 @@ export const GET: RequestHandler = () => {
           link: `${PUBLIC_ROOT_URL}${pkg.path}`,
           guid: pkg.id,
           pubDate: new Date(pkg.publishedAt).toUTCString(),
-        } satisfies RssItem),
+        }) satisfies RssItem,
     ),
   ];
-  const xml = template({
+  const xml = Mustache.render(template, {
     title: '@svelte-put',
     link: PUBLIC_ROOT_URL,
     description:
@@ -52,8 +50,4 @@ export const GET: RequestHandler = () => {
     'Content-Type': 'application/xml',
   };
   return new Response(xml, { headers });
-};
-
-export const config: Config = {
-  runtime: 'nodejs16.x',
 };

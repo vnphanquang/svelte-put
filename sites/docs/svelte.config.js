@@ -2,7 +2,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 import autoSlug from '@svelte-put/preprocess-auto-slug';
-import adapter from '@sveltejs/adapter-vercel';
+import adapter from '@sveltejs/adapter-cloudflare';
 import { vitePreprocess } from '@sveltejs/kit/vite';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -24,7 +24,12 @@ const config = {
     vitePreprocess(),
   ],
   kit: {
-    adapter: adapter(),
+    adapter: adapter({
+      routes: {
+        include: ['/*'],
+        exclude: ['<all>'],
+      },
+    }),
     alias: {
       $routes: path.resolve(__dirname, 'src/routes'),
       $client: path.resolve(__dirname, 'src/lib/client'),

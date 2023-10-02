@@ -1,13 +1,10 @@
 <script lang="ts">
   import ModalPortal from '@svelte-put/modal/ModalPortal.svelte';
-  import { onMount } from 'svelte';
 
-  import { browser } from '$app/environment';
   import { page } from '$app/stores';
   import { modalStore } from '$client/services/modal';
   import { PUBLIC_MODE } from '$env/static/public';
-  import { PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID, PUBLIC_ROOT_URL } from '$env/static/public';
-  import { createGtagScriptTag, createPartytownSnippetScriptTag } from '$shared/utils/htmlScript';
+  import { PUBLIC_ROOT_URL } from '$env/static/public';
 
   import '../lib/client/styles/app.css';
 
@@ -32,28 +29,6 @@
   $: twitterImage = meta?.twitter?.img ?? ogImage;
   $: twitterImageAlt = meta?.twitter?.imageAlt ?? '@svelte-put site';
   $: twitterSite = meta?.twitter?.site ?? '@vnphanquang';
-
-  $: analyticsEnabled = PUBLIC_MODE === 'production';
-
-  let analyticsId = $page.data.vercelAnalyticsId;
-  let webVitals: typeof import('$client/services/web-vitals').webVitals;
-  $: if (browser && analyticsId && webVitals) {
-    webVitals({
-      path: $page.url.pathname,
-      params: $page.params,
-      analyticsId,
-    });
-  }
-  $: if (browser && analyticsEnabled && gtag) {
-    gtag('config', PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID, {
-      page_title: document.title,
-      page_location: $page.url.href,
-      page_path: $page.url.pathname,
-    });
-  }
-  onMount(async () => {
-    webVitals = (await import('$client/services/web-vitals')).webVitals;
-  });
 </script>
 
 <svelte:head>
@@ -79,28 +54,6 @@
 
   <link href={ogUrl} rel="canonical" />
   <link type="text/plain" rel="author" href="{PUBLIC_ROOT_URL}/humans.txt" />
-
-  <script>
-    partytown = {
-      // forward the necessary functions to the web worker layer
-      forward: ['gtag'],
-    };
-  </script>
-  <!-- eslint-disable-next-line svelte/no-at-html-tags -->
-  {@html createPartytownSnippetScriptTag()}
-  {#if analyticsEnabled}
-    <script src="/_vercel/insights/script.js" type="text/partytown"></script>
-
-    <!-- eslint-disable-next-line svelte/no-at-html-tags -->
-    {@html createGtagScriptTag(PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID)}
-    <script type="text/partytown">
-      window.dataLayer = window.dataLayer || [];
-      window.gtag = function () {
-        dataLayer.push(arguments);
-      };
-      gtag('js', new Date());
-    </script>
-  {/if}
 </svelte:head>
 
 <slot />

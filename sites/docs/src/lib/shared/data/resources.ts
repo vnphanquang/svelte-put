@@ -19,7 +19,7 @@ export const resources = {
   '@microsoft/api-extractor': 'https://api-extractor.com/',
   '@microsoft/api-documenter': 'https://api-extractor.com/pages/setup/generating_docs/',
   TailwindCSS: 'https://tailwindcss.com/',
-  vercel: 'https://vercel.com/',
+  cloudflare: 'https://www.cloudflare.com/',
   IntersectionObserver: 'https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver',
   ResizeObserver: 'https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver',
   CustomEvent: 'https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent',

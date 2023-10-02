@@ -3,7 +3,6 @@ module.exports = {
   extends: ['@vnphanquang/eslint-config', 'plugin:svelte/recommended'],
   globals: {
     App: 'readonly',
-    gtag: 'readonly',
   },
   overrides: [
     {
