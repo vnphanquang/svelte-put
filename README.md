@@ -59,19 +59,6 @@ For a quick start, run the script below at project root to see what commands are
 pnpm turbo
 ```
 
-<br />
-
-<p align="center">
-  <a href="https://www.buymeacoffee.com/vnphanquang" target="_blank">
-    <img
-      src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png"
-      height="60"
-      width="217"
-      alt="buy vnphanquang a banh mi"
-    />
-  </a>
-</p>
-
 <!-- github specifics -->
 
 [github.contributing]: ./CONTRIBUTING.md

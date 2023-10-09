@@ -43,17 +43,6 @@ See documentation for preprocessor at [@svelte-put/preprocess-inline-svg](https:
 
 ## [Changelog][github.changelog]
 
-<p align="center">
-  <a href="https://www.buymeacoffee.com/vnphanquang" target="_blank">
-    <img
-      src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
-      height="60"
-      width="217"
-      alt="buy vnphanquang a coffee"
-    />
-  </a>
-</p>
-
 <!-- github specifics -->
 
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
