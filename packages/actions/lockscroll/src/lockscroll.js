@@ -32,6 +32,10 @@ export function lockscroll(node, param) {
   /** @type {import('svelte/store').Unsubscriber | undefined} */
   let unsub;
 
+  if (node.isSameNode(document)) {
+    node = document.documentElement;
+  }
+
   function lock() {
     const scrollBarWidth = window.innerWidth - document.body.clientWidth;
     node.style.paddingRight = `${scrollBarWidth}px`;

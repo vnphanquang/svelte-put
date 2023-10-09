@@ -27,7 +27,7 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
   locked.toggle();
 </script>
 
-<svelte:document use:lockscroll="{locked}" />
+<svelte:body use:lockscroll="{locked}" />
 ```
 
 ## [Changelog][github.changelog]
