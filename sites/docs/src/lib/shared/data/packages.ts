@@ -86,7 +86,7 @@ export const packages = {
     description: 'locking scroll and hide scrollbar within an HTML element',
     path: APP_ROUTE_TREE.docs.lockscroll.$.path(),
     replId: '8bfbdc1af58e43b2af4d625f63358a35',
-    status: 'new',
+    status: 'stable',
     ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/lockscroll',
     changelogUrl:
@@ -125,7 +125,7 @@ export const packages = {
     description: 'type-safe and headless async notification builder',
     path: APP_ROUTE_TREE.docs.noti.$.path(),
     replId: '5beb4357e32e427394f5f6f5ced7b5f1',
-    status: 'new',
+    status: 'stable',
     ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/noti',
     changelogUrl:
@@ -158,6 +158,19 @@ export const packages = {
       'https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocessors/inline-svg',
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocessors/inline-svg/CHANGELOG.md',
+  },
+  qr: {
+    id: 'qr',
+    name: '@svelte-put/qr',
+    publishedAt: 1697514047086,
+    description: 'render QR as img or svg, optionally with logo',
+    path: APP_ROUTE_TREE.docs.qr.$.path(),
+    replId: '74c053b447e94244833f9c3d73210ae5',
+    status: 'new',
+    ready: true,
+    githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/qr',
+    changelogUrl:
+      'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/qr/CHANGELOG.md',
   },
   resize: {
     id: 'resize',
@@ -219,7 +232,7 @@ export const packages = {
       'over-engineered, type-safe, headless,  and extensible tooltip builder via Svelte action',
     path: APP_ROUTE_TREE.docs.tooltip.$.path(),
     replId: 'ac411d28f87b4b6d9942e050fa29e0cd',
-    status: 'new',
+    status: 'stable',
     ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/tooltip',
     changelogUrl:
