@@ -79,7 +79,7 @@
   "homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/toc",
   "devDependencies": {
     "@svelte-put/tsconfig": "workspace:*",
-    "dts-buddy": "^0.1.9"
+    "dts-buddy": "^0.3.0"
   },
   "peerDependencies": {
     "svelte": "^3.55.0 || ^4.0.0"

@@ -19,7 +19,6 @@ export const { node: APP_ROUTE_TREE } = tBuild('APP_ROUTE_TREE', {
               pathResolver: () => 'inline-svg',
             })
             .addChild('intersect')
-            .addChild('resize')
             .addChild('lockscroll')
             .addChild('modal')
             .addChild('movable')
@@ -30,6 +29,8 @@ export const { node: APP_ROUTE_TREE } = tBuild('APP_ROUTE_TREE', {
             .addChild('preprocessInlineSvg', {
               pathResolver: () => 'preprocess-inline-svg',
             })
+            .addChild('qr')
+            .addChild('resize')
             .addChild('select')
             .addChild('shortcut')
             .addChild('toc')
