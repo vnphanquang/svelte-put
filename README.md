@@ -32,6 +32,7 @@ Useful svelte stuff to put in your projects
 | [@svelte-put/noti][github.noti]                                   | type-safe & headless async notification builder   | [![npm.noti.badge]][npm.noti]                                   | [Changelog][github.noti.changelog]                  | [![docs.badge]][docs.noti]                  |
 | [@svelte-put/preprocess-auto-slug][github.preprocess-auto-slug]   | auto add `id` and anchor to selected nodes        | [![npm.preprocess-auto-slug.badge]][npm.preprocess-auto-slug]   | [Changelog][github.preprocess-auto-slug.changelog]  | [![docs.badge]][docs.preprocess-auto-slug]  |
 | [@svelte-put/preprocess-inline-svg][github.preprocess-inline-svg] | inline static SVGs at build time                  | [![npm.preprocess-inline-svg.badge]][npm.preprocess-inline-svg] | [Changelog][github.preprocess-inline-svg.changelog] | [![docs.badge]][docs.preprocess-inline-svg] |
+| [@svelte-put/qr][github.qr]                                       | render QR as `img` or `svg`                       | [![npm.qr.badge]][npm.qr]                                       | [Changelog][github.qr.changelog]                    | [![docs.badge]][docs.qr]                    |
 | [@svelte-put/resize][github.resize]                               | wrapper for ResizeObserver                        | [![npm.resize.badge]][npm.resize]                               | [Changelog][github.resize.changelog]                | [![docs.badge]][docs.resize]                |
 | [@svelte-put/shortcut][github.shortcut]                           | add keyboard shortcuts to node                    | [![npm.shortcut.badge]][npm.shortcut]                           | [Changelog][github.shortcut.changelog]              | [![docs.badge]][docs.shortcut]              |
 | [@svelte-put/toc][github.toc]                                     | action & utilities for building table of contents | [![npm.toc.badge]][npm.toc]                                     | [Changelog][github.toc.changelog]                   | [![docs.badge]][docs.toc]                   |
@@ -87,6 +88,8 @@ pnpm turbo
 [github.preprocess-auto-slug.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocessors/auto-slug/CHANGELOG.md
 [github.preprocess-inline-svg]: https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocessors/inline-svg
 [github.preprocess-inline-svg.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocessors/inline-svg/CHANGELOG.md
+[github.qr]: https://github.com/vnphanquang/svelte-put/tree/main/packages/misc/qr
+[github.qr.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/qr/CHANGELOG.md
 [github.resize]: https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/resize
 [github.resize.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/resize/CHANGELOG.md
 [github.select]: https://github.com/vnphanquang/svelte-put/tree/main/packages/components/select
@@ -131,6 +134,8 @@ pnpm turbo
 [npm.preprocess-auto-slug]: https://www.npmjs.com/package/@svelte-put/preprocess-auto-slug
 [npm.preprocess-inline-svg.badge]: https://img.shields.io/npm/v/@svelte-put/preprocess-inline-svg
 [npm.preprocess-inline-svg]: https://www.npmjs.com/package/@svelte-put/preprocess-inline-svg
+[npm.qr.badge]: https://img.shields.io/npm/v/@svelte-put/qr
+[npm.qr]: https://www.npmjs.com/package/@svelte-put/qr
 [npm.resize.badge]: https://img.shields.io/npm/v/@svelte-put/resize
 [npm.resize]: https://www.npmjs.com/package/@svelte-put/resize
 [npm.shortcut.badge]: https://img.shields.io/npm/v/@svelte-put/shortcut
@@ -159,6 +164,7 @@ pnpm turbo
 [docs.noti]: https://svelte-put.vnphanquang.com/docs/noti
 [docs.preprocess-auto-slug]: https://svelte-put.vnphanquang.com/docs/preprocess-auto-slug
 [docs.preprocess-inline-svg]: https://svelte-put.vnphanquang.com/docs/preprocess-inline-svg
+[docs.qr]: https://svelte-put.vnphanquang.com/docs/qr
 [docs.select]: https://svelte-put.vnphanquang.com/docs/select
 [docs.resize]: https://svelte-put.vnphanquang.com/docs/resize
 [docs.shortcut]: https://svelte-put.vnphanquang.com/docs/shortcut
