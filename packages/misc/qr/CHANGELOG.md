@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.1
+
+### Patch Changes
+
+- [`530e6b2`](https://github.com/vnphanquang/svelte-put/commit/530e6b247ffb45e89414958aa7dd8d5449dab486) Thanks [@vnphanquang](https://github.com/vnphanquang)! - correctly position logo to center
+
+- [`ef16c88`](https://github.com/vnphanquang/svelte-put/commit/ef16c88c9975a3e2a702edb6afe7260d58b24e41) Thanks [@vnphanquang](https://github.com/vnphanquang)! - correct github links in `qr` docs page
+
 ## 1.0.0
 
 ### Major Changes
