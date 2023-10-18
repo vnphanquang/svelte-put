@@ -168,9 +168,9 @@ export const packages = {
     replId: '74c053b447e94244833f9c3d73210ae5',
     status: 'new',
     ready: true,
-    githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/qr',
+    githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/misc/qr',
     changelogUrl:
-      'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/qr/CHANGELOG.md',
+      'https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/qr/CHANGELOG.md',
   },
   resize: {
     id: 'resize',
