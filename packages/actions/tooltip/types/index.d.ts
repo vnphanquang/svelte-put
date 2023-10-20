@@ -11,7 +11,9 @@ declare module '@svelte-put/tooltip' {
       content: import('svelte').ComponentType<
         import('svelte').SvelteComponent<Props, Events, Slots>
       >;
-      compute?: TooltipCompute<Props, import('svelte').SvelteComponent<Props, Events, Slots>>;
+      compute?:
+        | TooltipCompute<Props, import('svelte').SvelteComponent<Props, Events, Slots>>
+        | undefined;
     },
   ): PreparedTooltipAction<Props>;
   export function prepare<
@@ -24,9 +26,11 @@ declare module '@svelte-put/tooltip' {
         component: import('svelte').ComponentType<
           import('svelte').SvelteComponent<Props, Events, Slots>
         >;
-        props?: Props;
+        props?: Props | undefined;
       };
-      compute?: TooltipCompute<Props, import('svelte').SvelteComponent<Props, Events, Slots>>;
+      compute?:
+        | TooltipCompute<Props, import('svelte').SvelteComponent<Props, Events, Slots>>
+        | undefined;
     },
   ): PreparedTooltipAction<Props>;
   export function prepare(
@@ -42,12 +46,14 @@ declare module '@svelte-put/tooltip' {
     Content extends TooltipContent<Props>,
     ComputeContent extends TooltipComputeContent<Props>,
   >(
-    node: HTMLElement,
+    node: Element,
     param: TooltipContainer & {
       content: import('svelte').ComponentType<
         import('svelte').SvelteComponent<Props, Events, Slots>
       >;
-      compute?: TooltipCompute<Props, import('svelte').SvelteComponent<Props, Events, Slots>>;
+      compute?:
+        | TooltipCompute<Props, import('svelte').SvelteComponent<Props, Events, Slots>>
+        | undefined;
     },
   ): import('svelte/action').ActionReturn<
     TooltipParameter<Props, Content, ComputeContent>,
@@ -60,25 +66,27 @@ declare module '@svelte-put/tooltip' {
     Content extends TooltipContent<Props>,
     ComputeContent extends TooltipComputeContent<Props>,
   >(
-    node: HTMLElement,
+    node: Element,
     param: TooltipContainer & {
       content: {
         component: import('svelte').ComponentType<
           import('svelte').SvelteComponent<Props, Events, Slots>
         >;
-        props?: Props;
+        props?: Props | undefined;
       };
-      compute?: TooltipCompute<Props, import('svelte').SvelteComponent<Props, Events, Slots>>;
+      compute?:
+        | TooltipCompute<Props, import('svelte').SvelteComponent<Props, Events, Slots>>
+        | undefined;
     },
   ): import('svelte/action').ActionReturn<
     TooltipParameter<Props, Content, ComputeContent>,
     TooltipAttributes
   >;
   export function tooltip(
-    Node: HTMLElement,
+    Node: Element,
     param: TooltipContainer & {
       content: string;
-      compute?: TooltipCompute<{}, string>;
+      compute?: TooltipCompute<{}, string> | undefined;
     },
   ): import('svelte/action').ActionReturn<
     TooltipParameter<Props, string, string>,
@@ -120,15 +128,10 @@ declare module '@svelte-put/tooltip' {
      */
     tag?: string;
     /**
-     * `HTMLElement` to render the tooltip container as child.
+     * `Element` to render the tooltip container as child.
      * Defaults to `parent` of the node action is placed on
      */
-    target?:
-      | 'parent'
-      | 'self'
-      | 'body'
-      | HTMLElement
-      | ((node: HTMLElement, tooltip: HTMLElement) => void);
+    target?: 'parent' | 'self' | 'body' | Element | ((node: Element, tooltip: Element) => void);
     /**
      * number of milliseconds to debounce show / hide state of the tooltip.
      * Defaults to `false` (show / hide immediately)
@@ -190,8 +193,8 @@ declare module '@svelte-put/tooltip' {
     Props extends TooltipComponentBaseProps,
     ComputeContent extends TooltipComputeContent<Props>,
   > = {
-    node: HTMLElement;
-    tooltip: HTMLElement;
+    node: Element;
+    tooltip: Element;
     content: ComputeContent;
   };
 
@@ -207,11 +210,7 @@ declare module '@svelte-put/tooltip' {
     'aria-describedby'?: string;
   };
 
-  type PreparedTooltipAction<Parameter> = Action<
-    HTMLElement,
-    Parameter | undefined,
-    TooltipAttributes
-  >;
+  type PreparedTooltipAction<Parameter> = Action<Element, Parameter | undefined, TooltipAttributes>;
 
   type TooltipParameter<
     Props extends TooltipComponentBaseProps,

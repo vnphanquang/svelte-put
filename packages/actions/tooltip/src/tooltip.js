@@ -82,7 +82,7 @@ export function prepare(param) {
  * @template {import('./public').TooltipContent<Props>} Content
  * @template {import('./public').TooltipComputeContent<Props>} ComputeContent
  * @overload
- * @param {HTMLElement} node
+ * @param {Element} node
  * @param {import('./public').TooltipContainer & {
  *  content: import('svelte').ComponentType<import('svelte').SvelteComponent<Props, Events, Slots>>;
  *  compute?: import('./public').TooltipCompute<Props, import('svelte').SvelteComponent<Props, Events, Slots>>;
@@ -96,7 +96,7 @@ export function prepare(param) {
  * @template {import('./public').TooltipContent<Props>} Content
  * @template {import('./public').TooltipComputeContent<Props>} ComputeContent
  * @overload
- * @param {HTMLElement} node
+ * @param {Element} node
  * @param {import('./public').TooltipContainer & {
  *  content: {
  *   component: import('svelte').ComponentType<import('svelte').SvelteComponent<Props, Events, Slots>>;
@@ -108,7 +108,7 @@ export function prepare(param) {
  */
 /**
  * @overload
- * @param {HTMLElement} Node
+ * @param {Element} Node
  * @param {import('./public').TooltipContainer & {
  *  content: string;
  *  compute?: import('./public').TooltipCompute<{}, string>;
@@ -119,7 +119,7 @@ export function prepare(param) {
  * @template {import('./public').TooltipComponentBaseProps} Props
  * @template {import('./public').TooltipContent<Props>} Content
  * @template {import('./public').TooltipComputeContent<Props>} ComputeContent
- * @param {HTMLElement} node
+ * @param {Element} node
  * @param {import('./public').TooltipParameter<Props, Content, ComputeContent>} param
  * @returns {import('svelte/action').ActionReturn<import('./public').TooltipParameter<Props, Content, ComputeContent>, import('./public').TooltipAttributes>}
  */

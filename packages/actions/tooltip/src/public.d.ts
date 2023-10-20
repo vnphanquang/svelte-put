@@ -40,15 +40,10 @@ export type TooltipContainer = {
    */
   tag?: string;
   /**
-   * `HTMLElement` to render the tooltip container as child.
+   * `Element` to render the tooltip container as child.
    * Defaults to `parent` of the node action is placed on
    */
-  target?:
-    | 'parent'
-    | 'self'
-    | 'body'
-    | HTMLElement
-    | ((node: HTMLElement, tooltip: HTMLElement) => void);
+  target?: 'parent' | 'self' | 'body' | Element | ((node: Element, tooltip: Element) => void);
   /**
    * number of milliseconds to debounce show / hide state of the tooltip.
    * Defaults to `false` (show / hide immediately)
@@ -112,8 +107,8 @@ export type TooltipComputeParameter<
   Props extends TooltipComponentBaseProps,
   ComputeContent extends TooltipComputeContent<Props>,
 > = {
-  node: HTMLElement;
-  tooltip: HTMLElement;
+  node: Element;
+  tooltip: Element;
   content: ComputeContent;
 };
 
@@ -133,7 +128,7 @@ export type TooltipAttributes = {
 
 /** @public */
 export type PreparedTooltipAction<Parameter> = Action<
-  HTMLElement,
+  Element,
   Parameter | undefined,
   TooltipAttributes
 >;
