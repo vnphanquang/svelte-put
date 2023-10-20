@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1
+
+### Patch Changes
+
+- [`bd5258c`](https://github.com/vnphanquang/svelte-put/commit/bd5258cd60acb9bb9b81015f362ac1bdad7a0f3f) Thanks [@vnphanquang](https://github.com/vnphanquang)! - update type of node to include `SVGElement`
+
 ## 1.0.0
 
 ### Major Changes
