@@ -83,7 +83,7 @@ export function createSVGParts(config, qr) {
     const { width, height } = calculateLogoSize(safelyRemovableSize * 0.8, logoRatio);
     const x = (size + margin - width) / 2;
     const y = (size + margin - height) / 2;
-    logoSvg = `<image width="${width}" height="${height}" x="${x}" y="${y}" href="${logo}" />`;
+    logoSvg = `<image width="${width}" height="${height}" x="${x}" y="${y}" href="${logo}" class="logo" />`;
   }
 
   return {
