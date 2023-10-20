@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.2
+
+### Patch Changes
+
+- [`994133a`](https://github.com/vnphanquang/svelte-put/commit/994133a1f450271142798b2b77a689e00d220d30) Thanks [@vnphanquang](https://github.com/vnphanquang)! - Add `logo` to the `image` element
+
 ## 1.0.1
 
 ### Patch Changes
