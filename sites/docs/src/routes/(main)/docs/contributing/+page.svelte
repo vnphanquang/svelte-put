@@ -25,21 +25,10 @@
 <section>
   <h2 id="money">Money</h2>
   <p>
-    It is strange asking for money; but here I am. I'm based in Vietnam where Github Sponsor has not
-    added support just yet. In the meantime, to donate, please visit <ResourceLink
-      href="https://www.buymeacoffee.com/vnphanquang">buymeacoffee/vnphanquang</ResourceLink
+    It is strange asking for money; but here I am. To sponsor my work, please visit <ResourceLink
+      href="https://github.com/sponsors/vnphanquang">github.com/sponsors/vnphanquang</ResourceLink
     >. Thank you very much for your support.
   </p>
-  <div class="not-prose">
-    <a
-      href="https://www.buymeacoffee.com/vnphanquang"
-      target="_blank"
-      rel="noreferrer"
-      class="c-btn-primary text-white"
-    >
-      Buy me a banh mi 🥖
-    </a>
-  </div>
 </section>
 
 <section>
