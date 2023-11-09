@@ -62,8 +62,8 @@ declare module '@svelte-put/clickoutside' {
     enabled: boolean;
     nodeForEvent: Document | HTMLElement;
     eventType: string;
-    options: boolean | AddEventListenerOptions;
-    capture: boolean;
+    options: boolean | AddEventListenerOptions | undefined;
+    capture: boolean | undefined;
   };
   /**
    * Deprecated, use `ClickOutsideParameter` and `ClickOutsideConfig` instead

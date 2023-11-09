@@ -48,13 +48,13 @@
   },
   "homepage": "https://svelte-put.vnphanquang.com/docs/transition",
   "devDependencies": {
-    "@microsoft/api-documenter": "^7.22.30",
-    "@microsoft/api-extractor": "^7.36.3",
-    "@rollup/plugin-typescript": "^11.1.2",
+    "@microsoft/api-documenter": "^7.23.11",
+    "@microsoft/api-extractor": "^7.38.2",
+    "@rollup/plugin-typescript": "^11.1.5",
     "@svelte-put/apirc": "workspace:*",
     "@svelte-put/tsconfig": "workspace:*",
     "npm-run-all": "^4.1.5",
-    "rollup": "^3.26.3"
+    "rollup": "^4.3.0"
   },
   "peerDependencies": {
     "svelte": "^3.55.0 || ^4.0.0"

@@ -11,7 +11,9 @@ declare module '@svelte-put/noti' {
   /// <reference types="svelte" />
 
   export function store(
-    config?: NotificationCommonConfig<string, import('svelte').SvelteComponent>,
+    config?:
+      | NotificationCommonConfig<string, import('svelte').SvelteComponent<any, any, any>>
+      | undefined,
   ): NotificationStoreBuilder<{}>;
   /**
    * builder for notification store
@@ -48,34 +50,47 @@ declare module '@svelte-put/noti' {
       subscribe: (
         this: void,
         run: import('svelte/store').Subscriber<NotificationStoreValue>,
-        invalidate?: import('svelte/store').Invalidator<NotificationStoreValue>,
+        invalidate?: import('svelte/store').Invalidator<NotificationStoreValue> | undefined,
       ) => import('svelte/store').Unsubscriber;
       readonly notifications: NotificationInstance<
         string,
         import('svelte').SvelteComponent<any, any, any>
       >[];
 
-      portal: HTMLElement;
+      portal: HTMLElement | null;
       push: {
         <
           Variant_1 extends Extract<keyof VariantMap, string>,
           Component_1 extends VariantMap[Variant_1] = VariantMap[Variant_1],
-          ResolveDetail = import('svelte').ComponentEvents<Component_1>['resolve']['detail'],
+          ResolveDetail =
+            | import('svelte').ComponentEvents<Component_1>['resolve']['detail']
+            | undefined,
         >(
           variant: Variant_1,
-          config?: NotificationByVariantPushConfig<Variant_1, Component_1>,
+          config?: NotificationByVariantPushConfig<Variant_1, Component_1> | undefined,
         ): NotificationPushOutput<Component_1>;
+
         <
           CustomComponent extends import('svelte').SvelteComponent<any, any, any>,
-          ResolveDetail = import('svelte').ComponentEvents<Component_1>['resolve']['detail'],
+          ResolveDetail =
+            | import('svelte').ComponentEvents<Component_1>['resolve']['detail']
+            | undefined,
         >(
           variant: 'custom',
           config: NotificationCustomPushConfig<CustomComponent>,
         ): NotificationPushOutput<CustomComponent>;
       };
       pop: {
-        (id?: string, detail?: any): void;
-        (config?: { id?: string; detail?: any }): void;
+        (id?: string | undefined, detail?: any): void;
+
+        (
+          config?:
+            | {
+                id?: string | undefined;
+                detail?: any;
+              }
+            | undefined,
+        ): void;
       };
       pause: (id: string) => void;
       resume: (id: string) => void;
@@ -190,13 +205,13 @@ declare module '@svelte-put/noti' {
   /// <reference types="svelte" />
 
   function createProgressStore(
-    initial?: number | false,
-    onTimeOut?: () => void,
+    initial?: number | false | undefined,
+    onTimeOut?: (() => void) | undefined,
   ): {
     subscribe: (
       this: void,
       run: import('svelte/store').Subscriber<NotificationProgressStoreValue>,
-      invalidate?: import('svelte/store').Invalidator<NotificationProgressStoreValue>,
+      invalidate?: import('svelte/store').Invalidator<NotificationProgressStoreValue> | undefined,
     ) => import('svelte/store').Unsubscriber;
     resume(): void;
     pause(): void;

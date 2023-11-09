@@ -1,7 +1,7 @@
 declare module '@svelte-put/movable' {
   import type { ActionReturn } from 'svelte/action';
   /**
-   * Trigger node displacement on mousedown (via position.left & position.top)
+   * Trigger node displacement on pointerdown (via position.left & position.top)
    * @example
    *
    * Minimal usage
@@ -59,13 +59,13 @@ declare module '@svelte-put/movable' {
    *
    * Things that will happen in the above example:
    *
-   * 1. on `mousedown` of the handle (`button` element), a `movablestart` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent } is dispatched,
+   * 1. on `pointerdown` of the handle (`button` element), a `movablestart` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent } is dispatched,
    *
-   * 2. any `mousemove` event will tell `div` to move accordingly;
+   * 2. any `pointermove` event will tell `div` to move accordingly;
    *
    * 3. movement will be limited to the border of the `containerNode`, ±20% of the width & height of the `div` that the action is being used on,
    *
-   * 4. `mouseup` event will stop the movement; a `movableend` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent } is dispatched.
+   * 4. `pointerup` event will stop the movement; a `movableend` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent } is dispatched.
    *
    * @remarks
    *
@@ -85,11 +85,11 @@ declare module '@svelte-put/movable' {
    *
    * Be aware of side effects:
    *
-   * - element.style.position is set to `relative` if not already 'absolute', 'relative', or 'fixed during the first time mousedown is triggered
+   * - element.style.position is set to `relative` if not already 'absolute', 'relative', or 'fixed during the first time pointerdown is triggered
    *
-   * - document.body.userSelect is set to `none` after `mousedown` and restored on `mouseup`
+   * - document.body.userSelect is set to `none` after `pointerdown` and restored on `pointerup`
    *
-   * - document.body.cursor is set to `move` after `mousedown` and restored on `mouseup`
+   * - document.body.cursor is set to `move` after `pointerdown` and restored on `pointerup`
    *
    * @param node - HTMLElement to be moved
    * @param param - svelte action parameters
@@ -115,7 +115,7 @@ declare module '@svelte-put/movable' {
     param?: MovableParameter,
   ): {
     enabled: boolean;
-    parent: HTMLElement | 'screen';
+    parent: HTMLElement | 'screen' | undefined;
     normalizedDelta: {
       x: NormalizedLimit;
       y: NormalizedLimit;

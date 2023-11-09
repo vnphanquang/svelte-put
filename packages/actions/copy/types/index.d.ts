@@ -7,7 +7,7 @@ declare module '@svelte-put/copy' {
    * */
   export function copy<K extends keyof HTMLElementEventMap>(
     node: HTMLElement,
-    parameter?: Partial<CopyConfig<K>>,
+    parameter?: CopyParameter<K>,
   ): CopyReturn<K>;
   /**
    * Deprecated, use `CopyParameter` and `CopyConfig` instead
@@ -22,7 +22,7 @@ declare module '@svelte-put/copy' {
    *
    * @param text - text to copy
    */
-  export function copyToClipboard(text: string): Promise<void>;
+  export function copyToClipboard(text: string): Promise<void> | undefined;
   /**
    * the input passed to {@link TextResolver}
    * */

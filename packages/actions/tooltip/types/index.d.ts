@@ -2,6 +2,7 @@ declare module '@svelte-put/tooltip' {
   import type { SvelteComponent, ComponentType } from 'svelte';
   import type { Action } from 'svelte/action';
   /// <reference types="svelte" />
+
   export function prepare<
     Events extends Record<string, any>,
     Slots extends Record<string, any>,
@@ -16,6 +17,7 @@ declare module '@svelte-put/tooltip' {
         | undefined;
     },
   ): PreparedTooltipAction<Props>;
+
   export function prepare<
     Events extends Record<string, any>,
     Slots extends Record<string, any>,
@@ -33,12 +35,14 @@ declare module '@svelte-put/tooltip' {
         | undefined;
     },
   ): PreparedTooltipAction<Props>;
+
   export function prepare(
     param: TooltipContainer & {
       content: string;
       compute?: TooltipCompute<{}, string>;
     },
   ): PreparedTooltipAction<string>;
+
   export function tooltip<
     Events extends Record<string, any>,
     Slots extends Record<string, any>,
@@ -59,6 +63,7 @@ declare module '@svelte-put/tooltip' {
     TooltipParameter<Props, Content, ComputeContent>,
     TooltipAttributes
   >;
+
   export function tooltip<
     Events extends Record<string, any>,
     Slots extends Record<string, any>,
@@ -82,6 +87,7 @@ declare module '@svelte-put/tooltip' {
     TooltipParameter<Props, Content, ComputeContent>,
     TooltipAttributes
   >;
+
   export function tooltip(
     Node: Element,
     param: TooltipContainer & {

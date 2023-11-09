@@ -61,6 +61,6 @@
   "homepage": "https://svelte-put.vnphanquang.com/docs/noti",
   "devDependencies": {
     "@svelte-put/tsconfig": "workspace:*",
-    "dts-buddy": "^0.3.0"
+    "dts-buddy": "^0.4.0"
   }
 }

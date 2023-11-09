@@ -9,7 +9,7 @@ declare module '@svelte-put/lockscroll' {
     subscribe: (
       this: void,
       run: import('svelte/store').Subscriber<boolean>,
-      invalidate?: import('svelte/store').Invalidator<boolean>,
+      invalidate?: import('svelte/store').Invalidator<boolean> | undefined,
     ) => import('svelte/store').Unsubscriber;
     set: (this: void, value: boolean) => void;
     update: (this: void, updater: import('svelte/store').Updater<boolean>) => void;

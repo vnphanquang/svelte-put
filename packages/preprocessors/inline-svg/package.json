@@ -52,27 +52,27 @@
   },
   "homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocessors/inline-svg",
   "devDependencies": {
-    "@microsoft/api-documenter": "^7.22.30",
-    "@microsoft/api-extractor": "^7.36.3",
+    "@microsoft/api-documenter": "^7.23.11",
+    "@microsoft/api-extractor": "^7.38.2",
     "@svelte-put/apirc": "workspace:*",
     "@svelte-put/preprocess-helpers": "workspace:*",
-    "@types/estree": "^1.0.1",
-    "@types/lodash.debounce": "^4.0.7",
-    "@types/svg-parser": "^2.0.3",
+    "@types/estree": "^1.0.5",
+    "@types/lodash.debounce": "^4.0.9",
+    "@types/svg-parser": "^2.0.6",
     "npm-run-all": "^4.1.5",
-    "svelte": "^4.1.1",
+    "svelte": "^4.2.2",
     "ts-node": "^10.9.1",
-    "tsup": "^7.1.0",
-    "typescript": "^5.1.6",
-    "vite": "^4.4.7"
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2",
+    "vite": "^4.5.0"
   },
   "peerDependencies": {
     "svelte": "^3.55.0 || ^4.0.0"
   },
   "dependencies": {
-    "hast-util-to-html": "^8.0.4",
+    "hast-util-to-html": "^9.0.0",
     "lodash.debounce": "^4.0.8",
-    "magic-string": "^0.30.1",
+    "magic-string": "^0.30.5",
     "svelte-parse-markup": "^0.1.2",
     "svg-parser": "^2.0.4"
   }

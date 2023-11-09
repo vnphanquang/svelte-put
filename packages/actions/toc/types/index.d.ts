@@ -24,11 +24,11 @@ declare module '@svelte-put/toc' {
     subscribe: (
       this: void,
       run: import('svelte/store').Subscriber<TocStoreValue>,
-      invalidate?: (value?: TocStoreValue) => void,
+      invalidate?: ((value?: TocStoreValue | undefined) => void) | undefined,
     ) => import('svelte/store').Unsubscriber;
     set: (this: void, value: TocStoreValue) => void;
     update: (this: void, updater: import('svelte/store').Updater<TocStoreValue>) => void;
-    id: () => string;
+    id: () => string | undefined;
   };
   /**
    * search for matching elements, inject anchor element, watch for active element
@@ -812,19 +812,21 @@ declare module '@svelte-put/toc/internal' {
           enabled: boolean;
           strategy: 'auto' | 'parent' | 'self';
           threshold: number | ((element: HTMLElement) => number);
-          root?: Element | Document;
-          rootMargin?: string;
+          root?: Element | Document | null | undefined;
+          rootMargin?: string | undefined;
         };
-    store: {
-      subscribe: (
-        this: void,
-        run: import('svelte/store').Subscriber<TocStoreValue>,
-        invalidate?: (value?: TocStoreValue) => void,
-      ) => import('svelte/store').Unsubscriber;
-      set: (this: void, value: TocStoreValue) => void;
-      update: (this: void, updater: import('svelte/store').Updater<TocStoreValue>) => void;
-      id: () => string;
-    };
+    store:
+      | {
+          subscribe: (
+            this: void,
+            run: import('svelte/store').Subscriber<TocStoreValue>,
+            invalidate?: ((value?: TocStoreValue | undefined) => void) | undefined,
+          ) => import('svelte/store').Unsubscriber;
+          set: (this: void, value: TocStoreValue) => void;
+          update: (this: void, updater: import('svelte/store').Updater<TocStoreValue>) => void;
+          id: () => string | undefined;
+        }
+      | undefined;
   };
   interface TocEventDetail {
     /** the ID of this toc operation. see {@link TocParameters} */
@@ -868,11 +870,11 @@ declare module '@svelte-put/toc/internal' {
     subscribe: (
       this: void,
       run: import('svelte/store').Subscriber<TocStoreValue>,
-      invalidate?: (value?: TocStoreValue) => void,
+      invalidate?: ((value?: TocStoreValue | undefined) => void) | undefined,
     ) => import('svelte/store').Unsubscriber;
     set: (this: void, value: TocStoreValue) => void;
     update: (this: void, updater: import('svelte/store').Updater<TocStoreValue>) => void;
-    id: () => string;
+    id: () => string | undefined;
   };
 }
 
@@ -906,19 +908,21 @@ declare module '@svelte-put/toc/parameter' {
           enabled: boolean;
           strategy: 'auto' | 'parent' | 'self';
           threshold: number | ((element: HTMLElement) => number);
-          root?: Element | Document;
-          rootMargin?: string;
+          root?: Element | Document | null | undefined;
+          rootMargin?: string | undefined;
         };
-    store: {
-      subscribe: (
-        this: void,
-        run: import('svelte/store').Subscriber<TocStoreValue>,
-        invalidate?: (value?: TocStoreValue) => void,
-      ) => import('svelte/store').Unsubscriber;
-      set: (this: void, value: TocStoreValue) => void;
-      update: (this: void, updater: import('svelte/store').Updater<TocStoreValue>) => void;
-      id: () => string;
-    };
+    store:
+      | {
+          subscribe: (
+            this: void,
+            run: import('svelte/store').Subscriber<TocStoreValue>,
+            invalidate?: ((value?: TocStoreValue | undefined) => void) | undefined,
+          ) => import('svelte/store').Unsubscriber;
+          set: (this: void, value: TocStoreValue) => void;
+          update: (this: void, updater: import('svelte/store').Updater<TocStoreValue>) => void;
+          id: () => string | undefined;
+        }
+      | undefined;
   };
   /**
    * Compare two ResolvedTocConfig
@@ -938,9 +942,20 @@ declare module '@svelte-put/toc/parameter' {
       throttleOnClick: number;
       attribute: string[];
     };
-    store: any;
-    tocId: any;
-    tocItem: any;
+    store:
+      | {
+          subscribe: (
+            this: void,
+            run: import('svelte/store').Subscriber<TocStoreValue>,
+            invalidate?: ((value?: TocStoreValue | undefined) => void) | undefined,
+          ) => import('svelte/store').Unsubscriber;
+          set: (this: void, value: TocStoreValue) => void;
+          update: (this: void, updater: import('svelte/store').Updater<TocStoreValue>) => void;
+          id: () => string | undefined;
+        }
+      | undefined;
+    tocId: string | undefined;
+    tocItem: string | TocItem | undefined;
   };
 
   export function compareTocLinkConfig(a: TocLinkConfig, b: TocLinkConfig): boolean;
@@ -1274,11 +1289,11 @@ declare module '@svelte-put/toc/parameter' {
     subscribe: (
       this: void,
       run: import('svelte/store').Subscriber<TocStoreValue>,
-      invalidate?: (value?: TocStoreValue) => void,
+      invalidate?: ((value?: TocStoreValue | undefined) => void) | undefined,
     ) => import('svelte/store').Unsubscriber;
     set: (this: void, value: TocStoreValue) => void;
     update: (this: void, updater: import('svelte/store').Updater<TocStoreValue>) => void;
-    id: () => string;
+    id: () => string | undefined;
   };
 }
 
@@ -1307,11 +1322,11 @@ declare module '@svelte-put/toc/store' {
     subscribe: (
       this: void,
       run: import('svelte/store').Subscriber<TocStoreValue>,
-      invalidate?: (value?: TocStoreValue) => void,
+      invalidate?: ((value?: TocStoreValue | undefined) => void) | undefined,
     ) => import('svelte/store').Unsubscriber;
     set: (this: void, value: TocStoreValue) => void;
     update: (this: void, updater: import('svelte/store').Updater<TocStoreValue>) => void;
-    id: () => string;
+    id: () => string | undefined;
   };
 
   export function updateStore(
@@ -1553,19 +1568,21 @@ declare module '@svelte-put/toc/store' {
           enabled: boolean;
           strategy: 'auto' | 'parent' | 'self';
           threshold: number | ((element: HTMLElement) => number);
-          root?: Element | Document;
-          rootMargin?: string;
+          root?: Element | Document | null | undefined;
+          rootMargin?: string | undefined;
         };
-    store: {
-      subscribe: (
-        this: void,
-        run: import('svelte/store').Subscriber<TocStoreValue>,
-        invalidate?: (value?: TocStoreValue) => void,
-      ) => import('svelte/store').Unsubscriber;
-      set: (this: void, value: TocStoreValue) => void;
-      update: (this: void, updater: import('svelte/store').Updater<TocStoreValue>) => void;
-      id: () => string;
-    };
+    store:
+      | {
+          subscribe: (
+            this: void,
+            run: import('svelte/store').Subscriber<TocStoreValue>,
+            invalidate?: ((value?: TocStoreValue | undefined) => void) | undefined,
+          ) => import('svelte/store').Unsubscriber;
+          set: (this: void, value: TocStoreValue) => void;
+          update: (this: void, updater: import('svelte/store').Updater<TocStoreValue>) => void;
+          id: () => string | undefined;
+        }
+      | undefined;
   };
 }
 
