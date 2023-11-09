@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.1.0
+
+### Minor Changes
+
+- [`11a42e2`](https://github.com/vnphanquang/svelte-put/commit/11a42e22ba7c5df23050e8807666eb008ca0bc1f) Thanks [@vnphanquang](https://github.com/vnphanquang)! - Support touch devices by switching `MouseEvent` to `PointerEvent` and forcing `touch-action: none` on `handle` (prevent touch events from being registered as scroll) (#242)
+
 ## 3.0.0
 
 ### Major Changes
