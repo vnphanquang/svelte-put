@@ -1,6 +1,4 @@
 <script lang="ts">
-  import typescript from 'svelte-highlight/languages/typescript';
-
   import Code from '$client/components/Code/Code.svelte';
   import Installation from '$client/components/Installation/Installation.svelte';
   import ResourceLink from '$client/components/ResourceLink/ResourceLink.svelte';

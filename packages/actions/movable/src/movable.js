@@ -1,7 +1,7 @@
 import { tick } from 'svelte';
 
 /**
- * Trigger node displacement on mousedown (via position.left & position.top)
+ * Trigger node displacement on pointerdown (via position.left & position.top)
  * @public
  *
  * @example
@@ -61,13 +61,13 @@ import { tick } from 'svelte';
  *
  * Things that will happen in the above example:
  *
- * 1. on `mousedown` of the handle (`button` element), a `movablestart` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent } is dispatched,
+ * 1. on `pointerdown` of the handle (`button` element), a `movablestart` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent } is dispatched,
  *
- * 2. any `mousemove` event will tell `div` to move accordingly;
+ * 2. any `pointermove` event will tell `div` to move accordingly;
  *
  * 3. movement will be limited to the border of the `containerNode`, ±20% of the width & height of the `div` that the action is being used on,
  *
- * 4. `mouseup` event will stop the movement; a `movableend` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent } is dispatched.
+ * 4. `pointerup` event will stop the movement; a `movableend` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent } is dispatched.
  *
  * @remarks
  *
@@ -87,11 +87,11 @@ import { tick } from 'svelte';
  *
  * Be aware of side effects:
  *
- * - element.style.position is set to `relative` if not already 'absolute', 'relative', or 'fixed during the first time mousedown is triggered
+ * - element.style.position is set to `relative` if not already 'absolute', 'relative', or 'fixed during the first time pointerdown is triggered
  *
- * - document.body.userSelect is set to `none` after `mousedown` and restored on `mouseup`
+ * - document.body.userSelect is set to `none` after `pointerdown` and restored on `pointerup`
  *
- * - document.body.cursor is set to `move` after `mousedown` and restored on `mouseup`
+ * - document.body.cursor is set to `move` after `pointerdown` and restored on `pointerup`
  *
  * @param {HTMLElement} node - HTMLElement to be moved
  * @param {import('./public').MovableParameter} param - svelte action parameters
@@ -114,7 +114,7 @@ export function movable(node, param = { enabled: true }) {
   }
 
   /**
-   * @param {MouseEvent} event
+   * @param {PointerEvent} event
    */
   function updateLastMousePosition(event) {
     lastMousePosition.x = event.clientX;
@@ -130,9 +130,9 @@ export function movable(node, param = { enabled: true }) {
   }
 
   /**
-   * @param {MouseEvent} event
+   * @param {PointerEvent} event
    */
-  function onMouseMove(event) {
+  function move(event) {
     const Δx = event.clientX - lastMousePosition.x;
     const Δy = event.clientY - lastMousePosition.y;
     updateLastMousePosition(event);
@@ -230,8 +230,9 @@ export function movable(node, param = { enabled: true }) {
       }
       handle.style.cursor = 'grab';
     }
-    window.removeEventListener('mousemove', onMouseMove);
-    window.removeEventListener('mouseup', end);
+    window.removeEventListener('pointermove', move);
+    window.removeEventListener('pointerup', end);
+    window.removeEventListener('pointercancel', end);
 
     /** @type {import('./public').MovableEventDetail} */
     const detail = { node, position: lastNodePosition };
@@ -239,9 +240,12 @@ export function movable(node, param = { enabled: true }) {
   }
 
   /**
-   * @param {MouseEvent} event
+   * @param {PointerEvent} event
    */
-  function onMouseDown(event) {
+  function start(event) {
+    // if (event.target?.hasPointerCapture(event.pointerId)) {
+    //   event.target?.releasePointerCapture(event.pointerId);
+    // }
     const ignoredElements = getIgnoredElements();
     if (
       ignoredElements.some((node) => node.isSameNode(/** @type {HTMLElement} */ (event.target)))
@@ -274,11 +278,13 @@ export function movable(node, param = { enabled: true }) {
       document.body.style.cursor = 'grabbing';
       handle.style.cursor = 'grabbing';
     }
-    window.addEventListener('mousemove', onMouseMove);
-    window.addEventListener('mouseup', end);
+    window.addEventListener('pointermove', move);
+    window.addEventListener('pointerup', end);
+    window.addEventListener('pointercancel', end);
   }
 
-  function addCursor() {
+  function addStyles() {
+    handle.style.touchAction = 'none';
     if (cursor) {
       handle.style.cursor = 'grab';
       const ignoredElements = getIgnoredElements();
@@ -289,7 +295,8 @@ export function movable(node, param = { enabled: true }) {
       }
     }
   }
-  function removeCursor() {
+  function removeStyles() {
+    handle.style.removeProperty('touch-action');
     if (cursor) {
       if (handle?.style.cursor === 'grab') {
         handle.style.removeProperty('cursor');
@@ -304,27 +311,27 @@ export function movable(node, param = { enabled: true }) {
   }
 
   if (enabled) {
-    handle.addEventListener('mousedown', onMouseDown, true);
+    handle.addEventListener('pointerdown', start, true);
     tick().then(() => {
-      addCursor();
+      addStyles();
     });
   }
   return {
     update(update) {
-      removeCursor();
-      handle.removeEventListener('mousedown', onMouseDown, true);
+      removeStyles();
+      handle.removeEventListener('pointerdown', start, true);
       ({ parent, normalizedDelta, handle, enabled, ignore, cursor } = input(node, update));
 
       if (enabled) {
-        handle.addEventListener('mousedown', onMouseDown, true);
+        handle.addEventListener('pointerdown', start, true);
         tick().then(() => {
-          addCursor();
+          addStyles();
         });
       }
     },
     destroy() {
-      handle.removeEventListener('mousedown', onMouseDown, true);
-      removeCursor();
+      handle.removeEventListener('pointerdown', start, true);
+      removeStyles();
     },
   };
 }
