@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.3
+
+### Patch Changes
+
+- Updated dependencies [[`11a42e2`](https://github.com/vnphanquang/svelte-put/commit/11a42e22ba7c5df23050e8807666eb008ca0bc1f)]:
+  - @svelte-put/movable@3.1.0
+
 ## 1.0.2
 
 ### Patch Changes
