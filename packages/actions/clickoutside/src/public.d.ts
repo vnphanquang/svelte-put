@@ -33,7 +33,7 @@ export interface ClickOutsideAttributes {
  */
 export interface ClickOutsideLimit {
   /** Click event beyond the `boundingRect` of this parent node will not trigger `clickoutside` */
-  parent: HTMLElement;
+  parent: Element;
 }
 
 /**
@@ -58,7 +58,7 @@ export interface ClickOutsideConfig {
 export type ClickOutsideParameter = Partial<ClickOutsideConfig> | undefined;
 
 /** @public */
-export type ClickOutsideAction = Action<HTMLElement, ClickOutsideParameter, ClickOutsideAttributes>;
+export type ClickOutsideAction = Action<Element, ClickOutsideParameter, ClickOutsideAttributes>;
 
 /** @public */
 export type ClickOutsideActionReturn = ActionReturn<ClickOutsideParameter, ClickOutsideAttributes>;

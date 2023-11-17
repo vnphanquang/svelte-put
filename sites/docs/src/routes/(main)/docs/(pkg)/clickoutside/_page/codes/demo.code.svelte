@@ -4,7 +4,7 @@
   import { fly } from 'svelte/transition';
 
   let enabled = true;
-  let parent: HTMLElement;
+  let parent: Element;
   let click = 0;
   let cls = '';
   export { cls as class };
@@ -65,3 +65,8 @@
     </button>
   </div>
 </fieldset>
+
+<svg use:clickoutside>
+  <g use:clickoutside></g>
+  <text use:clickoutside></text>
+</svg>
