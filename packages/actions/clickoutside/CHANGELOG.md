@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.0.1
+
+### Patch Changes
+
+- [#247](https://github.com/vnphanquang/svelte-put/pull/247) [`022cc1f`](https://github.com/vnphanquang/svelte-put/commit/022cc1ff9550ced3939dd74b8c2a0333cd6a2d0c) Thanks [@vnphanquang](https://github.com/vnphanquang)! - broaden node type from `HTMLElement` to `Element` to satisfy type checker with usage on SVG elements (#246)
+
 ## 3.0.0
 
 ### Major Changes

@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.4
+
+### Patch Changes
+
+- Updated dependencies [[`022cc1f`](https://github.com/vnphanquang/svelte-put/commit/022cc1ff9550ced3939dd74b8c2a0333cd6a2d0c)]:
+  - @svelte-put/clickoutside@3.0.1
+
 ## 1.0.3
 
 ### Patch Changes
