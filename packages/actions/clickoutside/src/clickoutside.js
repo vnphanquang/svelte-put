@@ -9,7 +9,7 @@
  * <script lang="ts">
  *  import { clickoutside } from '@svelte-put/clickoutside';
  *
- *  let containerNode: HTMLElement;
+ *  let containerNode: Element;
  *  let modal = false;
  *
  *  function onClickOutside(event: CustomEvent<MouseEvent>) {
@@ -50,7 +50,7 @@
  * <Component use:clickoutside/>
  * ```
  *
- * @param {HTMLElement} node - node outside of which `click` event will trigger `clickoutside`
+ * @param {Element} node - node outside of which `click` event will trigger `clickoutside`
  * @param {import('./public').ClickOutsideParameter} param - instructions for `clickoutside` behavior
  * @returns {import('./public').ClickOutsideActionReturn}
  */

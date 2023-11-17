@@ -9,7 +9,7 @@ declare module '@svelte-put/clickoutside' {
    * <script lang="ts">
    *  import { clickoutside } from '@svelte-put/clickoutside';
    *
-   *  let containerNode: HTMLElement;
+   *  let containerNode: Element;
    *  let modal = false;
    *
    *  function onClickOutside(event: CustomEvent<MouseEvent>) {
@@ -54,13 +54,13 @@ declare module '@svelte-put/clickoutside' {
    * @param param - instructions for `clickoutside` behavior
    * */
   export function clickoutside(
-    node: HTMLElement,
+    node: Element,
     param?: ClickOutsideParameter,
   ): ClickOutsideActionReturn;
 
   export function resolveConfig(param?: ClickOutsideParameter): {
     enabled: boolean;
-    nodeForEvent: Document | HTMLElement;
+    nodeForEvent: Element | Document;
     eventType: string;
     options: boolean | AddEventListenerOptions | undefined;
     capture: boolean | undefined;
@@ -98,7 +98,7 @@ declare module '@svelte-put/clickoutside' {
    */
   interface ClickOutsideLimit {
     /** Click event beyond the `boundingRect` of this parent node will not trigger `clickoutside` */
-    parent: HTMLElement;
+    parent: Element;
   }
 
   /**

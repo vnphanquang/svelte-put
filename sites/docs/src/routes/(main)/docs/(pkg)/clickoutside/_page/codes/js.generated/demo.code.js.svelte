@@ -63,3 +63,8 @@
     </button>
   </div>
 </fieldset>
+
+<svg use:clickoutside>
+  <g use:clickoutside></g>
+  <text use:clickoutside></text>
+</svg>
