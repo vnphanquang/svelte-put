@@ -53,6 +53,16 @@
   <Code code={codes.eventsVsCallback} title="event vs callback" />
 </section>
 
+<section>
+  <h2>Original <code>KeyboardEvent</code></h2>
+  <p>
+    You can access the original <code>KeyboardEvent</code> via <code>detail.originalEvent</code>
+    from <code>ShortcutEventDetail</code>, helpful for things like checking <code>target</code> or
+    invoking <code>preventDefault</code>.
+  </p>
+  <Code code={codes.originalEvent} title="original KeyboardEvent" />
+</section>
+
 <img
   src={endImg}
   alt="mouse click faster"

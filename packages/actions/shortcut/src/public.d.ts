@@ -193,6 +193,8 @@ export interface ShortcutEventDetail {
   node: HTMLElement;
   /** the shortcut trigger of this event */
   trigger: ShortcutTrigger;
+  /** the original `KeyboardEvent`. Helpful to access the event target, for example */
+  originalEvent: KeyboardEvent;
 }
 
 /** @public */

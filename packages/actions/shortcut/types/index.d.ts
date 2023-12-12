@@ -282,6 +282,8 @@ declare module '@svelte-put/shortcut' {
     node: HTMLElement;
     /** the shortcut trigger of this event */
     trigger: ShortcutTrigger;
+    /** the original `KeyboardEvent`. Helpful to access the event target, for example */
+    originalEvent: KeyboardEvent;
   }
 
   type ShortcutActionReturn = ActionReturn<ShortcutParameter, ShortcutAttributes>;

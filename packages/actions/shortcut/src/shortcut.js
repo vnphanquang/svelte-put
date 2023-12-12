@@ -129,7 +129,11 @@ export function shortcut(node, param) {
         if (event.key === key) {
           if (preventDefault) event.preventDefault();
           /** @type {import('./public').ShortcutEventDetail} */
-          const detail = { node, trigger: mergedTrigger };
+          const detail = {
+            node,
+            trigger: mergedTrigger,
+            originalEvent: event,
+          };
           node.dispatchEvent(new CustomEvent('shortcut', { detail }));
           callback?.(detail);
         }
