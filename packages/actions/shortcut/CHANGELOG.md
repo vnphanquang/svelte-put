@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.1.0
+
+### Minor Changes
+
+- [#258](https://github.com/vnphanquang/svelte-put/pull/258) [`9c3dae5`](https://github.com/vnphanquang/svelte-put/commit/9c3dae54138b56db5a9af6343801d877bfc997be) Thanks [@vnphanquang](https://github.com/vnphanquang)! - expose original `KeyboardEvent` in `shortcut` `CustomEvent` detail object
+
 ## 3.0.0
 
 ### Major Changes
