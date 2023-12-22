@@ -4,11 +4,15 @@
 
   function onShortcut(event: CustomEvent<ShortcutEventDetail>) {
     const keyboardEvent = event.detail.originalEvent;
-    keyboardEvent.preventDefault();
+    // be cautious: `keyboardEvent` has already reached window here
+
+    keyboardEvent.preventDefault(); // prevent browser default
+
     if ((keyboardEvent.target as HTMLElement)?.tagName === 'INPUT') {
-      console.log('input focused, shortcut ignored');
+      console.log('some input is focused, should skip');
       return;
     }
+    // do things
   }
 </script>
 

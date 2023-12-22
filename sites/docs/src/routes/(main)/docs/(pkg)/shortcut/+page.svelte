@@ -60,6 +60,14 @@
     from <code>ShortcutEventDetail</code>, helpful for things like checking <code>target</code> or
     invoking <code>preventDefault</code>.
   </p>
+  <p class="c-callout-warning">
+    Be aware that the event listener is placed on the node the action is attached to. For example,
+    if you use the action on <code>svelte:window</code>, calling
+    <code>stopPropagation</code> or <code>preventDefault</code> on <code>originalEvent</code> might
+    not result in the behavior you would expected. By the time the provided <code>callback</code> or
+    <code>on:shortcut</code>
+    event handler executes, the event has already reached <code>window</code>.
+  </p>
   <Code code={codes.originalEvent} title="original KeyboardEvent" />
 </section>
 
