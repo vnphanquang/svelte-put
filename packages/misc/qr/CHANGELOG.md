@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.3
+
+### Patch Changes
+
+- [`0a58955`](https://github.com/vnphanquang/svelte-put/commit/0a589550a792c4489c009fc85ba79cf1714a3670) Thanks [@vnphanquang](https://github.com/vnphanquang)! - correct QRConfig `shape` type docs
+
 ## 1.0.2
 
 ### Patch Changes
