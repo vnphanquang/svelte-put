@@ -220,8 +220,8 @@ importers:
         specifier: workspace:*
         version: link:../../../configs/tsconfig
       '@sveltejs/adapter-auto':
-        specifier: 2.1.1
-        version: 2.1.1(@sveltejs/kit@1.27.3)
+        specifier: 3.1.0
+        version: 3.1.0(@sveltejs/kit@1.27.3)
       '@sveltejs/kit':
         specifier: 1.27.3
         version: 1.27.3(svelte@4.2.2)(vite@4.5.0)
@@ -294,8 +294,8 @@ importers:
         specifier: workspace:*
         version: link:../../../configs/tsconfig
       '@sveltejs/adapter-auto':
-        specifier: 2.1.1
-        version: 2.1.1(@sveltejs/kit@1.27.3)
+        specifier: 3.1.0
+        version: 3.1.0(@sveltejs/kit@1.27.3)
       '@sveltejs/kit':
         specifier: 1.27.3
         version: 1.27.3(svelte@4.2.2)(vite@4.5.0)
@@ -1581,10 +1581,10 @@ packages:
       string-argv: 0.3.2
     dev: true
 
-  /@sveltejs/adapter-auto@2.1.1(@sveltejs/kit@1.27.3):
-    resolution: {integrity: sha512-nzi6x/7/3Axh5VKQ8Eed3pYxastxoa06Y/bFhWb7h3Nu+nGRVxKAy3+hBJgmPCwWScy8n0TsstZjSVKfyrIHkg==}
+  /@sveltejs/adapter-auto@3.1.0(@sveltejs/kit@1.27.3):
+    resolution: {integrity: sha512-igS5hqCwdiXWb8NoWzThKCVQQj9tKgUkbTtzfxBPgSLOyFjkiGNDX0SgCoY2QIUWBqOkfGTOqGlrW5Ynw9oUvw==}
     peerDependencies:
-      '@sveltejs/kit': ^1.0.0
+      '@sveltejs/kit': ^2.0.0
     dependencies:
       '@sveltejs/kit': 1.27.3(svelte@4.2.2)(vite@4.5.0)
       import-meta-resolve: 4.0.0
