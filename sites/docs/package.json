@@ -43,7 +43,7 @@
     "@svelte-put/toc": "workspace:*",
     "@svelte-put/tooltip": "workspace:^",
     "@svelte-put/transitions": "workspace:*",
-    "@sveltejs/adapter-cloudflare": "^2.3.3",
+    "@sveltejs/adapter-cloudflare": "^3.0.0",
     "@sveltejs/kit": "^1.27.3",
     "@tailwindash/triangle": "^1.0.5",
     "@tailwindcss/typography": "^0.5.10",
