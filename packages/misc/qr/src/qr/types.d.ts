@@ -16,7 +16,7 @@ export type QRConfig = {
   /**
    * determine what shape to render the elements
    *
-   * - `rect` (default): each module or anchor is a sharp-edged square
+   * - `square` (default): each module or anchor is a sharp-edged square
    * - `circle`: each module is a circle, each anchor is a round-edged square
    */
   shape?: 'square' | 'circle';

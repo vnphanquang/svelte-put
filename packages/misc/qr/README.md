@@ -49,7 +49,7 @@ Given one of the following usage
 
 The rendered QR will be similar to this:
 
-<img src="./static/qr.svg" width="410" height="410" alt="qr">
+<img src="https://raw.githubusercontent.com/vnphanquang/svelte-put/main/packages/misc/qr/static/qr.svg" width="410" height="410" alt="qr">
 
 ## [Changelog][github.changelog]
 
