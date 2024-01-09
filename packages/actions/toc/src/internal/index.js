@@ -2,9 +2,9 @@ import { ATTRIBUTES } from '../attributes/index.js';
 import { slugify } from '../utils/index.js';
 /**
  * @internal
- * @type {Record<string, import('./internal').TocCacheItem>}
+ * @type {Map<string, import('./internal').TocCacheItem>}
  */
-export const cache = {};
+export const cache = new Map();
 
 /**
  * @internal
@@ -216,7 +216,7 @@ export function processObserve(element, observe, tocId, updateActiveTocItem, obs
       nodeToObserve = element;
       break;
     case 'parent':
-      nodeToObserve = /** @type {HTMLElement */ (element.parentElement);
+      nodeToObserve = /** @type {HTMLElement} */ (element.parentElement);
       break;
   }
   /** @type {number} */
