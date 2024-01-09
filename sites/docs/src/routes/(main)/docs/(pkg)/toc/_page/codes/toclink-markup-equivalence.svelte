@@ -7,9 +7,9 @@
   <!-- ... -->
   <section>
     <h2>Table of Contents</h2>
-    {#if Object.values($tocStore.items).length}
+    {#if $tocStore.items.size}
       <ul>
-        {#each Object.values($tocStore.items) as { id, text }}
+        {#each $tocStore.items.values() as { id, text }}
           <li>
             <a href="#{id}" data-toc-link-active={$tocStore.activeItem?.id === id}>{text}</a>
           </li>

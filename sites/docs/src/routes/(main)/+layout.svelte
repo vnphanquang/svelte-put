@@ -39,6 +39,8 @@
 
   const tocStore = createTocStore();
 
+  $: console.log({ $tocStore, items: $tocStore.items.values() });
+
   $: rColorScheme =
     $page.data.colorScheme === 'system' && browser
       ? getPrefersColorScheme()
@@ -212,10 +214,10 @@
       aria-label="Table of Contents"
     >
       <div class="sidebar-content text-sm">
-        {#if Object.values($tocStore.items).length}
+        {#if $tocStore.items.size}
           <p class="py-2 font-bold uppercase">On This Page</p>
           <ul class="space-y-1 border-l border-border">
-            {#each Object.values($tocStore.items) as tocItem (tocItem.id)}
+            {#each $tocStore.items.values() as tocItem (tocItem.id)}
               {@const level = tocItem.element.tagName.slice(1)}
               <li>
                 <!-- svelte-ignore a11y-missing-attribute -->
