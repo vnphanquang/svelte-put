@@ -198,7 +198,7 @@ export function toc(node, param = {}) {
           new Promise((resolve) => {
             const rObserve = processObserve(element, observe, tocId, change, intersectionObservers);
             if (cached.items.has(tocId)) {
-              const tocItem = /** @type {import("./action").TocItem} */ cached.items.get(tocId);
+              const tocItem = /** @type {import("./action").TocItem} */ (cached.items.get(tocId));
               cached.items.set(tocId, { ...tocItem, observe: rObserve });
             }
 
