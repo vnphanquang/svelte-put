@@ -443,7 +443,7 @@ declare module '@svelte-put/toc' {
    * `event.detail` of `on:tocinit`
    * */
   interface TocInitEventDetail extends TocEventDetail {
-    items: Record<string, TocItem>;
+    items: Map<string, TocItem>;
   }
 
   /**
@@ -509,7 +509,7 @@ declare module '@svelte-put/toc/events' {
    * `event.detail` of `on:tocinit`
    * */
   interface TocInitEventDetail extends TocEventDetail {
-    items: Record<string, TocItem>;
+    items: Map<string, TocItem>;
   }
 
   /**
@@ -588,7 +588,7 @@ declare module '@svelte-put/toc/internal' {
 
   export function findTocRoot(element: HTMLElement, tocId?: string | undefined): Element | null;
 
-  export const cache: Record<string, TocCacheItem>;
+  export const cache: Map<string, TocCacheItem>;
   /**
    * options to config how `toc` action create `IntersectionObserver` for each
    * matching toc element
@@ -763,7 +763,7 @@ declare module '@svelte-put/toc/internal' {
   }
   type TocCacheItem = {
     config: ResolvedTocConfig;
-    items: Record<string, TocItem>;
+    items: Map<string, TocItem>;
     activeTocItemId?: string;
     observeThrottled: boolean;
   };
@@ -837,7 +837,7 @@ declare module '@svelte-put/toc/internal' {
    * `event.detail` of `on:tocinit`
    * */
   interface TocInitEventDetail extends TocEventDetail {
-    items: Record<string, TocItem>;
+    items: Map<string, TocItem>;
   }
 
   /**
@@ -1256,7 +1256,7 @@ declare module '@svelte-put/toc/parameter' {
    * `event.detail` of `on:tocinit`
    * */
   interface TocInitEventDetail extends TocEventDetail {
-    items: Record<string, TocItem>;
+    items: Map<string, TocItem>;
   }
 
   /**
@@ -1494,7 +1494,7 @@ declare module '@svelte-put/toc/store' {
    * `event.detail` of `on:tocinit`
    * */
   interface TocInitEventDetail extends TocEventDetail {
-    items: Record<string, TocItem>;
+    items: Map<string, TocItem>;
   }
 
   /**

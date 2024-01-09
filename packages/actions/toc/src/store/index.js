@@ -28,7 +28,7 @@ export function createTocStore() {
   /** @type {import('svelte/store').Writable<import('./store').TocStoreValue>} */
   const { subscribe, set, update } = writable({
     id,
-    items: {},
+    items: new Map(),
     activeItem: undefined,
   });
   subscribe((state) => (id = state.id));

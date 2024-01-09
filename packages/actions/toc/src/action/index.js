@@ -103,7 +103,7 @@ export function toc(node, param = {}) {
   let mutationObserver;
 
   function change(activeTocItemId = '') {
-    if (!cache[resolved.id].observeThrottled) {
+    if (!cache.get(resolved.id)?.observeThrottled) {
       node.setAttribute(ATTRIBUTES.observeActiveId, activeTocItemId);
     }
   }
@@ -120,10 +120,10 @@ export function toc(node, param = {}) {
               const activeTocItemId = /** @type {HTMLElement} */ (mutation.target).getAttribute(
                 ATTRIBUTES.observeActiveId,
               );
-              const cached = cache[resolved.id];
-              if (activeTocItemId && activeTocItemId !== cached.activeTocItemId) {
+              const cached = cache.get(resolved.id);
+              if (cached && activeTocItemId && activeTocItemId !== cached.activeTocItemId) {
                 cached.activeTocItemId = activeTocItemId;
-                const activeItem = cached.items[activeTocItemId];
+                const activeItem = cached.items.get(activeTocItemId);
                 if (activeItem) {
                   const detail = dispatchChange(node, {
                     activeItem,
@@ -139,8 +139,8 @@ export function toc(node, param = {}) {
               const throttled = /** @type {HTMLElement} */ (mutation.target).getAttribute(
                 ATTRIBUTES.observeThrottled,
               );
-              const cached = cache[resolved.id];
-              if (!cached.observeThrottled && throttled) {
+              const cached = cache.get(resolved.id);
+              if (cached && !cached.observeThrottled && throttled) {
                 cached.observeThrottled = true;
                 clearTimeout(tocObserveThrottleTimeoutId);
                 let ms = parseInt(throttled);
@@ -172,11 +172,11 @@ export function toc(node, param = {}) {
     /** @type {import('../internal/internal').TocCacheItem} */
     const cached = {
       config: resolved,
-      items: {},
+      items: new Map(),
       activeTocItemId: '',
       observeThrottled: false,
     };
-    cache[id] = cached;
+    cache.set(id, cached);
     node.setAttribute(ATTRIBUTES.observeActiveId, '');
     for (const element of elements) {
       if (element.hasAttribute(ATTRIBUTES.ignore)) continue;
@@ -189,7 +189,7 @@ export function toc(node, param = {}) {
       processScrollMarginTop(element, scrollMarginTop);
       const a = processAnchor(element, anchor, tocId);
 
-      cached.items[tocId] = { element, id: tocId, text, anchor: a };
+      cached.items.set(tocId, { element, id: tocId, text, anchor: a });
 
       if (observe.enabled) {
         // process observe async to avoid blocking main thread,
@@ -197,7 +197,11 @@ export function toc(node, param = {}) {
         observePromises.push(
           new Promise((resolve) => {
             const rObserve = processObserve(element, observe, tocId, change, intersectionObservers);
-            cached.items[tocId].observe = rObserve;
+            if (cached.items.has(tocId)) {
+              const tocItem = /** @type {import("./action").TocItem} */ cached.items.get(tocId);
+              cached.items.set(tocId, { ...tocItem, observe: rObserve });
+            }
+
             resolve(rObserve);
           }),
         );

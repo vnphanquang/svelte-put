@@ -13,7 +13,7 @@ export interface TocEventDetail {
  * @public
  */
 export interface TocInitEventDetail extends TocEventDetail {
-  items: Record<string, TocItem>;
+  items: Map<string, TocItem>;
 }
 
 /**

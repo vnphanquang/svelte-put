@@ -6,7 +6,7 @@ import type { ResolvedTocConfig } from '../parameter/parameter.d.ts';
  */
 export type TocCacheItem = {
   config: ResolvedTocConfig;
-  items: Record<string, TocItem>;
+  items: Map<string, TocItem>;
   activeTocItemId?: string;
   observeThrottled: boolean;
 };
