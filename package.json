@@ -24,7 +24,7 @@
     "ci:publish": "pnpm build && changeset publish && pnpm install"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "^0.4.8",
+    "@changesets/changelog-github": "^0.5.0",
     "@changesets/cli": "^2.26.2",
     "@types/node": "^20.9.0",
     "@vnphanquang/eslint-config": "^2.0.0",
@@ -35,7 +35,7 @@
     "postcss-html": "^1.5.0",
     "prettier": "^3.0.0",
     "prettier-plugin-svelte": "^3.0.3",
-    "prettier-plugin-tailwindcss": "^0.4.1",
+    "prettier-plugin-tailwindcss": "^0.5.0",
     "publint": "^0.2.5",
     "simple-git-hooks": "^2.9.0",
     "stylelint": "^15.11.0",
@@ -51,8 +51,8 @@
     "pnpm": ">=8.6.0",
     "node": ">=18.16.0"
   },
-  "packageManager": "pnpm@8.6.10",
+  "packageManager": "pnpm@8.14.1",
   "volta": {
-    "node": "18.17.1"
+    "node": "18.19.0"
   }
 }

@@ -48,7 +48,7 @@
     "@tailwindash/triangle": "^1.0.5",
     "@tailwindcss/typography": "^0.5.10",
     "@types/color": "^3.0.6",
-    "@types/cookie": "^0.5.4",
+    "@types/cookie": "^0.6.0",
     "@types/mustache": "^4.2.5",
     "@types/postcss-mixins": "^9.0.3",
     "autoprefixer": "^10.4.16",
