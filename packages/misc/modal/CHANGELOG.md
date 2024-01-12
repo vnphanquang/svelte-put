@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.6
+
+### Patch Changes
+
+- [`6ca3f6d`](https://github.com/vnphanquang/svelte-put/commit/6ca3f6db55f24d72e7ace4909409a4894839bedd) Thanks [@vnphanquang](https://github.com/vnphanquang)! - re-configure svelte export conditions (warning from vite vite-plugin-svelte) (#266)
+
+- [`d6d2971`](https://github.com/vnphanquang/svelte-put/commit/d6d29716f2ef7fa7fb415f9c340e9200399f2553) Thanks [@vnphanquang](https://github.com/vnphanquang)! - mute a11y & compile warnings for Modal.svelte backdrop (#268)
+
 ## 1.0.5
 
 ### Patch Changes
