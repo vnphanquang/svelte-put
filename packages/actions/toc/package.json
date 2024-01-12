@@ -1,6 +1,6 @@
 {
   "name": "@svelte-put/toc",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "description": "Action & utilities for building table of contents",
   "main": "src/index.js",
   "module": "src/index.js",

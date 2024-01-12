@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.0.0
+
+### Major Changes
+
+- [#270](https://github.com/vnphanquang/svelte-put/pull/270) [`a49ca6c`](https://github.com/vnphanquang/svelte-put/commit/a49ca6ca1065390acfcf6910593b4635407b96c3) Thanks [@nicholascostadev](https://github.com/nicholascostadev)! - [BREAKING] using Map for items instead of POJO for better performance and insertion order preservation (#269)
+
 ## 4.0.0
 
 ### Major Changes
