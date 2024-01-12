@@ -104,6 +104,8 @@
 <slot name="backdrop" class={rClasses.backdrop} onClick={onClickBackdrop}>
   {#if backdrop}
     <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-no-static-element-interactions -->
+    <!-- eslint-disable-next-line svelte/valid-compile -->
     <div class={rClasses.backdrop} on:click={onClickBackdrop} transition:fade={{ duration: 75 }} />
   {/if}
 </slot>
@@ -138,11 +140,7 @@
   :global(:where(.s-modal-backdrop)) {
     position: absolute;
     z-index: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-
+    inset: 0;
     background-color: rgb(17 24 39 / 25%);
   }
 
