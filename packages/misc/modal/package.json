@@ -3,15 +3,28 @@
   "version": "1.0.5",
   "description": "Svelte async modal",
   "type": "module",
-  "svelte": "./dist/index.js",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "exports": {
     "./package.json": "./package.json",
-    "./Modal.svelte": "./dist/Modal.svelte",
-    "./ModalPortal.svelte": "./dist/ModalPortal.svelte",
-    "./modal": "./dist/modal.js",
-    ".": "./dist/index.js"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js",
+      "import": "./dist/index.js"
+    },
+    "./Modal.svelte": {
+      "types": "./dist/Modal.svelte.d.ts",
+      "svelte": "./dist/Modal.svelte"
+    },
+    "./ModalPortal.svelte": {
+      "types": "./dist/ModalPortal.svelte.d.ts",
+      "svelte": "./dist/ModalPortal.svelte"
+    },
+    "./modal": {
+      "types": "./dist/modal.d.ts",
+      "import": "./dist/modal.js",
+      "svelte": "./dist/modal.js"
+    }
   },
   "types": "dist/index.d.ts",
   "typesVersions": {
