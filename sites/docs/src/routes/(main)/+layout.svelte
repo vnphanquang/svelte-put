@@ -39,8 +39,6 @@
 
   const tocStore = createTocStore();
 
-  $: console.log({ $tocStore, items: $tocStore.items.values() });
-
   $: rColorScheme =
     $page.data.colorScheme === 'system' && browser
       ? getPrefersColorScheme()
