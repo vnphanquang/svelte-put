@@ -1,7 +1,7 @@
 <script lang="ts">
   import { clickoutside } from '@svelte-put/clickoutside';
   import { toc, toclink, createTocStore } from '@svelte-put/toc';
-  import { slide } from '@svelte-put/transitions';
+  import { slide } from 'svelte/transition';
   import { fade } from 'svelte/transition';
   import gruvboxDark from 'svelte-highlight/styles/gruvbox-dark-soft';
   import gruvboxLight from 'svelte-highlight/styles/gruvbox-light-soft';

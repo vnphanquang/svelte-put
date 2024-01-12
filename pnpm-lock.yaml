@@ -542,9 +542,6 @@ importers:
       '@svelte-put/tooltip':
         specifier: workspace:^
         version: link:../../packages/actions/tooltip
-      '@svelte-put/transitions':
-        specifier: workspace:*
-        version: link:../../packages/transitions
       '@sveltejs/adapter-cloudflare':
         specifier: ^2.3.3
         version: 2.3.3(@sveltejs/kit@1.27.3)
