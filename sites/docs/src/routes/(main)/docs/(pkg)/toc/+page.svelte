@@ -92,7 +92,7 @@
 <section>
   <h2 id="quick-start">Quick Start</h2>
   <p>
-    Given the following svelte component, let's see how <code>toc</code> does it job.
+    Given the following svelte component, let's see how <code>toc</code> does its job.
   </p>
   <Code code={codes.quickStart.input} title="quick start - input" />
   <p>
