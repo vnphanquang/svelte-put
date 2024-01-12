@@ -130,9 +130,9 @@ declare module '@svelte-put/toc' {
    *
    * <main use:toc={{ store: tocStore, observe: true }}>
    *   ...
-   *   {#if Object.values($tocStore.items).length}
+   *   {#if $tocStore.items.size}
    *    <ul>
-   *      {#each Object.values($tocStore.items) as tocItem}
+   *      {#each $tocStore.items.values() as tocItem}
    *        <li>
    *          <!-- svelte-ignore a11y-missing-attribute -->
    *          <a use:toclink={{
@@ -423,17 +423,17 @@ declare module '@svelte-put/toc' {
       /** the `IntersectionObserver` instance watching this `element`, */
       observer: IntersectionObserver;
       /** the resolved toc strategy used for this matching element */
-      strategy: TocObserveParameters['strategy'];
+      strategy: TocObserveConfig['strategy'];
       /** the resolved toc threshold used for this matching element */
-      threshold: TocObserveParameters['threshold'];
+      threshold: TocObserveConfig['threshold'];
       /** the element that was observed by `IntersectionObserver` */
       element: HTMLElement;
     };
   }
 
-  type TocActionReturn = ActionReturn<TocParameters, TocEventAttributes>;
+  type TocActionReturn = ActionReturn<TocParameter, TocEventAttributes>;
 
-  type TocLinkActionReturn = ActionReturn<TocLinkParameters>;
+  type TocLinkActionReturn = ActionReturn<TocLinkParameter>;
   interface TocEventDetail {
     /** the ID of this toc operation. see {@link TocParameters} */
     id: string;
@@ -547,12 +547,52 @@ declare module '@svelte-put/toc/events' {
       /** the `IntersectionObserver` instance watching this `element`, */
       observer: IntersectionObserver;
       /** the resolved toc strategy used for this matching element */
-      strategy: TocObserveParameters['strategy'];
+      strategy: TocObserveConfig['strategy'];
       /** the resolved toc threshold used for this matching element */
-      threshold: TocObserveParameters['threshold'];
+      threshold: TocObserveConfig['threshold'];
       /** the element that was observed by `IntersectionObserver` */
       element: HTMLElement;
     };
+  }
+  /**
+   * options to config how `toc` action create `IntersectionObserver` for each
+   * matching toc element
+   * */
+  interface TocObserveConfig extends Omit<IntersectionObserverInit, 'threshold'> {
+    /**
+     * whether to add `IntersectionObserver` to each matching toc element
+     * to track active active element in the viewport.
+     * Default to: `true`
+     */
+    enabled?: boolean;
+    /**
+     * strategy to observe matching toc elements.
+     *
+     * - `'parent'` — observe the parent element of the matching toc element
+     *
+     * - `'self'` — observe the matching toc element itself
+     *
+     * - `'auto'` — attempt to compare matching toc element & its parent `offsetHeight` with
+     * `window.innerHeight` to determine the best strategy.
+     *
+     * Default to: `auto`
+     *
+     * @remarks
+     *
+     * Alternatively, this can be override per element by setting the `data-toc-strategy` attribute
+     * on that element.
+     */
+    strategy?: 'parent' | 'self' | 'auto';
+    /**
+     * threshold passed to `IntersectionObserver`.
+     * Default to: `(element) => Math.min((0.8 * window.innerHeight) / element.offsetHeight, 1)`
+     *
+     * @remarks
+     *
+     * Alternatively, `data-toc-threshold` (number) attribute can be set on
+     * the matching toc element
+     */
+    threshold?: number | ((element: HTMLElement) => number);
   }
 }
 
@@ -754,9 +794,9 @@ declare module '@svelte-put/toc/internal' {
       /** the `IntersectionObserver` instance watching this `element`, */
       observer: IntersectionObserver;
       /** the resolved toc strategy used for this matching element */
-      strategy: TocObserveParameters['strategy'];
+      strategy: TocObserveConfig['strategy'];
       /** the resolved toc threshold used for this matching element */
-      threshold: TocObserveParameters['threshold'];
+      threshold: TocObserveConfig['threshold'];
       /** the element that was observed by `IntersectionObserver` */
       element: HTMLElement;
     };
@@ -1240,9 +1280,9 @@ declare module '@svelte-put/toc/parameter' {
       /** the `IntersectionObserver` instance watching this `element`, */
       observer: IntersectionObserver;
       /** the resolved toc strategy used for this matching element */
-      strategy: TocObserveParameters['strategy'];
+      strategy: TocObserveConfig['strategy'];
       /** the resolved toc threshold used for this matching element */
-      threshold: TocObserveParameters['threshold'];
+      threshold: TocObserveConfig['threshold'];
       /** the element that was observed by `IntersectionObserver` */
       element: HTMLElement;
     };
@@ -1532,9 +1572,9 @@ declare module '@svelte-put/toc/store' {
       /** the `IntersectionObserver` instance watching this `element`, */
       observer: IntersectionObserver;
       /** the resolved toc strategy used for this matching element */
-      strategy: TocObserveParameters['strategy'];
+      strategy: TocObserveConfig['strategy'];
       /** the resolved toc threshold used for this matching element */
-      threshold: TocObserveParameters['threshold'];
+      threshold: TocObserveConfig['threshold'];
       /** the element that was observed by `IntersectionObserver` */
       element: HTMLElement;
     };

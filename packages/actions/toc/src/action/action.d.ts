@@ -2,9 +2,9 @@ import { Action, ActionReturn } from 'svelte/action';
 
 import type { TocEventAttributes } from '../attributes/attributes.d.ts';
 import type {
-  TocLinkParameters,
-  TocObserveParameters,
-  TocParameters,
+  TocLinkParameter,
+  TocObserveConfig,
+  TocParameter,
 } from '../parameter/parameter.d.ts';
 
 /**
@@ -37,20 +37,20 @@ export interface TocItem {
     /** the `IntersectionObserver` instance watching this `element`, */
     observer: IntersectionObserver;
     /** the resolved toc strategy used for this matching element */
-    strategy: TocObserveParameters['strategy'];
+    strategy: TocObserveConfig['strategy'];
     /** the resolved toc threshold used for this matching element */
-    threshold: TocObserveParameters['threshold'];
+    threshold: TocObserveConfig['threshold'];
     /** the element that was observed by `IntersectionObserver` */
     element: HTMLElement;
   };
 }
 
 /** @public */
-export type TocAction = Action<HTMLElement, TocParameters, TocEventAttributes>;
+export type TocAction = Action<HTMLElement, TocParameter, TocEventAttributes>;
 /** @public */
-export type TocActionReturn = ActionReturn<TocParameters, TocEventAttributes>;
+export type TocActionReturn = ActionReturn<TocParameter, TocEventAttributes>;
 
 /** @public */
-export type TocLinkAction = Action<HTMLAnchorElement, TocLinkParameters>;
+export type TocLinkAction = Action<HTMLAnchorElement, TocLinkParameter>;
 /** @public */
-export type TocLinkActionReturn = ActionReturn<TocLinkParameters>;
+export type TocLinkActionReturn = ActionReturn<TocLinkParameter>;

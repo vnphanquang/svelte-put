@@ -1,6 +1,6 @@
 <script lang="ts">
   import { ATTRIBUTES } from '@svelte-put/toc/attributes';
-  import typescript from 'svelte-highlight/languages/typescript';
+  import diff from 'svelte-highlight/languages/diff';
 
   import ApiUnitReference from '$client/components/ApiUnitReference/ApiUnitReference.svelte';
   import Code from '$client/components/Code/Code.svelte';
@@ -30,6 +30,16 @@
 </section>
 
 <Installation pkg={data.package.name} />
+
+<section>
+  <h2>Migration Guide</h2>
+  <p>
+    In version 5, the <code>items</code> property of <code>TocStore</code>
+    and <code>TocInitEventDetail</code> is now a <ResourceLink href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map">Map</ResourceLink>
+    instead of a plain object as in version 4, enabling better performance and preserving order of collected toc elements.
+  </p>
+  <Code code={codes.migration.itemsMap} title="Migration: items from Object to Map" lang={diff} />
+</section>
 
 <section>
   <h2>Introduction</h2>

@@ -1,6 +1,7 @@
 import dataAttributes from './data-attributes.d.ts?raw';
 import eventsTs from './events.code.svelte?raw';
 import eventsJs from './js.generated/events.code.js.svelte?raw';
+import migrationItemsMap from './migration-items-map.svelte?raw';
 import quickStartInput from './quick-start-input.svelte?raw';
 import quickStartOutput from './quick-start-output.svelte?raw';
 import tocLinkMarkupEquivalence from './toclink-markup-equivalence.svelte?raw';
@@ -12,6 +13,9 @@ ${caveatFlat}
 </section>`;
 
 export const codes = {
+  migration: {
+    itemsMap: migrationItemsMap,
+  },
   quickStart: {
     input: quickStartInput,
     output: quickStartOutput,
