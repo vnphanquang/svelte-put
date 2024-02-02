@@ -51,7 +51,9 @@ export function turnstile(node) {
           node.getAttribute('turnstile-theme')
         ) ?? undefined,
       language: node.getAttribute('turnstile-language') ?? undefined,
-      tabindex: parseInt(node.getAttribute('turnstile-tabindex') ?? '0'),
+      tabindex: node.hasAttribute('turnstile-tabindex')
+        ? parseInt(node.getAttribute('turnstile-tabindex') || '0') || 0
+        : undefined,
       'response-field': node.hasAttribute('turnstile-response-field'),
       'response-field-name': node.getAttribute('turnstile-response-field-name') ?? undefined,
       size:
@@ -62,7 +64,9 @@ export function turnstile(node) {
         /** @type {import('./public').TurnstileConfig['retry']} */ (
           node.getAttribute('turnstile-retry')
         ) ?? undefined,
-      'retry-interval': parseInt(node.getAttribute('turnstile-retry-interval') ?? '0'),
+      'retry-interval': node.hasAttribute('turnstile-retry-interval')
+        ? parseInt(node.getAttribute('turnstile-retry-interval') || '8000') || 8000
+        : undefined,
       'refresh-expired':
         /** @type {import('./public').TurnstileConfig['refresh-expired']} */ (
           node.getAttribute('turnstile-refresh-expired')
