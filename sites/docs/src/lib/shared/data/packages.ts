@@ -27,6 +27,20 @@ export const packages = {
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/clickoutside/CHANGELOG.md',
   },
+  'cloudflare-turnstile': {
+    id: 'cloudflare-turnstile',
+    name: '@svelte-put/cloudflare-turnstile',
+    publishedAt: 1706788671789,
+    description: 'action for rendering Cloudflare turnstile into HTML node',
+    path: APP_ROUTE_TREE.docs['cloudflare-turnstile'].$.path(),
+    replId: '',
+    status: 'dev',
+    ready: false,
+    githubUrl:
+      'https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/cloudflare-turnstile',
+    changelogUrl:
+      'https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/cloudflare-turnstile/CHANGELOG.md',
+  },
   copy: {
     id: 'copy',
     name: '@svelte-put/copy',
@@ -166,7 +180,7 @@ export const packages = {
     description: 'render QR as img or svg, optionally with logo',
     path: APP_ROUTE_TREE.docs.qr.$.path(),
     replId: '74c053b447e94244833f9c3d73210ae5',
-    status: 'new',
+    status: 'stable',
     ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/misc/qr',
     changelogUrl:

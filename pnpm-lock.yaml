@@ -95,6 +95,15 @@ importers:
         specifier: ^0.4.0
         version: 0.4.0(typescript@5.2.2)
 
+  packages/actions/cloudflare-turnstile:
+    devDependencies:
+      '@svelte-put/tsconfig':
+        specifier: workspace:*
+        version: link:../../../configs/tsconfig
+      dts-buddy:
+        specifier: ^0.4.0
+        version: 0.4.0(typescript@5.2.2)
+
   packages/actions/copy:
     devDependencies:
       '@svelte-put/tsconfig':
@@ -466,6 +475,9 @@ importers:
       '@svelte-put/clickoutside':
         specifier: workspace:*
         version: link:../../packages/actions/clickoutside
+      '@svelte-put/cloudflare-turnstile':
+        specifier: workspace:^
+        version: link:../../packages/actions/cloudflare-turnstile
       '@svelte-put/copy':
         specifier: workspace:*
         version: link:../../packages/actions/copy

@@ -22,6 +22,7 @@ Useful svelte stuff to put in your projects
 | ----------------------------------------------------------------- | ------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------- | ------------------------------------------- |
 | [@svelte-put/avatar][github.avatar]                               | component & utilities for avatar                  | [![npm.avatar.badge]][npm.avatar]                               | [Changelog][github.avatar.changelog]                | [![docs.badge]][docs.avatar]                |
 | [@svelte-put/clickoutside][github.clickoutside]                   | event for clicking outside node                   | [![npm.clickoutside.badge]][npm.clickoutside]                   | [Changelog][github.clickoutside.changelog]          | [![docs.badge]][docs.clickoutside]          |
+| [@svelte-put/cloudflare-turnstile][github.cloudflare-turnstile]   | event for clicking outside node                   | [![npm.cloudflare-turnstile.badge]][npm.cloudflare-turnstile]   | [Changelog][github.cloudflare-turnstile.changelog]  | [![docs.badge]][docs.cloudflare-turnstile]  |
 | [@svelte-put/copy][github.copy]                                   | copy text to clipboard                            | [![npm.copy.badge]][npm.copy]                                   | [Changelog][github.copy.changelog]                  | [![docs.badge]][docs.copy]                  |
 | [@svelte-put/dragscroll][github.dragscroll]                       | add drag-to-scroll behavior                       | [![npm.dragscroll.badge]][npm.dragscroll]                       | [Changelog][github.dragscroll.changelog]            | [![docs.badge]][docs.dragscroll]            |
 | [@svelte-put/intersect][github.intersect]                         | wrapper for IntersectionObserver                  | [![npm.intersect.badge]][npm.intersect]                         | [Changelog][github.intersect.changelog]             | [![docs.badge]][docs.intersect]             |
@@ -68,6 +69,8 @@ pnpm turbo
 [github.avatar.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/misc/avatar/CHANGELOG.md
 [github.clickoutside]: https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/clickoutside
 [github.clickoutside.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/clickoutside/CHANGELOG.md
+[github.cloudflare-turnstile]: https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/cloudflare-turnstile
+[github.cloudflare-turnstile.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/cloudflare-turnstile/CHANGELOG.md
 [github.copy]: https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/copy
 [github.copy.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/actions/copy/CHANGELOG.md
 [github.dragscroll]: https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/dragscroll
@@ -114,6 +117,8 @@ pnpm turbo
 [npm.avatar]: https://www.npmjs.com/package/@svelte-put/avatar
 [npm.clickoutside.badge]: https://img.shields.io/npm/v/@svelte-put/clickoutside
 [npm.clickoutside]: https://www.npmjs.com/package/@svelte-put/clickoutside
+[npm.cloudflare-turnstile.badge]: https://img.shields.io/npm/v/@svelte-put/cloudflare-turnstile
+[npm.cloudflare-turnstile]: https://www.npmjs.com/package/@svelte-put/cloudflare-turnstile
 [npm.copy.badge]: https://img.shields.io/npm/v/@svelte-put/copy
 [npm.copy]: https://www.npmjs.com/package/@svelte-put/copy
 [npm.dragscroll.badge]: https://img.shields.io/npm/v/@svelte-put/dragscroll
@@ -154,6 +159,7 @@ pnpm turbo
 [docs]: https://svelte-put.vnphanquang.com
 [docs.avatar]: https://svelte-put.vnphanquang.com/docs/avatar
 [docs.clickoutside]: https://svelte-put.vnphanquang.com/docs/clickoutside
+[docs.cloudflare-turnstile]: https://svelte-put.vnphanquang.com/docs/cloudflare-turnstile
 [docs.copy]: https://svelte-put.vnphanquang.com/docs/copy
 [docs.dragscroll]: https://svelte-put.vnphanquang.com/docs/dragscroll
 [docs.intersect]: https://svelte-put.vnphanquang.com/docs/intersect

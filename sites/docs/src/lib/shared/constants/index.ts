@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { tBuild } from 'static-tree';
 
 export const { node: APP_ROUTE_TREE } = tBuild('APP_ROUTE_TREE', {
@@ -13,6 +14,7 @@ export const { node: APP_ROUTE_TREE } = tBuild('APP_ROUTE_TREE', {
             // packages
             .addChild('avatar')
             .addChild('clickoutside')
+            .addChild('cloudflare-turnstile')
             .addChild('copy')
             .addChild('dragscroll')
             .addChild('inlineSvg', {
