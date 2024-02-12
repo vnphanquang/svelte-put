@@ -133,32 +133,46 @@ export function movable(node, param = { enabled: true }) {
    * @param {PointerEvent} event
    */
   function move(event) {
+    const nodeBoundingRect = node.getBoundingClientRect();
+
+    // TODO: perhaps can improve perf by doing this earlier outside move (on 'resize'??)
+    /** @type {number | undefined} */
+    let boundX = undefined;
+    if (normalizedDelta.x) {
+      switch (normalizedDelta.x?.unit) {
+        case '%':
+          boundX = (normalizedDelta.x.value * nodeBoundingRect.width) / 100;
+          break;
+        case 'px':
+          boundX = normalizedDelta.x.value;
+          break;
+      }
+    }
+
+    /** @type {number | undefined} */
+    let boundY = undefined;
+    if (normalizedDelta.y) {
+      switch (normalizedDelta.y.unit) {
+        case '%':
+          boundY = (normalizedDelta.y.value * nodeBoundingRect.height) / 100;
+          break;
+        case 'px':
+          boundY = normalizedDelta.y.value;
+          break;
+      }
+    }
+
     const Δx = event.clientX - lastMousePosition.x;
     const Δy = event.clientY - lastMousePosition.y;
     updateLastMousePosition(event);
 
-    let top = lastNodePosition.top + Δy;
-    let left = lastNodePosition.left + Δx;
-
-    const nodeBoundingRect = node.getBoundingClientRect();
-    let boundX = 0;
-    switch (normalizedDelta.x.unit) {
-      case '%':
-        boundX = (normalizedDelta.x.value * nodeBoundingRect.width) / 100;
-        break;
-      case 'px':
-        boundX = normalizedDelta.x.value;
-        break;
+    let left = lastNodePosition.left;
+    if (boundX !== 0) {
+      left += Δx;
     }
-
-    let boundY = 0;
-    switch (normalizedDelta.y.unit) {
-      case '%':
-        boundY = (normalizedDelta.y.value * nodeBoundingRect.height) / 100;
-        break;
-      case 'px':
-        boundY = normalizedDelta.y.value;
-        break;
+    let top = lastNodePosition.top;
+    if (boundY !== 0) {
+      top += Δy;
     }
 
     if (parent) {
@@ -175,47 +189,65 @@ export function movable(node, param = { enabled: true }) {
         insideBoundingRect = parent.getBoundingClientRect();
       }
 
-      const newAbsTop = nodeBoundingRect.top + Δy + boundY;
-      if (newAbsTop < insideBoundingRect.top) {
-        top += insideBoundingRect.top - newAbsTop;
-      } else {
-        const newAbsBottom = nodeBoundingRect.bottom + Δy - boundY;
-        if (newAbsBottom > insideBoundingRect.bottom) {
-          top -= newAbsBottom - insideBoundingRect.bottom;
+      if (boundX !== 0) {
+        const rBoundX = boundX ?? 0;
+        const newAbsLeft = nodeBoundingRect.left + Δx + rBoundX;
+        if (newAbsLeft < insideBoundingRect.left) {
+          // out of bound from the left
+          left += insideBoundingRect.left - newAbsLeft;
+        } else {
+          const newAbsRight = nodeBoundingRect.right + Δx - rBoundX;
+          if (newAbsRight > insideBoundingRect.right) {
+            // out of bound from the right
+            left -= newAbsRight - insideBoundingRect.right;
+          }
         }
       }
 
-      const newAbsLeft = nodeBoundingRect.left + Δx + boundX;
-      if (newAbsLeft < insideBoundingRect.left) {
-        left += insideBoundingRect.left - newAbsLeft;
-      } else {
-        const newAbsRight = nodeBoundingRect.right + Δx - boundX;
-        if (newAbsRight > insideBoundingRect.right) {
-          left -= newAbsRight - insideBoundingRect.right;
+      if (boundY !== 0) {
+        const rBoundY = boundY ?? 0;
+        const newAbsTop = nodeBoundingRect.top + Δy + rBoundY;
+        if (newAbsTop < insideBoundingRect.top) {
+          // out of bound from the top
+          top += insideBoundingRect.top - newAbsTop;
+        } else {
+          const newAbsBottom = nodeBoundingRect.bottom + Δy - rBoundY;
+          if (newAbsBottom > insideBoundingRect.bottom) {
+            // out of bound from the bottom
+            top -= newAbsBottom - insideBoundingRect.bottom;
+          }
         }
       }
     } else {
-      if (boundX > 0) {
+      if (boundX) {
         const newΣΔx = ΣΔx + left - lastNodePosition.left;
         if (newΣΔx > boundX) {
+          // out of bound from the right
           left -= newΣΔx - boundX;
         } else if (newΣΔx < -boundX) {
+          // out of bound from the left
           left -= newΣΔx + boundX;
         }
       }
 
-      if (boundY > 0) {
+      if (boundY) {
         const newΣΔy = ΣΔy + top - lastNodePosition.top;
         if (newΣΔy > boundY) {
+          // out of bound from the top
           top -= newΣΔy - boundY;
         } else if (newΣΔy < -boundY) {
+          // out of bound from the bottom
           top -= newΣΔy + boundY;
         }
       }
     }
 
-    node.style.left = `${left}px`;
-    node.style.top = `${top}px`;
+    if (left !== lastNodePosition.left) {
+      node.style.left = `${left}px`;
+    }
+    if (top !== lastNodePosition.top) {
+      node.style.top = `${top}px`;
+    }
 
     ΣΔx += left - lastNodePosition.left;
     ΣΔy += top - lastNodePosition.top;
@@ -352,48 +384,77 @@ export function movable(node, param = { enabled: true }) {
  * @internal
  *
  * @param {import('./public').MovableLimit['delta']} delta - MovableLimit to normalize
- * @returns {{ x: NormalizedLimit, y: NormalizedLimit }}
+ * @returns {{ x?: NormalizedLimit, y?: NormalizedLimit }}
  */
 export function normalizeDelta(delta) {
-  /** @type {NormalizedLimit} */
-  const x = { unit: 'px', value: 0 };
-  /** @type {NormalizedLimit} */
-  const y = { unit: 'px', value: 0 };
-
-  /**
-   *
-   * @param {string} text
-   * @param {Axis | undefined} axis
-   * @returns {SpacingUnit}
-   */
-  function extractUnit(text, axis = undefined) {
-    /** @type {SpacingUnit} */
-    let unit = 'px';
-    if (text.slice(-1) === '%') {
-      unit = '%';
-    } else if (text.slice(-2) === 'px') {
-      unit = 'px';
-    } else {
-      throw new Error(`Invalid delta ${axis ?? ''} unit. Only 'px' and '%' are supported.`);
-    }
-    return unit;
-  }
+  /** @type {NormalizedLimit | undefined} */
+  // const x = { unit: 'px', value: 0 };
+  let x = undefined;
+  /** @type {NormalizedLimit | undefined} */
+  // const y = { unit: 'px', value: 0 };
+  let y = undefined;
 
   if (delta) {
-    if (typeof delta === 'string') {
-      x.unit = y.unit = extractUnit(delta);
-      x.value = y.value = parseInt(delta, 10);
-      x.value = y.value = parseInt(delta.slice(0, -1));
+    if (typeof delta === 'number') {
+      x = y = {
+        unit: 'px',
+        value: 0,
+      };
+    } else if (typeof delta === 'string') {
+      x = y = {
+        unit: extractUnit(delta),
+        value: parseInt(delta, 10),
+      };
     } else {
-      x.unit = extractUnit(delta.x, 'x');
-      x.value = parseInt(delta.x.slice(0, -1));
+      if (delta.x === 0) {
+        x = {
+          unit: 'px',
+          value: 0,
+        };
+      } else if (delta.x !== undefined) {
+        x = {
+          unit: extractUnit(delta.x, 'x'),
+          value: parseInt(delta.x, 10),
+        };
+      }
 
-      y.unit = extractUnit(delta.y, 'y');
-      y.value = parseInt(delta.y.slice(0, -1));
+      if (delta.y === 0) {
+        y = {
+          unit: 'px',
+          value: 0,
+        };
+      } else if (delta.y !== undefined) {
+        y = {
+          unit: extractUnit(delta.y, 'y'),
+          value: parseInt(delta.y, 10),
+        };
+      }
     }
   }
 
   return { x, y };
+}
+
+/**
+ * @internal
+ * @param {string} text
+ * @param {Axis | undefined} axis
+ * @returns {SpacingUnit}
+ */
+function extractUnit(text, axis = undefined) {
+  /** @type {SpacingUnit} */
+  let unit = 'px';
+  if (text === '0') {
+    unit = 'px';
+  }
+  if (text.slice(-1) === '%') {
+    unit = '%';
+  } else if (text.slice(-2) === 'px') {
+    unit = 'px';
+  } else {
+    throw new Error(`Invalid delta ${axis ?? ''} unit. Only 'px' and '%' are supported.`);
+  }
+  return unit;
 }
 
 /**

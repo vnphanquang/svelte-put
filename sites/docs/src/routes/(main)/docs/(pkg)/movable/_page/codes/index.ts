@@ -3,6 +3,7 @@ import ignore from './ignore.svelte?raw';
 import limitAncestor from './limit.ancestor.svelte?raw';
 import limitDelta from './limit.delta.svelte?raw';
 import limitScreen from './limit.screen.svelte?raw';
+import singleAxis from './limit.singleAxis.svelte?raw';
 import quickStart from './quickStart.svelte?raw';
 
 export const codes = {
@@ -22,6 +23,11 @@ export const codes = {
 <div use:movable={{ limit: { delta: '250px' } }} />
 <div use:movable={{ limit: { delta: { x: '20%', y: '100px' } } }} />`,
       example: limitDelta,
+    },
+    singleAxis: {
+      instruction: `<div use:movable={{ limit: { x: 0 } }} />
+<div use:movable={{ limit: { delta: { y: 0 } } }} />`,
+      example: singleAxis,
     },
   },
   handle: {

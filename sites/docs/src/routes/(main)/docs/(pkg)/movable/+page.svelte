@@ -11,6 +11,7 @@
   import LimitAncestor from './_page/codes/limit.ancestor.svelte';
   import LimitDelta from './_page/codes/limit.delta.svelte';
   import LimitScreen from './_page/codes/limit.screen.svelte';
+  import LimitSingleAxis from './_page/codes/limit.singleAxis.svelte';
   import QuickStart from './_page/codes/quickStart.svelte';
 
   export let data: PageData;
@@ -102,6 +103,30 @@
       </div>
     </div>
     <Code code={codes.limit.delta.example} title="delta limit - example source" expanded={false} />
+  </section>
+
+  <section>
+    <h3>Limit to Single Axis</h3>
+    <p>
+      Set <code>limit.delta.x</code> or <code>limit.delta.y</code> to <code>0</code> to effectively disable
+      movement in that axis.
+    </p>
+    <Code code={codes.limit.singleAxis.instruction} title="limit to single axis" />
+    <div class="grid place-items-center border-2 border-violet-500 p-4">
+      <p class="text-center">
+        Box below can be moved around only in the x axis, combined with a delta limit of <code
+          >±100%</code
+        > (of box width).
+      </p>
+      <div class="p-20">
+        <LimitSingleAxis />
+      </div>
+    </div>
+    <Code
+      code={codes.limit.singleAxis.example}
+      title="single axis - example source"
+      expanded={false}
+    />
   </section>
 </section>
 

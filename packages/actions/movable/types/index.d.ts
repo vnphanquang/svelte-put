@@ -106,8 +106,8 @@ declare module '@svelte-put/movable' {
    * @param delta - MovableLimit to normalize
    * */
   export function normalizeDelta(delta: MovableLimit['delta']): {
-    x: NormalizedLimit;
-    y: NormalizedLimit;
+    x?: NormalizedLimit | undefined;
+    y?: NormalizedLimit | undefined;
   };
 
   export function input(
@@ -117,8 +117,8 @@ declare module '@svelte-put/movable' {
     enabled: boolean;
     parent: HTMLElement | 'screen' | undefined;
     normalizedDelta: {
-      x: NormalizedLimit;
-      y: NormalizedLimit;
+      x?: NormalizedLimit | undefined;
+      y?: NormalizedLimit | undefined;
     };
     handle: HTMLElement;
     ignore: string;
@@ -203,7 +203,7 @@ declare module '@svelte-put/movable' {
    *
    * ```
    */
-  type MovableLimitDelta = `${number}px` | `${number}%`;
+  type MovableLimitDelta = `${number}px` | `${number}%` | 0;
 
   /**
    * The limit within which node can be moved
@@ -218,8 +218,8 @@ declare module '@svelte-put/movable' {
      */
     delta?:
       | {
-          x: MovableLimitDelta;
-          y: MovableLimitDelta;
+          x?: MovableLimitDelta;
+          y?: MovableLimitDelta;
         }
       | MovableLimitDelta;
   }

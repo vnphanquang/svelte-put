@@ -66,7 +66,7 @@ export interface MovableAttributes {
  *
  * ```
  */
-export type MovableLimitDelta = `${number}px` | `${number}%`;
+export type MovableLimitDelta = `${number}px` | `${number}%` | 0;
 
 /**
  * The limit within which node can be moved
@@ -82,8 +82,8 @@ export interface MovableLimit {
    */
   delta?:
     | {
-        x: MovableLimitDelta;
-        y: MovableLimitDelta;
+        x?: MovableLimitDelta;
+        y?: MovableLimitDelta;
       }
     | MovableLimitDelta;
 }
