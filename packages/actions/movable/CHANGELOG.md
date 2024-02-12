@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.2.0
+
+### Minor Changes
+
+- [`22cfa9a`](https://github.com/vnphanquang/svelte-put/commit/22cfa9aef74c3bfbd4dcf3d5006427dd0ad6e0f3) Thanks [@vnphanquang](https://github.com/vnphanquang)! - support limit movement to a single axis (setting `limit.delta[axis]` to `0` or `'0px'`)
+
 ## 3.1.0
 
 ### Minor Changes
