@@ -50,5 +50,5 @@ export default {
 		'custom-property-empty-line-before': null,
 		'comment-empty-line-before': null,
 	},
-	ignoreFiles: ['**/app.html', '**/*.template.html', '**/*.md.svelte'],
+	ignoreFiles: ['**/app.html', '**/*.template.html', '**/*.md.svelte', 'dist/**/*'],
 };
