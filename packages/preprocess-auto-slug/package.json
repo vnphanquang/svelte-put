@@ -1,0 +1,61 @@
+{
+	"name": "@svelte-put/preprocess-auto-slug",
+	"version": "1.0.1",
+	"description": "Generate slug from text content, to add id to headings for example",
+	"main": "dist/index.js",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.js"
+		}
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"lint": "eslint . --ignore-path=\"../../.eslintignore\"",
+		"format": "prettier --ignore-path ../../.prettierignore --write .",
+		"build": "tsup"
+	},
+	"keywords": [
+		"svelte",
+		"preprocess",
+		"heading",
+		"id",
+		"tag",
+		"link",
+		"slug"
+	],
+	"author": {
+		"email": "vnphanquang@gmail.com",
+		"name": "Quang Phan",
+		"url": "https://github.com/vnphanquang"
+	},
+	"license": "MIT",
+	"homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocess-auto-slug",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/vnphanquang/svelte-put.git",
+		"directory": "packages/preprocess-auto-slug"
+	},
+	"bugs": {
+		"url": "https://github.com/vnphanquang/svelte-put/issues"
+	},
+	"devDependencies": {
+		"@types/estree": "^1.0.5",
+		"tsup": "^7.2.0"
+	},
+	"peerDependencies": {
+		"svelte": "^3.55.0 || ^4.0.0"
+	},
+	"dependencies": {
+		"github-slugger": "^2.0.0",
+		"magic-string": "^0.30.5",
+		"svelte-parse-markup": "^0.1.2"
+	}
+}
