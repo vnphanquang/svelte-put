@@ -1,0 +1,57 @@
+{
+	"name": "@svelte-put/shortcut",
+	"version": "3.1.0",
+	"description": "Action to move node on mousedown & mousemove",
+	"main": "src/index.js",
+	"module": "src/index.js",
+	"types": "types/index.d.ts",
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./types/index.d.ts",
+			"import": "./src/index.js"
+		}
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"files": [
+		"src",
+		"types"
+	],
+	"scripts": {
+		"lint": "eslint . --ignore-path=\"../../.eslintignore\"",
+		"format": "prettier --ignore-path ../../.prettierignore --write .",
+		"dts": "dts-buddy --write && publint",
+		"prepublishOnly": "pnpm dts"
+	},
+	"keywords": [
+		"svelte",
+		"action",
+		"keyboard",
+		"shortcut",
+		"keydown",
+		"keyup"
+	],
+	"author": {
+		"email": "vnphanquang@gmail.com",
+		"name": "Quang Phan",
+		"url": "https://github.com/vnphanquang"
+	},
+	"license": "MIT",
+	"homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/shortcut",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/vnphanquang/svelte-put.git",
+		"directory": "packages/shortcut"
+	},
+	"bugs": {
+		"url": "https://github.com/vnphanquang/svelte-put/issues"
+	},
+	"devDependencies": {
+		"@internals/tsconfig": "workspace:*"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	}
+}
