@@ -25,6 +25,20 @@
 		"dts": "dts-buddy --write && publint",
 		"prepublishOnly": "pnpm dts"
 	},
+	"keywords": [
+		"svelte",
+		"action",
+		"copy",
+		"clipboard",
+		"text"
+	],
+	"author": {
+		"email": "vnphanquang@gmail.com",
+		"name": "Quang Phan",
+		"url": "https://github.com/vnphanquang"
+	},
+	"license": "MIT",
+	"homepage": "https://svelte-put.vnphanquang.com/docs/copy",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/vnphanquang/svelte-put.git",
@@ -33,16 +47,6 @@
 	"bugs": {
 		"url": "https://github.com/vnphanquang/svelte-put/issues"
 	},
-	"keywords": [
-		"svelte",
-		"action",
-		"copy",
-		"clipboard",
-		"text"
-	],
-	"author": "Quang Phan",
-	"license": "MIT",
-	"homepage": "https://svelte-put.vnphanquang.com/docs/copy",
 	"devDependencies": {
 		"@internals/tsconfig": "workspace:*"
 	}
