@@ -68,6 +68,9 @@ importers:
       stylelint-config-standard:
         specifier: ^36.0.0
         version: 36.0.0(stylelint@16.2.1)
+      svelte:
+        specifier: ^4.2.11
+        version: 4.2.11
       tslib:
         specifier: ^2.6.2
         version: 2.6.2
@@ -81,6 +84,12 @@ importers:
   internals/tsconfig: {}
 
   packages/clickoutside:
+    devDependencies:
+      '@internals/tsconfig':
+        specifier: workspace:*
+        version: link:../../internals/tsconfig
+
+  packages/cloudflare-turnstile:
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
