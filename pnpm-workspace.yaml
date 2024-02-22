@@ -1,8 +1,0 @@
-packages:
-  - "configs/*"
-  - "packages/*"
-  - "packages/preprocessors/*"
-  - "packages/actions/*"
-  - "packages/components/*"
-  - "packages/misc/*"
-  - "sites/*"
