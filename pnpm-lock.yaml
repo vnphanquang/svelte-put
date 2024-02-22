@@ -149,6 +149,12 @@ importers:
         specifier: workspace:*
         version: link:../../internals/tsconfig
 
+  packages/tooltip:
+    devDependencies:
+      '@internals/tsconfig':
+        specifier: workspace:*
+        version: link:../../internals/tsconfig
+
 packages:
 
   /@aashutoshrathi/word-wrap@1.2.6:
