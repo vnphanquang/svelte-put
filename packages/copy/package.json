@@ -49,5 +49,8 @@
 	},
 	"devDependencies": {
 		"@internals/tsconfig": "workspace:*"
+	},
+	"volta": {
+		"extends": "../../package.json"
 	}
 }
