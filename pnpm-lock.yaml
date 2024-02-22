@@ -137,6 +137,12 @@ importers:
         specifier: workspace:*
         version: link:../../internals/tsconfig
 
+  packages/resize:
+    devDependencies:
+      '@internals/tsconfig':
+        specifier: workspace:*
+        version: link:../../internals/tsconfig
+
 packages:
 
   /@aashutoshrathi/word-wrap@1.2.6:
