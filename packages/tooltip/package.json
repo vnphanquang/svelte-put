@@ -1,0 +1,58 @@
+{
+	"name": "@svelte-put/tooltip",
+	"version": "1.0.1",
+	"description": "over-engineered, type-safe, headless, and extensible tooltip builder vs Svelte action",
+	"main": "src/index.js",
+	"module": "src/index.js",
+	"types": "types/index.d.ts",
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./types/index.d.ts",
+			"import": "./src/index.js"
+		}
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"files": [
+		"src",
+		"types"
+	],
+	"scripts": {
+		"lint": "eslint . --ignore-path=\"../../.eslintignore\"",
+		"format": "prettier --ignore-path ../../.prettierignore --write .",
+		"dts": "dts-buddy --write && publint",
+		"prepublishOnly": "pnpm dts"
+	},
+	"keywords": [
+		"svelte",
+		"action",
+		"tooltip",
+		"headless",
+		"extensible",
+		"typescript",
+		"type-safe"
+	],
+	"author": {
+		"email": "vnphanquang@gmail.com",
+		"name": "Quang Phan",
+		"url": "https://github.com/vnphanquang"
+	},
+	"license": "MIT",
+	"homepage": "https://svelte-put.vnphanquang.com/docs/tooltip",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/vnphanquang/svelte-put.git",
+		"directory": "packages/tooltip"
+	},
+	"bugs": {
+		"url": "https://github.com/vnphanquang/svelte-put/issues"
+	},
+	"devDependencies": {
+		"@internals/tsconfig": "workspace:*"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	}
+}
