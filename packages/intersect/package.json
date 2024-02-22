@@ -1,7 +1,7 @@
 {
-	"name": "@svelte-put/dragscroll",
+	"name": "@svelte-put/intersect",
 	"version": "3.0.0",
-	"description": "Svelte action for drag-to-scroll behavior",
+	"description": "Action that wraps IntersectionObserver",
 	"main": "src/index.js",
 	"module": "src/index.js",
 	"types": "types/index.d.ts",
@@ -28,11 +28,11 @@
 	"keywords": [
 		"svelte",
 		"action",
-		"drag",
-		"scroll",
-		"pan",
-		"pointer",
-		"mouse"
+		"intersect",
+		"IntersectionObserver",
+		"lazy",
+		"load",
+		"lazyload"
 	],
 	"author": {
 		"email": "vnphanquang@gmail.com",
@@ -40,11 +40,11 @@
 		"url": "https://github.com/vnphanquang"
 	},
 	"license": "MIT",
-	"homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/dragscroll",
+	"homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/intersect",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/vnphanquang/svelte-put.git",
-		"directory": "packages/dragscroll"
+		"directory": "packages/intersect"
 	},
 	"bugs": {
 		"url": "https://github.com/vnphanquang/svelte-put/issues"
