@@ -40,3 +40,4 @@ vite.config.ts.timestamp-*
 # turborepo
 .turbo
 types/
+dist/
