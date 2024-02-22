@@ -1,7 +1,7 @@
 {
-	"name": "@svelte-put/cloudflare-turnstile",
-	"version": "0.1.1",
-	"description": "Action for rendering Cloudflare turnstile into HTML node",
+	"name": "@svelte-put/inline-svg",
+	"version": "3.0.0",
+	"description": "solution to inline SVGs in svelte land",
 	"main": "src/index.js",
 	"module": "src/index.js",
 	"types": "types/index.d.ts",
@@ -28,9 +28,12 @@
 	"keywords": [
 		"svelte",
 		"action",
-		"turnstile",
-		"cloudflare",
-		"captcha"
+		"svg",
+		"inline",
+		"dynamic",
+		"static",
+		"build",
+		"runtime"
 	],
 	"author": {
 		"email": "vnphanquang@gmail.com",
@@ -38,11 +41,11 @@
 		"url": "https://github.com/vnphanquang"
 	},
 	"license": "MIT",
-	"homepage": "https://svelte-put.vnphanquang.com/docs/cloudflare-turnstile",
+	"homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/inline-svg",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/vnphanquang/svelte-put.git",
-		"directory": "packages/cloudflare-turnstile"
+		"directory": "packages/inline-svg"
 	},
 	"bugs": {
 		"url": "https://github.com/vnphanquang/svelte-put/issues"

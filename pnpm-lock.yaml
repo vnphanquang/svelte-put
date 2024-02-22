@@ -106,9 +106,12 @@ importers:
       '@internals/tsconfig':
         specifier: workspace:*
         version: link:../../internals/tsconfig
-      dts-buddy:
-        specifier: ^0.4.0
-        version: 0.4.4(typescript@5.3.3)
+
+  packages/inline-svg:
+    devDependencies:
+      '@internals/tsconfig':
+        specifier: workspace:*
+        version: link:../../internals/tsconfig
 
 packages:
 
