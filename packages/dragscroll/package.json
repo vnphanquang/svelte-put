@@ -1,7 +1,7 @@
 {
-	"name": "@svelte-put/clickoutside",
-	"version": "3.0.1",
-	"description": "Event for clicking outside a node",
+	"name": "@svelte-put/dragscroll",
+	"version": "3.0.0",
+	"description": "Svelte action for drag-to-scroll behavior",
 	"main": "src/index.js",
 	"module": "src/index.js",
 	"types": "types/index.d.ts",
@@ -28,12 +28,11 @@
 	"keywords": [
 		"svelte",
 		"action",
-		"event",
-		"clickoutside",
-		"click",
-		"outside",
-		"modal",
-		"overlay"
+		"drag",
+		"scroll",
+		"pan",
+		"pointer",
+		"mouse"
 	],
 	"author": {
 		"email": "vnphanquang@gmail.com",
@@ -41,16 +40,17 @@
 		"url": "https://github.com/vnphanquang"
 	},
 	"license": "MIT",
-	"homepage": "https://svelte-put.vnphanquang.com/docs/clickoutside",
+	"homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/actions/dragscroll",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/vnphanquang/svelte-put.git",
-		"directory": "packages/clickoutside"
+		"directory": "packages/dragscroll"
 	},
 	"bugs": {
 		"url": "https://github.com/vnphanquang/svelte-put/issues"
 	},
 	"devDependencies": {
-		"@internals/tsconfig": "workspace:*"
+		"@internals/tsconfig": "workspace:*",
+		"dts-buddy": "^0.4.0"
 	}
 }

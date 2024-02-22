@@ -25,14 +25,6 @@
 		"dts": "dts-buddy --write && publint",
 		"prepublishOnly": "pnpm dts"
 	},
-	"bugs": {
-		"url": "https://github.com/vnphanquang/svelte-put/issues"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/vnphanquang/svelte-put.git",
-		"directory": "packages/cloudflare-turnstile"
-	},
 	"keywords": [
 		"svelte",
 		"action",
@@ -40,9 +32,21 @@
 		"cloudflare",
 		"captcha"
 	],
-	"author": "Quang Phan",
+	"author": {
+		"email": "vnphanquang@gmail.com",
+		"name": "Quang Phan",
+		"url": "https://github.com/vnphanquang"
+	},
 	"license": "MIT",
 	"homepage": "https://svelte-put.vnphanquang.com/docs/cloudflare-turnstile",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/vnphanquang/svelte-put.git",
+		"directory": "packages/cloudflare-turnstile"
+	},
+	"bugs": {
+		"url": "https://github.com/vnphanquang/svelte-put/issues"
+	},
 	"devDependencies": {
 		"@internals/tsconfig": "workspace:*"
 	}
