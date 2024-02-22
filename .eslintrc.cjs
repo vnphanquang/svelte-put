@@ -1,4 +1,14 @@
 module.exports = {
 	root: true,
-	extends: ['@vnphanquang/eslint-config', 'prettier'],
+	extends: ['@vnphanquang/eslint-config', 'plugin:svelte/recommended', 'prettier'],
+	overrides: [
+		{
+			files: ['*.svelte'],
+			parser: 'svelte-eslint-parser',
+			// Parse the `<script>` in `.svelte` as TypeScript by adding the following configuration.
+			parserOptions: {
+				parser: '@typescript-eslint/parser',
+			},
+		},
+	]
 };
