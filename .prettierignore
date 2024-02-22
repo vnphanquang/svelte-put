@@ -28,3 +28,5 @@ LICENSE
 .svelte-kit/
 *.md.svelte
 types/
+CHANGELOG.md
+
