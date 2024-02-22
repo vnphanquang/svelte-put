@@ -1,0 +1,42 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+.pnp
+.pnp.js
+
+# testing
+coverage
+
+# next.js
+.next/
+out/
+build/
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+*.log*
+
+# turbo
+.turbo
+
+temp/
+
+# svelte-kit
+.svelte-kit/
+.vercel
+
+# vite temp
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# git secret
+.gitsecret/keys/random_seed
+!*.secret
+
+# turborepo
+.turbo
+types/

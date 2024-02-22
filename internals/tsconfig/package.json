@@ -1,0 +1,10 @@
+{
+  "name": "@internals/tsconfig",
+  "private": true,
+  "main": "index.js",
+  "files": [
+    "base.json",
+    "base.package.json",
+    "base.package.js.json"
+  ]
+}

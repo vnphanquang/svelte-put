@@ -1,0 +1,4 @@
+packages:
+  - "internals/*"
+  - "packages/*"
+  - "sites/*"

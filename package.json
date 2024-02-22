@@ -1,0 +1,59 @@
+{
+	"name": "svelte-put",
+	"private": true,
+	"workspaces": [
+    "internals/*",
+    "configs/*",
+    "packages/*"
+	],
+	"author": {
+		"email": "vnphanquang@gmail.com",
+		"name": "Quang Phan",
+		"url": "https://github.com/vnphanquang"
+	},
+	"type": "module",
+	"scripts": {
+    "prepare": "husky install",
+    "turbo": "turbo",
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "lint": "turbo run lint --parallel",
+    "format": "turbo run format --parallel",
+    "dts": "turbo run dts --parallel",
+		"build:publish": "pnpm build --filter ./packages/*",
+    "ci:version": "changeset version && pnpm install --no-frozen-lockfile",
+    "ci:publish": "pnpm build:publish && changeset publish && pnpm install"
+	},
+	"devDependencies": {
+		"@changesets/changelog-github": "^0.5.0",
+		"@changesets/cli": "^2.27.1",
+		"@typescript-eslint/eslint-plugin": "^7.0.1",
+		"@typescript-eslint/parser": "^7.0.1",
+		"@vnphanquang/eslint-config": "^2.0.0",
+		"eslint": "^8.56.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-svelte": "^2.35.1",
+		"husky": "^9.0.11",
+		"lint-staged": "^15.2.2",
+		"npm-run-all": "^4.1.5",
+		"prettier": "3.2.5",
+		"prettier-plugin-svelte": "^3.2.1",
+		"prettier-plugin-tailwindcss": "^0.5.11",
+		"stylelint": "^16.2.1",
+		"stylelint-config-clean-order": "^5.4.1",
+		"stylelint-config-html": "^1.1.0",
+		"stylelint-config-standard": "^36.0.0",
+		"tslib": "^2.6.2",
+		"turbo": "^1.12.4",
+		"typescript": "^5.3.3"
+	},
+	"packageManager": "pnpm@8.15.1",
+	"engines": {
+		"pnpm": ">=8.0.0",
+		"node": ">=20.0.0"
+	},
+	"volta": {
+		"node": "20.10.0",
+		"pnpm": "8.15.1"
+	}
+}
