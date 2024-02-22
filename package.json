@@ -13,7 +13,7 @@
 	},
 	"type": "module",
 	"scripts": {
-		"prepare": "husky install",
+		"prepare": "husky || true",
 		"turbo": "turbo",
 		"build": "turbo run build",
 		"dev": "turbo run dev --parallel",
