@@ -1,0 +1,103 @@
+{
+	"name": "@svelte-put/modal",
+	"version": "1.0.7",
+	"description": "Svelte async modal",
+	"type": "module",
+	"main": "./dist/index.js",
+	"module": "./dist/index.js",
+	"exports": {
+		"./package.json": "./package.json",
+		".": {
+			"types": "./dist/index.d.ts",
+			"svelte": "./dist/index.js",
+			"import": "./dist/index.js"
+		},
+		"./Modal.svelte": {
+			"types": "./dist/Modal.svelte.d.ts",
+			"svelte": "./dist/Modal.svelte"
+		},
+		"./ModalPortal.svelte": {
+			"types": "./dist/ModalPortal.svelte.d.ts",
+			"svelte": "./dist/ModalPortal.svelte"
+		},
+		"./modal": {
+			"types": "./dist/modal.d.ts",
+			"import": "./dist/modal.js",
+			"svelte": "./dist/modal.js"
+		}
+	},
+	"types": "dist/index.d.ts",
+	"typesVersions": {
+		"*": {
+			"modal": [
+				"./dist/modal.d.ts"
+			],
+			"Modal.svelte": [
+				"./dist/Modal.svelte.d.ts"
+			],
+			"ModalPortal.svelte": [
+				"./dist/ModalPortal.svelte.d.ts"
+			]
+		}
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "svelte-kit sync && svelte-package",
+		"sync": "svelte-kit sync",
+		"lint": "run-p lint:*",
+		"lint:svelte": "svelte-check --tsconfig ./tsconfig.json",
+		"lint:es": "eslint . --ignore-path=\"../../.eslintignore\"",
+		"lint:style": "stylelint '**/*.{svelte,css}'",
+		"format": "prettier --ignore-path ../../.prettierignore --write ."
+	},
+	"keywords": [
+		"svelte",
+		"component",
+		"utility",
+		"modal",
+		"stacking",
+		"multiple",
+		"async",
+		"await",
+		"programmatically"
+	],
+	"author": {
+		"email": "vnphanquang@gmail.com",
+		"name": "Quang Phan",
+		"url": "https://github.com/vnphanquang"
+	},
+	"license": "MIT",
+	"homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/modal",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/vnphanquang/svelte-put.git",
+		"directory": "packages/modal"
+	},
+	"bugs": {
+		"url": "https://github.com/vnphanquang/svelte-put/issues"
+	},
+	"dependencies": {
+		"@svelte-put/clickoutside": "workspace:^",
+		"@svelte-put/movable": "workspace:^",
+		"@svelte-put/shortcut": "workspace:^"
+	},
+	"devDependencies": {
+		"@internals/tsconfig": "workspace:*",
+		"@sveltejs/adapter-auto": "2.1.1",
+		"@sveltejs/kit": "1.27.3",
+		"@sveltejs/package": "2.2.2",
+		"@sveltejs/vite-plugin-svelte": "^3.0.2",
+		"vite": "^5.1.3"
+	},
+	"peerDependencies": {
+		"svelte": "^3.55.0 || ^4.0.0"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	}
+}

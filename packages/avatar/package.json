@@ -42,7 +42,7 @@
 	],
 	"scripts": {
 		"lint": "run-p lint:*",
-		"lint:svelte": "svelte-check",
+		"lint:svelte": "svelte-check --tsconfig ./tsconfig.json",
 		"lint:es": "eslint . --ignore-path=\"../../.eslintignore\"",
 		"lint:style": "stylelint '**/*.{svelte,css}'",
 		"format": "prettier --ignore-path ../../.prettierignore --write .",
