@@ -20,7 +20,7 @@
 	"scripts": {
 		"lint": "eslint . --ignore-path=\"../../.eslintignore\"",
 		"format": "prettier --ignore-path ../../.prettierignore --write .",
-		"build": "tsup"
+		"build": "tsup && publint"
 	},
 	"keywords": [
 		"svelte",
