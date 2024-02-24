@@ -1,6 +1,12 @@
+/** @type { import("eslint").Linter.Config } */
 module.exports = {
 	root: true,
 	extends: ['@vnphanquang/eslint-config', 'plugin:svelte/recommended', 'prettier'],
+	parserOptions: {
+		sourceType: 'module',
+		ecmaVersion: 2020,
+		extraFileExtensions: ['.svelte']
+	},
 	overrides: [
 		{
 			files: ['*.svelte'],
@@ -10,5 +16,9 @@ module.exports = {
 				parser: '@typescript-eslint/parser',
 			},
 		},
-	]
+	],
+	globals: {
+		App: 'readonly',
+		__BUILD_TIMESTAMP__: 'readonly',
+	},
 };
