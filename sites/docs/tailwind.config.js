@@ -21,6 +21,17 @@ export default {
 					fontFamily: {
 						fingerpaint: ['Finger Paint', 'sans-serif'],
 					},
+					spacing: {
+						sidebar: 'var(--sidebar-width)',
+					},
+					screens: {
+						'upto-lg': {
+							max: '1023px',
+						},
+						'upto-xl': {
+							max: '1279px',
+						}
+					},
 				},
 			},
 		}),

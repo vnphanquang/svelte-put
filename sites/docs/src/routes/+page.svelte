@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { SOCIAL_LINKS } from "$lib/constants";
+
 </script>
 
 <main class="h-dvh flex items-center flex-col justify-center gap-10">
@@ -14,7 +16,7 @@
 		<a class="c-link c-link--preserved text-link" href="/docs">
 			Read Docs
 		</a>
-		<a class="c-link c-link--preserved text-link" href="https://github.com/vnphanquang/svelte-put">
+		<a class="c-link c-link--preserved text-link" href={SOCIAL_LINKS.GITHUB} external>
 			See Github
 		</a>
 	</div>
