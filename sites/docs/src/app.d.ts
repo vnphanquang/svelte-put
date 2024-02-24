@@ -38,7 +38,32 @@ declare global {
 			userId: string;
 			settings: Settings;
 		}
-		// interface PageData {}
+		interface PageData {
+			settings: Settings;
+			meta?: {
+				title?: string;
+				description?: string;
+				keywords?: string[];
+				canonical?: string;
+				og?: {
+					title?: string;
+					description?: string;
+					type?: 'website' | 'article' | 'profile';
+					image?: string;
+					imageAlt?: string;
+					url?: string;
+				};
+				twitter?: {
+					title?: string;
+					description?: string;
+					card?: string;
+					image?: string;
+					imageAlt?: string;
+					site?: string;
+					creator?: string;
+				};
+			};
+		}
 		// interface PageState {}
 		// interface Platform {}
 		// interface Error {}

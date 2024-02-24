@@ -10,6 +10,28 @@
 	:is([data-current]:not([data-current='false']), [aria-current]:not([aria-current='false']));
 
 @layer base {
+  :root {
+    --header-height: 90px;
+    --sidebar-width: 250px;
+
+		@screen md {
+			--pad-min-padding-x: 24px;
+		}
+
+    @screen lg {
+      --sidebar-width: 230px;
+    }
+
+    @screen xl {
+      --header-height: 55px;
+			--pad-min-padding-x: 32px;
+    }
+
+		@screen pc {
+			--pad-max-width: 1920px;
+		}
+  }
+
 	svg[inline-src^='simpleicon/'] {
 		fill: currentcolor;
 	}

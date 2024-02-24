@@ -1,0 +1,10 @@
+{
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"files.associations": {
+		"*.md.svelte": "markdown"
+	},
+	"prettier.documentSelectors": ["**/*.svelte"],
+	"[svelte]": {
+		"editor.defaultFormatter": "svelte.svelte-vscode"
+	}
+}
