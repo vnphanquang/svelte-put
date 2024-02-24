@@ -75,8 +75,8 @@
 	"devDependencies": {
 		"@internals/tsconfig": "workspace:*",
 		"@types/md5": "^2.3.5",
-		"dts-buddy": "^0.4.0",
-		"svelte": "^4.2.2"
+		"dts-buddy": "^0.4.4",
+		"svelte": "^4.2.12"
 	},
 	"volta": {
 		"extends": "../../package.json"
