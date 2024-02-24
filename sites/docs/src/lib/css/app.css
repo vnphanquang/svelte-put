@@ -1,3 +1,4 @@
+@import url('./fonts/fingerpaint/fingerpaint.font.css');
 @import url('@sveltevietnam/ui/css/fonts.css');
 
 @tailwind base;

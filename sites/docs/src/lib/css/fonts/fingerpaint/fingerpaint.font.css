@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'Finger Paint';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('./fingerpaint.ttf') format('truetype');
+}
