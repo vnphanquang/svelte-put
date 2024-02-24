@@ -48,14 +48,14 @@
 	},
 	"devDependencies": {
 		"@types/estree": "^1.0.5",
-		"tsup": "^7.2.0"
+		"tsup": "^8.0.2"
 	},
 	"peerDependencies": {
 		"svelte": "^3.55.0 || ^4.0.0"
 	},
 	"dependencies": {
 		"github-slugger": "^2.0.0",
-		"magic-string": "^0.30.5",
+		"magic-string": "^0.30.7",
 		"svelte-parse-markup": "^0.1.2"
 	}
 }
