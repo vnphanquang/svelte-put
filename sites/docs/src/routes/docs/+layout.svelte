@@ -3,16 +3,16 @@
 	import { slide } from 'svelte/transition';
 
 	import { SOCIAL_LINKS } from "$lib/constants";
+	import { packages } from '$lib/data/packages';
 
 	import type { LayoutData } from './$types'
 	import MenuLabel from './_page/components/MenuLabel.svelte';
-	import { packages } from '$lib/data/packages';
 	import StatusBadge from './_page/components/StatusBadge.svelte';
 
 	export let data: LayoutData;
 
 	export const TOP_LEVEL_PATHS = {
-		Introduction: '/docs/introduction',
+		Introduction: '/docs',
 		Architecture: '/docs/architecture',
 		Guidelines: '/docs/guidelines',
 		Contributing: '/docs/contributing',
@@ -277,9 +277,11 @@
     }
 	}
 
-	#docs :global(h1) {
+	#docs :global(:where(h1)) {
 		font-family: theme('fontFamily.fingerpaint');
+	}
 
+	#docs :global(:where(h1, h2, h3, h4, h5, h6)) {
 		&::after {
 			content: '';
 
@@ -287,7 +289,7 @@
 
 			width: 100%;
 			height: 1px;
-			margin-top: 0.75rem;
+			margin-top: 0.5rem;
 
 			background-color: theme('colors.outline.DEFAULT');
 		}
