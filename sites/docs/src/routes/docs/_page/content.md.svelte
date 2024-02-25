@@ -1,26 +1,58 @@
-# Contributing
+<script>
+  import StatusBadge from './components/StatusBadge.svelte';
+  import { packages } from '$lib/data/packages';
+  import { createNpmBadgeUrl, createNpmUrl } from '$lib/utils/badge';
+</script>
 
-This text is just to balance out the content to ease my OCD. Please skip to the next section.
+# @svelte-put
 
-## Code
+:::div c-callout c-callout--info c-callout--icon-bulb
+svelte-put is a collection of useful svelte actions, utilities, and minimal components extracted from (my) real world projects that might be helpful for yours.
+:::
 
-Source code can be found at [github/svelte-put](https://github.com/vnphanquang/svelte-put). If you have any suggestion or bug report, please read the [Contributing Guidelines](https://github.com/vnphanquang/svelte-put/blob/main/CONTRIBUTING.md), [start a discussion](https://github.com/vnphanquang/svelte-put/discussions), or [open an issue](https://github.com/vnphanquang/svelte-put/issues).
+## Packages
 
-<h2 id="money">Money</h2>
+@svelte-put includes several packages with self-manged release cycles, listed below. Check out their corresponding documentation for more details.
 
-It is strange asking for money; but here I am. To sponsor my work, please visit [github.com/sponsors/vnphanquang](https://github.com/sponsors/vnphanquang). Thank you very much for your support.
+<div
+    class="not-prose c-gtable-4 max-w-full grid-cols-[198px,1fr,140px,80px] items-center *:p-4"
+  >
+    <p>ID</p>
+    <p>Description</p>
+    <p>Version</p>
+    <p>Status</p>
+    {#each Object.values(packages) as { id, description, name, path, status }}
+      <p>
+        <a href={path} class="c-link font-medium">
+          {id}
+        </a>
+      </p>
+      <p>{description}</p>
+      <div class="flex items-center">
+        <a href={createNpmUrl(name)} target="_blank" class="block" external>
+          <img
+            class="block rounded"
+            src={createNpmBadgeUrl(name)}
+            alt={name}
+            height="25"
+            width="106"
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
+      </div>
+      <p class="flex items-center"><StatusBadge {status} /></p>
+    {/each}
+  </div>
 
-## A Hello
+## Inspiration & Acknowledgement
 
-<p>
-  Why would you donate? I honestly don't know. I build this collection mainly for myself; it is open source and my code is largely inspired by other open source projects. And you too can use it however you wish. So if you find it useful, just reach out to say hello and let me know what amazing project you are building. That probably means more to me than a donation
-  <span class="text-2xs opacity-75">
-  (unless your donation can help me pay the rent, of course)
-  </span>.
-</p>
+There is already a great pool of [svelte actions collected by Shawn and other contributors](https://github.com/sw-yx/svelte-actions) that you should check out. There might be some duplications here and there. However:
 
-Stop by [this Github discussion thread](https://github.com/vnphanquang/svelte-put/discussions/223) and say hello!
+- Shawn's project aims to be a source for RFCs into Svelte; I believe stuff I am putting here should stay in user land.
+- I prefer having separate packages for their dedicated purposes (instead of one package that exports everything).
+- I want to incrementally include more than just actions int his collection.
 
-## Svelte Vietnam
+For those reasons, a monorepo seems like a good fit, hence this project. To contribute or support the project, head over to the [contributing page](/docs/contributing).
 
-If you are based in Vietnam, stop by [sveltevietnam.dev](https://sveltevietnam.dev), a community for people of Svelte in Vietnam that I am proudly a part of.
+Happy coding! 👨‍💻
