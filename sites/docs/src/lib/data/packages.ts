@@ -30,7 +30,7 @@ export const packages = {
     name: '@svelte-put/cloudflare-turnstile',
     publishedAt: 1706788671789,
     description: 'action for rendering Cloudflare turnstile into HTML node',
-    path: '/docs/avatar/cloudflare-turnstile',
+    path: '/docs/cloudflare-turnstile',
     replId: '',
     status: 'dev',
     ready: false,

@@ -260,6 +260,7 @@
 	}
 
 	main {
+		width: 100%;
 		max-width: 100%;
 		padding-top: theme('spacing.10');
 		padding-bottom: theme('spacing.20');
@@ -282,16 +283,7 @@
 	}
 
 	#docs :global(:where(h1, h2, h3, h4, h5, h6)) {
-		&::after {
-			content: '';
-
-			display: block;
-
-			width: 100%;
-			height: 1px;
-			margin-top: 0.5rem;
-
-			background-color: theme('colors.outline.DEFAULT');
-		}
+		padding-bottom: 0.5rem;
+		border-bottom: 1px solid theme('colors.outline.DEFAULT');
 	}
 </style>
