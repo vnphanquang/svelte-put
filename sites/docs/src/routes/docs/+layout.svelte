@@ -46,7 +46,7 @@
 		</div>
 	</header>
 
-	<div class="max-w-pad flex items-stretch gap-10">
+	<div class="max-w-pad flex items-stretch">
 		<nav class="sidebar sidebar-left" aria-label="pages">
 			<input id="pages-toggler" type="checkbox" hidden bind:checked={isleftSidebarOpen}>
 			<ul class="sidebar-content space-y-4">
@@ -267,14 +267,12 @@
 
     @screen lg {
       max-width: calc(100% - theme('spacing.sidebar'));
-      padding-right: theme('spacing.10');
-      padding-left: theme('spacing.10');
+      padding-inline: theme('spacing.10');
     }
 
     @screen xl {
       max-width: calc(100% - theme('spacing.sidebar') * 2);
-      padding-right: theme('spacing.14');
-      padding-left: theme('spacing.14');
+      padding-inline: theme('spacing.14');
     }
 	}
 
