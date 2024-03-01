@@ -7,11 +7,13 @@ This page includes common guidelines shared among packages in the `svelte-put` c
 Any [svelte action](https://svelte.dev/docs/svelte-action) exported by a package should be used with `element` and not `component`.
 
 ```svelte
-<-- correct usage-->
-<div use:action />
-
-<-- incorrect usage-->
-<Component use:action />
+/// filename=example.svelte
+<!-- :::diff - -->
+<Component use:action /> <-- incorrect usage-->
+<!-- ::: -->
+<!-- :::diff + -->
+<div use:action /> <-- correct usage-->
+<!-- ::: -->
 ```
 
 ## Action Event Typescript Support
@@ -19,6 +21,7 @@ Any [svelte action](https://svelte.dev/docs/svelte-action) exported by a package
 If an action supports some [CustomEvents](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) but they are not picked up by your editor or some type error is displayed, you are probably still on an older version of Svelte or one of its ecosystem toolings. It is recommended to [migrate to Svelte 4](https://svelte.dev/docs/v4-migration-guide) and upgrade to latest relevant editor extensions/plugins.
 
 ```svelte
+/// filename=example.svelte
 <script lang="ts">
   import { action } from '@svelte-put/package';
 </script>
