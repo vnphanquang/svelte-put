@@ -16,3 +16,6 @@ end_of_line = unset
 [*.md.svelte]
 indent_size = 2
 indent_style = space
+
+[**/examples/*.svelte]
+end_of_line = unset
