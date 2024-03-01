@@ -1,8 +1,8 @@
 {
   "name": "svelte-put",
   "short_name": "svelte-put",
-  "theme_color": "#00000",
-  "background_color": "#FFFFF",
+  "theme_color": "#000000",
+  "background_color": "#FFFFFF",
   "start_url": "https://svelte-put.vnphanquang.com/",
   "display": "standalone",
   "icons": [
