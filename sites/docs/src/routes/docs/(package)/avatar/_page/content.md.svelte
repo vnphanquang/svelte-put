@@ -72,7 +72,7 @@ yarn add -D @svelte-put/avatar
 For example:
 
 1. `src` - you have a dedicated api & database for avatar,
-2. `gravatar` - you also want to automatically fetch avatar from [Gravatar] with user's email if they have not uploaded their owna vatar to your server,
+2. `gravatar` - you also want to automatically fetch avatar from [Gravatar] with user's email if they have not uploaded their own avatar to your server,
 3. `uiAvatar` - you also want to fallback to an [UI Avatar] with user's initials if their gravatar is not available,
 4. `fallback` - you provide your own custom fallback (last resort) just in case [UI Avatar] is out of service all of the sudden.
 
@@ -269,7 +269,7 @@ Since [Svelte style](https://svelte.dev/docs/svelte-components#style) are compon
 
 <img src={avatarAangImg} alt="Guess who is the Avatar?" width="300" height="168.6" loading="lazy" decoding="async" />
 
-<p>Happy bending!</p>
+Happy bending!
 
 [Resolution Strategies]: #resolution-strategies
 [Gravatar]: https://docs.gravatar.com/
