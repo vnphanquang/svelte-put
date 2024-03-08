@@ -28,9 +28,9 @@
 		"@changesets/changelog-github": "^0.5.0",
 		"@changesets/cli": "^2.27.1",
 		"@types/eslint": "^8.56.5",
-		"@types/node": "^20.11.24",
-		"@typescript-eslint/eslint-plugin": "^7.1.0",
-		"@typescript-eslint/parser": "^7.1.0",
+		"@types/node": "^20.11.25",
+		"@typescript-eslint/eslint-plugin": "^7.1.1",
+		"@typescript-eslint/parser": "^7.1.1",
 		"@vnphanquang/eslint-config": "^2.0.0",
 		"dts-buddy": "^0.4.4",
 		"eslint": "^8.57.0",
@@ -41,7 +41,7 @@
 		"npm-run-all": "^4.1.5",
 		"prettier": "3.2.5",
 		"prettier-plugin-svelte": "^3.2.2",
-		"prettier-plugin-tailwindcss": "^0.5.11",
+		"prettier-plugin-tailwindcss": "^0.5.12",
 		"publint": "^0.2.7",
 		"stylelint": "^16.2.1",
 		"stylelint-config-clean-order": "^5.4.1",
@@ -50,8 +50,8 @@
 		"svelte": "^4.2.12",
 		"svelte-check": "^3.6.6",
 		"tslib": "^2.6.2",
-		"turbo": "^1.12.4",
-		"typescript": "^5.3.3"
+		"turbo": "^1.12.5",
+		"typescript": "^5.4.2"
 	},
 	"packageManager": "pnpm@8.15.1",
 	"engines": {

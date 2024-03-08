@@ -21,17 +21,17 @@
 <enhanced-code-block group display="tabs">
 
 ```bash
-/// tab=npm
+/// title=npm
 npm install --save-dev @svelte-put/avatar
 ```
 
 ```bash
-/// tab=pnpm
+/// title=pnpm
 pnpm add -D @svelte-put/avatar
 ```
 
 ```bash
-/// tab=yarn
+/// title=yarn
 yarn add -D @svelte-put/avatar
 ```
 
@@ -77,7 +77,7 @@ For example:
 4. `fallback` - you provide your own custom fallback (last resort) just in case [UI Avatar] is out of service all of the sudden.
 
 ```svelte
-/// filename=MyAvatar.svelte
+/// title=MyAvatar.svelte
 <script lang="ts">
   import Avatar from '@svelte-put/avatar/Avatar.svelte';
 
@@ -108,7 +108,7 @@ Direct image source can be provided to the `src` prop. This is not much differen
 
 ```svelte
 /// src=./examples/direct-url.svelte
-/// filename=MyAvatar.svelte
+/// title=MyAvatar.svelte
 ```
 
 ## Gravatar
@@ -140,17 +140,17 @@ Support for [Gravatar] is available through either:
 <enhanced-code-block group display="tabs" bind:current={gravatarVariant}>
 
 ```svelte
-/// tab=Minimal
+/// title=Minimal
 /// src=./examples/gravatar.minimal.svelte
 ```
 
 ```svelte
-/// tab=Verbose
+/// title=Verbose
 /// src=./examples/gravatar.verbose.svelte
 ```
 
 ```svelte
-/// tab=Helper
+/// title=Helper
 /// src=./examples/gravatar.helper.svelte
 ```
 
@@ -185,17 +185,17 @@ Similar to `Gravatar`, Support for [UI Avatar] is available through either:
 <enhanced-code-block group display="tabs" bind:current={uiAvatarVariant}>
 
 ```svelte
-/// tab=Minimal
+/// title=Minimal
 /// src=./examples/uiAvatar.minimal.svelte
 ```
 
 ```svelte
-/// tab=Verbose
+/// title=Verbose
 /// src=./examples/uiAvatar.verbose.svelte
 ```
 
 ```svelte
-/// tab=Helper
+/// title=Helper
 /// src=./examples/uiAvatar.helper.svelte
 ```
 
@@ -216,7 +216,7 @@ Using only one of the strategy in previous sections is not that interesting. As 
 
 ```svelte
 /// src=./examples/multiple.svelte
-/// filename=MyAvatar.svelte
+/// title=MyAvatar.svelte
 ```
 
 ## Customization
@@ -236,7 +236,7 @@ The `Avatar` component provides [a default slot](https://svelte.dev/docs/special
 
 ```svelte
 /// src=./examples/custom.markup.svelte
-/// filename=MyAvatar.svelte
+/// title=MyAvatar.svelte
 ```
 
 ### Styling
@@ -264,8 +264,10 @@ Since [Svelte style](https://svelte.dev/docs/svelte-components#style) are compon
 
 ```svelte
 /// src=./examples/custom.styling.svelte
-/// filename=MyAvatar.svelte
+/// title=MyAvatar.svelte
 ```
+
+sr-only
 
 <img src={avatarAangImg} alt="Guess who is the Avatar?" width="300" height="168.6" loading="lazy" decoding="async" />
 
