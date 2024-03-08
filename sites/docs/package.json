@@ -39,12 +39,12 @@
 		"@sveltejs/enhanced-img": "^0.1.8",
 		"@sveltejs/kit": "^2.5.2",
 		"@sveltejs/vite-plugin-svelte": "^3.0.2",
-		"@sveltevietnam/ui": "1.0.0-next.16",
+		"@sveltevietnam/ui": "1.0.0-next.19",
 		"@total-typescript/ts-reset": "^0.5.1",
 		"@types/mustache": "^4.2.5",
 		"postcss": "^8.4.35",
 		"tailwindcss": "^3.4.1",
-		"vite": "^5.1.4"
+		"vite": "^5.1.5"
 	},
 	"volta": {
 		"extends": "../../package.json"

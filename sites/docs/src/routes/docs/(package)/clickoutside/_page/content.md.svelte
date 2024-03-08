@@ -8,17 +8,17 @@
 <enhanced-code-block group display="tabs">
 
 ```bash
-/// tab=npm
+/// title=npm
 npm install --save-dev @svelte-put/clickoutside
 ```
 
 ```bash
-/// tab=pnpm
+/// title=pnpm
 pnpm add -D @svelte-put/clickoutside
 ```
 
 ```bash
-/// tab=yarn
+/// title=yarn
 yarn add -D @svelte-put/clickoutside
 ```
 
@@ -28,7 +28,7 @@ yarn add -D @svelte-put/clickoutside
 
 ```svelte
 /// src=./examples/quick-start.svelte
-/// filename=quick-start.svelte
+/// title=quick-start.svelte
 ```
 
 <h2 id="advanced-usage-and-customization">
@@ -41,7 +41,7 @@ yarn add -D @svelte-put/clickoutside
 
 ```svelte
 /// src=./examples/demo.svelte
-/// filename=feature-demo.svelte
+/// title=feature-demo.svelte
 ```
 
 ### Limit the Clickoutside Zone
@@ -49,7 +49,7 @@ yarn add -D @svelte-put/clickoutside
 As seen in demo above, the `limit.parent` option can be set to limit the zone that will trigger `clickoutside` [CustomEvent]. By default, there is no limit, and the event listener is attached to `document`.
 
 ```svelte
-/// filename=limit-parent.svelte
+/// title=limit-parent.svelte
 <script lang="ts">
   let parentNode: HTMLElement;
 </script>
@@ -72,7 +72,7 @@ By default, `clickoutside` is based on the `click` event. You can customize this
 Additional options can be passed to [addEventListener] should it be necessary.
 
 ```svelte
-/// filename=options.svelte
+/// title=options.svelte
 <div use:clickoutside={{ options: { passive: true } }}>...</div>
 
  <!-- options => useCapture -->
@@ -94,7 +94,7 @@ This makes sense since the button is technically outside of the element `clickou
 Be aware to reflect customization made to the event listener as mentioned in the last two sections. For example, if the `mousedown` event is used instead of `click`, add `stopPropagation` to `mousedown` on the element that should not trigger `clickoutside`.
 
 ```svelte
-/// filename=exclude-with-custom-event.svelte
+/// title=exclude-with-custom-event.svelte
 <div use:clickoutside={{ event: 'mousedown' }}>...</div>
 
 <!-- later -->
@@ -114,7 +114,7 @@ Below is another demo where `stopPropagation` is generally recommended. Consider
 </fieldset>
 
 ```svelte
-/// filename=exclude-demo.svelte
+/// title=exclude-demo.svelte
 /// src=./examples/exclude.svelte
 ```
 

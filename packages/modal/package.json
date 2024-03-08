@@ -92,7 +92,7 @@
 		"@sveltejs/kit": "2.5.2",
 		"@sveltejs/package": "2.2.7",
 		"@sveltejs/vite-plugin-svelte": "^3.0.2",
-		"vite": "^5.1.4"
+		"vite": "^5.1.5"
 	},
 	"peerDependencies": {
 		"svelte": "^3.55.0 || ^4.0.0"
