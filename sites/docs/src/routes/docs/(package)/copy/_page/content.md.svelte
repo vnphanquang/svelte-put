@@ -147,6 +147,8 @@ export function customCopy(text: string) {
 
 Happy copying! 👨‍💻
 
+---
+
 <figure>
   <img class="mx-auto" src={memeImage} alt="a meme showing an episode of Mr. Bean where he is copying another student's answers during an exam" width="300" height="217" loading="lazy" decoding="async" />
   <figcaption>This package was made during <a class="c-link" href="https://en.wikipedia.org/wiki/COVID-19">Covid</a>. Or was it? How could I remember anything from those years...</figcaption>
