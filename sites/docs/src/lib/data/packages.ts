@@ -197,19 +197,19 @@ export const packages = {
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/resize/CHANGELOG.md',
   },
-  select: {
-    id: 'select',
-    name: '@svelte-put/select',
-    publishedAt: 1670126470519,
-    description: 'type-safe and extensible select',
-    path: '/docs/select',
-    replId: '4f0d701ab5ed411ebbc9a71b0955385d',
-    status: 'dev',
-    ready: false,
-    githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/select',
-    changelogUrl:
-      'https://github.com/vnphanquang/svelte-put/blob/main/packages/select/CHANGELOG.md',
-  },
+  // select: {
+  //   id: 'select',
+  //   name: '@svelte-put/select',
+  //   publishedAt: 1670126470519,
+  //   description: 'type-safe and extensible select',
+  //   path: '/docs/select',
+  //   replId: '4f0d701ab5ed411ebbc9a71b0955385d',
+  //   status: 'dev',
+  //   ready: false,
+  //   githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/select',
+  //   changelogUrl:
+  //     'https://github.com/vnphanquang/svelte-put/blob/main/packages/select/CHANGELOG.md',
+  // },
   shortcut: {
     id: 'shortcut',
     name: '@svelte-put/shortcut',
