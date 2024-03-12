@@ -222,5 +222,4 @@ Happy moving node! 👨‍💻
 
 [Quick Start]: #quick-start
 [Ignore Children]: #ignore-children
-<!-- [Svelte store]: https://svelte.dev/docs/svelte-store -->
 [CustomEvent]: https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent
