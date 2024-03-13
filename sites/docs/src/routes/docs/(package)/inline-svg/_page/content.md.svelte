@@ -50,7 +50,7 @@ The Svelte logo SVG on the right is dynamically fetched via network at **runtime
 
 ## Attributes and Inner HTML
 
-Attributes provided to the `svg` element where `inlineSvg` is placed on will replace existed ones from the original SVG. On the contrary, its inner HTML will be replaced with the that from the original SVG.
+Attributes provided to the `svg` element where `inlineSvg` is placed on will replace existed ones from the original SVG. On the contrary, its inner HTML will be replaced with that from the original SVG.
 
 Take the following SVG as an example:
 
