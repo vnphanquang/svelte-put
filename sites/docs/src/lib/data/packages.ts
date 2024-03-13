@@ -150,7 +150,7 @@ export const packages = {
     description: 'svelte preprocessor to add id attribute and anchor tag',
     path: '/docs/preprocess-auto-slug',
     replId: undefined,
-    status: 'dev',
+    status: 'stable',
     ready: true,
     githubUrl:
       'https://github.com/vnphanquang/svelte-put/tree/main/packages/auto-slug',
