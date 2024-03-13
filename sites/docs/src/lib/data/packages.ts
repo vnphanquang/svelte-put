@@ -137,7 +137,7 @@ export const packages = {
     description: 'type-safe and headless async notification builder',
     path: '/docs/noti',
     replId: '5beb4357e32e427394f5f6f5ced7b5f1',
-    status: 'dev',
+    status: 'stable',
     ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/noti',
     changelogUrl:

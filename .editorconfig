@@ -17,5 +17,5 @@ end_of_line = unset
 indent_size = 2
 indent_style = space
 
-[**/examples/*.svelte]
+[**/examples/**/*]
 end_of_line = unset
