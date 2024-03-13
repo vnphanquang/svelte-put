@@ -127,13 +127,21 @@ export interface ShortcutTrigger {
 	enabled?: boolean;
 	/** modifier key to listen to in conjunction of `key` */
 	modifier?: ShortcutModifierDefinition;
-	/** id to distinguish this trigger from others */
+	/** id to distinguish this trigger from others, recommended when using `on:shortcut` */
 	id?: string;
 	/** the {@link https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent | KeyboardEvent}.key to listen to */
 	key: string;
 	/** callback for when the trigger is matched */
 	callback?: (detail: ShortcutEventDetail) => void;
-	/** whether to call `event.preventDefault` before firing callback. Default to `false` */
+	/**
+	 * whether to call `event.preventDefault` before firing callback. Default to `false`
+	 *
+	 * @remarks
+	 *
+	 * This is called on the node the action is attached to, not the node that triggers the original `KeyboardEvent`.
+	 * So for example, if `shortcut` is attached to `window`, by the time `preventDefault` is called, the event has already been
+	 * bubbled up to `window`.
+	 */
 	preventDefault?: boolean;
 }
 
@@ -142,16 +150,7 @@ export interface ShortcutTrigger {
  * @public
  */
 export interface ShortcutParameter {
-	/**
-	 * whether to activate the action. Default to `true`
-	 *
-	 * @remarks
-	 *
-	 * `false` means event listener will be removed from the node, effectively
-	 * disable all triggers.
-	 *
-	 * To disable only certain triggers, use the `enabled` option in the trigger definition instead.
-	 */
+	/** whether to activate the action. Default to `true` */
 	enabled?: boolean;
 	/** Either a single {@link ShortcutTrigger} definition or an array of multiple ones */
 	trigger: Array<ShortcutTrigger> | ShortcutTrigger;
