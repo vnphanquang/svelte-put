@@ -111,7 +111,7 @@ export const packages = {
     description: 'type-safe async modal builder',
     path: '/docs/modal',
     replId: '0a68001337544b8ab55995fb3d02d1f6',
-    status: 'stable',
+    status: 'dev',
     ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/modal',
     changelogUrl:
@@ -137,7 +137,7 @@ export const packages = {
     description: 'type-safe and headless async notification builder',
     path: '/docs/noti',
     replId: '5beb4357e32e427394f5f6f5ced7b5f1',
-    status: 'stable',
+    status: 'dev',
     ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/noti',
     changelogUrl:
@@ -150,7 +150,7 @@ export const packages = {
     description: 'svelte preprocessor to add id attribute and anchor tag',
     path: '/docs/preprocess-auto-slug',
     replId: undefined,
-    status: 'stable',
+    status: 'dev',
     ready: true,
     githubUrl:
       'https://github.com/vnphanquang/svelte-put/tree/main/packages/auto-slug',
@@ -164,7 +164,7 @@ export const packages = {
     description: 'svelte preprocessor to inline static svg at build time',
     path: '/docs/preprocess-inline-svg',
     replId: undefined,
-    status: 'stable',
+    status: 'dev',
     ready: true,
     githubUrl:
       'https://github.com/vnphanquang/svelte-put/tree/main/packages/inline-svg',
@@ -230,7 +230,7 @@ export const packages = {
     description: 'action and utilities for building table of contents',
     path: '/docs/toc',
     replId: 'd9c896ac62cd41d49f80ffa249d292e6',
-    status: 'stable',
+    status: 'dev',
     ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/toc',
     changelogUrl:
@@ -244,7 +244,7 @@ export const packages = {
       'over-engineered, type-safe, headless,  and extensible tooltip builder via Svelte action',
     path: '/docs/tooltip',
     replId: 'ac411d28f87b4b6d9942e050fa29e0cd',
-    status: 'stable',
+    status: 'dev',
     ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/tooltip',
     changelogUrl:
