@@ -244,7 +244,7 @@ export const packages = {
       'over-engineered, type-safe, headless,  and extensible tooltip builder via Svelte action',
     path: '/docs/tooltip',
     replId: 'ac411d28f87b4b6d9942e050fa29e0cd',
-    status: 'dev',
+    status: 'stable',
     ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/tooltip',
     changelogUrl:
