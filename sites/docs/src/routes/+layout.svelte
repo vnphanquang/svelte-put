@@ -38,10 +38,10 @@
 	$: twitterCreator = meta?.twitter?.creator ?? '@vnphanquang';
 
 	// contexts
-	const { colorScheme, packageManger } = setSettingsContext(data.settings);
+	const { colorScheme, packageManager } = setSettingsContext(data.settings);
 
 	$: $colorScheme = data.settings.colorScheme;
-	$: $packageManger = data.settings.packageManger;
+	$: $packageManager = data.settings.packageManager;
 
 </script>
 

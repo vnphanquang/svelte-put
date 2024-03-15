@@ -5,11 +5,14 @@
   import Await from './examples/await.svelte';
   import CustomPortal from './examples/custom-portal.svelte';
   import Interactive from './examples/interactive/usage.svelte';
+
+	import { getSettingsContext } from '$lib/contexts/settings';
+  const { packageManager } = getSettingsContext();
 </script>
 
 ## Installation
 
-<enhanced-code-block group display="tabs">
+<enhanced-code-block group display="tabs" bind:title={$packageManager}>
 
 ```bash
 /// title=npm

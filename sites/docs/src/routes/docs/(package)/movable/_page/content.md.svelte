@@ -6,11 +6,14 @@
   import DemoLimitSingleAxis from './examples/limit-single-axis.svelte';
   import DemoHandle from './examples/handle.svelte';
   import DemoIgnore from './examples/ignore.svelte';
+
+	import { getSettingsContext } from '$lib/contexts/settings';
+  const { packageManager } = getSettingsContext();
 </script>
 
 ## Installation
 
-<enhanced-code-block group display="tabs">
+<enhanced-code-block group display="tabs" bind:title={$packageManager}>
 
 ```bash
 /// title=npm

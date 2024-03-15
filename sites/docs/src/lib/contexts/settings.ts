@@ -8,7 +8,7 @@ const SETTINGS_CONTEXT_ID = 'settings';
 
 export const DEFAULT_SETTINGS = {
 	colorScheme: 'system',
-	packageManger: 'npm',
+	packageManager: 'npm',
 } satisfies App.Settings;
 
 /**
@@ -46,17 +46,19 @@ function createPackageManagerStore(initial: App.PackageManager) {
 			if (browser) {
 				document.cookie = `${PUBLIC_COOKIE_SETTINGS_PACKAGE_MANAGER}=${pm}; path=/; SameSite=Lax; Secure; Max-Age=604800`;
 			}
+
+			store.set(pm);
 		}
 	};
 }
 
 export function setSettingsContext(initial: App.Settings) {
 	const colorScheme = createColorSchemeStore(initial.colorScheme);
-	const packageManger = createPackageManagerStore(initial.packageManger);
+	const packageManager = createPackageManagerStore(initial.packageManager);
 
 	return setContext(SETTINGS_CONTEXT_ID, {
 		colorScheme,
-		packageManger,
+		packageManager,
 	});
 }
 

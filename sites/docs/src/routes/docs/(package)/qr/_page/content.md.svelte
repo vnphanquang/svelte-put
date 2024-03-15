@@ -6,13 +6,16 @@
   import SvgComponentWithDefaultSlot from './examples/svg-component-with-custom-default-slot.svelte';
   import SvgComponent from './examples/svg-component.svelte';
 
+	import { getSettingsContext } from '$lib/contexts/settings';
+  const { packageManager } = getSettingsContext();
+
   let svgVariant = 'action';
   let imgVariant = 'action';
 </script>
 
 ## Installation
 
-<enhanced-code-block group display="tabs">
+<enhanced-code-block group display="tabs" bind:title={$packageManager}>
 
 ```bash
 /// title=npm

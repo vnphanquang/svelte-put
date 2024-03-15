@@ -21,11 +21,11 @@ export const handle: Handle = async ({ event, resolve }) => {
 			(url.searchParams.get('color-scheme') as App.ColorScheme) ||
 			(cookies.get(PUBLIC_COOKIE_SETTINGS_COLOR_SCHEME) as App.ColorScheme) ||
 			'system',
-		packageManger: cookies.get(PUBLIC_COOKIE_SETTINGS_PACKAGE_MANAGER) as App.PackageManager || 'npm',
+		packageManager: cookies.get(PUBLIC_COOKIE_SETTINGS_PACKAGE_MANAGER) as App.PackageManager || 'npm',
 	};
 
 	cookies.set(PUBLIC_COOKIE_SETTINGS_COLOR_SCHEME, locals.settings.colorScheme, PUBLIC_COOKIE_CONFIG);
-	cookies.set(PUBLIC_COOKIE_SETTINGS_PACKAGE_MANAGER, locals.settings.packageManger, PUBLIC_COOKIE_CONFIG);
+	cookies.set(PUBLIC_COOKIE_SETTINGS_PACKAGE_MANAGER, locals.settings.packageManager, PUBLIC_COOKIE_CONFIG);
 
 	return await resolve(event, {
 		transformPageChunk: ({ html }) => html.replace('%color-scheme%', locals.settings.colorScheme),

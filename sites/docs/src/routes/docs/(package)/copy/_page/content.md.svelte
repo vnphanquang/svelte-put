@@ -4,11 +4,14 @@
   import DemoCustomTextCallback from './examples/custom-text.svelte';
   import DemoSyntheticCopy from './examples/synthetic-copy.svelte';
   import memeImage from './images/copy-meme.webp';
+
+	import { getSettingsContext } from '$lib/contexts/settings';
+  const { packageManager } = getSettingsContext();
 </script>
 
 ## Installation
 
-<enhanced-code-block group display="tabs">
+<enhanced-code-block group display="tabs" bind:title={$packageManager}>
 
 ```bash
 /// title=npm

@@ -31,7 +31,7 @@ declare global {
 		declare type PackageManager = (typeof PACKAGE_MANAGER)[number];
 		declare type Settings = {
 			colorScheme: ColorScheme;
-			packageManger: PackageManager;
+			packageManager: PackageManager;
 		}
 
 		interface Locals {

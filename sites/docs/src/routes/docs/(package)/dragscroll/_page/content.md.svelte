@@ -2,11 +2,14 @@
   import DemoNoParameters from './examples/no-parameters.svelte';
   import DemoOptionAxis from './examples/option-axis.svelte';
   import DemoLimitationScrollSnap from './examples/limitation-scroll-snap.svelte';
+
+	import { getSettingsContext } from '$lib/contexts/settings';
+  const { packageManager } = getSettingsContext();
 </script>
 
 ## Installation
 
-<enhanced-code-block group display="tabs">
+<enhanced-code-block group display="tabs" bind:title={$packageManager}>
 
 ```bash
 /// title=npm

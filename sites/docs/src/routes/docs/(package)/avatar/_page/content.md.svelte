@@ -12,13 +12,16 @@
   import CustomStyling from './examples/custom.styling.svelte';
   import avatarAangImg from './images/avatar-aang.gif';
 
+	import { getSettingsContext } from '$lib/contexts/settings';
+  const { packageManager } = getSettingsContext();
+
   let gravatarVariant = 'Minimal';
   let uiAvatarVariant = 'Minimal';
 </script>
 
 ## Installation
 
-<enhanced-code-block group display="tabs">
+<enhanced-code-block group display="tabs" bind:title={$packageManager}>
 
 ```bash
 /// title=npm
