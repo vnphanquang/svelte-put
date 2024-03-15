@@ -230,7 +230,7 @@ export const packages = {
     description: 'action and utilities for building table of contents',
     path: '/docs/toc',
     replId: 'd9c896ac62cd41d49f80ffa249d292e6',
-    status: 'dev',
+    status: 'stable',
     ready: true,
     githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/toc',
     changelogUrl:
