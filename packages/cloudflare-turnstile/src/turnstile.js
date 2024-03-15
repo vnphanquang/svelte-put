@@ -45,7 +45,10 @@ export function turnstile(node) {
 			sitekey,
 			action: node.getAttribute('turnstile-action') ?? undefined,
 			cData: node.getAttribute('turnstile-cData') ?? undefined,
-			execution: node.getAttribute('turnstile-execution') ?? undefined,
+			execution:
+				/** @type {import('./public').TurnstileConfig['execution']} */ (
+					node.getAttribute('turnstile-execution')
+				) ?? undefined,
 			theme:
 				/** @type {import('./public').TurnstileConfig['theme']} */ (
 					node.getAttribute('turnstile-theme')

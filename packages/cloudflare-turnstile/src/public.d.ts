@@ -25,7 +25,7 @@ export type TurnstileDataConfig = {
 	sitekey: string;
 	action?: string;
 	cData?: string;
-	execution?: string;
+	execution?: 'render' | 'execute';
 	theme?: 'light' | 'dark' | 'auto';
 	language?: string;
 	tabindex?: number;
