@@ -59,7 +59,7 @@
 		"@types/lodash.debounce": "^4.0.9",
 		"@types/svg-parser": "^2.0.6",
 		"tsup": "^8.0.2",
-		"vite": "^5.1.5"
+		"vite": "^5.1.6"
 	},
 	"peerDependencies": {
 		"svelte": "^3.55.0 || ^4.0.0"
