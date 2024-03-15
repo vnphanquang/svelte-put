@@ -29,7 +29,7 @@ yarn add -D @svelte-put/copy
 
 ## Minimal Usage
 
-By default, `copy` will trigger a `click` <span class="num">1</span> event listener on the same node <span class="num">2</span> it is used on. The triggered listener will then copy [innerText](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/innerText) of said node <span class="num">3</span> to the default clipboard. The next sections show how <span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span> can be customized.
+By default, `copy` will trigger a `click` <span class="c-num">1</span> event listener on the same node <span class="c-num">2</span> it is used on. The triggered listener will then copy [innerText](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/innerText) of said node <span class="c-num">3</span> to the default clipboard. The next sections show how <span class="c-num">1</span>, <span class="c-num">2</span>, <span class="c-num">3</span> can be customized.
 
 Below is a minimal demo of `copy` with default options. Try clicking on the <span class="bg-green-500 text-black px-2">green</span> button to observe the text within being copied to the <span class="bg-blue-200 px-2 text-black">blue</span> box.
 
@@ -44,7 +44,7 @@ Below is a minimal demo of `copy` with default options. Try clicking on the <spa
 /// title=copy-with-default-options.svelte
 ```
 
-## <span class="num align-middle">1</span> Customizing the Event Types
+## <span class="c-num align-middle">1</span> Customizing the Event Types
 
 Pass one or more event types to the `event` option.
 
@@ -53,7 +53,7 @@ Pass one or more event types to the `event` option.
 /// title=custom-event.svelte
 ```
 
-## <span class="num align-middle">2</span> Customizing the Trigger
+## <span class="c-num align-middle">2</span> Customizing the Trigger
 
 The `trigger` option, which typically takes an `HTMLElement`, specifies the node to which the event listener is attached.
 
@@ -74,7 +74,7 @@ A typical use case is clicking on a node to copy text within some other node. In
 /// title=custom-trigger.svelte
 ```
 
-## <span class="num align-middle">3</span> Customizing How Text is Copied
+## <span class="c-num align-middle">3</span> Customizing How Text is Copied
 
 The `text` option can receive a **literal** string or a sync/async **callback** that returns a string, which if provided, will be used for copying instead of the default `innerText` attribute of the node the action is placed on.
 
@@ -117,20 +117,6 @@ Note that since this synthetic `copy` event is not "real", operations on [clipbo
 /// src=./examples/synthetic-copy.svelte
 /// title=synthetic-copy.svelte
 ```
-
-<style lang="postcss">
-  .num {
-    background-color: theme('colors.orange.600');
-    color: theme('colors.white');
-    border-radius: theme('borderRadius.full');
-    font-size: 0.75rem;
-    line-height: 1.25rem;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 1.25rem;
-  }
-</style>
 
 ## The `copyToClipboard` Helper
 

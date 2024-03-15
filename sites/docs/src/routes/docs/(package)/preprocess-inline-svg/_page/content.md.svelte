@@ -235,7 +235,7 @@ The `preprocess-inline-svg` Vite plugin provides automatic typing generation (en
     });
     ```
 
-2. Set typing in an `additional-svelte-typing.d.ts` file, following [instruction here from the Svelte language-tools team](https://github.com/sveltejs/language-tools/blob/master/docs/preprocessors/typescript.md#im-using-an-attributeevent-on-a-dom-element-and-it-throws-a-type-error)
+2. Set typing in an `additional-svelte-typing.d.ts` file, following [instruction here from the Svelte language-tools team](https://svelte.dev/docs/typescript#enhancing-built-in-dom-types)
 
     ```typescript
     /// title=src/additional-svelte-typing.d.ts
