@@ -5,7 +5,7 @@ import type { TocObserveConfig } from '../parameter/parameter.d.ts';
  * Data attributes to override `toc` behavior per matching element
  * @public
  */
-export interface TocDataAttributes {
+export interface TocElementDataAttributes {
 	/** whether to ignore this element when searching for matching elements */
 	'data-toc-ignore'?: boolean;
 	/**
@@ -27,6 +27,81 @@ export interface TocDataAttributes {
 	 */
 	'data-toc-threshold'?: number;
 }
+
+/**
+ * Data attributes used by the `observe` operation when enabled
+ * @public
+ */
+export interface TocObserveDataAttributes {
+	/**
+	 * added to the element where IntersectionObserver is used when observe is
+	 * turned on and references the associated toc element
+	 */
+	readonly 'data-toc-observe-for'?: string;
+	/**
+	 * added to toc root (the element where toc action is placed on) and
+	 * references the id of the active matching element
+	 *
+	 * @remarks
+	 *
+	 * This attribute is reactive. When changed (either by toc or manually),
+	 * it will trigger events and store update accordingly
+	 */
+	'data-toc-observe-active-id'?: string;
+	/**
+	 * added to toc root (the element where toc action is placed on) and
+	 * indicate whether observe is being throttled, typically seen in conjunction
+	 * with usage of the complementary toclink action
+	 */
+	readonly 'data-toc-observe-throttled'?: boolean;
+	/**
+	 * added to the element where toclink is used and
+	 * set to true when the linked toc element is active
+	 */
+	readonly 'data-toc-link-active'?: boolean;
+}
+
+/**
+ * Readonly reference markers added by toc
+ * @public
+ */
+export interface TocReferenceMarkerDataAttributes {
+	/**
+	 * marking this element that it's been processed by toc
+	 *
+	 * @remarks
+	 *
+	 * If this is already preprocessed by {@link https://svelte-put.vnphanquang.com/docs/preprocess-auto-slug | @svelte-put/preprocess-auto-slug},
+	 * there will also be a `data-auto-slug` attribute.
+	 */
+	readonly 'data-toc'?: '';
+	/**
+	 * if the anchor option is enabled in toc parameters, this attribute is present on the injected anchor element.
+	 *
+	 * @remarks
+	 *
+	 * If the element is already added by {@link https://svelte-put.vnphanquang.com/docs/preprocess-auto-slug | @svelte-put/preprocess-auto-slug},
+	 * there `data-auto-slug-anchor` attribute is found instead.
+	 */
+	readonly 'data-toc-anchor'?: '';
+	/**
+	 * added to the element where toc action is used for internal reference
+	 */
+	readonly 'data-toc-root'?: '';
+	/**
+	 * added to the element where toclink action is used and references the linked toc element
+	 */
+	readonly 'data-toc-link-for'?: '';
+
+	/**
+	 * from {@link https://svelte-put.vnphanquang.com/docs/preprocess-auto-slug | @svelte-put/preprocess-auto-slug}
+	 */
+	'data-auto-slug'?: '';
+	'data-auto-slug-anchor'?: '';
+	'data-auto-slug-anchor-position'?: '';
+}
+
+export interface TocDataAttributes extends TocElementDataAttributes, TocObserveDataAttributes, TocReferenceMarkerDataAttributes {}
 
 /**
  * ambient typing for `toc` event handlers
