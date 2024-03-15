@@ -2,6 +2,9 @@
   import { ConnectedList, ConnectedListItem } from '$lib/components/connected-list';
   import DemoQuickStart from './examples/quick-start.svelte';
   import DemoPrepare from './examples/prepare/usage.svelte';
+
+	import { getSettingsContext } from '$lib/contexts/settings';
+  const { packageManager } = getSettingsContext();
 </script>
 
 ## Introduction
@@ -10,7 +13,7 @@ This library is not a plug-and-play, prebuilt component. Rather, it is designed 
 
 ## Installation
 
-<enhanced-code-block group display="tabs">
+<enhanced-code-block group display="tabs" bind:title={$packageManager}>
 
 ```bash
 /// title=npm

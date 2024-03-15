@@ -1,4 +1,6 @@
 <script>
+	import { getSettingsContext } from '$lib/contexts/settings';
+  const { packageManager } = getSettingsContext();
 </script>
 
 ## Introduction
@@ -29,7 +31,7 @@ This package works best with static SVGs like icons and pictograms. For dynamic 
 
 ## Installation
 
-<enhanced-code-block group display="tabs">
+<enhanced-code-block group display="tabs" bind:title={$packageManager}>
 
 ```bash
 /// title=npm

@@ -1,6 +1,9 @@
 <script>
   import { ConnectedList, ConnectedListItem } from '$lib/components/connected-list';
   import suspiciousLinkImage from './images/suspicious-links.webp';
+
+	import { getSettingsContext } from '$lib/contexts/settings';
+  const { packageManager } = getSettingsContext();
 </script>
 
 ## Introduction
@@ -25,7 +28,7 @@ This package is heavily inspired by [rehype-slug] and [rehype-autolink-headings]
 
 ## Installation
 
-<enhanced-code-block group display="tabs">
+<enhanced-code-block group display="tabs" bind:title={$packageManager}>
 
 ```bash
 /// title=npm

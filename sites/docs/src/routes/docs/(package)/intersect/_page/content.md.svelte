@@ -1,6 +1,9 @@
 <script>
   import DemoEventIntersect from './examples/event-intersect.svelte';
   import DemoEventIntersectOnce from './examples/event-intersectonce.svelte';
+
+	import { getSettingsContext } from '$lib/contexts/settings';
+  const { packageManager } = getSettingsContext();
 </script>
 
 ## Acknowledgement
@@ -9,7 +12,7 @@ This packages employs the [Svelte action](https://svelte.dev/docs/svelte-action)
 
 ## Installation
 
-<enhanced-code-block group display="tabs">
+<enhanced-code-block group display="tabs" bind:title={$packageManager}>
 
 ```bash
 /// title=npm

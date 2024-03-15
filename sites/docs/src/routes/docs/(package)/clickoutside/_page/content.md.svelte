@@ -1,11 +1,14 @@
 <script>
+	import { getSettingsContext } from '$lib/contexts/settings';
   import Demo from './examples/demo.svelte';
   import Exclude from './examples/exclude.svelte';
+
+  const { packageManager } = getSettingsContext();
 </script>
 
 ## Installation
 
-<enhanced-code-block group display="tabs">
+<enhanced-code-block group display="tabs" bind:title={$packageManager}>
 
 ```bash
 /// title=npm

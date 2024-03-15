@@ -1,5 +1,8 @@
 <script>
   import { ConnectedList, ConnectedListItem } from '$lib/components/connected-list';
+
+	import { getSettingsContext } from '$lib/contexts/settings';
+  const { packageManager } = getSettingsContext();
 </script>
 
 ## Acknowledgement
@@ -8,7 +11,7 @@ This package relies on [Svelte action] and attempts to stay minimal. If you are 
 
 ## Installation
 
-<enhanced-code-block group display="tabs">
+<enhanced-code-block group display="tabs" bind:title={$packageManager}>
 
 ```bash
 /// title=npm

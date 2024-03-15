@@ -1,5 +1,8 @@
 <script>
   import Example from './examples/example.svelte';
+
+	import { getSettingsContext } from '$lib/contexts/settings';
+  const { packageManager } = getSettingsContext();
 </script>
 
 ## Prior Art
@@ -10,7 +13,7 @@
 
 ## Installation
 
-<enhanced-code-block group display="tabs">
+<enhanced-code-block group display="tabs" bind:title={$packageManager}>
 
 ```bash
 /// title=npm
