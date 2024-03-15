@@ -32,7 +32,8 @@
 		"lint:svelte": "svelte-check --tsconfig ./tsconfig.json",
 		"lint:es": "eslint . --ignore-path=\"../../.eslintignore\"",
 		"lint:style": "stylelint '**/*.{svelte,css}'",
-		"format": "prettier --ignore-path ../../.prettierignore --write ."
+		"format": "prettier --ignore-path ../../.prettierignore --write .",
+		"prepublishOnly": "turbo run build --filter=@svelte-put/select"
 	},
 	"keywords": [
 		"svelte",

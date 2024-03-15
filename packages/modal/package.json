@@ -47,13 +47,14 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "svelte-kit sync && svelte-package",
+		"build": "svelte-kit sync && svelte-package && publint",
 		"sync": "svelte-kit sync",
 		"lint": "run-p lint:*",
 		"lint:svelte": "svelte-check --tsconfig ./tsconfig.json",
 		"lint:es": "eslint . --ignore-path=\"../../.eslintignore\"",
 		"lint:style": "stylelint '**/*.{svelte,css}'",
-		"format": "prettier --ignore-path ../../.prettierignore --write ."
+		"format": "prettier --ignore-path ../../.prettierignore --write .",
+		"prepublishOnly": "turbo run build --filter=@svelte-put/modal"
 	},
 	"keywords": [
 		"svelte",

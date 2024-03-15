@@ -27,7 +27,8 @@
 	"scripts": {
 		"lint": "eslint . --ignore-path=\"../../.eslintignore\"",
 		"format": "prettier --ignore-path ../../.prettierignore --write .",
-		"build": "tsup"
+		"build": "tsup",
+		"prepublishOnly": "turbo run build --filter=@svelte-put/preprocess-inline-svg"
 	},
 	"keywords": [
 		"svelte",

@@ -20,7 +20,8 @@
 	"scripts": {
 		"lint": "eslint . --ignore-path=\"../../.eslintignore\"",
 		"format": "prettier --ignore-path ../../.prettierignore --write .",
-		"build": "tsup && publint"
+		"build": "tsup && publint",
+		"prepublishOnly": "turbo run build --filter @svelte-put/preprocess-auto-slug"
 	},
 	"keywords": [
 		"svelte",
