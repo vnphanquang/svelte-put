@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2
+
+### Patch Changes
+
+- [#281](https://github.com/vnphanquang/svelte-put/pull/281) [`35ecf0a`](https://github.com/vnphanquang/svelte-put/commit/35ecf0ac8e9d15691eadde3ccd5dd14dd4207f31) Thanks [@vnphanquang](https://github.com/vnphanquang)! - correctly type `execute` config option
+
 ## 0.1.1
 
 ### Patch Changes
