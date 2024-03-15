@@ -2,8 +2,13 @@
 	import { page } from '$app/stores';
 	import { PUBLIC_MODE } from '$env/static/public';
 	import ogImageHome from '$lib/assets/images/og/svelte-put.jpg';
+	import { setSettingsContext } from '$lib/contexts/settings';
 
 	import '../lib/css/app.css';
+
+	import type { LayoutData } from './$types';
+
+	export let data: LayoutData;
 
 	const DEFAULT_KEYWORDS = ['svelte', 'svelte-put', 'utility'];
 
@@ -31,6 +36,13 @@
 	$: twitterCard = meta?.twitter?.card ?? 'summary_large_image';
 	$: twitterSite = meta?.twitter?.site ?? '@vnphanquang';
 	$: twitterCreator = meta?.twitter?.creator ?? '@vnphanquang';
+
+	// contexts
+	const { colorScheme, packageManger } = setSettingsContext(data.settings);
+
+	$: $colorScheme = data.settings.colorScheme;
+	$: $packageManger = data.settings.packageManger;
+
 </script>
 
 <svelte:head>
