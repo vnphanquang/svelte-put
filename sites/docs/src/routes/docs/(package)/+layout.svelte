@@ -99,6 +99,11 @@
 
 {#if data.package.ready}
 	<slot />
+	<p class="text-right text-sm">
+		<a class="c-link" href="https://github.com/vnphanquang/svelte-put/edit/main/sites/docs/src/routes/docs/(package)/{data.package.id}/_page/content.md.svelte">
+			Edit this page on Github
+		</a>
+	</p>
 {:else}
 	<div class="flex flex-col items-center text-center">
     <p class="text-lg font-bold">Wow, such empty</p>
