@@ -2,7 +2,7 @@
  * all relevant data attribute name literals
  * @internal
  */
-export const ATTRIBUTES = {
+export const ATTRIBUTES = /** @type {Record<string, keyof (import('./attributes.d.ts').TocDataAttributes)>} */({
 	// markers from `@svelte-put/preprocess-auo-slug`
 	autoslug: 'data-auto-slug',
 	autoSlugAnchor: 'data-auto-slug-anchor',
@@ -23,4 +23,4 @@ export const ATTRIBUTES = {
 	// for elements that `use:toclink`
 	linkFor: 'data-toc-link-for',
 	linkActive: 'data-toc-link-active',
-};
+});
