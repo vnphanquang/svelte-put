@@ -2,6 +2,7 @@
 	import { toc, toclink, createTocStore } from '@svelte-put/toc';
 	import { slide } from 'svelte/transition';
 
+	import { ColorSchemeMenu } from '$lib/components/color-scheme-menu';
 	import { SOCIAL_LINKS } from "$lib/constants";
 	import { packages } from '$lib/data/packages';
 
@@ -32,12 +33,13 @@
       <div class="h-0.5 w-full bg-gradient-brand" in:slide={{ axis: 'x', duration: 500 }} />
     {/key}
 		<nav class="max-w-pad flex items-center py-2 flex-1" aria-label="header">
-			<a href="/" class="flex items-center gap-2">
+			<a href="/" class="flex items-center gap-2 mr-auto">
 				<svg inline-src="svelte-put" width="32" height="32" />
 				<span class="font-fingerpaint text-sm font-bold text-gradient-brand">svelte-put</span>
 			</a>
-			<a href={SOCIAL_LINKS.GITHUB} external class="ml-auto c-link">
-				<svg inline-src="simpleicon/github" height="24" width="24" />
+			<ColorSchemeMenu />
+			<a href={SOCIAL_LINKS.GITHUB} external class="c-link ml-4">
+				<svg inline-src="simpleicon/github" height="28" width="28" />
 			</a>
 		</nav>
 		<div class="max-w-pad flex items-center justify-between py-1 lg:justify-end border-t border-outline xl:hidden flex-1">
