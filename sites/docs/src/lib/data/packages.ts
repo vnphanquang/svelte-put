@@ -32,8 +32,8 @@ export const packages = {
     description: 'action for rendering Cloudflare turnstile into HTML node',
     path: '/docs/cloudflare-turnstile',
     replId: '',
-    status: 'dev',
-    ready: false,
+    status: 'new',
+    ready: true,
     githubUrl:
       'https://github.com/vnphanquang/svelte-put/tree/main/packages/cloudflare-turnstile',
     changelogUrl:
