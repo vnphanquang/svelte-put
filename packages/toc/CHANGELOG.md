@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.0.1
+
+### Patch Changes
+
+- [#281](https://github.com/vnphanquang/svelte-put/pull/281) [`8242e63`](https://github.com/vnphanquang/svelte-put/commit/8242e63801709266966ab6ed1053a822fa08b8d8) Thanks [@vnphanquang](https://github.com/vnphanquang)! - add comprehensive type definitions for data attributes
+
 ## 5.0.0
 
 ### Major Changes
