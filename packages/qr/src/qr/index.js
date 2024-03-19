@@ -25,8 +25,7 @@ export function resolveConfig(config) {
  * @param {import('./types').QRCode} [qr]
  */
 export function createSVGParts(config, qr) {
-	const { data, margin, shape, logo, logoRatio, anchorInnerFill, anchorOuterFill, moduleFill } =
-		resolveConfig(config);
+	const { data, margin, shape, logo, logoRatio, anchorInnerFill, anchorOuterFill, moduleFill } = resolveConfig(config);
 	if (!qr) {
 		qr = QR(0, 'H');
 		qr.addData(data);
@@ -81,8 +80,8 @@ export function createSVGParts(config, qr) {
 	if (logo) {
 		const safelyRemovableSize = Math.floor(count * Math.sqrt(0.1));
 		const { width, height } = calculateLogoSize(safelyRemovableSize * 0.8, logoRatio);
-		const x = (size + margin - width) / 2;
-		const y = (size + margin - height) / 2;
+		const x = (size - width + 1) / 2;
+		const y = (size - height + 1) / 2;
 		logoSvg = `<image width="${width}" height="${height}" x="${x}" y="${y}" href="${logo}" class="logo" />`;
 	}
 

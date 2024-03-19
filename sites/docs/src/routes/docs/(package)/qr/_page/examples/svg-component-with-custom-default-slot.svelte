@@ -10,6 +10,7 @@
 	anchorInnerFill="tomato"
 	anchorOuterFill="tomato"
 	moduleFill="tomato"
+	margin={4}
   let:attributes
   let:innerHTML
 >

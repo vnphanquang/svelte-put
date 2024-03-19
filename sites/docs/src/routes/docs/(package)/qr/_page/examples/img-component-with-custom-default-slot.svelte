@@ -10,6 +10,7 @@
 	anchorInnerFill="tomato"
 	anchorOuterFill="tomato"
 	moduleFill="tomato"
+	margin={4}
   let:src
 >
   <img {src} alt="qr" />
