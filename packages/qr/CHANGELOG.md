@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.5
+
+### Patch Changes
+
+- [`19e7fbf`](https://github.com/vnphanquang/svelte-put/commit/19e7fbffb291216f7a876ce083446f6534af7011) Thanks [@vnphanquang](https://github.com/vnphanquang)! - correct logo alignment, especially when margin is specified (#280)
+
+- [`54d21ac`](https://github.com/vnphanquang/svelte-put/commit/54d21ac91c03978bee9e96ec24432bba7659fb65) Thanks [@vnphanquang](https://github.com/vnphanquang)! - QR img component - track logo change
+
 ## 1.0.4
 
 ### Patch Changes
