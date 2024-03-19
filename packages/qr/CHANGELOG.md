@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.4
+
+### Patch Changes
+
+- [`81bd6aa`](https://github.com/vnphanquang/svelte-put/commit/81bd6aa03a22c54041da72602c6046e6eb477104) Thanks [@vnphanquang](https://github.com/vnphanquang)! - remove `data-qr` attribute on rendered svg
+
+- [`965b50b`](https://github.com/vnphanquang/svelte-put/commit/965b50be68e78c2ae18f02e7ffe01da9aa3a39f0) Thanks [@vnphanquang](https://github.com/vnphanquang)! - only pass necessary props onto element attributes (SVG & Img)
+
 ## 1.0.3
 
 ### Patch Changes
