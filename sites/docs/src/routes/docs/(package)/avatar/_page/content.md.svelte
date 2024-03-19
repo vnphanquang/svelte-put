@@ -140,7 +140,7 @@ Support for [Gravatar] is available through either:
 :::
 :::
 
-<enhanced-code-block group display="tabs" bind:current={gravatarVariant}>
+<enhanced-code-block group display="tabs" bind:title={gravatarVariant}>
 
 ```svelte
 /// title=Minimal
@@ -185,7 +185,7 @@ Similar to `Gravatar`, Support for [UI Avatar] is available through either:
 :::
 :::
 
-<enhanced-code-block group display="tabs" bind:current={uiAvatarVariant}>
+<enhanced-code-block group display="tabs" bind:title={uiAvatarVariant}>
 
 ```svelte
 /// title=Minimal

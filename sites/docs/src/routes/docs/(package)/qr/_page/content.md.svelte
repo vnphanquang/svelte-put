@@ -66,7 +66,7 @@ This package is made possible by [qrcode-generator](https://www.npmjs.com/packag
 Note the imports from subpackage `@svelte-put/qr/svg` in the examples below.
 :::
 
-<enhanced-code-block group display="tabs" bind:current={svgVariant}>
+<enhanced-code-block group display="tabs" bind:title={svgVariant}>
 
 ```svelte
 /// src=./examples/svg-action.svelte
@@ -115,7 +115,7 @@ Underneath, the rendered image is just an inline base64 encoding of an svg.
 Note the imports from subpackage `@svelte-put/qr/img` in the examples below.
 :::
 
-<enhanced-code-block group display="tabs" bind:current={imgVariant}>
+<enhanced-code-block group display="tabs" bind:title={imgVariant}>
 
 ```svelte
 /// src=./examples/img-action.svelte
