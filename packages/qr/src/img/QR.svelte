@@ -5,12 +5,19 @@
 
 	import { DEFAULT_FILLS, toDataURL } from './index.js';
 
-	let logo = /** @type {import('./QR.svelte').QRProps} */ ($$props).logo;
+	$: ({ data, anchorInnerFill, anchorOuterFill, logo, logoRatio, margin, moduleFill, shape, ...rest } = /** @type {import('../qr/types.js').QRConfig} */($$props));
+
 	$: src = createBase64Image(
 		/** @type {import('./QR.svelte').QRProps} */ ({
 			...DEFAULT_FILLS,
-			...$$props,
+			data,
+			anchorInnerFill,
+			anchorOuterFill,
 			logo,
+			logoRatio,
+			margin,
+			moduleFill,
+			shape,
 		}),
 	);
 
@@ -29,5 +36,5 @@
 </script>
 
 <slot {src}>
-	<img {src} alt={$$props.data ?? $$restProps.alt} {...$$restProps} bind:this={element} />
+	<img {src} alt={$$props.data ?? $$restProps.alt} {...rest} bind:this={element} />
 </slot>

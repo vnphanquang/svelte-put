@@ -8,13 +8,13 @@ const __ANCHOR_SIZE = 7;
  */
 export function resolveConfig(config) {
 	return /** @satisfies {import('./types').QRConfig} */ ({
-		margin: 1,
-		shape: /** @type {const} */ ('square'),
-		logoRatio: 1,
-		moduleFill: 'currentcolor',
-		anchorOuterFill: 'currentcolor',
-		anchorInnerFill: 'currentcolor',
 		...config,
+		margin: config.margin ?? 1,
+		shape: config.shape ?? /** @type {const} */ ('square'),
+		logoRatio: config.logoRatio ?? 1,
+		moduleFill: config.moduleFill ?? 'currentcolor',
+		anchorOuterFill: config.anchorOuterFill ?? 'currentcolor',
+		anchorInnerFill: config.anchorInnerFill ?? 'currentcolor',
 	});
 }
 

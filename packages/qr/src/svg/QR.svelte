@@ -3,9 +3,18 @@
 
 	import { createSVGParts } from '../qr/index.js';
 
-	$: ({ anchors, attributes, logo, modules } = createSVGParts(
-		/** @type {import('./QR.svelte').QRProps} */ ($$props),
-	));
+	$: ({ data, anchorInnerFill, anchorOuterFill, logo: logoURL, logoRatio, margin, moduleFill, shape, ...rest } = /** @type {import('../qr/types.js').QRConfig} */($$props));
+
+	$: ({ anchors, attributes, logo, modules } = createSVGParts({
+		data,
+		anchorInnerFill,
+		anchorOuterFill,
+		logo: logoURL,
+		logoRatio,
+		margin,
+		moduleFill,
+		shape,
+	}));
 	$: innerHTML = `${anchors}${modules}${logo}`;
 
 	/** @type {SVGElement}*/
@@ -19,7 +28,7 @@
 
 <!-- eslint-disable svelte/no-at-html-tags  -->
 <slot {attributes} {innerHTML}>
-	<svg {...attributes} {...$$restProps} bind:this={element}>
+	<svg {...attributes} {...rest} bind:this={element}>
 		{@html innerHTML}
 	</svg>
 </slot>
