@@ -7,13 +7,17 @@
 
 	$: ({ data, anchorInnerFill, anchorOuterFill, logo, logoRatio, margin, moduleFill, shape, ...rest } = /** @type {import('../qr/types.js').QRConfig} */($$props));
 
+	// FIXME: svelte v5 for better dependency tracking here
+	let logoData = logo;
+	$: fetchLogo(logo);
+
 	$: src = createBase64Image(
 		/** @type {import('./QR.svelte').QRProps} */ ({
 			...DEFAULT_FILLS,
 			data,
 			anchorInnerFill,
 			anchorOuterFill,
-			logo,
+			logo: logoData,
 			logoRatio,
 			margin,
 			moduleFill,
@@ -27,14 +31,21 @@
 	const dispatch = createEventDispatcher();
 	onMount(async () => {
 		if (element) dispatch('qr:init', element);
+	});
 
+	/**
+	 * @param {string} logo
+	 */
+	async function fetchLogo(logo) {
 		if (logo?.startsWith('http')) {
-			logo = await toDataURL(logo);
+			logoData = await toDataURL(logo);
 			dispatch('qr:logofetch', logo);
 		}
-	});
+	}
 </script>
 
-<slot {src}>
-	<img {src} alt={$$props.data ?? $$restProps.alt} {...rest} bind:this={element} />
-</slot>
+{#key src}
+	<slot {src}>
+		<img {src} alt={$$props.data ?? $$restProps.alt} {...rest} bind:this={element} />
+	</slot>
+{/key}
