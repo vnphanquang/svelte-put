@@ -10,7 +10,7 @@
 	</div>
 	<p>
 		Useful
-		<a class="c-link" href="https://svelte.dev">svelte</a> to put in your projects
+		<a class="c-link" href="https://svelte.dev">svelte</a> stuff to put in your projects
 	</p>
 	<div class="flex items-center justify-between gap-10 uppercase text-sm">
 		<a class="c-link c-link--preserved text-link" href="/docs">
