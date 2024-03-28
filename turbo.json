@@ -27,6 +27,7 @@
 			"outputs": []
 		},
 		"dev": {
+			"dependsOn": ["^build", "^dts"],
 			"cache": false,
 			"persistent": true
 		}
