@@ -44,7 +44,7 @@
 		"@types/mustache": "^4.2.5",
 		"postcss": "^8.4.36",
 		"tailwindcss": "^3.4.1",
-		"vite": "^5.1.6"
+		"vite": "^5.1.7"
 	},
 	"volta": {
 		"extends": "../../package.json"
