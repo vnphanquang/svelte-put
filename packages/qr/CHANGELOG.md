@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0
+
+### Minor Changes
+
+- [`6094725`](https://github.com/vnphanquang/svelte-put/commit/6094725fd4a60e9243e2f6d319dd5038f5f03b8e) Thanks [@vnphanquang](https://github.com/vnphanquang)! - allow configuring `typeNumber` and `errorCorrectionLevel` (parameters to [qrcode-generator](https://github.com/kazuhikoarase/qrcode-generator))
+
 ## 1.0.5
 
 ### Patch Changes
