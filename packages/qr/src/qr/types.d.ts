@@ -1,4 +1,5 @@
 import type { resolveConfig } from './index.js';
+import QR from 'qrcode-generator';
 
 export type QRCode = ReturnType<typeof import('qrcode-generator')>;
 
@@ -30,10 +31,22 @@ export type QRConfig = {
 	/* styling */
 	/** fill for each module */
 	moduleFill?: string;
-	/** fill for the outer ring of each anchor (big positioning square at the corner) */
+	/** fill for the outer ring of each anchor (big positioning square at the corners) */
 	anchorOuterFill?: string;
 	/** fill for the inner square of each anchor */
 	anchorInnerFill?: string;
+	/**
+	 * Type number (1 ~ 40), or 0 for auto detection,
+	 * passed as parameter to {@link https://github.com/kazuhikoarase/qrcode-generator | qrcode-generator},
+   * default to 0,
+	 */
+	typeNumber?: Parameters<typeof QR>[0];
+	/**
+	 * Error correction level ('L', 'M', 'Q', 'H'),
+	 * passed as parameter to {@link https://github.com/kazuhikoarase/qrcode-generator | qrcode-generator},
+   * default to H,
+	 */
+	errorCorrectionLevel?: Parameters<typeof QR>[1];
 };
 
 /**

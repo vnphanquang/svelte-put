@@ -5,7 +5,7 @@
 
 	import { DEFAULT_FILLS, toDataURL } from './index.js';
 
-	$: ({ data, anchorInnerFill, anchorOuterFill, logo, logoRatio, margin, moduleFill, shape, ...rest } = /** @type {import('../qr/types.js').QRConfig} */($$props));
+	$: ({ data, anchorInnerFill, anchorOuterFill, logo, logoRatio, margin, moduleFill, shape, errorCorrectionLevel, typeNumber, ...rest } = /** @type {import('../qr/types.js').QRConfig} */($$props));
 
 	// FIXME: svelte v5 for better dependency tracking here
 	let logoData = logo;
@@ -22,6 +22,8 @@
 			margin,
 			moduleFill,
 			shape,
+			typeNumber,
+			errorCorrectionLevel,
 		}),
 	);
 

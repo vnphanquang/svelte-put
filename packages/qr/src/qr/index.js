@@ -15,6 +15,8 @@ export function resolveConfig(config) {
 		moduleFill: config.moduleFill ?? 'currentcolor',
 		anchorOuterFill: config.anchorOuterFill ?? 'currentcolor',
 		anchorInnerFill: config.anchorInnerFill ?? 'currentcolor',
+		typeNumber: config.typeNumber ?? 0,
+		errorCorrectionLevel: config.errorCorrectionLevel ?? 'H'
 	});
 }
 
@@ -25,9 +27,9 @@ export function resolveConfig(config) {
  * @param {import('./types').QRCode} [qr]
  */
 export function createSVGParts(config, qr) {
-	const { data, margin, shape, logo, logoRatio, anchorInnerFill, anchorOuterFill, moduleFill } = resolveConfig(config);
+	const { data, margin, shape, logo, logoRatio, anchorInnerFill, anchorOuterFill, moduleFill, typeNumber, errorCorrectionLevel } = resolveConfig(config);
 	if (!qr) {
-		qr = QR(0, 'H');
+		qr = QR(typeNumber, errorCorrectionLevel);
 		qr.addData(data);
 		qr.make();
 	}

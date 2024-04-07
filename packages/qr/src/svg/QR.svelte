@@ -3,7 +3,7 @@
 
 	import { createSVGParts } from '../qr/index.js';
 
-	$: ({ data, anchorInnerFill, anchorOuterFill, logo: logoURL, logoRatio, margin, moduleFill, shape, ...rest } = /** @type {import('../qr/types.js').QRConfig} */($$props));
+	$: ({ data, anchorInnerFill, anchorOuterFill, logo: logoURL, logoRatio, margin, moduleFill, shape, errorCorrectionLevel, typeNumber, ...rest } = /** @type {import('../qr/types.js').QRConfig} */($$props));
 
 	$: ({ anchors, attributes, logo, modules } = createSVGParts({
 		data,
@@ -14,6 +14,8 @@
 		margin,
 		moduleFill,
 		shape,
+		errorCorrectionLevel,
+		typeNumber,
 	}));
 	$: innerHTML = `${anchors}${modules}${logo}`;
 
