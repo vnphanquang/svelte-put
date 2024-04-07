@@ -89,11 +89,11 @@
 	},
 	"devDependencies": {
 		"@internals/tsconfig": "workspace:*",
-		"@sveltejs/adapter-auto": "3.1.1",
-		"@sveltejs/kit": "2.5.4",
-		"@sveltejs/package": "2.3.0",
+		"@sveltejs/adapter-auto": "3.2.0",
+		"@sveltejs/kit": "2.5.5",
+		"@sveltejs/package": "2.3.1",
 		"@sveltejs/vite-plugin-svelte": "^3.0.2",
-		"vite": "^5.1.6"
+		"vite": "^5.2.8"
 	},
 	"peerDependencies": {
 		"svelte": "^3.55.0 || ^4.0.0"

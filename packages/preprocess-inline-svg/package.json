@@ -60,15 +60,15 @@
 		"@types/lodash.debounce": "^4.0.9",
 		"@types/svg-parser": "^2.0.6",
 		"tsup": "^8.0.2",
-		"vite": "^5.1.6"
+		"vite": "^5.2.8"
 	},
 	"peerDependencies": {
 		"svelte": "^3.55.0 || ^4.0.0"
 	},
 	"dependencies": {
-		"hast-util-to-html": "^9.0.0",
+		"hast-util-to-html": "^9.0.1",
 		"lodash.debounce": "^4.0.8",
-		"magic-string": "^0.30.8",
+		"magic-string": "^0.30.9",
 		"svelte-parse-markup": "^0.1.2",
 		"svg-parser": "^2.0.4"
 	}

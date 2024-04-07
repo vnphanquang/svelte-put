@@ -38,7 +38,7 @@
 				<span class="font-fingerpaint text-sm font-bold text-gradient-brand">svelte-put</span>
 			</a>
 			<ColorSchemeMenu />
-			<a href={SOCIAL_LINKS.GITHUB} external class="c-link ml-4">
+			<a href={SOCIAL_LINKS.GITHUB} external class="c-link c-link--icon ml-4">
 				<svg inline-src="simpleicon/github" height="28" width="28" />
 			</a>
 		</nav>

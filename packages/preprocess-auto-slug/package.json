@@ -56,7 +56,7 @@
 	},
 	"dependencies": {
 		"github-slugger": "^2.0.0",
-		"magic-string": "^0.30.8",
+		"magic-string": "^0.30.9",
 		"svelte-parse-markup": "^0.1.2"
 	}
 }
