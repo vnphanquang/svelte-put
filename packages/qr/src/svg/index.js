@@ -1,4 +1,4 @@
-import { createSVGParts } from '../qr';
+import { createQrSvgParts } from '../qr';
 
 /**
  * Svelte action for rendering a QR as innerHTML of this SVGElement
@@ -9,7 +9,7 @@ import { createSVGParts } from '../qr';
  */
 export function qr(node, param) {
 	async function init() {
-		const { anchors, attributes, logo, modules } = createSVGParts(param);
+		const { anchors, attributes, logo, modules } = createQrSvgParts(param);
 		for (const [name, value] of Object.entries(attributes)) {
 			node.setAttribute(name, value);
 		}

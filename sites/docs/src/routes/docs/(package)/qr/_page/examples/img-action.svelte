@@ -10,6 +10,8 @@
     anchorInnerFill: 'gray',
     anchorOuterFill: 'gray',
     moduleFill: 'gray',
+    width: 500,
+    height: 500,
   }}
   alt="qr"
 />

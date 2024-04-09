@@ -16,17 +16,17 @@ export function resolveConfig(config) {
 		anchorOuterFill: config.anchorOuterFill ?? 'currentcolor',
 		anchorInnerFill: config.anchorInnerFill ?? 'currentcolor',
 		typeNumber: config.typeNumber ?? 0,
-		errorCorrectionLevel: config.errorCorrectionLevel ?? 'H'
+		errorCorrectionLevel: config.errorCorrectionLevel ?? 'H',
 	});
 }
 
 /**
- * create SVG parts that make up a QR. You should typically use {@link createSVG} instead
+ * create SVG parts that make up a QR. You should typically use {@link createQrSvgString} instead
  * @public
  * @param {import('./types').QRConfig} config
  * @param {import('./types').QRCode} [qr]
  */
-export function createSVGParts(config, qr) {
+export function createQrSvgParts(config, qr) {
 	const { data, margin, shape, logo, logoRatio, anchorInnerFill, anchorOuterFill, moduleFill, typeNumber, errorCorrectionLevel } = resolveConfig(config);
 	if (!qr) {
 		qr = QR(typeNumber, errorCorrectionLevel);
@@ -102,11 +102,15 @@ export function createSVGParts(config, qr) {
 /**
  * create QR as an SVG string
  * @public
- * @param {import('./types').QRConfig} config
+ * @param {import('./types').QRConfig & Partial<import('./types').SizeAttributes>} config
  */
-export function createSVG(config) {
-	const { anchors, attributes, logo, modules } = createSVGParts(config);
-	return `<svg ${Object.entries(attributes)
+export function createQrSvgString(config) {
+	const { anchors, attributes, logo, modules } = createQrSvgParts(config);
+	/** @type {typeof attributes & Partial<import('./types').SizeAttributes>} */
+	const rAttributes = { ...attributes };
+	if (config.width) rAttributes.width = config.width;
+	if (config.height) rAttributes.height = config.height;
+	return `<svg ${Object.entries(rAttributes)
 		.map(([name, value]) => `${name}="${value}"`)
 		.join(' ')}>${anchors} ${modules} ${logo}</svg>`;
 }
@@ -114,10 +118,10 @@ export function createSVG(config) {
 /**
  * create QR as a base64 data URL (image/svg+xml)
  * @public
- * @param {import('./types').QRConfig} config
+ * @param {import('./types').QRConfig & Partial<import('./types').SizeAttributes>} config
  */
-export function createBase64Image(config) {
-	const svg = createSVG(config);
+export function createQrSvgDataUrl(config) {
+	const svg = createQrSvgString(config);
 	const svg64 = btoa(svg);
 	const b64start = `data:image/svg+xml;base64,`;
 	const image64 = b64start + svg64;
@@ -178,4 +182,66 @@ function calculateLogoSize(logoSize, logoRatio) {
 		width: logoSize * logoRatio,
 		height: logoSize,
 	};
+}
+
+const DEFAULT_PNG_FILLS = {
+	moduleFill: 'black',
+	anchorOuterFill: 'black',
+	anchorInnerFill: 'black',
+}
+
+/**
+ * @typedef {import('./types').QRConfig & import('./types').SizeAttributes & { backgroundFill?: string }} CreateQrPngDataUrlConfig
+ */
+
+/**
+ * @param {CreateQrPngDataUrlConfig} config
+ */
+export async function createQrPngDataUrl(config) {
+	if (typeof document === 'undefined') {
+		throw new Error('Cannot use createQrPngDataUrl in a non-browser environment');
+	}
+
+	const width = config.width || 1000;
+	const height = config.height || 1000;
+
+	/** @type {CreateQrPngDataUrlConfig} */
+	const rConfig = {
+		...DEFAULT_PNG_FILLS,
+		...config,
+		width,
+		height,
+	};
+	const base64 = createQrSvgDataUrl(rConfig);
+
+	const canvas = document.createElement('canvas');
+	canvas.width = width;
+	canvas.height = height;
+	const ctx = canvas.getContext('2d');
+	if (!ctx) {
+		throw new Error('Cannot get 2d context from canvas');
+	}
+	/** @type {(value: string) => void} */
+	let _resolve;
+	/** @type {Promise<string>} */
+	const promise = new Promise((resolve) => {
+		_resolve = resolve;
+	});
+
+	const img = new Image(width, height);
+	img.addEventListener('load', () => {
+		// background
+		if (rConfig.backgroundFill) ctx.fillStyle = rConfig.backgroundFill;
+		ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+		// draw QR
+		ctx.drawImage(img, 0, 0);
+
+		const pngDataUrl = canvas.toDataURL('image/png');
+		img.remove();
+		_resolve(pngDataUrl);
+	});
+	img.src = base64;
+
+	return promise;
 }

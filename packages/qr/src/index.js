@@ -6,4 +6,4 @@
  * @packageDocumentation
  */
 
-export { createSVG, createSVGParts, createBase64Image } from './qr/index.js';
+export { createQrSvgString, createQrSvgParts, createQrSvgDataUrl, createQrPngDataUrl } from './qr/index.js';

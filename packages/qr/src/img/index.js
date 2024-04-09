@@ -1,10 +1,4 @@
-import { createBase64Image } from '../qr/index.js';
-
-export const DEFAULT_FILLS = {
-	moduleFill: 'black',
-	anchorOuterFill: 'black',
-	anchorInnerFill: 'black',
-};
+import { createQrPngDataUrl } from '../qr';
 
 /**
  * Fetch a remote image and convert to base64 string
@@ -39,14 +33,16 @@ export function qr(node, param) {
 			logo = await toDataURL(logo);
 		}
 
-		node.src = createBase64Image(
-			/** @type {import('./QR.svelte').QRProps} */ ({
-				...DEFAULT_FILLS,
-				...param,
-				logo,
-			}),
-		);
+		/** @type {import('./types').ImgQRParameter} */
+		const rConfig = {
+			...param,
+			width: parseInt(node.getAttribute('width') || '') || param.width,
+			height: parseInt(node.getAttribute('height') || '') || param.height,
+			logo,
+		}
+		const pngBase64 = await createQrPngDataUrl(rConfig)
 
+		node.src = pngBase64;
 		node.dispatchEvent(new CustomEvent('qr:init', { detail: node }));
 	}
 

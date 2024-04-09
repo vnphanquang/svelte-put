@@ -2,15 +2,18 @@
   import ImgAction from './examples/img-action.svelte';
   import ImgComponentWithDefaultSlot from './examples/img-component-with-custom-default-slot.svelte';
   import ImgComponent from './examples/img-component.svelte';
+  import ImgBackgroundFill from './examples/img-background-fill.svelte';
+  import ImgHeadless from './examples/img-headless.svelte';
   import SvgAction from './examples/svg-action.svelte';
   import SvgComponentWithDefaultSlot from './examples/svg-component-with-custom-default-slot.svelte';
   import SvgComponent from './examples/svg-component.svelte';
+  import SvgHeadless from './examples/svg-headless.svelte';
 
 	import { getSettingsContext } from '$lib/contexts/settings';
   const { packageManager } = getSettingsContext();
 
-  let svgVariant = 'action';
-  let imgVariant = 'action';
+  let svgVariant = 'component';
+  let imgVariant = 'component';
 </script>
 
 ## Installation
@@ -62,10 +65,6 @@ This package is made possible by [qrcode-generator](https://www.npmjs.com/packag
 
 :::
 
-:::div c-callout c-callout--info
-Note the imports from subpackage `@svelte-put/qr/svg` in the examples below.
-:::
-
 <enhanced-code-block group display="tabs" bind:title={svgVariant}>
 
 ```svelte
@@ -85,6 +84,31 @@ Note the imports from subpackage `@svelte-put/qr/svg` in the examples below.
 
 </enhanced-code-block>
 
+:::div c-callout c-callout--info
+Note the imports from subpackage `@svelte-put/qr/svg` in the examples above.
+:::
+
+### SVG Headless Helpers
+
+:::div grid gap-8 grid-cols-1 sm:grid-cols-[1fr,auto]
+
+:::div flex-1
+
+`@svelte-put/qr` exports two top-level helpers, `createQrSvgString` and `createQrSvgDataUrl`, that allow you to create QR code programmatically as string or [Base64 SVG Data URL](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs), respectively. The aforementioned helpers works in both browser and server.
+
+:::
+
+:::div not-prose
+  <SvgHeadless />
+:::
+
+:::
+
+```svelte
+/// src=./examples/svg-headless.svelte
+/// title=SVG Headless Helpers
+```
+
 ## Image
 
 :::div grid gap-8 grid-cols-1 sm:grid-cols-[2fr,1fr]
@@ -96,8 +120,6 @@ Note the imports from subpackage `@svelte-put/qr/svg` in the examples below.
 - **action**: quick and minimal, only rendered at **runtime** in browser,
 - **component**: useful for SSR and prerendering,
 - **component with custom default slot**: useful if you need to use component and have access to `HTMLImageElement`.
-
-Underneath, the rendered image is just an inline base64 encoding of an svg.
 
 :::
 
@@ -111,8 +133,10 @@ Underneath, the rendered image is just an inline base64 encoding of an svg.
 
 :::
 
-:::div c-callout c-callout--info
-Note the imports from subpackage `@svelte-put/qr/img` in the examples below.
+:::div c-callout c-callout--success c-callout--icon-confetti
+Since **v1.2.0**, `@svelte-put/qr` renders a base64 PNG image for `img` in the browser using the [Canvas API]. On the server (i.e during prerendering and SSR), however, it will render a base64 SVG instead, since canvas is not available there.
+
+The rendered PNG has the default size of 1000x1000, it is recommended that you specify `width` and `height` explicitly.
 :::
 
 <enhanced-code-block group display="tabs" bind:title={imgVariant}>
@@ -134,7 +158,55 @@ Note the imports from subpackage `@svelte-put/qr/img` in the examples below.
 
 </enhanced-code-block>
 
-## Configuration
+:::div c-callout c-callout--info
+Note the imports from subpackage `@svelte-put/qr/img` in the examples above.
+:::
+
+### Background Fill
+
+:::div grid gap-8 grid-cols-1 sm:grid-cols-[1fr,auto]
+
+:::div flex-1
+
+In addition to `moduleFill`, `anchorOuterFill`, and `anchorInnerFill`, listed in [Common Configuration], `img` strategies accept a `backgroundFill` option to specify the background of the QR code.
+
+:::
+
+<ImgBackgroundFill />
+
+:::
+
+```svelte
+/// src=./examples/img-background-fill.svelte
+/// title=the `backgroundFill` option
+```
+
+### PNG Headless Helper
+
+:::div grid gap-8 grid-cols-1 sm:grid-cols-[1fr,auto]
+
+:::div flex-1
+
+In case you want to create a [base64 PNG data URL](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs) QR code programmatically, `@svelte-put/qr` exports a top-level helper named `createQrPngDataUrl` for your convenience. This is helpful, for example, if you want to generate a downloadable link.
+
+:::
+
+:::div not-prose
+  <ImgHeadless />
+:::
+
+:::
+
+```svelte
+/// src=./examples/img-headless.svelte
+/// title=PNG Headless Helper
+```
+
+:::div c-callout c-callout--warning
+Note that `createQrPngDataUrl` requires the [Canvas API] and only works in browser.
+:::
+
+## Common Configuration
 
 Rendering strategies exported by `@svelte-put/qr/*`, whether it's `svg` or `img`, component or action, all share the following configuration interface.
 
@@ -221,4 +293,7 @@ All rendering strategies share a `qr:init` [CustomEvent] that fires when the ren
 
 Happy making QR! 👨‍💻
 
+[Common Configuration]: #common-configuration
+
 [CustomEvent]: https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent
+[Canvas API]: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API

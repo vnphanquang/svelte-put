@@ -4,7 +4,9 @@ import type { HTMLImgAttributes } from 'svelte/elements';
 
 import type { QRConfig } from '../qr/types';
 
-export interface QRProps extends Omit<HTMLImgAttributes, 'src'>, QRConfig {}
+export interface QRProps extends Omit<HTMLImgAttributes, 'src'>, QRConfig {
+	backgroundFill?: string;
+}
 
 export interface QREvents {
 	'qr:init': CustomEvent<HTMLImgAttributes>;

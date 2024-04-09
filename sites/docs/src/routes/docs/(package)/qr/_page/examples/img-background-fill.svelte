@@ -4,9 +4,10 @@
 
 <QR
   data="https://svelte-put.vnphanquang.com/docs/qr"
-  moduleFill="violet"
-  anchorOuterFill="red"
-  anchorInnerFill="violet"
-	width="500"
-	height="500"
+  anchorOuterFill="blue"
+  moduleFill="green"
+  anchorInnerFill="blue"
+	backgroundFill="lightblue"
+	width="168"
+	height="168"
 />

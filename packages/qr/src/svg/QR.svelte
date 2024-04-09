@@ -1,11 +1,11 @@
 <script>
 	import { createEventDispatcher, onMount } from 'svelte';
 
-	import { createSVGParts } from '../qr/index.js';
+	import { createQrSvgParts } from '../qr/index.js';
 
 	$: ({ data, anchorInnerFill, anchorOuterFill, logo: logoURL, logoRatio, margin, moduleFill, shape, errorCorrectionLevel, typeNumber, ...rest } = /** @type {import('../qr/types.js').QRConfig} */($$props));
 
-	$: ({ anchors, attributes, logo, modules } = createSVGParts({
+	$: ({ anchors, attributes, logo, modules } = createQrSvgParts({
 		data,
 		anchorInnerFill,
 		anchorOuterFill,

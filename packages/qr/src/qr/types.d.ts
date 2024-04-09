@@ -53,3 +53,11 @@ export type QRConfig = {
  * @internal
  */
 export type ResolvedQRConfig = ReturnType<typeof resolveConfig>;
+
+/**
+ * @internal
+ */
+export type SizeAttributes = {
+	width: number;
+	height: number;
+};

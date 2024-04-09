@@ -1,7 +1,11 @@
 import { ActionReturn, Action } from 'svelte/action';
+import { SizeAttributes } from '../qr/types';
 
 /** @public */
-export type ImgQRParameter = import('../qr/types').QRConfig;
+export type ImgQRParameter = import('../qr/types').QRConfig & SizeAttributes & {
+	/** background of the generated png. Default to transparent */
+	backgroundFill?: string;
+};
 
 /**
  * Configurations available for

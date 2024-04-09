@@ -2,7 +2,7 @@
 import type { SvelteComponent } from 'svelte';
 import type { SVGAttributes } from 'svelte/elements';
 
-import { createSVGParts } from '../qr';
+import { createQrSvgParts } from '../qr';
 import type { QRConfig } from '../qr/types';
 
 export interface QRProps extends Omit<SVGAttributes<any>, 'viewBox'>, QRConfig {}
@@ -13,7 +13,7 @@ export interface QREvents {
 
 export interface QRSlots {
 	default: {
-		attributes: ReturnType<typeof createSVGParts>['attributes'];
+		attributes: ReturnType<typeof createQrSvgParts>['attributes'];
 		innerHTML: string;
 	};
 }
