@@ -17,7 +17,7 @@
 
 <h1 class="flex items-center justify-between font-fingerpaint">
 	{data.package.name}
-	<a href={data.package.githubUrl} class="c-link" external>
+	<a href={data.package.githubUrl} class="c-link c-link--icon" external>
 		<svg inline-src="simpleicon/github" class="inline" height="28" width="28" />
 	</a>
 </h1>
@@ -25,7 +25,7 @@
 	<p class="c-callout c-callout--info c-callout--icon-bulb">{data.package.description}</p>
 {/if}
 
-<p class="flex flex-wrap items-center gap-2">
+<p class="flex flex-wrap items-center gap-2 not-prose">
 	<a href={createNpmUrl(data.package.name)} target="_blank" rel="noreferrer">
 		<img
 			loading="lazy"

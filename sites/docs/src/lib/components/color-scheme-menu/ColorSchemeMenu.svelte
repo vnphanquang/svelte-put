@@ -32,11 +32,11 @@
 		on:click|stopPropagation
 	>
 		{#if $colorScheme === 'light'}
-			<svg inline-src="lucide/sun" width="20" height="20" />
+			<svg inline-src="lucide/sun" width="20" height="20" stroke-width="1.5" />
 		{:else if $colorScheme === 'dark'}
-			<svg inline-src="lucide/moon-star" width="20" height="20" />
+			<svg inline-src="lucide/moon-star" width="20" height="20" stroke-width="1.5" />
 		{:else}
-			<svg inline-src="lucide/sliders-horizontal" width="20" height="20" />
+			<svg inline-src="lucide/sliders-horizontal" width="20" height="20" stroke-width="1.5" />
 		{/if}
 		<input type="checkbox" bind:checked={open} class="sr-only" />
 	</label>
@@ -78,11 +78,11 @@
 							>
 								<input type="submit" value={scheme} name="color-scheme" class="sr-only" />
 								{#if scheme === 'light'}
-									<svg inline-src="lucide/sun" width="20" height="20" />
+									<svg inline-src="lucide/sun" width="20" height="20" stroke-width="1.5" />
 								{:else if scheme === 'dark'}
-									<svg inline-src="lucide/moon-star" width="20" height="20" />
+									<svg inline-src="lucide/moon-star" width="20" height="20" stroke-width="1.5" />
 								{:else}
-									<svg inline-src="lucide/sliders-horizontal" width="20" height="20" />
+									<svg inline-src="lucide/sliders-horizontal" width="20" height="20" stroke-width="1.5" />
 								{/if}
 								<span class="c-text-body2 ml-2">{LABELS[scheme]}</span>
 							</label>
