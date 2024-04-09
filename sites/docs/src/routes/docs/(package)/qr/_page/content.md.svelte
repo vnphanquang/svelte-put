@@ -12,8 +12,8 @@
 	import { getSettingsContext } from '$lib/contexts/settings';
   const { packageManager } = getSettingsContext();
 
-  let svgVariant = 'component';
-  let imgVariant = 'component';
+  let svgVariant = 'action';
+  let imgVariant = 'action';
 </script>
 
 ## Installation
