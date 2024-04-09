@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.0
+
+### Minor Changes
+
+- [`0c8dc62`](https://github.com/vnphanquang/svelte-put/commit/0c8dc62afc595a9b882d43e85d38ecc6371f349d) Thanks [@vnphanquang](https://github.com/vnphanquang)! - now render `img` as base64 png (previously base64 svg)
+
+- [`0c8dc62`](https://github.com/vnphanquang/svelte-put/commit/0c8dc62afc595a9b882d43e85d38ecc6371f349d) Thanks [@vnphanquang](https://github.com/vnphanquang)! - export top-level headless helpers `createQrSvgString` and `createQrSvgDataUrl` for svg (browser & server), and `createQrPngDataUrl` for png (browser only)
+
 ## 1.1.0
 
 ### Minor Changes
