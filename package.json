@@ -32,7 +32,7 @@
 		"@typescript-eslint/parser": "^7.5.0",
 		"@vnphanquang/eslint-config": "^2.0.0",
 		"dts-buddy": "^0.4.6",
-		"eslint": "^9.0.0",
+		"eslint": "^8.56.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-svelte": "^2.35.1",
 		"husky": "^9.0.11",
@@ -52,13 +52,11 @@
 		"turbo": "^1.13.2",
 		"typescript": "^5.4.4"
 	},
-	"packageManager": "pnpm@8.15.1",
 	"engines": {
-		"pnpm": ">=8.0.0",
+		"pnpm": ">=9.0.0",
 		"node": ">=20.0.0"
 	},
 	"volta": {
-		"node": "20.10.0",
-		"pnpm": "8.15.1"
+		"node": "20.13.0"
 	}
 }
