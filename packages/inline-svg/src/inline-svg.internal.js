@@ -1,13 +1,13 @@
 /**
- * @internal
+ * @package
  * @typedef {{ width: number; height: number }} Dimension
  * @typedef {{ width: number } | { height: number }} DimensionConstraint
  */
 
 /**
- * @internal
+ * @package
  * @param {string} dimension
- * @returns
+ * @returns {{ number: number; unit: string }}
  */
 export function extractDimensionNumberAndUnit(dimension) {
 	const regex = /(\d+)(\D*)/;
@@ -16,7 +16,7 @@ export function extractDimensionNumberAndUnit(dimension) {
 }
 
 /**
- * @internal
+ * @package
  * @param {Dimension} base
  * @param {DimensionConstraint} constraint
  * @returns {Dimension}
@@ -38,7 +38,7 @@ export function calculateNewDimensions(base, constraint) {
 }
 
 /**
- * @internal
+ * @package
  * @param {SVGElement} local
  * @param {HTMLElement} remote
  * @returns {{ width: string, height: string }}

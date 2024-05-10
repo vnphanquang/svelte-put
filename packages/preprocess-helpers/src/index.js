@@ -4,7 +4,7 @@
  */
 
 /**
- * @internal
+ * @package
  * @typedef {BaseNode & {
  *  name: string;
  *  start: number;

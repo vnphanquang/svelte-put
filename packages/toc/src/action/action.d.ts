@@ -5,7 +5,7 @@ import type { TocLinkParameter, TocObserveConfig, TocParameter } from '../parame
 
 /**
  * information about an extracted toc item
- * @public
+ *
  */
 export interface TocItem {
 	/**
@@ -41,12 +41,12 @@ export interface TocItem {
 	};
 }
 
-/** @public */
+/**  */
 export type TocAction = Action<HTMLElement, TocParameter, TocEventAttributes>;
-/** @public */
+/**  */
 export type TocActionReturn = ActionReturn<TocParameter, TocEventAttributes>;
 
-/** @public */
+/**  */
 export type TocLinkAction = Action<HTMLAnchorElement, TocLinkParameter>;
-/** @public */
+/**  */
 export type TocLinkActionReturn = ActionReturn<TocLinkParameter>;

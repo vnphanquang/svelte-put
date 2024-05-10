@@ -13,8 +13,10 @@
 		ModalComponentBaseSlots,
 	} from './modal.types';
 
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	type $$Slots = ModalComponentBaseSlots;
 	type $$Props = ModalComponentBaseProps;
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	type $$Events = ModalComponentBaseEvents;
 
 	export let topmost: NonNullable<$$Props['topmost']> = false;

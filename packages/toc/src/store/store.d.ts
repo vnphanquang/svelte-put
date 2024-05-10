@@ -4,7 +4,7 @@ import type { createTocStore } from './index.js';
 
 /**
  * value of the `store` provided to {@link TocParameters}
- * @public
+ *
  */
 export type TocStoreValue = {
 	/** the ID of this toc operation. see {@link TocParameters}, set on mount (`tocinit`) */
@@ -17,6 +17,6 @@ export type TocStoreValue = {
 
 /**
  * The store type inferred from {@link createTocStore}
- * @public
+ *
  */
 export type TocStore = ReturnType<typeof createTocStore>;

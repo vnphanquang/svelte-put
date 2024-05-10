@@ -2,8 +2,6 @@ import { tick } from 'svelte';
 
 /**
  * Trigger node displacement on pointerdown (via position.left & position.top)
- * @public
- *
  * @example
  *
  * Minimal usage
@@ -17,7 +15,6 @@ import { tick } from 'svelte';
  *   <!-- drag this div and move it freely around the screen -->
  * </div>
  * ```
- *
  * @example
  *
  * A more typical & complex usage of `movable`: move a node
@@ -69,7 +66,7 @@ import { tick } from 'svelte';
  *
  * 4. `pointerup` event will stop the movement; a `movableend` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent } is dispatched.
  *
- * @remarks
+ *
  *
  * As with any svelte action, `movable` should be use with element and not component.
  *
@@ -92,11 +89,9 @@ import { tick } from 'svelte';
  * - document.body.userSelect is set to `none` after `pointerdown` and restored on `pointerup`
  *
  * - document.body.cursor is set to `move` after `pointerdown` and restored on `pointerup`
- *
  * @param {HTMLElement} node - HTMLElement to be moved
  * @param {import('./public').MovableParameter} param - svelte action parameters
  * @returns {import('./public').MovableActionReturn}
- *
  */
 export function movable(node, param = { enabled: true }) {
 	let { parent, normalizedDelta, handle, enabled, ignore, cursor } = input(node, param);
@@ -369,20 +364,18 @@ export function movable(node, param = { enabled: true }) {
 }
 
 /**
- * @internal
+ * @package
  * @typedef {{
  *  unit: 'px' | '%';
  *  value: number;
  * }} NormalizedLimit
  * MovableLimit interface normalized to use in runtime
- *
  * @typedef {'px' | '%'} SpacingUnit
  * @typedef {'x' | 'y'} Axis
  */
 
 /**
- * @internal
- *
+ * @package
  * @param {import('./public').MovableLimit['delta']} delta - MovableLimit to normalize
  * @returns {{ x?: NormalizedLimit, y?: NormalizedLimit }}
  */
@@ -436,7 +429,7 @@ export function normalizeDelta(delta) {
 }
 
 /**
- * @internal
+ * @package
  * @param {string} text
  * @param {Axis | undefined} axis
  * @returns {SpacingUnit}
@@ -459,11 +452,20 @@ function extractUnit(text, axis = undefined) {
 
 /**
  *
- * @internal
- *
+ * @package
  * @param {HTMLElement} node
  * @param {import('./public').MovableParameter} param
- * @returns
+ * @returns {{
+ * 	enabled: boolean;
+ * 	parent: HTMLElement | "screen" | undefined;
+ * 	normalizedDelta: {
+	* 	x?: NormalizedLimit | undefined;
+	* 	y?: NormalizedLimit | undefined;
+ * 	};
+ * 	handle: HTMLElement;
+ * 	ignore: string;
+ * 	cursor: boolean;
+ * }}
  */
 export function input(node, param = {}) {
 	return {

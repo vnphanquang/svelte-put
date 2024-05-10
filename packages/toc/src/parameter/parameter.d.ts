@@ -6,7 +6,7 @@ import type { resolveTocConfig } from './index.js';
 /**
  * options to config how `toc` action create `IntersectionObserver` for each
  * matching toc element
- * @public
+ *
  */
 export interface TocObserveConfig extends Omit<IntersectionObserverInit, 'threshold'> {
 	/**
@@ -27,7 +27,7 @@ export interface TocObserveConfig extends Omit<IntersectionObserverInit, 'thresh
 	 *
 	 * Default to: `auto`
 	 *
-	 * @remarks
+	 *
 	 *
 	 * Alternatively, this can be override per element by setting the `data-toc-strategy` attribute
 	 * on that element.
@@ -37,7 +37,7 @@ export interface TocObserveConfig extends Omit<IntersectionObserverInit, 'thresh
 	 * threshold passed to `IntersectionObserver`.
 	 * Default to: `(element) => Math.min((0.8 * window.innerHeight) / element.offsetHeight, 1)`
 	 *
-	 * @remarks
+	 *
 	 *
 	 * Alternatively, `data-toc-threshold` (number) attribute can be set on
 	 * the matching toc element
@@ -47,7 +47,7 @@ export interface TocObserveConfig extends Omit<IntersectionObserverInit, 'thresh
 
 /**
  * options to config how `toc` action inject anchor tag for each matching toc element
- * @public
+ *
  */
 export interface TocAnchorConfig {
 	/** whether to insert an anchor tag for each matching node */
@@ -86,7 +86,7 @@ export interface TocAnchorConfig {
 }
 
 /**
- * @public
+ *
  */
 export interface TocConfig {
 	/**
@@ -108,7 +108,7 @@ export interface TocConfig {
 	 * Each selector is used as `:not(selector)`.
 	 * Default to: `.toc-exclude`
 	 *
-	 * @remarks
+	 *
 	 *
 	 * Alternatively, you can set the `data-toc-ignore` attribute on the element
 	 * Default to: `[]`
@@ -135,17 +135,17 @@ export interface TocConfig {
 	 *
 	 * Default to: undefined
 	 *
-	 * @remarks
+	 *
 	 * This provides an alternative to `on:tocinit` & `on:tocchange` with less code
 	 */
 	store?: TocStore;
 }
 
-/** @public */
+/**  */
 export type TocParameter = TocConfig | undefined;
 
 /**
- * @public
+ *
  * configure relationship between the `observe` functionality of `toc` and `toclink`
  */
 export interface TocLinkObserveConfig {
@@ -157,7 +157,7 @@ export interface TocLinkObserveConfig {
 	/**
 	 * throttle the observe of `use:toc` on click
 	 *
-	 * @remarks
+	 *
 	 * This ensures that the active toc item will be
 	 * the same one that this link is pointing to.
 	 * Otherwise, it is not guaranteed so, because `observe`
@@ -173,7 +173,7 @@ export interface TocLinkObserveConfig {
 	 * boolean attribute(s) to indicate if this
 	 * is linking to the active toc item
 	 *
-	 * @remarks
+	 *
 	 * For this to work, it is required that `tocItem` be provided
 	 * or the href is in the form `'#<toc-item-id>'`
 	 *
@@ -188,7 +188,7 @@ export interface TocLinkObserveConfig {
 }
 
 /**
- * @public
+ *
  * options to configure the behavior of the `toclink` svelte action
  */
 export interface TocLinkConfig {
@@ -197,7 +197,7 @@ export interface TocLinkConfig {
 	 * If not provided will search for the closest toc root
 	 * (where `use:toc` is used)
 	 *
-	 * @remarks
+	 *
 	 * In case where the element of `use:toc` and element of `use:toclink`
 	 * live in 2 different DOM subtrees, this is required otherwise `toclink`
 	 * will not take no effect.
@@ -211,10 +211,9 @@ export interface TocLinkConfig {
 	/**
 	 * the matching toc item or its id to link to
 	 *
-	 * @remarks
+	 *
 	 * if provided, href will be added automatically if not already there
 	 * Otherwise, you have to do that manually.
-	 *
 	 * @see {@link TocItem}
 	 */
 	tocItem?: string | TocItem;
@@ -228,14 +227,14 @@ export interface TocLinkConfig {
 	/**
 	 * svelte store as used in `use:toc`
 	 *
-	 * @remarks
+	 *
 	 * recommended as an optimization when `observe.current` is enabled
 	 */
 	store?: TocStore;
 }
 
-/** @public */
+/**  */
 export type TocLinkParameter = TocLinkConfig | undefined;
 
-/** @internal */
+/** @package */
 export type ResolvedTocConfig = ReturnType<typeof resolveTocConfig>;

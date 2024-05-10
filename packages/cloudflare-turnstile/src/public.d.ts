@@ -19,7 +19,7 @@ declare global {
 export type TurnstileConfig = TurnstileDataConfig & TurnstileEventConfig;
 
 /**
- * @internal
+ * @package
  */
 export type TurnstileDataConfig = {
 	sitekey: string;
@@ -39,7 +39,7 @@ export type TurnstileDataConfig = {
 };
 
 /**
- * @internal
+ * @package
  */
 export type TurnstileEventConfig = {
 	callback?: (token: string) => void;
@@ -52,7 +52,7 @@ export type TurnstileEventConfig = {
 };
 
 /**
- * @internal
+ * @package
  */
 export type TurnstileDataAttributes = {
 	[K in keyof TurnstileDataConfig as K extends string
@@ -66,7 +66,7 @@ export type TurnstileEventDetail<T extends Record<string, any> = Record<string, 
 } & T;
 
 /**
- * @internal
+ * @package
  */
 export type TurnstileEventAttributes = {
 	'on:turnstile'?: (event: CustomEvent<TurnstileEventDetail<{ token: string }>>) => void;
@@ -78,9 +78,10 @@ export type TurnstileEventAttributes = {
 	'on:turnstile:timeout'?: (event: CustomEvent<TurnstileEventDetail>) => void;
 };
 
+export type TurnstileCustomEventName = keyof TurnstileEventAttributes extends `on:${infer K}` ? K : never;
+
 /**
  * @see {@link https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/#configurations | Cloudflare Turnstile Docs}
- * @public
  */
 export type TurnstileAttributes = TurnstileDataAttributes &
 	TurnstileEventAttributes & {
@@ -94,12 +95,12 @@ export type TurnstileAttributes = TurnstileDataAttributes &
 
 /**
  * parameter received from action input
- * @public
+ *
  */
 export type TurnstileParameter = undefined;
 
-/** @public */
+/**  */
 export type TurnstileAction = Action<HTMLElement, TurnstileParameter, TurnstileAttributes>;
 
-/** @public */
+/**  */
 export type TurnstileActionReturn = ActionReturn<TurnstileParameter, TurnstileAttributes>;

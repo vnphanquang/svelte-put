@@ -1,7 +1,5 @@
 /**
  * Create an {@link https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver | ResizeObserver} that observers this node
- * @public
- *
  * @example
  *
  * ```html
@@ -23,7 +21,7 @@
  * </section
  * ```
  *
- * @remarks
+ *
  *
  * As with any svelte action, `resize` should be use with element and not component.
  *
@@ -34,7 +32,6 @@
  * <-- incorrect usage-->
  * <Component use:resize/>
  * ```
- *
  * @param {HTMLElement} node - HTMLElement to observe
  * @param {import('./public').ResizeParameter} param - svelte action parameters
  * @returns {import('./public').ResizeActionReturn}
@@ -73,7 +70,7 @@ export function resize(node, param = {}) {
 }
 
 /**
- * @internal
+ * @package
  * @type {ResizeObserverCallback}
  */
 function callback(entries) {
@@ -86,14 +83,14 @@ function callback(entries) {
 
 /**
  * singleton for all actions to use
- * @internal
+ * @package
  * @type {ResizeObserver}
  */
 let observerSingleton;
 
 /**
  * resolve to a ResizeObserver for use in action
- * @internal
+ * @package
  * @param {import('./public').ResizeConfig['observer']} input
  * @returns {ResizeObserver}
  */

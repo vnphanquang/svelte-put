@@ -73,7 +73,7 @@ import type { InlineSvgConfig, SourceConfig } from './preprocessor.types';
  * <!-- if the source svg is not found for any of the above, an error will be thrown -->
  * ```
  *
- * @public
+ *
  * @param sources - config for svg sources
  * @param config - global config for the svelte preprocessor
  * @returns svelte preprocessor

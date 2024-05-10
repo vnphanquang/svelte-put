@@ -1,6 +1,6 @@
 /**
  * all relevant event name literals
- * @internal
+ * @package
  */
 const EVENTS = {
 	init: 'tocinit',
@@ -8,7 +8,7 @@ const EVENTS = {
 };
 
 /**
- * @internal
+ * @package
  * @param {HTMLElement} node
  * @param {import('./events').TocChangeEventDetail} detail
  * @returns {import('./events').TocChangeEventDetail}
@@ -19,7 +19,7 @@ export function dispatchChange(node, detail) {
 }
 
 /**
- * @internal
+ * @package
  * @param {HTMLElement} node
  * @param {import('./events').TocInitEventDetail} detail
  * @returns {import('./events').TocInitEventDetail}

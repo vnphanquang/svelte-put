@@ -1,5 +1,5 @@
 /**
- * @public
+ *
  * sources for the inline svg
  */
 export type SourceConfig = {
@@ -15,7 +15,7 @@ export type SourceConfig = {
 };
 
 /**
- * @public
+ *
  * global options for configuring behaviors of the inline-svg preprocessor
  */
 export type InlineSvgConfig = {

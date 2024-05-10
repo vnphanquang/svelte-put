@@ -1,9 +1,8 @@
 import { calculateDimensions } from './inline-svg.internal.js';
 
 /**
- * @public
- * Svelte action for dynamically inlining remote-fetched SVG into DOM
  *
+ *Svelte action for dynamically inlining remote-fetched SVG into DOM
  * @example
  *
  * ```html
@@ -14,7 +13,7 @@ import { calculateDimensions } from './inline-svg.internal.js';
  * <svg use:inlineSvg={"http://example.com/icon.svg"}></svg>
  * ```
  *
- * @remarks
+ *
  *
  * For a static solution for inlining SVG at build time, use {@link https://svelte-put.vnphanquang.com/docs/preprocess-inline-svg | @svelte-put/preprocess-inline-svg},
  * which is also conveniently re-exported by this package
@@ -28,7 +27,6 @@ import { calculateDimensions } from './inline-svg.internal.js';
  * };
  * export default config;
  * ```
- *
  * @param {SVGElement} node - SVGElement to inline SVG into
  * @param {import('./public.js').InlineSvgParameter} param - config for the action.
  * @returns {import('./public').InlineSvgActionReturn}
@@ -67,7 +65,7 @@ export function inlineSvg(node, param) {
 }
 
 /**
- * @internal
+ * @package
  * @type {Required<import('./public.js').InlineSvgConfig>}
  */
 export const DEFAULT_INLINE_SVG_ACTION_CONFIG = {
@@ -79,7 +77,7 @@ export const DEFAULT_INLINE_SVG_ACTION_CONFIG = {
 
 /**
  * resolve the input parameters of `inlineSvg` action to an internally usable config
- * @internal
+ * @package
  * @param {import('./public').InlineSvgParameter | undefined} param
  * @returns {Required<import('./public.js').InlineSvgConfig>}
  */

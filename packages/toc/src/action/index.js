@@ -25,20 +25,19 @@ import { updateStore } from '../store/index.js';
  *
  * For comprehensive documentation, see {@link https://svelte-put.vnphanquang.com/docs/toc | docs site }
  *
- * @public
  *
- * @remarks
+ *
+ *
  *
  * As with any svelte action, `clickoutside` should be use with element and not component.
  *
  * ```html
  * <-- correct usage-->
- *  <div use:toc />
+ * <div use:toc />
  *
  * <-- incorrect usage-->
  * <Component use:toc/>
  * ```
- *
  * @example
  *
  * Minimal use with idiomatic svelte store
@@ -64,7 +63,6 @@ import { updateStore } from '../store/index.js';
  *   ...
  * </main>
  * ```
- *
  * @example
  *
  * Usage with callbacks (alternative to svelte store)
@@ -87,7 +85,6 @@ import { updateStore } from '../store/index.js';
  *  ...
  * </main>
  * ```
- *
  * @param {HTMLElement} node - root node to search for matching elements in descendants
  * @param {import('../parameter/parameter').TocParameter} param - instructions for `toc` behavior
  * @returns {import('./action').TocActionReturn}
@@ -245,12 +242,11 @@ export function toc(node, param = {}) {
 }
 
 /**
- * @public
- * complementary action to `use:toc` applies to anchor elements
- * that will link to a matching toc item on `click`
  *
- * See example for the functionalities this action provides
+ *complementary action to `use:toc` applies to anchor elements
+ *that will link to a matching toc item on `click`
  *
+ *See example for the functionalities this action provides
  * @example
  *
  * `toclink` will do the following:

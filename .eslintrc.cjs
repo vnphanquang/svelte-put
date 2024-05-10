@@ -16,6 +16,20 @@ module.exports = {
 				parser: '@typescript-eslint/parser',
 			},
 		},
+		{
+			files: ['packages/**/*'],
+			extends: ['plugin:jsdoc/recommended-typescript-flavor'],
+			plugins: ['jsdoc'],
+			rules: {
+				'jsdoc/require-returns-description': 'off',
+				'jsdoc/require-param-description': 'off',
+				'jsdoc/require-jsdoc': ['warn', {
+					publicOnly: {
+						ancestorsOnly: true,
+					},
+				}],
+			},
+		},
 	],
 	globals: {
 		App: 'readonly',

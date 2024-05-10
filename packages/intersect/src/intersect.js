@@ -1,7 +1,5 @@
 /**
  * Create an IntersectionObserver that observers the node
- * @public
- *
  * @example
  * Typical use to observe the first time the node intersects with viewport for transition effect (like fade-in)
  *
@@ -39,7 +37,6 @@
  *  </p>
  * </section>
  * ```
- *
  * @example
  * Typical use to observe intersection
  *
@@ -75,7 +72,7 @@
  * </section
  * ```
  *
- * @remarks
+ *
  *
  * As with any svelte action, `intersect` should be use with element and not component.
  *
@@ -86,7 +83,6 @@
  * <-- incorrect usage-->
  * <Component use:intersect/>
  * ```
- *
  * @param {HTMLElement} node - HTMLElement to observe
  * @param {import('./public').IntersectParameter} param - svelte action parameters
  * @returns {import('./public').IntersectActionReturn}

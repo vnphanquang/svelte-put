@@ -3,6 +3,7 @@ import { writable } from 'svelte/store';
 /**
  * create a dedicated svelte store for `lockscroll` action
  * @param {boolean | undefined} initial
+ * @returns {import('svelte/store').Writable<boolean> & { toggle: (force: boolean) => void}}
  */
 export function createLockScrollStore(initial = false) {
 	const { subscribe, set, update } = writable(initial);

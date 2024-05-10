@@ -2,7 +2,7 @@
 import { walk } from 'svelte/compiler';
 
 /**
- * @internal
+ * @package
  */
 export function getIdAttribute(
 	source: string,
@@ -22,7 +22,7 @@ export function getIdAttribute(
 }
 
 /**
- * @internal
+ * @package
  * @param {import(estree).Node} root
  */
 export function getTextContent(root) {

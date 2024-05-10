@@ -2,9 +2,9 @@ import { ActionReturn, Action } from 'svelte/action';
 
 /**
  * Additional attributes extended from `svelte-put/intersect`
- * @public
  *
- * @remarks
+ *
+ *
  * The ambient types for these extended attributes should be available automatically
  * whenever `svelte-put/movable` is imported.
  *
@@ -28,9 +28,9 @@ export interface MovableAttributes {
 
 /**
  * Limit by creating a bounding box of movable area `[-delta, +delta]` in both axes
- * @public
  *
- * @remarks
+ *
+ *
  *
  * - If a single value is provided, it will be applied to both axes.
  *
@@ -39,7 +39,6 @@ export interface MovableAttributes {
  * - If percentage is used, it will be relative to the width / height of the **node** itself. For example, y-axis limit: `[-percentage * node.height + parent.top, parent.bottom + percentage * node.height]`
  *
  * - Currently only `px` and `%` are supported. See example for usage.
- *
  * @example
  *
  * ```html
@@ -70,7 +69,7 @@ export type MovableLimitDelta = `${number}px` | `${number}%` | 0;
 
 /**
  * The limit within which node can be moved
- * @public
+ *
  */
 export interface MovableLimit {
 	/**
@@ -90,9 +89,9 @@ export interface MovableLimit {
 
 /**
  * config behavior of `movable`
- * @public
  *
- * @remarks
+ *
+ *
  *
  * `movable` support reactive parameters.
  * That means they can be updated after initialization.
@@ -105,7 +104,7 @@ export interface MovableConfig {
 	/**
 	 * A node that triggers mousedown event, otherwise the node itself is the handle
 	 *
-	 * @remarks
+	 *
 	 *
 	 * `handle` should be an HTMLElement not a Svelte component.
 	 *
@@ -136,14 +135,12 @@ export interface MovableConfig {
 
 /**
  * parameter received from action input
- * @public
+ *
  */
 export type MovableParameter = MovableConfig | undefined;
 
 /**
  * `detail` payload for `movableend` and `movablestart` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent }
- * @public
- *
  * @example
  *
  * ```html
@@ -174,8 +171,8 @@ export interface MovableEventDetail {
 	};
 }
 
-/** @public */
+/**  */
 export type MovableAction = Action<HTMLElement, MovableParameter, MovableAttributes>;
 
-/** @public */
+/**  */
 export type MovableActionReturn = ActionReturn<MovableParameter, MovableAttributes>;

@@ -2,9 +2,9 @@ import { ActionReturn, Action } from 'svelte/action';
 
 /**
  * Additional attributes extended from `svelte-put/intersect`
- * @public
  *
- * @remarks
+ *
+ *
  * The ambient types for these extended attributes should be available automatically
  * whenever `svelte-put/intersect` is imported.
  *
@@ -28,9 +28,9 @@ export interface IntersectAttributes {
 
 /**
  * config behavior of `intersect`
- * @public
  *
- * @remarks
+ *
+ *
  *
  * parameters for `intersect` extends {@link https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver | IntersectionObserverInit }
  * (second parameter passed to IntersectionObserver constructor)
@@ -42,7 +42,7 @@ export interface IntersectConfig extends IntersectionObserverInit {
 
 /**
  * `detail` payload for `intersect` and `intersectonce` CustomEvent
- * @public
+ *
  */
 export interface IntersectDetail {
 	/** the IntersectionObserver itself */
@@ -55,12 +55,12 @@ export interface IntersectDetail {
 
 /**
  * parameter received from action input
- * @public
+ *
  */
 export type IntersectParameter = IntersectConfig | undefined;
 
-/** @public */
+/**  */
 export type IntersectAction = Action<HTMLElement, IntersectParameter, IntersectAttributes>;
 
-/** @public */
+/**  */
 export type IntersectActionReturn = ActionReturn<IntersectParameter, IntersectAttributes>;

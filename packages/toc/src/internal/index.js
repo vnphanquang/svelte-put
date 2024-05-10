@@ -1,13 +1,13 @@
 import { ATTRIBUTES } from '../attributes/index.js';
 import { slugify } from '../utils/index.js';
 /**
- * @internal
+ * @package
  * @type {Map<string, import('./internal').TocCacheItem>}
  */
 export const cache = new Map();
 
 /**
- * @internal
+ * @package
  * @param {(activeTocItemId?: string) => void} callback
  * @returns {IntersectionObserverCallback}
  */
@@ -23,7 +23,7 @@ export function intersectionObserverCallback(callback) {
 }
 
 /**
- * @internal
+ * @package
  * @param {HTMLElement} element
  * @returns {string}
  */
@@ -45,7 +45,7 @@ export function extractElementText(element) {
 }
 
 /**
- * @internal
+ * @package
  * @param {HTMLElement} element
  * @param {string} fallbackText
  * @returns {string}
@@ -62,7 +62,7 @@ export function extractTocItemId(element, fallbackText) {
 }
 
 /**
- * @internal
+ * @package
  * @param {HTMLElement} element
  * @param {import('../parameter/parameter').ResolvedTocConfig['scrollMarginTop']} scrollMarginTop
  * @returns {string}
@@ -79,7 +79,7 @@ export function processScrollMarginTop(element, scrollMarginTop) {
 }
 
 /**
- * @internal
+ * @package
  * @param {Element | null | undefined} element
  * @returns {boolean}
  */
@@ -88,7 +88,7 @@ export function isAutoSlugInjectedAnchor(element) {
 	return element.tagName === 'A' && element.hasAttribute(ATTRIBUTES.autoSlugAnchor);
 }
 /**
- * @internal
+ * @package
  * @param {HTMLElement} element
  * @param {import('../parameter/parameter').ResolvedTocConfig['anchor']} anchor
  * @param {string} tocId
@@ -185,7 +185,7 @@ export function processAnchor(element, anchor, tocId) {
 }
 
 /**
- * @internal
+ * @package
  * @param {HTMLElement} element
  * @param {import('../parameter/parameter').ResolvedTocConfig['observe']} observe
  * @param {string} tocId
@@ -246,7 +246,7 @@ export function processObserve(element, observe, tocId, updateActiveTocItem, obs
 }
 
 /**
- * @internal
+ * @package
  * @param {HTMLElement} element
  * @param {string | undefined} tocId
  * @returns {Element | null}

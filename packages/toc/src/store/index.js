@@ -2,8 +2,6 @@ import { writable } from 'svelte/store';
 
 /**
  * create a idiomatic svelte store to use with `toc` action
- * @public
- *
  * @example
  *
  * ```html
@@ -21,6 +19,7 @@ import { writable } from 'svelte/store';
  *
  * <main use:toc={{ store: tocStore, observe: true }}>...</main
  * ```
+ * @returns {import('svelte/store').Writable<import('./store').TocStoreValue> & { id: () => string | undefined }}
  */
 export function createTocStore() {
 	/** @type {string | undefined} */
@@ -41,7 +40,7 @@ export function createTocStore() {
 }
 
 /**
- * @internal
+ * @package
  * @param {import('../parameter/parameter').ResolvedTocConfig['store']} store
  * @param {Partial<import('./store').TocStoreValue>} param1
  */

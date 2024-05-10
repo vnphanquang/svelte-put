@@ -5,6 +5,7 @@ import { createProgressStore } from './progress.js';
 
 /**
  * @param {import('./public').NotificationCommonConfig<string, import('svelte').SvelteComponent>} [config]
+ * @returns {NotificationStoreBuilder}
  */
 export function store(config = {}) {
 	return new NotificationStoreBuilder(config);

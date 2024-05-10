@@ -21,7 +21,6 @@ export async function toDataURL(url) {
 
 /**
  * Svelte action for rendering a QR as base64 data URL into the src attribute of this HTMLImageElement
- * @public
  * @param {HTMLImageElement} node
  * @param {import('./types').ImgQRParameter} param
  * @returns {import('./types').ImgQRActionReturn}

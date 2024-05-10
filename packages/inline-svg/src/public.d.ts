@@ -2,7 +2,7 @@ import { ActionReturn, Action } from 'svelte/action';
 
 /**
  * verbose config for `inlineSvg` action
- * @public
+ *
  */
 export interface InlineSvgConfig {
 	/** svg remote URI */
@@ -16,7 +16,7 @@ export interface InlineSvgConfig {
 	 * For example, if you specify only `width` to the local SVG element, the
 	 * height will automatically be calculated from the remote SVG
 	 *
-	 * @remarks
+	 *
 	 *
 	 * For this to work, width & height must be "extractable" from the remote element,
 	 * that is, the remote SVG must either have the `viewBox` or both `width` and `height` attributes that
@@ -29,13 +29,13 @@ export interface InlineSvgConfig {
 	transform?: (svg: string) => string;
 }
 /**
- * @public
+ *
  * input parameters for `inlineSvg` action
  */
 export type InlineSvgParameter = string | InlineSvgConfig;
 
-/** @public */
+/**  */
 export type InlineSvgAction = Action<SVGElement, InlineSvgParameter>;
 
-/** @public */
+/**  */
 export type InlineSvgActionReturn = ActionReturn<InlineSvgParameter>;

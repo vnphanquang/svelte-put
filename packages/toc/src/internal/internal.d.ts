@@ -2,7 +2,7 @@ import type { TocItem } from '../action/action.d.ts';
 import type { ResolvedTocConfig } from '../parameter/parameter.d.ts';
 
 /**
- * @internal
+ * @package
  */
 export type TocCacheItem = {
 	config: ResolvedTocConfig;

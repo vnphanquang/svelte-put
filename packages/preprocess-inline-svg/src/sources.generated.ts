@@ -2,6 +2,6 @@
 
 /**
  * generated typing for the `inline-src` attribute
- * @public
+ *
  */
 export type Source = 'to-be-generated';

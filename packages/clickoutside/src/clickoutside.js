@@ -1,7 +1,5 @@
 /**
  * Dispatch a `clickoutside` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent } on click outside of node
- * @public
- *
  * @example
  * Typical usage to close a modal / overlay when backdrop is clicked on
  *
@@ -38,7 +36,6 @@
  * </section
  * ```
  *
- * @remarks
  *
  * As with any svelte action, `clickoutside` should be use with element and not component.
  *
@@ -49,7 +46,6 @@
  * <-- incorrect usage-->
  * <Component use:clickoutside/>
  * ```
- *
  * @param {Element} node - node outside of which `click` event will trigger `clickoutside`
  * @param {import('./public').ClickOutsideParameter} param - instructions for `clickoutside` behavior
  * @returns {import('./public').ClickOutsideActionReturn}
@@ -84,8 +80,15 @@ export function clickoutside(node, param = { enabled: true }) {
 }
 
 /**
- * @internal
+ * @package
  * @param {import('./public').ClickOutsideParameter} param
+ * @returns {{
+ * 	enabled: boolean;
+ * 	nodeForEvent: Element | Document;
+ * 	eventType: string;
+ * 	options: boolean | AddEventListenerOptions | undefined;
+ * 	capture: boolean | undefined;
+ * }}
  */
 export function resolveConfig(param = {}) {
 	return {

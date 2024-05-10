@@ -3,7 +3,7 @@ import type { HTMLImgAttributes } from 'svelte/elements';
 
 /**
  * Slots of Avatar component
- * @public
+ *
  */
 export interface AvatarSlots {
 	default: {
@@ -20,7 +20,7 @@ export interface AvatarSlots {
 
 /**
  * Props to Avatar component
- * @public
+ *
  */
 export interface AvatarProps extends HTMLImgAttributes {
 	/**
@@ -30,8 +30,6 @@ export interface AvatarProps extends HTMLImgAttributes {
 	/**
 	 * Either the email for {@link https://en.gravatar.com/site/implement/images | Gravatar }
 	 * or {@link GravatarOptions } object. This option take second priority.
-	 *
-	 * @remarks
 	 *
 	 * By default, the Gravatar `default` query is set to 404, so that if gravatar is not valid,
 	 * the next priority url will be used. Be careful when setting this `default` to other values,
@@ -69,7 +67,7 @@ export interface AvatarProps extends HTMLImgAttributes {
  * URL or option to fallback when email hash returns no match from Gravatar.
  * See {@link https://en.gravatar.com/site/implement/images | Gravatar } for
  * detailed explanation of each option.
- * @public
+ *
  */
 export type GravatarDefault =
 	| '404'
@@ -85,7 +83,7 @@ export type GravatarDefault =
 /**
  * Options for building {@link https://en.gravatar.com/site/implement/images | Gravatar } url.
  * Each option should map to a supported Gravatar query param
- * @public
+ *
  */
 export interface GravatarOptions {
 	/** email to md5-hash */
@@ -103,7 +101,7 @@ export interface GravatarOptions {
 /**
  * Options for building {@link https://ui-avatars.com | UIAvatar } url.
  * Each option should map to a supported UIAvatar setting item
- * @public
+ *
  */
 export interface UIAvatarOptions {
 	/** Name used to generate initials. Ex: John+Doe */

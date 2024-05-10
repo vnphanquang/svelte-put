@@ -7,7 +7,7 @@ import type { resolveSources } from '../preprocessor';
 import { ViteInlineSvgConfig } from './vite.types';
 
 /**
- * @internal
+ * @package
  */
 export const DEFAULT_VITE_PLUGIN_CONFIG = {
 	...DEFAULT_INLINE_SVG_CONFIG,
@@ -23,7 +23,7 @@ export function resolveExtension(extension?: string | string[], fallback: string
 }
 
 /**
- * @internal
+ * @package
  */
 export function resolveViteInlineSvgConfig(config: ViteInlineSvgConfig = {}) {
 	return {
@@ -36,7 +36,7 @@ export function resolveViteInlineSvgConfig(config: ViteInlineSvgConfig = {}) {
 }
 
 /**
- * @internal
+ * @package
  */
 function findSvgRecursively(dir: string): string[] {
 	/** find all svg files in provided directory */
@@ -56,7 +56,7 @@ function findSvgRecursively(dir: string): string[] {
 }
 
 /**
- * @internal
+ * @package
  */
 export function generateSourceTyping(sources: ReturnType<typeof resolveSources>) {
 	try {

@@ -1,11 +1,12 @@
-import type { resolveConfig } from './index.js';
 import QR from 'qrcode-generator';
+
+import type { resolveConfig } from './index.js';
 
 export type QRCode = ReturnType<typeof import('qrcode-generator')>;
 
 /**
  * instructions to render a QR
- * @public
+ *
  */
 export type QRConfig = {
 	/** the data to encode in QR, typically an URL */
@@ -38,26 +39,41 @@ export type QRConfig = {
 	/**
 	 * Type number (1 ~ 40), or 0 for auto detection,
 	 * passed as parameter to {@link https://github.com/kazuhikoarase/qrcode-generator | qrcode-generator},
-   * default to 0,
+	 * default to 0,
 	 */
 	typeNumber?: Parameters<typeof QR>[0];
 	/**
 	 * Error correction level ('L', 'M', 'Q', 'H'),
 	 * passed as parameter to {@link https://github.com/kazuhikoarase/qrcode-generator | qrcode-generator},
-   * default to H,
+	 * default to H,
 	 */
 	errorCorrectionLevel?: Parameters<typeof QR>[1];
 };
 
 /**
- * @internal
+ * @package
  */
 export type ResolvedQRConfig = ReturnType<typeof resolveConfig>;
 
 /**
- * @internal
+ * @package
  */
 export type SizeAttributes = {
 	width: number;
 	height: number;
+};
+
+
+/**
+ * @package
+ */
+export type QRSVGParts = {
+	attributes: {
+		viewBox: string;
+		xmlns: string;
+		version: string;
+	};
+	anchors: string;
+	modules: string;
+	logo: string;
 };

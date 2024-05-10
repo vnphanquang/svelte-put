@@ -1,6 +1,6 @@
 /**
  * all relevant data attribute name literals
- * @internal
+ * @package
  */
 export const ATTRIBUTES = /** @type {Record<string, keyof (import('./attributes.d.ts').TocDataAttributes)>} */({
 	// markers from `@svelte-put/preprocess-auo-slug`

@@ -14,7 +14,7 @@ import { getTextContent, getIdAttribute } from './auto-slug.utils';
  *
  * By default, it will search for all headings tag and add the generated slug to the tag's id attribute.
  *
- * @public
+ *
  *
  * @returns svelte preprocessor interface
  */

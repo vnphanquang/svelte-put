@@ -1,13 +1,10 @@
 /**
  * Copy a text to the clipboard. Will attempt to use the new `navigator.clipboard` API,
  * but will fallback to the `execCommand()` if `navigator.clipboard` is not available.
- * @public
- *
- * @remarks
  *
  * This is shamelessly "copied" from {@link https://github.com/vuejs/vitepress/blob/43c89d66c0d8c87e244a0a0e73a897509b977e65/src/client/app/composables/copyCode.ts | vitepress source code}
- *
  * @param {string} text - text to copy
+ * @returns {Promise<void> | undefined}
  */
 export function copyToClipboard(text) {
 	try {

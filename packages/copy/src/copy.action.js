@@ -2,8 +2,6 @@ import { copyToClipboard } from './copy.helpers.js';
 
 /**
  * Copy text to clipboard on `click` event
- * @public
- *
  * @template {keyof HTMLElementEventMap} K
  * @param {HTMLElement} node - HTMLElement to register action
  * @param {import('./public.js').CopyParameter<K>} parameter - svelte action parameters
@@ -33,6 +31,7 @@ export function copy(node, parameter = {}) {
 			node.dispatchEvent(event);
 		}
 	}
+
 
 	function addEvents() {
 		if (trigger) {
@@ -65,10 +64,17 @@ export function copy(node, parameter = {}) {
 }
 
 /**
- * @internal
+ * @package
  * @template {keyof HTMLElementEventMap} K
  * @param {HTMLElement} node
  * @param {import('./public').CopyParameter<K>} param
+ * @returns {{
+ * 	trigger: HTMLElement;
+ * 	enabled: boolean;
+ * 	text: import('./public.js').TextResolver<K>;
+ * 	events: K[] | "click"[];
+ * 	synthetic: boolean;
+ * }}
  */
 function resolveConfig(node, param = {}) {
 	const { trigger = node, enabled = true, synthetic = false } = param;

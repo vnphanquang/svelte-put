@@ -1,8 +1,5 @@
 /**
  * Slugify a string
- *
- * @public
- *
  * @param {string} text - text to slugify
  * @returns {string}
  */

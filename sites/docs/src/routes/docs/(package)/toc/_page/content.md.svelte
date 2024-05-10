@@ -448,8 +448,6 @@ interface TocObserveDataAttributes {
 	 * added to toc root (the element where toc action is placed on) and
 	 * references the id of the active matching element
 	 *
-	 * @remarks
-	 *
 	 * This attribute is reactive. When changed (either by toc or manually),
 	 * it will trigger events and store update accordingly
 	 */
@@ -480,8 +478,6 @@ interface TocReferenceMarkerDataAttributes {
 	/**
 	 * marking this element that it's been processed by toc
    *
-	 * @remarks
-	 *
 	 * If this is already preprocessed by {@link https://svelte-put.vnphanquang.com/docs/preprocess-auto-slug | @svelte-put/preprocess-auto-slug},
 	 * there will also be a `data-auto-slug` attribute.
 	 */
@@ -489,8 +485,6 @@ interface TocReferenceMarkerDataAttributes {
 	/**
 	 * if the anchor option is enabled in toc parameters, this attribute is present on the injected anchor element.
    *
-	 * @remarks
-	 *
 	 * If the element is already added by {@link https://svelte-put.vnphanquang.com/docs/preprocess-auto-slug | @svelte-put/preprocess-auto-slug},
 	 * there `data-auto-slug-anchor` attribute is found instead.
 	 */

@@ -13,7 +13,7 @@ import { parse as parseSvg } from 'svg-parser';
 import { InlineSvgConfig, SourceConfig } from './preprocessor.types';
 
 /**
- * @internal
+ * @package
  * default config of the inline-svg preprocessor
  */
 export const DEFAULT_SOURCES_CONFIG = {
@@ -22,7 +22,7 @@ export const DEFAULT_SOURCES_CONFIG = {
 } satisfies SourceConfig;
 
 /**
- * @internal
+ * @package
  */
 export function resolveSourceOptions(options?: SourceConfig) {
 	return {
@@ -41,7 +41,7 @@ export function resolveSourceOptions(options?: SourceConfig) {
  * resolve config input and search for a default
  * If none is found, use DEFAULT_SOURCES_CONFIG.
  * If multiple of such input are found, throw an error.
- * @internal
+ * @package
  */
 export function resolveSources(sources?: SourceConfig | SourceConfig[]) {
 	if (!sources) return { local: DEFAULT_SOURCES_CONFIG, dirs: [] };
@@ -74,7 +74,7 @@ export function resolveSources(sources?: SourceConfig | SourceConfig[]) {
 }
 
 /**
- * @internal
+ * @package
  */
 export const DEFAULT_INLINE_SVG_CONFIG = {
 	inlineSrcAttributeName: 'data-inline-src',
@@ -82,7 +82,7 @@ export const DEFAULT_INLINE_SVG_CONFIG = {
 } satisfies InlineSvgConfig;
 
 /**
- * @internal
+ * @package
  */
 export function resolveInlineSvgConfig(config: InlineSvgConfig = {}) {
 	return {
@@ -93,7 +93,7 @@ export function resolveInlineSvgConfig(config: InlineSvgConfig = {}) {
 	} satisfies InlineSvgConfig;
 }
 
-/** @internal */
+/** @package */
 export function findSvgSrc(
 	filename: string,
 	directories: string[],
@@ -120,7 +120,7 @@ export function findSvgSrc(
 }
 
 /**
- * @internal
+ * @package
  */
 export function transform(
 	code: string,

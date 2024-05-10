@@ -2,7 +2,6 @@ import { createQrSvgParts } from '../qr';
 
 /**
  * Svelte action for rendering a QR as innerHTML of this SVGElement
- * @public
  * @param {SVGElement} node
  * @param {import('./types').SvgQRParameter} param
  * @returns {import('./types').SvgQRActionReturn}

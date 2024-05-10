@@ -1,7 +1,7 @@
 import { DEFAULT_TOC_LINK_PARAMETER, DEFAULT_TOC_PARAMETER } from './const.js';
 
 /**
- * @internal
+ * @package
  * resolve {@link TocParameter}
  * for internal usage within toc operations
  * @param {import('./parameter.js').TocParameter} param
@@ -52,7 +52,7 @@ export function resolveTocConfig(param = {}) {
 /**
  * Compare two ResolvedTocConfig
  * @deprecated not necessary as dynamic update is not supported
- * @internal
+ * @package
  * @param {import('./parameter.js').ResolvedTocConfig} p1 first parameters object to compare
  * @param {import('./parameter.js').ResolvedTocConfig} p2 second parameters object to compare
  * @returns whether 2 parameters objects have the same properties
@@ -78,7 +78,7 @@ export function compareTocParameters(p1, p2) {
 	});
 }
 /**
- * @internal
+ * @package
  * resolve {@link TocLinkParameter} for internal usage within toc operations
  * @param {import('./parameter.js').TocLinkParameter} param
  */
@@ -102,7 +102,7 @@ export function resolveTocLinkConfig(param = {}) {
 }
 
 /**
- * @internal
+ * @package
  * @param {import('./parameter.js').TocLinkObserveConfig['attribute']} attribute | undefined
  * @returns {string[]}
  */
@@ -115,7 +115,7 @@ function resolveTocLinkObserveAttribute(attribute) {
 }
 
 /**
- * @internal
+ * @package
  * @param {import('./parameter.js').TocLinkConfig} a
  * @param {import('./parameter.js').TocLinkConfig} b
  * @returns {boolean}

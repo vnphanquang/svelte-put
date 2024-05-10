@@ -3,6 +3,7 @@ import { writable } from 'svelte/store';
 /**
  * @param {number | false} [initial]
  * @param {() => void} [onTimeOut]
+ * @returns {import('./public').NotificationProgressStore}
  */
 export function createProgressStore(initial = 0, onTimeOut = () => {}) {
 	let ms = initial || -1;

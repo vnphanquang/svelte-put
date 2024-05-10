@@ -7,7 +7,7 @@ import { generateSourceTyping, resolveViteInlineSvgConfig } from './vite.interna
 import type { ViteInlineSvgConfig } from './vite.types';
 
 /**
- * @internal
+ * @package
  */
 function hotReload(server: ViteDevServer) {
 	// send reload page to client
@@ -15,7 +15,7 @@ function hotReload(server: ViteDevServer) {
 }
 
 /**
- * @internal
+ * @package
  */
 function matchFileExt(file: string, extensions: string[]) {
 	return extensions.some((ext) => file.endsWith(ext));
@@ -91,7 +91,7 @@ function matchFileExt(file: string, extensions: string[]) {
  * <!-- if the source svg is not found for any of the above, an error will be thrown -->
  * ```
  *
- * @public
+ *
  * @param sources - config for svg sources
  * @param config - global config for the plugin & preprocessor
  * @returns vite plugin

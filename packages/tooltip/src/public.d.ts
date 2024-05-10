@@ -1,11 +1,11 @@
 import type { SvelteComponent, ComponentType } from 'svelte';
 import type { Action } from 'svelte/action';
 
-/** @public */
+/**  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type TooltipComponentBaseProps = Record<string, any>;
 
-/** @public */
+/**  */
 export type TooltipContent<Props extends TooltipComponentBaseProps> =
 	| string
 	| ComponentType<SvelteComponent<Props>>
@@ -21,7 +21,7 @@ export type TooltipContent<Props extends TooltipComponentBaseProps> =
 			props?: Props;
 	  };
 
-/** @public */
+/**  */
 export type TooltipContainer = {
 	/**
 	 * class name(s) to assign to tooltip container. Typically needed depending
@@ -53,7 +53,7 @@ export type TooltipContainer = {
 	 * config for handling of `pointer-events` on the container element
 	 * Defaults to `true`
 	 *
-	 * @remarks
+	 *
 	 * By default `pointer-events` is set to `none` by default, and `auto` when triggered.
 	 * Set to `false` to disable default behavior, or provide string(s) to
 	 * corresponding states
@@ -69,7 +69,7 @@ export type TooltipContainer = {
 	 * the attribute to toggle in respond to tooltip's visibility state.
 	 * Defaults to `data-visible`.
 	 *
-	 * @remarks
+	 *
 	 * Set to `false` to disable, or provide a string to use as attribute name.
 	 */
 	visibleAttribute?: boolean | string;
@@ -77,7 +77,7 @@ export type TooltipContainer = {
 	 * config for accessibility
 	 * Defaults to `true`
 	 *
-	 * @remarks
+	 *
 	 * By default:
 	 *   - (for container element) `role` is set to `tooltip`,
 	 *   - (for container element) `id` is taken from `aria-describedby` of
@@ -97,12 +97,12 @@ export type TooltipContainer = {
 		  };
 };
 
-/** @public */
+/**  */
 export type TooltipComputeContent<Props extends TooltipComponentBaseProps> =
 	| string
 	| SvelteComponent<Props>;
 
-/** @public */
+/**  */
 export type TooltipComputeParameter<
 	Props extends TooltipComponentBaseProps,
 	ComputeContent extends TooltipComputeContent<Props>,
@@ -112,7 +112,7 @@ export type TooltipComputeParameter<
 	content: ComputeContent;
 };
 
-/** @public */
+/**  */
 export type TooltipCompute<
 	Props extends TooltipComponentBaseProps,
 	ComputeContent extends TooltipComputeContent<Props>,
@@ -120,20 +120,20 @@ export type TooltipCompute<
 	param: TooltipComputeParameter<Props, ComputeContent>,
 ) => void | (() => void) | Promise<void | (() => void)>;
 
-/** @public */
+/**  */
 export type TooltipAttributes = {
 	/** if provided will be set to `id` of the tooltip element, auto-generated otherwise  */
 	'aria-describedby'?: string;
 };
 
-/** @public */
+/**  */
 export type PreparedTooltipAction<Parameter> = Action<
 	Element,
 	Parameter | undefined,
 	TooltipAttributes
 >;
 
-/** @public */
+/**  */
 export type TooltipParameter<
 	Props extends TooltipComponentBaseProps,
 	Content extends TooltipContent<Props>,

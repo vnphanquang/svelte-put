@@ -3,8 +3,9 @@ import QR from 'qrcode-generator';
 const __ANCHOR_SIZE = 7;
 
 /**
- * @internal
+ * @package
  * @param {import('./types').QRConfig} config
+ * @returns {Required<Omit<import('./types').QRConfig, 'logo'>> & { logo?: string }}
  */
 export function resolveConfig(config) {
 	return /** @satisfies {import('./types').QRConfig} */ ({
@@ -22,9 +23,9 @@ export function resolveConfig(config) {
 
 /**
  * create SVG parts that make up a QR. You should typically use {@link createQrSvgString} instead
- * @public
  * @param {import('./types').QRConfig} config
  * @param {import('./types').QRCode} [qr]
+ * @returns {import('./types').QRSVGParts}
  */
 export function createQrSvgParts(config, qr) {
 	const { data, margin, shape, logo, logoRatio, anchorInnerFill, anchorOuterFill, moduleFill, typeNumber, errorCorrectionLevel } = resolveConfig(config);
@@ -101,8 +102,8 @@ export function createQrSvgParts(config, qr) {
 
 /**
  * create QR as an SVG string
- * @public
  * @param {import('./types').QRConfig & Partial<import('./types').SizeAttributes>} config
+ * @returns {string}
  */
 export function createQrSvgString(config) {
 	const { anchors, attributes, logo, modules } = createQrSvgParts(config);
@@ -117,8 +118,8 @@ export function createQrSvgString(config) {
 
 /**
  * create QR as a base64 data URL (image/svg+xml)
- * @public
  * @param {import('./types').QRConfig & Partial<import('./types').SizeAttributes>} config
+ * @returns {string}
  */
 export function createQrSvgDataUrl(config) {
 	const svg = createQrSvgString(config);
@@ -129,10 +130,11 @@ export function createQrSvgDataUrl(config) {
 }
 
 /**
- * @internal
+ * @package
  * @param {number} col
  * @param {number} row
  * @param {number} count
+ * @returns {boolean}
  */
 function isAnchor(col, row, count) {
 	if (row <= __ANCHOR_SIZE) return col <= __ANCHOR_SIZE || col >= count - __ANCHOR_SIZE;
@@ -141,10 +143,11 @@ function isAnchor(col, row, count) {
 }
 
 /**
- * @internal
+ * @package
  * @param {number} col
  * @param {number} row
  * @param {number} count
+ * @returns {boolean}
  */
 function isLogo(col, row, count) {
 	const center = count / 2;
@@ -167,9 +170,10 @@ function isLogo(col, row, count) {
 }
 
 /**
- * @internal
+ * @package
  * @param {number} logoSize
  * @param {number} logoRatio
+ * @returns {{ width: number, height: number }}
  */
 function calculateLogoSize(logoSize, logoRatio) {
 	if (logoRatio >= 1) {
@@ -196,6 +200,7 @@ const DEFAULT_PNG_FILLS = {
 
 /**
  * @param {CreateQrPngDataUrlConfig} config
+ * @returns {Promise<string>}
  */
 export async function createQrPngDataUrl(config) {
 	if (typeof document === 'undefined') {

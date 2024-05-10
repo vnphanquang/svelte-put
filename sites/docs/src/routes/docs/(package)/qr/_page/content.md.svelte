@@ -214,7 +214,6 @@ Rendering strategies exported by `@svelte-put/qr/*`, whether it's `svg` or `img`
 /// title=QRConfig
 /**
  * instructions to render a QR
- * @public
  */
 export type QRConfig = {
 	/** the data to encode in QR, typically an URL */

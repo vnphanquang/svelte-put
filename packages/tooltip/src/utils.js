@@ -3,6 +3,7 @@
  * @template {(...args: Args) => void} Func
  * @param {Func} callback
  * @param {number} ms
+ * @returns {(...args: Args) => void}
  */
 export function debounce(callback, ms) {
 	/** @type {ReturnType<typeof setTimeout>} */

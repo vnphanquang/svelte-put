@@ -21,16 +21,13 @@ import type {
 
 /**
  * Create a svelte store for handling modal
- * @public
- *
  * @example
  *
  * ```typescript
  * import { createModalStore } from '@svelte-put/modal';
  * const store = createModalStore();
  * ```
- *
- * @returns extended svelte {@link ModalStore}
+ * @returns {ModalStore} extended svelte {@link ModalStore}
  */
 export function createModalStore(): ModalStore {
 	const { subscribe, set } = writable<
@@ -135,12 +132,9 @@ export function createModalStore(): ModalStore {
 }
 
 /**
- * @public
- *
- * Helper that wraps svelte `createEventDispatcher` for creating typesafe
- * event dispatcher from the `$$Events` type. See {@link ExtendedModalEvents}
- *
- * @returns svelte event dispatcher
+ *Helper that wraps svelte `createEventDispatcher` for creating typesafe
+ *event dispatcher from the `$$Events` type. See {@link ExtendedModalEvents}
+ * @returns {ReturnType<typeof createEventDispatcher>} svelte event dispatcher
  */
 export function createModalEventDispatcher<
 	Events extends ModalComponentBaseEvents<ModalComponentBaseResolved<ExtendedResolved>> &

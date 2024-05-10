@@ -1,7 +1,5 @@
 /**
  * Listen for keyboard event and trigger `shortcut` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent }
- * @public
- *
  * @example Typical usage
  *
  * ```svelte
@@ -66,7 +64,7 @@
  * />
  * ```
  *
- * @remarks
+ *
  *
  * As with any svelte action, `shortcut` should be use with element and not component.
  *
@@ -88,7 +86,6 @@
  *
  * Either way, only use `callback` or `on:shortcut` and not both to
  * avoid handler duplication.
- *
  * @param {HTMLElement} node - HTMLElement to add event listener to
  * @param {import('./public').ShortcutParameter} param - svelte action parameters
  * @returns {import('./public').ShortcutActionReturn}

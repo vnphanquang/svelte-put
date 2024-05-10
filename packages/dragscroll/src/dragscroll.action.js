@@ -1,6 +1,25 @@
 /**
- * @internal
+ * @package
  * @param {import('./public').DragScrollParameter} param
+ * @returns {{
+ * 	enabled: boolean;
+ * 	axes: {
+ * 		x: boolean;
+ * 		y: boolean;
+ * 	};
+ * 	events: {
+ * 		down: 'pointerdown';
+ * 		up: 'pointerup';
+ * 		move: 'pointermove';
+ * 		leave: 'pointerleave';
+ * 	} | {
+ * 		down: 'mousedown';
+ * 		up: 'mouseup';
+ * 		move: 'mousemove';
+ * 		leave: 'mouseleave';
+ * 	};
+ * 	cursor: boolean;
+ * }}
  */
 export function resolveConfig(param = {}) {
 	const { cursor = true, enabled = true, axis = 'x', event = 'pointer' } = param;
@@ -10,30 +29,23 @@ export function resolveConfig(param = {}) {
 			x: axis === 'x' || axis === 'both',
 			y: axis === 'y' || axis === 'both',
 		},
-		events: {
-			down:
-				event === 'pointer'
-					? /** @type {const} */ ('pointerdown')
-					: /** @type {const} */ ('mousedown'),
-			up:
-				event === 'pointer' ? /** @type {const} */ ('pointerup') : /** @type {const} */ ('mouseup'),
-			move:
-				event === 'pointer'
-					? /** @type {const} */ ('pointermove')
-					: /** @type {const} */ ('mousemove'),
-			leave:
-				event === 'pointer'
-					? /** @type {const} */ ('pointerleave')
-					: /** @type {const} */ ('mouseleave'),
-		},
+		events: event === 'pointer' ? /** @type {const} */({
+			down: 'pointerdown',
+			up: 'pointerup',
+			move: 'pointermove',
+			leave: 'pointerleave',
+		}) : /** @type {const} */({
+			down: 'mousedown',
+			up: 'mouseup',
+			move: 'mousemove',
+			leave: 'mouseleave',
+		}),
 		cursor,
 	};
 }
 
 /**
  * svelte action `use:dragscroll` for adding 'drag-to-scroll' behavior
- * @public
- *
  * @param {HTMLElement} node - node to apply the action
  * @param {import('./public').DragScrollParameter} param - instructions for customizing action behavior
  * @returns {import('./public').DragScrollActionReturn}

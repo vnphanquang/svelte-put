@@ -2,7 +2,7 @@ import type { BaseNode } from 'estree';
 import type BananaSlug from 'github-slugger';
 import type { MarkupPreprocessor } from 'svelte/types/compiler/preprocess';
 
-/** @internal */
+/** @package */
 type PartialAutoSlugOptions = Partial<Omit<AutoSlugOptions, 'anchor'>> & {
 	anchor?: Partial<AutoSlugOptions['anchor']>;
 };
@@ -10,7 +10,7 @@ type PartialAutoSlugOptions = Partial<Omit<AutoSlugOptions, 'anchor'>> & {
 /**
  * input to preprocessor. Either on object of options or a
  * function that returns one (with the defaultOptions as its parameter).
- * @public
+ *
  */
 export type AutoSlugInput =
 	| PartialAutoSlugOptions
@@ -18,7 +18,7 @@ export type AutoSlugInput =
 
 /**
  * instructions for adding anchor tag
- * @public
+ *
  */
 export interface AutoSlugAnchorOptions {
 	/** whether to insert an anchor tag for each matching node */
@@ -56,7 +56,7 @@ export interface AutoSlugAnchorOptions {
 
 /**
  * information passed as parameter to slug resolver
- * @public
+ *
  */
 export interface SlugResolverInput {
 	/** generated slug, by default slug will resolve to this */
@@ -69,13 +69,13 @@ export interface SlugResolverInput {
 
 /**
  * options to config preprocess-auto-slug
- * @public
+ *
  */
 export interface AutoSlugOptions {
 	/**
 	 * filter which files the preprocessor will run on
 	 *
-	 * @remarks
+	 *
 	 *
 	 * Alternatively, you can skip processing per file by adding
 	 * `<!-- ignore @svelte-put/preprocess-auto-slug -->` somewhere in the file.
@@ -92,7 +92,7 @@ export interface AutoSlugOptions {
 }
 
 /**
- * @internal
+ * @package
  */
 export interface Node extends BaseNode {
 	name: string;

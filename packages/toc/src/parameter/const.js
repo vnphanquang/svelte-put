@@ -26,7 +26,7 @@ export const DEFAULT_TOC_PARAMETER = /** @satisfies {import('./parameter').TocPa
 
 /**
  * The default {@link TocLinkParameter} for `toclink` action
- * @internal
+ * @package
  */
 export const DEFAULT_TOC_LINK_PARAMETER =
 	/** @satisfies {import('./parameter').TocLinkParameter} */ ({

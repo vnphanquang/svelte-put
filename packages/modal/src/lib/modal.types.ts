@@ -32,13 +32,13 @@ import type { createModalEventDispatcher } from './modal';
  * custom modal when extending the `resolve` event with additional props.
  * See {@link ExtendedModalEvents}
  *
- * @public
+ *
  */
 export type ResolveTrigger = 'backdrop' | 'x' | 'escape' | 'clickoutside' | 'pop' | 'custom';
 
 /**
  * The base interface when modal is resolved
- * @public
+ *
  */
 export type ModalComponentBaseResolved<ExtendedResolved extends Record<string, any> = {}> = {
 	trigger: ResolveTrigger;
@@ -46,7 +46,7 @@ export type ModalComponentBaseResolved<ExtendedResolved extends Record<string, a
 
 /**
  * The base events for modal
- * @public
+ *
  */
 export type ModalComponentBaseEvents<
 	Resolved extends ModalComponentBaseResolved = ModalComponentBaseResolved,
@@ -56,8 +56,6 @@ export type ModalComponentBaseEvents<
 
 /**
  * The resolved type for modal
- * @public
- *
  * @example
  *
  * ```typescript
@@ -72,7 +70,7 @@ export type ModalResolved<Component extends ModalComponentBase> =
 
 /**
  * The base slots for modal
- * @public
+ *
  */
 export interface ModalComponentBaseSlots {
 	/** content of the modal */
@@ -104,7 +102,7 @@ export interface ModalComponentBaseSlots {
 
 /**
  * The base events for modal
- * @public
+ *
  */
 export interface ModalComponentBaseProps {
 	/**
@@ -155,14 +153,13 @@ export interface ModalComponentBaseProps {
 	 *
 	 * - If property is provided as `{ override: string }`, it'll override the default class name of that element.
 	 *
-	 * @remarks
+	 *
 	 *
 	 * As Svelte style is component-scoped. You will need to use either a global
 	 * styling system like Tailwind or the `:global()` selector (example below).
 	 *
 	 * When overriding slots, the classes provided here will be merged with the default
 	 * class names and passed to the slot template. See {@link ModalComponentBaseSlots}
-	 *
 	 * @example
 	 *
 	 * ```html
@@ -198,7 +195,6 @@ export interface ModalComponentBaseProps {
 	 *   }
 	 * </style>
 	 * ```
-	 *
 	 */
 	classes?: Partial<
 		Record<
@@ -210,13 +206,12 @@ export interface ModalComponentBaseProps {
 	 * Some accessibility attributes passed to the modal container element as discussed
 	 * in {@link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role | MDN Accessibility - Dialog}
 	 *
-	 * @remarks
+	 *
 	 *
 	 * Since the base `Modal` does not know beforehand its content (passed by slots),
 	 * responsibility for accessibility is delegated to you.
 	 *
 	 * By default, the `role` attribute is set to `dialog` without any aria attribute
-	 *
 	 * @example
 	 *
 	 * ```html
@@ -272,7 +267,7 @@ export interface ModalComponentBaseProps {
 /**
  * The base component for building modal. Modals extending this component needs to
  * meet these specified constraints
- * @public
+ *
  */
 export type ModalComponentBase = SvelteComponentTyped<
 	{},
@@ -283,15 +278,14 @@ export type ModalComponentBase = SvelteComponentTyped<
 /**
  * Either the Svelte modal component or an option object that specifies how
  * to push the modal onto the stack
- * @public
+ *
  */
 export type ModalPushInput<Component extends ModalComponentBase> =
 	| ComponentType<Component>
 	| {
 			/**
 			 * id to track this modal
-			 *
-			 * @defaultValue `(crypto && crypto.randomUUID && crypto.randomUUID()) ?? `modal-indexed-$\{modals.length\}`;`
+			 * @default (crypto && crypto.randomUUID && crypto.randomUUID()) ?? `modal-indexed-$\{modals.length\}`
 			 */
 			id?: string;
 			/**
@@ -306,7 +300,7 @@ export type ModalPushInput<Component extends ModalComponentBase> =
 
 /**
  * The return of the `push` method of modal store
- * @public
+ *
  */
 export interface ModalPushOutput<
 	Component extends ModalComponentBase,
@@ -314,7 +308,6 @@ export interface ModalPushOutput<
 > {
 	/**
 	 * id of the pushed modal, pass to `pop` to dismiss modal
-	 *
 	 * @example
 	 *
 	 * ```typescript
@@ -331,7 +324,6 @@ export interface ModalPushOutput<
 	props: ComponentProps<Component>;
 	/**
 	 * wait for the modal to resolve, and return the promise wrapping the resolved value
-	 *
 	 * @example
 	 *
 	 * ```typescript
@@ -351,8 +343,6 @@ export interface ModalPushOutput<
 
 /**
  * Utility type for building custom props type from the base Modal component
- * @public
- *
  * @example
  *
  * ```html
@@ -376,9 +366,9 @@ export type ExtendedModalProps<ExtendedProps extends Record<string, any> = {}> =
 /**
  * Utility type for building custom events type from the base Modal component.
  * Use in conjunction with {@link createModalEventDispatcher}
- * @public
  *
- * @remarks
+ *
+ *
  *
  * When extending events, we need to create a new `dispatch` function.
  * Remember to pass this new `dispatch` as prop to the `Modal` component.
@@ -391,15 +381,14 @@ export type ExtendedModalProps<ExtendedProps extends Record<string, any> = {}> =
  *
  * ```html
  * <script lang="ts">
- *   import Modal from '@svelte-put/modal/Modal.svelte';
- *   import type { ExtendedModalProps } from '@svelte-put/modal';
+ * import Modal from '@svelte-put/modal/Modal.svelte';
+ * import type { ExtendedModalProps } from '@svelte-put/modal';
  *
- *   $$Props = ExtendedModalProps;
+ * $$Props = ExtendedModalProps;
  * </script
  *
  * <Modal {...$$props} on:resolve />
  * ```
- *
  * @example
  *
  * Custom the base `resolve` event.
@@ -431,7 +420,6 @@ export type ExtendedModalProps<ExtendedProps extends Record<string, any> = {}> =
  *   <button type="button" on:click={() => resolve(false)}>Cancel</button>
  * </Modal>
  * ```
- *
  * @example
  *
  * Add other events.
@@ -469,16 +457,15 @@ export type ExtendedModalEvents<
 
 /**
  * callback as one passed to ModalStore `onPop`
- * @public
+ *
  */
 export type ModalResolveCallback<Component extends ModalComponentBase = ModalComponentBase> = (
 	resolved: ModalResolved<Component>,
 ) => void;
 
 /**
- * @public
- * Push a new modal to the stack
  *
+ *Push a new modal to the stack
  * @param input - {@link ModalPushInput}
  * @returns the {@link ModalPushOutput}
  */
@@ -487,15 +474,14 @@ export type ModalStorePush = <Component extends ModalComponentBase>(
 ) => ModalPushOutput<Component>;
 
 /**
- * @public
- * Pop the modal with given id.
- * If `id` is not provided, pop the topmost modal
  *
- * @remarks
+ *Pop the modal with given id.
+ *If `id` is not provided, pop the topmost modal
  *
- * When calling this manually (rather than being called from the `ModalPortal` component),
- * the trigger is expected to be `pop`;
  *
+ *
+ *When calling this manually (rather than being called from the `ModalPortal` component),
+ *the trigger is expected to be `pop`;
  * @param pushed - the returned {@link ModalPushOutput} output from `push`
  * @param resolved - custom resolved value, if any
  * @returns the popped {@link ModalPushOutput} or `undefined` in the
@@ -511,22 +497,21 @@ export type ModalStorePop = <
 ) => Pushed | undefined;
 
 /**
- * @public
- * callback for when a modal is popped. Can be called multiple times
- * to registered multiple callbacks
  *
- * @remarks
+ *callback for when a modal is popped. Can be called multiple times
+ *to registered multiple callbacks
  *
- * This should be called before the modal is pushed.
  *
- * If the same callback is registered multiple times, it will only be called once
- * (be aware that inline arrow function will be a different function each time)
  *
- * After the modal is popped, the callback list will be cleared. Meaning
- * next time the same modal is pushed, callback must be registered again.
+ *This should be called before the modal is pushed.
  *
- * See example for typescript support.
+ *If the same callback is registered multiple times, it will only be called once
+ *(be aware that inline arrow function will be a different function each time)
  *
+ *After the modal is popped, the callback list will be cleared. Meaning
+ *next time the same modal is pushed, callback must be registered again.
+ *
+ *See example for typescript support.
  * @example
  *
  * ```typescript
@@ -552,7 +537,6 @@ export type ModalStorePop = <
  *  unsubscribe = store.onPop(pushed.id, sideEffect);
  *  unsubscribe(); // to unregister the callback
  * ```
- *
  * @param modalId - the id returned from push operation
  * @param callback - {@link ModalResolveCallback}
  * @returns the unsubscribe function, when call will remove the callback
@@ -563,17 +547,17 @@ export type ModalStoreOnPop = <Component extends ModalComponentBase = ModalCompo
 ) => () => void;
 
 /**
- * @public
+ *
  */
 export type ModalStoreValue = ModalPushOutput<ModalComponentBase, ModalComponentBaseResolved>[];
 
 /**
- * @public
+ *
  */
 export type ModalStoreSubscribe = Writable<ModalStoreValue>['subscribe'];
 
 /**
- * @public
+ *
  */
 export interface ModalStore {
 	subscribe: ModalStoreSubscribe;

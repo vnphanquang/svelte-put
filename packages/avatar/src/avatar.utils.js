@@ -4,8 +4,8 @@ import {
 } from './avatar.helpers.js';
 
 /**
- * @internal
- * @param {string} url
+ * @package
+ * @param {string} url - expect `...?(s|size)=...`
  * @returns {number | undefined}
  */
 function getSizeFromUrl(url) {
@@ -19,8 +19,8 @@ function getSizeFromUrl(url) {
 }
 
 /**
- * @internal
- * @param {string} url
+ * @package
+ * @param {string} url - expect `...?(name|email)=...`
  * @returns {string}
  */
 function getAltFromUrl(url) {
@@ -33,9 +33,9 @@ function getAltFromUrl(url) {
 }
 
 /**
- * @internal
+ * @package
  * @template TValue
- * @param {TValue | null | undefined} value
+ * @param {TValue | null | undefined} value - value to check
  * @returns {value is TValue}
  */
 function nonNullableFilter(value) {
@@ -44,7 +44,7 @@ function nonNullableFilter(value) {
 }
 
 /**
- * @internal
+ * @package
  * @param {string | undefined} alt
  * @param {import('./Avatar.svelte.d.ts').AvatarProps['gravatar'] | undefined} gravatar
  * @param {import('./Avatar.svelte.d.ts').AvatarProps['uiAvatar'] | undefined} uiAvatar
@@ -67,7 +67,7 @@ export function resolveAlt(
 }
 
 /**
- * @internal
+ * @package
  * @param {number} fallback
  * @param {number | undefined} size
  * @param {string | undefined} src
@@ -93,10 +93,10 @@ export function resolveSize(
 	}
 }
 
-/** @internal */
+/** @package */
 export const DEFINITIVE_FALLBACK = 'https://www.gravatar.com/avatar?d=mp';
 /**
- * @internal
+ * @package
  * @param {string | undefined} src
  * @param {import('./Avatar.svelte.d.ts').AvatarProps['gravatar'] | undefined} gravatar
  * @param {import('./Avatar.svelte.d.ts').AvatarProps['uiAvatar'] | undefined} uiAvatar

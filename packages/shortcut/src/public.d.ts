@@ -2,9 +2,7 @@ import { ActionReturn, Action } from 'svelte/action';
 
 /**
  * Additional attributes extended from `svelte-put/shortcut`
- *  @public
  *
- * @remarks
  * The ambient types for these extended attributes should be available automatically
  * whenever `svelte-put/shorcut` is imported.
  */
@@ -19,15 +17,12 @@ export interface ShortcutAttributes {
  * {@link https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/shiftKey | shiftKey},
  * {@link https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/metaKey | metaKey}.
  *
- * @public
+ *
  */
 export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
 
 /**
  * Possible variations for modifier definition
- *
- * @public
- *
  * @example
  *
  * Listen for a single modifier
@@ -45,7 +40,6 @@ export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
  * }}
  * />
  * ```
- *
  * @example
  *
  * Listen for one of many modifiers (or)
@@ -63,7 +57,6 @@ export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
  * }}
  * />
  * ```
- *
  * @example
  *
  * Listen for a combination of multiple modifiers (and)
@@ -82,7 +75,6 @@ export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
  * />
  *
  * ```
- *
  * @example
  *
  * A mix of the 3 previous examples
@@ -104,7 +96,6 @@ export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
  * }}
  * />
  * ```
- *
  */
 export type ShortcutModifierDefinition =
 	| ShortcutModifier
@@ -113,13 +104,13 @@ export type ShortcutModifierDefinition =
 
 /**
  * A definition of a shortcut trigger
- * @public
+ *
  */
 export interface ShortcutTrigger {
 	/**
 	 * whether to enable this triggered. Default to `true`
 	 *
-	 * @remarks
+	 *
 	 *
 	 * `false` means trigger is disabled,
 	 *  but event listener is still placed on node
@@ -136,7 +127,7 @@ export interface ShortcutTrigger {
 	/**
 	 * whether to call `event.preventDefault` before firing callback. Default to `false`
 	 *
-	 * @remarks
+	 *
 	 *
 	 * This is called on the node the action is attached to, not the node that triggers the original `KeyboardEvent`.
 	 * So for example, if `shortcut` is attached to `window`, by the time `preventDefault` is called, the event has already been
@@ -147,7 +138,7 @@ export interface ShortcutTrigger {
 
 /**
  * svelte action parameter to config behavior of `shortcut`
- * @public
+ *
  */
 export interface ShortcutParameter {
 	/** whether to activate the action. Default to `true` */
@@ -160,8 +151,6 @@ export interface ShortcutParameter {
 
 /**
  * `detail` payload for 'shortcut' {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent }
- * @public
- *
  * @example
  *
  * ```html
@@ -196,8 +185,8 @@ export interface ShortcutEventDetail {
 	originalEvent: KeyboardEvent;
 }
 
-/** @public */
+/**  */
 export type ShortcutAction = Action<HTMLElement, ShortcutParameter, ShortcutAttributes>;
 
-/** @public */
+/**  */
 export type ShortcutActionReturn = ActionReturn<ShortcutParameter, ShortcutAttributes>;

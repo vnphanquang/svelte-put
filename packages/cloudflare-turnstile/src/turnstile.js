@@ -20,7 +20,7 @@ export function turnstile(node) {
 	}
 
 	/**
-	 * @template {keyof import('./public').TurnstileEventAttributes extends `on:${infer K}` ? K : never} E
+	 * @template {import('./public').TurnstileCustomEventName} E
 	 * @template [D=Parameters<NonNullable<import('./public').TurnstileEventAttributes[`on:${E}`]>>[0]['detail'] extends import('./public').TurnstileEventDetail<infer T extends Record<string, any>> ? T : never]
 	 * @param {E} event
 	 * @param {D} detail
@@ -34,6 +34,7 @@ export function turnstile(node) {
 		};
 		node.dispatchEvent(new CustomEvent(event, { detail }));
 	}
+
 
 	function load() {
 		const sitekey = node.getAttribute('turnstile-sitekey');

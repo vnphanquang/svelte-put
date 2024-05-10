@@ -3,8 +3,8 @@
 
 import { ComponentEvents, ComponentProps, ComponentType, SvelteComponent } from 'svelte';
 import { ActionReturn } from 'svelte/action';
+import { Readable } from 'svelte/store';
 
-import { createProgressStore } from './progress';
 import { NotificationStoreBuilder } from './store';
 
 type NotificationCommonConfig<Variant extends string, Component extends SvelteComponent> = {
@@ -16,7 +16,7 @@ type NotificationCommonConfig<Variant extends string, Component extends SvelteCo
 	/**
 	 * id generator for notifications. Defaults to 'uuid'.
 	 *
-	 * @remarks
+	 *
 	 *   - counter: use an auto-incremented counter that is scoped to the store
 	 *   - uuid: use `crypto.randomUUID()`, fallback to `counter` if not available
 	 *   - callback: a custom function that accepts {@link NotificationInstanceConfig} and returns a string as the id
@@ -88,7 +88,11 @@ type NotificationStore = ReturnType<NotificationStoreBuilder['build']>;
 type NotificationProgressStoreValue = {
 	state: 'idle' | 'running' | 'paused' | 'ended';
 };
-type NotificationProgressStore = ReturnType<typeof createProgressStore>;
+type NotificationProgressStore = Readable<NotificationProgressStoreValue> & {
+	resume: () => void;
+	pause: () => void;
+	stop: () => void;
+};
 
 type NotificationPortalAttributes = {
 	'on:noti:push'?: (event: CustomEvent<NotificationInstance<string, SvelteComponent>>) => void;
