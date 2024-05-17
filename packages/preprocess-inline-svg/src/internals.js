@@ -1,30 +1,28 @@
 import fs from 'fs';
 import path from 'path';
 
-import { getAttribute } from '@svelte-put/preprocess-helpers';
-import type { Node } from '@svelte-put/preprocess-helpers';
+import { walk } from 'estree-walker';
 import { toHtml } from 'hast-util-to-html';
 import MagicString from 'magic-string';
-import { walk } from 'svelte/compiler';
-import { parse } from 'svelte-parse-markup';
-import type { ElementNode } from 'svg-parser';
+import { parse as parseSvelteMarkup } from 'svelte-parse-markup';
 import { parse as parseSvg } from 'svg-parser';
 
-import { InlineSvgConfig, SourceConfig } from './preprocessor.types';
+/**
+ * @typedef {{ directories: string[]; attributes: Record<string, string> }} ResolvedSourceConfig
+ */
+
+/** @package */
+export const DEFAULT_SOURCES_CONFIG = /** @satisfies {ResolvedSourceConfig} */({
+	directories: [],
+	attributes: {},
+});
 
 /**
- * @package
- * default config of the inline-svg preprocessor
- */
-export const DEFAULT_SOURCES_CONFIG = {
-	directories: [] as string[],
-	attributes: {} as Record<string, string>,
-} satisfies SourceConfig;
-
-/**
+ * @param {import('./types').SourceConfig} [options]
+ * @returns {ResolvedSourceConfig}
  * @package
  */
-export function resolveSourceOptions(options?: SourceConfig) {
+function resolveSourceOptions(options) {
 	return {
 		directories: options?.directories
 			? Array.isArray(options.directories)
@@ -41,9 +39,11 @@ export function resolveSourceOptions(options?: SourceConfig) {
  * resolve config input and search for a default
  * If none is found, use DEFAULT_SOURCES_CONFIG.
  * If multiple of such input are found, throw an error.
+ * @param {import('./types').SourceConfig | import('./types').SourceConfig[]} [sources]
+ * @returns {{ local: ResolvedSourceConfig; dirs: ResolvedSourceConfig[] }}
  * @package
  */
-export function resolveSources(sources?: SourceConfig | SourceConfig[]) {
+export function resolveSources(sources) {
 	if (!sources) return { local: DEFAULT_SOURCES_CONFIG, dirs: [] };
 	if (!Array.isArray(sources)) {
 		if (!sources.directories) {
@@ -74,32 +74,39 @@ export function resolveSources(sources?: SourceConfig | SourceConfig[]) {
 }
 
 /**
- * @package
+ * @typedef {Required<import('./types').InlineSvgConfig>} ResolvedInlineSvgConfig
  */
-export const DEFAULT_INLINE_SVG_CONFIG = {
+
+/** @package */
+export const DEFAULT_INLINE_SVG_CONFIG = /** @type {ResolvedInlineSvgConfig} */({
 	inlineSrcAttributeName: 'data-inline-src',
 	keepInlineSrcAttribute: false,
-} satisfies InlineSvgConfig;
+});
 
 /**
  * @package
+ * @param {import('./types').InlineSvgConfig} [config]
+ * @returns {ResolvedInlineSvgConfig}
  */
-export function resolveInlineSvgConfig(config: InlineSvgConfig = {}) {
+export function resolveInlineSvgConfig(config = {}) {
 	return {
 		inlineSrcAttributeName:
 			config.inlineSrcAttributeName ?? DEFAULT_INLINE_SVG_CONFIG.inlineSrcAttributeName,
 		keepInlineSrcAttribute:
 			config.keepInlineSrcAttribute ?? DEFAULT_INLINE_SVG_CONFIG.keepInlineSrcAttribute,
-	} satisfies InlineSvgConfig;
+	};
 }
 
-/** @package */
-export function findSvgSrc(
-	filename: string,
-	directories: string[],
-	inlineSrc?: string,
-): string | undefined {
-	let resolvedSrc: string | undefined = undefined;
+/**
+ * @param {string} filename
+ * @param {string[]} directories
+ * @param {string} [inlineSrc]
+ * @returns {string | undefined}
+ * @package
+ */
+export function findSvgSrc(filename, directories, inlineSrc) {
+	/** @type {string | undefined} */
+	let resolvedSrc= undefined;
 	if (inlineSrc) {
 		if (!inlineSrc.endsWith('.svg')) inlineSrc += '.svg';
 		if (directories.length === 0) {
@@ -120,25 +127,43 @@ export function findSvgSrc(
 }
 
 /**
- * @package
+ * @param {string} source
+ * @param {import('svelte/compiler').RegularElement} node
+ * @param {string} attributeName
+ * @returns {string | undefined}
  */
-export function transform(
-	code: string,
-	filename: string,
-	sources: ReturnType<typeof resolveSources>,
-	config: ReturnType<typeof resolveInlineSvgConfig>,
-) {
+export function getAttribute(source, node, attributeName) {
+	const attr = /** @type {import('svelte/compiler').Attribute} */(node.attributes.find(
+		(attr) => attr.type === 'Attribute' && attr.name === attributeName,
+	));
+	if (attr) {
+		let raw = source.slice(attr.start + attributeName.length + 1, attr.end);
+		if (raw.startsWith('"') && raw.endsWith('"')) {
+			raw = raw.slice(1, -1);
+		}
+		return raw;
+	}
+}
+
+/**
+ * @param {string} code
+ * @param {string} filename
+ * @param {ReturnType<typeof resolveSources>} sources
+ * @param {ResolvedInlineSvgConfig} config
+ * @returns {ReturnType<import('svelte/compiler').MarkupPreprocessor>}
+ */
+export function transform(code, filename, sources, config) {
 	const { local, dirs } = sources;
 	const { inlineSrcAttributeName, keepInlineSrcAttribute } = config;
 
 	const s = new MagicString(code);
-	const ast = parse(code, { filename });
+	const ast = parseSvelteMarkup(code, { filename });
 
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	walk(ast.html as any, {
+	walk(ast.html, {
+		/** @param {any} _node */
 		enter(_node) {
-			const node = _node as Node;
-			if (node.type !== 'Element' || node.name !== 'svg') return;
+			const node = /** @type {import('svelte/compiler').RegularElement} */(_node);
+			if (node.name !== 'svg') return;
 			let options = local;
 			let inlineSrc = getAttribute(code, node, inlineSrcAttributeName);
 			let svgSource = findSvgSrc(filename, options.directories, inlineSrc);
@@ -159,7 +184,7 @@ export function transform(
 			}
 
 			const hast = parseSvg(fs.readFileSync(svgSource, 'utf8'));
-			const svg = hast.children[0] as ElementNode;
+			const svg = /** @type {import('svg-parser').ElementNode} */(hast.children[0]);
 
 			const attributes = {
 				...svg.properties,
@@ -168,10 +193,13 @@ export function transform(
 
 			node.attributes.map((attr) => {
 				if (attr.type === 'Attribute') {
+					// remove the source attribute, unless instructed otherwise by global user config
 					if (attr.name === inlineSrcAttributeName && !keepInlineSrcAttribute) {
 						s.remove(attr.start, attr.end);
 					}
-					if (attributes[attr.name] && attr.value.length === 1) {
+
+					// if user specify an attribute, overwrite any existing one
+					if (attributes[attr.name]) {
 						delete attributes[attr.name];
 					}
 				}
@@ -186,8 +214,7 @@ export function transform(
 				insertIndex = node.end - '</svg>'.length;
 			}
 
-			// eslint-disable-next-line @typescript-eslint/no-explicit-any
-			const content = toHtml(svg.children as any, {
+			const content = toHtml(/** @type {any} */(svg.children), {
 				allowDangerousCharacters: true,
 			});
 			s.update(insertIndex, node.end, `>${content}</svg>`);
@@ -198,4 +225,5 @@ export function transform(
 		code: s.toString(),
 		map: s.generateMap(),
 	};
+
 }
