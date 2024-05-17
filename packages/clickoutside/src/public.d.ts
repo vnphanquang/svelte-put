@@ -12,15 +12,15 @@ import { ActionReturn, Action } from 'svelte/action';
  *   import { clickoutside } from '@svelte-put/clickoutside';
  * </script>
  *
- * <!-- on:clickoutside should be typed -->
+ * <!-- onclickoutside should be typed -->
  * <div
  *   use:clickoutside
- *   on:clickoutside
+ *   onclickoutside
  * />
  * ```
  */
 export interface ClickOutsideAttributes {
-	'on:clickoutside'?: (event: CustomEvent<MouseEvent>) => void;
+	'onclickoutside'?: (event: CustomEvent<MouseEvent>) => void;
 }
 
 /**

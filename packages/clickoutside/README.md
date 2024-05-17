@@ -29,7 +29,7 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 	}
 </script>
 
-<div use:clickoutside on:clickoutside="{doSomething}" />
+<div use:clickoutside onclickoutside="{doSomething}" />
 ```
 
 ## [Changelog][github.changelog]

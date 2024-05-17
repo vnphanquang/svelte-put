@@ -28,7 +28,7 @@
  *    <aside
  *      class="absolute top-0 left-0 right-0 bottom-0"
  *      use:clickoutside={{ limit: { parent: containerNode }}}
- *      on:clickoutside={onClickOutside}
+ *      onclickoutside={onClickOutside}
  *    >
  *      ...some modal content...
  *    </aside>
