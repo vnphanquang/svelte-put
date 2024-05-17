@@ -3,6 +3,11 @@
   const { packageManager } = getSettingsContext();
 </script>
 
+<!-- FIXME: add migration docs
+- drop support for v4 and below
+- no more vite variant, use svelte preprocessor instead for simplicity and avoid confusion
+-->
+
 ## Introduction
 
 Current solutions (that I know of) for inlining SVGs in Svelte land require either runtime logics or a component-oriented strategy. These solutions are acceptable in most cases but have been proven to be problematic when additional styling / attributes are needed for the inlined `SVGElement`.
