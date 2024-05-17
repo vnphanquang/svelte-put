@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.2
+
+### Patch Changes
+
+- [`5ca7d70`](https://github.com/vnphanquang/svelte-put/commit/5ca7d701a61b6d2f90e7a6b21f644b8ad93fc33e) Thanks [@vnphanquang](https://github.com/vnphanquang)! - restrict to svelte 3 and 4 (not compatible with 5)
+
 ## 1.0.1
 
 ### Patch Changes

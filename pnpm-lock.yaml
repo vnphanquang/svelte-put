@@ -115,42 +115,70 @@ importers:
         version: 4.2.12
 
   packages/clickoutside:
+    dependencies:
+      svelte:
+        specifier: ^3.55.0 || ^4.0.0 || ^5.0.0
+        version: 4.2.12
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
         version: link:../../internals/tsconfig
 
   packages/cloudflare-turnstile:
+    dependencies:
+      svelte:
+        specifier: ^3.55.0 || ^4.0.0 || ^5.0.0
+        version: 4.2.12
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
         version: link:../../internals/tsconfig
 
   packages/copy:
+    dependencies:
+      svelte:
+        specifier: ^3.55.0 || ^4.0.0 || ^5.0.0
+        version: 4.2.12
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
         version: link:../../internals/tsconfig
 
   packages/dragscroll:
+    dependencies:
+      svelte:
+        specifier: ^3.55.0 || ^4.0.0 || ^5.0.0
+        version: 4.2.12
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
         version: link:../../internals/tsconfig
 
   packages/inline-svg:
+    dependencies:
+      svelte:
+        specifier: ^3.55.0 || ^4.0.0 || ^5.0.0
+        version: 4.2.12
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
         version: link:../../internals/tsconfig
 
   packages/intersect:
+    dependencies:
+      svelte:
+        specifier: ^3.55.0 || ^4.0.0 || ^5.0.0
+        version: 4.2.12
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
         version: link:../../internals/tsconfig
 
   packages/lockscroll:
+    dependencies:
+      svelte:
+        specifier: ^3.55.0 || ^4.0.0 || ^5.0.0
+        version: 4.2.12
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -191,12 +219,20 @@ importers:
         version: 5.2.8(@types/node@20.12.5)(sugarss@4.0.1(postcss@8.4.38))
 
   packages/movable:
+    dependencies:
+      svelte:
+        specifier: ^3.55.0 || ^4.0.0 || ^5.0.0
+        version: 4.2.12
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
         version: link:../../internals/tsconfig
 
   packages/noti:
+    dependencies:
+      svelte:
+        specifier: ^3.55.0 || ^4.0.0
+        version: 4.2.12
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -282,12 +318,19 @@ importers:
       qrcode-generator:
         specifier: ^1.4.4
         version: 1.4.4
+      svelte:
+        specifier: ^3.55.0 || ^4.0.0 || ^5.0.0
+        version: 4.2.12
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
         version: link:../../internals/tsconfig
 
   packages/resize:
+    dependencies:
+      svelte:
+        specifier: ^3.55.0 || ^4.0.0 || ^5.0.0
+        version: 4.2.12
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -325,6 +368,10 @@ importers:
         version: 5.2.8(@types/node@20.12.5)(sugarss@4.0.1(postcss@8.4.38))
 
   packages/shortcut:
+    dependencies:
+      svelte:
+        specifier: ^3.55.0 || ^4.0.0 || ^5.0.0
+        version: 4.2.12
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -341,6 +388,10 @@ importers:
         version: link:../../internals/tsconfig
 
   packages/tooltip:
+    dependencies:
+      svelte:
+        specifier: ^3.55.0 || ^4.0.0
+        version: 4.2.12
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -5216,7 +5267,7 @@ snapshots:
     dependencies:
       '@jridgewell/set-array': 1.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
-      '@jridgewell/trace-mapping': 0.3.23
+      '@jridgewell/trace-mapping': 0.3.25
 
   '@jridgewell/gen-mapping@0.3.5':
     dependencies:
