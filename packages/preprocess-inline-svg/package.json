@@ -51,16 +51,16 @@
 	},
 	"devDependencies": {
 		"@internals/tsconfig": "workspace:*",
-		"@types/svg-parser": "^2.0.6",
-		"hast-util-to-html": "^9.0.1",
-		"svelte-parse-markup": "^0.1.2",
-		"svg-parser": "^2.0.4"
+		"@types/svg-parser": "^2.0.6"
 	},
 	"peerDependencies": {
 		"svelte": "^5.0.0-next.1"
 	},
 	"dependencies": {
-		"estree-walker": "^3.0.3",
-		"magic-string": "^0.30.10"
+		"hast-util-to-html": "^9.0.1",
+		"magic-string": "^0.30.10",
+		"svelte-parse-markup": "^0.1.2",
+		"svg-parser": "^2.0.4",
+		"zimmerframe": "^1.1.2"
 	}
 }

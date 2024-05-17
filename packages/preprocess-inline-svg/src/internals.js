@@ -1,11 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 
-import { walk } from 'estree-walker';
 import { toHtml } from 'hast-util-to-html';
 import MagicString from 'magic-string';
 import { parse as parseSvelteMarkup } from 'svelte-parse-markup';
 import { parse as parseSvg } from 'svg-parser';
+import { walk } from 'zimmerframe';
 
 /**
  * @typedef {{ directories: string[]; attributes: Record<string, string> }} ResolvedSourceConfig
@@ -157,13 +157,15 @@ export function transform(code, filename, sources, config) {
 	const { inlineSrcAttributeName, keepInlineSrcAttribute } = config;
 
 	const s = new MagicString(code);
-	const ast = parseSvelteMarkup(code, { filename });
+	const ast = parseSvelteMarkup(code, { filename, modern: true });
 
-	walk(ast.html, {
-		/** @param {any} _node */
-		enter(_node) {
-			const node = /** @type {import('svelte/compiler').RegularElement} */(_node);
-			if (node.name !== 'svg') return;
+	walk(ast.fragment, null, {
+		/**
+		 * @param {import('svelte/compiler').RegularElement} node
+		 * @returns {import('svelte/compiler').RegularElement}
+		 */
+		RegularElement(node) {
+			if (node.name !== 'svg') return node;
 			let options = local;
 			let inlineSrc = getAttribute(code, node, inlineSrcAttributeName);
 			let svgSource = findSvgSrc(filename, options.directories, inlineSrc);
@@ -176,7 +178,7 @@ export function transform(code, filename, sources, config) {
 				}
 			}
 
-			if (!inlineSrc) return;
+			if (!inlineSrc) return node;
 			if (!svgSource) {
 				throw new Error(
 					`\n@svelte-put/preprocess-inline-svg: cannot find svg source for ${inlineSrc} at ${filename}`,
@@ -218,6 +220,8 @@ export function transform(code, filename, sources, config) {
 				allowDangerousCharacters: true,
 			});
 			s.update(insertIndex, node.end, `>${content}</svg>`);
+
+			return node;
 		},
 	});
 
