@@ -4,11 +4,11 @@
 	"description": "Svelte action & utilities for copying text to clipboard",
 	"main": "src/index.js",
 	"module": "src/index.js",
-	"types": "types/index.d.ts",
+	"types": "src/public.d.ts",
 	"type": "module",
 	"exports": {
 		".": {
-			"types": "./types/index.d.ts",
+			"types": "./src/public.d.ts",
 			"import": "./src/index.js"
 		}
 	},
