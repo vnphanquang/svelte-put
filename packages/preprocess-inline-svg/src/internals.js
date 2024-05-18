@@ -162,10 +162,9 @@ export function transform(code, filename, sources, config) {
 	walk(ast.fragment, null, {
 		/**
 		 * @param {import('svelte/compiler').RegularElement} node
-		 * @returns {import('svelte/compiler').RegularElement}
 		 */
 		RegularElement(node) {
-			if (node.name !== 'svg') return node;
+			if (node.name !== 'svg') return;
 			let options = local;
 			let inlineSrc = getAttribute(code, node, inlineSrcAttributeName);
 			let svgSource = findSvgSrc(filename, options.directories, inlineSrc);
@@ -178,7 +177,7 @@ export function transform(code, filename, sources, config) {
 				}
 			}
 
-			if (!inlineSrc) return node;
+			if (!inlineSrc) return;
 			if (!svgSource) {
 				throw new Error(
 					`\n@svelte-put/preprocess-inline-svg: cannot find svg source for ${inlineSrc} at ${filename}`,
@@ -221,7 +220,7 @@ export function transform(code, filename, sources, config) {
 			});
 			s.update(insertIndex, node.end, `>${content}</svg>`);
 
-			return node;
+			return;
 		},
 	});
 
