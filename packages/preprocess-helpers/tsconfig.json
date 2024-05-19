@@ -1,4 +1,0 @@
-{
-	"include": ["src/**/*"],
-	"extends": "@internals/tsconfig/base.package.js.json"
-}
