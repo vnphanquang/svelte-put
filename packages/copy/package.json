@@ -23,7 +23,7 @@
 		"lint": "eslint . --ignore-path=\"../../.eslintignore\"",
 		"format": "prettier --ignore-path ../../.prettierignore --write .",
 		"dts": "dts-buddy --write && publint",
-		"prepublishOnly": "turbo run dts --filter=@svelte-but/copy"
+		"prepublishOnly": "turbo run dts --filter=@svelte-put/copy"
 	},
 	"keywords": [
 		"svelte",
