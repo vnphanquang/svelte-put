@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import inlineSvg from '@svelte-put/preprocess-inline-svg';
+import autoSlug from '@svelte-put/preprocess-auto-slug';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -12,6 +13,7 @@ const config = {
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
 	// for more information about preprocessors
 	preprocess: [
+		autoSlug(),
 		inlineSvg(
 			[
 				{
