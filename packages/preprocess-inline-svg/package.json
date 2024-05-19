@@ -1,6 +1,6 @@
 {
 	"name": "@svelte-put/preprocess-inline-svg",
-	"version": "2.1.3",
+	"version": "3.0.0-next.0",
 	"description": "minimal svg inliner from local resources at build time",
 	"main": "src/index.js",
 	"module": "src/index.js",

@@ -24,5 +24,12 @@
     "@svelte-put/toc": "5.0.1",
     "@svelte-put/tooltip": "1.0.1"
   },
-  "changesets": []
+  "changesets": [
+    "beige-hornets-think",
+    "brave-tips-do",
+    "cyan-carpets-hammer",
+    "odd-rules-argue",
+    "rude-dolls-play",
+    "tiny-dancers-live"
+  ]
 }

@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.0.2-next.0
+
+### Patch Changes
+
+- [`c7813d7`](https://github.com/vnphanquang/svelte-put/commit/c7813d7caf9bac19edfed1e0cf6778e1c9c607d5) Thanks [@vnphanquang](https://github.com/vnphanquang)! - fix typo in publishOnly script - should generate and ship types folder
+
 ## 3.0.1
 
 ### Patch Changes

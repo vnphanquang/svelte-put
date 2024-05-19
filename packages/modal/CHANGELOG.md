@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.9-next.0
+
+### Patch Changes
+
+- Updated dependencies [[`b614441`](https://github.com/vnphanquang/svelte-put/commit/b614441c181a72bf60b63ff9b7548b6cfa3402d1), [`2986426`](https://github.com/vnphanquang/svelte-put/commit/298642612d240ede9687a44c4554c6ec4b7f1605)]:
+  - @svelte-put/clickoutside@4.0.0-next.0
+
 ## 1.0.8
 
 ### Patch Changes

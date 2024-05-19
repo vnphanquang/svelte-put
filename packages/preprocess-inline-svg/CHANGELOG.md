@@ -1,5 +1,17 @@
 # Changelog
 
+## 3.0.0-next.0
+
+### Major Changes
+
+- [`128d811`](https://github.com/vnphanquang/svelte-put/commit/128d811ad97fe7d5871325f2a42f21eaf8586384) Thanks [@vnphanquang](https://github.com/vnphanquang)! - switch to using modern Svelte AST
+
+- [`1798520`](https://github.com/vnphanquang/svelte-put/commit/17985200fa149cfae226462793ffe884e24f57fa) Thanks [@vnphanquang](https://github.com/vnphanquang)! - support Svelte v5, drop support for v4 and below, now written in JS with JSDocs
+
+### Patch Changes
+
+- [`3394116`](https://github.com/vnphanquang/svelte-put/commit/339411601892d99b2cbdc80a927d2056f79704ae) Thanks [@vnphanquang](https://github.com/vnphanquang)! - not necessary to return if not transfer in zimmerframe walk methods
+
 ## 2.1.3
 
 ### Patch Changes

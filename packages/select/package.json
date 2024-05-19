@@ -1,6 +1,6 @@
 {
 	"name": "@svelte-put/select",
-	"version": "0.2.5",
+	"version": "0.2.6-next.0",
 	"description": "Svelte feature-rich, extensible, type-safe, accessible select component",
 	"type": "module",
 	"svelte": "./dist/index.js",
