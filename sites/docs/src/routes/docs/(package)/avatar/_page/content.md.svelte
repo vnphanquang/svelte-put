@@ -19,6 +19,12 @@
   let uiAvatarVariant = 'Minimal';
 </script>
 
+<!--
+  TODO add migration docs
+  - drop support for v4 and below
+  - no more default slot, use the `img` snippet instead
+-->
+
 ## Installation
 
 <enhanced-code-block group display="tabs" bind:title={$packageManager}>
