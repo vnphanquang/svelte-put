@@ -90,10 +90,10 @@
 	"devDependencies": {
 		"@internals/tsconfig": "workspace:*",
 		"@sveltejs/adapter-auto": "3.2.0",
-		"@sveltejs/kit": "2.5.5",
+		"@sveltejs/kit": "2.5.9",
 		"@sveltejs/package": "2.3.1",
 		"@sveltejs/vite-plugin-svelte": "^4.0.0-next.1",
-		"vite": "^5.2.8"
+		"vite": "^5.2.11"
 	},
 	"peerDependencies": {
 		"svelte": "^3.55.0 || ^4.0.0"
