@@ -46,8 +46,8 @@ function nonNullableFilter(value) {
 /**
  * @package
  * @param {string | undefined} alt
- * @param {import('./Avatar.svelte.d.ts').AvatarProps['gravatar'] | undefined} gravatar
- * @param {import('./Avatar.svelte.d.ts').AvatarProps['uiAvatar'] | undefined} uiAvatar
+ * @param {import('./Avatar.svelte').AvatarProps['gravatar'] | undefined} gravatar
+ * @param {import('./Avatar.svelte').AvatarProps['uiAvatar'] | undefined} uiAvatar
  * @param {string | undefined } src
  * @returns {string}
  */
@@ -71,8 +71,8 @@ export function resolveAlt(
  * @param {number} fallback
  * @param {number | undefined} size
  * @param {string | undefined} src
- * @param {import('./Avatar.svelte.d.ts').AvatarProps['gravatar'] | undefined} gravatar
- * @param {import('./Avatar.svelte.d.ts').AvatarProps['uiAvatar'] | undefined} uiAvatar
+ * @param {import('./Avatar.svelte').AvatarProps['gravatar'] | undefined} gravatar
+ * @param {import('./Avatar.svelte').AvatarProps['uiAvatar'] | undefined} uiAvatar
  * @returns {number}
  */
 export function resolveSize(
@@ -98,8 +98,8 @@ export const DEFINITIVE_FALLBACK = 'https://www.gravatar.com/avatar?d=mp';
 /**
  * @package
  * @param {string | undefined} src
- * @param {import('./Avatar.svelte.d.ts').AvatarProps['gravatar'] | undefined} gravatar
- * @param {import('./Avatar.svelte.d.ts').AvatarProps['uiAvatar'] | undefined} uiAvatar
+ * @param {import('./Avatar.svelte').AvatarProps['gravatar'] | undefined} gravatar
+ * @param {import('./Avatar.svelte').AvatarProps['uiAvatar'] | undefined} uiAvatar
  * @param {string | undefined} fallback
  * @returns {string[]}
  */

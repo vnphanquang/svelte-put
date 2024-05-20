@@ -3,7 +3,7 @@ import md5 from 'md5';
 /**
  * Builds a {@link https://ui-avatars.com | UIAvatar } url
  *
- * @param {string | import('./Avatar.svelte.d.ts').UIAvatarOptions} input - name for UIAvatar or object of options
+ * @param {string | import('./LegacyAvatar.svelte.js').UIAvatarOptions} input - name for UIAvatar or object of options
  * @returns {string} the constructed UIAvatar URL
  */
 export function uiAvatar(input) {
@@ -25,12 +25,12 @@ export function uiAvatar(input) {
 /**
  * Builds a {@link https://en.gravatar.com/site/implement/images | Gravatar } url
  *
- * @param {string | import('./Avatar.svelte.d.ts').GravatarOptions} input - email for Gravatar or object of options
+ * @param {string | import('./LegacyAvatar.svelte.js').GravatarOptions} input - email for Gravatar or object of options
  * @returns {string} the constructed Gravatar URL
  */
 export function gravatar(input) {
 	let email = '';
-	/** @type {Omit<import('./Avatar.svelte.d.ts').GravatarOptions, 'email'>} */
+	/** @type {Omit<import('./LegacyAvatar.svelte.js').GravatarOptions, 'email'>} */
 	let options = {};
 	if (typeof input === 'string') {
 		email = input;
