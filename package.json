@@ -6,6 +6,7 @@
 		"configs/*",
 		"packages/*"
 	],
+	"license": "MIT",
 	"author": {
 		"email": "vnphanquang@gmail.com",
 		"name": "Quang Phan",
