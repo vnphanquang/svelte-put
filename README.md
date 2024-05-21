@@ -10,6 +10,9 @@ Useful svelte stuff to put in your projects
 
 </div>
 
+> [!NOTE]
+> [Svelte 5](https://svelte.dev/blog/svelte-5-release-candidate) is coming! All action-based packages in this collection should continue to work, while others are being updated to support the new version. Support for Svelte 4 and lower will be dropped in the next major releases.
+
 ## Documentation
 
 [See the dedicated documentation page here][docs].
