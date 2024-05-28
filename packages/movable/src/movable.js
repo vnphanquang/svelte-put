@@ -42,8 +42,8 @@ import { tick } from 'svelte';
  *         },
  *         handle: handleNode,
  *       }}
- *       on:movablestart={(event) => console.log('movable:start', event.detail.node, event.detail.position)}
- *       on:movableend={(event) => console.log('movable:end', event.detail.node, event.detail.position)}
+ *       onmovablestart={(event) => console.log('movable:start', event.detail.node, event.detail.position)}
+ *       onmovableend={(event) => console.log('movable:end', event.detail.node, event.detail.position)}
  *     >
  *       <button bind:this={handleNode}>
  *          likely some 'move' icon
