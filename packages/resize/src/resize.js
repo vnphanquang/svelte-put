@@ -21,8 +21,6 @@
  * </section
  * ```
  *
- *
- *
  * As with any svelte action, `resize` should be use with element and not component.
  *
  * ```html

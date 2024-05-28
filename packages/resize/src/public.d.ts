@@ -13,21 +13,18 @@ import { ActionReturn, Action } from 'svelte/action';
  *   import { resize } from '@svelte-put/resize';
  * </script>
  *
- * <!-- on:resized should be typed -->
+ * <!-- onresized should be typed -->
  * <div
  *   use:resize
- *   on:resized
+ *   onresized
  * />
  * ```
  */
 export interface ResizeAttributes {
-	'on:resized'?: (event: CustomEvent<ResizeDetail>) => void;
+	'onresized'?: (event: CustomEvent<ResizeDetail>) => void;
 }
 
-/**
- * config behavior of `resize`
- *
- */
+/** config behavior of `resize` */
 export interface ResizeConfig {
 	/**
 	 * whether to activate the action. Default to `true`
@@ -36,9 +33,9 @@ export interface ResizeConfig {
 	enabled?: boolean;
 	/**
 	 *
-	 *Be default, a singleton ResizeObserver is used for all actions for
-	 *better performance. You can use this option to create a new ResizeObserver
-	 *or provide your own.
+	 * Be default, a singleton ResizeObserver is used for all actions for
+	 * better performance. You can use this option to create a new ResizeObserver
+	 * or provide your own.
 	 * @default 'singleton'
 	 */
 	observer?: 'singleton' | 'new' | ResizeObserver;
@@ -46,13 +43,11 @@ export interface ResizeConfig {
 
 /**
  * parameter received from action input
- *
  */
 export type ResizeParameter = ResizeConfig | undefined;
 
 /**
  * `detail` payload for `resize` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent}
- *
  */
 export interface ResizeDetail {
 	/** the ResizeObserver itself */
@@ -61,8 +56,5 @@ export interface ResizeDetail {
 	readonly entry: ResizeObserverEntry;
 }
 
-/**  */
 export type ResizeAction = Action<HTMLElement, ResizeParameter, ResizeAttributes>;
-
-/**  */
 export type ResizeActionReturn = ActionReturn<ResizeParameter, ResizeAttributes>;
