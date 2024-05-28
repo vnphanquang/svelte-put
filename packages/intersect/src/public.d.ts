@@ -13,25 +13,21 @@ import { ActionReturn, Action } from 'svelte/action';
  *   import { intersect } from '@svelte-put/intersect';
  * </script>
  *
- * <!-- on:intersect, on:intersectonce should be typed -->
+ * <!-- onintersect, onintersectonce should be typed -->
  * <div
  *   use:intersect
- *   on:intersect
- *   on:intersectonce
+ *   onintersect
+ *   onintersectonce
  * />
  * ```
  */
 export interface IntersectAttributes {
-	'on:intersect'?: (event: CustomEvent<IntersectDetail>) => void;
-	'on:intersectonce'?: (event: CustomEvent<IntersectDetail>) => void;
+	'onintersect'?: (event: CustomEvent<IntersectDetail>) => void;
+	'onintersectonce'?: (event: CustomEvent<IntersectDetail>) => void;
 }
 
 /**
  * config behavior of `intersect`
- *
- *
- *
- *
  * parameters for `intersect` extends {@link https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver | IntersectionObserverInit }
  * (second parameter passed to IntersectionObserver constructor)
  */
@@ -40,10 +36,7 @@ export interface IntersectConfig extends IntersectionObserverInit {
 	enabled?: boolean;
 }
 
-/**
- * `detail` payload for `intersect` and `intersectonce` CustomEvent
- *
- */
+/** `detail` payload for `intersect` and `intersectonce` CustomEvent */
 export interface IntersectDetail {
 	/** the IntersectionObserver itself */
 	readonly observer: IntersectionObserver;
@@ -53,14 +46,7 @@ export interface IntersectDetail {
 	readonly direction: 'up' | 'down';
 }
 
-/**
- * parameter received from action input
- *
- */
+/** parameter received from action input */
 export type IntersectParameter = IntersectConfig | undefined;
-
-/**  */
 export type IntersectAction = Action<HTMLElement, IntersectParameter, IntersectAttributes>;
-
-/**  */
 export type IntersectActionReturn = ActionReturn<IntersectParameter, IntersectAttributes>;
