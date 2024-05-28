@@ -15,14 +15,6 @@ export interface DragScrollConfig {
 	cursor: boolean;
 }
 
-/**
- * parameter received from action input
- *
- */
 export type DragScrollParameter = Partial<DragScrollConfig> | undefined;
-
-/**  */
 export type DragScrollAction = Action<HTMLElement, DragScrollParameter>;
-
-/**  */
 export type DragScrollActionReturn = ActionReturn<DragScrollParameter>;
