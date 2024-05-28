@@ -42,7 +42,7 @@ export function qr(node, param) {
 		const pngBase64 = await createQrPngDataUrl(rConfig)
 
 		node.src = pngBase64;
-		node.dispatchEvent(new CustomEvent('qr:init', { detail: node }));
+		node.dispatchEvent(new CustomEvent('qrinit', { detail: node }));
 	}
 
 	init();

@@ -6,7 +6,6 @@ export type QRCode = ReturnType<typeof import('qrcode-generator')>;
 
 /**
  * instructions to render a QR
- *
  */
 export type QRConfig = {
 	/** the data to encode in QR, typically an URL */

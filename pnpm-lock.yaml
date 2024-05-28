@@ -297,8 +297,8 @@ importers:
         specifier: ^1.4.4
         version: 1.4.4
       svelte:
-        specifier: ^3.55.0 || ^4.0.0 || ^5.0.0
-        version: 4.2.12
+        specifier: ^5.0.0-next.1
+        version: 5.0.0-next.136
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -489,6 +489,9 @@ importers:
       '@svelte-put/preprocess-inline-svg':
         specifier: workspace:*
         version: link:../../packages/preprocess-inline-svg
+      '@svelte-put/qr':
+        specifier: workspace:*
+        version: link:../../packages/qr
       '@sveltejs/adapter-auto':
         specifier: ^3.0.0
         version: 3.2.0(@sveltejs/kit@2.5.9(@sveltejs/vite-plugin-svelte@4.0.0-next.1(svelte@5.0.0-next.136)(vite@5.2.11(@types/node@20.12.12)(sugarss@4.0.1(postcss@8.4.38))))(svelte@5.0.0-next.136)(vite@5.2.11(@types/node@20.12.12)(sugarss@4.0.1(postcss@8.4.38))))
