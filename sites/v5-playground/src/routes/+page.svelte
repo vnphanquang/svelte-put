@@ -1,35 +1,26 @@
-<script>
-  import Avatar from '@svelte-put/avatar/Avatar.svelte';
-  /** passed from parent */
-  export let color = 'blue';
+<script lang="ts">
+	import { turnstile } from '@svelte-put/cloudflare-turnstile';
+
+	import { PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY } from '$env/static/public';
+
+  let token = $state('');
+	$inspect('Token', token);
 </script>
 
-<main style:padding="200px">
-	<Avatar
-		src="https://img.freepik.com/free-photo/adorable-jack-russell-retriever-puppy-portrait_53876-64825.jpg?w=2000"
-		uiAvatar="Jim+Hopper"
-		size={50}
-		class="custom-avatar rounded-full"
-		--border-color={color}
-	/>
+<div
+  use:turnstile
+  turnstile-sitekey={PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY}
+  turnstile-theme="auto"
+  turnstile-size="normal"
+  turnstile-language="en"
+  turnstile-response-field-name="turnstile"
+  turnstile-response-field
+  onturnstile={(e) => (token = e.detail.token)}
+	onturnstileerror={(e) => console.error('Turnstile Error', e.detail)}
+	onturnstilebeforeinteractive={(e) => console.log('Turnstile Before Interactive', e.detail)}
+	onturnstileafterinteractive={(e) => console.log('Turnstile after Interactive', e.detail)}
+></div>
+<p class="text-center" ontimeupdate={() => {}}>
+	Captured Token: <span class="bg-success-surface text-success-text px-2">{token ?? 'pending'}</span>
+</p>
 
-	<div style:margin-top="40px">
-		<Avatar
-			size={50}
-			gravatar="billy.hargrove@domain.com"
-			uiAvatar="Billy+Hargrove"
-		>
-			{#snippet img({ alt, size, sources, src })}
-				<img {src} {alt} width={size} height={size} data-sources={sources} />
-			{/snippet}
-		</Avatar>
-	</div>
-</main>
-
-<style lang="postcss">
-	:global(.custom-avatar) {
-		border: 2px var(--border-color) solid;
-		box-shadow: 0 0 0 10px hsl(0deg 0% 50%), 0 0 0 15px hsl(0deg 0% 60%),
-			0 0 0 20px hsl(0deg 0% 70%), 0 0 0 25px hsl(0deg 0% 80%), 0 0 0 30px hsl(0deg 0% 90%);
-	}
-</style>

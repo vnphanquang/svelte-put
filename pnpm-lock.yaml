@@ -127,8 +127,8 @@ importers:
   packages/cloudflare-turnstile:
     dependencies:
       svelte:
-        specifier: ^3.55.0 || ^4.0.0 || ^5.0.0
-        version: 4.2.12
+        specifier: ^5.0.0-next.1
+        version: 5.0.0-next.136
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -480,6 +480,9 @@ importers:
       '@svelte-put/avatar':
         specifier: workspace:*
         version: link:../../packages/avatar
+      '@svelte-put/cloudflare-turnstile':
+        specifier: workspace:*
+        version: link:../../packages/cloudflare-turnstile
       '@svelte-put/preprocess-auto-slug':
         specifier: workspace:*
         version: link:../../packages/preprocess-auto-slug

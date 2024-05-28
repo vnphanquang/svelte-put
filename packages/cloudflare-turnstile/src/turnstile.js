@@ -21,7 +21,7 @@ export function turnstile(node) {
 
 	/**
 	 * @template {import('./public').TurnstileCustomEventName} E
-	 * @template [D=Parameters<NonNullable<import('./public').TurnstileEventAttributes[`on:${E}`]>>[0]['detail'] extends import('./public').TurnstileEventDetail<infer T extends Record<string, any>> ? T : never]
+	 * @template [D=Parameters<NonNullable<import('./public').TurnstileEventAttributes[`on${E}`]>>[0]['detail'] extends import('./public').TurnstileEventDetail<infer T extends Record<string, any>> ? T : never]
 	 * @param {E} event
 	 * @param {D} detail
 	 */
@@ -86,25 +86,25 @@ export function turnstile(node) {
 				node.toggleAttribute('turnstile-rendered', true);
 			},
 			'error-callback': (code) => {
-				dispatchEvent('turnstile:error', { code });
+				dispatchEvent('turnstileerror', { code });
 			},
 			'expired-callback': (...params) => {
 				// TODO: requires testing
-				dispatchEvent('turnstile:expired', { ...(params.length ? { params } : {}) });
+				dispatchEvent('turnstileexpired', { ...(params.length ? { params } : {}) });
 			},
 			'before-interactive-callback': () => {
-				dispatchEvent('turnstile:before-interactive', {});
+				dispatchEvent('turnstilebeforeinteractive', {});
 			},
 			'after-interactive-callback': () => {
-				dispatchEvent('turnstile:after-interactive', {});
+				dispatchEvent('turnstileafterinteractive', {});
 			},
 			'unsupported-callback': (...params) => {
 				// TODO: requires testing
-				dispatchEvent('turnstile:unsupported', { ...(params.length ? { params } : {}) });
+				dispatchEvent('turnstileunsupported', { ...(params.length ? { params } : {}) });
 			},
 			'timeout-callback': (...params) => {
 				// TODO: requires testing
-				dispatchEvent('turnstile:timeout', { ...(params.length ? { params } : {}) });
+				dispatchEvent('turnstiletimeout', { ...(params.length ? { params } : {}) });
 			},
 		};
 

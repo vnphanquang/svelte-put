@@ -17,6 +17,7 @@
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",
 		"@svelte-put/avatar": "workspace:*",
+		"@svelte-put/cloudflare-turnstile": "workspace:*",
 		"@svelte-put/preprocess-auto-slug": "workspace:*",
 		"@svelte-put/preprocess-inline-svg": "workspace:*",
 		"@sveltejs/adapter-auto": "^3.0.0",

@@ -69,16 +69,16 @@ export type TurnstileEventDetail<T extends Record<string, any> = Record<string, 
  * @package
  */
 export type TurnstileEventAttributes = {
-	'on:turnstile'?: (event: CustomEvent<TurnstileEventDetail<{ token: string }>>) => void;
-	'on:turnstile:error'?: (event: CustomEvent<TurnstileEventDetail<{ code: string }>>) => void;
-	'on:turnstile:expired'?: (event: CustomEvent<TurnstileEventDetail>) => void;
-	'on:turnstile:before-interactive'?: (event: CustomEvent<TurnstileEventDetail>) => void;
-	'on:turnstile:after-interactive'?: (event: CustomEvent<TurnstileEventDetail>) => void;
-	'on:turnstile:unsupported'?: (event: CustomEvent<TurnstileEventDetail>) => void;
-	'on:turnstile:timeout'?: (event: CustomEvent<TurnstileEventDetail>) => void;
+	'onturnstile'?: (event: CustomEvent<TurnstileEventDetail<{ token: string }>>) => void;
+	'onturnstileerror'?: (event: CustomEvent<TurnstileEventDetail<{ code: string }>>) => void;
+	'onturnstileexpired'?: (event: CustomEvent<TurnstileEventDetail>) => void;
+	'onturnstilebeforeinteractive'?: (event: CustomEvent<TurnstileEventDetail>) => void;
+	'onturnstileafterinteractive'?: (event: CustomEvent<TurnstileEventDetail>) => void;
+	'onturnstileunsupported'?: (event: CustomEvent<TurnstileEventDetail>) => void;
+	'onturnstiletimeout'?: (event: CustomEvent<TurnstileEventDetail>) => void;
 };
 
-export type TurnstileCustomEventName = keyof TurnstileEventAttributes extends `on:${infer K}` ? K : never;
+export type TurnstileCustomEventName = keyof TurnstileEventAttributes extends `on${infer K}` ? K : never;
 
 /**
  * @see {@link https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/#configurations | Cloudflare Turnstile Docs}

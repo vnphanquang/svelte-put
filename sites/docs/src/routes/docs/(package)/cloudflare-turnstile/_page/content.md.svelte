@@ -5,6 +5,12 @@
   const { packageManager } = getSettingsContext();
 </script>
 
+<!--
+  TODO add migration docs
+  - drop support for v4 and below
+  - event name is now different (no colon, all lowercase), see https://github.com/sveltejs/svelte/issues/1004410044
+-->
+
 ## Introduction
 
 This implementation of [Cloudflare Turnstile] utilizes [Svelte action]. If you are looking for a component-oriented solution, check out [ghostdevv/svelte-turnstile](https://github.com/ghostdevv/svelte-turnstile) instead.
