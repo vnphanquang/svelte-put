@@ -77,15 +77,15 @@ export interface CopyDetail {
  *   let trigger: HTMLElement;
  * </script>
  *
- * <!-- on:copied should be typed -->
+ * <!-- oncopied should be typed -->
  * <div
  *   use:copy={{ trigger }}
- *   on:copied
+ *   oncopied
  * />
  * ```
  */
 export interface CopyAttributes {
-	'on:copied'?: (event: CustomEvent<CopyDetail>) => void;
+	'oncopied'?: (event: CustomEvent<CopyDetail>) => void;
 }
 
 export type CopyAction<K extends keyof HTMLElementEventMap> = Action<
