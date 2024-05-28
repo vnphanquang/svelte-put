@@ -3,8 +3,6 @@ import { ActionReturn, Action } from 'svelte/action';
 /**
  * Additional attributes extended from `svelte-put/intersect`
  *
- *
- *
  * The ambient types for these extended attributes should be available automatically
  * whenever `svelte-put/movable` is imported.
  *
@@ -13,24 +11,21 @@ import { ActionReturn, Action } from 'svelte/action';
  *   import { movable } from '@svelte-put/movable';
  * </script>
  *
- * <!-- on:movablestart, on:movableend should be typed -->
+ * <!-- onmovablestart, onmovableend should be typed -->
  * <div
  *   use:movable
- *   on:movablestart
- *   on:movableend
+ *   onmovablestart
+ *   onmovableend
  * />
  * ```
  */
 export interface MovableAttributes {
-	'on:movablestart'?: (event: CustomEvent<MovableEventDetail>) => void;
-	'on:movableend'?: (event: CustomEvent<MovableEventDetail>) => void;
+	'onmovablestart'?: (event: CustomEvent<MovableEventDetail>) => void;
+	'onmovableend'?: (event: CustomEvent<MovableEventDetail>) => void;
 }
 
 /**
  * Limit by creating a bounding box of movable area `[-delta, +delta]` in both axes
- *
- *
- *
  *
  * - If a single value is provided, it will be applied to both axes.
  *
@@ -67,10 +62,7 @@ export interface MovableAttributes {
  */
 export type MovableLimitDelta = `${number}px` | `${number}%` | 0;
 
-/**
- * The limit within which node can be moved
- *
- */
+/** The limit within which node can be moved */
 export interface MovableLimit {
 	/**
 	 * Move node within this parent node or within screen
@@ -90,9 +82,6 @@ export interface MovableLimit {
 /**
  * config behavior of `movable`
  *
- *
- *
- *
  * `movable` support reactive parameters.
  * That means they can be updated after initialization.
  */
@@ -103,8 +92,6 @@ export interface MovableConfig {
 	limit?: MovableLimit;
 	/**
 	 * A node that triggers mousedown event, otherwise the node itself is the handle
-	 *
-	 *
 	 *
 	 * `handle` should be an HTMLElement not a Svelte component.
 	 *
@@ -117,7 +104,6 @@ export interface MovableConfig {
 	 * <-- incorrect usage-->
 	 * <Component bind:this={handle} />
 	 * ```
-	 *
 	 */
 	handle?: HTMLElement;
 	/**
@@ -154,8 +140,8 @@ export type MovableParameter = MovableConfig | undefined;
  *
  * <div
  *  use:movable
- *  on:movablestart={handler}
- *  on:movableend={handler}
+ *  onmovablestart={handler}
+ *  onmovableend={handler}
  * />
  * ```
  */
@@ -171,8 +157,5 @@ export interface MovableEventDetail {
 	};
 }
 
-/**  */
 export type MovableAction = Action<HTMLElement, MovableParameter, MovableAttributes>;
-
-/**  */
 export type MovableActionReturn = ActionReturn<MovableParameter, MovableAttributes>;
