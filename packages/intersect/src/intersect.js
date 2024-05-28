@@ -27,8 +27,8 @@
  * <section
  *  class="{once ? 'animate-fade-in-up' : 'opacity-0'}"
  *  use:intersect={{ threshold: 0.4 }}
- *  on:intersectonce={onIntersectOnce}
- *  on:intersect={onIntersect}
+ *  onintersectonce={onIntersectOnce}
+ *  onintersect={onIntersect}
  * >
  *  <p>
  *    A section that will fade in once, when intersected with viewport by 40%,
@@ -59,7 +59,7 @@
  *
  * <section
  *  use:intersect={{ threshold: 0.4 }}
- *  on:intersect={onIntersect}
+ *  onintersect={onIntersect}
  * >
  * >
  *  <p>
