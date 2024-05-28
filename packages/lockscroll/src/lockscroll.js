@@ -53,7 +53,7 @@ export function lockscroll(node, param) {
 		if (_locked !== locked) {
 			locked = _locked;
 			locked ? lock() : unlock();
-			node.dispatchEvent(new CustomEvent('lockscroll:toggle', { detail: { locked } }));
+			node.dispatchEvent(new CustomEvent('lockscrolltoggle', { detail: { locked } }));
 		}
 	}
 
