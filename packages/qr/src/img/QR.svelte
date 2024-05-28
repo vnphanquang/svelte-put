@@ -1,80 +1,70 @@
 <script>
-	import { createEventDispatcher, onMount } from 'svelte';
-
-	import { createQrSvgDataUrl, createQrPngDataUrl } from '../qr/index.js';
+	import { createQrPngDataUrl, createQrSvgDataUrl } from '../qr/index.js';
 
 	import { toDataURL } from './index.js';
 
-	// FIXME: svelte v5 for better props declaration & dependency tracking here
+	/** @type {import('./QR.svelte').QRProps} */
+	let {
+		data,
+		margin,
+		shape,
+		logo,
+		logoRatio,
+		moduleFill,
+		anchorInnerFill,
+		anchorOuterFill,
+		backgroundFill,
+		typeNumber,
+		errorCorrectionLevel,
+		onqrinit,
+		onqrlogofetch,
+		img,
+		...rest
+	} = $props();
 
-	/** @type {string} */
-	export let data;
-	/** @type {number | undefined} */
-	export let margin = undefined;
-	/** @type {import('./QR.svelte.js').QRProps['shape'] | undefined} */
-	export let shape = undefined;
+	let config = $derived({
+		data,
+		anchorInnerFill,
+		anchorOuterFill,
+		logoRatio,
+		margin,
+		moduleFill,
+		shape,
+		typeNumber,
+		errorCorrectionLevel,
+	});
 
-	/** @type {string | undefined} */
-	export let logo = undefined;
-	/** @type {number | undefined} */
-	export let logoRatio = undefined;
-
-	/** @type {string | undefined} */
-	export let moduleFill = undefined;
-	/** @type {string | undefined} */
-	export let anchorInnerFill = undefined;
-	/** @type {string | undefined} */
-	export let anchorOuterFill = undefined;
-	/** @type {string | undefined} */
-	export let backgroundFill = undefined;
-
-	/** @type {import('./QR.svelte.js').QRProps['typeNumber'] | undefined} */
-	export let typeNumber = undefined;
-	/** @type {import('./QR.svelte.js').QRProps['errorCorrectionLevel'] | undefined} */
-	export let errorCorrectionLevel = undefined;
-
-	function getConfig() {
-		return {
-			data,
-			anchorInnerFill,
-			anchorOuterFill,
-			logoRatio,
-			margin,
-			moduleFill,
-			shape,
-			typeNumber,
-			errorCorrectionLevel,
-		};
-	}
-
-	let src = createQrSvgDataUrl(getConfig());
-
-	/** @type {SVGElement | HTMLImageElement}*/
-	let element;
-
-	/** @type {ReturnType<typeof createEventDispatcher<{ 'qr:init': typeof element, 'qr:logofetch': string }>>}*/
-	const dispatch = createEventDispatcher();
-	onMount(async () => {
-		if (element) dispatch('qr:init', element);
+	let srcSvgPlaceholder = $derived(createQrSvgDataUrl(config));
+	let base64pngPromise = $derived.by(async () => {
 		/** @type {string | undefined}*/
 		let logoData = undefined;
 		if (logo?.startsWith('http')) {
 			logoData = await toDataURL(logo);
-			dispatch('qr:logofetch', logo);
+			onqrlogofetch?.(logo);
 		}
-		const base64png = await createQrPngDataUrl({
-			...getConfig(),
+		return await createQrPngDataUrl({
+			...config,
 			backgroundFill,
-			width: $$restProps.width,
-			height: $$restProps.height,
+			width: parseInt(rest.width),
+			height: parseInt(rest.height),
 			logo: logoData,
 		});
-		src = base64png;
+	});
+
+	/** @type {HTMLImageElement | undefined}*/
+	let element = $state(undefined);
+
+	$effect(() => {
+		if (element) onqrinit?.(element);
 	});
 </script>
 
-{#key src}
-	<slot {src}>
-		<img {src} alt={$$props.data ?? $$restProps.alt} {...$$restProps} bind:this={element} />
-	</slot>
-{/key}
+{#await base64pngPromise}
+	<img src={srcSvgPlaceholder} {...rest} />
+{:then base64}
+	{#if img}
+		{@render img({ src: base64 })}
+	{:else}
+		<img src={base64} {...rest} bind:this={element} />
+	{/if}
+{/await}

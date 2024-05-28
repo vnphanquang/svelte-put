@@ -1,21 +1,17 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import type { SvelteComponent } from 'svelte';
+import type { Snippet, SvelteComponent } from 'svelte';
 import type { SVGAttributes } from 'svelte/elements';
 
 import { createQrSvgParts } from '../qr';
 import type { QRConfig } from '../qr/types';
 
-export interface QRProps extends Omit<SVGAttributes<any>, 'viewBox'>, QRConfig {}
-
-export interface QREvents {
-	'qr:init': CustomEvent<SVGElement>;
-}
-
-export interface QRSlots {
-	default: {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export interface QRProps extends Omit<SVGAttributes<any>, 'viewBox'>, QRConfig {
+	onqrinit?: (svg: SVGElement) => void;
+	svg?: Snippet<[{
 		attributes: ReturnType<typeof createQrSvgParts>['attributes'];
 		innerHTML: string;
-	};
+	}]>;
 }
 
-export default class QR extends SvelteComponent<QRProps, QREvents, QRSlots> {}
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default class QR extends SvelteComponent<QRProps, any, any> {}

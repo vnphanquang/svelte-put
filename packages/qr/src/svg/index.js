@@ -13,7 +13,7 @@ export function qr(node, param) {
 			node.setAttribute(name, value);
 		}
 		node.innerHTML = `${anchors}${modules}${logo}`;
-		node.dispatchEvent(new CustomEvent('qr:init', { detail: node }));
+		node.dispatchEvent(new CustomEvent('qrinit', { detail: node }));
 	}
 
 	init();
