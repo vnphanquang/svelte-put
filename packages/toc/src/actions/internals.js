@@ -1,96 +1,9 @@
 import { ATTRIBUTES } from '../attributes/index.js';
-import { slugify } from '../utils/index.js';
-/**
- * @package
- * @type {Map<string, import('./internal').TocCacheItem>}
- */
-export const cache = new Map();
-
-/**
- * @package
- * @param {(activeTocItemId?: string) => void} callback
- * @returns {IntersectionObserverCallback}
- */
-export function intersectionObserverCallback(callback) {
-	return (entries) => {
-		for (const entry of entries) {
-			const tocId = entry.target.getAttribute(ATTRIBUTES.observeFor);
-			if (tocId && entry.isIntersecting) {
-				callback(tocId);
-			}
-		}
-	};
-}
 
 /**
  * @package
  * @param {HTMLElement} element
- * @returns {string}
- */
-export function extractElementText(element) {
-	if (element.hasAttribute(ATTRIBUTES.autoslug)) {
-		// pre-processed by `@svelte-put/preprocess-auto-slug`
-		// must strip out `textContent` from any nested anchor element
-		return Array.from(element.childNodes).reduce((acc, child) => {
-			if (
-				child.nodeType !== Node.ELEMENT_NODE ||
-				!(/** @type {Element} */ (child).hasAttribute(ATTRIBUTES.autoSlugAnchor))
-			) {
-				acc += child.textContent || '';
-			}
-			return acc;
-		}, '');
-	}
-	return element.textContent || '';
-}
-
-/**
- * @package
- * @param {HTMLElement} element
- * @param {string} fallbackText
- * @returns {string}
- */
-export function extractTocItemId(element, fallbackText) {
-	let tocId = element.id;
-	const dataTocId = element.getAttribute(ATTRIBUTES.id);
-	if (dataTocId) {
-		tocId = dataTocId;
-	} else if (!tocId) {
-		tocId = slugify(fallbackText.slice(0, 100));
-	}
-	return tocId;
-}
-
-/**
- * @package
- * @param {HTMLElement} element
- * @param {import('../parameter/parameter').ResolvedTocConfig['scrollMarginTop']} scrollMarginTop
- * @returns {string}
- */
-export function processScrollMarginTop(element, scrollMarginTop) {
-	if (!scrollMarginTop) return '';
-	const r1 = typeof scrollMarginTop === 'function' ? scrollMarginTop(element) : scrollMarginTop;
-	if (!r1) return '';
-	const r2 = typeof r1 === 'number' ? `${r1}px` : r1;
-	if (r2) {
-		element.style.scrollMarginTop = r2;
-	}
-	return r2;
-}
-
-/**
- * @package
- * @param {Element | null | undefined} element
- * @returns {boolean}
- */
-export function isAutoSlugInjectedAnchor(element) {
-	if (!element) return false;
-	return element.tagName === 'A' && element.hasAttribute(ATTRIBUTES.autoSlugAnchor);
-}
-/**
- * @package
- * @param {HTMLElement} element
- * @param {import('../parameter/parameter').ResolvedTocConfig['anchor']} anchor
+ * @param {import('../types').TocAnchorConfig} anchor
  * @param {string} tocId
  * @returns {HTMLAnchorElement | undefined}
  */
@@ -102,6 +15,10 @@ export function processAnchor(element, anchor, tocId) {
 		// by `@svelte-put/preprocess-auto-slug`
 		if (!element.hasAttribute(ATTRIBUTES.autoslug)) {
 			a = document.createElement('a');
+			if (anchor.position === 'wrap') {
+				delete anchor.properties['aria-hidden'];
+				delete anchor.properties['tabindex'];
+			}
 			for (const [key, value] of Object.entries(anchor.properties)) {
 				a.setAttribute(key, value);
 			}
@@ -187,19 +104,19 @@ export function processAnchor(element, anchor, tocId) {
 /**
  * @package
  * @param {HTMLElement} element
- * @param {import('../parameter/parameter').ResolvedTocConfig['observe']} observe
+ * @param {import('../types').TocObserveConfig} observe
  * @param {string} tocId
  * @param {(activeTocItemId?: string) => void} updateActiveTocItem
  * @param {Record<number, IntersectionObserver>} observerPool
- * @returns {import('../action/action').TocItem['observe']}
+ * @returns {import('../types').TocItem['observe']}
  */
 export function processObserve(element, observe, tocId, updateActiveTocItem, observerPool) {
 	if (!observe.enabled) return undefined;
 	const parentElement = element.parentElement;
-	/** @type {Exclude<import('../parameter/parameter').ResolvedTocConfig['observe']['strategy'], 'auto'>} */
+	/** @type {Exclude<import('../types').TocObserveConfig['strategy'], 'auto'>} */
 	let rStrategy;
 	const userDefinedStrategy =
-		/** @type {import('../parameter/parameter').ResolvedTocConfig['observe']['strategy']} */ (
+		/** @type {import('../types').TocObserveConfig['strategy']} */ (
 			element.getAttribute(ATTRIBUTES.strategy)
 		) || observe.strategy;
 	if (typeof userDefinedStrategy !== 'number' && userDefinedStrategy !== 'auto') {
@@ -212,12 +129,18 @@ export function processObserve(element, observe, tocId, updateActiveTocItem, obs
 	/** @type {HTMLElement} */
 	let nodeToObserve;
 	switch (rStrategy) {
-		case 'self':
+		case 'self': {
 			nodeToObserve = element;
 			break;
-		case 'parent':
-			nodeToObserve = /** @type {HTMLElement} */ (element.parentElement);
+		}
+		case 'parent': {
+			let parent = element.parentElement;
+			if (parent && parent.tagName === 'A' && parent.hasAttribute(ATTRIBUTES.anchor)) {
+				parent = parent.parentElement;
+			}
+			nodeToObserve = parent ?? element;
 			break;
+		}
 	}
 	/** @type {number} */
 	let threshold;
@@ -234,7 +157,7 @@ export function processObserve(element, observe, tocId, updateActiveTocItem, obs
 	if (observerPool[threshold]) {
 		observer = observerPool[threshold];
 	} else {
-		observer = new IntersectionObserver(intersectionObserverCallback(updateActiveTocItem), {
+		observer = new IntersectionObserver(createIntersectionObserverCallback(updateActiveTocItem), {
 			threshold,
 			rootMargin,
 			root,
@@ -247,11 +170,82 @@ export function processObserve(element, observe, tocId, updateActiveTocItem, obs
 
 /**
  * @package
- * @param {HTMLElement} element
- * @param {string | undefined} tocId
- * @returns {Element | null}
+ * @param {(activeTocItemId?: string) => void} callback
+ * @returns {IntersectionObserverCallback}
  */
-export function findTocRoot(element, tocId = undefined) {
-	if (tocId) return document.querySelector(`[${ATTRIBUTES.root}="${tocId}"]`);
-	else return element.closest(`[${ATTRIBUTES.root}]`);
+function createIntersectionObserverCallback(callback) {
+	return (entries) => {
+		for (const entry of entries) {
+			const tocId = entry.target.getAttribute(ATTRIBUTES.observeFor);
+			if (tocId && entry.isIntersecting) {
+				callback(tocId);
+			}
+		}
+	};
+}
+
+/**
+ * @package
+ * @param {Element | null | undefined} element
+ * @returns {boolean}
+ */
+function isAutoSlugInjectedAnchor(element) {
+	if (!element) return false;
+	return element.tagName === 'A' && element.hasAttribute(ATTRIBUTES.autoSlugAnchor);
+}
+
+/**
+ * @package
+ * @param {HTMLElement} element
+ * @returns {string}
+ */
+export function extractElementText(element) {
+	if (element.hasAttribute(ATTRIBUTES.autoslug)) {
+		// pre-processed by `@svelte-put/preprocess-auto-slug`
+		// must strip out `textContent` from any nested anchor element
+		return Array.from(element.childNodes).reduce((acc, child) => {
+			if (
+				child.nodeType !== Node.ELEMENT_NODE ||
+				!(/** @type {Element} */ (child).hasAttribute(ATTRIBUTES.autoSlugAnchor))
+			) {
+				acc += child.textContent || '';
+			}
+			return acc;
+		}, '');
+	}
+	return element.textContent || '';
+}
+
+/**
+ * @package
+ * @param {HTMLElement} element
+ * @param {string} fallbackText
+ * @returns {string}
+ */
+export function extractTocItemId(element, fallbackText) {
+	let tocId = element.id;
+	const dataTocId = element.getAttribute(ATTRIBUTES.id);
+	if (dataTocId) {
+		tocId = dataTocId;
+	} else if (!tocId) {
+		tocId = slugify(fallbackText.slice(0, 100));
+	}
+	return tocId;
+}
+
+/**
+ * Slugify a string
+ * @param {string} text - text to slugify
+ * @returns {string}
+ */
+function slugify(text) {
+	if (!text) return text;
+	return text
+		.trim()
+		.toLowerCase()
+		.replace(/[''"]+/gi, '')
+		.replace(/[^a-z0-9\-_]+/gi, '-')
+		.replace(/-+$/, '')
+		.replace(/^-+/, '')
+		.replace(/-+/g, '-');
 }

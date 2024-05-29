@@ -10,30 +10,6 @@
 		".": {
 			"types": "./types/index.d.ts",
 			"import": "./src/index.js"
-		},
-		"./attributes": {
-			"types": "./types/index.d.ts",
-			"import": "./src/attributes/index.js"
-		},
-		"./events": {
-			"types": "./types/index.d.ts",
-			"import": "./src/events/index.js"
-		},
-		"./internal": {
-			"types": "./types/index.d.ts",
-			"import": "./src/internal/index.js"
-		},
-		"./parameter": {
-			"types": "./types/index.d.ts",
-			"import": "./src/parameter/index.js"
-		},
-		"./store": {
-			"types": "./types/index.d.ts",
-			"import": "./src/store/index.js"
-		},
-		"./utils": {
-			"types": "./types/index.d.ts",
-			"import": "./src/utils/index.js"
 		}
 	},
 	"publishConfig": {
@@ -86,7 +62,7 @@
 		"@internals/tsconfig": "workspace:*"
 	},
 	"peerDependencies": {
-		"svelte": "^3.55.0 || ^4.0.0"
+		"svelte": "^5.0.0-next.1"
 	},
 	"volta": {
 		"extends": "../../package.json"

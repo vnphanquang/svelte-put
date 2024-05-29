@@ -1,4 +1,4 @@
 {
-	"include": ["src/**/*"],
+	"include": ["src/**/*", "src/toc.svelte.js"],
 	"extends": "@internals/tsconfig/base.package.js.json"
 }

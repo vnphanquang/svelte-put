@@ -32,6 +32,14 @@ yarn add -D @svelte-put/toc
 
 ## Migration Guide
 
+### v5 to v6
+
+`TocStore`, powered by [Svelte store], is dropped in favor of `TocState`, now powered by [Svelte rune] that significantly simplifies the API with its fine-grained reactivity.
+
+### v4 to v5
+
+Names of exported event types `TocInitEventDetails`, `TocChangeEventDetails`, `TocEventDetails` have been deprecated in favor of their singular form, i.e `TocInitEventDetail`, `TocChangeEventDetail`, `TocEventDetail`, respectively. The plural-formed names will be dropped in v6
+
 In version 5, the `items` property of `TocStore` and `TocInitEventDetail` is now a [Map] instead of plain object as in version 4. This enables better performance and properly preserves the order of collected toc elements.
 
 ```svelte
@@ -524,5 +532,6 @@ Happy making table of contents! 👨‍💻
 [Map]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
 [Svelte action]: https://svelte.dev/docs/svelte-action
 [Svelte store]: https://svelte.dev/docs/svelte-store
+[Svelte rune]: https://svelte-5-preview.vercel.app/docs/runes
 [janosh/svelte-toc]: https://github.com/janosh/svelte-toc
 [IntersectionObserver]: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
