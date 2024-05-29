@@ -2,7 +2,7 @@
  * all relevant data attribute name literals
  * @package
  */
-export const ATTRIBUTES = /** @type {Record<string, keyof (import('./attributes.d.ts').TocDataAttributes)>} */({
+export const ATTRIBUTES = /** @type {Record<string, keyof (import('./attributes.js').TocDataAttributes)>} */({
 	// markers from `@svelte-put/preprocess-auo-slug`
 	autoslug: 'data-auto-slug',
 	autoSlugAnchor: 'data-auto-slug-anchor',

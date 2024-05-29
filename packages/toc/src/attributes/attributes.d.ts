@@ -1,5 +1,5 @@
-import type { TocChangeEventDetail, TocInitEventDetail } from '../events/events.d.ts';
-import type { TocObserveConfig } from '../parameter/parameter.d.ts';
+import type { Toc } from '../toc.svelte.js';
+import type { TocObserveConfig } from '../types';
 
 /**
  * Data attributes to override `toc` behavior per matching element
@@ -69,16 +69,12 @@ export interface TocReferenceMarkerDataAttributes {
 	/**
 	 * marking this element that it's been processed by toc
 	 *
-	 *
-	 *
 	 * If this is already preprocessed by {@link https://svelte-put.vnphanquang.com/docs/preprocess-auto-slug | @svelte-put/preprocess-auto-slug},
 	 * there will also be a `data-auto-slug` attribute.
 	 */
 	readonly 'data-toc'?: '';
 	/**
 	 * if the anchor option is enabled in toc parameters, this attribute is present on the injected anchor element.
-	 *
-	 *
 	 *
 	 * If the element is already added by {@link https://svelte-put.vnphanquang.com/docs/preprocess-auto-slug | @svelte-put/preprocess-auto-slug},
 	 * there `data-auto-slug-anchor` attribute is found instead.
@@ -108,6 +104,6 @@ export interface TocDataAttributes extends TocElementDataAttributes, TocObserveD
  *
  */
 export interface TocEventAttributes {
-	'on:tocinit'?: (event: CustomEvent<TocInitEventDetail>) => void;
-	'on:tocchange'?: (event: CustomEvent<TocChangeEventDetail>) => void;
+	'ontocinit'?: (event: CustomEvent<Toc>) => void;
+	'ontocchange'?: (event: CustomEvent<Toc>) => void;
 }
