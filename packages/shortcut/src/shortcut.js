@@ -60,7 +60,7 @@
  *      },
  *     ],
  *   }}
- *   on:shortcut={onShortcut}
+ *   onshortcut={onShortcut}
  * />
  * ```
  *
@@ -80,11 +80,11 @@
  *
  * - pass multiple callbacks to their associated triggers, or
  *
- * - pass one single handler to the `on:shortcut` event, in which case you should
+ * - pass one single handler to the `onshortcut` event, in which case you should
  * provide an ID to each trigger to be able to distinguish what trigger was activated
  * in the event handler.
  *
- * Either way, only use `callback` or `on:shortcut` and not both to
+ * Either way, only use `callback` or `onshortcut` and not both to
  * avoid handler duplication.
  * @param {HTMLElement} node - HTMLElement to add event listener to
  * @param {import('./public').ShortcutParameter} param - svelte action parameters

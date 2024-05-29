@@ -7,7 +7,7 @@ import { ActionReturn, Action } from 'svelte/action';
  * whenever `svelte-put/shorcut` is imported.
  */
 export interface ShortcutAttributes {
-	'on:shortcut'?: (event: CustomEvent<ShortcutEventDetail>) => void;
+	'onshortcut'?: (event: CustomEvent<ShortcutEventDetail>) => void;
 }
 
 /**
@@ -16,8 +16,6 @@ export interface ShortcutAttributes {
  * {@link https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/ctrlKey | ctrlKey},
  * {@link https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/shiftKey | shiftKey},
  * {@link https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/metaKey | metaKey}.
- *
- *
  */
 export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
 
@@ -104,13 +102,10 @@ export type ShortcutModifierDefinition =
 
 /**
  * A definition of a shortcut trigger
- *
  */
 export interface ShortcutTrigger {
 	/**
 	 * whether to enable this triggered. Default to `true`
-	 *
-	 *
 	 *
 	 * `false` means trigger is disabled,
 	 *  but event listener is still placed on node
@@ -118,7 +113,7 @@ export interface ShortcutTrigger {
 	enabled?: boolean;
 	/** modifier key to listen to in conjunction of `key` */
 	modifier?: ShortcutModifierDefinition;
-	/** id to distinguish this trigger from others, recommended when using `on:shortcut` */
+	/** id to distinguish this trigger from others, recommended when using `onshortcut` */
 	id?: string;
 	/** the {@link https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent | KeyboardEvent}.key to listen to */
 	key: string;
@@ -127,8 +122,6 @@ export interface ShortcutTrigger {
 	/**
 	 * whether to call `event.preventDefault` before firing callback. Default to `false`
 	 *
-	 *
-	 *
 	 * This is called on the node the action is attached to, not the node that triggers the original `KeyboardEvent`.
 	 * So for example, if `shortcut` is attached to `window`, by the time `preventDefault` is called, the event has already been
 	 * bubbled up to `window`.
@@ -136,10 +129,7 @@ export interface ShortcutTrigger {
 	preventDefault?: boolean;
 }
 
-/**
- * svelte action parameter to config behavior of `shortcut`
- *
- */
+/** svelte action parameter to config behavior of `shortcut` */
 export interface ShortcutParameter {
 	/** whether to activate the action. Default to `true` */
 	enabled?: boolean;
@@ -172,7 +162,7 @@ export interface ShortcutParameter {
  *      id: 'my-shortcut',
  *    },
  *  }}
- *  on:shortcut={onShortcut}
+ *  onshortcut={onShortcut}
  * />
  * ```
  */
@@ -184,9 +174,5 @@ export interface ShortcutEventDetail {
 	/** the original `KeyboardEvent`. Helpful to access the event target, for example */
 	originalEvent: KeyboardEvent;
 }
-
-/**  */
 export type ShortcutAction = Action<HTMLElement, ShortcutParameter, ShortcutAttributes>;
-
-/**  */
 export type ShortcutActionReturn = ActionReturn<ShortcutParameter, ShortcutAttributes>;

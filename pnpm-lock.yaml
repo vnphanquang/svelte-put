@@ -307,8 +307,8 @@ importers:
   packages/resize:
     dependencies:
       svelte:
-        specifier: ^3.55.0 || ^4.0.0 || ^5.0.0
-        version: 4.2.12
+        specifier: ^5.0.0-next.1
+        version: 5.0.0-next.136
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -348,8 +348,8 @@ importers:
   packages/shortcut:
     dependencies:
       svelte:
-        specifier: ^3.55.0 || ^4.0.0 || ^5.0.0
-        version: 4.2.12
+        specifier: ^5.0.0-next.1
+        version: 5.0.0-next.136
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
