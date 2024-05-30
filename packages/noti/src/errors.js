@@ -1,13 +1,11 @@
 export class NotFoundVariantConfig extends Error {
 	/**
 	 * @param {string} variant
-	 * @param {import('./store').NotificationStoreBuilder} builder
+	 * @param {string[]} variants
 	 */
-	constructor(variant, builder) {
+	constructor(variant, variants) {
 		super(
-			`No config found for variant '${variant}'. Available variants: ${Object.keys(
-				builder.variantConfigMap,
-			).join(', ')}`,
+			`No config found for variant '${variant}'. Available variants: ${variants.join(', ')}`,
 		);
 	}
 }
