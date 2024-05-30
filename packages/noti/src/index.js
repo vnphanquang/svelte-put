@@ -1,5 +1,5 @@
 // Copyright (c) Quang Phan. All rights reserved. Licensed under the MIT license.
 
-export { portal } from './portal.js';
-export { store } from './store.js';
-export { default as Notification } from './Notification.svelte';
+export { controller, NotificationControllerBuilder } from './notification-controller-builder.js'
+export { Notification } from './notification.svelte.js';
+export { NotificationController } from './notification-controller.svelte.js';

@@ -18,6 +18,7 @@
 		"@playwright/test": "^1.28.1",
 		"@svelte-put/avatar": "workspace:*",
 		"@svelte-put/cloudflare-turnstile": "workspace:*",
+		"@svelte-put/noti": "workspace:*",
 		"@svelte-put/preprocess-auto-slug": "workspace:*",
 		"@svelte-put/preprocess-inline-svg": "workspace:*",
 		"@svelte-put/qr": "workspace:*",
