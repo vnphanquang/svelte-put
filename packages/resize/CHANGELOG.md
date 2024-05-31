@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.0.0-next.0
+
+### Major Changes
+
+- [#298](https://github.com/vnphanquang/svelte-put/pull/298) [`7a0d909`](https://github.com/vnphanquang/svelte-put/commit/7a0d909a5faf26cdee4b427e0195859c7be7ac1b) Thanks [@github-actions](https://github.com/apps/github-actions)! - drop support for Svelte 4 and below. `on:resized` is now `onresized`
+
 ## 3.0.1
 
 ### Patch Changes

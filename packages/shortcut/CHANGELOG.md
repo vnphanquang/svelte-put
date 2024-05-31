@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.0.0-next.0
+
+### Major Changes
+
+- [#298](https://github.com/vnphanquang/svelte-put/pull/298) [`eb4704f`](https://github.com/vnphanquang/svelte-put/commit/eb4704f6f27c79ee8a6d02d2a8acd338d8385c57) Thanks [@github-actions](https://github.com/apps/github-actions)! - drop support for Svelte 4 and below. `on:shortcut` is now `onshortcut`
+
 ## 3.1.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0-next.0
+
+### Major Changes
+
+- [#298](https://github.com/vnphanquang/svelte-put/pull/298) [`439bced`](https://github.com/vnphanquang/svelte-put/commit/439bced3cbd115780d0b13bcbf92f4d1ac87995c) Thanks [@github-actions](https://github.com/apps/github-actions)! - [BREAKING] drop support for Svelte 4 and lower, now using Svelte modern AST and witten in JS with JSDocs
+
 ## 1.0.1
 
 ### Patch Changes

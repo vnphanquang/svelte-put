@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.0.0-next.0
+
+### Major Changes
+
+- [#298](https://github.com/vnphanquang/svelte-put/pull/298) [`7e7d42d`](https://github.com/vnphanquang/svelte-put/commit/7e7d42d938f78dee8a01fc28a04fdaad6fe1a529) Thanks [@github-actions](https://github.com/apps/github-actions)! - drop support for Svelte 4 and below. `on:copied` is now `oncopied`
+
 ## 3.0.2
 
 ### Patch Changes

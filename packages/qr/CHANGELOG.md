@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0-next.0
+
+### Major Changes
+
+- [#298](https://github.com/vnphanquang/svelte-put/pull/298) [`13b4bcd`](https://github.com/vnphanquang/svelte-put/commit/13b4bcd136f36bb8a61491549fe1ec58bc12d39b) Thanks [@github-actions](https://github.com/apps/github-actions)! - drop support for Svelte 4 and below. `on:qr:init` and `on:qr:logofetch` are now `onqrinit` and `onqrlogofetch`, respectively
+
 ## 1.2.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0-next.0
+
+### Major Changes
+
+- [#298](https://github.com/vnphanquang/svelte-put/pull/298) [`a3bbf58`](https://github.com/vnphanquang/svelte-put/commit/a3bbf58e853bafea2d73a89ca6cb37a4ed0f5e59) Thanks [@github-actions](https://github.com/apps/github-actions)! - drop support for Svelte 4. `on:lockscroll:toggle` is now `onlockscrolltoggle`
+
 ## 1.0.2
 
 ### Patch Changes
