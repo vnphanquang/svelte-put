@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.0.0-next.0
+
+### Major Changes
+
+- [#298](https://github.com/vnphanquang/svelte-put/pull/298) [`5c05a51`](https://github.com/vnphanquang/svelte-put/commit/5c05a5198ecca6661e638c62ce97987e03514efb) Thanks [@github-actions](https://github.com/apps/github-actions)! - [BREAKING] drop support for Svelte 4 and lower; now using runes and snippets
+
 ## 3.0.1
 
 ### Patch Changes

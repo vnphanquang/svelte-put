@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0-next.0
+
+### Major Changes
+
+- [`796ff16`](https://github.com/vnphanquang/svelte-put/commit/796ff16d4ffad1f7943b6a293e435da2616db6ed) Thanks [@vnphanquang](https://github.com/vnphanquang)! - drop support for Svelte 4 and below. Now using runes for fine-grained reactivity. See [docs page](https://svelte-put.vnphanquang.com/docs/noti) for more information
+
 ## 1.1.1
 
 ### Patch Changes

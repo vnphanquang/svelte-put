@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.0.0-next.0
+
+### Major Changes
+
+- [#298](https://github.com/vnphanquang/svelte-put/pull/298) [`021df69`](https://github.com/vnphanquang/svelte-put/commit/021df69843737226e4a147ff963df54463d81a77) Thanks [@github-actions](https://github.com/apps/github-actions)! - drop support for Svelte 4 and below
+
 ## 3.0.1
 
 ### Patch Changes

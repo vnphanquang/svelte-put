@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.0.0-next.0
+
+### Major Changes
+
+- [#298](https://github.com/vnphanquang/svelte-put/pull/298) [`b6e981c`](https://github.com/vnphanquang/svelte-put/commit/b6e981c3baf4cc50af0c943b0cb39809edb62672) Thanks [@github-actions](https://github.com/apps/github-actions)! - drop support for Svelte 4. `on:movablestart` and `on:movableend` is now `onmovablestart` and `onmovableend` , respectively
+
 ## 3.2.1
 
 ### Patch Changes

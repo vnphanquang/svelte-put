@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0-next.0
+
+### Major Changes
+
+- [#298](https://github.com/vnphanquang/svelte-put/pull/298) [`36097a5`](https://github.com/vnphanquang/svelte-put/commit/36097a53784177bd671d334bf96d8c8385e44b10) Thanks [@github-actions](https://github.com/apps/github-actions)! - drop support for Svelte 4 and below. Event name is now all lowercase, without colon (e.g `onturnstilebeforeinteractive`)
+
 ## 0.1.3
 
 ### Patch Changes
