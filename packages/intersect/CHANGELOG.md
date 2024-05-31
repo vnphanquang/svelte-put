@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.0.0-next.0
+
+### Major Changes
+
+- [#298](https://github.com/vnphanquang/svelte-put/pull/298) [`4f1d76b`](https://github.com/vnphanquang/svelte-put/commit/4f1d76b6f0b7474c1778d6e73e4401c97babd212) Thanks [@github-actions](https://github.com/apps/github-actions)! - drop support for Svelte 4 and below. `on:intersect` and `on:intersect:once` is now `onintersect` and `onintersectonce`, respectively
+
 ## 3.0.1
 
 ### Patch Changes

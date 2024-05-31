@@ -1,5 +1,11 @@
 # Changelog
 
+## 6.0.0-next.0
+
+### Major Changes
+
+- [#298](https://github.com/vnphanquang/svelte-put/pull/298) [`6b85cc2`](https://github.com/vnphanquang/svelte-put/commit/6b85cc22ddaa6ba540e39a390a7597acf3188317) Thanks [@github-actions](https://github.com/apps/github-actions)! - drop support for Svelte 4 and below; rework public API with `Toc` class, now powered by Svelte runes. See [docs page](https://svelte-put.vnphanquang.com/docs/toc) for more information.
+
 ## 5.0.2
 
 ### Patch Changes

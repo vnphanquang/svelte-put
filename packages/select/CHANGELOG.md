@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.6-next.0
+
+### Patch Changes
+
+- Updated dependencies [[`87f5b1d`](https://github.com/vnphanquang/svelte-put/commit/87f5b1d39269fafe2dfe182e9247a207b2b3318a), [`cb4cf45`](https://github.com/vnphanquang/svelte-put/commit/cb4cf454b63776cbededbe3531c0d351af8cdb43), [`eb4704f`](https://github.com/vnphanquang/svelte-put/commit/eb4704f6f27c79ee8a6d02d2a8acd338d8385c57)]:
+  - @svelte-put/clickoutside@4.0.0-next.0
+  - @svelte-put/shortcut@4.0.0-next.0
+
 ## 0.2.5
 
 ### Patch Changes

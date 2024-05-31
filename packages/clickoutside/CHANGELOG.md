@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.0.0-next.0
+
+### Major Changes
+
+- [#298](https://github.com/vnphanquang/svelte-put/pull/298) [`87f5b1d`](https://github.com/vnphanquang/svelte-put/commit/87f5b1d39269fafe2dfe182e9247a207b2b3318a) Thanks [@github-actions](https://github.com/apps/github-actions)! - `onclickoutside` is now `onclickoutside` (see Svelte 5 docs)
+
+- [#298](https://github.com/vnphanquang/svelte-put/pull/298) [`cb4cf45`](https://github.com/vnphanquang/svelte-put/commit/cb4cf454b63776cbededbe3531c0d351af8cdb43) Thanks [@github-actions](https://github.com/apps/github-actions)! - [BREAKING] drop support for Svelte 4 and lower (will still work as of now but no guarantees in the future)
+
 ## 3.0.2
 
 ### Patch Changes

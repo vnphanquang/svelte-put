@@ -23,5 +23,25 @@
     "@svelte-put/toc": "5.0.1",
     "@svelte-put/tooltip": "1.0.1"
   },
-  "changesets": []
+  "changesets": [
+    "beige-hornets-think",
+    "brave-tips-do",
+    "breezy-parents-eat",
+    "cyan-carpets-hammer",
+    "dry-guests-end",
+    "fair-beers-collect",
+    "friendly-chicken-sing",
+    "large-terms-peel",
+    "odd-rules-argue",
+    "rich-swans-grow",
+    "six-hotels-act",
+    "smart-bears-design",
+    "soft-countries-add",
+    "tiny-dancers-live",
+    "tiny-hounds-sing",
+    "twelve-tools-type",
+    "twenty-donkeys-serve",
+    "wet-meals-suffer",
+    "wise-points-own"
+  ]
 }
