@@ -3,6 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 import autoSlug from '@svelte-put/preprocess-auto-slug';
+import externalLink from '@svelte-put/preprocess-external-link';
 import inlineSvg from '@svelte-put/preprocess-inline-svg';
 import adapter from '@sveltejs/adapter-cloudflare';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
@@ -16,6 +17,7 @@ const commitHash = child_process.execSync('git rev-parse --short HEAD').toString
 const config = {
 	extensions: ['.svelte'],
   preprocess: [
+		externalLink(['svelte-put.vnphanquang.com']),
     autoSlug((defaultOptions) => ({
       tags: ['h2', 'h3', 'h4', 'h5', 'h6'],
       anchor: {
@@ -66,5 +68,6 @@ const config = {
     },
   },
 };
+console.log(`Turbo ~ config.externalLink:`, config.externalLink);
 
 export default config;

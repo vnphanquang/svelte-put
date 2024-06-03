@@ -530,6 +530,9 @@ importers:
       '@svelte-put/preprocess-auto-slug':
         specifier: workspace:*
         version: link:../../packages/preprocess-auto-slug
+      '@svelte-put/preprocess-external-link':
+        specifier: workspace:*
+        version: link:../../packages/preprocess-external-link
       '@svelte-put/preprocess-inline-svg':
         specifier: workspace:*
         version: link:../../packages/preprocess-inline-svg
