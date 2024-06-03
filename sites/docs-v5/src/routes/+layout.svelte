@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 	import { PUBLIC_MODE } from '$env/static/public';
 	import ogImageHome from '$lib/assets/images/og/svelte-put.jpg';
-	import { Settings } from '$lib/contexts/settings.svelte';
+	import { SettingsContext } from '$lib/contexts/settings.svelte';
 
 	import '../lib/css/app.css';
 
@@ -51,7 +51,7 @@
 		};
 	});
 
-	let settings = Settings.createContext(data.settings);
+	let settings = SettingsContext.set(data.settings);
 	$effect(() => {
 		settings.colorScheme = data.settings.colorScheme;
 		settings.packageManager = data.settings.packageManager;
