@@ -37,7 +37,6 @@ const config = {
 			},
 		}], {
 			inlineSrcAttributeName: 'data-inline-src',
-			keepInlineSrcAttribute: true,
 		}),
     vitePreprocess(),
   ],
@@ -68,6 +67,5 @@ const config = {
     },
   },
 };
-console.log(`Turbo ~ config.externalLink:`, config.externalLink);
 
 export default config;
