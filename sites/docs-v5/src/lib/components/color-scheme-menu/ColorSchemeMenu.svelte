@@ -31,7 +31,8 @@
 {/snippet}
 
 <div class="color-scheme-menu csm relative {cls}" {...rest}>
-	<!-- eslint-disable-next-line svelte/valid-compile -->
+	<!-- svelte-ignore a11y_click_events_have_key_events -->
+	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 	<label
 		class="c-link c-link--icon grid cursor-pointer place-items-center rounded-2xl border border-current px-3 py-1"
 		id="csm-toggler"
