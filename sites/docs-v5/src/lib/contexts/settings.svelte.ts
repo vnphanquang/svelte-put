@@ -3,7 +3,6 @@ import { getContext, setContext } from 'svelte';
 import { browser } from '$app/environment';
 import { PUBLIC_COOKIE_SETTINGS_COLOR_SCHEME, PUBLIC_COOKIE_SETTINGS_PACKAGE_MANAGER } from '$env/static/public';
 
-const SETTINGS_CONTEXT_ID = 'settings';
 
 export const DEFAULT_SETTINGS = {
 	colorScheme: 'system',
@@ -19,7 +18,9 @@ function getPreferredColorScheme() {
 	return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
-export class Settings {
+export class SettingsContext {
+  static KEY = 'settings';
+
 	colorScheme: App.ColorScheme = $state(DEFAULT_SETTINGS.colorScheme);
 	preferredColorScheme = $derived.by(() => {
 		if (this.colorScheme === 'system') return getPreferredColorScheme();
@@ -48,12 +49,12 @@ export class Settings {
 		});
 	}
 
-	static createContext(init: App.Settings) {
-		return setContext(SETTINGS_CONTEXT_ID, new Settings(init));
+	static set(init: App.Settings) {
+		return setContext(SettingsContext.KEY, new SettingsContext(init));
 	}
 
-	static getContext() {
-		return getContext(SETTINGS_CONTEXT_ID) as Settings;
+	static get() {
+		return getContext(SettingsContext.KEY) as SettingsContext;
 	}
 }
 
