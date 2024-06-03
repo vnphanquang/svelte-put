@@ -20,8 +20,8 @@ import { ActionReturn, Action } from 'svelte/action';
  * ```
  */
 export interface MovableAttributes {
-	'onmovablestart'?: (event: CustomEvent<MovableEventDetail>) => void;
-	'onmovableend'?: (event: CustomEvent<MovableEventDetail>) => void;
+	onmovablestart?: (event: CustomEvent<MovableEventDetail>) => void;
+	onmovableend?: (event: CustomEvent<MovableEventDetail>) => void;
 }
 
 /**

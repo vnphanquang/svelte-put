@@ -22,8 +22,8 @@ import { ActionReturn, Action } from 'svelte/action';
  * ```
  */
 export interface IntersectAttributes {
-	'onintersect'?: (event: CustomEvent<IntersectDetail>) => void;
-	'onintersectonce'?: (event: CustomEvent<IntersectDetail>) => void;
+	onintersect?: (event: CustomEvent<IntersectDetail>) => void;
+	onintersectonce?: (event: CustomEvent<IntersectDetail>) => void;
 }
 
 /**

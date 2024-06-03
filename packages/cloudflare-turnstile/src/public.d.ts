@@ -69,13 +69,13 @@ export type TurnstileEventDetail<T extends Record<string, any> = Record<string, 
  * @package
  */
 export type TurnstileEventAttributes = {
-	'onturnstile'?: (event: CustomEvent<TurnstileEventDetail<{ token: string }>>) => void;
-	'onturnstileerror'?: (event: CustomEvent<TurnstileEventDetail<{ code: string }>>) => void;
-	'onturnstileexpired'?: (event: CustomEvent<TurnstileEventDetail>) => void;
-	'onturnstilebeforeinteractive'?: (event: CustomEvent<TurnstileEventDetail>) => void;
-	'onturnstileafterinteractive'?: (event: CustomEvent<TurnstileEventDetail>) => void;
-	'onturnstileunsupported'?: (event: CustomEvent<TurnstileEventDetail>) => void;
-	'onturnstiletimeout'?: (event: CustomEvent<TurnstileEventDetail>) => void;
+	onturnstile?: (event: CustomEvent<TurnstileEventDetail<{ token: string }>>) => void;
+	onturnstileerror?: (event: CustomEvent<TurnstileEventDetail<{ code: string }>>) => void;
+	onturnstileexpired?: (event: CustomEvent<TurnstileEventDetail>) => void;
+	onturnstilebeforeinteractive?: (event: CustomEvent<TurnstileEventDetail>) => void;
+	onturnstileafterinteractive?: (event: CustomEvent<TurnstileEventDetail>) => void;
+	onturnstileunsupported?: (event: CustomEvent<TurnstileEventDetail>) => void;
+	onturnstiletimeout?: (event: CustomEvent<TurnstileEventDetail>) => void;
 };
 
 export type TurnstileCustomEventName = keyof TurnstileEventAttributes extends `on${infer K}` ? K : never;
