@@ -11,8 +11,8 @@ export type TocCacheItem = {
 };
 
 export interface TocRootEventAttributes {
-	'ontocinit'?: (event: CustomEvent<Toc>) => void;
-	'ontocchange'?: (event: CustomEvent<Toc>) => void;
+	ontocinit?: (event: CustomEvent<Toc>) => void;
+	ontocchange?: (event: CustomEvent<Toc>) => void;
 }
 
 export type TocRootAction = import('svelte/action').Action<HTMLElement, undefined, import('./types').TocRootEventAttributes>;

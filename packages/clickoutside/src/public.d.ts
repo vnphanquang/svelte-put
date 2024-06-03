@@ -20,7 +20,7 @@ import { ActionReturn, Action } from 'svelte/action';
  * ```
  */
 export interface ClickOutsideAttributes {
-	'onclickoutside'?: (event: CustomEvent<MouseEvent>) => void;
+	onclickoutside?: (event: CustomEvent<MouseEvent>) => void;
 }
 
 /**

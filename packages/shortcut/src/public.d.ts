@@ -7,7 +7,7 @@ import { ActionReturn, Action } from 'svelte/action';
  * whenever `svelte-put/shorcut` is imported.
  */
 export interface ShortcutAttributes {
-	'onshortcut'?: (event: CustomEvent<ShortcutEventDetail>) => void;
+	onshortcut?: (event: CustomEvent<ShortcutEventDetail>) => void;
 }
 
 /**

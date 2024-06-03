@@ -21,7 +21,7 @@ import { ActionReturn, Action } from 'svelte/action';
  * ```
  */
 export interface ResizeAttributes {
-	'onresized'?: (event: CustomEvent<ResizeDetail>) => void;
+	onresized?: (event: CustomEvent<ResizeDetail>) => void;
 }
 
 /** config behavior of `resize` */

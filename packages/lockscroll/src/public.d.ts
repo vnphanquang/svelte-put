@@ -10,7 +10,7 @@ export type LockScrollDetail = {
 	locked: boolean;
 };
 export type LockScrollAttributes = {
-	'onlockscrolltoggle'?: (event: CustomEvent<LockScrollDetail>) => void;
+	onlockscrolltoggle?: (event: CustomEvent<LockScrollDetail>) => void;
 };
 export type LockScrollAction = Action<HTMLElement, LockScrollParameter, LockScrollAttributes>;
 export type LockScrollActionReturn = ActionReturn<LockScrollParameter, LockScrollAttributes>;

@@ -79,8 +79,8 @@ type NotificationPopVerboseInput = {
 };
 
 type NotificationPortalAttributes = {
-	'onnotipush'?: (event: CustomEvent<Notification<any>>) => void;
-	'onnotipop'?: (event: CustomEvent<Notification<any>>) => void;
+	onnotipush?: (event: CustomEvent<Notification<any>>) => void;
+	onnotipop?: (event: CustomEvent<Notification<any>>) => void;
 };
 
 type NotificationPortalActionReturn = ActionReturn<Notification<any>, NotificationPortalAttributes>;

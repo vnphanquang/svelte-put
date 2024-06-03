@@ -104,6 +104,6 @@ export interface TocDataAttributes extends TocElementDataAttributes, TocObserveD
  *
  */
 export interface TocEventAttributes {
-	'ontocinit'?: (event: CustomEvent<Toc>) => void;
-	'ontocchange'?: (event: CustomEvent<Toc>) => void;
+	ontocinit?: (event: CustomEvent<Toc>) => void;
+	ontocchange?: (event: CustomEvent<Toc>) => void;
 }

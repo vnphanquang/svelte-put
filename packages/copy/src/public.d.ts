@@ -85,7 +85,7 @@ export interface CopyDetail {
  * ```
  */
 export interface CopyAttributes {
-	'oncopied'?: (event: CustomEvent<CopyDetail>) => void;
+	oncopied?: (event: CustomEvent<CopyDetail>) => void;
 }
 
 export type CopyAction<K extends keyof HTMLElementEventMap> = Action<
