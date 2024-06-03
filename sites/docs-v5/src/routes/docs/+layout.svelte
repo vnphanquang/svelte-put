@@ -128,7 +128,7 @@
             {#each toc.items.values() as tocItem (tocItem.id)}
               {@const level = tocItem.element.tagName.slice(1)}
               <li>
-								<!-- eslint-disable-next-line svelte/valid-compile -->
+                <!-- svelte-ignore a11y_missing_attribute -->
                 <a
 									use:toc.actions.link={tocItem}
                   class="c-link c-link--lazy -ml-px block border-l border-transparent py-1 capitalize data-current:border-link data-current:text-link"
