@@ -160,8 +160,8 @@ export function transform(code, filename, sources, config) {
 	const ast = parseSvelteMarkup(code, { filename, modern: true });
 
 	walk(/** @type {import('svelte/compiler').ElementLike} */(/** @type {unknown} */(ast.fragment)), null, {
-		RegularElement(node) {
-			if (node.name !== 'svg') return;
+		RegularElement(node, { next }) {
+			if (node.name !== 'svg') return next();
 			let options = local;
 			let inlineSrc = getAttribute(code, node, inlineSrcAttributeName);
 			let svgSource = findSvgSrc(filename, options.directories, inlineSrc);

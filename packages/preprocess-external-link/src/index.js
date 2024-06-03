@@ -51,8 +51,8 @@ export function externalLink(config) {
 				),
 				null,
 				{
-					RegularElement(node) {
-						if (node.name !== 'a') return;
+					RegularElement(node, { next }) {
+						if (node.name !== 'a') return next();
 
 						const attributes = /** @type {import('svelte/compiler').Attribute[]} */ (
 							node.attributes.filter((attr) => attr.type === 'Attribute')

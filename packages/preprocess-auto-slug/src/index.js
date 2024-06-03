@@ -55,11 +55,11 @@ export function autoSlug(input = {}) {
 			const slugger = new BananaSlug();
 
 			walk(/** @type {import('svelte/compiler').ElementLike} */(/** @type {unknown} */(ast.fragment)), null, {
-				RegularElement(node) {
+				RegularElement(node, { next }) {
 					if (
 						!options.tags.includes(node.name) ||
 						!node.fragment.nodes?.length
-					) return node;
+					) return next();
 
 					let id = '';
 					// find the id attribute (or as specified in user config), if any
