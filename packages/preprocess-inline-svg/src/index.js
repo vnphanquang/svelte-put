@@ -11,6 +11,7 @@ export function inlineSvg(sources, config) {
 	const rConfig = resolveInlineSvgConfig(config);
 
 	return {
+		name: 'preprocess-inline-svg',
 		markup({ content, filename }) {
 			if (!filename) return;
 			return transform(content, filename, rSources, rConfig);

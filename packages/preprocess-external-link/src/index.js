@@ -39,6 +39,7 @@ export function externalLink(config) {
 		};
 	}
 	return {
+		name: 'preprocess-external-link',
 		markup({ content, filename }) {
 			if (!rConfig.files(filename)) return;
 
