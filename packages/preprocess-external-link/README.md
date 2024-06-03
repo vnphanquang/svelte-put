@@ -1,10 +1,10 @@
 <div align="center">
 
-# `@svelte-put/preprocess-inline-svg`
+# `@svelte-put/preprocess-external-link`
 
 [![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia] [![docs.badge]][docs]
 
-Svelte preprocessor for inlining static svg at build time
+Svelte preprocessor for adding attributes to anchor tags that point to external domains.
 
 </div>
 
@@ -21,65 +21,46 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 Given this `svelte.config.js`
 
 ```javascript
-import inlineSvg from '@svelte-put/preprocess-inline-svg';
+import externalLink from '@svelte-put/preprocess-external-link';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   preprocess: [
-    inlineSvg([
-      {
-        directories: 'src/assets/icons',
-        attributes: {
-          class: 'icon',
-          width: '20',
-          height: '20',
-        },
-      },
-      {
-        directories: 'src/assets/pictograms',
-      },
-    ]),
+    externalLink(['your-domain.com', 'your-other-domain.com']),
     // other preprocessors
   ],
 };
 export default config;
 ```
 
-and the asset files as follow
+and the following input markup
 
-```tree
-src/assets
-    |
-    |-- icons
-         |-- svelte.svg
-         |
-         |-- google
-               |-- arrow-right.svg
-         |-- simpleicons
-               |-- github.svg
-    |
-    |-- pictograms
-         |-- diagram.svg
+```svelte
+<script>
+	let href = 'https://developer.mozilla.org';
+</script>
+
+<!-- links that are treated as internal -->
+<a href="/internal-path">Internal Path</a>
+<a href="https//your-domain.com/some-path">Internal Path</a>
+<a href="https//your-other-domain.com/some-path">Internal Path</a>
+
+<!-- links that are treated as external -->
+<a href="https://svelte.dev/">Svelte</a>
+<a {href} data-external>Svelte</a>
 ```
 
-We can now do
+will output
 
 ```html
-<!-- this will have width="20" height="20" as specified in the config -->
-<svg data-inline-src="svelte"></svg>
+<!-- links that are treated as internal -->
+<a href="/internal-path">Internal Path</a>
+<a href="https//your-domain.com/some-path">Internal Path</a>
+<a href="https//your-other-domain.com/some-path">Internal Path</a>
 
-<!-- nested -->
-<svg data-inline-src="google/arrow-right.svg"></svg>
-<!-- .svg can be omitted -->
-<svg data-inline-src="simpleicons/github"></svg>
-
-<!-- with custom attributes -->
-<svg data-inline-src="diagram" width="100" height="100"></svg>
-
-<!-- alternatively, you can provide a per-case path that is relative to the current source file -->
-<svg data-inline-src="./local-icon.svg"></svg>
-
-<!-- if the source svg is not found for any of the above, an error will be thrown -->
+<!-- links that are treated as external -->
+<a href="https://svelte.dev/" target="_blank" rel="noreferrer noopener">Svelte</a>
+<a {href} data-external target="_blank" rel="noreferrer noopener">Svelte</a>
 ```
 
 ## [Changelog][github.changelog]
@@ -87,14 +68,14 @@ We can now do
 <!-- github specifics -->
 
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
-[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocess-inline-svg/CHANGELOG.md
+[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocess-external-link/CHANGELOG.md
 [github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
 
 <!-- heading badge -->
 
-[npm.badge]: https://img.shields.io/npm/v/@svelte-put/preprocess-inline-svg
-[npm]: https://www.npmjs.com/package/@svelte-put/preprocess-inline-svg
-[bundlephobia.badge]: https://img.shields.io/bundlephobia/minzip/@svelte-put/preprocess-inline-svg?label=minzipped
-[bundlephobia]: https://bundlephobia.com/package/@svelte-put/preprocess-inline-svg
-[docs]: https://svelte-put.vnphanquang.com/docs/preprocess-inline-svg
+[npm.badge]: https://img.shields.io/npm/v/@svelte-put/preprocess-external-link
+[npm]: https://www.npmjs.com/package/@svelte-put/preprocess-external-link
+[bundlephobia.badge]: https://img.shields.io/bundlephobia/minzip/@svelte-put/preprocess-external-link?label=minzipped
+[bundlephobia]: https://bundlephobia.com/package/@svelte-put/preprocess-external-link
+[docs]: https://svelte-put.vnphanquang.com/docs/preprocess-external-link
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue
