@@ -2,9 +2,21 @@
 	import { EnhancedCodeBlockGroupContext } from './enhanced-code-block-group-context.svelte.js';
 
 	/** @type {import('./types.d.ts').EnhancedCodeBlockGroupProps} */
-	let { cols, name, display, title, children, class: cls, ...rest } = $props();
+	let {
+		cols,
+		name,
+		display,
+		title = $bindable(),
+		children,
+		class: cls,
+		...rest
+	} = $props();
 
-	EnhancedCodeBlockGroupContext.set({ name, display, title });
+	const groupContext = EnhancedCodeBlockGroupContext.set({ name, display, title });
+
+	$effect(() => {
+		title = groupContext?.title;
+	});
 </script>
 
 <div class="codeblock-group codeblock-group--{display} {cls}" style:--cols={cols} {...rest}>
