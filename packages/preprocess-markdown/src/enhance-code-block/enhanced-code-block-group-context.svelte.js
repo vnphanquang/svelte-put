@@ -30,7 +30,7 @@ export class EnhancedCodeBlockGroupContext {
 
 	/**
 	 * @param {EnhancedCodeBlockGroupContextInit} init
-	 * @returns {EnhancedCodeBlockGroupContext| null}
+	 * @returns {EnhancedCodeBlockGroupContext}
 	 */
 	static set(init) {
 		return setContext(EnhancedCodeBlockGroupContext.KEY, new EnhancedCodeBlockGroupContext(init));
