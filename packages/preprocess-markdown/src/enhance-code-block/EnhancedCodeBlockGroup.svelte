@@ -15,7 +15,11 @@
 	const groupContext = EnhancedCodeBlockGroupContext.set({ name, display, title });
 
 	$effect(() => {
-		title = groupContext?.title;
+		if (title !== groupContext.title) title = groupContext.title;
+	});
+
+	$effect(() => {
+		if (groupContext.title !== title) groupContext.title = title;
 	});
 </script>
 
