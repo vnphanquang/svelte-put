@@ -102,5 +102,12 @@ export class Toc {
 			}
 		}
 	}
+
+	reset() {
+		this.items.clear();
+		this.activeItem = undefined;
+		this.root = undefined;
+		this.observeThrottled = false;
+	}
 }
 
