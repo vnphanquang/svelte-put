@@ -24,6 +24,7 @@ export function createTocRootAction(toc) {
 	});
 
 	return function(node) {
+		toc.reset();
 		toc.root = node;
 		// stay minimal by reusing as few `IntersectionObserver` as possible
 		// only create new `IntersectionObserver` for each new `threshold`
