@@ -1,0 +1,93 @@
+{
+	"name": "@svelte-put/preprocess-markdown",
+	"version": "0.0.0",
+	"description": "parse markdown in svelte",
+	"main": "src/index.js",
+	"module": "src/index.js",
+	"types": "types/index.d.ts",
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./types/index.d.ts",
+			"import": "./src/index.js"
+		},
+		"./EnhancedCodeBlock.svelte": {
+			"types": "./src/enhance-code-block/EnhancedCodeBlock.svelte.d.ts",
+			"svelte": "./src/enhance-code-block/EnhancedCodeBlock.svelte"
+		},
+		"./EnhancedCodeBlockGroup.svelte": {
+			"types": "./src/enhance-code-block/EnhancedCodeBlockGroup.svelte.d.ts",
+			"svelte": "./src/enhance-code-block/EnhancedCodeBlockGroup.svelte"
+		}
+	},
+	"typesVersions": {
+		"*": {
+			"EnhancedCodeBlock.svelte": [
+				"./src/enhance-code-block/EnhancedCodeBlock.svelte.d.ts"
+			],
+			"EnhancedCodeBlockGroup.svelte": [
+				"./src/enhance-code-block/EnhancedCodeBlockGroup.svelte.d.ts"
+			]
+		}
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"files": [
+		"src",
+		"types"
+	],
+	"scripts": {
+		"lint": "eslint . --ignore-path=\"../../.eslintignore\"",
+		"format": "prettier --ignore-path ../../.prettierignore --write .",
+		"dts": "dts-buddy --write && publint",
+		"prepublishOnly": "turbo run dts --filter=@svelte-put/preprocess-external-link"
+	},
+	"keywords": [
+		"svelte",
+		"preprocess",
+		"markdown"
+	],
+	"author": {
+		"email": "vnphanquang@gmail.com",
+		"name": "Quang Phan",
+		"url": "https://github.com/vnphanquang"
+	},
+	"license": "MIT",
+	"homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocess-external-link",
+	"bugs": {
+		"url": "https://github.com/vnphanquang/svelte-put/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/vnphanquang/svelte-put.git",
+		"directory": "packages/preprocess-external-link"
+	},
+	"devDependencies": {
+		"@internals/tsconfig": "workspace:*",
+		"@types/mdast": "^4.0.4",
+		"mdast-util-directive": "^3.0.0",
+		"mdast-util-to-hast": "^13.1.0"
+	},
+	"peerDependencies": {
+		"svelte": "^5.0.0-next.1"
+	},
+	"dependencies": {
+		"@shikijs/rehype": "^1.6.2",
+		"@svelte-put/copy": "^4.0.0-next.0",
+		"hast-util-to-string": "^3.0.0",
+		"hastscript": "^9.0.0",
+		"magic-string": "^0.30.10",
+		"rehype-stringify": "^10.0.0",
+		"remark-containers": "^1.2.0",
+		"remark-directive": "^3.0.0",
+		"remark-gfm": "^4.0.0",
+		"remark-parse": "^11.0.0",
+		"remark-rehype": "^11.1.0",
+		"shiki": "^1.6.2",
+		"svelte-parse-markup": "^0.1.4",
+		"unified": "^11.0.4",
+		"unist-util-visit": "^5.0.0",
+		"zimmerframe": "^1.1.2"
+	}
+}

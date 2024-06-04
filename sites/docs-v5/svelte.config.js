@@ -5,6 +5,7 @@ import { fileURLToPath } from 'url';
 import autoSlug from '@svelte-put/preprocess-auto-slug';
 import externalLink from '@svelte-put/preprocess-external-link';
 import inlineSvg from '@svelte-put/preprocess-inline-svg';
+import { markdown, enhanceCodeBlock } from '@svelte-put/preprocess-markdown';
 import adapter from '@sveltejs/adapter-cloudflare';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
@@ -15,8 +16,10 @@ const commitHash = child_process.execSync('git rev-parse --short HEAD').toString
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	extensions: ['.svelte'],
+	extensions: ['.md.svelte', '.svelte'],
   preprocess: [
+		markdown(),
+		enhanceCodeBlock(),
 		externalLink(['svelte-put.vnphanquang.com']),
     autoSlug((defaultOptions) => ({
       tags: ['h2', 'h3', 'h4', 'h5', 'h6'],
@@ -55,9 +58,9 @@ const config = {
       $routes: path.resolve(__dirname, 'src/routes'),
     },
   },
-	compilerOptions: {
-		modernAst: true,
-	},
+	// compilerOptions: {
+	// 	modernAst: true,
+	// },
   vitePlugin: {
     inspector: {
       toggleKeyCombo: 'alt-shift',
