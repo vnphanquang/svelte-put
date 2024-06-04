@@ -43,7 +43,6 @@ export class SettingsContext {
 		// persist package manager to cookie
 		$effect(() => {
 			if (browser) {
-				this.packageManager = init.packageManager;
 				document.cookie = `${PUBLIC_COOKIE_SETTINGS_PACKAGE_MANAGER}=${this.packageManager}; path=/; SameSite=Lax; Secure; Max-Age=604800`;
 			}
 		});
