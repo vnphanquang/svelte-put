@@ -138,6 +138,8 @@ export function enhanceCodeBlock(config = {}) {
 							addImport(components.one);
 							isOneImported = true;
 						}
+
+						return next();
 					},
 				},
 			);

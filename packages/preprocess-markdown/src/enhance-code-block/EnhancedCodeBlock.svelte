@@ -20,7 +20,6 @@
 	const id = Math.random().toString(36).slice(2);
 	const groupContext = EnhancedCodeBlockGroupContext.get();
 
-	let currentTitle = $state(groupContext?.title);
 	let collapsible = $derived(groupContext ? false : collapsed !== 'disabled');
 	let collapsedInputChecked = $state(collapsed === 'true');
 	$effect(() => {
@@ -90,8 +89,8 @@
 				class="codeblock-group-selected sr-only"
 				value={title}
 				name={groupContext.name}
-				checked={title === currentTitle}
-				bind:group={currentTitle}
+				checked={title === groupContext.title}
+				bind:group={groupContext.title}
 			/>
 		</label>
 	{:else}
