@@ -104,19 +104,19 @@ export const packages = {
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/lockscroll/CHANGELOG.md',
   },
-  modal: {
-    id: 'modal',
-    name: '@svelte-put/modal',
-    publishedAt: 1670126470519,
-    description: 'type-safe async modal builder',
-    path: '/docs/modal',
-    replId: '0a68001337544b8ab55995fb3d02d1f6',
-    status: 'stable',
-    ready: true,
-    githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/modal',
-    changelogUrl:
-      'https://github.com/vnphanquang/svelte-put/blob/main/packages/modal/CHANGELOG.md',
-  },
+  // modal: {
+  //   id: 'modal',
+  //   name: '@svelte-put/modal',
+  //   publishedAt: 1670126470519,
+  //   description: 'type-safe async modal builder',
+  //   path: '/docs/modal',
+  //   replId: '0a68001337544b8ab55995fb3d02d1f6',
+  //   status: 'stable',
+  //   ready: true,
+  //   githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/modal',
+  //   changelogUrl:
+  //     'https://github.com/vnphanquang/svelte-put/blob/main/packages/modal/CHANGELOG.md',
+  // },
   movable: {
     id: 'movable',
     name: '@svelte-put/movable',
@@ -167,9 +167,23 @@ export const packages = {
     status: 'stable',
     ready: true,
     githubUrl:
-      'https://github.com/vnphanquang/svelte-put/tree/main/packages/inline-svg',
+      'https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocess-inline-svg',
     changelogUrl:
-      'https://github.com/vnphanquang/svelte-put/blob/main/packages/inline-svg/CHANGELOG.md',
+      'https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocess-inline-svg/CHANGELOG.md',
+  },
+  'preprocess-external-link': {
+    id: 'preprocess-external-link',
+    name: '@svelte-put/preprocess-external-link',
+    publishedAt: 1717521500513,
+    description: 'svelte preprocessor to add appropriate attributes to anchor tags for external links',
+    path: '/docs/preprocess-external-link',
+    replId: undefined,
+    status: 'stable',
+    ready: true,
+    githubUrl:
+      'https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocess-external-link',
+    changelogUrl:
+      'https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocess-external-link/CHANGELOG.md',
   },
   qr: {
     id: 'qr',
@@ -236,20 +250,20 @@ export const packages = {
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/toc/CHANGELOG.md',
   },
-  tooltip: {
-    id: 'tooltip',
-    name: '@svelte-put/tooltip',
-    publishedAt: 1670126470519,
-    description:
-      'over-engineered, type-safe, headless,  and extensible tooltip builder via Svelte action',
-    path: '/docs/tooltip',
-    replId: 'ac411d28f87b4b6d9942e050fa29e0cd',
-    status: 'stable',
-    ready: true,
-    githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/tooltip',
-    changelogUrl:
-      'https://github.com/vnphanquang/svelte-put/blob/main/packages/tooltip/CHANGELOG.md',
-  },
+  // tooltip: {
+  //   id: 'tooltip',
+  //   name: '@svelte-put/tooltip',
+  //   publishedAt: 1670126470519,
+  //   description:
+  //     'over-engineered, type-safe, headless,  and extensible tooltip builder via Svelte action',
+  //   path: '/docs/tooltip',
+  //   replId: 'ac411d28f87b4b6d9942e050fa29e0cd',
+  //   status: 'stable',
+  //   ready: true,
+  //   githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/tooltip',
+  //   changelogUrl:
+  //     'https://github.com/vnphanquang/svelte-put/blob/main/packages/tooltip/CHANGELOG.md',
+  // },
 } as const;
 
 export type PackageId = keyof typeof packages;
