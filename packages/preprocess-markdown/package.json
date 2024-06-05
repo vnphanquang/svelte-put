@@ -85,7 +85,7 @@
 		"remark-parse": "^11.0.0",
 		"remark-rehype": "^11.1.0",
 		"shiki": "^1.6.2",
-		"svelte-parse-markup": "^0.1.4",
+		"svelte-parse-markup": "^0.1.5",
 		"unified": "^11.0.4",
 		"unist-util-visit": "^5.0.0",
 		"zimmerframe": "^1.1.2"
