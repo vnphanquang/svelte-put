@@ -1,10 +1,12 @@
 # Architecture
 
-:::div{.c-callout.c-callout--info}
+<div class="c-callout c-callout--info">
+
 svelte-put is currently migrating way from Typescript to vanilla Javascript with [JSDoc](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html) for packages' source code. This is very much inspired by the [initiative taken by the Svelte core team](https://news.ycombinator.com/item?id=35891259) that did the same for Svelte & SvelteKit repo. You can track the progress at [this Github issue](https://github.com/vnphanquang/svelte-put/issues/203).
 
 Note that packages are still fully typed, the experience stays the same for end users that use Typescript.
-:::
+
+</div>
 
 Packages within the `svelte-put` collection follow, as much as possible, the following design decisions:
 

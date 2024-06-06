@@ -24,10 +24,13 @@ yarn add -D @svelte-put/clickoutside
 
 </enhanced-code-block>
 
+<div class="c-callout c-callout--success c-callout--megaphone">
+
+  New to Svelte 5? See [Migration Guides](#migration-guides).
+
+</div>
+
 ## Quick Start
-
-New Svelte 5? See [Migration Guides](#migration-guides).
-
 
 ```svelte src=./_page/examples/quick-start.svelte title=quick-start.svelte
 ```
@@ -84,9 +87,9 @@ In the [Advanced Usage & Customization] feature demo, notice the `stopPropagatio
 <button on:click={(e) => e.stopPropagation()}>...</button>
 ```
 
-:::div{.c-callout.c-callout--info}
-This makes sense since the button is technically outside of the element `clickoutside` is placed on, being within the "clickoutside zone".
-:::
+<p class="c-callout c-callout--info">
+  This makes sense since the button is technically outside of the element `clickoutside` is placed on, being within the "clickoutside zone".
+</p>
 
 Be aware to reflect customization made to the event listener as mentioned in the last two sections. For example, if the `mousedown` event is used instead of `click`, call `stopPropagation` on `mousedown` of the element that should not trigger `clickoutside`.
 
@@ -114,7 +117,7 @@ Below is another demo where `stopPropagation` is generally recommended. Consider
 
 ## Migration Guides
 
-Moving from v3 to v4 (Svelte 5 in Runes mode):
+When migrating from v3 to v4 (Svelte 5 in Runes mode), you will need to:
 
 - change event directive `on:clickoutside` to standard attribute `onclickoutside` (remove `:`).
 - event modifier `|stopPropagation` is no longer support, either use `onclickcapture` or explicitly call `e.stopPropagation()` in your event handler.
