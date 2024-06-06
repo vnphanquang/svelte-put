@@ -1,13 +1,6 @@
-// Register `hName`, `hProperties` types, used when turning markdown to HTML:
-/// <reference types="mdast-util-to-hast" />
-// Register directive nodes in mdast:
-/// <reference types="mdast-util-directive" />
-
 import rehypeShikiFromHighlighter from '@shikijs/rehype/core';
-import {h} from 'hastscript'
 import MagicString from 'magic-string';
 import rehypeStringify from 'rehype-stringify';
-import remarkDirective from 'remark-directive';
 import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
@@ -43,9 +36,8 @@ export function markdown(config) {
 			const html = unified()
 				.use(remarkParse)
 				.use(remarkGfm)
-				.use(remarkDirective)
-				.use(remarkAnyHtmlDirective)
 				.use(remarkRehype, { allowDangerousHtml: true })
+				.use(rehypeNegateSvelteLogicBlock)
 				.use(rehypeShikiFromHighlighter, /** @type {any} */(highlighter), {
 					themes: {
 						light: 'light-plus',
@@ -76,7 +68,6 @@ export function markdown(config) {
 							}
 							meta[`__${key}`] = value;
 						}
-						// if (match) meta[match[1].trim()] = match[2].trim();
 						return meta;
 					},
 				})
@@ -92,26 +83,24 @@ export function markdown(config) {
 	};
 }
 
-function remarkAnyHtmlDirective() {
-  /**
-   * @param {import('mdast').Root} tree
-   * @returns {undefined}
-   */
-  return (tree) => {
-    visit(tree, (node) => {
-			if (
-        node.type === 'containerDirective' ||
-        node.type === 'leafDirective' ||
-        node.type === 'textDirective'
-      ) {
-        const data = node.data || (node.data = {});
-        const hast = h(node.name, node.attributes || {});
-
-        data.hName = hast.tagName;
-        data.hProperties = hast.properties;
-      }
-    })
-  }
+// logic blocks such as {#if}, {#each} will be treated by remark-rehype as text and goes into <p> tag.
+// this plugin unpack such p tags
+function rehypeNegateSvelteLogicBlock() {
+	/**
+	 * @param {import('hast').Root} tree
+	 * @returns {undefined}
+	 */
+	return (tree) => {
+		visit(tree, 'element', (node, index, parent) => {
+			if (node.tagName !== 'p') return;
+			if (!parent || !index) return;
+			const firstChild = node.children.at(0);
+			if (!firstChild) return;
+			if (firstChild.type === 'text' && firstChild.value.startsWith('{#')) {
+				parent.children.splice(index, 1, ...node.children);
+			}
+		})
+	};
 }
 
 export { enhanceCodeBlock } from './enhance-code-block/index.js';
