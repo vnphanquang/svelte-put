@@ -129,12 +129,12 @@ export function enhanceCodeBlock(config = {}) {
 							s.appendLeft(node.start + enhancedElement.length, additionalAttributes);
 
 							replaceNodeName(node, components.group);
-							if (isGroupImported) return;
+							if (isGroupImported) return next();
 							addImport(components.group);
 							isGroupImported = true;
 						} else {
 							replaceNodeName(node, components.one);
-							if (isOneImported) return;
+							if (isOneImported) return next();
 							addImport(components.one);
 							isOneImported = true;
 						}
