@@ -104,7 +104,7 @@ export function transformer() {
 
 				let isMetaLine = false;
 
-				if (meta.__skipMetaBlock !== undefined) {
+				if (meta.__skipMetaBlock === undefined || meta.__skipMetaBlock === 'false') {
 					const str = toString(line).trim();
 					if (str.includes(':::')) {
 						isMetaLine = true;
