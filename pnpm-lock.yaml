@@ -87,8 +87,8 @@ importers:
         specifier: ^2.6.3
         version: 2.6.3
       turbo:
-        specifier: ^1.13.3
-        version: 1.13.3
+        specifier: ^2.0.1
+        version: 2.0.1
       typescript:
         specifier: ^5.4.5
         version: 5.4.5
@@ -197,23 +197,23 @@ importers:
         version: link:../shortcut
       svelte:
         specifier: ^3.55.0 || ^4.0.0
-        version: 5.0.0-next.136
+        version: 4.2.18
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
         version: link:../../internals/tsconfig
       '@sveltejs/adapter-auto':
         specifier: 3.2.1
-        version: 3.2.1(@sveltejs/kit@2.5.10(@sveltejs/vite-plugin-svelte@4.0.0-next.1(svelte@5.0.0-next.136)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))))(svelte@5.0.0-next.136)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))))
+        version: 3.2.1(@sveltejs/kit@2.5.10(@sveltejs/vite-plugin-svelte@4.0.0-next.1(svelte@4.2.18)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))))(svelte@4.2.18)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))))
       '@sveltejs/kit':
         specifier: 2.5.10
-        version: 2.5.10(@sveltejs/vite-plugin-svelte@4.0.0-next.1(svelte@5.0.0-next.136)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))))(svelte@5.0.0-next.136)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38)))
+        version: 2.5.10(@sveltejs/vite-plugin-svelte@4.0.0-next.1(svelte@4.2.18)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))))(svelte@4.2.18)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38)))
       '@sveltejs/package':
         specifier: 2.3.1
-        version: 2.3.1(svelte@5.0.0-next.136)(typescript@5.4.5)
+        version: 2.3.1(svelte@4.2.18)(typescript@5.4.5)
       '@sveltejs/vite-plugin-svelte':
         specifier: ^4.0.0-next.1
-        version: 4.0.0-next.1(svelte@5.0.0-next.136)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38)))
+        version: 4.0.0-next.1(svelte@4.2.18)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38)))
       vite:
         specifier: ^5.2.12
         version: 5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))
@@ -410,23 +410,23 @@ importers:
         version: link:../shortcut
       svelte:
         specifier: ^3.55.0 || ^4.0.0
-        version: 5.0.0-next.136
+        version: 4.2.18
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
         version: link:../../internals/tsconfig
       '@sveltejs/adapter-auto':
         specifier: 3.2.1
-        version: 3.2.1(@sveltejs/kit@2.5.10(@sveltejs/vite-plugin-svelte@4.0.0-next.1(svelte@5.0.0-next.136)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))))(svelte@5.0.0-next.136)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))))
+        version: 3.2.1(@sveltejs/kit@2.5.10(@sveltejs/vite-plugin-svelte@4.0.0-next.1(svelte@4.2.18)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))))(svelte@4.2.18)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))))
       '@sveltejs/kit':
         specifier: 2.5.10
-        version: 2.5.10(@sveltejs/vite-plugin-svelte@4.0.0-next.1(svelte@5.0.0-next.136)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))))(svelte@5.0.0-next.136)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38)))
+        version: 2.5.10(@sveltejs/vite-plugin-svelte@4.0.0-next.1(svelte@4.2.18)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))))(svelte@4.2.18)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38)))
       '@sveltejs/package':
         specifier: 2.3.1
-        version: 2.3.1(svelte@5.0.0-next.136)(typescript@5.4.5)
+        version: 2.3.1(svelte@4.2.18)(typescript@5.4.5)
       '@sveltejs/vite-plugin-svelte':
         specifier: ^4.0.0-next.1
-        version: 4.0.0-next.1(svelte@5.0.0-next.136)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38)))
+        version: 4.0.0-next.1(svelte@4.2.18)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38)))
       vite:
         specifier: ^5.2.12
         version: 5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))
@@ -4187,6 +4187,10 @@ packages:
     resolution: {integrity: sha512-d8+wsh5TfPwqVzbm4/HCXC783/KPHV60NvwitJnyTA5lWn1elhXMNWhXGCJ7PwPa8qFUnyJNIyuIRt2mT0WMug==}
     engines: {node: '>=16'}
 
+  svelte@4.2.18:
+    resolution: {integrity: sha512-d0FdzYIiAePqRJEb90WlJDkjUEx42xhivxN8muUBmfZnP+tzUgz12DJ2hRJi8sIHCME7jeK1PTMgKPSfTd8JrA==}
+    engines: {node: '>=16'}
+
   svelte@5.0.0-next.136:
     resolution: {integrity: sha512-M3jHAIfWZ7K+hjZdvu2p53ZtWE843yubxJfjxeQw9XiwMYG5z6quCA5u8r23GrxAp20JBl36B6ucbZvLUf0Z/g==}
     engines: {node: '>=18'}
@@ -4268,38 +4272,38 @@ packages:
     engines: {node: '>=8.0.0'}
     hasBin: true
 
-  turbo-darwin-64@1.13.3:
-    resolution: {integrity: sha512-glup8Qx1qEFB5jerAnXbS8WrL92OKyMmg5Hnd4PleLljAeYmx+cmmnsmLT7tpaVZIN58EAAwu8wHC6kIIqhbWA==}
+  turbo-darwin-64@2.0.1:
+    resolution: {integrity: sha512-GO391pUmI6c6l/EpUIaXNzwbVDWRvYahm5oLB176dAWRYKYO+Osqs/XBdOM0G3l7ZFdR6nUtRJc8qinJp7qDUQ==}
     cpu: [x64]
     os: [darwin]
 
-  turbo-darwin-arm64@1.13.3:
-    resolution: {integrity: sha512-/np2xD+f/+9qY8BVtuOQXRq5f9LehCFxamiQnwdqWm5iZmdjygC5T3uVSYuagVFsZKMvX3ycySwh8dylGTl6lg==}
+  turbo-darwin-arm64@2.0.1:
+    resolution: {integrity: sha512-rmjJoxeq7nmH/F2aWKapahrDE2zE2Uc15rvs4Rz6qHOzSqC8R5uyLpQyTKIPIZ95O/z9nKfLfVPyiRENuk5vpw==}
     cpu: [arm64]
     os: [darwin]
 
-  turbo-linux-64@1.13.3:
-    resolution: {integrity: sha512-G+HGrau54iAnbXLfl+N/PynqpDwi/uDzb6iM9hXEDG+yJnSJxaHMShhOkXYJPk9offm9prH33Khx2scXrYVW1g==}
+  turbo-linux-64@2.0.1:
+    resolution: {integrity: sha512-vwTOc4v4jm6tM+9WlsiDlN+zwHP8A2wlsAYiNqz2u0DZL55aCWaVdivh2VpVLN36Mr9HgREGH0Fw+jx6ObcNRg==}
     cpu: [x64]
     os: [linux]
 
-  turbo-linux-arm64@1.13.3:
-    resolution: {integrity: sha512-qWwEl5VR02NqRyl68/3pwp3c/olZuSp+vwlwrunuoNTm6JXGLG5pTeme4zoHNnk0qn4cCX7DFrOboArlYxv0wQ==}
+  turbo-linux-arm64@2.0.1:
+    resolution: {integrity: sha512-DkVt76fjwY940DfmqznWhpYIlKYduvKAoTtylkERrDlcWUpDYWwqNbcf9PRRIbnjnv9lIxvuom1KZmMY+cw/Ig==}
     cpu: [arm64]
     os: [linux]
 
-  turbo-windows-64@1.13.3:
-    resolution: {integrity: sha512-Nudr4bRChfJzBPzEmpVV85VwUYRCGKecwkBFpbp2a4NtrJ3+UP1VZES653ckqCu2FRyRuS0n03v9euMbAvzH+Q==}
+  turbo-windows-64@2.0.1:
+    resolution: {integrity: sha512-XskV34kYuXVIHbRbgH8jr35Y8uA6kJOQ0LJStU4jFk7piiyk0a4n2GNDymMtvIwAxYdbuTe+pKuPCThFdirHBQ==}
     cpu: [x64]
     os: [win32]
 
-  turbo-windows-arm64@1.13.3:
-    resolution: {integrity: sha512-ouJCgsVLd3icjRLmRvHQDDZnmGzT64GBupM1Y+TjtYn2LVaEBoV6hicFy8x5DUpnqdLy+YpCzRMkWlwhmkX7sQ==}
+  turbo-windows-arm64@2.0.1:
+    resolution: {integrity: sha512-R2/RmKr2uQxkOCtXK5LNxdD3Iv7lUm56iy2FrDwTDgPI7X7K6WRjrxdirmFIu/fABYE5n6EampU3ejbG5mmGtg==}
     cpu: [arm64]
     os: [win32]
 
-  turbo@1.13.3:
-    resolution: {integrity: sha512-n17HJv4F4CpsYTvKzUJhLbyewbXjq1oLCi90i5tW1TiWDz16ML1eDG7wi5dHaKxzh5efIM56SITnuVbMq5dk4g==}
+  turbo@2.0.1:
+    resolution: {integrity: sha512-sJhxfBaN14pYj//xxAG6zAyStkE2j4HI9JVXVMob35SGob6dz/HuSqV/4QlVqw0uKAkwc1lXIsnykbe8RLmOOw==}
     hasBin: true
 
   type-check@0.4.0:
@@ -5277,9 +5281,9 @@ snapshots:
     dependencies:
       svelte: 5.0.0-next.136
 
-  '@sveltejs/adapter-auto@3.2.1(@sveltejs/kit@2.5.10(@sveltejs/vite-plugin-svelte@4.0.0-next.1(svelte@5.0.0-next.136)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))))(svelte@5.0.0-next.136)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))))':
+  '@sveltejs/adapter-auto@3.2.1(@sveltejs/kit@2.5.10(@sveltejs/vite-plugin-svelte@4.0.0-next.1(svelte@4.2.18)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))))(svelte@4.2.18)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))))':
     dependencies:
-      '@sveltejs/kit': 2.5.10(@sveltejs/vite-plugin-svelte@4.0.0-next.1(svelte@5.0.0-next.136)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))))(svelte@5.0.0-next.136)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38)))
+      '@sveltejs/kit': 2.5.10(@sveltejs/vite-plugin-svelte@4.0.0-next.1(svelte@4.2.18)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))))(svelte@4.2.18)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38)))
       import-meta-resolve: 4.1.0
 
   '@sveltejs/adapter-cloudflare@4.4.0(@sveltejs/kit@2.5.10(@sveltejs/vite-plugin-svelte@4.0.0-next.1(svelte@5.0.0-next.136)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))))(svelte@5.0.0-next.136)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))))(wrangler@3.59.0)':
@@ -5299,6 +5303,24 @@ snapshots:
       - rollup
       - svelte
 
+  '@sveltejs/kit@2.5.10(@sveltejs/vite-plugin-svelte@4.0.0-next.1(svelte@4.2.18)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))))(svelte@4.2.18)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38)))':
+    dependencies:
+      '@sveltejs/vite-plugin-svelte': 4.0.0-next.1(svelte@4.2.18)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38)))
+      '@types/cookie': 0.6.0
+      cookie: 0.6.0
+      devalue: 5.0.0
+      esm-env: 1.0.0
+      import-meta-resolve: 4.1.0
+      kleur: 4.1.5
+      magic-string: 0.30.10
+      mrmime: 2.0.0
+      sade: 1.8.1
+      set-cookie-parser: 2.6.0
+      sirv: 2.0.4
+      svelte: 4.2.18
+      tiny-glob: 0.2.9
+      vite: 5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))
+
   '@sveltejs/kit@2.5.10(@sveltejs/vite-plugin-svelte@4.0.0-next.1(svelte@5.0.0-next.136)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))))(svelte@5.0.0-next.136)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38)))':
     dependencies:
       '@sveltejs/vite-plugin-svelte': 4.0.0-next.1(svelte@5.0.0-next.136)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38)))
@@ -5317,16 +5339,25 @@ snapshots:
       tiny-glob: 0.2.9
       vite: 5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))
 
-  '@sveltejs/package@2.3.1(svelte@5.0.0-next.136)(typescript@5.4.5)':
+  '@sveltejs/package@2.3.1(svelte@4.2.18)(typescript@5.4.5)':
     dependencies:
       chokidar: 3.6.0
       kleur: 4.1.5
       sade: 1.8.1
       semver: 7.6.0
-      svelte: 5.0.0-next.136
-      svelte2tsx: 0.7.6(svelte@5.0.0-next.136)(typescript@5.4.5)
+      svelte: 4.2.18
+      svelte2tsx: 0.7.6(svelte@4.2.18)(typescript@5.4.5)
     transitivePeerDependencies:
       - typescript
+
+  '@sveltejs/vite-plugin-svelte-inspector@3.0.0-next.1(@sveltejs/vite-plugin-svelte@4.0.0-next.1(svelte@4.2.18)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))))(svelte@4.2.18)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38)))':
+    dependencies:
+      '@sveltejs/vite-plugin-svelte': 4.0.0-next.1(svelte@4.2.18)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38)))
+      debug: 4.3.4
+      svelte: 4.2.18
+      vite: 5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))
+    transitivePeerDependencies:
+      - supports-color
 
   '@sveltejs/vite-plugin-svelte-inspector@3.0.0-next.1(@sveltejs/vite-plugin-svelte@4.0.0-next.1(svelte@5.0.0-next.136)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))))(svelte@5.0.0-next.136)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38)))':
     dependencies:
@@ -5334,6 +5365,19 @@ snapshots:
       debug: 4.3.4
       svelte: 5.0.0-next.136
       vite: 5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))
+    transitivePeerDependencies:
+      - supports-color
+
+  '@sveltejs/vite-plugin-svelte@4.0.0-next.1(svelte@4.2.18)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38)))':
+    dependencies:
+      '@sveltejs/vite-plugin-svelte-inspector': 3.0.0-next.1(@sveltejs/vite-plugin-svelte@4.0.0-next.1(svelte@4.2.18)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))))(svelte@4.2.18)(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38)))
+      debug: 4.3.4
+      deepmerge: 4.3.1
+      kleur: 4.1.5
+      magic-string: 0.30.10
+      svelte: 4.2.18
+      vite: 5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))
+      vitefu: 0.2.5(vite@5.2.12(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38)))
     transitivePeerDependencies:
       - supports-color
 
@@ -8531,11 +8575,11 @@ snapshots:
       sugarss: 4.0.1(postcss@8.4.38)
       typescript: 5.4.5
 
-  svelte2tsx@0.7.6(svelte@5.0.0-next.136)(typescript@5.4.5):
+  svelte2tsx@0.7.6(svelte@4.2.18)(typescript@5.4.5):
     dependencies:
       dedent-js: 1.0.1
       pascal-case: 3.1.2
-      svelte: 5.0.0-next.136
+      svelte: 4.2.18
       typescript: 5.4.5
 
   svelte@4.2.12:
@@ -8553,6 +8597,23 @@ snapshots:
       is-reference: 3.0.2
       locate-character: 3.0.0
       magic-string: 0.30.9
+      periscopic: 3.1.0
+
+  svelte@4.2.18:
+    dependencies:
+      '@ampproject/remapping': 2.3.0
+      '@jridgewell/sourcemap-codec': 1.4.15
+      '@jridgewell/trace-mapping': 0.3.25
+      '@types/estree': 1.0.5
+      acorn: 8.11.3
+      aria-query: 5.3.0
+      axobject-query: 4.0.0
+      code-red: 1.0.4
+      css-tree: 2.3.1
+      estree-walker: 3.0.3
+      is-reference: 3.0.2
+      locate-character: 3.0.0
+      magic-string: 0.30.10
       periscopic: 3.1.0
 
   svelte@5.0.0-next.136:
@@ -8670,32 +8731,32 @@ snapshots:
       wcwidth: 1.0.1
       yargs: 17.7.2
 
-  turbo-darwin-64@1.13.3:
+  turbo-darwin-64@2.0.1:
     optional: true
 
-  turbo-darwin-arm64@1.13.3:
+  turbo-darwin-arm64@2.0.1:
     optional: true
 
-  turbo-linux-64@1.13.3:
+  turbo-linux-64@2.0.1:
     optional: true
 
-  turbo-linux-arm64@1.13.3:
+  turbo-linux-arm64@2.0.1:
     optional: true
 
-  turbo-windows-64@1.13.3:
+  turbo-windows-64@2.0.1:
     optional: true
 
-  turbo-windows-arm64@1.13.3:
+  turbo-windows-arm64@2.0.1:
     optional: true
 
-  turbo@1.13.3:
+  turbo@2.0.1:
     optionalDependencies:
-      turbo-darwin-64: 1.13.3
-      turbo-darwin-arm64: 1.13.3
-      turbo-linux-64: 1.13.3
-      turbo-linux-arm64: 1.13.3
-      turbo-windows-64: 1.13.3
-      turbo-windows-arm64: 1.13.3
+      turbo-darwin-64: 2.0.1
+      turbo-darwin-arm64: 2.0.1
+      turbo-linux-64: 2.0.1
+      turbo-linux-arm64: 2.0.1
+      turbo-windows-64: 2.0.1
+      turbo-windows-arm64: 2.0.1
 
   type-check@0.4.0:
     dependencies:
