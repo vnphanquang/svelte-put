@@ -82,7 +82,7 @@
 {#if data.package.ready}
 	{@render children()}
 	<p class="text-right text-sm">
-		<a class="c-link" href="https://github.com/vnphanquang/svelte-put/edit/main/sites/docs/src/routes/docs/(package)/{data.package.id}/_page/content.md.svelte">
+		<a class="c-link" href="https://github.com/vnphanquang/svelte-put/edit/main/sites/docs/src/routes/docs/(package)/{data.package.id}/+page.md.svelte">
 			Edit this page on Github
 		</a>
 	</p>

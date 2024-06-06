@@ -7,9 +7,9 @@
 
 # @svelte-put
 
-:::div{.c-callout.c-callout--info.c-callout--icon-bulb}
+<p class="c-callout c-callout--info c-callout--icon-bulb">
 svelte-put is a collection of useful svelte actions, utilities, and minimal components extracted from (my) real world projects that might be helpful for yours.
-:::
+</p>
 
 ## Packages
 
