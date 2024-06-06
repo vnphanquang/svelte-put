@@ -50,9 +50,10 @@
 		"svelte": "5.0.0-next.136",
 		"svelte-check": "^3.8.0",
 		"tslib": "^2.6.3",
-		"turbo": "^1.13.3",
+		"turbo": "^2.0.1",
 		"typescript": "^5.4.5"
 	},
+	"packageManager": "pnpm@9.1.1",
 	"engines": {
 		"pnpm": ">=9.0.0",
 		"node": ">=20.0.0"
