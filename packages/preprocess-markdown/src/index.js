@@ -96,7 +96,7 @@ function rehypeNegateSvelteLogicBlock() {
 			if (!parent || !index) return;
 			const firstChild = node.children.at(0);
 			if (!firstChild) return;
-			if (firstChild.type === 'text' && firstChild.value.startsWith('{#')) {
+			if (firstChild.type === 'text' && ['{#', '{@'].some(t => firstChild.value.startsWith(t))) {
 				parent.children.splice(index, 1, ...node.children);
 			}
 		})
