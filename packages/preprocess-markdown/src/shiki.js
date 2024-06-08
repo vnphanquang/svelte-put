@@ -5,21 +5,6 @@ import { toString } from 'hast-util-to-string';
 import { h } from 'hastscript';
 import { getHighlighterCore } from 'shiki/core';
 
-/** @type {Record<string, string>} */
-const ESCAPE_HTML_CHARACTER_MAP = {
-	'{': `{'{'}`,
-	'}': `{'}'}`,
-};
-
-/**
- * Returns code with curly braces and backticks replaced by HTML entity equivalents
- * @param {string} html - highlighted HTML
- * @returns {string} - escaped HTML
- */
-function escapeHtml(html) {
-	return html.replace(/[{}`]/g, (character) => ESCAPE_HTML_CHARACTER_MAP[character]);
-}
-
 export const highlighter = await getHighlighterCore({
 	themes: [import('shiki/themes/dark-plus.mjs'), import('shiki/themes/light-plus.mjs')],
 	langs: [
@@ -72,13 +57,6 @@ export function transformer() {
 			}
 			if (code.endsWith('\n')) code = code.slice(0, -1);
 			return code;
-		},
-		tokens(tokenss) {
-			for (const tokens of tokenss) {
-				for (const token of tokens) {
-					token.content = escapeHtml(token.content);
-				}
-			}
 		},
 		code(hast) {
 			const meta = /** @type {CodeBlockMetadata} */ (this.options.meta);
