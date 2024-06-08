@@ -1,3 +1,4 @@
+import { on } from 'svelte/events';
 /**
  * Dispatch a `clickoutside` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent } on click outside of node
  * @example
@@ -51,7 +52,7 @@
  * @returns {import('./public').ClickOutsideActionReturn}
  */
 export function clickoutside(node, param = { enabled: true }) {
-	let { enabled, eventType, nodeForEvent, options, capture } = resolveConfig(param);
+	let { enabled, eventType, nodeForEvent, options } = resolveConfig(param);
 
 	/**
 	 * @param {Event} event
@@ -63,18 +64,20 @@ export function clickoutside(node, param = { enabled: true }) {
 		}
 	}
 
+	/** @type {undefined | (() => void)} */
+	let off;
 	if (param.enabled !== false) {
-		nodeForEvent.addEventListener(eventType, handle, options);
+		off = on(/** @type {Element} */(nodeForEvent), eventType, handle, options);
 	}
 
 	return {
 		update(update) {
-			nodeForEvent.removeEventListener(eventType, handle, capture);
-			({ enabled, eventType, nodeForEvent, options, capture } = resolveConfig(update));
-			if (enabled) nodeForEvent.addEventListener(eventType, handle, options);
+			off?.();
+			({ enabled, eventType, nodeForEvent, options } = resolveConfig(update));
+			if (enabled) off = on(/** @type {Element} */(nodeForEvent), eventType, handle, options);
 		},
 		destroy() {
-			nodeForEvent.removeEventListener(eventType, handle, capture);
+			off?.();
 		},
 	};
 }
@@ -86,8 +89,7 @@ export function clickoutside(node, param = { enabled: true }) {
  * 	enabled: boolean;
  * 	nodeForEvent: Element | Document;
  * 	eventType: string;
- * 	options: boolean | AddEventListenerOptions | undefined;
- * 	capture: boolean | undefined;
+ * 	options?: AddEventListenerOptions;
  * }}
  */
 export function resolveConfig(param = {}) {
@@ -95,8 +97,9 @@ export function resolveConfig(param = {}) {
 		enabled: param.enabled ?? true,
 		nodeForEvent: param.limit?.parent ?? document,
 		eventType: param.event ?? 'click',
-		options: param.options,
-		capture: typeof param.options === 'object' ? param.options?.capture : param.options,
+		options: typeof param.options === 'boolean'
+			? { capture: param.options }
+			: param.options,
 	};
 }
 

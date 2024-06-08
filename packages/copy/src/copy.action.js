@@ -1,3 +1,5 @@
+import { on } from 'svelte/events';
+
 import { copyToClipboard } from './copy.helpers.js';
 
 /**
@@ -32,20 +34,18 @@ export function copy(node, parameter = {}) {
 		}
 	}
 
-
+	/** @type {Array<() => void>} */
+	let offs = [];
 	function addEvents() {
 		if (trigger) {
-			for (const event of events) {
-				trigger.addEventListener(/** @type {K} */ (event), handler);
-			}
+			offs = events.map((event) => on(trigger, event, handler));
 		}
 	}
 
 	function removeEvents() {
 		if (trigger) {
-			for (const event of events) {
-				trigger.removeEventListener(/** @type {K} */ (event), handler);
-			}
+			offs.forEach(unsub => unsub());
+			offs = [];
 		}
 	}
 
