@@ -317,7 +317,10 @@ importers:
         version: 1.6.2
       '@svelte-put/copy':
         specifier: ^4.0.0-next.0
-        version: link:../copy
+        version: 4.0.0-next.0(svelte@5.0.0-next.136)
+      hast-util-to-html:
+        specifier: ^9.0.1
+        version: 9.0.1
       hast-util-to-string:
         specifier: ^3.0.0
         version: 3.0.0
