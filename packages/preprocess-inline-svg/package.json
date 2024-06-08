@@ -54,7 +54,7 @@
 		"@types/svg-parser": "^2.0.6"
 	},
 	"peerDependencies": {
-		"svelte": "^5.0.0-next.1"
+		"svelte": "^5.0.0-next.152"
 	},
 	"dependencies": {
 		"hast-util-to-html": "^9.0.1",

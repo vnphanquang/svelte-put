@@ -1,3 +1,5 @@
+import { on } from 'svelte/events';
+
 /**
  * Listen for keyboard event and trigger `shortcut` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent }
  * @example Typical usage
@@ -63,19 +65,6 @@
  *   onshortcut={onShortcut}
  * />
  * ```
- *
- *
- *
- * As with any svelte action, `shortcut` should be use with element and not component.
- *
- * ```html
- * <-- correct usage-->
- *  <div use:intersect />
- *
- * <-- incorrect usage-->
- * <Component use:intersect/>
- * ```
- *
  * You can either:
  *
  * - pass multiple callbacks to their associated triggers, or
@@ -138,16 +127,20 @@ export function shortcut(node, param) {
 		}
 	}
 
-	if (enabled) node.addEventListener(type, handler);
+	/** @type {undefined | (() => void)} */
+	let off;
+	if (enabled) {
+		off = on(node, type, handler);
+	}
 
 	return {
 		update: (update) => {
 			const { enabled: newEnabled = true, type: newType = 'keydown' } = update;
 
 			if (enabled && (!newEnabled || type !== newType)) {
-				node.removeEventListener(type, handler);
+				off?.();
 			} else if (!enabled && newEnabled) {
-				node.addEventListener(newType, handler);
+				off = on(node, newType, handler);
 			}
 
 			enabled = newEnabled;
@@ -155,7 +148,7 @@ export function shortcut(node, param) {
 			trigger = update.trigger;
 		},
 		destroy: () => {
-			node.removeEventListener(type, handler);
+			off?.();
 		},
 	};
 }

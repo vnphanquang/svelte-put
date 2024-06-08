@@ -1,3 +1,5 @@
+import { on } from 'svelte/events';
+
 /**
  * @package
  * @param {import('./public').DragScrollParameter} param
@@ -97,20 +99,20 @@ export function dragscroll(node, param = {}) {
 		}
 	}
 
+	/** @type {Array<() => void>} */
+	let offs = [];
 	function addEvents() {
 		if (!node) return;
-		node.addEventListener(events.down, handlePointerDown);
-		node.addEventListener(events.leave, handlePointerUpAndLeave);
-		node.addEventListener(events.up, handlePointerUpAndLeave);
-		node.addEventListener(events.move, handlePointerMove);
+		offs.push(on(node, events.down, handlePointerDown));
+		offs.push(on(node, events.leave, handlePointerUpAndLeave));
+		offs.push(on(node, events.up, handlePointerUpAndLeave));
+		offs.push(on(node, events.move, handlePointerMove));
 	}
 
 	function removeEvents() {
 		if (!node) return;
-		node.removeEventListener(events.down, handlePointerDown);
-		node.removeEventListener(events.leave, handlePointerUpAndLeave);
-		node.removeEventListener(events.up, handlePointerUpAndLeave);
-		node.removeEventListener(events.move, handlePointerMove);
+		offs.forEach(unsub => unsub());
+		offs = [];
 	}
 
 	function changeCursor(active = false) {

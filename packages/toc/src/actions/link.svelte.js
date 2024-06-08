@@ -1,3 +1,5 @@
+import { on } from 'svelte/events';
+
 import { ATTRIBUTES } from '../attributes/index.js';
 
 /**
@@ -52,10 +54,13 @@ export function createTocLinkAction(toc) {
 
 		resolveAttributes();
 
+		/** @type {undefined | (() => void)} */
+		let off;
+
 		// eslint-disable-next-line no-undef
 		$effect(() => {
 			if (toc.config.observe.link.enabled && toc.config.observe.link.throttleOnClick) {
-				node.addEventListener('click', handleClick);
+				off = on(node, 'click', handleClick);
 			}
 		});
 
@@ -73,7 +78,7 @@ export function createTocLinkAction(toc) {
 				resolveAttributes();
 			},
 			destroy() {
-				node.removeEventListener('click', handleClick);
+				off?.();
 			},
 		};
 	};

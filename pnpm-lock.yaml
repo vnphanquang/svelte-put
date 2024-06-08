@@ -101,8 +101,8 @@ importers:
         specifier: ^2.3.0
         version: 2.3.0
       svelte:
-        specifier: ^5.0.0-next.1
-        version: 5.0.0-next.136
+        specifier: ^5.0.0-next.152
+        version: 5.0.0-next.152
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -117,8 +117,8 @@ importers:
   packages/clickoutside:
     dependencies:
       svelte:
-        specifier: ^5.0.0-next.1
-        version: 5.0.0-next.136
+        specifier: ^5.0.0-next.152
+        version: 5.0.0-next.152
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -127,8 +127,8 @@ importers:
   packages/cloudflare-turnstile:
     dependencies:
       svelte:
-        specifier: ^5.0.0-next.1
-        version: 5.0.0-next.136
+        specifier: ^5.0.0-next.152
+        version: 5.0.0-next.152
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -137,8 +137,8 @@ importers:
   packages/copy:
     dependencies:
       svelte:
-        specifier: ^5.0.0-next.1
-        version: 5.0.0-next.136
+        specifier: ^5.0.0-next.152
+        version: 5.0.0-next.152
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -147,8 +147,8 @@ importers:
   packages/dragscroll:
     dependencies:
       svelte:
-        specifier: ^5.0.0-next.1
-        version: 5.0.0-next.136
+        specifier: ^5.0.0-next.152
+        version: 5.0.0-next.152
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -157,8 +157,8 @@ importers:
   packages/inline-svg:
     dependencies:
       svelte:
-        specifier: ^5.0.0-next.1
-        version: 5.0.0-next.136
+        specifier: ^5.0.0-next.152
+        version: 5.0.0-next.152
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -167,8 +167,8 @@ importers:
   packages/intersect:
     dependencies:
       svelte:
-        specifier: ^5.0.0-next.1
-        version: 5.0.0-next.136
+        specifier: ^5.0.0-next.152
+        version: 5.0.0-next.152
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -221,8 +221,8 @@ importers:
   packages/movable:
     dependencies:
       svelte:
-        specifier: ^5.0.0-next.1
-        version: 5.0.0-next.136
+        specifier: ^5.0.0-next.152
+        version: 5.0.0-next.152
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -231,8 +231,8 @@ importers:
   packages/noti:
     dependencies:
       svelte:
-        specifier: ^5.0.0-next.1
-        version: 5.0.0-next.136
+        specifier: ^5.0.0-next.152
+        version: 5.0.0-next.152
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -247,11 +247,11 @@ importers:
         specifier: ^0.30.10
         version: 0.30.10
       svelte:
-        specifier: ^5.0.0-next.1
-        version: 5.0.0-next.136
+        specifier: ^5.0.0-next.152
+        version: 5.0.0-next.152
       svelte-parse-markup:
         specifier: ^0.1.5
-        version: 0.1.5(svelte@5.0.0-next.136)
+        version: 0.1.5(svelte@5.0.0-next.152)
       zimmerframe:
         specifier: ^1.1.2
         version: 1.1.2
@@ -269,11 +269,11 @@ importers:
         specifier: ^0.30.10
         version: 0.30.10
       svelte:
-        specifier: ^5.0.0-next.1
-        version: 5.0.0-next.136
+        specifier: ^5.0.0-next.152
+        version: 5.0.0-next.152
       svelte-parse-markup:
         specifier: ^0.1.5
-        version: 0.1.5(svelte@5.0.0-next.136)
+        version: 0.1.5(svelte@5.0.0-next.152)
       zimmerframe:
         specifier: ^1.1.2
         version: 1.1.2
@@ -291,11 +291,11 @@ importers:
         specifier: ^0.30.10
         version: 0.30.10
       svelte:
-        specifier: ^5.0.0-next.1
-        version: 5.0.0-next.136
+        specifier: ^5.0.0-next.152
+        version: 5.0.0-next.152
       svelte-parse-markup:
         specifier: ^0.1.5
-        version: 0.1.5(svelte@5.0.0-next.136)
+        version: 0.1.5(svelte@5.0.0-next.152)
       svg-parser:
         specifier: ^2.0.4
         version: 2.0.4
@@ -317,7 +317,7 @@ importers:
         version: 1.6.3
       '@svelte-put/copy':
         specifier: ^4.0.0-next.0
-        version: 4.0.0-next.0(svelte@5.0.0-next.136)
+        version: 4.0.0-next.0(svelte@5.0.0-next.152)
       hast-util-to-html:
         specifier: ^9.0.1
         version: 9.0.1
@@ -346,11 +346,11 @@ importers:
         specifier: ^1.6.3
         version: 1.6.3
       svelte:
-        specifier: ^5.0.0-next.1
-        version: 5.0.0-next.136
+        specifier: ^5.0.0-next.152
+        version: 5.0.0-next.152
       svelte-parse-markup:
         specifier: ^0.1.5
-        version: 0.1.5(svelte@5.0.0-next.136)
+        version: 0.1.5(svelte@5.0.0-next.152)
       unified:
         specifier: ^11.0.4
         version: 11.0.4
@@ -374,8 +374,8 @@ importers:
         specifier: ^1.4.4
         version: 1.4.4
       svelte:
-        specifier: ^5.0.0-next.1
-        version: 5.0.0-next.136
+        specifier: ^5.0.0-next.152
+        version: 5.0.0-next.152
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -384,8 +384,8 @@ importers:
   packages/resize:
     dependencies:
       svelte:
-        specifier: ^5.0.0-next.1
-        version: 5.0.0-next.136
+        specifier: ^5.0.0-next.152
+        version: 5.0.0-next.152
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -425,8 +425,8 @@ importers:
   packages/shortcut:
     dependencies:
       svelte:
-        specifier: ^5.0.0-next.1
-        version: 5.0.0-next.136
+        specifier: ^5.0.0-next.152
+        version: 5.0.0-next.152
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -435,8 +435,8 @@ importers:
   packages/toc:
     dependencies:
       svelte:
-        specifier: ^5.0.0-next.1
-        version: 5.0.0-next.136
+        specifier: ^5.0.0-next.152
+        version: 5.0.0-next.152
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -4146,10 +4146,6 @@ packages:
     resolution: {integrity: sha512-d8+wsh5TfPwqVzbm4/HCXC783/KPHV60NvwitJnyTA5lWn1elhXMNWhXGCJ7PwPa8qFUnyJNIyuIRt2mT0WMug==}
     engines: {node: '>=16'}
 
-  svelte@5.0.0-next.136:
-    resolution: {integrity: sha512-M3jHAIfWZ7K+hjZdvu2p53ZtWE843yubxJfjxeQw9XiwMYG5z6quCA5u8r23GrxAp20JBl36B6ucbZvLUf0Z/g==}
-    engines: {node: '>=18'}
-
   svelte@5.0.0-next.152:
     resolution: {integrity: sha512-/qepboI/elf4Jg/pRM/0drsF9vwXBYqOwSpZOq+cduddU9413pDlHZODBqwrDy9xVt24tQb+1x1EMSbwI9eizA==}
     engines: {node: '>=18'}
@@ -5241,10 +5237,6 @@ snapshots:
   '@svelte-put/copy@3.0.2(svelte@5.0.0-next.152)':
     dependencies:
       svelte: 5.0.0-next.152
-
-  '@svelte-put/copy@4.0.0-next.0(svelte@5.0.0-next.136)':
-    dependencies:
-      svelte: 5.0.0-next.136
 
   '@svelte-put/copy@4.0.0-next.0(svelte@5.0.0-next.152)':
     dependencies:
@@ -8471,10 +8463,6 @@ snapshots:
     optionalDependencies:
       svelte: 5.0.0-next.152
 
-  svelte-parse-markup@0.1.5(svelte@5.0.0-next.136):
-    dependencies:
-      svelte: 5.0.0-next.136
-
   svelte-parse-markup@0.1.5(svelte@5.0.0-next.152):
     dependencies:
       svelte: 5.0.0-next.152
@@ -8516,22 +8504,6 @@ snapshots:
       locate-character: 3.0.0
       magic-string: 0.30.9
       periscopic: 3.1.0
-
-  svelte@5.0.0-next.136:
-    dependencies:
-      '@ampproject/remapping': 2.3.0
-      '@jridgewell/sourcemap-codec': 1.4.15
-      '@types/estree': 1.0.5
-      acorn: 8.11.3
-      acorn-typescript: 1.4.13(acorn@8.11.3)
-      aria-query: 5.3.0
-      axobject-query: 4.0.0
-      esm-env: 1.0.0
-      esrap: 1.2.2
-      is-reference: 3.0.2
-      locate-character: 3.0.0
-      magic-string: 0.30.10
-      zimmerframe: 1.1.2
 
   svelte@5.0.0-next.152:
     dependencies:

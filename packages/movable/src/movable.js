@@ -1,4 +1,5 @@
 import { tick } from 'svelte';
+import { on } from 'svelte/events';
 
 /**
  * Trigger node displacement on pointerdown (via position.left & position.top)
@@ -249,6 +250,8 @@ export function movable(node, param = { enabled: true }) {
 		updateLastNodePosition({ top, left });
 	}
 
+	/** @type {Array<() => void>} */
+	let offPointerEvents = [];
 	function end() {
 		document.body.style.userSelect = '';
 		if (cursor) {
@@ -257,9 +260,8 @@ export function movable(node, param = { enabled: true }) {
 			}
 			handle.style.cursor = 'grab';
 		}
-		window.removeEventListener('pointermove', move);
-		window.removeEventListener('pointerup', end);
-		window.removeEventListener('pointercancel', end);
+		offPointerEvents.forEach((off) => off());
+		offPointerEvents = [];
 
 		/** @type {import('./public').MovableEventDetail} */
 		const detail = { node, position: lastNodePosition };
@@ -305,9 +307,9 @@ export function movable(node, param = { enabled: true }) {
 			document.body.style.cursor = 'grabbing';
 			handle.style.cursor = 'grabbing';
 		}
-		window.addEventListener('pointermove', move);
-		window.addEventListener('pointerup', end);
-		window.addEventListener('pointercancel', end);
+		offPointerEvents.push(on(window, 'pointermove', move));
+		offPointerEvents.push(on(window, 'pointerup', end));
+		offPointerEvents.push(on(window, 'pointercancel', end));
 	}
 
 	function addStyles() {
@@ -337,8 +339,10 @@ export function movable(node, param = { enabled: true }) {
 		}
 	}
 
+	/** @type {undefined | (() => void)} */
+	let offPointerDownEvent;
 	if (enabled) {
-		handle.addEventListener('pointerdown', start, true);
+		offPointerDownEvent = on(handle, 'pointerdown', start, true);
 		tick().then(() => {
 			addStyles();
 		});
@@ -346,18 +350,18 @@ export function movable(node, param = { enabled: true }) {
 	return {
 		update(update) {
 			removeStyles();
-			handle.removeEventListener('pointerdown', start, true);
+			offPointerDownEvent?.();
 			({ parent, normalizedDelta, handle, enabled, ignore, cursor } = input(node, update));
 
 			if (enabled) {
-				handle.addEventListener('pointerdown', start, true);
+				offPointerDownEvent = on(handle, 'pointerdown', start, true);
 				tick().then(() => {
 					addStyles();
 				});
 			}
 		},
 		destroy() {
-			handle.removeEventListener('pointerdown', start, true);
+			offPointerDownEvent?.();
 			removeStyles();
 		},
 	};
