@@ -156,13 +156,34 @@ importers:
 
   packages/inline-svg:
     dependencies:
+      hast-util-to-html:
+        specifier: ^9.0.1
+        version: 9.0.1
+      magic-string:
+        specifier: ^0.30.10
+        version: 0.30.10
       svelte:
         specifier: ^5.0.0-next.152
         version: 5.0.0-next.152
+      svelte-parse-markup:
+        specifier: ^0.1.5
+        version: 0.1.5(svelte@5.0.0-next.152)
+      svg-parser:
+        specifier: ^2.0.4
+        version: 2.0.4
+      vite:
+        specifier: ^5.0.0
+        version: 5.2.13(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))
+      zimmerframe:
+        specifier: ^1.1.2
+        version: 1.1.2
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
         version: link:../../internals/tsconfig
+      '@types/svg-parser':
+        specifier: ^2.0.6
+        version: 2.0.6
 
   packages/intersect:
     dependencies:
@@ -281,34 +302,6 @@ importers:
       '@internals/tsconfig':
         specifier: workspace:*
         version: link:../../internals/tsconfig
-
-  packages/preprocess-inline-svg:
-    dependencies:
-      hast-util-to-html:
-        specifier: ^9.0.1
-        version: 9.0.1
-      magic-string:
-        specifier: ^0.30.10
-        version: 0.30.10
-      svelte:
-        specifier: ^5.0.0-next.152
-        version: 5.0.0-next.152
-      svelte-parse-markup:
-        specifier: ^0.1.5
-        version: 0.1.5(svelte@5.0.0-next.152)
-      svg-parser:
-        specifier: ^2.0.4
-        version: 2.0.4
-      zimmerframe:
-        specifier: ^1.1.2
-        version: 1.1.2
-    devDependencies:
-      '@internals/tsconfig':
-        specifier: workspace:*
-        version: link:../../internals/tsconfig
-      '@types/svg-parser':
-        specifier: ^2.0.6
-        version: 2.0.6
 
   packages/preprocess-markdown:
     dependencies:
@@ -497,9 +490,6 @@ importers:
       '@svelte-put/preprocess-auto-slug':
         specifier: workspace:*
         version: link:../../packages/preprocess-auto-slug
-      '@svelte-put/preprocess-inline-svg':
-        specifier: workspace:*
-        version: link:../../packages/preprocess-inline-svg
       '@svelte-put/qr':
         specifier: workspace:^
         version: link:../../packages/qr
@@ -591,9 +581,6 @@ importers:
       '@svelte-put/preprocess-external-link':
         specifier: workspace:*
         version: link:../../packages/preprocess-external-link
-      '@svelte-put/preprocess-inline-svg':
-        specifier: workspace:*
-        version: link:../../packages/preprocess-inline-svg
       '@svelte-put/preprocess-markdown':
         specifier: workspace:*
         version: link:../../packages/preprocess-markdown
@@ -2927,10 +2914,6 @@ packages:
   magic-string@0.30.10:
     resolution: {integrity: sha512-iIRwTIf0QKV3UAnYK4PU8uiEc4SRh5jX0mwpIwETPpHdhVM4f53RSwS/vXvN1JhGX+Cs7B8qIq3d6AH49O5fAQ==}
 
-  magic-string@0.30.9:
-    resolution: {integrity: sha512-S1+hd+dIrC8EZqKyT9DstTH/0Z+f76kmmvZnkfQVmOpDEF9iVgdYif3Q/pIWHmCoo59bQVGW0kVL3e2nl+9+Sw==}
-    engines: {node: '>=12'}
-
   map-obj@1.0.1:
     resolution: {integrity: sha512-7N/q3lyZ+LVCp7PzuxrJr4KMbBE2hW7BT7YNia330OFxIf4d3r5zVpicP2650l7CPN6RM9zOJRl3NGpqSiw3Eg==}
     engines: {node: '>=0.10.0'}
@@ -3381,9 +3364,6 @@ packages:
 
   periscopic@3.1.0:
     resolution: {integrity: sha512-vKiQ8RRtkl9P+r/+oefh25C3fhybptkHKCZSPlcXiJux2tJF55GnEj3BVn4A5gKfq9NWWXXrxkHBwVPUfH0opw==}
-
-  picocolors@1.0.0:
-    resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
 
   picocolors@1.0.1:
     resolution: {integrity: sha512-anP1Z8qwhkbmu7MFP5iTt+wQKXgwzf7zTyGlcdzabySa9vd0Xt392U0rVmz9poOaBj0uHJKyyo9/upk0HrEQew==}
@@ -7064,10 +7044,6 @@ snapshots:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  magic-string@0.30.9:
-    dependencies:
-      '@jridgewell/sourcemap-codec': 1.4.15
-
   map-obj@1.0.1: {}
 
   map-obj@4.3.0: {}
@@ -7695,8 +7671,6 @@ snapshots:
       '@types/estree': 1.0.5
       estree-walker: 3.0.3
       is-reference: 3.0.2
-
-  picocolors@1.0.0: {}
 
   picocolors@1.0.1: {}
 
@@ -8502,7 +8476,7 @@ snapshots:
       estree-walker: 3.0.3
       is-reference: 3.0.2
       locate-character: 3.0.0
-      magic-string: 0.30.9
+      magic-string: 0.30.10
       periscopic: 3.1.0
 
   svelte@5.0.0-next.152:
@@ -8760,7 +8734,7 @@ snapshots:
     dependencies:
       browserslist: 4.23.0
       escalade: 3.1.2
-      picocolors: 1.0.0
+      picocolors: 1.0.1
 
   uri-js@4.4.1:
     dependencies:

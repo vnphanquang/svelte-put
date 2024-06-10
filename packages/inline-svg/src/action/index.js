@@ -1,4 +1,4 @@
-import { calculateDimensions } from './inline-svg.internal.js';
+import { calculateDimensions } from './internals.js';
 
 /**
  *
@@ -28,8 +28,8 @@ import { calculateDimensions } from './inline-svg.internal.js';
  * export default config;
  * ```
  * @param {SVGElement} node - SVGElement to inline SVG into
- * @param {import('./public.js').InlineSvgParameter} param - config for the action.
- * @returns {import('./public').InlineSvgActionReturn}
+ * @param {import('./types.d.ts').InlineSvgParameter} param - config for the action.
+ * @returns {import('./types.d.ts').InlineSvgActionReturn}
  */
 export function inlineSvg(node, param) {
 	let config = resolveConfig(param);
@@ -66,7 +66,7 @@ export function inlineSvg(node, param) {
 
 /**
  * @package
- * @type {Required<import('./public.js').InlineSvgConfig>}
+ * @type {Required<import('./types.js').InlineSvgConfig>}
  */
 export const DEFAULT_INLINE_SVG_ACTION_CONFIG = {
 	src: '',
@@ -78,8 +78,8 @@ export const DEFAULT_INLINE_SVG_ACTION_CONFIG = {
 /**
  * resolve the input parameters of `inlineSvg` action to an internally usable config
  * @package
- * @param {import('./public').InlineSvgParameter | undefined} param
- * @returns {Required<import('./public.js').InlineSvgConfig>}
+ * @param {import('./types.js').InlineSvgParameter | undefined} param
+ * @returns {Required<import('./types.js').InlineSvgConfig>}
  */
 export function resolveConfig(param = '') {
 	if (typeof param === 'string') {
@@ -97,5 +97,5 @@ export function resolveConfig(param = '') {
 
 /**
  * Deprecated, use `InlineSvgParameter` and `InlineSvgConfig` instead
- * @typedef {import('./public').InlineSvgParameter} InlineSvgParameters
+ * @typedef {import('./types.js').InlineSvgParameter} InlineSvgParameters
  */

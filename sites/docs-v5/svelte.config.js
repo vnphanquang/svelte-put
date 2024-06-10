@@ -4,7 +4,6 @@ import { fileURLToPath } from 'url';
 
 import autoSlug from '@svelte-put/preprocess-auto-slug';
 import externalLink from '@svelte-put/preprocess-external-link';
-import inlineSvg from '@svelte-put/preprocess-inline-svg';
 import { markdown, enhanceCodeBlock } from '@svelte-put/preprocess-markdown';
 import adapter from '@sveltejs/adapter-cloudflare';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
@@ -32,15 +31,6 @@ const config = {
         },
       },
     })),
-		inlineSvg([{
-			directories: [path.resolve(__dirname, 'src/lib/assets/images/svg')],
-			attributes: {
-				height: '24',
-				width: '24',
-			},
-		}], {
-			inlineSrcAttributeName: 'data-inline-src',
-		}),
     vitePreprocess(),
   ],
   kit: {

@@ -1,12 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 
-import { toHtml } from 'hast-util-to-html';
-import MagicString from 'magic-string';
-import { parse as parseSvelteMarkup } from 'svelte-parse-markup';
-import { parse as parseSvg } from 'svg-parser';
-import { walk } from 'zimmerframe';
-
 /**
  * @typedef {{ directories: string[]; attributes: Record<string, string> }} ResolvedSourceConfig
  */
@@ -18,7 +12,7 @@ export const DEFAULT_SOURCES_CONFIG = /** @satisfies {ResolvedSourceConfig} */({
 });
 
 /**
- * @param {import('./types').SourceConfig} [options]
+ * @param {import('./types.d.ts').SourceConfig} [options]
  * @returns {ResolvedSourceConfig}
  * @package
  */
@@ -39,7 +33,7 @@ function resolveSourceOptions(options) {
  * resolve config input and search for a default
  * If none is found, use DEFAULT_SOURCES_CONFIG.
  * If multiple of such input are found, throw an error.
- * @param {import('./types').SourceConfig | import('./types').SourceConfig[]} [sources]
+ * @param {import('./types.d.ts').SourceConfig | import('./types.d.ts').SourceConfig[]} [sources]
  * @returns {{ local: ResolvedSourceConfig; dirs: ResolvedSourceConfig[] }}
  * @package
  */
@@ -74,7 +68,7 @@ export function resolveSources(sources) {
 }
 
 /**
- * @typedef {Required<import('./types').InlineSvgConfig>} ResolvedInlineSvgConfig
+ * @typedef {Required<import('./types.d.ts').InlineSvgConfig>} ResolvedInlineSvgConfig
  */
 
 /** @package */
@@ -85,7 +79,7 @@ export const DEFAULT_INLINE_SVG_CONFIG = /** @type {ResolvedInlineSvgConfig} */(
 
 /**
  * @package
- * @param {import('./types').InlineSvgConfig} [config]
+ * @param {import('./types.d.ts').InlineSvgConfig} [config]
  * @returns {ResolvedInlineSvgConfig}
  */
 export function resolveInlineSvgConfig(config = {}) {
@@ -143,87 +137,4 @@ export function getAttribute(source, node, attributeName) {
 		}
 		return raw;
 	}
-}
-
-/**
- * @param {string} code
- * @param {string} filename
- * @param {ReturnType<typeof resolveSources>} sources
- * @param {ResolvedInlineSvgConfig} config
- * @returns {ReturnType<import('svelte/compiler').MarkupPreprocessor>}
- */
-export function transform(code, filename, sources, config) {
-	const { local, dirs } = sources;
-	const { inlineSrcAttributeName, keepInlineSrcAttribute } = config;
-
-	const s = new MagicString(code);
-	const ast = parseSvelteMarkup(code, { filename, modern: true });
-
-	walk(/** @type {import('svelte/compiler').ElementLike} */(/** @type {unknown} */(ast.fragment)), null, {
-		RegularElement(node, { next }) {
-			if (node.name !== 'svg') return next();
-			let options = local;
-			let inlineSrc = getAttribute(code, node, inlineSrcAttributeName);
-			let svgSource = findSvgSrc(filename, options.directories, inlineSrc);
-			if (!svgSource) {
-				for (let i = 0; i < dirs.length; i++) {
-					options = dirs[i];
-					inlineSrc = getAttribute(code, node, inlineSrcAttributeName);
-					svgSource = findSvgSrc(filename, options.directories, inlineSrc);
-					if (svgSource) break;
-				}
-			}
-
-			if (!inlineSrc) return;
-			if (!svgSource) {
-				throw new Error(
-					`\n@svelte-put/preprocess-inline-svg: cannot find svg source for ${inlineSrc} at ${filename}`,
-				);
-			}
-
-			const hast = parseSvg(fs.readFileSync(svgSource, 'utf8'));
-			const svg = /** @type {import('svg-parser').ElementNode} */(hast.children[0]);
-
-			const attributes = {
-				...svg.properties,
-				...options.attributes,
-			};
-
-			node.attributes.map((attr) => {
-				if (attr.type === 'Attribute') {
-					// remove the source attribute, unless instructed otherwise by global user config
-					if (attr.name === inlineSrcAttributeName && !keepInlineSrcAttribute) {
-						s.remove(attr.start, attr.end);
-					}
-
-					// if user specify an attribute, overwrite any existing one
-					if (attributes[attr.name]) {
-						delete attributes[attr.name];
-					}
-				}
-			});
-
-			for (const [name, value] of Object.entries(attributes)) {
-				s.appendRight(node.start + '<svg'.length, ` ${name}="${value}" `);
-			}
-
-			let insertIndex = node.end - '/>'.length;
-			if (s.slice(insertIndex, node.end) !== '/>') {
-				insertIndex = node.end - '</svg>'.length;
-			}
-
-			const content = toHtml(/** @type {any} */(svg.children), {
-				allowDangerousCharacters: true,
-			});
-			s.update(insertIndex, node.end, `>${content}</svg>`);
-
-			return;
-		},
-	});
-
-	return {
-		code: s.toString(),
-		map: s.generateMap(),
-	};
-
 }
