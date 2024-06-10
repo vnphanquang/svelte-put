@@ -14,7 +14,8 @@ const config: UserConfig = {
 				width: '24',
 			},
 		}], {
-			inlineSrcAttributeName: 'data-inline-src',
+			inlineSrcAttributeName: 'inline-src',
+			typedef: path.resolve(__dirname, 'src/static-svg.generated.d.ts')
 		}),
 		enhancedImages(),
 		sveltekit(),

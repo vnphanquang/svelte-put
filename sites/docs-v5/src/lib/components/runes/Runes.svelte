@@ -6,7 +6,7 @@
 
 <div {...rest}>
 	<button popovertarget="rune-popover" type="button" class="hover:text-link transition-colors">
-		<svg data-inline-src="runes" width="80" height="80"></svg>
+		<svg inline-src="runes" width="80" height="80"></svg>
 	</button>
 	<!-- TODO: enhance with floating-ui and/or @svelte-put/tooltip -->
 	<div id="rune-popover" popover="auto" class="rounded bg-bg-200 text-fg py-2 px-4 not-prose text-sm backdrop:bg-bg backdrop:opacity-50 relative">

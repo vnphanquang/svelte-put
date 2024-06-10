@@ -60,7 +60,7 @@ Pass one or more event types to the `event` option.
 The `trigger` option, which typically takes an `HTMLElement`, specifies the node to which the event listener is attached.
 
 <p class="c-callout c-callout--info">
-The copy <svg data-inline-src="phosphor/clipboard" class="inline" height="16" width="16" /> button seen in code blocks on this site is powered by this very action.
+The copy <svg inline-src="phosphor/clipboard" class="inline" height="16" width="16" /> button seen in code blocks on this site is powered by this very action.
 </p>
 
 A typical use case is clicking on a node to copy text within some other node. In the demo below, try clicking on the <span class="bg-green-500 text-black px-2">green</span> button to copy text in the <span class="border-yellow-500 border px-2">yellow</span>-bordered box.

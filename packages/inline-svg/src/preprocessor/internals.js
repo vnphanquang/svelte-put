@@ -2,19 +2,26 @@ import fs from 'fs';
 import path from 'path';
 
 /**
- * @typedef {{ directories: string[]; attributes: Record<string, string> }} ResolvedSourceConfig
+ * @typedef ResolvedSourceDefinition
+ * @property {string[]} directories - directories to search for SVG files
+ * @property {Record<string, string>} attributes - HTML attributes to apply to SVG element
+ */
+
+/**
+ * @typedef ResolvedSources
+ * @property {ResolvedSourceDefinition} local - fallback definition
+ * @property {ResolvedSourceDefinition[]} dirs - specific directories-based definitions
  */
 
 /** @package */
-export const DEFAULT_SOURCES_CONFIG = /** @satisfies {ResolvedSourceConfig} */({
+export const DEFAULT_SOURCES_CONFIG = /** @satisfies {ResolvedSourceDefinition} */({
 	directories: [],
 	attributes: {},
 });
 
 /**
- * @param {import('./types.d.ts').SourceConfig} [options]
- * @returns {ResolvedSourceConfig}
- * @package
+ * @param {import('./types').PreprocessorSourceDefinition} [options]
+ * @returns {ResolvedSourceDefinition}
  */
 function resolveSourceOptions(options) {
 	return {
@@ -33,9 +40,8 @@ function resolveSourceOptions(options) {
  * resolve config input and search for a default
  * If none is found, use DEFAULT_SOURCES_CONFIG.
  * If multiple of such input are found, throw an error.
- * @param {import('./types.d.ts').SourceConfig | import('./types.d.ts').SourceConfig[]} [sources]
- * @returns {{ local: ResolvedSourceConfig; dirs: ResolvedSourceConfig[] }}
- * @package
+ * @param {import('./types').PreprocessorSourceDefinition | import('./types.d.ts').PreprocessorSourceDefinition[]} [sources]
+ * @returns {ResolvedSources}
  */
 export function resolveSources(sources) {
 	if (!sources) return { local: DEFAULT_SOURCES_CONFIG, dirs: [] };
@@ -68,19 +74,18 @@ export function resolveSources(sources) {
 }
 
 /**
- * @typedef {Required<import('./types.d.ts').InlineSvgConfig>} ResolvedInlineSvgConfig
+ * @typedef {Required<import('./types.d.ts').PreprocessorConfig>} ResolvedPreprocessorConfig
  */
 
 /** @package */
-export const DEFAULT_INLINE_SVG_CONFIG = /** @type {ResolvedInlineSvgConfig} */({
+export const DEFAULT_INLINE_SVG_CONFIG = /** @type {ResolvedPreprocessorConfig} */({
 	inlineSrcAttributeName: 'data-inline-src',
 	keepInlineSrcAttribute: false,
 });
 
 /**
- * @package
- * @param {import('./types.d.ts').InlineSvgConfig} [config]
- * @returns {ResolvedInlineSvgConfig}
+ * @param {import('./types.d.ts').PreprocessorConfig} [config]
+ * @returns {ResolvedPreprocessorConfig}
  */
 export function resolveInlineSvgConfig(config = {}) {
 	return {
@@ -96,11 +101,10 @@ export function resolveInlineSvgConfig(config = {}) {
  * @param {string[]} directories
  * @param {string} [inlineSrc]
  * @returns {string | undefined}
- * @package
  */
 export function findSvgSrc(filename, directories, inlineSrc) {
 	/** @type {string | undefined} */
-	let resolvedSrc= undefined;
+	let resolvedSrc = undefined;
 	if (inlineSrc) {
 		if (!inlineSrc.endsWith('.svg')) inlineSrc += '.svg';
 		if (directories.length === 0) {

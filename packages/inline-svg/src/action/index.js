@@ -28,7 +28,7 @@ import { calculateDimensions } from './internals.js';
  * export default config;
  * ```
  * @param {SVGElement} node - SVGElement to inline SVG into
- * @param {import('./types.d.ts').InlineSvgParameter} param - config for the action.
+ * @param {import('./types.d.ts').InlineSvgActionParameter} param - config for the action.
  * @returns {import('./types.d.ts').InlineSvgActionReturn}
  */
 export function inlineSvg(node, param) {
@@ -66,7 +66,7 @@ export function inlineSvg(node, param) {
 
 /**
  * @package
- * @type {Required<import('./types.js').InlineSvgConfig>}
+ * @type {Required<import('./types.js').InlineSvgActionConfig>}
  */
 export const DEFAULT_INLINE_SVG_ACTION_CONFIG = {
 	src: '',
@@ -78,8 +78,8 @@ export const DEFAULT_INLINE_SVG_ACTION_CONFIG = {
 /**
  * resolve the input parameters of `inlineSvg` action to an internally usable config
  * @package
- * @param {import('./types.js').InlineSvgParameter | undefined} param
- * @returns {Required<import('./types.js').InlineSvgConfig>}
+ * @param {import('./types.js').InlineSvgActionParameter | undefined} param
+ * @returns {Required<import('./types.js').InlineSvgActionConfig>}
  */
 export function resolveConfig(param = '') {
 	if (typeof param === 'string') {
@@ -96,6 +96,6 @@ export function resolveConfig(param = '') {
 }
 
 /**
- * Deprecated, use `InlineSvgParameter` and `InlineSvgConfig` instead
- * @typedef {import('./types.js').InlineSvgParameter} InlineSvgParameters
+ * Deprecated, use `InlineSvgActionParameter` and `InlineSvgActionConfig` instead
+ * @typedef {import('./types.js').InlineSvgActionParameter} InlineSvgActionParameters
  */

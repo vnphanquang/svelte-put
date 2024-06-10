@@ -22,11 +22,11 @@
 
 {#snippet icon(scheme: App.ColorScheme)}
 		{#if scheme === 'light'}
-			<svg data-inline-src="phosphor/sun" width="20" height="20"></svg>
+			<svg inline-src="phosphor/sun" width="20" height="20"></svg>
 		{:else if scheme === 'dark'}
-			<svg data-inline-src="phosphor/moon-stars" width="20" height="20"></svg>
+			<svg inline-src="phosphor/moon-stars" width="20" height="20"></svg>
 		{:else}
-			<svg data-inline-src="phosphor/sliders-horizontal" width="20" height="20"></svg>
+			<svg inline-src="phosphor/sliders-horizontal" width="20" height="20"></svg>
 		{/if}
 {/snippet}
 

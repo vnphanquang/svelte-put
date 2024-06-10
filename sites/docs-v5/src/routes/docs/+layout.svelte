@@ -41,12 +41,12 @@
     {/key}
 		<nav class="max-w-pad flex items-center py-2 flex-1" aria-label="header">
 			<a href="/" class="flex items-center gap-2 mr-auto">
-				<svg data-inline-src="svelte-put" width="32" height="32" />
+				<svg inline-src="svelte-put" width="32" height="32" />
 				<span class="font-fingerpaint text-sm font-bold text-gradient-brand">svelte-put</span>
 			</a>
 			<ColorSchemeMenu />
 			<a href={SOCIAL_LINKS.GITHUB} data-external class="c-link c-link--icon ml-4">
-				<svg data-inline-src="simpleicon/github" height="28" width="28" />
+				<svg inline-src="simpleicon/github" height="28" width="28" />
 			</a>
 		</nav>
 		<div class="max-w-pad flex items-center justify-between py-1 lg:justify-end border-t border-outline xl:hidden flex-1">

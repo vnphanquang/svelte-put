@@ -17,7 +17,7 @@
 <h1 class="flex items-center justify-between font-fingerpaint">
 	{data.package.name}
 	<a href={data.package.githubUrl} class="c-link c-link--icon" data-external>
-		<svg data-inline-src="simpleicon/github" class="inline" height="28" width="28" />
+		<svg inline-src="simpleicon/github" class="inline" height="28" width="28" />
 	</a>
 </h1>
 {#if data.package.description}
@@ -89,7 +89,7 @@
 {:else}
 	<div class="flex flex-col items-center text-center">
     <p class="text-lg font-bold">Wow, such empty</p>
-		<svg data-inline-src="blocks" height="200" width="655" class="text-bg-200 max-w-full h-auto" />
+		<svg inline-src="blocks" height="200" width="655" class="text-bg-200 max-w-full h-auto" />
     <p class="mt-10">
 			Documentation is being put together and will be available very soon.
 			<br />
