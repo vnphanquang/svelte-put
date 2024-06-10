@@ -1,7 +1,7 @@
 import { ActionReturn, Action } from 'svelte/action';
 
 /** verbose config for `inlineSvg` action */
-export interface InlineSvgConfig {
+export interface InlineSvgActionConfig {
 	/** svg remote URI */
 	src: string;
 	/** cache policy for use in fetch from svg `src` */
@@ -26,6 +26,6 @@ export interface InlineSvgConfig {
 	transform?: (svg: string) => string;
 }
 /** input parameters for `inlineSvg` action */
-export type InlineSvgParameter = string | InlineSvgConfig;
-export type InlineSvgAction = Action<SVGElement, InlineSvgParameter>;
-export type InlineSvgActionReturn = ActionReturn<InlineSvgParameter>;
+export type InlineSvgActionParameter = string | InlineSvgActionConfig;
+export type InlineSvgAction = Action<SVGElement, InlineSvgActionParameter>;
+export type InlineSvgActionReturn = ActionReturn<InlineSvgActionParameter>;

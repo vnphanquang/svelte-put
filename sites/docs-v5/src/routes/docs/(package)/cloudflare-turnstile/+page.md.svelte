@@ -154,7 +154,7 @@ type Turnstile = {
 ## Backend Integration (with SvelteKit)
 
 <div class="flex flex-col items-center text-center">
-  <svg data-inline-src="blocks" height="200" width="655" class="text-bg-200 max-w-full h-auto"></svg>
+  <svg inline-src="blocks" height="200" width="655" class="text-bg-200 max-w-full h-auto"></svg>
   <p class="mt-10">
     Coming soon...
   </p>

@@ -10,8 +10,8 @@ import { findSvgSrc, getAttribute } from './internals.js';
 
 /**
  * create a preprocessor that inlines SVG from disk to source code at compile time
- * @param {ReturnType<typeof import('./internals.js').resolveSources>} sources - sources to search for svg
- * @param {ReturnType<typeof import('./internals.js').resolveInlineSvgConfig>} config - global options to configure preprocessor input & output
+ * @param {import('./internals.js').ResolvedSources} sources - sources to search for svg
+ * @param {import('./internals.js').ResolvedPreprocessorConfig} config - global options to configure preprocessor input & output
  * @returns {import('svelte/compiler').PreprocessorGroup} - Svelte preprocessor interface
  */
 export function preprocessor(sources, config) {
