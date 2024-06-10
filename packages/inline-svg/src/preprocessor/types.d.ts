@@ -24,3 +24,4 @@ export type InlineSvgConfig = {
 	/** whether to keep the inline src attribute after build, default to `false` */
 	keepInlineSrcAttribute?: boolean;
 };
+

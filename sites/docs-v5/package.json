@@ -27,7 +27,6 @@
 		"@svelte-put/noti": "workspace:^",
 		"@svelte-put/preprocess-auto-slug": "workspace:*",
 		"@svelte-put/preprocess-external-link": "workspace:*",
-		"@svelte-put/preprocess-inline-svg": "workspace:*",
 		"@svelte-put/preprocess-markdown": "workspace:*",
 		"@svelte-put/qr": "workspace:^",
 		"@svelte-put/resize": "workspace:*",

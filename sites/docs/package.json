@@ -28,7 +28,6 @@
 		"@svelte-put/movable": "workspace:*",
 		"@svelte-put/noti": "workspace:^",
 		"@svelte-put/preprocess-auto-slug": "workspace:*",
-		"@svelte-put/preprocess-inline-svg": "workspace:*",
 		"@svelte-put/qr": "workspace:^",
 		"@svelte-put/resize": "workspace:*",
 		"@svelte-put/select": "workspace:*",
