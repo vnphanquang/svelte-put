@@ -15,7 +15,7 @@ const config: UserConfig = {
 			},
 		}], {
 			inlineSrcAttributeName: 'inline-src',
-			typedef: path.resolve(__dirname, 'src/static-svg.generated.d.ts')
+			typedef: true,
 		}),
 		enhancedImages(),
 		sveltekit(),

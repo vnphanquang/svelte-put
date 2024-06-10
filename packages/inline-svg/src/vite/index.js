@@ -1,3 +1,5 @@
+import path from 'path';
+
 import debounce from 'lodash.debounce';
 
 import { preprocessor } from '../preprocessor/index.js';
@@ -23,11 +25,18 @@ export function inlineSvg(sources, config) {
 		},
 		enforce: 'pre',
 		configureServer(server) {
-			if (typedef) {
-				generateSourceTyping(rSources, typedef);
+			const root = server.config.root;
+			const rTypedef = typeof typedef === 'string'
+				? typedef
+				: typedef === true
+					? path.resolve(root, 'src/preprocess-inline-svg.d.ts')
+					: null
+
+			if (rTypedef) {
+				generateSourceTyping(rSources, rConfig, rTypedef);
 
 				const updateSourceTyping = debounce(() => {
-					generateSourceTyping(rSources, typedef);
+					generateSourceTyping(rSources, rConfig, rTypedef);
 					server.ws.send({ type: 'full-reload' });
 				});
 
