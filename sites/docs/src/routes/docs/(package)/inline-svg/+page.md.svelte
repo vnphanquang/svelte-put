@@ -525,6 +525,10 @@ export default config;
 - [vite-plugin-svelte-svg] runs at build time as Svelte component; svg can be processed with [svgo].
 - [svg-to-svelte]: convert SVG files to svelte components.
 
+---
+
+Happy inlining SVGs! 👨‍💻
+
 [Svelte action]: https://svelte.dev/docs/svelte-action
 [Svelte preprocessor]: https://svelte.dev/docs/svelte-compiler#preprocess
 [runtime]: #runtime
