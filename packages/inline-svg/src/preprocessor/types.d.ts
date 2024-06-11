@@ -1,6 +1,4 @@
-/**
- * sources for the inline svg
- */
+/** sources for the inline svg */
 export type PreprocessorSourceDefinition = {
 	/**
 	 * directories relative to which the svg source path will be resolved
@@ -13,12 +11,10 @@ export type PreprocessorSourceDefinition = {
 	attributes?: Record<string, string>;
 };
 
-/**
- * global options for configuring behaviors of the inline-svg preprocessor
- */
+/** global options for configuring behaviors of the inline-svg preprocessor */
 export type PreprocessorConfig = {
-	/** attribute to get the svg source from, default to `data-inline-src` */
+	/** attribute to get the svg source from, default to `inline-src` */
 	inlineSrcAttributeName?: string;
-	/** whether to keep the inline src attribute after build, default to `false` */
+	/** whether to keep the inline src attribute after compilation, default to `false` */
 	keepInlineSrcAttribute?: boolean;
 };
