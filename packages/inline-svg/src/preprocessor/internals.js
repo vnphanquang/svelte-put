@@ -79,7 +79,7 @@ export function resolveSources(sources) {
 
 /** @package */
 export const DEFAULT_INLINE_SVG_CONFIG = /** @type {ResolvedPreprocessorConfig} */({
-	inlineSrcAttributeName: 'data-inline-src',
+	inlineSrcAttributeName: 'inline-src',
 	keepInlineSrcAttribute: false,
 });
 
