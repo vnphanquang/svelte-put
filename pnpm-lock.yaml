@@ -451,100 +451,6 @@ importers:
         specifier: workspace:*
         version: link:../../internals/tsconfig
 
-  sites/docs:
-    dependencies:
-      '@floating-ui/dom':
-        specifier: ^1.6.5
-        version: 1.6.5
-      mustache:
-        specifier: ^4.2.0
-        version: 4.2.0
-    devDependencies:
-      '@svelte-put/avatar':
-        specifier: workspace:*
-        version: link:../../packages/avatar
-      '@svelte-put/clickoutside':
-        specifier: workspace:*
-        version: link:../../packages/clickoutside
-      '@svelte-put/cloudflare-turnstile':
-        specifier: workspace:^
-        version: link:../../packages/cloudflare-turnstile
-      '@svelte-put/copy':
-        specifier: workspace:*
-        version: link:../../packages/copy
-      '@svelte-put/dragscroll':
-        specifier: workspace:*
-        version: link:../../packages/dragscroll
-      '@svelte-put/inline-svg':
-        specifier: workspace:*
-        version: link:../../packages/inline-svg
-      '@svelte-put/intersect':
-        specifier: workspace:*
-        version: link:../../packages/intersect
-      '@svelte-put/lockscroll':
-        specifier: workspace:*
-        version: link:../../packages/lockscroll
-      '@svelte-put/modal':
-        specifier: workspace:*
-        version: link:../../packages/modal
-      '@svelte-put/movable':
-        specifier: workspace:*
-        version: link:../../packages/movable
-      '@svelte-put/noti':
-        specifier: workspace:^
-        version: link:../../packages/noti
-      '@svelte-put/preprocess-auto-slug':
-        specifier: workspace:*
-        version: link:../../packages/preprocess-auto-slug
-      '@svelte-put/qr':
-        specifier: workspace:^
-        version: link:../../packages/qr
-      '@svelte-put/resize':
-        specifier: workspace:*
-        version: link:../../packages/resize
-      '@svelte-put/select':
-        specifier: workspace:*
-        version: link:../../packages/select
-      '@svelte-put/shortcut':
-        specifier: workspace:*
-        version: link:../../packages/shortcut
-      '@svelte-put/toc':
-        specifier: workspace:*
-        version: link:../../packages/toc
-      '@svelte-put/tooltip':
-        specifier: workspace:^
-        version: link:../../packages/tooltip
-      '@sveltejs/adapter-cloudflare':
-        specifier: ^4.4.0
-        version: 4.4.0(@sveltejs/kit@2.5.10(@sveltejs/vite-plugin-svelte@4.0.0-next.1(svelte@5.0.0-next.152)(vite@5.2.13(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))))(svelte@5.0.0-next.152)(vite@5.2.13(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))))(wrangler@3.60.0)
-      '@sveltejs/enhanced-img':
-        specifier: ^0.2.1
-        version: 0.2.1(rollup@4.18.0)(svelte@5.0.0-next.152)
-      '@sveltejs/kit':
-        specifier: ^2.5.10
-        version: 2.5.10(@sveltejs/vite-plugin-svelte@4.0.0-next.1(svelte@5.0.0-next.152)(vite@5.2.13(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))))(svelte@5.0.0-next.152)(vite@5.2.13(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38)))
-      '@sveltejs/vite-plugin-svelte':
-        specifier: ^4.0.0-next.1
-        version: 4.0.0-next.1(svelte@5.0.0-next.152)(vite@5.2.13(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38)))
-      '@sveltevietnam/ui':
-        specifier: 1.0.0-next.27
-        version: 1.0.0-next.27(postcss@8.4.38)(svelte@5.0.0-next.152)(tailwindcss@3.4.4)
-      '@total-typescript/ts-reset':
-        specifier: ^0.5.1
-        version: 0.5.1
-      '@types/mustache':
-        specifier: ^4.2.5
-        version: 4.2.5
-      postcss:
-        specifier: ^8.4.38
-        version: 8.4.38
-      tailwindcss:
-        specifier: ^3.4.4
-        version: 3.4.4
-      vite:
-        specifier: ^5.2.13
-        version: 5.2.13(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))
-
   sites/docs-v5:
     dependencies:
       mustache:
@@ -1117,15 +1023,6 @@ packages:
     resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
     engines: {node: '>=14'}
 
-  '@floating-ui/core@1.6.2':
-    resolution: {integrity: sha512-+2XpQV9LLZeanU4ZevzRnGFg2neDeKHgFLjP6YLW+tly0IvrhqT4u8enLGjLH3qeh85g19xY5rsAusfwTdn5lg==}
-
-  '@floating-ui/dom@1.6.5':
-    resolution: {integrity: sha512-Nsdud2X65Dz+1RHjAIP0t8z5e2ff/IRbei6BqFrl1urT8sDVzM1HMQ+R0XcU5ceRfyO3I6ayeqIfh+6Wb8LGTw==}
-
-  '@floating-ui/utils@0.2.2':
-    resolution: {integrity: sha512-J4yDIIthosAsRZ5CPYP/jQvUAQtlZTTD/4suA08/FEnlxqW3sKS9iAhgsa9VYLZ6vDHn/ixJgIqRQPotoBjxIw==}
-
   '@humanwhocodes/config-array@0.11.14':
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}
     engines: {node: '>=10.10.0'}
@@ -1404,11 +1301,6 @@ packages:
   '@shikijs/transformers@1.6.3':
     resolution: {integrity: sha512-ptBuP/IIeqCzK3zZO/knFICZWs58uZWzbv7ND+bKOewe5NcCjZfSiMyzFwOyl23ewPJ1APjRBwLi6Asrodmmxw==}
 
-  '@svelte-put/copy@3.0.2':
-    resolution: {integrity: sha512-BVD464jVZabcVy8yOJ2GpYmNaemysLSLL+bm9/mjFrMDvpNL7Iz6hWMjwRCYQxMODDm5tmi+zoDOynDAZ9ltdQ==}
-    peerDependencies:
-      svelte: ^3.55.0 || ^4.0.0 || ^5.0.0
-
   '@svelte-put/copy@4.0.0-next.0':
     resolution: {integrity: sha512-rGy76MF8k3rlMviHorc7de92jaYJNAMK+/OPCSeBPSTGQB+H/r01kBF6dZoYqR8yzHzMcojATbNCMy7HlvvaQw==}
     peerDependencies:
@@ -1458,13 +1350,6 @@ packages:
     peerDependencies:
       svelte: ^5.0.0-next.96 || ^5.0.0
       vite: ^5.0.0
-
-  '@sveltevietnam/ui@1.0.0-next.27':
-    resolution: {integrity: sha512-sQ/TUwlNFlVl263rW4inqeErF8xJzhr9ZSupmv+CtMZP7wL8gvvML9FeXgTkc7IDu9dvD6Ytg4sMn6qgrAJ+zg==}
-    peerDependencies:
-      postcss: ^8.0.0
-      svelte: ^4.0.0
-      tailwindcss: ^3.0.0
 
   '@sveltevietnam/ui@1.0.0-next.30':
     resolution: {integrity: sha512-d16zxAAyT2w3nD+Jx90HKylZzeMnlP9OcfAZyJt25m0wO7hM8Sjoxy7pypzjlg0OhuFEROS+yChSOexWHv4F3g==}
@@ -4989,17 +4874,6 @@ snapshots:
 
   '@fastify/busboy@2.1.1': {}
 
-  '@floating-ui/core@1.6.2':
-    dependencies:
-      '@floating-ui/utils': 0.2.2
-
-  '@floating-ui/dom@1.6.5':
-    dependencies:
-      '@floating-ui/core': 1.6.2
-      '@floating-ui/utils': 0.2.2
-
-  '@floating-ui/utils@0.2.2': {}
-
   '@humanwhocodes/config-array@0.11.14':
     dependencies:
       '@humanwhocodes/object-schema': 2.0.3
@@ -5229,10 +5103,6 @@ snapshots:
     dependencies:
       shiki: 1.6.3
 
-  '@svelte-put/copy@3.0.2(svelte@5.0.0-next.152)':
-    dependencies:
-      svelte: 5.0.0-next.152
-
   '@svelte-put/copy@4.0.0-next.0(svelte@5.0.0-next.152)':
     dependencies:
       svelte: 5.0.0-next.152
@@ -5347,32 +5217,6 @@ snapshots:
       svelte: 5.0.0-next.152
       vite: 5.2.13(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38))
       vitefu: 0.2.5(vite@5.2.13(@types/node@20.14.2)(sugarss@4.0.1(postcss@8.4.38)))
-    transitivePeerDependencies:
-      - supports-color
-
-  '@sveltevietnam/ui@1.0.0-next.27(postcss@8.4.38)(svelte@5.0.0-next.152)(tailwindcss@3.4.4)':
-    dependencies:
-      '@svelte-put/copy': 3.0.2(svelte@5.0.0-next.152)
-      '@tailwindcss/typography': 0.5.13(tailwindcss@3.4.4)
-      autoprefixer: 10.4.19(postcss@8.4.38)
-      hast-util-to-string: 3.0.0
-      hastscript: 9.0.0
-      magic-string: 0.30.10
-      mdsvex: https://github.com/vnphanquang/MDsveX/raw/master/packages/mdsvex/mdsvex-0.11.0.tgz(svelte@5.0.0-next.152)
-      postcss: 8.4.38
-      postcss-color-scheme: 1.0.1(postcss@8.4.38)
-      postcss-custom-selectors: 7.1.10(postcss@8.4.38)
-      postcss-html: 1.7.0
-      postcss-import: 16.1.0(postcss@8.4.38)
-      postcss-js: 4.0.1(postcss@8.4.38)
-      postcss-mixins: 10.0.1(postcss@8.4.38)
-      postcss-nesting: 12.1.4(postcss@8.4.38)
-      remark-containers: 1.2.0
-      remark-gfm: 4.0.0
-      shiki: 1.2.4
-      svelte: 5.0.0-next.152
-      svelte-parse-markup: 0.1.5(svelte@5.0.0-next.152)
-      tailwindcss: 3.4.4
     transitivePeerDependencies:
       - supports-color
 
