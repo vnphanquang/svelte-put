@@ -2,38 +2,35 @@ import path from 'path';
 
 import debounce from 'lodash.debounce';
 
-import { preprocessor } from '../preprocessor/index.js';
-import { resolveInlineSvgConfig, resolveSources } from '../preprocessor/internals.js';
+import { inlineSvg as preprocessor } from '../preprocessor/index.js';
 
 import { generateSourceTyping, matchFileExtension } from './internals.js';
 
 /**
  * create a Vite plugin that wraps a Svelte preprocessor to
  * inline SVG from disk to source code at compile time
- * @param {import('../preprocessor/types.d.ts').PreprocessorSourceDefinition[]} [sources]
- * @param {import('./types.d.ts').VitePluginConfig} [config]
+ * @param {import('../preprocessor/types.d.ts').PreprocessorSourceDefinition[]} [uSources]
+ * @param {import('./types.d.ts').VitePluginConfig} [uConfig]
  * @returns {import('vite').Plugin}
  */
-export function inlineSvg(sources, config) {
-	const { typedef, ...pConfig } = config ?? {};
-	const rConfig = resolveInlineSvgConfig(pConfig);
-	const rSources = resolveSources(sources);
-
+export function inlineSvg(uSources, uConfig) {
+	const { __params, ...sveltePreprocess } = preprocessor(uSources, uConfig);
+	const { config, sources } = __params;
 	return {
 		name: 'vite-plugin-svelte-preprocess-inline-svg',
-		api: {
-			sveltePreprocess: preprocessor(rSources, rConfig),
-		},
+		api: { sveltePreprocess },
 		enforce: 'pre',
 		configureServer(server) {
 			const root = server.config.root;
-			const rTypedef =
-				typeof typedef === 'string'
-					? typedef
-					: typedef === true
+
+			const iTypedef = uConfig?.typedef;
+			const typedef =
+				typeof iTypedef === 'string'
+					? iTypedef
+					: iTypedef === true
 						? path.resolve(root, 'src/preprocess-inline-svg.d.ts')
 						: null;
-			if (rTypedef) generateSourceTyping(rSources, rConfig, rTypedef);
+			if (typedef) generateSourceTyping(sources, config, typedef);
 
 			const reload = debounce(
 				/**
@@ -42,8 +39,8 @@ export function inlineSvg(sources, config) {
 				 */
 				(file, skip = false) => {
 					if (matchFileExtension(file, ['.svg'])) {
-						if (rTypedef && !skip) {
-							generateSourceTyping(rSources, rConfig, rTypedef);
+						if (typedef && !skip) {
+							generateSourceTyping(sources, config, typedef);
 						}
 						server.ws.send({ type: 'full-reload' });
 						server.moduleGraph.invalidateAll();
@@ -52,8 +49,8 @@ export function inlineSvg(sources, config) {
 			);
 
 			const directories = [
-				...rSources.local.directories,
-				...rSources.dirs.flatMap((d) => d.directories),
+				...sources.local.directories,
+				...sources.dirs.flatMap((d) => d.directories),
 			];
 			server.watcher.add(directories);
 

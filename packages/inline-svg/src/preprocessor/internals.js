@@ -87,7 +87,7 @@ export const DEFAULT_INLINE_SVG_CONFIG = /** @type {ResolvedPreprocessorConfig} 
  * @param {import('./types.d.ts').PreprocessorConfig} [config]
  * @returns {ResolvedPreprocessorConfig}
  */
-export function resolveInlineSvgConfig(config = {}) {
+export function resolveConfig(config = {}) {
 	return {
 		inlineSrcAttributeName:
 			config.inlineSrcAttributeName ?? DEFAULT_INLINE_SVG_CONFIG.inlineSrcAttributeName,

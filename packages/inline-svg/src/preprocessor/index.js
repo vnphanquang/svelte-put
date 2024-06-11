@@ -6,16 +6,25 @@ import { parse as parseSvelteMarkup } from 'svelte-parse-markup';
 import { parse as parseSvg } from 'svg-parser';
 import { walk } from 'zimmerframe';
 
-import { findSvgSrc, getAttribute } from './internals.js';
+import { findSvgSrc, getAttribute, resolveConfig, resolveSources } from './internals.js';
+
+/**
+ * @typedef ResolvedUserParameters
+ * @property {import('./internals.js').ResolvedSources} sources - resolved sources parameter
+ * @property {import('./internals.js').ResolvedPreprocessorConfig} config - resolved config parameter
+ */
 
 /**
  * create a preprocessor that inlines SVG from disk to source code at compile time
- * @param {import('./internals.js').ResolvedSources} sources - sources to search for svg
- * @param {import('./internals.js').ResolvedPreprocessorConfig} config - global options to configure preprocessor input & output
- * @returns {import('svelte/compiler').PreprocessorGroup} - Svelte preprocessor interface
+ * @param {import('./types.d.ts').PreprocessorSourceDefinition[]} [uSources] - sources to search for svg
+ * @param {import('./types.d.ts').PreprocessorConfig} [uConfig] - global options to configure preprocessor input & output
+ * @returns {import('svelte/compiler').PreprocessorGroup & { __params: ResolvedUserParameters }} - Svelte preprocessor interface
  */
-export function preprocessor(sources, config) {
+export function inlineSvg(uSources, uConfig) {
+	const config = resolveConfig(uConfig);
+	const sources = resolveSources(uSources);
 	return {
+		__params: { config, sources },
 		name: 'preprocess-inline-svg',
 		markup({ content, filename }) {
 			if (!filename) return;
@@ -100,3 +109,5 @@ export function preprocessor(sources, config) {
 		},
 	};
 }
+
+export default inlineSvg;
