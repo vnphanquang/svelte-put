@@ -144,7 +144,6 @@ If you previously used the `createLockScrollStore` helper, that is no longer sup
   <button class="c-btn c-btn--outlined" on:click={() => lock.toggle(false)}>Force unlocked</button
   >
 </div>
-
 ```
 
 ---
