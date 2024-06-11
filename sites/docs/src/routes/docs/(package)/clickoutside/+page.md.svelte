@@ -1,5 +1,6 @@
 <script>
 	import { SettingsContext } from '$lib/contexts/settings.svelte';
+
   import Demo from './_page/examples/demo.svelte';
   import Exclude from './_page/examples/exclude.svelte';
 
