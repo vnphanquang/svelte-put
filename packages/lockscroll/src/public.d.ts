@@ -1,11 +1,6 @@
 import type { ActionReturn, Action } from 'svelte/action';
-import { Readable } from 'svelte/store';
 
-import type { createLockScrollStore } from './lockscroll.js';
-
-export type LockScrollStore = ReturnType<typeof createLockScrollStore>;
-export type LockScrollParameter = boolean | LockScrollStorePattern;
-export type LockScrollStorePattern = LockScrollStore | Readable<boolean>;
+export type LockScrollParameter = boolean;
 export type LockScrollDetail = {
 	locked: boolean;
 };
