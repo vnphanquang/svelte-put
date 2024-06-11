@@ -18,6 +18,7 @@ export function inlineSvg(sources, config) {
 	const { typedef, ...pConfig } = config ?? {};
 	const rConfig = resolveInlineSvgConfig(pConfig);
 	const rSources = resolveSources(sources);
+
 	return {
 		name: 'vite-plugin-svelte-preprocess-inline-svg',
 		api: {
@@ -26,40 +27,47 @@ export function inlineSvg(sources, config) {
 		enforce: 'pre',
 		configureServer(server) {
 			const root = server.config.root;
-			const rTypedef = typeof typedef === 'string'
-				? typedef
-				: typedef === true
-					? path.resolve(root, 'src/preprocess-inline-svg.d.ts')
-					: null
+			const rTypedef =
+				typeof typedef === 'string'
+					? typedef
+					: typedef === true
+						? path.resolve(root, 'src/preprocess-inline-svg.d.ts')
+						: null;
+			if (rTypedef) generateSourceTyping(rSources, rConfig, rTypedef);
 
-			if (rTypedef) {
-				generateSourceTyping(rSources, rConfig, rTypedef);
-
-				const updateSourceTyping = debounce(() => {
-					generateSourceTyping(rSources, rConfig, rTypedef);
-					server.ws.send({ type: 'full-reload' });
-				});
-
-				const directories = [...rSources.local.directories, ...rSources.dirs.flatMap((d) => d.directories)];
-
-				server.watcher.add(directories.map((dir) => `${dir}/**/*.svg`));
-				server.watcher.on('add', (file) => {
+			const reload = debounce(
+				/**
+				 * @param {string} file
+				 * @param {boolean} [skip]
+				 */
+				(file, skip = false) => {
 					if (matchFileExtension(file, ['.svg'])) {
-						updateSourceTyping();
-					}
-				});
-				server.watcher.on('unlink', (file) => {
-					if (matchFileExtension(file, ['.svg'])) {
-						updateSourceTyping();
-					}
-				});
-				server.watcher.on('change', (file) => {
-					if (matchFileExtension(file, ['.svg'])) {
+						if (rTypedef && !skip) {
+							generateSourceTyping(rSources, rConfig, rTypedef);
+						}
 						server.ws.send({ type: 'full-reload' });
+						server.moduleGraph.invalidateAll();
 					}
+				},
+			);
+
+			const directories = [
+				...rSources.local.directories,
+				...rSources.dirs.flatMap((d) => d.directories),
+			];
+			server.watcher.add(directories);
+
+			server.watcher
+				.on('add', (file) => {
+					reload(file);
+				})
+				.on('unlink', (file) => {
+					reload(file);
+				})
+				.on('change', (file) => {
+					reload(file, true);
 				});
-			}
-		}
+		},
 	};
 }
 
