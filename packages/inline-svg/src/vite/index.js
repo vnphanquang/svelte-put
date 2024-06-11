@@ -9,7 +9,7 @@ import { generateSourceTyping, matchFileExtension } from './internals.js';
 /**
  * create a Vite plugin that wraps a Svelte preprocessor to
  * inline SVG from disk to source code at compile time
- * @param {import('../preprocessor/types.d.ts').PreprocessorSourceDefinition[]} [uSources]
+ * @param {import('../preprocessor/types.d.ts').PreprocessorSourceDefinition | import('../preprocessor/types.d.ts').PreprocessorSourceDefinition[]} [uSources]
  * @param {import('./types.d.ts').VitePluginConfig} [uConfig]
  * @returns {import('vite').Plugin}
  */
