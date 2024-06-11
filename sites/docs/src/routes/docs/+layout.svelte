@@ -1,27 +1,34 @@
-<script lang="ts">
-	import { toc, toclink, createTocStore } from '@svelte-put/toc';
+<script>
+	import { Toc } from '@svelte-put/toc';
 	import { slide } from 'svelte/transition';
 
 	import { ColorSchemeMenu } from '$lib/components/color-scheme-menu';
-	import { SOCIAL_LINKS } from "$lib/constants";
+	import { SOCIAL_LINKS } from '$lib/constants';
 	import { packages } from '$lib/data/packages';
 
-	import type { LayoutData } from './$types'
 	import MenuLabel from './_page/components/MenuLabel.svelte';
 	import StatusBadge from './_page/components/StatusBadge.svelte';
 
-	export let data: LayoutData;
+	let { data, children } = $props();
 
-	export const TOP_LEVEL_PATHS = {
+	const TOP_LEVEL_PATHS = {
 		Introduction: '/docs',
 		Architecture: '/docs/architecture',
 		Guidelines: '/docs/guidelines',
 		Contributing: '/docs/contributing',
 	};
 
-	const tocStore = createTocStore();
+	const toc = new Toc({
+		selector: ':where(h2, h3, h4, h5, h6)',
+		observe: {
+			enabled: true,
+			link: {
+				activeAttribute: 'data-current',
+			},
+		},
+	});
 
-	let isleftSidebarOpen = false;
+	let isleftSidebarOpen = $state(false);
 	function closeLeftSidebar() {
 		isleftSidebarOpen = false;
 	}
@@ -30,7 +37,7 @@
 <div class="relative flex w-full flex-1 flex-col pt-header" id="docs">
 	<header class="fixed inset-x-0 top-0 z-header h-header border-b border-outline flex flex-col">
     {#key data.pathname}
-      <div class="h-0.5 w-full bg-gradient-brand" in:slide={{ axis: 'x', duration: 500 }} />
+      <div class="h-0.5 w-full bg-gradient-brand" in:slide={{ axis: 'x', duration: 500 }}></div>
     {/key}
 		<nav class="max-w-pad flex items-center py-2 flex-1" aria-label="header">
 			<a href="/" class="flex items-center gap-2 mr-auto">
@@ -38,7 +45,7 @@
 				<span class="font-fingerpaint text-sm font-bold text-gradient-brand">svelte-put</span>
 			</a>
 			<ColorSchemeMenu />
-			<a href={SOCIAL_LINKS.GITHUB} external class="c-link c-link--icon ml-4">
+			<a href={SOCIAL_LINKS.GITHUB} data-external class="c-link c-link--icon ml-4">
 				<svg inline-src="simpleicon/github" height="28" width="28" />
 			</a>
 		</nav>
@@ -77,9 +84,9 @@
                   href={path}
                   data-current={data.pathname.includes(`/${id}`)}
                   class="c-link c-link--lazy -ml-px block whitespace-nowrap border-l border-transparent py-1 pl-3 data-current:border-link data-current:link"
-                  on:click={closeLeftSidebar}
+                  onclick={closeLeftSidebar}
                 >
-                  <span class="h-full w-1 bg-primary" />
+                  <span class="h-full w-1 bg-primary"></span>
                   {id}
                   <sup>
                     {#if status !== 'stable'}
@@ -93,32 +100,21 @@
         </li>
       </ul>
 		</nav>
-		<label class="sidebar-backdrop" for="pages-toggler" />
+		<label class="sidebar-backdrop" for="pages-toggler"></label>
 
 		{#key data.pathname}
-			<main
-				class="prose dark:prose-invert"
-				use:toc={{
-					store: tocStore,
-					selector: ':where(h2, h3, h4, h5, h6)',
-					observe: true,
-				}}
-			>
-				<slot />
+			<main class="prose dark:prose-invert" use:toc.actions.root>
+				{@render children()}
 			</main>
 		{/key}
 
 		<nav class="sidebar sidebar-right" aria-label="table of contents">
-			<p class="upto-xl:hidden mt-10 c-callout c-callout--success c-callout--icon-megaphone">
-				Migrating to Svelte 5? See
-				<a class="c-link" href="https://svelte-put-next.vnphanquang.com">the new docs site here</a>.
-			</p>
-			<div class="sveltevietnam-banner mt-5 border rounded p-4 space-y-2 upto-xl:hidden">
+			<div class="sveltevietnam-banner mt-10 border rounded p-4 space-y-2 upto-xl:hidden">
 				<p class="font-medium">
 					Are you based in Vietnam?
 				</p>
 				<div class="flex items-center gap-4">
-					<div class="c-logo c-logo--themed" />
+					<div class="c-logo c-logo--themed"></div>
 					<p>
 						Join the <a class="c-link" href="https://www.sveltevietnam.dev">Svelte Vietnam</a> community.
 					</p>
@@ -126,21 +122,15 @@
 			</div>
 			<input id="toc-toggler" type="checkbox" hidden>
 			<div class="sidebar-content text-sm">
-        {#if $tocStore.items.size}
+        {#if toc.items.size}
           <p class="py-2 font-bold uppercase">On This Page</p>
           <ul class="space-y-1 border-l border-outline">
-            {#each $tocStore.items.values() as tocItem (tocItem.id)}
+            {#each toc.items.values() as tocItem (tocItem.id)}
               {@const level = tocItem.element.tagName.slice(1)}
               <li>
-                <!-- svelte-ignore a11y-missing-attribute -->
+                <!-- svelte-ignore a11y_missing_attribute -->
                 <a
-                  use:toclink={{
-                    tocItem,
-                    store: tocStore,
-                    observe: {
-                      attribute: 'data-current',
-                    },
-                  }}
+									use:toc.actions.link={tocItem}
                   class="c-link c-link--lazy -ml-px block border-l border-transparent py-1 capitalize data-current:border-link data-current:text-link"
                   class:pl-3={level === '2'}
                   class:pl-5={level === '3'}
@@ -154,7 +144,7 @@
         {/if}
       </div>
 		</nav>
-		<label class="sidebar-backdrop" for="toc-toggler" />
+		<label class="sidebar-backdrop" for="toc-toggler"></label>
 	</div>
 </div>
 
@@ -242,7 +232,7 @@
 
 				& .sidebar-content {
 					max-height: calc(95dvh - theme('spacing.header'));
-					padding: theme('spacing.8') theme('spacing.8') theme('spacing.10') theme('spacing.8');
+					padding: theme('spacing.8') theme('spacing.8') theme('spacing.10');
 				}
 			}
 		}

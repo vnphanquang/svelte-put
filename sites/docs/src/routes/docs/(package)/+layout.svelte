@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { Runes } from '$lib/components/runes';
   import {
     createBundlephobiaBadgeUrl,
     createBundlephobiaUrl,
@@ -10,14 +11,12 @@
     createSvelteReplUrl,
   } from '$lib/utils/badge';
 
-	import type { LayoutData } from './$types';
-
-	export let data: LayoutData;
+	let { data, children } = $props();
 </script>
 
 <h1 class="flex items-center justify-between font-fingerpaint">
 	{data.package.name}
-	<a href={data.package.githubUrl} class="c-link c-link--icon" external>
+	<a href={data.package.githubUrl} class="c-link c-link--icon" data-external>
 		<svg inline-src="simpleicon/github" class="inline" height="28" width="28" />
 	</a>
 </h1>
@@ -25,86 +24,65 @@
 	<p class="c-callout c-callout--info c-callout--icon-bulb">{data.package.description}</p>
 {/if}
 
+<Runes class="float-right" />
+
+{#snippet badge(href: string, src: string, width: number, height: number)}
+	<a {href} data-external class="h-full">
+		<img
+			loading="lazy"
+			decoding="async"
+			class="my-0 inline-block h-6 w-auto rounded"
+			alt={data.package.name}
+			{src}
+			{width}
+			{height}
+		/>
+	</a>
+{/snippet}
+
 <p class="flex flex-wrap items-center gap-2 not-prose">
-	<a href={createNpmUrl(data.package.name)} target="_blank" rel="noreferrer">
-		<img
-			loading="lazy"
-			decoding="async"
-			class="my-0 inline-block h-6 w-auto rounded"
-			src={createNpmBadgeUrl(data.package.name)}
-			alt={data.package.name}
-			height="24"
-			width="107"
-		/>
-	</a>
-	<a href={createNpmUrl(data.package.name)} target="_blank" rel="noreferrer">
-		<img
-			loading="lazy"
-			decoding="async"
-			class="my-0 inline-block h-6 w-auto rounded"
-			src={createNpmDownloadBadgeUrl(data.package.name)}
-			alt={data.package.name}
-			height="24"
-			width="134"
-		/>
-	</a>
-	<a
-		href={createBundlephobiaUrl(data.package.name)}
-		target="_blank"
-		class="h-full"
-		rel="noreferrer"
-	>
-		<img
-			loading="lazy"
-			decoding="async"
-			class="my-0 inline-block h-6 w-auto rounded"
-			src={createBundlephobiaBadgeUrl(data.package.name)}
-			alt={data.package.name}
-			height="24"
-			width="125"
-		/>
-	</a>
+	{@render badge(
+		createNpmUrl(data.package.name),
+		createNpmBadgeUrl(data.package.name),
+		24,
+		107
+	)}
+	{@render badge(
+		createNpmUrl(data.package.name),
+		createNpmDownloadBadgeUrl(data.package.name),
+		24,
+		134,
+	)}
+	{@render badge(
+		createBundlephobiaUrl(data.package.name),
+		createBundlephobiaBadgeUrl(data.package.name),
+		24,
+		125,
+	)}
+
 	{#if data.package.replId}
-		<a
-			href={createSvelteReplUrl(data.package.replId)}
-			target="_blank"
-			class="h-full"
-			rel="noreferrer"
-		>
-			<img
-				loading="lazy"
-				decoding="async"
-				class="my-0 inline-block h-6 w-auto rounded"
-				src={createSvelteReplBadgeUrl()}
-				alt={data.package.name}
-				height="24"
-				width="112"
-			/>
-		</a>
+		{@render badge(
+			createSvelteReplUrl(data.package.replId),
+			createSvelteReplBadgeUrl(),
+			24,
+			112,
+		)}
 	{/if}
 	{#if data.package.changelogUrl}
-		<a href={data.package.changelogUrl} target="_blank" rel="noreferrer">
-			<img
-				loading="lazy"
-				decoding="async"
-				class="my-0 inline-block h-6 w-auto rounded"
-				src={createChangelogBadgeUrl()}
-				alt="changelog"
-				height="24"
-				width="90"
-			/>
-		</a>
+		{@render badge(
+			data.package.changelogUrl,
+			createChangelogBadgeUrl(),
+			24,
+			90,
+		)}
 	{/if}
 </p>
 
+
 {#if data.package.ready}
-	<p class="c-callout c-callout--success c-callout--icon-megaphone max-w-md xl:hidden">
-		Migrating to Svelte 5? See
-		<a class="c-link" href="https://svelte-put-next.vnphanquang.com">the new docs site here</a>.
-	</p>
-	<slot />
+	{@render children()}
 	<p class="text-right text-sm">
-		<a class="c-link" href="https://github.com/vnphanquang/svelte-put/edit/main/sites/docs/src/routes/docs/(package)/{data.package.id}/_page/content.md.svelte">
+		<a class="c-link" href="https://github.com/vnphanquang/svelte-put/edit/main/sites/docs/src/routes/docs/(package)/{data.package.id}/+page.md.svelte">
 			Edit this page on Github
 		</a>
 	</p>
@@ -117,7 +95,7 @@
 			<br />
 			<br />
       In the mean time, you can visit
-      <a href={data.package.githubUrl} external>github</a> for more information.
+      <a href={data.package.githubUrl} data-external>github</a> for more information.
     </p>
 	</div>
 {/if}
