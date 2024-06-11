@@ -157,20 +157,20 @@ export const packages = {
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocess-auto-slug/CHANGELOG.md',
   },
-  'preprocess-inline-svg': {
-    id: 'preprocess-inline-svg',
-    name: '@svelte-put/preprocess-inline-svg',
-    publishedAt: 1677056235319,
-    description: 'svelte preprocessor to inline static svg at build time',
-    path: '/docs/preprocess-inline-svg',
-    replId: undefined,
-    status: 'stable',
-    ready: true,
-    githubUrl:
-      'https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocess-inline-svg',
-    changelogUrl:
-      'https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocess-inline-svg/CHANGELOG.md',
-  },
+  // 'preprocess-inline-svg': {
+  //   id: 'preprocess-inline-svg',
+  //   name: '@svelte-put/preprocess-inline-svg',
+  //   publishedAt: 1677056235319,
+  //   description: 'svelte preprocessor to inline static svg at build time',
+  //   path: '/docs/preprocess-inline-svg',
+  //   replId: undefined,
+  //   status: 'stable',
+  //   ready: true,
+  //   githubUrl:
+  //     'https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocess-inline-svg',
+  //   changelogUrl:
+  //     'https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocess-inline-svg/CHANGELOG.md',
+  // },
   'preprocess-external-link': {
     id: 'preprocess-external-link',
     name: '@svelte-put/preprocess-external-link',
