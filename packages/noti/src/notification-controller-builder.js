@@ -1,7 +1,7 @@
 import { NotificationController } from './notification-controller.svelte.js';
 
 /**
- * @template {Record<string, import('svelte').SvelteComponent<any>>} [VariantMap={}]
+ * @template {Record<string, import('svelte').Component>} [VariantMap={}]
  */
 export class NotificationControllerBuilder {
 	/** @type {Record<string, import('./types').NotificationVariantConfig<any, any, any>>} */
@@ -23,10 +23,10 @@ export class NotificationControllerBuilder {
 	 * add config for a notification variant
 	 * @template Resolved
 	 * @template {string} Variant
-	 * @template {import('svelte').SvelteComponent<import('./types').NotificationProps<Resolved>>} Component
+	 * @template {import('svelte').Component} UserComponent
 	 * @param {Variant} variant
-	 * @param {import('svelte').ComponentType<Component> | Omit<import('./types').NotificationVariantConfig<Resolved, Variant, Component>, 'variant'>} config
-	 * @returns {NotificationControllerBuilder<VariantMap & Record<Variant, Component>> }
+	 * @param {UserComponent | Omit<import('./types').NotificationVariantConfig<Resolved, Variant, UserComponent>, 'variant'>} config
+	 * @returns {NotificationControllerBuilder<VariantMap & Record<Variant, UserComponent>> }
 	 */
 	addVariant(variant, config) {
 		if ('component' in config) {
