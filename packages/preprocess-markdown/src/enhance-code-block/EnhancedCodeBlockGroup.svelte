@@ -45,10 +45,12 @@
 	.codeblock-group {
 		position: relative;
 
+		overflow: auto;
 		display: grid;
 		grid-template-columns: repeat(var(--cols), auto) 1fr;
 		grid-template-rows: auto 1fr;
 
+		max-width: 100%;
 		margin-block: 24px;
 
 		&:where(.codeblock-group--files) {

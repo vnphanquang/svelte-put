@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { Snippet, SvelteComponent } from 'svelte';
+import type { Snippet, Component } from 'svelte';
 import type { HTMLImgAttributes } from 'svelte/elements';
 
 import type { QRConfig } from '../qr/types';
@@ -13,5 +13,4 @@ export interface QRProps extends Omit<HTMLImgAttributes, 'src'>, QRConfig {
 	height: string;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default class QR extends SvelteComponent<QRProps, any, any> {}
+export declare const QR: Component<QRProps>;

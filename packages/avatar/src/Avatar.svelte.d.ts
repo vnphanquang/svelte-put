@@ -1,4 +1,4 @@
-import type { Snippet, SvelteComponent } from 'svelte';
+import type { Snippet, Component } from 'svelte';
 import type { HTMLImgAttributes } from 'svelte/elements';
 
 /**
@@ -103,5 +103,4 @@ export interface AvatarProps extends HTMLImgAttributes {
 	img?: Snippet<[{ src: string; size: number; alt: string; sources: string[] }]>;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default class Avatar extends SvelteComponent<AvatarProps, any, any> {}
+export declare const Avatar: Component<AvatarProps>;

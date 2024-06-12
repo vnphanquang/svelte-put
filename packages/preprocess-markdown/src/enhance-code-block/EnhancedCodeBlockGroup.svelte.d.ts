@@ -1,5 +1,5 @@
-import type { SvelteComponent } from 'svelte';
+import type { Component } from 'svelte';
 
 import { EnhancedCodeBlockGroupProps } from './types';
 
-export default class EnhancedCodeBlockGroup extends SvelteComponent<EnhancedCodeBlockGroupProps> {}
+export declare const EnhancedCodeBlockGroup: Component<EnhancedCodeBlockGroupProps>;
