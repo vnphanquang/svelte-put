@@ -13,6 +13,7 @@ declare module 'svelte/elements' {
 			| 'phosphor/moon-stars'
 			| 'phosphor/sliders-horizontal'
 			| 'phosphor/sun'
+			| 'phosphor/x'
 			| 'simpleicon/cloudflare'
 			| 'simpleicon/github'
 			| 'simpleicon/tailwindcss';

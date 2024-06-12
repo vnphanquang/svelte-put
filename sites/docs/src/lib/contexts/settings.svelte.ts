@@ -19,7 +19,7 @@ function getPreferredColorScheme() {
 }
 
 export class SettingsContext {
-  static KEY = 'settings';
+  static KEY = 'app:settings';
 
 	colorScheme: App.ColorScheme = $state(DEFAULT_SETTINGS.colorScheme);
 	preferredColorScheme = $derived.by(() => {
