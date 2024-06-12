@@ -79,7 +79,7 @@
 			{#if groupContext.display === 'files'}
 				<span class="codeblock-title">
 					<FileIcon {lang} />
-					{title}
+					<span>{title}</span>
 				</span>
 			{:else}
 				<span>{title}</span>
@@ -97,7 +97,7 @@
 		<label class="codeblock-header" for="codeblock-{id}-collapsed">
 			<p class="codeblock-title">
 				<FileIcon {lang} />
-				{title}
+				<span>{title}</span>
 			</p>
 		</label>
 	{/if}
@@ -390,6 +390,7 @@
 	.codeblock-title {
 		width: fit-content;
 		font-size: theme('fontSize.xs');
+		white-space: nowrap;
 	}
 
 	.codeblock-content {
