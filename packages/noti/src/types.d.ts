@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { SvelteComponent, ComponentType, ComponentProps } from 'svelte';
+import type { Component, ComponentProps } from 'svelte';
 import { ActionReturn } from 'svelte/action';
 
 import type { Notification } from './notification.svelte.js';
 
-type NotificationCommonConfig<
+export type NotificationCommonConfig<
 	Resolved,
 	Variant extends string,
-	Component extends SvelteComponent<NotificationProps<Resolved>>,
+	UserComponent extends Component,
 > = {
 	/**
 	 * milliseconds to wait and automatically pop the notification.
@@ -17,70 +17,71 @@ type NotificationCommonConfig<
 	/**
 	 * id generator for notifications. Defaults to 'uuid'.
 	 *
-	 *   - counter: use an auto-incremented counter that is scoped to the store
+	 *   - counter: use an auto-incremented counter that is scoped to the controller
 	 *   - uuid: use `crypto.randomUUID()`, fallback to `counter` if not available
 	 *   - callback: a custom function that accepts {@link NotificationInstanceConfig} and returns a string as the id
 	 */
 	id?:
 		| 'counter'
 		| 'uuid'
-		| ((config: Required<Omit<NotificationInstanceConfig<Resolved, Variant, Component>, 'id'>>) => string);
+		| ((config: Required<Omit<NotificationInstanceConfig<Resolved, Variant, UserComponent>, 'id'>>) => string);
 };
 
-type NotificationProps<Resolved> = {
+export declare type NotificationProps<Resolved> = {
+	/** the notification instance injected by the notification controller */
 	notification: Omit<Notification<Resolved>, '#internals'>;
 }
 
 /** predefined variant config provided while building a {@link Noti} instance */
-type NotificationVariantConfig<
+export type NotificationVariantConfig<
 	Resolved,
 	Variant extends string,
-	Component extends SvelteComponent<NotificationProps<Resolved>>,
-> = NotificationCommonConfig<Resolved, Variant, Component> & {
+	UserComponent extends Component,
+> = NotificationCommonConfig<Resolved, Variant, UserComponent> & {
 	/** string variant representing this config, must be unique within a {@link Noti} instance  */
 	variant: Variant;
 	/** any Svelte component used for rendering notification UI */
-	component: ComponentType<Component>;
+	component: UserComponent;
 	/** inferred props from `component` */
-	props?: Omit<ComponentProps<Component>, 'notification'>;
+	props?: Omit<ComponentProps<UserComponent>, 'notification'>;
 };
 
 /** a resolved config for a {@link NotificationInstance} */
-type NotificationInstanceConfig<
+export type NotificationInstanceConfig<
 	Resolved,
 	Variant extends string,
-	Component extends SvelteComponent<NotificationProps<Resolved>>,
-> = Required<Omit<NotificationVariantConfig<Resolved, Variant, Component>, 'id'>> & {
+	UserComponent extends Component,
+> = Required<Omit<NotificationVariantConfig<Resolved, Variant, UserComponent>, 'id'>> & {
 	id: string;
 	timeout: number;
 };
 
-type NotificationState = 'idle' | 'elapsing' | 'paused' | 'timeout' | 'resolved';
+export type NotificationState = 'idle' | 'elapsing' | 'paused' | 'timeout' | 'resolved';
 
-type NotificationByVariantPushConfig<
+export type NotificationByVariantPushConfig<
 	Resolved,
 	Variant extends string,
-	Component extends SvelteComponent<NotificationProps<Resolved>>,
-> = NotificationCommonConfig<Resolved, Variant, Component> & {
-	props?: Omit<ComponentProps<Component>, 'notification'>;
+	UserComponent extends Component,
+> = NotificationCommonConfig<Resolved, Variant, UserComponent> & {
+	props?: Omit<ComponentProps<UserComponent>, 'notification'>;
 };
 
-type NotificationCustomPushConfig<
+export type NotificationCustomPushConfig<
 	Resolved,
-	Component extends SvelteComponent<NotificationProps<Resolved>>,
-> = NotificationCommonConfig<Resolved, 'custom', Component> & {
-	component: ComponentType<Component>;
-	props?: Omit<ComponentProps<Component>, 'notification'>;
+	UserComponent extends Component,
+> = NotificationCommonConfig<Resolved, 'custom', UserComponent> & {
+	component: UserComponent;
+	props?: Omit<ComponentProps<UserComponent>, 'notification'>;
 };
 
-type NotificationPopVerboseInput = {
+export type NotificationPopVerboseInput = {
 	id?: string;
 	resolved?: any;
 };
 
-type NotificationPortalAttributes = {
+export type NotificationPortalAttributes = {
 	onnotipush?: (event: CustomEvent<Notification<any>>) => void;
 	onnotipop?: (event: CustomEvent<Notification<any>>) => void;
 };
 
-type NotificationPortalActionReturn = ActionReturn<Notification<any>, NotificationPortalAttributes>;
+export type NotificationPortalActionReturn = ActionReturn<Notification<any>, NotificationPortalAttributes>;

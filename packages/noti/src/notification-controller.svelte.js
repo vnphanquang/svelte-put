@@ -4,10 +4,10 @@ import { MissingComponentInCustomPush, NotFoundVariantConfig } from './errors.js
 import { Notification } from './notification.svelte.js';
 
 /**
- * @template {Record<string, import('svelte').SvelteComponent>} [VariantMap={}]
+ * @template {Record<string, import('svelte').Component>} [VariantMap={}]
  */
 export class NotificationController {
-	/** @type {Record<string, import('./types.js').NotificationVariantConfig<any, any, any>>} */
+	/** @type {Record<string, import('./types.d.ts').NotificationVariantConfig<any, any, any>>} */
 	#variantConfigMap = {};
 	#counter = 0;
 
@@ -19,7 +19,7 @@ export class NotificationController {
 	notifications = $state([]);
 
 	/**
-	 * @type {Required<import('./types.js').NotificationCommonConfig<any, any, any>>}
+	 * @type {Required<import('./types.d.ts').NotificationCommonConfig<any, any, any>>}
 	 */
 	// eslint-disable-next-line no-undef
 	config = $state({
@@ -32,7 +32,7 @@ export class NotificationController {
 		 * register the element to render a notification into
 		 * @param {HTMLElement} node
 		 * @param {Notification<any>} notification
-		 * @returns {import('./types.js').NotificationPortalActionReturn}
+		 * @returns {import('./types.d.ts').NotificationPortalActionReturn}
 		 */
 		render: (node, notification) => {
 			mount(notification.config.component, {
@@ -48,8 +48,8 @@ export class NotificationController {
 	};
 
 	/**
-	 * @param {Record<keyof VariantMap, import('./types.js').NotificationVariantConfig<any, any, any>>} variantConfigMap
-	 * @param {import('./types.js').NotificationCommonConfig<any, any, any>} [init]
+	 * @param {Record<keyof VariantMap, import('./types.d.ts').NotificationVariantConfig<any, any, any>>} variantConfigMap
+	 * @param {import('./types.d.ts').NotificationCommonConfig<any, any, any>} [init]
 	 */
 	constructor(variantConfigMap, init) {
 		if (init?.id) this.config.id = init.id;
@@ -60,36 +60,36 @@ export class NotificationController {
 
 	/**
 	 * @template {Extract<keyof VariantMap, string>} Variant
-	 * @template {VariantMap[Variant]} [Component=VariantMap[Variant]]
-	 * @template [Resolved=undefined|Awaited<import('svelte').ComponentProps<Component>['notification']['resolution']>]
+	 * @template {VariantMap[Variant]} [UserComponent=VariantMap[Variant]]
+	 * @template [Resolved=undefined|Awaited<import('svelte').ComponentProps<UserComponent>['notification']['resolution']>]
 	 * @overload
 	 * @param {Variant} variant
-	 * @param {import('./types.js').NotificationByVariantPushConfig<Resolved, Variant, Component>} [config]
+	 * @param {import('./types.d.ts').NotificationByVariantPushConfig<Resolved, Variant, UserComponent>} [config]
 	 * @returns {Notification<Resolved>}
 	 */
 	/**
-	 * @template {import('svelte').SvelteComponent} Component
-	 * @template [Resolved=undefined|Awaited<import('svelte').ComponentProps<Component>['notification']['resolution']>]
+	 * @template {import('svelte').Component} UserComponent
+	 * @template [Resolved=undefined|Awaited<import('svelte').ComponentProps<UserComponent>['notification']['resolution']>]
 	 * @overload
 	 * @param {'custom'} variant
-	 * @param {import('./types.js').NotificationCustomPushConfig<Resolved, Component>} config
+	 * @param {import('./types.d.ts').NotificationCustomPushConfig<Resolved, UserComponent>} config
 	 * @returns {Notification<Resolved>}
 	 */
 	/**
 	 * @param {string} variant
-	 * @param {import('./types.js').NotificationByVariantPushConfig<any, string, import('svelte').SvelteComponent<any>> | import('./types.js').NotificationCustomPushConfig<any, import('svelte').SvelteComponent<any>>} [config]
+	 * @param {import('./types.d.ts').NotificationByVariantPushConfig<any, string, import('svelte').Component> | import('./types.d.ts').NotificationCustomPushConfig<any, import('svelte').Component>} [config]
 	 * @returns {Notification<any>}
 	 */
 	push(variant, config) {
 		// STEP 1: resolve instance config, merge with common config and variant config, if any
-		/** @type {import('./types.js').NotificationInstanceConfig<any, any, any>} */
+		/** @type {import('./types.d.ts').NotificationInstanceConfig<any, any, any>} */
 		let instanceConfig;
-		/** @type {NonNullable<import('./types.js').NotificationCommonConfig<Resolved, string, import('svelte').SvelteComponent<any>>['id']>} */
+		/** @type {NonNullable<import('./types.d.ts').NotificationCommonConfig<Resolved, string, import('svelte').Component>['id']>} */
 		let idResolver;
 
 		if (variant === 'custom') {
 			const rConfig =
-				/** @type {import('./types.js').NotificationCustomPushConfig<any, any>} */ (
+				/** @type {import('./types.d.ts').NotificationCustomPushConfig<any, any>} */ (
 					config
 				);
 			if (!rConfig || !rConfig.component) {
@@ -158,12 +158,12 @@ export class NotificationController {
 	 */
 	/**
 	 * @overload
-	 * @param {import('./types.js').NotificationPopVerboseInput} [config]
+	 * @param {import('./types.d.ts').NotificationPopVerboseInput} [config]
 	 * @returns {void}
 	 */
 	/**
 	 *
-	 * @param {string | import('./types.js').NotificationPopVerboseInput} [config]
+	 * @param {string | import('./types.d.ts').NotificationPopVerboseInput} [config]
 	 * @param {any} [resolved]
 	 * @returns {void}
 	 */
@@ -191,5 +191,25 @@ export class NotificationController {
 			pushed.resolve(resolved);
 			this.notifications = this.notifications.filter((n) => n.config.id !== pushed.config.id);
 		}
+	}
+
+	/**
+	 * pause a notification, if it has a timeout
+	 * @param {string} id
+	 * @returns {void}
+	 */
+	pause(id) {
+		const pushed = this.notifications.find((n) => n.config.id === id);
+		return pushed?.pause();
+	}
+
+	/**
+	 * resume a notification, if it has been paused
+	 * @param {string} id
+	 * @returns {void}
+	 */
+	resume(id) {
+		const pushed = this.notifications.find((n) => n.config.id === id);
+		return pushed?.resume();
 	}
 }

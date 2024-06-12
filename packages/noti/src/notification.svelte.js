@@ -1,12 +1,12 @@
 /**
  * @template Resolved
- * @template {import('svelte').SvelteComponent<import('./types').NotificationProps<Resolved>>} [Component=import('svelte').SvelteComponent<any, any, any>]
+ * @template {import('svelte').Component} [UserComponent=import('svelte').Component<import('./types.d.ts').NotificationProps<Resolved>>]
  */
 export class Notification {
-	/** @type {import('./types').NotificationState} */
+	/** @type {import('./types.d.ts').NotificationState} */
 	// eslint-disable-next-line no-undef
 	state = $state('idle');
-	/** @type {Required<import('./types').NotificationInstanceConfig<Resolved, string, Component>>} */
+	/** @type {Required<import('./types.d.ts').NotificationInstanceConfig<Resolved, string, UserComponent>>} */
 	// eslint-disable-next-line no-undef
 	config;
 
@@ -26,7 +26,7 @@ export class Notification {
 	resolution;
 
 	/**
-	 * @param {Required<import('./types').NotificationInstanceConfig<Resolved, string, Component>>} config
+	 * @param {Required<import('./types.d.ts').NotificationInstanceConfig<Resolved, string, UserComponent>>} config
 	 */
 	constructor(config) {
 		this.config = config;
@@ -58,10 +58,12 @@ export class Notification {
 
 	/**
 	 * @param {Resolved} [resolved]
+	 * @returns {Promise<Resolved | undefined>}
 	 */
 	resolve = (resolved) => {
-		if (this.state === 'resolved') return;
+		if (this.state === 'resolved') return this.resolution;
 		this.#internals.resolve(resolved);
 		this.state = 'resolved';
+		return this.resolution;
 	}
 }
