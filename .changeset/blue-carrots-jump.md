@@ -1,5 +1,4 @@
 ---
-'@svelte-put/preprocess-inline-svg': major
 '@svelte-put/inline-svg': major
 ---
 
