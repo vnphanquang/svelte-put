@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.0.0-next.2
+
+### Major Changes
+
+- [`3f94b61`](https://github.com/vnphanquang/svelte-put/commit/3f94b614262dfb2543572ee80e626cab072d9057) Thanks [@vnphanquang](https://github.com/vnphanquang)! - drop `@svelte-put/avatar/hepers` submodules (just import from root instead)
+
 ## 4.0.0-next.1
 
 ### Minor Changes
