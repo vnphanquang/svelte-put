@@ -1,5 +1,13 @@
 # Changelog
 
+## 6.0.0-next.1
+
+### Patch Changes
+
+- [#302](https://github.com/vnphanquang/svelte-put/pull/302) [`3744bfd`](https://github.com/vnphanquang/svelte-put/commit/3744bfd44c7f9ae2798949ff305656c4fdef96e7) Thanks [@github-actions](https://github.com/apps/github-actions)! - reset when toc root change
+
+- [#302](https://github.com/vnphanquang/svelte-put/pull/302) [`db35158`](https://github.com/vnphanquang/svelte-put/commit/db351580dfb3eea612be5435be1b6ac466fa6ac5) Thanks [@github-actions](https://github.com/apps/github-actions)! - defer events to Svelte internal delegation system where applicable
+
 ## 6.0.0-next.0
 
 ### Major Changes
