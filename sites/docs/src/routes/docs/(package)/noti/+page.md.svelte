@@ -402,11 +402,13 @@ Calling `resolve` on the `notification` prop will pop the notification from the 
 
 </enhanced-code-block>
 
-## Migration Guides (v1 -> v2)
+## Migration Guides
+
+### V1 -> V2 (Svelte 5 in Runes mode)
 
 Version 2 is now powered by Svelte runes, making the public API much more minimal. Let's go through the breaking changes.
 
-### `NotificationStore` is now `NotificationController`
+#### `NotificationStore` is now `NotificationController`
 
 First, the Svelte-based `NotificationStore` has been replaced by the plain class `NotificationController`. The `variant` method is now `addVariant`:
 
@@ -433,7 +435,7 @@ export const notiCtrl = controller()
   .build();
 ```
 
-### `resolve()` method is now `resolution` property
+#### `resolve()` method is now `resolution` property
 
 In V1, to await for resolution, you would call `.resolve()` on the notification instance. In V2, this is now a property `resolution` to remove ambiguity between the act of awaiting for the promise and the act of resolving the notification.
 
@@ -453,7 +455,7 @@ const resolved = await pushed.resolution;
 // :::
 ```
 
-### `resolve` CustomEvent is dropped
+#### `resolve` CustomEvent is dropped
 
 In V1, notification is popped by dispatching a `resolve` CustomEvent within the component.
 
@@ -485,7 +487,7 @@ Some fiction was observed as this required boilerplate around setting up dispatc
 <!-- ...truncated... -->
 ```
 
-### Managing Timeout
+#### Managing Timeout
 
 The `progress` Svelte store is no longer needed. Notification `state`, as well as the `resume` and `pause` methods, are now directly available on the `notification` prop.
 
@@ -532,7 +534,7 @@ notiCtrl.push('variant', { timeout: 0 });
 // :::
 ```
 
-### Notification Config
+#### Notification Config
 
 Properties such as `.id` and `.variant` that were previously available on the notification instance are moved into the `config` property.
 

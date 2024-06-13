@@ -93,7 +93,9 @@ When lock scroll state changes, a `lockscroll:toggle` [CustomEvent] is fired fro
 
 ## Migration Guides
 
-When migrating from v1 to v2 (Svelte 5 in Runes mode), you first need to update event attribute syntax to remove colon `:`:
+### From V1 -> V2 (Svelte 5 in Runes mode)
+
+When migrating to v2, you first need to update event attribute syntax to remove colon `:`:
 
 ```svelte
 <!-- :::diff - -->

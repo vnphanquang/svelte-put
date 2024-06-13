@@ -162,7 +162,9 @@ type Turnstile = {
 
 ## Migration Guides
 
-When migrating from v3 to v4 (Svelte 5 in Runes mode), you just need to remove any colon `:` in event attributes:
+### V0 -> V1 (Svelte 5 in Runes mode)
+
+When migrating to V1, you just need to remove any colon `:` in event attributes:
 
 ```svelte title="Migration to v1 (Svelte 5)"
 <div

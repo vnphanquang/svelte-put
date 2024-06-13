@@ -454,6 +454,8 @@ A: No! Use `<img>` when possible. My initial use case is to be able to change pr
 
 ## Migration Guides
 
+### From Preprocessor
+
 If you are coming `@svelte-put/preprocess-inline-svg`, simply update the import path of the preprocessor in your `svelte.config.js`:
 
 ```javascript title=svelte.config.js

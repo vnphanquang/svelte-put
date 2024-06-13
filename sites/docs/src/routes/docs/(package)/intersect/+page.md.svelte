@@ -85,7 +85,9 @@ Following the same interface as with `intersect`, `intersectonce` [CustomEvent] 
 
 ## Migration Guides
 
-When migrating from v3 to v4 (Svelte 5 in Runes mode), you just need to update event attribute syntax to remove colon `:`:
+### V3 -> V4 (Svelte 5 in Runes mode)
+
+When migrating to v4, you just need to update event attribute syntax to remove colon `:`:
 
 ```svelte
 <!-- :::diff - -->
