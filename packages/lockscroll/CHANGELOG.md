@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0-next.1
+
+### Major Changes
+
+- [#302](https://github.com/vnphanquang/svelte-put/pull/302) [`c403890`](https://github.com/vnphanquang/svelte-put/commit/c40389055cbb1c91a43c7461c7654cf1cfa234f8) Thanks [@github-actions](https://github.com/apps/github-actions)! - drop support for `createLockScrollStore` helper; use svelte rune pattern instead (see docs page)
+
 ## 2.0.0-next.0
 
 ### Major Changes

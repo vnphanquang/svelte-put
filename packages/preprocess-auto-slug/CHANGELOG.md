@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0-next.1
+
+### Patch Changes
+
+- [#302](https://github.com/vnphanquang/svelte-put/pull/302) [`b4863d8`](https://github.com/vnphanquang/svelte-put/commit/b4863d89baf685364d69d6432660b2838ba49366) Thanks [@github-actions](https://github.com/apps/github-actions)! - should exhaust the AST walk (invoking `next` from zimmerframe)
+
 ## 2.0.0-next.0
 
 ### Major Changes
