@@ -1,7 +1,7 @@
 <script>
 	import { resolveAlt, resolveSize, resolveSrc, DEFINITIVE_FALLBACK } from './avatar.utils.js';
 
-	/** @type {import('./Avatar.svelte.d.ts').AvatarProps} */
+	/** @type {import('./types').AvatarProps} */
 	let { src, gravatar, uiAvatar, fallback, size, alt, class: cls = '', img, ...rest } = $props();
 
 	let rAlt = $derived(resolveAlt(alt, gravatar, uiAvatar, src));

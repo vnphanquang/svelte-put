@@ -16,18 +16,10 @@
 		"./Avatar.svelte": {
 			"types": "./src/Avatar.svelte.d.ts",
 			"svelte": "./src/Avatar.svelte"
-		},
-		"./helpers": {
-			"types": "./types/index.d.ts",
-			"svelte": "./src/avatar.helpers.js",
-			"import": "./src/avatar.helpers.js"
 		}
 	},
 	"typesVersions": {
 		"*": {
-			"helpers": [
-				"./types/index.d.ts"
-			],
 			"Avatar.svelte": [
 				"./src/Avatar.svelte.d.ts"
 			]
@@ -74,8 +66,7 @@
 	},
 	"devDependencies": {
 		"@internals/tsconfig": "workspace:*",
-		"@types/md5": "^2.3.5",
-		"dts-buddy": "^0.4.7"
+		"@types/md5": "^2.3.5"
 	},
 	"volta": {
 		"extends": "../../package.json"
