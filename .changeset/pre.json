@@ -11,13 +11,11 @@
     "@svelte-put/inline-svg": "3.0.0",
     "@svelte-put/intersect": "3.0.0",
     "@svelte-put/lockscroll": "1.0.1",
-    "@svelte-put/modal": "1.0.7",
     "@svelte-put/movable": "3.2.0",
     "@svelte-put/noti": "1.1.0",
     "@svelte-put/preprocess-auto-slug": "1.0.1",
     "@svelte-put/qr": "1.2.0",
     "@svelte-put/resize": "3.0.0",
-    "@svelte-put/select": "0.2.4",
     "@svelte-put/shortcut": "3.1.0",
     "@svelte-put/toc": "5.0.1",
     "@svelte-put/tooltip": "1.0.1"
