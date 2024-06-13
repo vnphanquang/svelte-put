@@ -38,7 +38,7 @@
 	$effect(() => {
 		if (element) onqrinit?.(element);
 	});
-</script>k
+</script>
 
 {#if svg}
 	{@render svg({ attributes: parts.attributes, innerHTML })}
