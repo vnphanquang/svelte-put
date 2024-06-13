@@ -12,21 +12,6 @@ import { calculateDimensions } from './internals.js';
  *
  * <svg use:inlineSvg={"http://example.com/icon.svg"}></svg>
  * ```
- *
- *
- *
- * For a static solution for inlining SVG at build time, use {@link https://svelte-put.vnphanquang.com/docs/preprocess-inline-svg | @svelte-put/preprocess-inline-svg},
- * which is also conveniently re-exported by this package
- *
- * ```javascript
- * // svelte.config.js
- * import inlineSvg from '@svelte-put/preprocess-inline-svg';
- *
- * const config = {
- *   preprocess: [inlineSvg()],
- * };
- * export default config;
- * ```
  * @param {SVGElement} node - SVGElement to inline SVG into
  * @param {import('./types.d.ts').InlineSvgActionParameter} param - config for the action.
  * @returns {import('./types.d.ts').InlineSvgActionReturn}

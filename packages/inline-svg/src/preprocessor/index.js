@@ -57,7 +57,7 @@ export function inlineSvg(uSources, uConfig) {
 						if (!inlineSrc) return;
 						if (!svgSource) {
 							throw new Error(
-								`\n@svelte-put/preprocess-inline-svg: cannot find svg source for ${inlineSrc} at ${filename}`,
+								`\n@svelte-put/inline-svg (preprocessor): cannot find svg source for ${inlineSrc} at ${filename}`,
 							);
 						}
 

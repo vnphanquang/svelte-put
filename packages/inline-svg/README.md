@@ -16,7 +16,7 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 
 [See the dedicated documentation page here][docs].
 
-## Quick Start
+## Dynamic SVGs - Svelte Action
 
 ```html
 <script>
@@ -26,7 +26,30 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 <svg use:inlineSvg={'https://example.com/icon.svg'}></svg>
 ```
 
-To inline static SVGs during build time, use [@svelte-put/preprocess-inline-svg](https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocessors/inline-svg), which is also conveniently re-exported from this package.
+## Static SVGs - Vite Plugin / Svelte Preprocessor
+
+### Vite Plugin
+
+To inline static SVGs during build time, use the exported Vite plugin:
+
+```javascript
+// vite.config.js
+import path from 'path';
+import { inlineSvg } from '@svelte-put/inline-svg/vite';
+
+/** @type {import('vite').UserConfig} */
+const config = {
+  plugins: [
+    inlineSvg(),
+    sveltekit(),
+  ],
+};
+export default config;
+```
+
+### Bare Preprocessor
+
+The Svelte preprocessor is what is used internally by the aforementioned Vite plugin, which is the recommended. However, if your setup requires using the preprocessor directly, you can do so:
 
 ```javascript
 // svelte.config.js
@@ -34,12 +57,10 @@ import { inlineSvg } from '@svelte-put/inline-svg/preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	preprocess: [inlineSvg()],
+  preprocess: [inlineSvg()],
 };
 export default config;
 ```
-
-See documentation for preprocessor at [@svelte-put/preprocess-inline-svg](https://svelte-put.vnphanquang.com/docs/preprocess-inline-svg).
 
 ## [Changelog][github.changelog]
 

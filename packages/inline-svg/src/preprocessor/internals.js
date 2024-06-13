@@ -63,7 +63,7 @@ export function resolveSources(sources) {
 	const inputsWithoutDirectories = sources.filter((i) => !i.directories);
 	if (inputsWithoutDirectories.length > 1) {
 		throw new Error(
-			'\n@svelte-put/preprocess-inline-svg: only one default input (one without `directories` option) is allowed',
+			'\n@svelte-put/inline-svg (preprocessor): only one default input (one without `directories` option) is allowed',
 		);
 	}
 
