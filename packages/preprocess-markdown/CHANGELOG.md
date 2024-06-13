@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0-next.1
+
+### Patch Changes
+
+- [`b7bcccb`](https://github.com/vnphanquang/svelte-put/commit/b7bcccb3eb728bc69bd4dce1a895a9b5301a4536) Thanks [@vnphanquang](https://github.com/vnphanquang)! - put back `@svelte-put/copy` as a runtime dependencies`
+
 ## 1.0.0-next.0
 
 ### Major Changes
