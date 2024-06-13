@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.0.0-next.2
+
+### Major Changes
+
+- [`81d4c80`](https://github.com/vnphanquang/svelte-put/commit/81d4c809be07a9d175bcb93bcd06957d4106cafe) Thanks [@vnphanquang](https://github.com/vnphanquang)! - no longer export named Avatar from root, drop `@svelte-put/avatar/hepers` submodules (just import from root instead)
+
 ## 4.0.0-next.1
 
 ### Minor Changes
