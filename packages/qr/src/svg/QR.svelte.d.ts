@@ -14,3 +14,4 @@ export interface QRProps extends Omit<SVGAttributes<any>, 'viewBox'>, QRConfig {
 }
 
 export declare const QR: Component<QRProps>;
+export default QR;
