@@ -280,6 +280,9 @@ importers:
       '@shikijs/rehype':
         specifier: ^1.6.3
         version: 1.6.3
+      '@svelte-put/copy':
+        specifier: ^4.0.0-next.0
+        version: 4.0.0-next.0(svelte@5.0.0-next.153)
       hast-util-to-html:
         specifier: ^9.0.1
         version: 9.0.1
