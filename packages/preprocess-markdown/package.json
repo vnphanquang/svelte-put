@@ -72,7 +72,6 @@
 	},
 	"dependencies": {
 		"@shikijs/rehype": "^1.6.3",
-		"@svelte-put/copy": "^4.0.0-next.0",
 		"hast-util-to-html": "^9.0.1",
 		"hast-util-to-string": "^3.0.0",
 		"hastscript": "^9.0.0",
