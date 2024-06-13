@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0-next.1
+
+### Minor Changes
+
+- [#302](https://github.com/vnphanquang/svelte-put/pull/302) [`eb68654`](https://github.com/vnphanquang/svelte-put/commit/eb686548fe22a54bfd3fee2c9826eeaac7b76d80) Thanks [@github-actions](https://github.com/apps/github-actions)! - update Component typing, add `pause` & `resume` proxies on `NotificationController`, and return `resolution` in `resolve`
+
 ## 2.0.0-next.0
 
 ### Major Changes

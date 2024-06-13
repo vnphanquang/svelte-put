@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.0.0-next.1
+
+### Minor Changes
+
+- [#302](https://github.com/vnphanquang/svelte-put/pull/302) [`11a6526`](https://github.com/vnphanquang/svelte-put/commit/11a65266527bf42e735cf4ee29facedb80de2c41) Thanks [@github-actions](https://github.com/apps/github-actions)! - drop the deprecated `SvelteComponent` and use `Component` for typing
+
 ## 4.0.0-next.0
 
 ### Major Changes

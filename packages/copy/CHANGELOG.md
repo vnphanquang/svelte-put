@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.0.0-next.1
+
+### Patch Changes
+
+- [#302](https://github.com/vnphanquang/svelte-put/pull/302) [`db35158`](https://github.com/vnphanquang/svelte-put/commit/db351580dfb3eea612be5435be1b6ac466fa6ac5) Thanks [@github-actions](https://github.com/apps/github-actions)! - defer events to Svelte internal delegation system where applicable
+
 ## 4.0.0-next.0
 
 ### Major Changes
