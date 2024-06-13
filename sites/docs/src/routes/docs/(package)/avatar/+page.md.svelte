@@ -240,7 +240,9 @@ Since [Svelte style](https://svelte.dev/docs/svelte-components#style) are compon
 
 <h2 id="migration-guides">Migration Guides</h2>
 
-When migrating from v3 to v4 (Svelte 5 in Runes mode), everything stays the same with the exception that the `Avatar` component no longer support a default [Svelte slot](https://svelte.dev/docs/special-elements#slot). Instead, use the `img` snippet for [markup customization](#markup).
+### V3 -> V4 (Svelte 5 in Runes mode)
+
+When migrating to V4, everything stays the same with the exception that the `Avatar` component no longer support a default [Svelte slot](https://svelte.dev/docs/special-elements#slot). Instead, use the `img` snippet for [markup customization](#markup).
 
 ```svelte title="Migration to v4 (Svelte 5)"
 <Avatar

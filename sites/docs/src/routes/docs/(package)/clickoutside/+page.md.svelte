@@ -118,10 +118,22 @@ Below is another demo where `stopPropagation` is generally recommended. Consider
 
 ## Migration Guides
 
-When migrating from v3 to v4 (Svelte 5 in Runes mode), you will need to:
+### V3 -> V4 (Svelte 5 in Runes mode)
 
-- change event directive `on:clickoutside` to standard attribute `onclickoutside` (remove `:`).
-- event modifier `|stopPropagation` is no longer support, either use `onclickcapture` or explicitly call `e.stopPropagation()` in your event handler.
+When migrating to V4, you will need to change event directive `on:clickoutside` to standard attribute `onclickoutside` (remove `:`).
+
+```svelte
+<!-- :::diff - -->
+<div use:clickoutside on:clickoutside></div>
+<!-- ::: -->
+<!-- :::diff + -->
+<div use:clickoutside onclickoutside></div>
+<!-- ::: -->
+```
+
+Additionally, event modifier `|stopPropagation` is no longer support in Svelte, either use `onclickcapture` or explicitly call `e.stopPropagation()` in your event handler.
+
+---
 
 Happy clicking outside! 👨‍💻
 

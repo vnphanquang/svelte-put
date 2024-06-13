@@ -130,7 +130,9 @@ export function customCopy(text: string) {
 
 ## Migration Guides
 
-When migrating from v3 to v4 (Svelte 5 in Runes mode), you just need to update the event directive `on:copy` to standard attribute `onclickcopy` (remove `:`).
+### V3 -> V4 (Svelte 5 in Runes mode)
+
+When migrating to v4, you just need to update the event directive `on:copy` to standard attribute `onclickcopy` (remove `:`).
 
 ```svelte title="Upgrade to v4 (Svelte 5)"
 <!-- :::diff - -->

@@ -217,7 +217,9 @@ Automatic cursor handling is done on action initialization and update. It won't 
 
 ## Migration Guides
 
-When migrating from v3 to v4 (Svelte 5 in Runes mode), you just need to update event attribute syntax to remove colon `:`:
+### V3 -> V4 (Svelte 5 in Runes mode)
+
+When migrating from v3 to v4, you just need to update event attribute syntax to remove colon `:`:
 
 ```svelte
 <!-- :::diff - -->
