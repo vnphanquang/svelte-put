@@ -5,6 +5,8 @@
 	import FileIcon from './FileIcon.svelte';
 	import { EnhancedCodeBlockGroupContext } from './enhanced-code-block-group-context.svelte.js';
 
+	// TODO: remove all dependencies on @sveltevietnam/ui
+
 	/** @type {import('./types.d.ts').EnhancedCodeBlockProps} */
 	let {
 		lang = '',
