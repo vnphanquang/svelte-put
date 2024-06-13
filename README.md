@@ -28,7 +28,6 @@ Useful svelte stuff to put in your projects
 | [@svelte-put/intersect][github.intersect]                         | wrapper for IntersectionObserver                  | [![npm.intersect.badge]][npm.intersect]                         | [Changelog][github.intersect.changelog]             | [![docs.badge]][docs.intersect]             |
 | [@svelte-put/inline-svg][github.inline-svg]                       | dynamically inline SVGs                           | [![npm.inline-svg.badge]][npm.inline-svg]                       | [Changelog][github.inline-svg.changelog]            | [![docs.badge]][docs.inline-svg]            |
 | [@svelte-put/lockscroll][github.lockscroll]                       | lock scroll, hide scrollbar                       | [![npm.lockscroll.badge]][npm.lockscroll]                       | [Changelog][github.lockscroll.changelog]            | [![docs.badge]][docs.lockscroll]            |
-| [@svelte-put/modal][github.modal]                                 | type-safe async modal builder                     | [![npm.modal.badge]][npm.modal]                                 | [Changelog][github.modal.changelog]                 | [![docs.badge]][docs.modal]                 |
 | [@svelte-put/movable][github.movable]                             | move node on mousedown                            | [![npm.movable.badge]][npm.movable]                             | [Changelog][github.movable.changelog]               | [![docs.badge]][docs.movable]               |
 | [@svelte-put/noti][github.noti]                                   | type-safe & headless async notification builder   | [![npm.noti.badge]][npm.noti]                                   | [Changelog][github.noti.changelog]                  | [![docs.badge]][docs.noti]                  |
 | [@svelte-put/preprocess-auto-slug][github.preprocess-auto-slug]   | auto add `id` and anchor to selected nodes        | [![npm.preprocess-auto-slug.badge]][npm.preprocess-auto-slug]   | [Changelog][github.preprocess-auto-slug.changelog]  | [![docs.badge]][docs.preprocess-auto-slug]  |
@@ -44,7 +43,6 @@ These are some packages that will be added in the future (as soon as I find time
 
 | Package                             | Category  | Short Description             | Status      | Docs        |
 | ----------------------------------- | --------- | ----------------------------- | ----------- | ----------- |
-| [@svelte-put/select][github.select] | component | minimal & extensible `select` | prototyping | coming soon |
 
 Names for those packages may change. -->
 
@@ -80,8 +78,6 @@ pnpm turbo
 [github.inline-svg.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/inline-svg/CHANGELOG.md
 [github.lockscroll]: https://github.com/vnphanquang/svelte-put/tree/main/packages/lockscroll
 [github.lockscroll.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/lockscroll/CHANGELOG.md
-[github.modal]: https://github.com/vnphanquang/svelte-put/tree/main/packages/modal
-[github.modal.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/modal/CHANGELOG.md
 [github.movable]: https://github.com/vnphanquang/svelte-put/tree/main/packages/movable
 [github.movable.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/movable/CHANGELOG.md
 [github.noti]: https://github.com/vnphanquang/svelte-put/tree/main/packages/noti
@@ -92,8 +88,6 @@ pnpm turbo
 [github.qr.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/qr/CHANGELOG.md
 [github.resize]: https://github.com/vnphanquang/svelte-put/tree/main/packages/resize
 [github.resize.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/resize/CHANGELOG.md
-[github.select]: https://github.com/vnphanquang/svelte-put/tree/main/packages/select
-[github.select.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/select/CHANGELOG.md
 [github.shortcut]: https://github.com/vnphanquang/svelte-put/tree/main/packages/shortcut
 [github.shortcut.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/shortcut/CHANGELOG.md
 [github.toc]: https://github.com/vnphanquang/svelte-put/tree/main/packages/toc
@@ -126,8 +120,6 @@ pnpm turbo
 [npm.inline-svg]: https://www.npmjs.com/package/@svelte-put/inline-svg
 [npm.lockscroll.badge]: https://img.shields.io/npm/v/@svelte-put/lockscroll
 [npm.lockscroll]: https://www.npmjs.com/package/@svelte-put/lockscroll
-[npm.modal.badge]: https://img.shields.io/npm/v/@svelte-put/modal
-[npm.modal]: https://www.npmjs.com/package/@svelte-put/modal
 [npm.movable.badge]: https://img.shields.io/npm/v/@svelte-put/movable
 [npm.movable]: https://www.npmjs.com/package/@svelte-put/movable
 [npm.noti.badge]: https://img.shields.io/npm/v/@svelte-put/noti
@@ -160,12 +152,10 @@ pnpm turbo
 [docs.intersect]: https://svelte-put.vnphanquang.com/docs/intersect
 [docs.inline-svg]: https://svelte-put.vnphanquang.com/docs/inline-svg
 [docs.lockscroll]: https://svelte-put.vnphanquang.com/docs/lockscroll
-[docs.modal]: https://svelte-put.vnphanquang.com/docs/modal
 [docs.movable]: https://svelte-put.vnphanquang.com/docs/movable
 [docs.noti]: https://svelte-put.vnphanquang.com/docs/noti
 [docs.preprocess-auto-slug]: https://svelte-put.vnphanquang.com/docs/preprocess-auto-slug
 [docs.qr]: https://svelte-put.vnphanquang.com/docs/qr
-[docs.select]: https://svelte-put.vnphanquang.com/docs/select
 [docs.resize]: https://svelte-put.vnphanquang.com/docs/resize
 [docs.shortcut]: https://svelte-put.vnphanquang.com/docs/shortcut
 [docs.toc]: https://svelte-put.vnphanquang.com/docs/toc
