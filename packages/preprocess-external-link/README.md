@@ -37,7 +37,7 @@ and the following input markup
 
 ```svelte
 <script>
-	let href = 'https://developer.mozilla.org';
+  let href = 'https://developer.mozilla.org';
 </script>
 
 <!-- links that are treated as internal -->
