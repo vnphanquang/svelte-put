@@ -68,7 +68,7 @@ export default config;
 
 ...`preprocess-auto-slug` will generate the following HTML:
 
-```html title=Output
+```html title=output.html
 <h2 id="quick-start">
   <a href="#quick-start" aria-hidden="true" tabindex="-1">#</a>
   Quick Start
