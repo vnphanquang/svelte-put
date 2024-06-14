@@ -136,8 +136,10 @@
                   class:pl-5={level === '3'}
                   class:pl-7={level === '4'}
                   class:pl-9={level === '5'}
-                  class:pl-11={level === '6'}>{tocItem.text}</a
-                >
+                  class:pl-11={level === '6'}
+								>
+									<!-- textContent injected by toc -->
+								</a>
               </li>
             {/each}
           </ul>

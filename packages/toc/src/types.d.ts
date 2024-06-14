@@ -1,5 +1,3 @@
-
-
 /**
  * options to config how `toc` action create `IntersectionObserver` for each
  * matching toc element
@@ -23,7 +21,7 @@ export interface TocObserveConfig extends Omit<IntersectionObserverInit, 'thresh
 	 *
 	 * Default to: `auto`
 	 *
-	 * Alternatively, this can be override per element by setting the `data-toc-strategy` attribute
+	 * Alternatively, this can be overridden per element by setting the `data-toc-strategy` attribute
 	 * on that element.
 	 */
 	strategy: 'parent' | 'self' | 'auto';
@@ -45,8 +43,7 @@ export interface TocObserveConfig extends Omit<IntersectionObserverInit, 'thresh
 		 */
 		enabled: boolean;
 		/**
-		 * throttle the observe of `use:toc` on click
-		 *
+		 * throttle the observe of `use:toc.actions.link` on click
 		 *
 		 * This ensures that the active toc item will be
 		 * the same one that this link is pointing to.
