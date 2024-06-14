@@ -13,5 +13,5 @@ export interface QRProps extends Omit<HTMLImgAttributes, 'src'>, QRConfig {
 	height: string;
 }
 
-export declare const QR: Component<QRProps>;
+declare const QR: Component<QRProps>;
 export default QR;
