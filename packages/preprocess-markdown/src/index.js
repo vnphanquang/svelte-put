@@ -132,7 +132,7 @@ function rehypeEscapeCodeBlock() {
 	 */
 	return (tree) => {
 		visit(tree, 'element', (node) => {
-			if (node.tagName !== 'pre') return;
+			if (node.tagName !== 'code') return;
 			const html = toHtml(node);
 
 			const pNode = /** @type {any} */(node);
