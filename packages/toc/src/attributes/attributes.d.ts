@@ -30,7 +30,6 @@ export interface TocElementDataAttributes {
 
 /**
  * Data attributes used by the `observe` operation when enabled
- *
  */
 export interface TocObserveDataAttributes {
 	/**
@@ -42,10 +41,8 @@ export interface TocObserveDataAttributes {
 	 * added to toc root (the element where toc action is placed on) and
 	 * references the id of the active matching element
 	 *
-	 *
-	 *
 	 * This attribute is reactive. When changed (either by toc or manually),
-	 * it will trigger events and store update accordingly
+	 * it will trigger events and update to Toc properties accordingly
 	 */
 	'data-toc-observe-active-id'?: string;
 	/**
@@ -63,7 +60,6 @@ export interface TocObserveDataAttributes {
 
 /**
  * Readonly reference markers added by toc
- *
  */
 export interface TocReferenceMarkerDataAttributes {
 	/**
