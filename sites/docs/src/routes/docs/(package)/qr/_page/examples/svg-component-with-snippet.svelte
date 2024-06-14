@@ -1,5 +1,5 @@
 <script>
-  import QR from '@svelte-put/qr/img/QR.svelte';
+  import QR from '@svelte-put/qr/svg/QR.svelte';
 </script>
 
 <QR
@@ -11,9 +11,11 @@
 	anchorOuterFill="tomato"
 	moduleFill="tomato"
 	margin={4}
-	width="500"
-	height="500"
-  let:src
 >
-  <img {src} alt="qr" />
+	{#snippet svg({ attributes, innerHTML })}
+		<svg {...attributes} color="gray">
+			<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+			{@html innerHTML}
+		</svg>
+	{/snippet}
 </QR>
