@@ -2,12 +2,12 @@
   import { SettingsContext } from '$lib/contexts/settings.svelte';
 
   import ImgAction from './_page/examples/img-action.svelte';
-  import ImgComponentWithDefaultSlot from './_page/examples/img-component-with-custom-default-slot.svelte';
+  import ImgComponentWithSnippet from './_page/examples/img-component-with-snippet.svelte';
   import ImgComponent from './_page/examples/img-component.svelte';
   import ImgBackgroundFill from './_page/examples/img-background-fill.svelte';
   import ImgHeadless from './_page/examples/img-headless.svelte';
   import SvgAction from './_page/examples/svg-action.svelte';
-  import SvgComponentWithDefaultSlot from './_page/examples/svg-component-with-custom-default-slot.svelte';
+  import SvgComponentWithSnippet from './_page/examples/svg-component-with-snippet.svelte';
   import SvgComponent from './_page/examples/svg-component.svelte';
   import SvgHeadless from './_page/examples/svg-headless.svelte';
 
@@ -66,7 +66,7 @@ This package is made possible by [qrcode-generator](https://www.npmjs.com/packag
 {:else if svgVariant === 'component'}
 <SvgComponent />
 {:else}
-<SvgComponentWithDefaultSlot />
+<SvgComponentWithSnippet />
 {/if}
 
 </div>
@@ -81,7 +81,7 @@ This package is made possible by [qrcode-generator](https://www.npmjs.com/packag
 ```svelte src=./_page/examples/svg-component.svelte title=component
 ```
 
-```svelte src=./_page/examples/svg-component-with-custom-default-slot.svelte title="default slot"
+```svelte src=./_page/examples/svg-component-with-snippet.svelte title="default slot"
 ```
 
 </enhanced-code-block>
@@ -130,7 +130,7 @@ Note the imports from subpackage `@svelte-put/qr/svg` in the _page/examples abov
 {:else if imgVariant === 'component'}
   <ImgComponent />
 {:else}
-  <ImgComponentWithDefaultSlot />
+  <ImgComponentWithSnippet />
 {/if}
 
 </div>
@@ -151,7 +151,7 @@ The rendered PNG has the default size of 1000x1000, it is recommended that you s
 ```svelte src=./_page/examples/img-component.svelte title=component
 ```
 
-```svelte src=./_page/examples/img-component-with-custom-default-slot.svelte title="default slot"
+```svelte src=./_page/examples/img-component-with-snippet.svelte title="default slot"
 ```
 
 </enhanced-code-block>
