@@ -80,6 +80,10 @@
 
 
 {#if data.package.ready}
+	<p class="c-callout c-callout--success c-callout--icon-megaphone max-w-md xl:hidden">
+		Still on Svelte 4? See
+		<a class="c-link" href="https://svelte-put-svelte-4.vnphanquang.com">the old docs site here.</a>
+	</p>
 	{@render children()}
 	<p class="text-right text-sm">
 		<a class="c-link" href="https://github.com/vnphanquang/svelte-put/edit/main/sites/docs/src/routes/docs/(package)/{data.package.id}/+page.md.svelte">
@@ -99,3 +103,4 @@
     </p>
 	</div>
 {/if}
+
