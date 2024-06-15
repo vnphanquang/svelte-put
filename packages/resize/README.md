@@ -4,7 +4,7 @@
 
 [![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia] [![docs.badge]][docs]
 
-Svelte action `use:resize` for pointer drag-to-scroll behavior
+Svelte action `use:resize` wrapper for [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver).
 
 </div>
 

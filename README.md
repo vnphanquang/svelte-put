@@ -34,6 +34,7 @@ Useful svelte stuff to put in your projects
 | [@svelte-put/movable][github.movable]                             | move node on mousedown                            | [![npm.movable.badge]][npm.movable]                             | [Changelog][github.movable.changelog]               | [![docs.badge]][docs.movable]               |
 | [@svelte-put/noti][github.noti]                                   | type-safe & headless async notification builder   | [![npm.noti.badge]][npm.noti]                                   | [Changelog][github.noti.changelog]                  | [![docs.badge]][docs.noti]                  |
 | [@svelte-put/preprocess-auto-slug][github.preprocess-auto-slug]   | auto add `id` and anchor to selected nodes        | [![npm.preprocess-auto-slug.badge]][npm.preprocess-auto-slug]   | [Changelog][github.preprocess-auto-slug.changelog]  | [![docs.badge]][docs.preprocess-auto-slug]  |
+| [@svelte-put/preprocess-external-link][github.preprocess-external-link]   | auto add `id` and anchor to selected nodes        | [![npm.preprocess-external-link.badge]][npm.preprocess-external-link]   | [Changelog][github.preprocess-external-link.changelog]  | [![docs.badge]][docs.preprocess-external-link]  |
 | [@svelte-put/qr][github.qr]                                       | render QR as `img` or `svg`                       | [![npm.qr.badge]][npm.qr]                                       | [Changelog][github.qr.changelog]                    | [![docs.badge]][docs.qr]                    |
 | [@svelte-put/resize][github.resize]                               | wrapper for ResizeObserver                        | [![npm.resize.badge]][npm.resize]                               | [Changelog][github.resize.changelog]                | [![docs.badge]][docs.resize]                |
 | [@svelte-put/shortcut][github.shortcut]                           | add keyboard shortcuts to node                    | [![npm.shortcut.badge]][npm.shortcut]                           | [Changelog][github.shortcut.changelog]              | [![docs.badge]][docs.shortcut]              |
@@ -85,8 +86,10 @@ pnpm turbo
 [github.movable.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/movable/CHANGELOG.md
 [github.noti]: https://github.com/vnphanquang/svelte-put/tree/main/packages/noti
 [github.noti.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/noti/CHANGELOG.md
-[github.preprocess-auto-slug]: https://github.com/vnphanquang/svelte-put/tree/main/packages/auto-slug
-[github.preprocess-auto-slug.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/auto-slug/CHANGELOG.md
+[github.preprocess-auto-slug]: https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocess-auto-slug
+[github.preprocess-auto-slug.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocess-auto-slug/CHANGELOG.md
+[github.preprocess-external-link]: https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocess-external-link
+[github.preprocess-external-link.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocess-external-link/CHANGELOG.md
 [github.qr]: https://github.com/vnphanquang/svelte-put/tree/main/packages/qr
 [github.qr.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/qr/CHANGELOG.md
 [github.resize]: https://github.com/vnphanquang/svelte-put/tree/main/packages/resize
@@ -129,6 +132,8 @@ pnpm turbo
 [npm.noti]: https://www.npmjs.com/package/@svelte-put/noti
 [npm.preprocess-auto-slug.badge]: https://img.shields.io/npm/v/@svelte-put/preprocess-auto-slug
 [npm.preprocess-auto-slug]: https://www.npmjs.com/package/@svelte-put/preprocess-auto-slug
+[npm.preprocess-external-link.badge]: https://img.shields.io/npm/v/@svelte-put/preprocess-external-link
+[npm.preprocess-external-link]: https://www.npmjs.com/package/@svelte-put/preprocess-external-link
 [npm.qr.badge]: https://img.shields.io/npm/v/@svelte-put/qr
 [npm.qr]: https://www.npmjs.com/package/@svelte-put/qr
 [npm.resize.badge]: https://img.shields.io/npm/v/@svelte-put/resize
@@ -158,6 +163,7 @@ pnpm turbo
 [docs.movable]: https://svelte-put.vnphanquang.com/docs/movable
 [docs.noti]: https://svelte-put.vnphanquang.com/docs/noti
 [docs.preprocess-auto-slug]: https://svelte-put.vnphanquang.com/docs/preprocess-auto-slug
+[docs.preprocess-external-link]: https://svelte-put.vnphanquang.com/docs/preprocess-external-link
 [docs.qr]: https://svelte-put.vnphanquang.com/docs/qr
 [docs.resize]: https://svelte-put.vnphanquang.com/docs/resize
 [docs.shortcut]: https://svelte-put.vnphanquang.com/docs/shortcut

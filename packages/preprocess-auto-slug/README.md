@@ -19,27 +19,27 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 ## Quick Start
 
 ```html
-<!-- input -->
+<!-- input.svelte -->
 <h2>Quick start</h2>
 ```
 
 ```javascript
-// config
+// svelte.config.js
 import autoSlug from '@svelte-put/preprocess-auto-slug';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	preprocess: [autoSlug()],
+  preprocess: [autoSlug()],
 };
 
 export default config;
 ```
 
 ```html
-<!-- output -->
+<!-- output.html -->
 <h2 id="quick-start">
-	<a href="#quick-start" aria-hidden="true" tabindex="-1">#</a>
-	Quick Start
+  <a href="#quick-start" aria-hidden="true" tabindex="-1">#</a>
+  Quick Start
 </h2>
 ```
 

@@ -19,15 +19,15 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 ## Quick Start
 
 ```html
-<script lang="ts">
-	import { lockscroll, createLockScrollStore } from '@svelte-put/lockscroll';
+<script>
+  import { lockscroll } from '@svelte-put/lockscroll';
 
-	const locked = createLockScrollStore();
-	// ... later
-	locked.toggle();
+  let locked = $state(false);
 </script>
 
-<svelte:body use:lockscroll="{locked}" />
+<svelte:body use:lockscroll={locked} />
+
+<button onclick={() => locked = !locked}>Toggle lock scroll on body</button>
 ```
 
 ## [Changelog][github.changelog]

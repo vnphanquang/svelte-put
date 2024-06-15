@@ -25,15 +25,15 @@
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/avatar
+npm install --save-dev @svelte-put/avatar@4.0.0-next.3
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/avatar
+pnpm add -D @svelte-put/avatar@4.0.0-next.3
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/avatar
+yarn add -D @svelte-put/avatar@4.0.0-next.3
 ```
 
 </enhanced-code-block>

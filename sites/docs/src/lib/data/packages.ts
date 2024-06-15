@@ -177,7 +177,7 @@ export const packages = {
     description: 'svelte preprocessor to add appropriate attributes to anchor tags for external links',
     path: '/docs/preprocess-external-link',
     replId: undefined,
-    status: 'stable',
+    status: 'new',
     ready: true,
     githubUrl:
       'https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocess-external-link',
@@ -201,7 +201,7 @@ export const packages = {
     id: 'resize',
     name: '@svelte-put/resize',
     publishedAt: 1673513404459,
-    description: 'svelte action that wraps for ResizeObserver',
+    description: 'Svelte action wrapper for ResizeObserver',
     path: '/docs/resize',
     replId: undefined,
     status: 'stable',

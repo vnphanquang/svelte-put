@@ -22,16 +22,17 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 
 ```html
 <script lang="ts">
-	import { intersect, type IntersectDetail } from '@svelte-put/intersect';
-	function onIntersect(e: CustomEvent<IntersectDetail>) {
-		const { observer, entries, direction } = e.detail;
-		console.log('the observer itself', observer);
-		console.log('scrolling direction:', direction);
-		console.log('intersecting:', entries[0]?.isIntersecting ? 'entering' : 'leaving');
-	}
+  import { intersect, type IntersectDetail } from '@svelte-put/intersect';
+
+  function onIntersect(e: CustomEvent<IntersectDetail>) {
+    const { observer, entries, direction } = e.detail;
+    console.log('the observer itself', observer);
+    console.log('scrolling direction:', direction);
+    console.log('intersecting:', entries[0]?.isIntersecting ? 'entering' : 'leaving');
+  }
 </script>
 
-<div use:intersect on:intersect="{onIntersect}" on:intersectonce />
+<div use:intersect onintersect={onIntersect} onintersectonce></div>
 ```
 
 ## [Changelog][github.changelog]

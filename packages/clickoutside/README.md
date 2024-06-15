@@ -22,11 +22,11 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 
 ```html
 <script lang="ts">
-	import { clickoutside } from '@svelte-put/clickoutside';
+  import { clickoutside } from '@svelte-put/clickoutside';
 
-	function doSomething(e: CustomEvent<MouseEvent>) {
-		console.log(e.target);
-	}
+  function doSomething(e: CustomEvent<MouseEvent>) {
+    console.log(e.target);
+  }
 </script>
 
 <div use:clickoutside onclickoutside="{doSomething}" />

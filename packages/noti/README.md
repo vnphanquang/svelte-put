@@ -20,48 +20,54 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 
 ```html
 <script lang="ts">
-	import { store, portal } from '@svelte-put/noti';
+  import { controller } from '@svelte-put/noti';
 
-	// any Svelte component to render as notification
-	import Notification from './Notification.svelte';
+  // any Svelte component to render as notification
+  import Notification from './Notification.svelte';
 
-	// define somewhere global, reuse across app
-	export const notiStore = store()
-		// add a minimalistic variant config
-		.variant('info', Notification)
-		// add a verbose variant config
-		.variant('special', {
-			timeout: false,
-			id: 'counter',
-			component: Notification,
-			props: {
-				// inferred from Notification component
-				special: true,
-				content: 'A very special notification',
-			},
-		})
-		// build the actual NotificationStore
-		.build();
+  // define somewhere global, reuse across app
+  export const notiCtrl = controller()
+    // add a minimalistic variant config
+    .addVariant('info', Notification)
+    // add a verbose variant config
+    .addVariant('special', {
+      timeout: false,
+      id: 'counter',
+      component: Notification,
+      props: {
+        // inferred from Notification component
+        special: true,
+        content: 'A very special notification',
+      },
+    })
+    // build the actual NotificationController
+    .build();
 
-	onMount(async () => {
-		// push a special notification
-		const pushed = notiStore.push('special');
+  onMount(async () => {
+    // push a special notification
+    const pushed = notiStore.push('special');
 
-		// wait for some user action to resolve (pop) the notification
-		const { userAction } = await pushed.resolve();
+    // wait for some user action for the notification
+    // to be resolved (popped) from within the component
+    const { userAction } = await pushed.resolution;
 
-		// push another notification with custom props
-		notiStore.push('info', {
-			props: {
-				content: 'An example information',
-			},
-		});
-	});
+    // push another notification with custom props
+    notiStore.push('info', {
+      props: {
+        content: 'An example information',
+      },
+    });
+  });
 </script>
 
-<div use:portal="{notiStore}">
-	<!-- notification instances rendered as direct children -->
-</div>
+<!-- notification portal, typically setup at somewhere global like root layout -->
+<aside class="applicable class">
+  {#each notiCtrl.notifications as notification (notification.config.id)}
+    <div use:notiCtrl.actions.render={notification}>
+      <!-- notification instances rendered as direct children -->
+    </div>
+  {/each}
+</aside>
 ```
 
 ## [Changelog][github.changelog]

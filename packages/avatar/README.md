@@ -4,7 +4,7 @@
 
 [![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia] [![docs.badge]][docs] [![repl.badge]][repl]
 
-Svelte `Avatar` component and utilities for building avatars with builtin supports [Gravatar] and [UI Avatar][uiavatar].
+Svelte `Avatar` component and utilities for building avatars with builtin supports for [Gravatar] and [UI Avatar][uiavatar].
 
 </div>
 
@@ -19,20 +19,17 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 ## Quick Start
 
 ```html
-<script lang="ts">
-	import Avatar from '@svelte-put/avatar/Avatar.svelte';
+<script>
+  import Avatar from '@svelte-put/avatar/Avatar.svelte';
 
-	export let id: string;
-	export let email = '';
-	export let firstName = '';
-	export let lastName = '';
+  let { id, email, firstName, lastName } = $props();
 </script>
 
 <Avatar
-	src="https://your.api/avatar/{id}"
-	gravatar="{email}"
-	uiAvatar="{firstName}+{lastName}"
-	fallback="https://your.api/avatar/default"
+  src="https://your.api/avatar/{id}"
+  gravatar="{email}"
+  uiAvatar="{firstName}+{lastName}"
+  fallback="https://your.api/avatar/default"
 />
 ```
 

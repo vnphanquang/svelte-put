@@ -18,9 +18,10 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 
 ## Quick Start
 
-Given this `svelte.config.js`
+Given this `svelte.config.js`...
 
 ```javascript
+// svelte.config.js
 import externalLink from '@svelte-put/preprocess-external-link';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -33,9 +34,10 @@ const config = {
 export default config;
 ```
 
-and the following input markup
+..the following input markup...
 
-```svelte
+```html
+<!-- input.svelte -->
 <script>
   let href = 'https://developer.mozilla.org';
 </script>
@@ -50,9 +52,11 @@ and the following input markup
 <a {href} data-external>Svelte</a>
 ```
 
-will output
+...will output
 
 ```html
+<!-- output.html -->
+
 <!-- links that are treated as internal -->
 <a href="/internal-path">Internal Path</a>
 <a href="https//your-domain.com/some-path">Internal Path</a>
