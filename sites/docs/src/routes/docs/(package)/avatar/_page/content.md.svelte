@@ -270,8 +270,6 @@ Since [Svelte style](https://svelte.dev/docs/svelte-components#style) are compon
 /// title=MyAvatar.svelte
 ```
 
-sr-only
-
 <img src={avatarAangImg} alt="Guess who is the Avatar?" width="300" height="168.6" loading="lazy" decoding="async" />
 
 Happy bending!

@@ -181,7 +181,7 @@ notiStore.push('custom', {
 ```
 
 :::div c-callout c-callout--warning
-Custom `push` mush provide a component in its config.
+Custom `push` must provide a component in its config.
 :::
 
 If you find that the `push` interface is too verbose (it is), you can further create your own proxy utils.
