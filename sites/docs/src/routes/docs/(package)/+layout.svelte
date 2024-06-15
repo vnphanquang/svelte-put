@@ -98,6 +98,10 @@
 </p>
 
 {#if data.package.ready}
+	<p class="c-callout c-callout--success c-callout--icon-megaphone max-w-md xl:hidden">
+		Migrating to Svelte 5? See
+		<a class="c-link" href="https://svelte-put-next.vnphanquang.com">the new docs site here</a>.
+	</p>
 	<slot />
 	<p class="text-right text-sm">
 		<a class="c-link" href="https://github.com/vnphanquang/svelte-put/edit/main/sites/docs/src/routes/docs/(package)/{data.package.id}/_page/content.md.svelte">

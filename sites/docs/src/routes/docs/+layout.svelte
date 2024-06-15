@@ -109,7 +109,11 @@
 		{/key}
 
 		<nav class="sidebar sidebar-right" aria-label="table of contents">
-			<div class="sveltevietnam-banner mt-10 border rounded p-4 space-y-2 upto-xl:hidden">
+			<p class="upto-xl:hidden mt-10 c-callout c-callout--success c-callout--icon-megaphone">
+				Migrating to Svelte 5? See
+				<a class="c-link" href="https://svelte-put-next.vnphanquang.com">the new docs site here</a>.
+			</p>
+			<div class="sveltevietnam-banner mt-5 border rounded p-4 space-y-2 upto-xl:hidden">
 				<p class="font-medium">
 					Are you based in Vietnam?
 				</p>
