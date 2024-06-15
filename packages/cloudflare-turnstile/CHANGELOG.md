@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0-next.1
+
+### Patch Changes
+
+- [`26bbd81`](https://github.com/vnphanquang/svelte-put/commit/26bbd813c1e65ead04d5d6bcb29b97a34045646b) Thanks [@vnphanquang](https://github.com/vnphanquang)! - sync README.md and installation version in docs page
+
 ## 1.0.0-next.0
 
 ### Major Changes
