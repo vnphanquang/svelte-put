@@ -4,7 +4,7 @@
 
 	import { ColorSchemeMenu } from '$lib/components/color-scheme-menu';
 	import { SOCIAL_LINKS } from '$lib/constants';
-	import { packages } from '$lib/data/packages';
+	import { deprecatedPackages, packages } from '$lib/data/packages';
 
 	import MenuLabel from './_page/components/MenuLabel.svelte';
 	import StatusBadge from './_page/components/StatusBadge.svelte';
@@ -96,6 +96,24 @@
                 </a>
               </li>
             {/each}
+						<li class="pt-4">
+							<p class="pl-3 pt-4 border-t uppercase font-bold text-base">Deprecated</p>
+							<ul class="mt-3">
+								{#each Object.values(deprecatedPackages) as { path, status, id }}
+										<li>
+										<a
+											href={path}
+											data-current={data.pathname.includes(`/${id}`)}
+											class="c-link c-link--lazy -ml-px block whitespace-nowrap border-l border-transparent py-1 pl-3 data-current:border-link data-current:link"
+											onclick={closeLeftSidebar}
+										>
+											<span class="h-full w-1 bg-primary"></span>
+											{id}
+										</a>
+									</li>
+								{/each}
+							</ul>
+						</li>
           </ul>
         </li>
       </ul>

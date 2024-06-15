@@ -1,3 +1,16 @@
+export interface Package {
+	id: string;
+	name: string;
+	publishedAt: number;
+	description: string;
+	path: string;
+	replId?: string;
+	status: 'dev' | 'beta' | 'new' | 'flux' | 'stable';
+	ready: boolean;
+	githubUrl: string;
+	changelogUrl: string;
+}
+
 export const packages = {
   avatar: {
     id: 'avatar',
@@ -157,20 +170,6 @@ export const packages = {
     changelogUrl:
       'https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocess-auto-slug/CHANGELOG.md',
   },
-  // 'preprocess-inline-svg': {
-  //   id: 'preprocess-inline-svg',
-  //   name: '@svelte-put/preprocess-inline-svg',
-  //   publishedAt: 1677056235319,
-  //   description: 'svelte preprocessor to inline static svg at build time',
-  //   path: '/docs/preprocess-inline-svg',
-  //   replId: undefined,
-  //   status: 'stable',
-  //   ready: true,
-  //   githubUrl:
-  //     'https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocess-inline-svg',
-  //   changelogUrl:
-  //     'https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocess-inline-svg/CHANGELOG.md',
-  // },
   'preprocess-external-link': {
     id: 'preprocess-external-link',
     name: '@svelte-put/preprocess-external-link',
@@ -264,12 +263,24 @@ export const packages = {
   //   changelogUrl:
   //     'https://github.com/vnphanquang/svelte-put/blob/main/packages/tooltip/CHANGELOG.md',
   // },
-} as const;
+} as const satisfies Record<string, Package>;
 
 export type PackageId = keyof typeof packages;
-export type Package = (typeof packages)[PackageId];
 export type PackageName = Package['name'];
 
-export const pkgToPath = Object.fromEntries(
-  Object.values(packages).map((p) => [p.name, p.path]),
-) as Record<PackageName, string>;
+export const deprecatedPackages = {
+  'preprocess-inline-svg': {
+    id: 'preprocess-inline-svg',
+    name: '@svelte-put/preprocess-inline-svg',
+    publishedAt: 1677056235319,
+    description: 'svelte preprocessor to inline static svg at build time',
+    path: '/docs/preprocess-inline-svg',
+    replId: undefined,
+    status: 'stable',
+    ready: true,
+    githubUrl:
+      'https://github.com/vnphanquang/svelte-put/tree/svelte-4/packages/preprocess-inline-svg',
+    changelogUrl:
+      'https://github.com/vnphanquang/svelte-put/blob/svelte-4/packages/preprocess-inline-svg/CHANGELOG.md',
+  },
+} as const satisfies Record<string, Package>;
