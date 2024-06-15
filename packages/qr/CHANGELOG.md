@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-next.2
+
+### Patch Changes
+
+- [`f61c8ca`](https://github.com/vnphanquang/svelte-put/commit/f61c8ca5476bb9eb96bf347818859137dc8c4d54) Thanks [@vnphanquang](https://github.com/vnphanquang)! - export component type as default
+
+- [`afcd074`](https://github.com/vnphanquang/svelte-put/commit/afcd0745ba2b980ef8234a633aecefc2ff015a92) Thanks [@vnphanquang](https://github.com/vnphanquang)! - clean up debris
+
 ## 2.0.0-next.1
 
 ### Minor Changes
