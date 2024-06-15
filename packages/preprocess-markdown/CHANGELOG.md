@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.0-next.2
+
+### Patch Changes
+
+- [`73738a1`](https://github.com/vnphanquang/svelte-put/commit/73738a1efe70eb6b03248e5b3dc4797a05042e0d) Thanks [@vnphanquang](https://github.com/vnphanquang)! - escape special svelte-y characters in `code` block instead of `pre`
+
+- [`f61c8ca`](https://github.com/vnphanquang/svelte-put/commit/f61c8ca5476bb9eb96bf347818859137dc8c4d54) Thanks [@vnphanquang](https://github.com/vnphanquang)! - export component type as default
+
 ## 1.0.0-next.1
 
 ### Patch Changes
