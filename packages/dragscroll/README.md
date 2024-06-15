@@ -20,7 +20,7 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 
 ```html
 <script>
-	import { dragscroll } from '@svelte-put/dragscroll';
+  import { dragscroll } from '@svelte-put/dragscroll';
 </script>
 
 <div use:dragscroll>...</div>

@@ -22,7 +22,7 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 
 ```html
 <script lang="ts">
-	import { movable } from '@svelte-put/movable';
+  import { movable } from '@svelte-put/movable';
 </script>
 
 <div class="h-20 w-20" use:movable>...</div>

@@ -13,15 +13,15 @@
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/dragscroll
+npm install --save-dev @svelte-put/dragscroll@4.0.0-next.2
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/dragscroll
+pnpm add -D @svelte-put/dragscroll@4.0.0-next.2
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/dragscroll
+yarn add -D @svelte-put/dragscroll@4.0.0-next.2
 ```
 
 </enhanced-code-block>

@@ -20,16 +20,16 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 
 ```html
 <!-- component.svelte -->
-<script lang="ts">
-	import { turnstile } from '@svelte-put/cloudflare-turnstile';
+<script>
+  import { turnstile } from '@svelte-put/cloudflare-turnstile';
 </script>
 
 <div
-	use:turnstile
-	turnstile-sitekey="1x00000000000000000000AA"
-	turnstile-theme="dark"
-	turnstile-size="normal"
-/>
+  use:turnstile
+  turnstile-sitekey="1x00000000000000000000AA"
+  turnstile-theme="dark"
+  turnstile-size="normal"
+></div>
 ```
 
 ## [Changelog][github.changelog]

@@ -20,14 +20,14 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 
 ```html
 <script lang="ts">
-	import { copy, type CopyDetail } from '@svelte-put/copy';
+  import { copy, type CopyDetail } from '@svelte-put/copy';
 
-	function handleCopied(e: CustomEvent<CopyDetail>) {
-		console.log('Text copied:', e.detail.text);
-	}
+  function handleCopied(e: CustomEvent<CopyDetail>) {
+    console.log('Text copied:', e.detail.text);
+  }
 </script>
 
-<button type="button" use:copy on:copied="{handleCopied}">Click to copy this</button>
+<button type="button" use:copy oncopied={handleCopied}>Click to copy this</button>
 ```
 
 ## [Changelog][github.changelog]

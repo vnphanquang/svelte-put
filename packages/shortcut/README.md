@@ -28,8 +28,15 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
   }
 </script>
 
-<svelte:window use:shortcut={{ trigger: { key: 'k', modifier: ['ctrl', 'meta'], callback: handleK,
-}, }} />
+<svelte:window
+  use:shortcut={{
+    trigger: {
+      key: 'k',
+      modifier: ['ctrl', 'meta'],
+      callback: handleK,
+    },
+  }}
+/>
 ```
 
 ## [Changelog][github.changelog]
