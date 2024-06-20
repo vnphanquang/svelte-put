@@ -1,10 +1,10 @@
 <script lang="ts">
   import { clickoutside } from '@svelte-put/clickoutside';
   import { quintOut } from 'svelte/easing';
-	import type { HTMLFieldsetAttributes } from 'svelte/elements';
+  import type { HTMLFieldsetAttributes } from 'svelte/elements';
   import { fly } from 'svelte/transition';
 
-	let { class: cls, ...rest }: HTMLFieldsetAttributes = $props();
+  let { class: cls, ...rest }: HTMLFieldsetAttributes = $props();
 
   let enabled = $state(true);
   let parent: Element | undefined = $state(undefined);
@@ -22,7 +22,7 @@
 <fieldset
   class="border-4 border-error-text bg-error-surface text-error-text p-10 {cls}"
   bind:this={parent}
-	{...rest}
+  {...rest}
 >
   <legend class="font-bold text-error-text">Limit</legend>
 
@@ -68,3 +68,4 @@
     </button>
   </div>
 </fieldset>
+
