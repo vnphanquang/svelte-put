@@ -140,3 +140,4 @@ Happy clicking outside! 👨‍💻
 [Advanced Usage & Customization]: #advanced-usage-and-customization
 [CustomEvent]: https://developer.mozilla.org/en-US/docs/Web/API/CustomEventj
 [addEventListener]: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+

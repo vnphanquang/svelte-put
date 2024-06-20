@@ -7,7 +7,6 @@ export class Notification {
 	// eslint-disable-next-line no-undef
 	state = $state('idle');
 	/** @type {Required<import('./types.d.ts').NotificationInstanceConfig<Resolved, string, UserComponent>>} */
-	// eslint-disable-next-line no-undef
 	config;
 
 	#internals = {
@@ -67,3 +66,4 @@ export class Notification {
 		return this.resolution;
 	}
 }
+

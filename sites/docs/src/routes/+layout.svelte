@@ -15,10 +15,10 @@
 		const meta = $page.data.meta;
 		const title = meta?.title ?? 'svelte-put';
 		const description =
-			meta?.description ?? 'svelte-put is a collection of utilities, minimal components, and tooling support for projects using Svelte';
+			meta?.description ??
+			'svelte-put is a collection of utilities, minimal components, and tooling support for projects using Svelte';
 		const keywords = meta?.keywords ? [...DEFAULT_KEYWORDS, ...meta.keywords] : DEFAULT_KEYWORDS;
-		const canonical =
-			meta?.canonical ?? `${$page.url.origin}${$page.url.pathname}`;
+		const canonical = meta?.canonical ?? `${$page.url.origin}${$page.url.pathname}`;
 
 		const rootRelativeOgImage = meta?.og?.image ?? ogImageHome;
 
@@ -27,7 +27,9 @@
 			description: meta?.og?.description ?? description,
 			type: meta?.og?.type ?? 'website',
 			url: meta?.og?.url ?? canonical,
-			image: rootRelativeOgImage.startsWith('/') ? `${$page.url.origin}${rootRelativeOgImage}` : rootRelativeOgImage,
+			image: rootRelativeOgImage.startsWith('/')
+				? `${$page.url.origin}${rootRelativeOgImage}`
+				: rootRelativeOgImage,
 			imageAlt: meta?.og?.imageAlt ?? title,
 		};
 
@@ -86,3 +88,4 @@
 </svelte:head>
 
 {@render children()}
+
