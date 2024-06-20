@@ -1,0 +1,70 @@
+{
+	"name": "@svelte-put/async-stack",
+	"version": "0.0.0-next.0",
+	"description": "type-safe and headless builder for async component stack",
+	"type": "module",
+	"main": "src/index.js",
+	"module": "src/index.js",
+	"types": "types/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./types/index.d.ts",
+			"import": "./src/index.js"
+		}
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"files": [
+		"src",
+		"types"
+	],
+	"scripts": {
+		"lint": "eslint . --ignore-path=\"../../.eslintignore\"",
+		"format": "prettier --ignore-path ../../.prettierignore --write .",
+		"dts": "dts-buddy --write && publint",
+		"prepublishOnly": "turbo run dts --filter=@svelte-put/async-stack"
+	},
+	"keywords": [
+		"svelte",
+		"action",
+		"notification",
+		"modal",
+		"stack",
+		"push",
+		"pop",
+		"toast",
+		"async",
+		"push",
+		"typescript",
+		"type-safe",
+		"headless",
+		"builder",
+		"portal"
+	],
+	"author": {
+		"email": "vnphanquang@gmail.com",
+		"name": "Quang Phan",
+		"url": "https://github.com/vnphanquang"
+	},
+	"license": "MIT",
+	"homepage": "https://svelte-put.vnphanquang.com/docs/async-stack",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/vnphanquang/svelte-put.git",
+		"directory": "packages/async-stack"
+	},
+	"bugs": {
+		"url": "https://github.com/vnphanquang/svelte-put/issues"
+	},
+	"devDependencies": {
+		"@internals/tsconfig": "workspace:*"
+	},
+	"peerDependencies": {
+		"svelte": "^5.0.0-next.155"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	}
+}
+
