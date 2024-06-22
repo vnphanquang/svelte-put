@@ -19,15 +19,15 @@ Make sure you have version 4 of `@svelte-put/inline-svg` installed:
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/inline-svg
+npm install --save-dev @svelte-put/inline-svg@latest
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/inline-svg
+pnpm add -D @svelte-put/inline-svg@latest
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/inline-svg
+yarn add -D @svelte-put/inline-svg@latest
 ```
 
 </enhanced-code-block>
@@ -61,3 +61,4 @@ Consider switching to the new Vite plugin that wraps the `preprocess-inline-svg`
 ---
 
 Happy migrating 😅
+
