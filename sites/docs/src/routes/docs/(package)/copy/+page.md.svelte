@@ -14,15 +14,15 @@
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/copy@4.0.0-next.2
+npm install --save-dev @svelte-put/copy@latest
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/copy@4.0.0-next.2
+pnpm add -D @svelte-put/copy@latest
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/copy@4.0.0-next.2
+yarn add -D @svelte-put/copy@latest
 ```
 
 </enhanced-code-block>
@@ -151,3 +151,4 @@ Happy copying! 👨‍💻
   <img class="mx-auto" src={memeImage} alt="a meme showing an episode of Mr. Bean where he is copying another student's answers during an exam" width="300" height="217" loading="lazy" decoding="async" />
   <figcaption>This package was made during <a class="c-link" href="https://en.wikipedia.org/wiki/COVID-19">Covid</a>. Or was it? How could I remember anything from those years...</figcaption>
 </figure>
+

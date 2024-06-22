@@ -14,15 +14,15 @@ This implementation of [Cloudflare Turnstile] utilizes [Svelte action]. If you a
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/cloudflare-turnstile@1.0.0-next.2
+npm install --save-dev @svelte-put/cloudflare-turnstile@latest
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/cloudflare-turnstile@1.0.0-next.2
+pnpm add -D @svelte-put/cloudflare-turnstile@latest
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/cloudflare-turnstile@1.0.0-next.2
+yarn add -D @svelte-put/cloudflare-turnstile@latest
 ```
 
 </enhanced-code-block>
@@ -191,3 +191,4 @@ Happy turning in style! 👨‍💻
 [CustomEvent]: https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent
 [Cloudflare Turnstile]: https://developers.cloudflare.com/turnstile/
 [turnstile.client.configurations]: https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/#configurations
+

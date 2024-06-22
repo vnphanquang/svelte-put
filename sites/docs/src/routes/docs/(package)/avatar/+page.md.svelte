@@ -25,15 +25,15 @@
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/avatar@4.0.0-next.3
+npm install --save-dev @svelte-put/avatar@latest
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/avatar@4.0.0-next.3
+pnpm add -D @svelte-put/avatar@latest
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/avatar@4.0.0-next.3
+yarn add -D @svelte-put/avatar@latest
 ```
 
 </enhanced-code-block>
@@ -269,3 +269,4 @@ Happy bending!
 [Resolution Strategies]: #resolution-strategies
 [Gravatar]: https://docs.gravatar.com/
 [UI Avatar]: https://ui-avatars.com/
+

@@ -15,15 +15,15 @@
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/noti@2.0.0-next.2
+npm install --save-dev @svelte-put/noti@latest
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/noti@2.0.0-next.2
+pnpm add -D @svelte-put/noti@latest
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/noti@2.0.0-next.2
+yarn add -D @svelte-put/noti@latest
 ```
 
 </enhanced-code-block>
@@ -562,3 +562,4 @@ Happy pushing and popping notifications! 👨‍💻
 [Notification Portal]: #notification-portal
 [Timeout and Progress]: #timeout-and-progress
 [Awaiting for Resolution]: #await-resolution
+

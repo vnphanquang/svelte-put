@@ -13,15 +13,15 @@
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/lockscroll@2.0.0-next.2
+npm install --save-dev @svelte-put/lockscroll@latest
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/lockscroll@2.0.0-next.2
+pnpm add -D @svelte-put/lockscroll@latest
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/lockscroll@2.0.0-next.2
+yarn add -D @svelte-put/lockscroll@latest
 ```
 
 </enhanced-code-block>
@@ -156,3 +156,4 @@ Happy locking scroll! 👨‍💻
 [Scroll Container]: https://developer.mozilla.org/en-US/docs/Glossary/Scroll_container
 [Svelte store]: https://svelte.dev/docs/svelte-store
 [CustomEvent]: https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent
+

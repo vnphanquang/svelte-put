@@ -13,15 +13,15 @@
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/dragscroll@4.0.0-next.2
+npm install --save-dev @svelte-put/dragscroll@latest
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/dragscroll@4.0.0-next.2
+pnpm add -D @svelte-put/dragscroll@latest
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/dragscroll@4.0.0-next.2
+yarn add -D @svelte-put/dragscroll@latest
 ```
 
 </enhanced-code-block>
@@ -78,3 +78,4 @@ In the example below, try using the **scrollbar** to confirm `scroll-snap-align`
 If you find a solution or workaround to the above, please consider [open a PR](https://github.com/vnphanquang/svelte-put/pulls) or [discussion thread](https://github.com/vnphanquang/svelte-put/discussions). Thank you!
 
 Happy dragging! 👨‍💻
+

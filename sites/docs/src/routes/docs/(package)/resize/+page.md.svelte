@@ -17,15 +17,15 @@
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/resize@4.0.0-next.1
+npm install --save-dev @svelte-put/resize@latest
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/resize@4.0.0-next.1
+pnpm add -D @svelte-put/resize@latest
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/resize@4.0.0-next.1
+yarn add -D @svelte-put/resize@latest
 ```
 
 </enhanced-code-block>
@@ -88,3 +88,4 @@ Happy resizing! 👨‍💻
 [svelte-observer-resize]: https://github.com/jnruel/svelte-observe-resize
 [svelte-resize-observer]: https://github.com/andrelmlins/svelte-resize-observer
 [resize-observer-polyfill]: https://www.npmjs.com/package/resize-observer-polyfill
+
