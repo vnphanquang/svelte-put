@@ -3,9 +3,9 @@ import path from 'path';
 
 import { toString } from 'hast-util-to-string';
 import { h } from 'hastscript';
-import { getHighlighterCore } from 'shiki/core';
+import { createHighlighterCore } from 'shiki/core';
 
-export const highlighter = await getHighlighterCore({
+export const highlighter = await createHighlighterCore({
 	themes: [import('shiki/themes/dark-plus.mjs'), import('shiki/themes/light-plus.mjs')],
 	langs: [
 		import('shiki/langs/javascript.mjs'),
@@ -187,3 +187,4 @@ export function transformer() {
 		},
 	};
 }
+
