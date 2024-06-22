@@ -12,6 +12,7 @@ export class NotFoundVariantConfig extends Error {
 
 export class MissingComponentInCustomPush extends Error {
 	constructor() {
-		super('Notification custom push must have component property specified');
+		super('Stack custom push must have component property specified');
 	}
 }
+
