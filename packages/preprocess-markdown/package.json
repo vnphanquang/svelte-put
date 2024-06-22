@@ -68,7 +68,7 @@
 		"@types/hast": "^3.0.4"
 	},
 	"peerDependencies": {
-		"svelte": "^5.0.0-next.160"
+		"svelte": "^5.0.0-next.164"
 	},
 	"dependencies": {
 		"@shikijs/rehype": "^1.9.0",
@@ -88,3 +88,4 @@
 		"zimmerframe": "^1.1.2"
 	}
 }
+

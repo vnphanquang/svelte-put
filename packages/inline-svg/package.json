@@ -86,10 +86,11 @@
 		"zimmerframe": "^1.1.2"
 	},
 	"peerDependencies": {
-		"svelte": "^5.0.0-next.160",
+		"svelte": "^5.0.0-next.164",
 		"vite": "^5.0.0"
 	},
 	"volta": {
 		"extends": "../../package.json"
 	}
 }
+
