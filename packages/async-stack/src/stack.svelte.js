@@ -7,7 +7,7 @@ import { StackItem } from './stack-item.svelte.js';
  * @template {Record<string, import('svelte').Component>} [VariantMap={}]
  */
 export class Stack {
-	/** @type {Record<string, import('./types.d.ts').StackItemVariantConfig<any, any, any>>} */
+	/** @type {Record<string, import('./types.d.ts').StackItemVariantConfig<string, import('svelte').Component>>} */
 	#variantConfigMap = {};
 	#counter = 0;
 
@@ -19,7 +19,7 @@ export class Stack {
 	items = $state([]);
 
 	/**
-	 * @type {Required<import('./types.d.ts').StackItemCommonConfig<any, any, any>>}
+	 * @type {Required<import('./types.d.ts').StackItemCommonConfig<string, import('svelte').Component>>}
 	 */
 	// eslint-disable-next-line no-undef
 	config = $state({
@@ -48,8 +48,8 @@ export class Stack {
 	};
 
 	/**
-	 * @param {Record<keyof VariantMap, import('./types.d.ts').StackItemVariantConfig<any, any, any>>} variantConfigMap
-	 * @param {import('./types.d.ts').StackItemCommonConfig<any, any, any>} [init]
+	 * @param {Record<keyof VariantMap, import('./types.d.ts').StackItemVariantConfig<string, import('svelte').Component>>} variantConfigMap
+	 * @param {import('./types.d.ts').StackItemCommonConfig<string, import('svelte').Component>} [init]
 	 */
 	constructor(variantConfigMap, init) {
 		if (init?.id) this.config.id = init.id;
@@ -61,35 +61,33 @@ export class Stack {
 	/**
 	 * @template {Extract<keyof VariantMap, string>} Variant
 	 * @template {VariantMap[Variant]} [UserComponent=VariantMap[Variant]]
-	 * @template [Resolved=undefined|Awaited<import('svelte').ComponentProps<UserComponent>['item']['resolution']>]
 	 * @overload
 	 * @param {Variant} variant
-	 * @param {import('./types.d.ts').StackItemByVariantPushConfig<Resolved, Variant, UserComponent>} [config]
-	 * @returns {StackItem<Resolved>}
+	 * @param {import('./types.d.ts').StackItemByVariantPushConfig<Variant, UserComponent>} [config]
+	 * @returns {StackItem<UserComponent>}
 	 */
 	/**
 	 * @template {import('svelte').Component} UserComponent
-	 * @template [Resolved=undefined|Awaited<import('svelte').ComponentProps<UserComponent>['item']['resolution']>]
 	 * @overload
 	 * @param {'custom'} variant
-	 * @param {import('./types.d.ts').StackItemCustomPushConfig<Resolved, UserComponent>} config
-	 * @returns {StackItem<Resolved>}
+	 * @param {import('./types.d.ts').StackItemCustomPushConfig<UserComponent>} config
+	 * @returns {StackItem<UserComponent>}
 	 */
 	/**
 	 * @param {string} variant
-	 * @param {import('./types.d.ts').StackItemByVariantPushConfig<any, string, import('svelte').Component> | import('./types.d.ts').StackItemCustomPushConfig<any, import('svelte').Component>} [config]
+	 * @param {import('./types.d.ts').StackItemByVariantPushConfig<string, import('svelte').Component> | import('./types.d.ts').StackItemCustomPushConfig<import('svelte').Component>} [config]
 	 * @returns {StackItem<any>}
 	 */
 	push(variant, config) {
 		// STEP 1: resolve instance config, merge with common config and variant config, if any
-		/** @type {import('./types.d.ts').StackItemInstanceConfig<any, any, any>} */
+		/** @type {import('./types.d.ts').StackItemInstanceConfig<string, import('svelte').Component>} */
 		let instanceConfig;
-		/** @type {NonNullable<import('./types.d.ts').StackItemCommonConfig<Resolved, string, import('svelte').Component>['id']>} */
+		/** @type {NonNullable<import('./types.d.ts').StackItemCommonConfig<string, import('svelte').Component>['id']>} */
 		let idResolver;
 
 		if (variant === 'custom') {
 			const rConfig =
-				/** @type {import('./types.d.ts').StackItemCustomPushConfig<any, any>} */ (
+				/** @type {import('./types.d.ts').StackItemCustomPushConfig<import('svelte').Component>} */ (
 					config
 				);
 			if (!rConfig || !rConfig.component) {
@@ -151,21 +149,23 @@ export class Stack {
 	}
 
 	/**
+	 * @template {import('svelte').Component} [UserComponent=import('svelte').Component]
 	 * @overload
 	 * @param {string} [id]
 	 * @param {any} [detail]
-	 * @returns {void}
+	 * @returns {StackItem<UserComponent> | null}
 	 */
 	/**
+	 * @template {import('svelte').Component} [UserComponent=import('svelte').Component]
 	 * @overload
-	 * @param {import('./types.d.ts').StackItemPopVerboseInput} [config]
-	 * @returns {void}
+	 * @param {import('./types.d.ts').StackItemPopVerboseInput<UserComponent>} [config]
+	 * @returns {StackItem<UserComponent> | null}
 	 */
 	/**
-	 *
-	 * @param {string | import('./types.d.ts').StackItemPopVerboseInput} [config]
+	 * @template {import('svelte').Component} [UserComponent=import('svelte').Component]
+	 * @param {string | import('./types.d.ts').StackItemPopVerboseInput<UserComponent>} [config]
 	 * @param {any} [resolved]
-	 * @returns {void}
+	 * @returns {StackItem<UserComponent> | null}
 	 */
 	pop(config, resolved) {
 		/** @type {string | undefined} */
@@ -179,18 +179,20 @@ export class Stack {
 			}
 		}
 
-		/** @type {StackItem<any> | undefined} */
-		let pushed;
+		/** @type {StackItem<UserComponent> | null} */
+		let pushed = null;
 		if (id) {
-			pushed = this.items.find((n) => n.config.id === id);
+			pushed = this.items.find((n) => n.config.id === id) ?? null;
 		} else {
-			pushed = this.items.at(-1);
+			pushed = this.items.at(-1) ?? null;
 		}
 
 		if (pushed) {
 			pushed.resolve(resolved);
 			this.items = this.items.filter((n) => n.config.id !== pushed.config.id);
 		}
+
+		return  pushed;
 	}
 
 	/**

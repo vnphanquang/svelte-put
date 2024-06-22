@@ -4,8 +4,17 @@ import { ActionReturn } from 'svelte/action';
 
 import type { StackItem } from './stack-item.svelte.js';
 
+export declare type StackItemProps<Resolved> = {
+	/** the stack item instance injected by the stack */
+	item: Omit<StackItem<import('svelte').Component<StackItemProps<Resolved>>>, '#internals'>;
+};
+
+export type ComponentResolved<UserComponent extends Component> =
+	ComponentProps<UserComponent> extends StackItemProps<infer Resolved>
+		? Resolved
+		: any;
+
 export type StackItemCommonConfig<
-	Resolved,
 	Variant extends string,
 	UserComponent extends Component,
 > = {
@@ -25,21 +34,15 @@ export type StackItemCommonConfig<
 		| 'counter'
 		| 'uuid'
 		| ((
-				config: Required<Omit<StackItemInstanceConfig<Resolved, Variant, UserComponent>, 'id'>>,
+				config: Required<Omit<StackItemInstanceConfig<Variant, UserComponent>, 'id'>>,
 		  ) => string);
-};
-
-export declare type StackItemProps<Resolved> = {
-	/** the stack item instance injected by the stack */
-	item: Omit<StackItem<Resolved>, '#internals'>;
 };
 
 /** predefined variant config provided while building a {@link Stack} instance */
 export type StackItemVariantConfig<
-	Resolved,
 	Variant extends string,
 	UserComponent extends Component,
-> = StackItemCommonConfig<Resolved, Variant, UserComponent> & {
+> = StackItemCommonConfig<Variant, UserComponent> & {
 	/** string variant representing this config, must be unique within a {@link Stack} instance  */
 	variant: Variant;
 	/** any Svelte component used for rendering stack item UI */
@@ -50,10 +53,9 @@ export type StackItemVariantConfig<
 
 /** a resolved config for a {@link StackItemInstance} */
 export type StackItemInstanceConfig<
-	Resolved,
 	Variant extends string,
 	UserComponent extends Component,
-> = Required<Omit<StackItemVariantConfig<Resolved, Variant, UserComponent>, 'id'>> & {
+> = Required<Omit<StackItemVariantConfig<Variant, UserComponent>, 'id'>> & {
 	id: string;
 	timeout: number;
 };
@@ -61,24 +63,24 @@ export type StackItemInstanceConfig<
 export type StackItemState = 'idle' | 'elapsing' | 'paused' | 'timeout' | 'resolved';
 
 export type StackItemByVariantPushConfig<
-	Resolved,
 	Variant extends string,
 	UserComponent extends Component,
-> = StackItemCommonConfig<Resolved, Variant, UserComponent> & {
+> = StackItemCommonConfig< Variant, UserComponent> & {
 	props?: Omit<ComponentProps<UserComponent>, 'item'>;
 };
 
 export type StackItemCustomPushConfig<
-	Resolved,
 	UserComponent extends Component,
-> = StackItemCommonConfig<Resolved, 'custom', UserComponent> & {
+> = StackItemCommonConfig<'custom', UserComponent> & {
 	component: UserComponent;
 	props?: Omit<ComponentProps<UserComponent>, 'item'>;
 };
 
-export type StackItemPopVerboseInput = {
+export type StackItemPopVerboseInput <
+	UserComponent extends Component,
+>= {
 	id?: string;
-	resolved?: any;
+	resolved?: ComponentResolved<UserComponent>;
 };
 
 export type StackItemRenderActionReturn = ActionReturn<StackItem<any>>;
