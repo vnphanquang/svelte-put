@@ -228,16 +228,6 @@ importers:
         specifier: workspace:*
         version: link:../../internals/tsconfig
 
-  packages/noti:
-    dependencies:
-      svelte:
-        specifier: ^5.0.0-next.164
-        version: 5.0.0-next.164
-    devDependencies:
-      '@internals/tsconfig':
-        specifier: workspace:*
-        version: link:../../internals/tsconfig
-
   packages/preprocess-auto-slug:
     dependencies:
       github-slugger:
@@ -429,9 +419,6 @@ importers:
       '@svelte-put/movable':
         specifier: workspace:*
         version: link:../../packages/movable
-      '@svelte-put/noti':
-        specifier: workspace:^
-        version: link:../../packages/noti
       '@svelte-put/preprocess-auto-slug':
         specifier: workspace:*
         version: link:../../packages/preprocess-auto-slug
