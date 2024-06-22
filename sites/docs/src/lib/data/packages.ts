@@ -154,18 +154,6 @@ export const packages = {
 		changelogUrl:
 			'https://github.com/vnphanquang/svelte-put/blob/main/packages/movable/CHANGELOG.md',
 	},
-	noti: {
-		id: 'noti',
-		name: '@svelte-put/noti',
-		publishedAt: 1670126470519,
-		description: 'type-safe and headless async notification builder',
-		path: '/docs/noti',
-		replId: '5beb4357e32e427394f5f6f5ced7b5f1',
-		status: 'stable',
-		ready: true,
-		githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/noti',
-		changelogUrl: 'https://github.com/vnphanquang/svelte-put/blob/main/packages/noti/CHANGELOG.md',
-	},
 	'preprocess-auto-slug': {
 		id: 'preprocess-auto-slug',
 		name: '@svelte-put/preprocess-auto-slug',
@@ -277,6 +265,18 @@ export type PackageId = keyof typeof packages;
 export type PackageName = Package['name'];
 
 export const deprecatedPackages = {
+	noti: {
+		id: 'noti',
+		name: '@svelte-put/noti',
+		publishedAt: 1670126470519,
+		description: 'type-safe and headless async notification builder',
+		path: '/docs/noti',
+		replId: '5beb4357e32e427394f5f6f5ced7b5f1',
+		status: 'stable',
+		ready: true,
+		githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/noti',
+		changelogUrl: 'https://github.com/vnphanquang/svelte-put/blob/main/packages/noti/CHANGELOG.md',
+	},
 	'preprocess-inline-svg': {
 		id: 'preprocess-inline-svg',
 		name: '@svelte-put/preprocess-inline-svg',
