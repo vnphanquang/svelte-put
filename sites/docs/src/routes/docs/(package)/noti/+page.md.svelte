@@ -6,11 +6,9 @@
 
 ## Deprecation Notice
 
-<div class="c-callout c-callout--warning c-callout--icon-megaphone">
+This package has been dropped in favor of [@svelte-put/async-stack](/docs/async-stack). `@svelte-put/async-stack` is a generic implementation extracted from `@svelte-put/noti` itself, and now is more minimal and powerful thanks to Svelte runes. See [Migration to @svelte-put/async-stack](#migration-to-async-stack) for more details.
 
-`@svelte-put/noti` is now deprecated in favor of [@svelte-put/async-stack](/docs/async-stack). `@svelte-put/async-stack` is a generic implementation extracted from `@svelte-put/noti` itself, and now is more minimal and powerful thanks to Svelte runes. See [Migration to @svelte-put/async-stack](#migration-to-async-stack) for more details.
-
-</div>
+To see the original documentation, [visit here](https://svelte-put-svelte-4.vnphanquang.com/docs/noti).
 
 <h2 id="migration-to-async-stack"> Migration to @svelte-put/async-stack </h2>
 

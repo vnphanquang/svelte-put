@@ -1,4 +1,4 @@
-import ogImage from '$lib/assets/images/og/svelte-put-async-stack.jpg';
+import ogImage from '$lib/assets/images/og/svelte-put-modal.jpg';
 
 import type { PageServerLoad } from './$types';
 
