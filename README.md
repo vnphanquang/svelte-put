@@ -52,8 +52,6 @@ Names for those packages may change. -->
 
 ## Contributing
 
-[Read Contribution Guide][github.contributing]
-
 This project is a monorepo using [turborepo] under the hood. Familiarity with [turborepo] is not required but encouraged.
 
 For a quick start, run the script below at project root to see what commands are available.
