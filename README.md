@@ -20,6 +20,7 @@ Useful svelte stuff to put in your projects
 
 | Package                                                           | Short Description                                 | Version                                                         | Changelog                                           | Docs                                        |
 | ----------------------------------------------------------------- | ------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------- | ------------------------------------------- |
+| [@svelte-put/async-stack][github.async-stack]                               | component & utilities for async-stack                  | [![npm.async-stack.badge]][npm.async-stack]                               | [Changelog][github.async-stack.changelog]                | [![docs.badge]][docs.async-stack]                |
 | [@svelte-put/avatar][github.avatar]                               | component & utilities for avatar                  | [![npm.avatar.badge]][npm.avatar]                               | [Changelog][github.avatar.changelog]                | [![docs.badge]][docs.avatar]                |
 | [@svelte-put/clickoutside][github.clickoutside]                   | event for clicking outside node                   | [![npm.clickoutside.badge]][npm.clickoutside]                   | [Changelog][github.clickoutside.changelog]          | [![docs.badge]][docs.clickoutside]          |
 | [@svelte-put/cloudflare-turnstile][github.cloudflare-turnstile]   | event for clicking outside node                   | [![npm.cloudflare-turnstile.badge]][npm.cloudflare-turnstile]   | [Changelog][github.cloudflare-turnstile.changelog]  | [![docs.badge]][docs.cloudflare-turnstile]  |
@@ -29,7 +30,6 @@ Useful svelte stuff to put in your projects
 | [@svelte-put/inline-svg][github.inline-svg]                       | dynamically inline SVGs                           | [![npm.inline-svg.badge]][npm.inline-svg]                       | [Changelog][github.inline-svg.changelog]            | [![docs.badge]][docs.inline-svg]            |
 | [@svelte-put/lockscroll][github.lockscroll]                       | lock scroll, hide scrollbar                       | [![npm.lockscroll.badge]][npm.lockscroll]                       | [Changelog][github.lockscroll.changelog]            | [![docs.badge]][docs.lockscroll]            |
 | [@svelte-put/movable][github.movable]                             | move node on mousedown                            | [![npm.movable.badge]][npm.movable]                             | [Changelog][github.movable.changelog]               | [![docs.badge]][docs.movable]               |
-| [@svelte-put/noti][github.noti]                                   | type-safe & headless async notification builder   | [![npm.noti.badge]][npm.noti]                                   | [Changelog][github.noti.changelog]                  | [![docs.badge]][docs.noti]                  |
 | [@svelte-put/preprocess-auto-slug][github.preprocess-auto-slug]   | auto add `id` and anchor to selected nodes        | [![npm.preprocess-auto-slug.badge]][npm.preprocess-auto-slug]   | [Changelog][github.preprocess-auto-slug.changelog]  | [![docs.badge]][docs.preprocess-auto-slug]  |
 | [@svelte-put/preprocess-external-link][github.preprocess-external-link]   | auto add `id` and anchor to selected nodes        | [![npm.preprocess-external-link.badge]][npm.preprocess-external-link]   | [Changelog][github.preprocess-external-link.changelog]  | [![docs.badge]][docs.preprocess-external-link]  |
 | [@svelte-put/qr][github.qr]                                       | render QR as `img` or `svg`                       | [![npm.qr.badge]][npm.qr]                                       | [Changelog][github.qr.changelog]                    | [![docs.badge]][docs.qr]                    |
@@ -63,6 +63,8 @@ pnpm turbo
 
 [github.contributing]: ./CONTRIBUTING.md
 [github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
+[github.async-stack]: https://github.com/vnphanquang/svelte-put/tree/main/packages/async-stack
+[github.async-stack.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/async-stack/CHANGELOG.md
 [github.avatar]: https://github.com/vnphanquang/svelte-put/tree/main/packages/avatar
 [github.avatar.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/avatar/CHANGELOG.md
 [github.clickoutside]: https://github.com/vnphanquang/svelte-put/tree/main/packages/clickoutside
@@ -81,8 +83,6 @@ pnpm turbo
 [github.lockscroll.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/lockscroll/CHANGELOG.md
 [github.movable]: https://github.com/vnphanquang/svelte-put/tree/main/packages/movable
 [github.movable.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/movable/CHANGELOG.md
-[github.noti]: https://github.com/vnphanquang/svelte-put/tree/main/packages/noti
-[github.noti.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/noti/CHANGELOG.md
 [github.preprocess-auto-slug]: https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocess-auto-slug
 [github.preprocess-auto-slug.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocess-auto-slug/CHANGELOG.md
 [github.preprocess-external-link]: https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocess-external-link
@@ -107,6 +107,8 @@ pnpm turbo
 
 <!-- npm -->
 
+[npm.async-stack.badge]: https://img.shields.io/npm/v/@svelte-put/async-stack
+[npm.async-stack]: https://www.npmjs.com/package/@svelte-put/async-stack
 [npm.avatar.badge]: https://img.shields.io/npm/v/@svelte-put/avatar
 [npm.avatar]: https://www.npmjs.com/package/@svelte-put/avatar
 [npm.clickoutside.badge]: https://img.shields.io/npm/v/@svelte-put/clickoutside
@@ -125,8 +127,6 @@ pnpm turbo
 [npm.lockscroll]: https://www.npmjs.com/package/@svelte-put/lockscroll
 [npm.movable.badge]: https://img.shields.io/npm/v/@svelte-put/movable
 [npm.movable]: https://www.npmjs.com/package/@svelte-put/movable
-[npm.noti.badge]: https://img.shields.io/npm/v/@svelte-put/noti
-[npm.noti]: https://www.npmjs.com/package/@svelte-put/noti
 [npm.preprocess-auto-slug.badge]: https://img.shields.io/npm/v/@svelte-put/preprocess-auto-slug
 [npm.preprocess-auto-slug]: https://www.npmjs.com/package/@svelte-put/preprocess-auto-slug
 [npm.preprocess-external-link.badge]: https://img.shields.io/npm/v/@svelte-put/preprocess-external-link
@@ -149,6 +149,7 @@ pnpm turbo
 <!-- docs linking -->
 
 [docs]: https://svelte-put.vnphanquang.com
+[docs.async-stack]: https://svelte-put.vnphanquang.com/docs/async-stack
 [docs.avatar]: https://svelte-put.vnphanquang.com/docs/avatar
 [docs.clickoutside]: https://svelte-put.vnphanquang.com/docs/clickoutside
 [docs.cloudflare-turnstile]: https://svelte-put.vnphanquang.com/docs/cloudflare-turnstile
@@ -158,7 +159,6 @@ pnpm turbo
 [docs.inline-svg]: https://svelte-put.vnphanquang.com/docs/inline-svg
 [docs.lockscroll]: https://svelte-put.vnphanquang.com/docs/lockscroll
 [docs.movable]: https://svelte-put.vnphanquang.com/docs/movable
-[docs.noti]: https://svelte-put.vnphanquang.com/docs/noti
 [docs.preprocess-auto-slug]: https://svelte-put.vnphanquang.com/docs/preprocess-auto-slug
 [docs.preprocess-external-link]: https://svelte-put.vnphanquang.com/docs/preprocess-external-link
 [docs.qr]: https://svelte-put.vnphanquang.com/docs/qr
@@ -167,3 +167,4 @@ pnpm turbo
 [docs.toc]: https://svelte-put.vnphanquang.com/docs/toc
 [docs.tooltip]: https://svelte-put.vnphanquang.com/docs/tooltip
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue
+
