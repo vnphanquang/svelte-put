@@ -128,19 +128,6 @@ export const packages = {
 		changelogUrl:
 			'https://github.com/vnphanquang/svelte-put/blob/main/packages/lockscroll/CHANGELOG.md',
 	},
-	// modal: {
-	//   id: 'modal',
-	//   name: '@svelte-put/modal',
-	//   publishedAt: 1670126470519,
-	//   description: 'type-safe async modal builder',
-	//   path: '/docs/modal',
-	//   replId: '0a68001337544b8ab55995fb3d02d1f6',
-	//   status: 'stable',
-	//   ready: true,
-	//   githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/modal',
-	//   changelogUrl:
-	//     'https://github.com/vnphanquang/svelte-put/blob/main/packages/modal/CHANGELOG.md',
-	// },
 	movable: {
 		id: 'movable',
 		name: '@svelte-put/movable',
@@ -265,6 +252,19 @@ export type PackageId = keyof typeof packages;
 export type PackageName = Package['name'];
 
 export const deprecatedPackages = {
+	modal: {
+	  id: 'modal',
+	  name: '@svelte-put/modal',
+	  publishedAt: 1670126470519,
+	  description: 'type-safe async modal builder',
+	  path: '/docs/modal',
+	  replId: '0a68001337544b8ab55995fb3d02d1f6',
+	  status: 'stable',
+	  ready: true,
+	  githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/modal',
+	  changelogUrl:
+	    'https://github.com/vnphanquang/svelte-put/blob/main/packages/modal/CHANGELOG.md',
+	},
 	noti: {
 		id: 'noti',
 		name: '@svelte-put/noti',
