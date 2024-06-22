@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0-next.3
+
+### Patch Changes
+
+- [`fcb6102`](https://github.com/vnphanquang/svelte-put/commit/fcb610254c0fe6e892c2882e0a1e8e4800030c2b) Thanks [@vnphanquang](https://github.com/vnphanquang)! - bump shiki, rename deprecated `getHighlighter` to `createHighlighter`
+
 ## 1.0.0-next.2
 
 ### Patch Changes
