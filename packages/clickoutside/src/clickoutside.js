@@ -107,3 +107,4 @@ export function resolveConfig(param = {}) {
  * Deprecated, use `ClickOutsideParameter` and `ClickOutsideConfig` instead
  * @typedef {import('./public').ClickOutsideConfig} ClickOutsideParameters
  */
+

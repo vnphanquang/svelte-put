@@ -15,6 +15,7 @@
 		"mustache": "^4.2.0"
 	},
 	"devDependencies": {
+		"@svelte-put/async-stack": "workspace:*",
 		"@svelte-put/avatar": "workspace:*",
 		"@svelte-put/clickoutside": "workspace:*",
 		"@svelte-put/cloudflare-turnstile": "workspace:^",
@@ -32,9 +33,9 @@
 		"@svelte-put/resize": "workspace:*",
 		"@svelte-put/shortcut": "workspace:*",
 		"@svelte-put/toc": "workspace:*",
-		"@sveltejs/adapter-cloudflare": "^4.4.1",
+		"@sveltejs/adapter-cloudflare": "^4.5.0",
 		"@sveltejs/enhanced-img": "^0.3.0",
-		"@sveltejs/kit": "^2.5.15",
+		"@sveltejs/kit": "^2.5.17",
 		"@sveltejs/vite-plugin-svelte": "^4.0.0-next.1",
 		"@sveltevietnam/ui": "^1.0.0-next.30",
 		"@total-typescript/ts-reset": "^0.5.1",

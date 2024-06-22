@@ -86,7 +86,7 @@
 		"zimmerframe": "^1.1.2"
 	},
 	"peerDependencies": {
-		"svelte": "^5.0.0-next.155",
+		"svelte": "^5.0.0-next.160",
 		"vite": "^5.0.0"
 	},
 	"volta": {

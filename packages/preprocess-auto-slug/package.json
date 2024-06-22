@@ -54,7 +54,7 @@
 		"@types/estree": "^1.0.5"
 	},
 	"peerDependencies": {
-		"svelte": "^5.0.0-next.155"
+		"svelte": "^5.0.0-next.160"
 	},
 	"dependencies": {
 		"github-slugger": "^2.0.0",
