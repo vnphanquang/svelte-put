@@ -48,9 +48,9 @@ const config = {
       $routes: path.resolve(__dirname, 'src/routes'),
     },
   },
-	// compilerOptions: {
-	// 	modernAst: true,
-	// },
+	compilerOptions: {
+		modernAst: true,
+	},
   vitePlugin: {
     inspector: {
       toggleKeyCombo: 'alt-shift',
@@ -62,3 +62,4 @@ const config = {
 };
 
 export default config;
+
