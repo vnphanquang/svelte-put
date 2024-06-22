@@ -22,15 +22,15 @@
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/qr@2.0.0-next.3
+npm install --save-dev @svelte-put/qr@latest
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/qr@2.0.0-next.3
+pnpm add -D @svelte-put/qr@latest
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/qr@2.0.0-next.3
+yarn add -D @svelte-put/qr@latest
 ```
 
 </enhanced-code-block>
@@ -391,3 +391,4 @@ Happy making QR! 👨‍💻
 
 [CustomEvent]: https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent
 [Canvas API]: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
+

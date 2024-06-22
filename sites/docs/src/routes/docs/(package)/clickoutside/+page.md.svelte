@@ -12,15 +12,15 @@
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/clickoutside@4.0.0-next.2
+npm install --save-dev @svelte-put/clickoutside@latest
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/clickoutside@4.0.0-next.2
+pnpm add -D @svelte-put/clickoutside@latest
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/clickoutside@4.0.0-next.2
+yarn add -D @svelte-put/clickoutside@latest
 ```
 
 </enhanced-code-block>

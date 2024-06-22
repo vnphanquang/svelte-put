@@ -9,15 +9,15 @@
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/shortcut@4.0.0-next.2
+npm install --save-dev @svelte-put/shortcut@latest
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/shortcut@4.0.0-next.2
+pnpm add -D @svelte-put/shortcut@latest
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/shortcut@4.0.0-next.2
+yarn add -D @svelte-put/shortcut@latest
 ```
 
 </enhanced-code-block>
@@ -293,3 +293,4 @@ When migrating to V4, you will need to change event directive `on:shortcut` to s
 Happy making shortcuts! 👨‍💻
 
 [CustomEvent]: https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent
+

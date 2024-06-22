@@ -17,15 +17,15 @@
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/movable@4.0.0-next.2
+npm install --save-dev @svelte-put/movable@latest
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/movable@4.0.0-next.2
+pnpm add -D @svelte-put/movable@latest
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/movable@4.0.0-next.2
+yarn add -D @svelte-put/movable@latest
 ```
 
 </enhanced-code-block>
@@ -237,3 +237,4 @@ Happy moving node! 👨‍💻
 [Quick Start]: #quick-start
 [Ignore Children]: #ignore-children
 [CustomEvent]: https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent
+

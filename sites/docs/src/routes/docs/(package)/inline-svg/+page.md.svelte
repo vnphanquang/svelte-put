@@ -21,15 +21,15 @@ Existing solutions for inline SVGs in Svelte land often rely on component, which
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/inline-svg@4.0.0-next.2
+npm install --save-dev @svelte-put/inline-svg@latest
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/inline-svg@4.0.0-next.2
+pnpm add -D @svelte-put/inline-svg@latest
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/inline-svg@4.0.0-next.2
+yarn add -D @svelte-put/inline-svg@latest
 ```
 
 </enhanced-code-block>
@@ -539,3 +539,4 @@ Happy inlining SVGs! 👨‍💻
 [svelte-inline-svg]: https://github.com/robinscholz/svelte-inline-svg
 [vite-plugin-svelte-svg]: https://github.com/metafy-gg/vite-plugin-svelte-svg
 [svg-to-svelte]: https://github.com/metonym/svg-to-svelte
+

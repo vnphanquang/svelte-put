@@ -14,15 +14,15 @@ This package relies on [Svelte action] and attempts to stay minimal. If you are 
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/toc@6.0.0-next.2
+npm install --save-dev @svelte-put/toc@latest
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/toc@6.0.0-next.2
+pnpm add -D @svelte-put/toc@latest
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/toc@6.0.0-next.2
+yarn add -D @svelte-put/toc@latest
 ```
 
 </enhanced-code-block>
@@ -795,3 +795,4 @@ Happy making table of contents! 👨‍💻
 [Svelte store]: https://svelte.dev/docs/svelte-store
 [janosh/svelte-toc]: https://github.com/janosh/svelte-toc
 [IntersectionObserver]: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
+

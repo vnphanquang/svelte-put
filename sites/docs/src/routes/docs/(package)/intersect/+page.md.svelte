@@ -16,15 +16,15 @@ This packages employs the [Svelte action](https://svelte.dev/docs/svelte-action)
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/intersect@4.0.0-next.1
+npm install --save-dev @svelte-put/intersect@latest
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/intersect@4.0.0-next.1
+pnpm add -D @svelte-put/intersect@latest
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/intersect@4.0.0-next.1
+yarn add -D @svelte-put/intersect@latest
 ```
 
 </enhanced-code-block>
@@ -104,3 +104,4 @@ Happy intersecting! 👨‍💻
 
 [IntersectionObserver]: https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver
 [CustomEvent]: https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent
+
