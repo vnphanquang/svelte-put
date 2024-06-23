@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.0-next.1
+
+### Minor Changes
+
+- [`1fda791`](https://github.com/vnphanquang/svelte-put/commit/1fda791cc20791b3b654ba7f88a1f8a2b7f4f7bb) Thanks [@vnphanquang](https://github.com/vnphanquang)! - simplify generics, `Stack.pop` now returns `StackItem | null`
+
+### Patch Changes
+
+- [`65b3d02`](https://github.com/vnphanquang/svelte-put/commit/65b3d026d3b26a2fc44ab6debfa142032b275ac5) Thanks [@vnphanquang](https://github.com/vnphanquang)! - better public exported API
+
 ## 0.0.0-next.1
 
 ### Major Changes
