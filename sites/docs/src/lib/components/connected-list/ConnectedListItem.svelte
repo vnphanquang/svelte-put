@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 
-	let { line, class: cls, children, ...rest }: HTMLAttributes<HTMLLIElement> & { line: boolean } = $props();
+	let { line = true, class: cls, children, ...rest }: HTMLAttributes<HTMLLIElement> & { line?: boolean } = $props();
 </script>
 
 <li class="group flex items-baseline space-x-4 {cls}" {...rest}>
@@ -25,3 +25,4 @@
 		counter-increment: connected-list;
 	}
 </style>
+
