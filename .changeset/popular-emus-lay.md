@@ -12,9 +12,9 @@
 '@svelte-put/avatar': patch
 '@svelte-put/resize': patch
 '@svelte-put/copy': patch
-'@svelte-put/noti': patch
 '@svelte-put/toc': patch
 '@svelte-put/qr': patch
 ---
 
 sync README.md and installation version in docs page
+
