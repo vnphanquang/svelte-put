@@ -12,7 +12,6 @@
     "@svelte-put/intersect": "3.0.0",
     "@svelte-put/lockscroll": "1.0.1",
     "@svelte-put/movable": "3.2.0",
-    "@svelte-put/noti": "1.1.0",
     "@svelte-put/preprocess-auto-slug": "1.0.1",
     "@svelte-put/qr": "1.2.0",
     "@svelte-put/resize": "3.0.0",
@@ -68,10 +67,9 @@
     "tiny-hounds-sing",
     "twelve-tools-type",
     "twenty-donkeys-serve",
-    "unlucky-beans-invent",
     "weak-peaches-smell",
-    "wet-meals-suffer",
     "wise-crews-destroy",
     "wise-points-own"
   ]
 }
+
