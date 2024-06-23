@@ -3,7 +3,7 @@ export function createNpmUrl(pkg: string) {
 }
 
 export function createNpmBadgeUrl(pkg: string) {
-  return `https://img.shields.io/npm/v/${pkg}?style=for-the-badge`;
+  return `https://img.shields.io/npm/v/${pkg}/next?style=for-the-badge&label=latest`;
 }
 
 export function createNpmDownloadBadgeUrl(pkg: string, scope: 'dw' | 'dm' | 'dy' | 'dt' = 'dt') {
@@ -29,3 +29,4 @@ export function createSvelteReplBadgeUrl() {
 export function createChangelogBadgeUrl() {
   return 'https://img.shields.io/badge/-changelog-blue?style=for-the-badge';
 }
+
