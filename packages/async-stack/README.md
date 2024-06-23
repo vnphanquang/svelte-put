@@ -1,10 +1,10 @@
 <div align="center">
 
-# `@svelte-put/noti`
+# `@svelte-put/async-stack`
 
-[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia] [![docs.badge]][docs] [![repl.badge]][repl]
+[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia] [![docs.badge]][docs]
 
-Type-safe and headless async notification builder
+Type-safe and headless async builder for async component stack (notification and modal/dialog systems, for example)
 
 </div>
 
@@ -20,39 +20,39 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 
 ```html
 <script lang="ts">
-  import { controller } from '@svelte-put/noti';
+  import { stack } from '@svelte-put/async-stack';
 
-  // any Svelte component to render as notification
-  import Notification from './Notification.svelte';
+  // any Svelte component to render as
+  import MyComponent from './MyComponent.svelte';
 
   // define somewhere global, reuse across app
-  export const notiCtrl = controller()
+  export const myStack = stack()
     // add a minimalistic variant config
-    .addVariant('info', Notification)
+    .addVariant('my', MyComponent)
     // add a verbose variant config
     .addVariant('special', {
       timeout: false,
       id: 'counter',
-      component: Notification,
+      component: MyComponent,
       props: {
         // inferred from Notification component
         special: true,
-        content: 'A very special notification',
+        content: 'A very special thing',
       },
     })
-    // build the actual NotificationController
+    // build the actual stack
     .build();
 
   onMount(async () => {
-    // push a special notification
-    const pushed = notiStore.push('special');
+    // push a special item
+    const pushed = myStack.push('special');
 
-    // wait for some user action for the notification
+    // wait for some user action for the item
     // to be resolved (popped) from within the component
     const { userAction } = await pushed.resolution;
 
-    // push another notification with custom props
-    notiStore.push('info', {
+    // push another item with custom props
+    notiStack.push('info', {
       props: {
         content: 'An example information',
       },
@@ -60,11 +60,11 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
   });
 </script>
 
-<!-- notification portal, typically setup at somewhere global like root layout -->
+<!-- portal ->
 <aside class="applicable class">
-  {#each notiCtrl.notifications as notification (notification.config.id)}
-    <div use:notiCtrl.actions.render={notification}>
-      <!-- notification instances rendered as direct children -->
+  {#each myStack.items as item (item.config.id)}
+    <div use:myStack.actions.render={item}>
+      <!-- StackItem instances rendered as direct children -->
     </div>
   {/each}
 </aside>
@@ -75,16 +75,15 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 <!-- github specifics -->
 
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
-[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/noti/CHANGELOG.md
+[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/async-stack/CHANGELOG.md
 [github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
 
 <!-- heading badge -->
 
-[npm.badge]: https://img.shields.io/npm/v/@svelte-put/noti
-[npm]: https://www.npmjs.com/package/@svelte-put/noti
-[bundlephobia.badge]: https://img.shields.io/bundlephobia/minzip/@svelte-put/noti?label=minzipped
-[bundlephobia]: https://bundlephobia.com/package/@svelte-put/noti
-[repl]: https://svelte.dev/repl/5beb4357e32e427394f5f6f5ced7b5f1
-[repl.badge]: https://img.shields.io/static/v1?label=&message=Svelte+REPL&logo=svelte&logoColor=fff&color=ff3e00
-[docs]: https://svelte-put.vnphanquang.com/docs/noti
+[npm.badge]: https://img.shields.io/npm/v/@svelte-put/async-stack
+[npm]: https://www.npmjs.com/package/@svelte-put/async-stack
+[bundlephobia.badge]: https://img.shields.io/bundlephobia/minzip/@svelte-put/async-stack?label=minzipped
+[bundlephobia]: https://bundlephobia.com/package/@svelte-put/async-stack
+[docs]: https://svelte-put.vnphanquang.com/docs/async-stack
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue
+
