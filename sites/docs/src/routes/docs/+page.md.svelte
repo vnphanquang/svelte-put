@@ -16,7 +16,7 @@ svelte-put is a collection of useful svelte actions, utilities, and minimal comp
 @svelte-put includes several packages with self-manged release cycles, listed below. Check out their corresponding documentation for more details.
 
 <div
-    class="not-prose c-gtable-4 max-w-full grid-cols-[198px,1fr,140px,80px] items-center *:p-4"
+    class="not-prose c-gtable-4 max-w-full grid-cols-[198px,1fr,180px,80px] items-center *:p-4"
   >
     <p>ID</p>
     <p>Description</p>
@@ -35,8 +35,8 @@ svelte-put is a collection of useful svelte actions, utilities, and minimal comp
             class="block rounded"
             src={createNpmBadgeUrl(name)}
             alt={name}
-            height="25"
-            width="106"
+            width="180"
+            height="22"
             loading="lazy"
             decoding="async"
           />
@@ -64,3 +64,4 @@ Happy coding! 👨‍💻
     Edit this page on Github
   </a>
 </p>
+
