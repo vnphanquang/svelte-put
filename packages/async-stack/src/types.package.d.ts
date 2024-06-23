@@ -3,20 +3,11 @@ import type { Component, ComponentProps } from 'svelte';
 import { ActionReturn } from 'svelte/action';
 
 import type { StackItem } from './stack-item.svelte.js';
-
-export declare type StackItemProps<Resolved> = {
-	/** the stack item instance injected by the stack */
-	item: Omit<StackItem<import('svelte').Component<StackItemProps<Resolved>>>, '#internals'>;
-};
-
-export type ComponentResolved<UserComponent extends Component> =
-	ComponentProps<UserComponent> extends StackItemProps<infer Resolved>
-		? Resolved
-		: any;
+import type { ComponentResolved } from './types.public.js';
 
 export type StackItemCommonConfig<
 	Variant extends string,
-	UserComponent extends Component,
+	UserComponent extends Component<any>,
 > = {
 	/**
 	 * milliseconds to wait and automatically pop the stack item.
@@ -41,7 +32,7 @@ export type StackItemCommonConfig<
 /** predefined variant config provided while building a {@link Stack} instance */
 export type StackItemVariantConfig<
 	Variant extends string,
-	UserComponent extends Component,
+	UserComponent extends Component<any>,
 > = StackItemCommonConfig<Variant, UserComponent> & {
 	/** string variant representing this config, must be unique within a {@link Stack} instance  */
 	variant: Variant;
@@ -54,7 +45,7 @@ export type StackItemVariantConfig<
 /** a resolved config for a {@link StackItemInstance} */
 export type StackItemInstanceConfig<
 	Variant extends string,
-	UserComponent extends Component,
+	UserComponent extends Component<any>,
 > = Required<Omit<StackItemVariantConfig<Variant, UserComponent>, 'id'>> & {
 	id: string;
 	timeout: number;
@@ -64,20 +55,20 @@ export type StackItemState = 'idle' | 'elapsing' | 'paused' | 'timeout' | 'resol
 
 export type StackItemByVariantPushConfig<
 	Variant extends string,
-	UserComponent extends Component,
+	UserComponent extends Component<any>,
 > = StackItemCommonConfig< Variant, UserComponent> & {
 	props?: Omit<ComponentProps<UserComponent>, 'item'>;
 };
 
 export type StackItemCustomPushConfig<
-	UserComponent extends Component,
+	UserComponent extends Component<any>,
 > = StackItemCommonConfig<'custom', UserComponent> & {
 	component: UserComponent;
 	props?: Omit<ComponentProps<UserComponent>, 'item'>;
 };
 
 export type StackItemPopVerboseInput <
-	UserComponent extends Component,
+	UserComponent extends Component<any>,
 >= {
 	id?: string;
 	resolved?: ComponentResolved<UserComponent>;

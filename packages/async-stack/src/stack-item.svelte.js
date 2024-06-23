@@ -1,12 +1,12 @@
 /**
- * @template {import('svelte').Component} [UserComponent=import('svelte').Component]
- * @template [Resolved=import('./types.d.ts').ComponentResolved<UserComponent>]
+ * @template {import('svelte').Component<any>} [UserComponent=import('svelte').Component<any>]
+ * @template [Resolved=import('./types.public').ComponentResolved<UserComponent>]
  */
 export class StackItem {
-	/** @type {import('./types.d.ts').StackItemState} */
+	/** @type {import('./types.package').StackItemState} */
 	// eslint-disable-next-line no-undef
 	state = $state('idle');
-	/** @type {Required<import('./types.d.ts').StackItemInstanceConfig<string, UserComponent>>} */
+	/** @type {Required<import('./types.package').StackItemInstanceConfig<string, UserComponent>>} */
 	config;
 
 	#internals = {
@@ -25,7 +25,7 @@ export class StackItem {
 	resolution;
 
 	/**
-	 * @param {Required<import('./types.d.ts').StackItemInstanceConfig<string, UserComponent>>} config
+	 * @param {Required<import('./types.package').StackItemInstanceConfig<string, UserComponent>>} config
 	 */
 	constructor(config) {
 		this.config = config;
@@ -46,14 +46,14 @@ export class StackItem {
 			this.state = 'timeout';
 		}, this.#internals.msToTimeout);
 		this.state = 'elapsing';
-	}
+	};
 
 	pause = () => {
 		if (this.state === 'paused' || this.state === 'idle') return;
 		clearTimeout(this.#internals.timeoutId);
 		this.#internals.msToTimeout -= new Date().getTime() - this.#internals.lastStartedTime;
 		this.state = 'paused';
-	}
+	};
 
 	/**
 	 * @param {Resolved} [resolved]
@@ -64,6 +64,6 @@ export class StackItem {
 		this.#internals.resolve(resolved);
 		this.state = 'resolved';
 		return this.resolution;
-	}
+	};
 }
 
