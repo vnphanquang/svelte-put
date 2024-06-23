@@ -239,6 +239,50 @@ notiStack.pop({
 }); // pop the topmost notification with custom resolution value
 ```
 
+`Stack.pop` returns the popped `StackItem` instance, or `null` if no notification is found with the provided `id`. You can set id in the push config, and get it back from the returned object.
+
+```javascript title="Where is my id?"
+import { notiStack } from './notification-stack';
+
+const pushed = notiStack.push('info', { id: 'my-id' });
+
+// ... later ...
+
+const popped = notiStack.pop(pushed.config.id); // or just 'my-id'
+
+// pushed === popped -> true
+```
+
+#### Typescript Support
+
+To provide typing for `StackItem.pop`, pass type of your component as the generic argument. This helps infer the `resolution` type. See [Awaiting for Resolution] for more information.
+
+<enhanced-code-block group display="files">
+
+```typescript title="pop.ts"
+import ConfirmNoti from './ConfirmNoti.svelte';
+
+const popped = notiStack.pop<typeof ConfirmNoti>('id');
+if (popped) {
+  const resolution = await notiStack.resolution;
+  if (resolution) { // can be undefined, for example when timeouted
+    console.log(resolution.confirmed);
+  }
+}
+```
+
+```svelte title="ConfirmNoti.svelte"
+<script lang="ts">
+  import type { StackItemProps } from '@svelte-put/async-stack';
+
+  let { item }: StackItemProps<{ confirmed: boolean }> = $props();
+</script>
+
+<!-- ...truncated... -->
+```
+
+</enhanced-code-block>
+
 <h3 id="await-resolution">Awaiting for Resolution</h3>
 
 A `StackItem` instance is *resolved* when it is popped from a `Stack`. This resolution is a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that can be awaited, and its value is from argument passed to either `Stack.pop` or `StackItem.resolve` (injected `item` prop). This is especially useful for complex interactive notification (see [Component for StackItem] section for an exmaple of such).
