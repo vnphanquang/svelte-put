@@ -26,17 +26,17 @@
 	},
 	"devDependencies": {
 		"@changesets/changelog-github": "^0.5.0",
-		"@changesets/cli": "^2.27.5",
+		"@changesets/cli": "^2.27.6",
 		"@types/eslint": "^8.56.10",
-		"@types/node": "^20.14.7",
-		"@typescript-eslint/eslint-plugin": "^7.13.1",
-		"@typescript-eslint/parser": "^7.13.1",
+		"@types/node": "^20.14.9",
+		"@typescript-eslint/eslint-plugin": "^7.14.1",
+		"@typescript-eslint/parser": "^7.14.1",
 		"@vnphanquang/eslint-config": "^2.0.1",
 		"dts-buddy": "^0.5.0",
-		"eslint": "^8.56.0",
+		"eslint": "^8.57.0",
 		"eslint-config-prettier": "^9.1.0",
-		"eslint-plugin-jsdoc": "^48.2.12",
-		"eslint-plugin-svelte": "^2.40.0",
+		"eslint-plugin-jsdoc": "^48.4.0",
+		"eslint-plugin-svelte": "^2.41.0",
 		"husky": "^9.0.11",
 		"lint-staged": "^15.2.7",
 		"npm-run-all": "^4.1.5",
@@ -48,10 +48,10 @@
 		"stylelint-config-clean-order": "^6.0.0",
 		"stylelint-config-html": "^1.1.0",
 		"stylelint-config-standard": "^36.0.1",
-		"svelte": "^5.0.0-next.164",
-		"svelte-check": "^3.8.1",
+		"svelte": "5.0.0-next.166",
+		"svelte-check": "^3.8.2",
 		"tslib": "^2.6.3",
-		"turbo": "^2.0.4",
+		"turbo": "^2.0.5",
 		"typescript": "^5.5.2"
 	},
 	"packageManager": "pnpm@9.1.1",
@@ -63,4 +63,3 @@
 		"node": "20.13.0"
 	}
 }
-
