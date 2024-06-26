@@ -35,8 +35,8 @@
 		"@sveltejs/adapter-cloudflare": "^4.5.0",
 		"@sveltejs/enhanced-img": "^0.3.0",
 		"@sveltejs/kit": "^2.5.17",
-		"@sveltejs/vite-plugin-svelte": "^4.0.0-next.1",
-		"@sveltevietnam/ui": "^1.0.0-next.30",
+		"@sveltejs/vite-plugin-svelte": "4.0.0-next.3",
+		"@sveltevietnam/ui": "1.0.0-next.30",
 		"@total-typescript/ts-reset": "^0.5.1",
 		"@types/mustache": "^4.2.5",
 		"postcss": "^8.4.38",
@@ -47,4 +47,3 @@
 		"extends": "../../package.json"
 	}
 }
-
