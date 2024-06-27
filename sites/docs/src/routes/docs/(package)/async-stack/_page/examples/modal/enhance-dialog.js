@@ -19,12 +19,14 @@ export function enhancedialog(dialog) {
 	 */
 	function onClick(event) {
 		let rect = /** @type {HTMLDialogElement} */ (event.target).getBoundingClientRect();
+		if (!event.clientX || event.clientY) return; // not a mouse event (probably triggered by keyboard)
 		if (
 			rect.left > event.clientX ||
 			rect.right < event.clientX ||
 			rect.top > event.clientY ||
 			rect.bottom < event.clientY
 		) {
+			console.log(event.clientX, event.clientY);
 			dialog.dispatchEvent(new CustomEvent('clickbackdrop'));
 		}
 	}
@@ -37,4 +39,3 @@ export function enhancedialog(dialog) {
 		},
 	};
 }
-
