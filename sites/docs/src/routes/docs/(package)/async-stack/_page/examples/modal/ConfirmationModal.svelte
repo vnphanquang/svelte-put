@@ -61,6 +61,7 @@
 			transform: translateY(50px);
 			opacity: 0;
 		}
+
 		to {
 			transform: translateY(0);
 			opacity: 1;
@@ -72,6 +73,7 @@
 			transform: translateY(0);
 			opacity: 1;
 		}
+
 		to {
 			transform: translateY(50px);
 			opacity: 0;
