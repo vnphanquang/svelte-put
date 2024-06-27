@@ -43,9 +43,10 @@
 
 <style>
 	dialog {
-		display: block;
+		display: block; /* required for animation to work */
 		inset: 0;
 
+		animation-name: fly-out-down;
 		animation-fill-mode: forwards;
 		animation-duration: 150ms;
 		animation-timing-function: theme('transitionTimingFunction.DEFAULT');
@@ -76,9 +77,4 @@
 			opacity: 0;
 		}
 	}
-
-	dialog:not([open]) {
-		animation-name: fly-out-down;
-	}
 </style>
-
