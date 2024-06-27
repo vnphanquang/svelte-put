@@ -1,4 +1,5 @@
 import child_process from 'child_process';
+import { readFileSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -8,7 +9,7 @@ import { markdown, enhanceCodeBlock } from '@svelte-put/preprocess-markdown';
 import adapter from '@sveltejs/adapter-cloudflare';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
-import pkg from './package.json' assert { type: 'json' };
+const pkg = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf8'));
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const commitHash = child_process.execSync('git rev-parse --short HEAD').toString().trim();
@@ -16,49 +17,49 @@ const commitHash = child_process.execSync('git rev-parse --short HEAD').toString
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	extensions: ['.md.svelte', '.svelte'],
-  preprocess: [
+	preprocess: [
 		markdown(),
 		enhanceCodeBlock(),
 		externalLink(['svelte-put.vnphanquang.com']),
-    autoSlug((defaultOptions) => ({
-      tags: ['h2', 'h3', 'h4', 'h5', 'h6'],
-      anchor: {
-        content: '#',
-        position: 'prepend',
-        properties: {
-          ...defaultOptions.anchor.properties,
-          class: 'heading-anchor',
-        },
-      },
-    })),
-    vitePreprocess(),
-  ],
-  kit: {
-    adapter: adapter({
-      routes: {
-        include: ['/*'],
-        exclude: ['<all>'],
-      },
-    }),
+		autoSlug((defaultOptions) => ({
+			tags: ['h2', 'h3', 'h4', 'h5', 'h6'],
+			anchor: {
+				content: '#',
+				position: 'prepend',
+				properties: {
+					...defaultOptions.anchor.properties,
+					class: 'heading-anchor',
+				},
+			},
+		})),
+		vitePreprocess(),
+	],
+	kit: {
+		adapter: adapter({
+			routes: {
+				include: ['/*'],
+				exclude: ['<all>'],
+			},
+		}),
 		version: {
 			name: `${pkg.version} (#${commitHash}@${Date.now()})`,
 			// pollInterval: 10_000, // every 10 seconds
 		},
-    alias: {
-      $routes: path.resolve(__dirname, 'src/routes'),
-    },
-  },
+		alias: {
+			$routes: path.resolve(__dirname, 'src/routes'),
+		},
+	},
 	compilerOptions: {
 		modernAst: true,
 	},
-  vitePlugin: {
-    inspector: {
-      toggleKeyCombo: 'alt-shift',
-      holdMode: true,
-      showToggleButton: 'always',
-      toggleButtonPos: 'bottom-left',
-    },
-  },
+	vitePlugin: {
+		inspector: {
+			toggleKeyCombo: 'alt-shift',
+			holdMode: true,
+			showToggleButton: 'always',
+			toggleButtonPos: 'bottom-left',
+		},
+	},
 };
 
 export default config;
