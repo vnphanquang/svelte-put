@@ -24,7 +24,9 @@
 	<p class="c-callout c-callout--info c-callout--icon-bulb">{data.package.description}</p>
 {/if}
 
-<Runes class="float-right" />
+{#if data.package.rune}
+	<Runes class="float-right" />
+{/if}
 
 {#snippet badge(href: string, src: string, width: number, height: number)}
 	<a {href} data-external class="h-full">
