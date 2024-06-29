@@ -21,6 +21,9 @@
 
 	const id = Math.random().toString(36).slice(2);
 	const groupContext = EnhancedCodeBlockGroupContext.get();
+	const fullScreenCheckBoxId = groupContext
+		? `codeblock-group-${groupContext.id}-fullscreen`
+		: `codeblock-${id}-fullscreen`;
 
 	let collapsible = $derived(groupContext ? false : collapsed !== 'disabled');
 	let collapsedInputChecked = $state(collapsed === 'true');
@@ -64,9 +67,31 @@
 	$effect(() => {
 		hydrated = true;
 	});
+
+	let fullscreen = $state(false);
+	/** @type {HTMLElement} */
+	let codeblockEl;
+	/** @param {MouseEvent} e */
+	function enhanceFullScreen(e) {
+		e.preventDefault();
+		if (!document.fullscreenElement) {
+			if (groupContext?.node) {
+				groupContext.node.requestFullscreen();
+			} else {
+				codeblockEl.requestFullscreen();
+			}
+		} else if (document.exitFullscreen) {
+			document.exitFullscreen();
+		}
+	}
+	function onFullScreenChange() {
+		fullscreen = !!document.fullscreenElement;
+	}
 </script>
 
 <section
+	bind:this={codeblockEl}
+	onfullscreenchange={onFullScreenChange}
 	class="codeblock {cls}"
 	class:grouped={!!groupContext}
 	class:hide-line-number={hideLineNumber !== 'false'}
@@ -139,9 +164,17 @@
 						</svg>
 					</button>
 				{/if}
-				<label class="codeblock-btn codeblock-btn-fullscreen">
+				<!-- svelte-ignore a11y_click_events_have_key_events -->
+				<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+				<label
+					class="codeblock-btn codeblock-btn-fullscreen"
+					onclick={enhanceFullScreen}
+					for={fullScreenCheckBoxId}
+				>
 					<span class="sr-only">Fullscreen</span>
-					<input class="codeblock-fullscreen sr-only" type="checkbox" />
+					{#if !groupContext}
+						<input class="codeblock-fullscreen sr-only" type="checkbox" id={fullScreenCheckBoxId} bind:checked={fullscreen} />
+					{/if}
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						width="20"
@@ -306,7 +339,7 @@
 	}
 
 	.codeblock:has(.codeblock-fullscreen:checked),
-	.codeblock.grouped:has(.codeblock-fullscreen:checked) .codeblock-content {
+	:global(.codeblock-group:has(.codeblock-group-fullscreen:checked)) {
 		position: fixed;
 		z-index: theme('zIndex.overlay');
 		inset: 0;
@@ -314,13 +347,19 @@
 		height: 100dvh;
 		margin: 0;
 
-		& :global(pre) {
-			max-height: none !important;
-		}
-
 		& .codeblock-btns {
 			right: 12px;
 		}
+	}
+
+	.codeblock:has(.codeblock-fullscreen:checked) :global(pre) {
+		max-height: 100vh !important;
+		max-height: 100dvh !important;
+	}
+
+	:global(.codeblock-group:has(.codeblock-group-fullscreen:checked) pre) {
+		max-height: calc(100vh - 2.625rem) !important;
+		max-height: calc(100dvh - 2.625rem) !important;
 	}
 
 	/* code block selected */
@@ -337,6 +376,7 @@
 
 	.codeblock:has(.codeblock-group-selected:checked) {
 		& .codeblock-group-label {
+			margin-bottom: -1px;
 			color: currentcolor;
 			background-color: var(--color-pre-bg);
 		}
@@ -351,7 +391,6 @@
 
 		position: relative;
 		z-index: 2;
-		bottom: -1px;
 
 		grid-column: auto;
 		grid-row: 1;
@@ -362,6 +401,7 @@
 		line-height: normal;
 		color: var(--color-header-fg);
 
+		background-color: theme('colors.bg.DEFAULT');
 		border-top-width: 1px;
 
 		&:hover {
@@ -370,12 +410,18 @@
 
 		.codeblock:first-of-type & {
 			border-left-width: 1px;
-			border-top-left-radius: 0.375rem;
+
+			:global(.codeblock-group:not(:has(.codeblock-group-fullscreen:checked))) & {
+				border-top-left-radius: 0.375rem;
+			}
 		}
 
 		.codeblock:last-of-type:not([data-group-display='files']) & {
 			border-right-width: 1px;
-			border-top-right-radius: 0.375rem;
+
+			:global(.codeblock-group:not(:has(.codeblock-group-fullscreen:checked))) & {
+				border-top-right-radius: 0.375rem;
+			}
 		}
 
 		.codeblock:not(:first-of-type) & {
@@ -441,6 +487,7 @@
 			display: none;
 		}
 
+		:global(.codeblock-group:has(.codeblock-group-fullscreen:checked)) &,
 		&:has(.codeblock-fullscreen:checked) {
 			& .maximize {
 				display: none;
@@ -461,3 +508,4 @@
 		height: 100%;
 	}
 </style>
+
