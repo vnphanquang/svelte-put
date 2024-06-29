@@ -16,7 +16,8 @@
 	let groupEl;
 
 	// preserve reactivity of title inside GroupContext
-	const initClosure = {
+	const initClosure = /** @satisfies {import('./enhanced-code-block-group-context.svelte.js').EnhancedCodeBlockGroupContextInit} */({
+		id: Math.random().toString(36).slice(2).toString(),
 		name,
 		display,
 		/** @returns {string | undefined} */
@@ -27,29 +28,40 @@
 		set title(t) {
 			title = t;
 		},
-	};
+	});
 
-	EnhancedCodeBlockGroupContext.set(initClosure);
+	const groupContext = EnhancedCodeBlockGroupContext.set(initClosure);
+
+	$effect(() => {
+		groupContext.node = groupEl;
+	});
+
+	let fullscreen = $state(false);
+	function onFullScreenChange() {
+		fullscreen = !!document.fullscreenElement;
+	}
 </script>
 
 <div
 	class="codeblock-group codeblock-group--{display} {cls}"
 	style:--cols={cols} {...rest}
 	bind:this={groupEl}
+	onfullscreenchange={onFullScreenChange}
 >
 	{#if children}
 		{@render children()}
 	{/if}
+	<input id="codeblock-group-{groupContext.id}-fullscreen" class="codeblock-group-fullscreen sr-only" type="checkbox" bind:checked={fullscreen} />
 	<div class="first-row-last-col-fill"></div>
 </div>
 
 <style>
 	.first-row-last-col-fill {
 		position: relative;
-		bottom: -1px;
 
 		grid-column: -2;
 
+		background-color: theme('colors.bg.DEFAULT');
 		border-color: theme('colors.outline.DEFAULT');
 		border-style: solid;
 		border-top-right-radius: 4px;
@@ -58,7 +70,6 @@
 	.codeblock-group {
 		position: relative;
 
-		background-color: theme('colors.bg.DEFAULT');
 		overflow: auto;
 		display: grid;
 		grid-template-columns: repeat(var(--cols), auto) 1fr;

@@ -2,6 +2,7 @@ import { getContext, setContext, hasContext } from 'svelte';
 
 /**
  * @typedef EnhancedCodeBlockGroupContextInit
+ * @property {string} id - unique id to identify this context
  * @property {string} name - name for the code block group, mapped to the checkbox input `name` field
  * @property {import('./types.d.ts').EnhancedCodeBlockGroupProps['display']} display - display mode of the code block group
  * @property {string} [title] - initial code block identifier to display
@@ -24,6 +25,10 @@ export class EnhancedCodeBlockGroupContext {
 		this.#init = init;
 	}
 
+	get id() {
+		return this.#init.id;
+	}
+
 	get name() {
 		return this.#init.name;
 	}
@@ -32,11 +37,12 @@ export class EnhancedCodeBlockGroupContext {
 		return this.#init.display;
 	}
 
+	/** @returns {string | undefined} */
 	get title() {
 		return this.#init.title;
 	}
 
-	/** @type {string} */
+	/** @param {string} title */
 	set title(title) {
 		this.#init.title = title;
 	}
