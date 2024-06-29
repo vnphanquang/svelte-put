@@ -12,18 +12,31 @@
 		...rest
 	} = $props();
 
-	const groupContext = EnhancedCodeBlockGroupContext.set({ name, display, title });
+	/** @type {HTMLDivElement} */
+	let groupEl;
 
-	$effect(() => {
-		if (title !== groupContext.title) title = groupContext.title;
-	});
+	// preserve reactivity of title inside GroupContext
+	const initClosure = {
+		name,
+		display,
+		/** @returns {string | undefined} */
+		get title() {
+			return title;
+		},
+		/** @param {string} t */
+		set title(t) {
+			title = t;
+		},
+	};
 
-	$effect(() => {
-		if (groupContext.title !== title) groupContext.title = title;
-	});
+	EnhancedCodeBlockGroupContext.set(initClosure);
 </script>
 
-<div class="codeblock-group codeblock-group--{display} {cls}" style:--cols={cols} {...rest}>
+<div
+	class="codeblock-group codeblock-group--{display} {cls}"
+	style:--cols={cols} {...rest}
+	bind:this={groupEl}
+>
 	{#if children}
 		{@render children()}
 	{/if}
@@ -45,6 +58,7 @@
 	.codeblock-group {
 		position: relative;
 
+		background-color: theme('colors.bg.DEFAULT');
 		overflow: auto;
 		display: grid;
 		grid-template-columns: repeat(var(--cols), auto) 1fr;
@@ -60,3 +74,4 @@
 		}
 	}
 </style>
+

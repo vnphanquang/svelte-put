@@ -10,22 +10,35 @@ import { getContext, setContext, hasContext } from 'svelte';
 export class EnhancedCodeBlockGroupContext {
 	static KEY = 'enhanced:codeblock:group';
 
-	// eslint-disable-next-line no-undef
-	name = $state('');
-	/** @type {import('./types.d.ts').EnhancedCodeBlockGroupProps['display']} */
-	// eslint-disable-next-line no-undef
-	display = $state('files');
-	/** @type {string | undefined} */
-	// eslint-disable-next-line no-undef
-	title = $state(undefined);
+	/** @type {HTMLElement | undefined} */
+	node;
+
+	/** @type {EnhancedCodeBlockGroupContextInit} */
+	#init
 
 	/**
+	 * Caution: expect init.title to be in a "writable closure"
 	 * @param {EnhancedCodeBlockGroupContextInit} init
 	 */
 	constructor(init) {
-		this.name = init.name;
-		this.display = init.display;
-		this.title = init.title;
+		this.#init = init;
+	}
+
+	get name() {
+		return this.#init.name;
+	}
+
+	get display() {
+		return this.#init.display;
+	}
+
+	get title() {
+		return this.#init.title;
+	}
+
+	/** @type {string} */
+	set title(title) {
+		this.#init.title = title;
 	}
 
 	/**
@@ -44,3 +57,4 @@ export class EnhancedCodeBlockGroupContext {
 		return getContext(EnhancedCodeBlockGroupContext.KEY);
 	}
 }
+
