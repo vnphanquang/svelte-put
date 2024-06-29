@@ -1,8 +1,9 @@
 <script>
 	import { Toc } from '@svelte-put/toc';
-	import { slide } from 'svelte/transition';
 
+	import { navigating } from '$app/stores';
 	import { ColorSchemeMenu } from '$lib/components/color-scheme-menu';
+	import { PageLoadIndicator } from '$lib/components/page-load-indicator/';
 	import { SOCIAL_LINKS } from '$lib/constants';
 	import { deprecatedPackages, packages } from '$lib/data/packages';
 
@@ -32,15 +33,16 @@
 	function closeLeftSidebar() {
 		isleftSidebarOpen = false;
 	}
+
 </script>
 
+{#if $navigating}
+	<PageLoadIndicator />
+{/if}
 <div class="relative flex w-full flex-1 flex-col pt-header" id="docs">
-	<header class="fixed inset-x-0 top-0 z-header h-header border-b border-outline flex flex-col">
-    {#key data.pathname}
-      <div class="h-0.5 w-full bg-gradient-brand" in:slide={{ axis: 'x', duration: 500 }}></div>
-    {/key}
-		<nav class="max-w-pad flex items-center py-2 flex-1" aria-label="header">
-			<a href="/" class="flex items-center gap-2 mr-auto">
+	<header class="fixed inset-x-0 top-0 z-header flex h-header flex-col border-b border-outline">
+		<nav class="max-w-pad flex flex-1 items-center py-2" aria-label="header">
+			<a href="/" class="mr-auto flex items-center gap-2">
 				<svg inline-src="svelte-put" width="32" height="32" />
 				<span class="font-fingerpaint text-sm font-bold text-gradient-brand">svelte-put</span>
 			</a>
@@ -49,7 +51,9 @@
 				<svg inline-src="simpleicon/github" height="28" width="28" />
 			</a>
 		</nav>
-		<div class="max-w-pad flex items-center justify-between py-1 lg:justify-end border-t border-outline xl:hidden flex-1">
+		<div
+			class="max-w-pad flex flex-1 items-center justify-between border-t border-outline py-1 lg:justify-end xl:hidden"
+		>
 			<MenuLabel class="lg:hidden" for="pages-toggler">Navigation</MenuLabel>
 			<MenuLabel align="right" for="toc-toggler">Table of Contents</MenuLabel>
 		</div>
@@ -57,12 +61,12 @@
 
 	<div class="max-w-pad flex items-stretch">
 		<nav class="sidebar sidebar-left" aria-label="pages">
-			<input id="pages-toggler" type="checkbox" hidden bind:checked={isleftSidebarOpen}>
+			<input id="pages-toggler" type="checkbox" hidden bind:checked={isleftSidebarOpen} />
 			<ul class="sidebar-content space-y-4">
-        <li>
-          <p class="font-bold uppercase">Overview</p>
-          <ul class="mt-3 space-y-1 border-l border-outline">
-            <li>
+				<li>
+					<p class="font-bold uppercase">Overview</p>
+					<ul class="mt-3 space-y-1 border-l border-outline">
+						<li>
 							{#each Object.entries(TOP_LEVEL_PATHS) as [label, path]}
 								<a
 									href={path}
@@ -72,39 +76,39 @@
 									{label}
 								</a>
 							{/each}
-            </li>
-          </ul>
-        </li>
-        <li>
-          <p class="font-bold uppercase">Packages</p>
-          <ul class="mt-3 space-y-1 border-l border-outline">
-            {#each Object.values(packages) as { path, status, id }}
-              <li>
-                <a
-                  href={path}
-                  data-current={data.pathname.includes(`/${id}`)}
-                  class="c-link c-link--lazy -ml-px block whitespace-nowrap border-l border-transparent py-1 pl-3 data-current:border-link data-current:link"
-                  onclick={closeLeftSidebar}
-                >
-                  <span class="h-full w-1 bg-primary"></span>
-                  {id}
-                  <sup>
-                    {#if status !== 'stable'}
-                      <StatusBadge {status} />
-                    {/if}
-                  </sup>
-                </a>
-              </li>
-            {/each}
+						</li>
+					</ul>
+				</li>
+				<li>
+					<p class="font-bold uppercase">Packages</p>
+					<ul class="mt-3 space-y-1 border-l border-outline">
+						{#each Object.values(packages) as { path, status, id }}
+							<li>
+								<a
+									href={path}
+									data-current={data.pathname.includes(`/${id}`)}
+									class="data-current:link c-link c-link--lazy -ml-px block whitespace-nowrap border-l border-transparent py-1 pl-3 data-current:border-link"
+									onclick={closeLeftSidebar}
+								>
+									<span class="h-full w-1 bg-primary"></span>
+									{id}
+									<sup>
+										{#if status !== 'stable'}
+											<StatusBadge {status} />
+										{/if}
+									</sup>
+								</a>
+							</li>
+						{/each}
 						<li class="pt-4">
-							<p class="pl-3 pt-4 border-t uppercase font-bold">Deprecated</p>
+							<p class="border-t pl-3 pt-4 font-bold uppercase">Deprecated</p>
 							<ul class="mt-3">
-								{#each Object.values(deprecatedPackages) as { path, status, id }}
-										<li>
+								{#each Object.values(deprecatedPackages) as { path, id }}
+									<li>
 										<a
 											href={path}
 											data-current={data.pathname.includes(`/${id}`)}
-											class="c-link c-link--lazy -ml-px block whitespace-nowrap border-l border-transparent py-1 pl-3 data-current:border-link data-current:link"
+											class="data-current:link c-link c-link--lazy -ml-px block whitespace-nowrap border-l border-transparent py-1 pl-3 data-current:border-link"
 											onclick={closeLeftSidebar}
 										>
 											<span class="h-full w-1 bg-primary"></span>
@@ -114,9 +118,9 @@
 								{/each}
 							</ul>
 						</li>
-          </ul>
-        </li>
-      </ul>
+					</ul>
+				</li>
+			</ul>
 		</nav>
 		<label class="sidebar-backdrop" for="pages-toggler"></label>
 
@@ -127,14 +131,14 @@
 		{/key}
 
 		<nav class="sidebar sidebar-right" aria-label="table of contents">
-			<p class="upto-xl:hidden mt-10 c-callout c-callout--success c-callout--icon-megaphone">
+			<p class="c-callout c-callout--success c-callout--icon-megaphone mt-10 upto-xl:hidden">
 				Still on Svelte 4? See
-				<a class="c-link" href="https://svelte-put-svelte-4.vnphanquang.com">the old docs site here.</a>
+				<a class="c-link" href="https://svelte-put-svelte-4.vnphanquang.com"
+					>the old docs site here.</a
+				>
 			</p>
-			<div class="sveltevietnam-banner mt-5 border rounded p-4 space-y-2 upto-xl:hidden">
-				<p class="font-medium">
-					Are you based in Vietnam?
-				</p>
+			<div class="sveltevietnam-banner mt-5 space-y-2 rounded border p-4 upto-xl:hidden">
+				<p class="font-medium">Are you based in Vietnam?</p>
 				<div class="flex items-center gap-4">
 					<div class="c-logo c-logo--themed"></div>
 					<p>
@@ -142,31 +146,31 @@
 					</p>
 				</div>
 			</div>
-			<input id="toc-toggler" type="checkbox" hidden>
+			<input id="toc-toggler" type="checkbox" hidden />
 			<div class="sidebar-content text-sm">
-        {#if toc.items.size}
-          <p class="py-2 font-bold uppercase">On This Page</p>
-          <ul class="space-y-1 border-l border-outline">
-            {#each toc.items.values() as tocItem (tocItem.id)}
-              {@const level = tocItem.element.tagName.slice(1)}
-              <li>
-                <!-- svelte-ignore a11y_missing_attribute -->
-                <a
+				{#if toc.items.size}
+					<p class="py-2 font-bold uppercase">On This Page</p>
+					<ul class="space-y-1 border-l border-outline">
+						{#each toc.items.values() as tocItem (tocItem.id)}
+							{@const level = tocItem.element.tagName.slice(1)}
+							<li>
+								<!-- svelte-ignore a11y_missing_attribute -->
+								<a
 									use:toc.actions.link={tocItem}
-                  class="c-link c-link--lazy -ml-px block border-l border-transparent py-1 capitalize data-current:border-link data-current:text-link"
-                  class:pl-3={level === '2'}
-                  class:pl-5={level === '3'}
-                  class:pl-7={level === '4'}
-                  class:pl-9={level === '5'}
-                  class:pl-11={level === '6'}
+									class="c-link c-link--lazy -ml-px block border-l border-transparent py-1 capitalize data-current:border-link data-current:text-link"
+									class:pl-3={level === '2'}
+									class:pl-5={level === '3'}
+									class:pl-7={level === '4'}
+									class:pl-9={level === '5'}
+									class:pl-11={level === '6'}
 								>
 									<!-- textContent injected by toc -->
 								</a>
-              </li>
-            {/each}
-          </ul>
-        {/if}
-      </div>
+							</li>
+						{/each}
+					</ul>
+				{/if}
+			</div>
 		</nav>
 		<label class="sidebar-backdrop" for="toc-toggler"></label>
 	</div>
@@ -190,9 +194,9 @@
 
 		border-color: theme('colors.outline.DEFAULT');
 
-    transition-timing-function: theme('transitionTimingFunction.DEFAULT');
-    transition-duration: 200ms;
-    transition-property: transform, opacity;
+		transition-timing-function: theme('transitionTimingFunction.DEFAULT');
+		transition-duration: 200ms;
+		transition-property: transform, opacity;
 
 		& .sidebar-content {
 			position: sticky;
@@ -262,23 +266,23 @@
 		}
 	}
 
-  .sidebar-backdrop {
+	.sidebar-backdrop {
 		pointer-events: none;
 
-    position: fixed;
-    z-index: calc(theme('zIndex.header') + 1);
-    inset: 0;
+		position: fixed;
+		z-index: calc(theme('zIndex.header') + 1);
+		inset: 0;
 
 		opacity: 0;
-    background-color: theme('backgroundColor.black / 20%');
-    backdrop-filter: blur(1px);
+		background-color: theme('backgroundColor.black / 20%');
+		backdrop-filter: blur(1px);
 
-    transition: opacity 200ms theme('transitionTimingFunction.DEFAULT');
+		transition: opacity 200ms theme('transitionTimingFunction.DEFAULT');
 
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
 
 	.sidebar:has(input:checked) {
 		transform: translateX(0);
@@ -296,15 +300,15 @@
 		padding-top: theme('spacing.10');
 		padding-bottom: theme('spacing.20');
 
-    @screen lg {
-      max-width: calc(100% - theme('spacing.sidebar'));
-      padding-inline: theme('spacing.10');
-    }
+		@screen lg {
+			max-width: calc(100% - theme('spacing.sidebar'));
+			padding-inline: theme('spacing.10');
+		}
 
-    @screen xl {
-      max-width: calc(100% - theme('spacing.sidebar') * 2);
-      padding-inline: theme('spacing.14');
-    }
+		@screen xl {
+			max-width: calc(100% - theme('spacing.sidebar') * 2);
+			padding-inline: theme('spacing.14');
+		}
 	}
 
 	#docs :global(:where(h1)) {
@@ -316,3 +320,4 @@
 		border-bottom: 1px solid theme('colors.outline.DEFAULT');
 	}
 </style>
+
