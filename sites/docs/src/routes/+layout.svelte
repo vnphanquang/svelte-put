@@ -11,7 +11,6 @@
 	const DEFAULT_KEYWORDS = ['svelte', 'svelte-put', 'utility'];
 
 	let meta = $derived.by(() => {
-		// eslint-disable-next-line svelte/valid-compile
 		const meta = $page.data.meta;
 		const title = meta?.title ?? 'svelte-put';
 		const description =
