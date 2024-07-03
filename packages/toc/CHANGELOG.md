@@ -1,5 +1,11 @@
 # Changelog
 
+## 6.0.0-next.3
+
+### Major Changes
+
+- [`fa5c475`](https://github.com/vnphanquang/svelte-put/commit/fa5c475df4c68ab48c88f1c0fc16a81249977526) Thanks [@vnphanquang](https://github.com/vnphanquang)! - bump Svelte peer dependency, `Map` is now `SvelteMap` from `svelte/reactivity`
+
 ## 6.0.0-next.2
 
 ### Patch Changes
