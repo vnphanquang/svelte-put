@@ -43,13 +43,14 @@
 
 <style>
 	dialog {
-		display: block; /* required for animation to work */
 		inset: 0;
 
+		display: block; /* required for animation to work */
+
 		animation-name: fly-out-down;
-		animation-fill-mode: forwards;
 		animation-duration: 150ms;
 		animation-timing-function: theme('transitionTimingFunction.DEFAULT');
+		animation-fill-mode: forwards;
 	}
 
 	dialog[open] {
