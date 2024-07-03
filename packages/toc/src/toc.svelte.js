@@ -1,4 +1,4 @@
-import { Map } from 'svelte/reactivity';
+import { SvelteMap } from 'svelte/reactivity';
 
 import { createTocLinkAction } from './actions/link.svelte.js';
 import { createTocRootAction } from './actions/root.svelte.js';
@@ -14,9 +14,9 @@ export class Toc {
 
 	/**
 	 * the extracted toc items, populated on mount (`tocinit`)
-	 * @type {Map<string, import('./types.js').TocItem>}
+	 * @type {SvelteMap<string, import('./types.js').TocItem>}
 	 */
-	items = new Map();
+	items = new SvelteMap();
 
 	/**
 	 * the active toc items, set on update (`tocchange`) if `observer` is set to true

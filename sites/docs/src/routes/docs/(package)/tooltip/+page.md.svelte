@@ -1,0 +1,6 @@
+## Deprecation Notice
+
+---
+
+Happy migrating 😅
+

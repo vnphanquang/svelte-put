@@ -72,7 +72,7 @@
 		"extends": "../../package.json"
 	},
 	"peerDependencies": {
-		"svelte": "^5.0.0-next.166"
+		"svelte": "^5.0.0-next.172"
 	},
 	"dependencies": {
 		"md5": "^2.3.0"

@@ -86,7 +86,7 @@
 		"@internals/tsconfig": "workspace:*"
 	},
 	"peerDependencies": {
-		"svelte": "^5.0.0-next.166"
+		"svelte": "^5.0.0-next.172"
 	},
 	"volta": {
 		"extends": "../../package.json"
