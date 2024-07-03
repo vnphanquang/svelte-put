@@ -148,9 +148,23 @@ export const packages = {
 		status: 'stable',
 		rune: true,
 		ready: true,
-		githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/movable',
+		githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/popover',
 		changelogUrl:
-			'https://github.com/vnphanquang/svelte-put/blob/main/packages/movable/CHANGELOG.md',
+			'https://github.com/vnphanquang/svelte-put/blob/main/packages/popover/CHANGELOG.md',
+	},
+	popover: {
+		id: 'popover',
+		name: '@svelte-put/popover',
+		publishedAt: 1719825644314,
+		description: 'Minimal and ssr-friendly enhancements to Popover API with idiomatic Svelte',
+		path: '/docs/popover',
+		replId: undefined,
+		status: 'new',
+		rune: true,
+		ready: true,
+		githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/popover',
+		changelogUrl:
+			'https://github.com/vnphanquang/svelte-put/blob/main/packages/popover/CHANGELOG.md',
 	},
 	'preprocess-auto-slug': {
 		id: 'preprocess-auto-slug',
@@ -250,21 +264,6 @@ export const packages = {
 		githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/toc',
 		changelogUrl: 'https://github.com/vnphanquang/svelte-put/blob/main/packages/toc/CHANGELOG.md',
 	},
-	// tooltip: {
-	//   id: 'tooltip',
-	//   name: '@svelte-put/tooltip',
-	//   publishedAt: 1670126470519,
-	//   description:
-	//     'over-engineered, type-safe, headless,  and extensible tooltip builder via Svelte action',
-	//   path: '/docs/tooltip',
-	//   replId: 'ac411d28f87b4b6d9942e050fa29e0cd',
-	//   status: 'stable',
-	// rune: true,
-	//   ready: true,
-	//   githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/tooltip',
-	//   changelogUrl:
-	//     'https://github.com/vnphanquang/svelte-put/blob/main/packages/tooltip/CHANGELOG.md',
-	// },
 } as const satisfies Record<string, Package>;
 
 export type PackageId = keyof typeof packages;
@@ -311,6 +310,21 @@ export const deprecatedPackages = {
 			'https://github.com/vnphanquang/svelte-put/tree/svelte-4/packages/preprocess-inline-svg',
 		changelogUrl:
 			'https://github.com/vnphanquang/svelte-put/blob/svelte-4/packages/preprocess-inline-svg/CHANGELOG.md',
+	},
+	tooltip: {
+	  id: 'tooltip',
+	  name: '@svelte-put/tooltip',
+	  publishedAt: 1670126470519,
+	  description:
+	    'over-engineered, type-safe, headless,  and extensible tooltip builder via Svelte action',
+	  path: '/docs/tooltip',
+	  replId: 'ac411d28f87b4b6d9942e050fa29e0cd',
+	  status: 'stable',
+	rune: true,
+	  ready: true,
+	  githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/main/packages/tooltip',
+	  changelogUrl:
+	    'https://github.com/vnphanquang/svelte-put/blob/main/packages/tooltip/CHANGELOG.md',
 	},
 } as const satisfies Record<string, Package>;
 

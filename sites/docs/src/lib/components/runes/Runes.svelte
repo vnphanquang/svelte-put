@@ -1,18 +1,60 @@
 <script lang="ts">
+	import { Popover } from '@svelte-put/popover';
 	import type { HTMLAttributes } from 'svelte/elements';
 
-	let { ...rest }: HTMLAttributes<HTMLDivElement> = $props();
+	import { compute } from '$lib/popover/compute';
+
+	let { class: cls, ...rest }: HTMLAttributes<HTMLDivElement> = $props();
+
+	let controlEl: HTMLButtonElement;
+	let targetEl: HTMLElement;
+	let arrowEl: HTMLDivElement;
+
+	let cleanup = () => {};
+	const popover = new Popover({
+		triggers: {
+			hover: true,
+			focus: true,
+		},
+		plugins: () => ({
+			target: {
+				attributes: {
+					role: 'tooltip',
+					onbeforetoggle: (e) => {
+						if (e.newState !== 'open') return cleanup();
+						cleanup = compute(controlEl, targetEl, arrowEl);
+					},
+				},
+				actions: [(node) => {
+					node.classList.toggle('enhanced', true);
+				}],
+			},
+		}),
+	});
 </script>
 
-<div {...rest}>
-	<button popovertarget="rune-popover" type="button" class="hover:text-link transition-colors">
+<div class="not-prose {cls}" {...rest}>
+	<button
+		type="button"
+		class="transition-colors hover:text-link"
+		bind:this={controlEl}
+		{...popover.control.attributes}
+		use:popover.control.actions
+	>
 		<svg inline-src="runes" width="80" height="80"></svg>
 	</button>
-	<!-- TODO: enhance with floating-ui and/or @svelte-put/tooltip -->
-	<div id="rune-popover" popover="auto" class="rounded bg-bg-200 text-fg py-2 px-4 not-prose text-sm backdrop:bg-bg backdrop:opacity-50 relative">
+
+	<div
+		bind:this={targetEl}
+		{...popover.target.attributes}
+		use:popover.target.actions
+		class="c-tooltip"
+	>
+		<div class="arrow" bind:this={arrowEl}></div>
 		<p>
 			Compatible with or powered directly by
 			<a href="https://svelte.dev/blog/runes" class="c-link">Svelte runes</a>.
 		</p>
 	</div>
 </div>
+

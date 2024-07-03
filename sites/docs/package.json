@@ -12,6 +12,7 @@
 		"format": "prettier --write ."
 	},
 	"dependencies": {
+		"@floating-ui/dom": "^1.6.6",
 		"mustache": "^4.2.0"
 	},
 	"devDependencies": {
@@ -25,6 +26,7 @@
 		"@svelte-put/intersect": "workspace:*",
 		"@svelte-put/lockscroll": "workspace:*",
 		"@svelte-put/movable": "workspace:*",
+		"@svelte-put/popover": "workspace:*",
 		"@svelte-put/preprocess-auto-slug": "workspace:*",
 		"@svelte-put/preprocess-external-link": "workspace:*",
 		"@svelte-put/preprocess-markdown": "workspace:*",
@@ -32,18 +34,19 @@
 		"@svelte-put/resize": "workspace:*",
 		"@svelte-put/shortcut": "workspace:*",
 		"@svelte-put/toc": "workspace:*",
-		"@sveltejs/adapter-cloudflare": "^4.5.0",
+		"@sveltejs/adapter-cloudflare": "^4.6.0",
 		"@sveltejs/enhanced-img": "^0.3.0",
-		"@sveltejs/kit": "^2.5.17",
+		"@sveltejs/kit": "^2.5.18",
 		"@sveltejs/vite-plugin-svelte": "4.0.0-next.3",
 		"@sveltevietnam/ui": "1.0.0-next.30",
 		"@total-typescript/ts-reset": "^0.5.1",
 		"@types/mustache": "^4.2.5",
 		"postcss": "^8.4.38",
 		"tailwindcss": "^3.4.4",
-		"vite": "^5.3.1"
+		"vite": "^5.3.2"
 	},
 	"volta": {
 		"extends": "../../package.json"
 	}
 }
+

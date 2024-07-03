@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Runes } from '$lib/components/runes';
+	import { Runes } from '$lib/components/runes';
   import {
     createBundlephobiaBadgeUrl,
     createBundlephobiaUrl,

@@ -1,7 +1,7 @@
 {
-	"name": "@svelte-put/tooltip",
-	"version": "1.0.2",
-	"description": "over-engineered, type-safe, headless, and extensible tooltip builder vs Svelte action",
+	"name": "@svelte-put/popover",
+	"version": "1.0.0-next.0",
+	"description": "Minimal and ssr-friendly enhancements to Popover API with idiomatic Svelte",
 	"main": "src/index.js",
 	"module": "src/index.js",
 	"types": "types/index.d.ts",
@@ -23,16 +23,16 @@
 		"lint": "eslint . --ignore-path=\"../../.eslintignore\"",
 		"format": "prettier --ignore-path ../../.prettierignore --write .",
 		"dts": "dts-buddy --write && publint",
-		"prepublishOnly": "turbo run dts --filter=@svelte-put/tooltip"
+		"prepublishOnly": "turbo run dts --filter=@svelte-put/popover"
 	},
 	"keywords": [
 		"svelte",
-		"action",
 		"tooltip",
-		"headless",
-		"extensible",
-		"typescript",
-		"type-safe"
+		"progressive",
+		"enhance",
+		"ssr",
+		"popover",
+		"overlay"
 	],
 	"author": {
 		"email": "vnphanquang@gmail.com",
@@ -40,11 +40,11 @@
 		"url": "https://github.com/vnphanquang"
 	},
 	"license": "MIT",
-	"homepage": "https://svelte-put.vnphanquang.com/docs/tooltip",
+	"homepage": "https://svelte-put.vnphanquang.com/docs/popover",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/vnphanquang/svelte-put.git",
-		"directory": "packages/tooltip"
+		"directory": "packages/popover"
 	},
 	"bugs": {
 		"url": "https://github.com/vnphanquang/svelte-put/issues"
