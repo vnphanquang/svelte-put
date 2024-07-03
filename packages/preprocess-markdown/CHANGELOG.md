@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.0-next.4
+
+### Minor Changes
+
+- [`f87d286`](https://github.com/vnphanquang/svelte-put/commit/f87d2866b39641d0087ff79b3d1b04ad35f9e17b) Thanks [@vnphanquang](https://github.com/vnphanquang)! - better fullscreen using [Fullscreen API](https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API/Guide#things_your_users_want_to_know), but fall back to `display: fixed` for progressive enhancement
+
+### Patch Changes
+
+- [`7a2700f`](https://github.com/vnphanquang/svelte-put/commit/7a2700f0546ab1239a6961e2145d041d03715697) Thanks [@vnphanquang](https://github.com/vnphanquang)! - better manage state synchronization between title prop and groupContext
+
 ## 1.0.0-next.3
 
 ### Patch Changes
