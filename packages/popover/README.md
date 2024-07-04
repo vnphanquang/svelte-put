@@ -19,11 +19,19 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 ## Quick Start
 
 ```html
-<script lang="ts">
-  import { Popover } from '@svelte-put/popover';
+<script>
+	import { Popover } from '@svelte-put/popover';
 
-	WIP
+	const popover = new Popover();
 </script>
+
+<button {...popover.control.attributes} use:popover.control.actions>
+	Open me Popover
+</button>
+
+<div {...popover.target.attributes} use:popover.target.actions>
+	<p>Popover content. Click backdrop to dismiss</p>
+</div>
 ```
 
 ## [Changelog][github.changelog]
