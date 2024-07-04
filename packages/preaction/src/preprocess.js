@@ -37,9 +37,6 @@ export function preaction() {
 			}
 			if (!applyActionName) return;
 
-			console.log('applyActionName', applyActionName);
-
-
 			/** @type {string[]} */
 			const declarations = [];
 
@@ -85,10 +82,6 @@ export function preaction() {
 			} else {
 				s.append(`<script>${declarationsStr}</script>`)
 			}
-
-			console.log('-------')
-			console.log(s.toString());
-			console.log('-------')
 
 			return {
 				code: s.toString(),
