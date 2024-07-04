@@ -77,6 +77,13 @@ Which is equivalent to:
 </div>
 ```
 
+<div class="c-callout c-callout--info">
+
+Attribute spread is added before any other `use` directives or attributes to avoid potential conflicts with user-defined attributes.
+
+</div>
+
+
 ## Guides
 
 ### <span class="c-num align-middle">0</span> set up `preaction` preprocessor
