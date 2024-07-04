@@ -2,6 +2,7 @@
   import { ConnectedList, ConnectedListItem } from '$lib/components/connected-list';
   import DemoQuickStart from './examples/quick-start.svelte';
   import DemoPrepare from './examples/prepare/usage.svelte';
+  import './examples/prepare/c-tooltip.css';
 
 	import { getSettingsContext } from '$lib/contexts/settings';
   const { packageManager } = getSettingsContext();
@@ -327,3 +328,4 @@ Happy tooling & tipping! 👨‍💻
 [Quick Start]: #quick-start
 [Prepare]: #prepare
 [@floating-ui]: https://github.com/floating-ui/floating-ui
+
