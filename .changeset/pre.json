@@ -17,7 +17,6 @@
     "@svelte-put/resize": "3.0.0",
     "@svelte-put/shortcut": "3.1.0",
     "@svelte-put/toc": "5.0.1",
-    "@svelte-put/tooltip": "1.0.1",
     "@svelte-put/preprocess-external-link": "0.0.0",
     "@svelte-put/preprocess-markdown": "0.0.0",
     "@svelte-put/async-stack": "0.0.0-next.0",
@@ -79,3 +78,4 @@
     "wise-points-own"
   ]
 }
+

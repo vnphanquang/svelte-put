@@ -402,16 +402,6 @@ importers:
         specifier: workspace:*
         version: link:../../internals/tsconfig
 
-  packages/tooltip:
-    dependencies:
-      svelte:
-        specifier: ^5.0.0-next.172
-        version: 5.0.0-next.172
-    devDependencies:
-      '@internals/tsconfig':
-        specifier: workspace:*
-        version: link:../../internals/tsconfig
-
   sites/docs:
     dependencies:
       '@floating-ui/dom':
