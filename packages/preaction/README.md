@@ -87,6 +87,18 @@ export const setMyColor = make((initialColor = 'blue') => {
 <div use:apply={setMyColor('red')}></div>
 ```
 
+...which is equivalent to...
+
+```html
+<script>
+  import { setMyColor } from './set-my-color.ts'; // see previous step
+	const { acton, attributes } = setMyColor('red');
+</script>
+
+<!-- add data-color on server, and apply action on client -->
+<div {...(attributes ?? {})} use:action={'red'}></div>
+```
+
 ## [Changelog][github.changelog]
 
 <!-- github specifics -->
