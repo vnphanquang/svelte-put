@@ -20,7 +20,8 @@
     "@svelte-put/preprocess-external-link": "0.0.0",
     "@svelte-put/preprocess-markdown": "0.0.0",
     "@svelte-put/async-stack": "0.0.0-next.0",
-    "@svelte-put/popover": "1.0.0-next.0"
+    "@svelte-put/popover": "1.0.0-next.0",
+    "@svelte-put/preaction": "0.0.0-next.0"
   },
   "changesets": [
     "beige-hornets-think",
@@ -37,6 +38,7 @@
     "famous-schools-jump",
     "flat-trees-drive",
     "friendly-chicken-sing",
+    "funny-cats-rescue",
     "fuzzy-weeks-march",
     "gorgeous-humans-fry",
     "gorgeous-laws-hang",
@@ -47,6 +49,7 @@
     "heavy-pugs-relate",
     "large-cougars-rhyme",
     "large-terms-peel",
+    "late-boats-play",
     "late-gorillas-smoke",
     "nice-pigs-suffer",
     "nice-seas-beg",
@@ -78,4 +81,3 @@
     "wise-points-own"
   ]
 }
-
