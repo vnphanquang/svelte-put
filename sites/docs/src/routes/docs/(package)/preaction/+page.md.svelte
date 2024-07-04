@@ -86,7 +86,7 @@ Attribute spread is added before any other `use` directives or attributes to avo
 
 ## Guides
 
-### <span class="c-num align-middle">0</span> set up `preaction` preprocessor
+<h3 id="0-setup-preaction"><span class="c-num align-middle">0</span> set up <code>preaction</code> preprocessor</h3>
 
 Start by adding `preaction` to your Svelte config.
 
@@ -104,7 +104,7 @@ export default {
 }
 ```
 
-### <span class="c-num align-middle">1</span> `make` a preaction
+<h3 id="1-make-preaction"><span class="c-num align-middle">1</span> <code>make</code> a preaction</h3>
 
 Next, prepare a "preaction" using the `make` helper.
 
@@ -162,7 +162,7 @@ type Preaction<Node, Param> = (param: Param) => {
 
 </div>
 
-### <span class="c-num align-middle">2</span> `apply` a preaction
+<h3 id="2-apply-preaction"><span class="c-num align-middle">2</span> <code>apply</code> a preaction</h3>
 
 Finally, call your preaction (created with `make`) within `use:apply` directive to apply the encapsulated action and attributes to an element.
 
