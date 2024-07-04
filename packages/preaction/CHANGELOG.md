@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.0-next.2
+
+### Patch Changes
+
+- [`7ae2264`](https://github.com/vnphanquang/svelte-put/commit/7ae2264c0b2f6107c604c887b1798657a1039a69) Thanks [@vnphanquang](https://github.com/vnphanquang)! - clean console logs
+
 ## 0.0.0-next.1
 
 ### Major Changes
