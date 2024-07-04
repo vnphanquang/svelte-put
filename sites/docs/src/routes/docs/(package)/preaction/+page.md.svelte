@@ -65,13 +65,13 @@ Which is equivalent to:
 </script>
 
 <!-- :::highlight -->
-<button {...control.attributes ?? {}} use:control.action={'my-popover'} class="c-btn">
+<button {...(control.attributes ?? {})} use:control.action={'my-popover'} class="c-btn">
 <!-- ::: -->
 	Open Popover
 </button>
 
 <!-- :::highlight -->
-<div {...target.attributes ?? {}} use:target.action={'my-popover'} class="p-10">
+<div {...(target.attributes ?? {})} use:target.action={'my-popover'} class="p-10">
 <!-- ::: -->
   My simple popover
 </div>
