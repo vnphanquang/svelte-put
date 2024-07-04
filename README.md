@@ -6,7 +6,7 @@
 
 Useful svelte stuff to put in your projects
 
-![svelte-put](https://github.com/vnphanquang/svelte-put/blob/main/sites/docs/src/lib/assets/images/og/svelte-put.jpg)
+![svelte-put](https://github.com/vnphanquang/svelte-put/blob/next/sites/docs/src/lib/assets/images/og/svelte-put.jpg)
 
 </div>
 
@@ -62,42 +62,42 @@ pnpm turbo
 
 [github.contributing]: ./CONTRIBUTING.md
 [github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
-[github.async-stack]: https://github.com/vnphanquang/svelte-put/tree/main/packages/async-stack
-[github.async-stack.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/async-stack/CHANGELOG.md
-[github.avatar]: https://github.com/vnphanquang/svelte-put/tree/main/packages/avatar
-[github.avatar.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/avatar/CHANGELOG.md
-[github.clickoutside]: https://github.com/vnphanquang/svelte-put/tree/main/packages/clickoutside
-[github.clickoutside.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/clickoutside/CHANGELOG.md
-[github.cloudflare-turnstile]: https://github.com/vnphanquang/svelte-put/tree/main/packages/cloudflare-turnstile
-[github.cloudflare-turnstile.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/cloudflare-turnstile/CHANGELOG.md
-[github.copy]: https://github.com/vnphanquang/svelte-put/tree/main/packages/copy
-[github.copy.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/copy/CHANGELOG.md
-[github.dragscroll]: https://github.com/vnphanquang/svelte-put/tree/main/packages/dragscroll
-[github.dragscroll.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/dragscroll/CHANGELOG.md
-[github.intersect]: https://github.com/vnphanquang/svelte-put/tree/main/packages/intersect
-[github.intersect.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/intersect/CHANGELOG.md
-[github.inline-svg]: https://github.com/vnphanquang/svelte-put/tree/main/packages/inline-svg
-[github.inline-svg.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/inline-svg/CHANGELOG.md
-[github.lockscroll]: https://github.com/vnphanquang/svelte-put/tree/main/packages/lockscroll
-[github.lockscroll.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/lockscroll/CHANGELOG.md
-[github.movable]: https://github.com/vnphanquang/svelte-put/tree/main/packages/movable
-[github.movable.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/movable/CHANGELOG.md
-[github.preaction]: https://github.com/vnphanquang/svelte-put/tree/main/packages/preaction
-[github.preaction.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/preaction/CHANGELOG.md
-[github.popover]: https://github.com/vnphanquang/svelte-put/tree/main/packages/popover
-[github.popover.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/popover/CHANGELOG.md
-[github.preprocess-auto-slug]: https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocess-auto-slug
-[github.preprocess-auto-slug.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocess-auto-slug/CHANGELOG.md
-[github.preprocess-external-link]: https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocess-external-link
-[github.preprocess-external-link.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocess-external-link/CHANGELOG.md
-[github.qr]: https://github.com/vnphanquang/svelte-put/tree/main/packages/qr
-[github.qr.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/qr/CHANGELOG.md
-[github.resize]: https://github.com/vnphanquang/svelte-put/tree/main/packages/resize
-[github.resize.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/resize/CHANGELOG.md
-[github.shortcut]: https://github.com/vnphanquang/svelte-put/tree/main/packages/shortcut
-[github.shortcut.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/shortcut/CHANGELOG.md
-[github.toc]: https://github.com/vnphanquang/svelte-put/tree/main/packages/toc
-[github.toc.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/toc/CHANGELOG.md
+[github.async-stack]: https://github.com/vnphanquang/svelte-put/tree/next/packages/async-stack
+[github.async-stack.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/async-stack/CHANGELOG.md
+[github.avatar]: https://github.com/vnphanquang/svelte-put/tree/next/packages/avatar
+[github.avatar.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/avatar/CHANGELOG.md
+[github.clickoutside]: https://github.com/vnphanquang/svelte-put/tree/next/packages/clickoutside
+[github.clickoutside.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/clickoutside/CHANGELOG.md
+[github.cloudflare-turnstile]: https://github.com/vnphanquang/svelte-put/tree/next/packages/cloudflare-turnstile
+[github.cloudflare-turnstile.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/cloudflare-turnstile/CHANGELOG.md
+[github.copy]: https://github.com/vnphanquang/svelte-put/tree/next/packages/copy
+[github.copy.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/copy/CHANGELOG.md
+[github.dragscroll]: https://github.com/vnphanquang/svelte-put/tree/next/packages/dragscroll
+[github.dragscroll.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/dragscroll/CHANGELOG.md
+[github.intersect]: https://github.com/vnphanquang/svelte-put/tree/next/packages/intersect
+[github.intersect.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/intersect/CHANGELOG.md
+[github.inline-svg]: https://github.com/vnphanquang/svelte-put/tree/next/packages/inline-svg
+[github.inline-svg.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/inline-svg/CHANGELOG.md
+[github.lockscroll]: https://github.com/vnphanquang/svelte-put/tree/next/packages/lockscroll
+[github.lockscroll.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/lockscroll/CHANGELOG.md
+[github.movable]: https://github.com/vnphanquang/svelte-put/tree/next/packages/movable
+[github.movable.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/movable/CHANGELOG.md
+[github.preaction]: https://github.com/vnphanquang/svelte-put/tree/next/packages/preaction
+[github.preaction.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/preaction/CHANGELOG.md
+[github.popover]: https://github.com/vnphanquang/svelte-put/tree/next/packages/popover
+[github.popover.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/popover/CHANGELOG.md
+[github.preprocess-auto-slug]: https://github.com/vnphanquang/svelte-put/tree/next/packages/preprocess-auto-slug
+[github.preprocess-auto-slug.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/preprocess-auto-slug/CHANGELOG.md
+[github.preprocess-external-link]: https://github.com/vnphanquang/svelte-put/tree/next/packages/preprocess-external-link
+[github.preprocess-external-link.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/preprocess-external-link/CHANGELOG.md
+[github.qr]: https://github.com/vnphanquang/svelte-put/tree/next/packages/qr
+[github.qr.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/qr/CHANGELOG.md
+[github.resize]: https://github.com/vnphanquang/svelte-put/tree/next/packages/resize
+[github.resize.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/resize/CHANGELOG.md
+[github.shortcut]: https://github.com/vnphanquang/svelte-put/tree/next/packages/shortcut
+[github.shortcut.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/shortcut/CHANGELOG.md
+[github.toc]: https://github.com/vnphanquang/svelte-put/tree/next/packages/toc
+[github.toc.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/toc/CHANGELOG.md
 
 <!-- heading badge -->
 

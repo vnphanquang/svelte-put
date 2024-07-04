@@ -129,7 +129,7 @@ This package relies on svelte action strategy and attempts to stay minimal. If y
 <!-- github specifics -->
 
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
-[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/toc/CHANGELOG.md
+[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/toc/CHANGELOG.md
 
 <!-- heading badge -->
 
@@ -149,3 +149,4 @@ This package relies on svelte action strategy and attempts to stay minimal. If y
 [repl.badge]: https://img.shields.io/static/v1?label=&message=Svelte+REPL&logo=svelte&logoColor=fff&color=ff3e00
 [docs]: https://svelte-put.vnphanquang.com/docs/toc
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue
+

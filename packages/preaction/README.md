@@ -104,7 +104,7 @@ export const setMyColor = make((initialColor = 'blue') => {
 <!-- github specifics -->
 
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
-[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/preaction/CHANGELOG.md
+[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/preaction/CHANGELOG.md
 [github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
 
 <!-- heading badge -->

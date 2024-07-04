@@ -31,7 +31,7 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 <!-- github specifics -->
 
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
-[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/dragscroll/CHANGELOG.md
+[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/dragscroll/CHANGELOG.md
 [github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
 
 <!-- heading badge -->
@@ -42,3 +42,4 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 [bundlephobia]: https://bundlephobia.com/package/@svelte-put/dragscroll
 [docs]: https://svelte-put.vnphanquang.com/docs/dragscroll
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue
+

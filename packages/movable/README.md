@@ -6,7 +6,7 @@
 
 Svelte action `use:movable` - make a node move on mousedown & mousemove
 
-![demo](https://raw.githubusercontent.com/vnphanquang/svelte-put/main/packages/movable/static/images/demo.gif)
+![demo](https://raw.githubusercontent.com/vnphanquang/svelte-put/next/packages/movable/static/images/demo.gif)
 
 </div>
 
@@ -33,7 +33,7 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 <!-- github specifics -->
 
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
-[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/movable/CHANGELOG.md
+[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/movable/CHANGELOG.md
 [github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
 
 <!-- heading badge -->
@@ -46,3 +46,4 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 [repl.badge]: https://img.shields.io/static/v1?label=&message=Svelte+REPL&logo=svelte&logoColor=fff&color=ff3e00
 [docs]: https://svelte-put.vnphanquang.com/docs/movable
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue
+

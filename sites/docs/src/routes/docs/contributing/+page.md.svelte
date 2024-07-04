@@ -4,7 +4,7 @@ This text is just to balance out the content to ease my OCD. Please skip to the 
 
 ## Code
 
-Source code can be found at [github/svelte-put](https://github.com/vnphanquang/svelte-put). If you have any suggestion or bug report, please read the [Contributing Guidelines](https://github.com/vnphanquang/svelte-put/blob/main/CONTRIBUTING.md), [start a discussion](https://github.com/vnphanquang/svelte-put/discussions), or [open an issue](https://github.com/vnphanquang/svelte-put/issues).
+Source code can be found at [github/svelte-put](https://github.com/vnphanquang/svelte-put). If you have any suggestion or bug report, please read the [Contributing Guidelines](https://github.com/vnphanquang/svelte-put/blob/next/CONTRIBUTING.md), [start a discussion](https://github.com/vnphanquang/svelte-put/discussions), or [open an issue](https://github.com/vnphanquang/svelte-put/issues).
 
 <h2 id="money">Money</h2>
 
@@ -26,7 +26,8 @@ Stop by [this Github discussion thread](https://github.com/vnphanquang/svelte-pu
 If you are based in Vietnam, stop by [sveltevietnam.dev](https://sveltevietnam.dev), a community for people of Svelte in Vietnam that I am proudly a part of.
 
 <p class="text-right text-sm">
-  <a class="c-link" href="https://github.com/vnphanquang/svelte-put/edit/main/sites/docs/src/routes/docs/contributing/+page.md.svelte">
+  <a class="c-link" href="https://github.com/vnphanquang/svelte-put/edit/next/sites/docs/src/routes/docs/contributing/+page.md.svelte">
     Edit this page on Github
   </a>
 </p>
+
