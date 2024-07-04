@@ -47,13 +47,13 @@
 
 <button
 	bind:this={controlEl}
-	class="inline {cls}"
+	class="inline-block {cls}"
 	use:popover.control.actions
 	{...popover.control.attributes}
 	{...rest}>{@render children()}</button
 >
 
-<div bind:this={targetEl} {...popover.target.attributes} use:popover.target.actions>
+<div class="text-hint" bind:this={targetEl} {...popover.target.attributes} use:popover.target.actions>
 	<div class="arrow" bind:this={arrowEl}></div>
 	{@render hint()}
 </div>
