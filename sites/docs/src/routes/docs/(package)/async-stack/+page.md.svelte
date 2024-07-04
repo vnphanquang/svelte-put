@@ -9,7 +9,6 @@
   import Interactive from './_page/examples/interactive/usage.svelte';
   import RecipeModalUsage from './_page/examples/modal/usage.svelte';
   import RecipeModalPortal from './_page/examples/modal/ModalPortal.svelte';
-	import { pushState } from '$app/navigation';
 
   const settings = SettingsContext.get();
 </script>

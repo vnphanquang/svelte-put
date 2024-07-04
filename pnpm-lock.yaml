@@ -82,7 +82,7 @@ importers:
         version: 5.0.0-next.172
       svelte-check:
         specifier: ^3.8.4
-        version: 3.8.4(postcss-load-config@6.0.1(postcss@8.4.39))(postcss@8.4.39)(sugarss@4.0.1(postcss@8.4.39))(svelte@5.0.0-next.172)
+        version: 3.8.4(postcss-load-config@4.0.2(postcss@8.4.39))(postcss@8.4.39)(sugarss@4.0.1(postcss@8.4.39))(svelte@5.0.0-next.172)
       tslib:
         specifier: ^2.6.3
         version: 2.6.3
@@ -183,7 +183,7 @@ importers:
         version: 2.0.4
       vite:
         specifier: ^5.0.0
-        version: 5.3.1(@types/node@20.14.9)(sugarss@4.0.1(postcss@8.4.38))
+        version: 5.3.1(@types/node@20.14.9)(sugarss@4.0.1(postcss@8.4.39))
       zimmerframe:
         specifier: ^1.1.2
         version: 1.1.2
@@ -237,6 +237,25 @@ importers:
       '@internals/tsconfig':
         specifier: workspace:*
         version: link:../../internals/tsconfig
+
+  packages/preaction:
+    dependencies:
+      magic-string:
+        specifier: ^0.30.10
+        version: 0.30.10
+      svelte:
+        specifier: ^5.0.0-next.172
+        version: 5.0.0-next.172
+      zimmerframe:
+        specifier: ^1.1.2
+        version: 1.1.2
+    devDependencies:
+      '@internals/tsconfig':
+        specifier: workspace:*
+        version: link:../../internals/tsconfig
+      '@types/estree':
+        specifier: ^1.0.5
+        version: 1.0.5
 
   packages/preprocess-auto-slug:
     dependencies:
@@ -435,6 +454,9 @@ importers:
       '@svelte-put/popover':
         specifier: workspace:*
         version: link:../../packages/popover
+      '@svelte-put/preaction':
+        specifier: workspace:*
+        version: link:../../packages/preaction
       '@svelte-put/preprocess-auto-slug':
         specifier: workspace:*
         version: link:../../packages/preprocess-auto-slug
@@ -3211,24 +3233,6 @@ packages:
       postcss:
         optional: true
       ts-node:
-        optional: true
-
-  postcss-load-config@6.0.1:
-    resolution: {integrity: sha512-oPtTM4oerL+UXmx+93ytZVN82RrlY/wPUV8IeDxFrzIjXOLF1pN+EmKPLbubvKHT2HC20xXsCAH2Z+CKV6Oz/g==}
-    engines: {node: '>= 18'}
-    peerDependencies:
-      jiti: '>=1.21.0'
-      postcss: '>=8.0.9'
-      tsx: ^4.8.1
-      yaml: ^2.4.2
-    peerDependenciesMeta:
-      jiti:
-        optional: true
-      postcss:
-        optional: true
-      tsx:
-        optional: true
-      yaml:
         optional: true
 
   postcss-mixins@10.0.1:
@@ -7252,13 +7256,6 @@ snapshots:
     optionalDependencies:
       postcss: 8.4.39
 
-  postcss-load-config@6.0.1(postcss@8.4.39):
-    dependencies:
-      lilconfig: 3.1.2
-    optionalDependencies:
-      postcss: 8.4.39
-    optional: true
-
   postcss-mixins@10.0.1(postcss@8.4.39):
     dependencies:
       fast-glob: 3.3.2
@@ -7861,11 +7858,6 @@ snapshots:
       pirates: 4.0.6
       ts-interface-checker: 0.1.13
 
-  sugarss@4.0.1(postcss@8.4.38):
-    dependencies:
-      postcss: 8.4.38
-    optional: true
-
   sugarss@4.0.1(postcss@8.4.39):
     dependencies:
       postcss: 8.4.39
@@ -7885,14 +7877,14 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  svelte-check@3.8.4(postcss-load-config@6.0.1(postcss@8.4.39))(postcss@8.4.39)(sugarss@4.0.1(postcss@8.4.39))(svelte@5.0.0-next.172):
+  svelte-check@3.8.4(postcss-load-config@4.0.2(postcss@8.4.39))(postcss@8.4.39)(sugarss@4.0.1(postcss@8.4.39))(svelte@5.0.0-next.172):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       chokidar: 3.6.0
       picocolors: 1.0.1
       sade: 1.8.1
       svelte: 5.0.0-next.172
-      svelte-preprocess: 5.1.4(postcss-load-config@6.0.1(postcss@8.4.39))(postcss@8.4.39)(sugarss@4.0.1(postcss@8.4.39))(svelte@5.0.0-next.172)(typescript@5.5.3)
+      svelte-preprocess: 5.1.4(postcss-load-config@4.0.2(postcss@8.4.39))(postcss@8.4.39)(sugarss@4.0.1(postcss@8.4.39))(svelte@5.0.0-next.172)(typescript@5.5.3)
       typescript: 5.5.3
     transitivePeerDependencies:
       - '@babel/core'
@@ -7919,7 +7911,7 @@ snapshots:
     dependencies:
       svelte: 5.0.0-next.172
 
-  svelte-preprocess@5.1.4(postcss-load-config@6.0.1(postcss@8.4.39))(postcss@8.4.39)(sugarss@4.0.1(postcss@8.4.39))(svelte@5.0.0-next.172)(typescript@5.5.3):
+  svelte-preprocess@5.1.4(postcss-load-config@4.0.2(postcss@8.4.39))(postcss@8.4.39)(sugarss@4.0.1(postcss@8.4.39))(svelte@5.0.0-next.172)(typescript@5.5.3):
     dependencies:
       '@types/pug': 2.0.10
       detect-indent: 6.1.0
@@ -7929,7 +7921,7 @@ snapshots:
       svelte: 5.0.0-next.172
     optionalDependencies:
       postcss: 8.4.39
-      postcss-load-config: 6.0.1(postcss@8.4.39)
+      postcss-load-config: 4.0.2(postcss@8.4.39)
       sugarss: 4.0.1(postcss@8.4.39)
       typescript: 5.5.3
 
@@ -8216,7 +8208,7 @@ snapshots:
     transitivePeerDependencies:
       - rollup
 
-  vite@5.3.1(@types/node@20.14.9)(sugarss@4.0.1(postcss@8.4.38)):
+  vite@5.3.1(@types/node@20.14.9)(sugarss@4.0.1(postcss@8.4.39)):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.38
@@ -8224,7 +8216,7 @@ snapshots:
     optionalDependencies:
       '@types/node': 20.14.9
       fsevents: 2.3.3
-      sugarss: 4.0.1(postcss@8.4.38)
+      sugarss: 4.0.1(postcss@8.4.39)
 
   vite@5.3.3(@types/node@20.14.9)(sugarss@4.0.1(postcss@8.4.39)):
     dependencies:

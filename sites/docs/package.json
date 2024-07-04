@@ -26,6 +26,7 @@
 		"@svelte-put/intersect": "workspace:*",
 		"@svelte-put/lockscroll": "workspace:*",
 		"@svelte-put/movable": "workspace:*",
+		"@svelte-put/preaction": "workspace:*",
 		"@svelte-put/popover": "workspace:*",
 		"@svelte-put/preprocess-auto-slug": "workspace:*",
 		"@svelte-put/preprocess-external-link": "workspace:*",
@@ -49,3 +50,4 @@
 		"extends": "../../package.json"
 	}
 }
+
