@@ -7,8 +7,9 @@
 {/snippet}
 
 <p class="m-0">
-	Hover on
+	<span>Hover on</span>
 	<HintedText {hint} class="c-link">
 		this text ⓘ
-	</HintedText> for some hinting action.
+	</HintedText>
+	<span>for some hinting action.</span>
 </p>

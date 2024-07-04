@@ -1,4 +1,4 @@
-[popover] {
+.text-hint[popover] {
 	position: absolute;
 
 	display: block; /* required for animation to work */
