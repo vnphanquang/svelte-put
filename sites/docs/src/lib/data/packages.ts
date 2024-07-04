@@ -152,6 +152,22 @@ export const packages = {
 		changelogUrl:
 			'https://github.com/vnphanquang/svelte-put/blob/main/packages/popover/CHANGELOG.md',
 	},
+	preaction: {
+		id: 'preaction',
+		name: '@svelte-put/preaction',
+		publishedAt: 1720071667925,
+		description:
+			'allow Svelte action to spread SSR-friendly attriutes',
+		path: '/docs/preaction',
+		replId: undefined,
+		status: 'beta',
+		rune: false,
+		ready: true,
+		githubUrl:
+			'https://github.com/vnphanquang/svelte-put/tree/main/packages/preaction',
+		changelogUrl:
+			'https://github.com/vnphanquang/svelte-put/blob/main/packages/preaction/CHANGELOG.md',
+	},
 	popover: {
 		id: 'popover',
 		name: '@svelte-put/popover',

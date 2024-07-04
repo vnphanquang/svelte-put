@@ -145,7 +145,7 @@ export function enhanceCodeBlock(config = {}) {
 			);
 
 			if (imports.length) {
-				const importStatement = imports.join('\n');
+				const importStatement = '\n' + imports.join('\n') + '\n';
 				if (ast.module) {
 					s.appendLeft(/** @type {any} */ (ast.module.content).start, importStatement);
 				} else if (ast.instance) {
@@ -164,3 +164,4 @@ export function enhanceCodeBlock(config = {}) {
 }
 
 export default enhanceCodeBlock;
+
