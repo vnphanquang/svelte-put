@@ -39,7 +39,7 @@
 		"url": "https://github.com/vnphanquang"
 	},
 	"license": "MIT",
-	"homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/preaction",
+	"homepage": "https://github.com/vnphanquang/svelte-put/tree/next/packages/preaction",
 	"bugs": {
 		"url": "https://github.com/vnphanquang/svelte-put/issues"
 	},
@@ -60,3 +60,4 @@
 		"zimmerframe": "^1.1.2"
 	}
 }
+

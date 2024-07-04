@@ -67,7 +67,7 @@ export default config;
 <!-- github specifics -->
 
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
-[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/inline-svg/CHANGELOG.md
+[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/inline-svg/CHANGELOG.md
 [github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
 
 <!-- heading badge -->
@@ -78,3 +78,4 @@ export default config;
 [bundlephobia]: https://bundlephobia.com/package/@svelte-put/inline-svg
 [docs]: https://svelte-put.vnphanquang.com/docs/inline-svg
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue
+

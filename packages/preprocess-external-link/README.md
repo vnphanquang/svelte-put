@@ -72,7 +72,7 @@ export default config;
 <!-- github specifics -->
 
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
-[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocess-external-link/CHANGELOG.md
+[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/preprocess-external-link/CHANGELOG.md
 [github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
 
 <!-- heading badge -->
@@ -83,3 +83,4 @@ export default config;
 [bundlephobia]: https://bundlephobia.com/package/@svelte-put/preprocess-external-link
 [docs]: https://svelte-put.vnphanquang.com/docs/preprocess-external-link
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue
+
