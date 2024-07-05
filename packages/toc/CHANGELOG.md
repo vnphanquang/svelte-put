@@ -1,5 +1,11 @@
 # Changelog
 
+## 6.0.0-next.4
+
+### Patch Changes
+
+- [`bb1269e`](https://github.com/vnphanquang/svelte-put/commit/bb1269e1d5102df6e57c6745b5daf05f32a53428) Thanks [@vnphanquang](https://github.com/vnphanquang)! - relax type of parameter for link action
+
 ## 6.0.0-next.3
 
 ### Major Changes
