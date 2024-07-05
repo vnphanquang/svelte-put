@@ -16,8 +16,8 @@ import { findSvgSrc, getAttribute, resolveConfig, resolveSources } from './inter
 
 /**
  * create a preprocessor that inlines SVG from disk to source code at compile time
- * @param {import('./types.d.ts').PreprocessorSourceDefinition | import('./types.d.ts').PreprocessorSourceDefinition[]} [uSources] - sources to search for svg
- * @param {import('./types.d.ts').PreprocessorConfig} [uConfig] - global options to configure preprocessor input & output
+ * @param {import('./public').PreprocessorSourceDefinition | import('./public').PreprocessorSourceDefinition[]} [uSources] - sources to search for svg
+ * @param {import('./public').PreprocessorConfig} [uConfig] - global options to configure preprocessor input & output
  * @returns {import('svelte/compiler').PreprocessorGroup & { __params: ResolvedUserParameters }} - Svelte preprocessor interface
  */
 export function inlineSvg(uSources, uConfig) {
@@ -111,3 +111,5 @@ export function inlineSvg(uSources, uConfig) {
 }
 
 export default inlineSvg;
+export * from './public.js';
+

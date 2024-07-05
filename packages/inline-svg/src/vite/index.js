@@ -9,8 +9,8 @@ import { generateSourceTyping, matchFileExtension } from './internals.js';
 /**
  * create a Vite plugin that wraps a Svelte preprocessor to
  * inline SVG from disk to source code at compile time
- * @param {import('../preprocessor/types.d.ts').PreprocessorSourceDefinition | import('../preprocessor/types.d.ts').PreprocessorSourceDefinition[]} [uSources]
- * @param {import('./types.d.ts').VitePluginConfig} [uConfig]
+ * @param {import('../preprocessor/public').PreprocessorSourceDefinition | import('../preprocessor/public').PreprocessorSourceDefinition[]} [uSources]
+ * @param {import('./public').VitePluginConfig} [uConfig]
  * @returns {import('vite').Plugin}
  */
 export function inlineSvg(uSources, uConfig) {
@@ -69,3 +69,5 @@ export function inlineSvg(uSources, uConfig) {
 }
 
 export default inlineSvg;
+export * from './public.js';
+

@@ -2,3 +2,5 @@
 
 export * from './copy.action.js';
 export * from './copy.helpers.js';
+export * from './types.public.js';
+

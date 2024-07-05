@@ -48,8 +48,8 @@ import { on } from 'svelte/events';
  * <Component use:clickoutside/>
  * ```
  * @param {Element} node - node outside of which `click` event will trigger `clickoutside`
- * @param {import('./public').ClickOutsideParameter} param - instructions for `clickoutside` behavior
- * @returns {import('./public').ClickOutsideActionReturn}
+ * @param {import('./types.public').ClickOutsideParameter} param - instructions for `clickoutside` behavior
+ * @returns {import('./types.public').ClickOutsideActionReturn}
  */
 export function clickoutside(node, param = { enabled: true }) {
 	let { enabled, eventType, nodeForEvent, options } = resolveConfig(param);
@@ -84,7 +84,7 @@ export function clickoutside(node, param = { enabled: true }) {
 
 /**
  * @package
- * @param {import('./public').ClickOutsideParameter} param
+ * @param {import('./types.public').ClickOutsideParameter} param
  * @returns {{
  * 	enabled: boolean;
  * 	nodeForEvent: Element | Document;
@@ -105,6 +105,6 @@ export function resolveConfig(param = {}) {
 
 /**
  * Deprecated, use `ClickOutsideParameter` and `ClickOutsideConfig` instead
- * @typedef {import('./public').ClickOutsideConfig} ClickOutsideParameters
+ * @typedef {import('./types.public').ClickOutsideConfig} ClickOutsideParameters
  */
 

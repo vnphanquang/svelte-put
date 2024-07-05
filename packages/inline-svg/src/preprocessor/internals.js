@@ -20,7 +20,7 @@ export const DEFAULT_SOURCES_CONFIG = /** @satisfies {ResolvedSourceDefinition} 
 });
 
 /**
- * @param {import('./types').PreprocessorSourceDefinition} [options]
+ * @param {import('./public').PreprocessorSourceDefinition} [options]
  * @returns {ResolvedSourceDefinition}
  */
 function resolveSourceOptions(options) {
@@ -40,7 +40,7 @@ function resolveSourceOptions(options) {
  * resolve config input and search for a default
  * If none is found, use DEFAULT_SOURCES_CONFIG.
  * If multiple of such input are found, throw an error.
- * @param {import('./types').PreprocessorSourceDefinition | import('./types.d.ts').PreprocessorSourceDefinition[]} [sources]
+ * @param {import('./public').PreprocessorSourceDefinition | import('./public').PreprocessorSourceDefinition[]} [sources]
  * @returns {ResolvedSources}
  */
 export function resolveSources(sources) {
@@ -74,7 +74,7 @@ export function resolveSources(sources) {
 }
 
 /**
- * @typedef {Required<import('./types.d.ts').PreprocessorConfig>} ResolvedPreprocessorConfig
+ * @typedef {Required<import('./public').PreprocessorConfig>} ResolvedPreprocessorConfig
  */
 
 /** @package */
@@ -84,7 +84,7 @@ export const DEFAULT_INLINE_SVG_CONFIG = /** @type {ResolvedPreprocessorConfig} 
 });
 
 /**
- * @param {import('./types.d.ts').PreprocessorConfig} [config]
+ * @param {import('./public').PreprocessorConfig} [config]
  * @returns {ResolvedPreprocessorConfig}
  */
 export function resolveConfig(config = {}) {
@@ -142,3 +142,4 @@ export function getAttribute(source, node, attributeName) {
 		return raw;
 	}
 }
+
