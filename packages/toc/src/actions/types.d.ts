@@ -16,4 +16,5 @@ export interface TocRootEventAttributes {
 }
 
 export type TocRootAction = import('svelte/action').Action<HTMLElement, undefined, import('./types').TocRootEventAttributes>;
-export type TocLinkAction = import('svelte/action').Action<HTMLAnchorElement, TocItem>;
+export type TocLinkAction = import('svelte/action').Action<HTMLAnchorElement, TocItem | string | undefined>;
+

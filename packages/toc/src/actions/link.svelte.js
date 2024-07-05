@@ -45,8 +45,8 @@ export function createTocLinkAction(toc) {
 				if (!initialHref) {
 					node.href = `#${tocItemId}`;
 				}
-				if (!initialTextContent && typeof tocItem !== 'string') {
-					node.textContent = tocItem.text;
+				if (!initialTextContent && tocItem && typeof tocItem !== 'string') {
+					node.textContent = tocItem?.text;
 				}
 			}
 			node.setAttribute(ATTRIBUTES.linkFor, tocItemId);
@@ -74,7 +74,8 @@ export function createTocLinkAction(toc) {
 		});
 
 		return {
-			update() {
+			update(newTocItem) {
+				if (newTocItem) tocItem = newTocItem;
 				resolveAttributes();
 			},
 			destroy() {
@@ -83,3 +84,4 @@ export function createTocLinkAction(toc) {
 		};
 	};
 }
+
