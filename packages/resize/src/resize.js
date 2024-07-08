@@ -37,12 +37,12 @@
  * @returns {import('./public').ResizeActionReturn}
  */
 export function resize(node, param = {}) {
-	let { enabled = true, observer = 'singleton' } = param;
+	let { enabled = true, observer = 'singleton', options } = param;
 
 	let rObserver = resolveObserver(observer);
 
 	if (enabled) {
-		rObserver.observe(node);
+		rObserver.observe(node, options);
 	}
 	return {
 		update(update = {}) {
@@ -55,7 +55,7 @@ export function resize(node, param = {}) {
 			}
 
 			if (!enabled && newEnabled) {
-				rObserver.observe(node);
+				rObserver.observe(node, options);
 			} else if (enabled && !newEnabled) {
 				rObserver.unobserve(node);
 			}
