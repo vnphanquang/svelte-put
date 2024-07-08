@@ -62,7 +62,7 @@ export interface ResizeDetail {
 }
 
 /**  */
-export type ResizeAction = Action<HTMLElement, ResizeParameter, ResizeAttributes>;
+export type ResizeAction = Action<Element, ResizeParameter, ResizeAttributes>;
 
 /**  */
 export type ResizeActionReturn = ActionReturn<ResizeParameter, ResizeAttributes>;
