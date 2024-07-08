@@ -32,7 +32,7 @@
  * <-- incorrect usage-->
  * <Component use:resize/>
  * ```
- * @param {HTMLElement} node - HTMLElement to observe
+ * @param {Element} node - element to observe
  * @param {import('./public').ResizeParameter} param - svelte action parameters
  * @returns {import('./public').ResizeActionReturn}
  */
