@@ -42,6 +42,13 @@ export interface ResizeConfig {
 	 * @default 'singleton'
 	 */
 	observer?: 'singleton' | 'new' | ResizeObserver;
+
+	/**
+	 *
+	 * An options object allowing you to set options for the observation.
+	 * @default undefined
+	 */
+	options?: ResizeObserverOptions;
 }
 
 /**
