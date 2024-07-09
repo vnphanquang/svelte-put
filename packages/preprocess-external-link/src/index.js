@@ -2,15 +2,7 @@ import MagicString from 'magic-string';
 import { parse } from 'svelte-parse-markup';
 import { walk } from 'zimmerframe';
 
-/**
- * @typedef ExternalLinkConfig
- * @property {string[]} hosts - a list of hosts that, if href does NOT match, will be marked as external. `localhost` is already included
- * @property {(filename?: string) => boolean} [files] - a function that returns true if the file should be processed. By defaults it will matches
- * @property {string} [markerAttribute] a boolean attribute that explicitly marks the anchor tag as external to be processed. Defaults to `'data-external'`
- * @property {Record<string, string>} [attributes] - attributes to add to the anchor tag. Defaults to `{ target: '_blank', rel: 'noopener noreferrer' }`
- */
-
-const DEFAULT_EXTERNAL_LINK_CONFIG = /** @satisfies {Required<ExternalLinkConfig>} */ ({
+const DEFAULT_EXTERNAL_LINK_CONFIG = /** @satisfies {Required<import('./types.public').ExternalLinkConfig>} */ ({
 	hosts: ['localhost'],
 	markerAttribute: 'data-external',
 	attributes: { target: '_blank', rel: 'noopener noreferrer' },
@@ -19,11 +11,11 @@ const DEFAULT_EXTERNAL_LINK_CONFIG = /** @satisfies {Required<ExternalLinkConfig
 
 /**
  * search for external links and add appropriate attributes
- * @param {ExternalLinkConfig | NonNullable<ExternalLinkConfig['hosts']>} config
+ * @param {import('./types.public').ExternalLinkConfig | NonNullable<import('./types.public').ExternalLinkConfig['hosts']>} config
  * @returns {import('svelte/compiler').PreprocessorGroup}
  */
 export function externalLink(config) {
-	/** @type {Required<ExternalLinkConfig>} */
+	/** @type {Required<import('./types.public').ExternalLinkConfig>} */
 	let rConfig;
 	if (Array.isArray(config)) {
 		rConfig = {
@@ -106,6 +98,7 @@ export function externalLink(config) {
 }
 
 export default externalLink;
+export * from './types.public.js';
 
 // TODO: add unit tests
 /**
