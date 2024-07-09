@@ -3,7 +3,7 @@
 import { Action, ActionReturn } from 'svelte/action';
 import type { HTMLAttributes } from 'svelte/elements';
 
-import { Preaction } from './public';
+import { Preaction } from './types.public';
 
 export function make<
 	Element = HTMLElement,

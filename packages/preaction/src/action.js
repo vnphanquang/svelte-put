@@ -1,6 +1,6 @@
 /**
  * See public typing in action.d.ts
- * @template {import('./public').Preaction} Preaction
+ * @template {import('./types.public').Preaction} Preaction
  * @param {Preaction} preaction
  * @returns {Preaction}
  */
