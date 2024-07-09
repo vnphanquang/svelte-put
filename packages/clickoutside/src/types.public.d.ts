@@ -3,7 +3,6 @@ import { ActionReturn, Action } from 'svelte/action';
 /**
  * Additional attributes extended from `svelte-put/clickoutside`
  *
- *
  * The ambient types for these extended attributes should be available automatically
  * whenever `svelte-put/clickoutside` is imported.
  *
@@ -25,8 +24,6 @@ export interface ClickOutsideAttributes {
 
 /**
  * Limit to which the click event will trigger `clickoutside`
- *
- *
  * Currently only the parent option is supported
  */
 export interface ClickOutsideLimit {
@@ -36,7 +33,6 @@ export interface ClickOutsideLimit {
 
 /**
  * svelte action parameters to config behavior of `clickoutside`
- *
  */
 export interface ClickOutsideConfig {
 	/** whether to activate the action. Default to `true` */
@@ -51,12 +47,8 @@ export interface ClickOutsideConfig {
 
 /**
  * parameter received from action input
- *
  */
 export type ClickOutsideParameter = Partial<ClickOutsideConfig> | undefined;
-
-/**  */
 export type ClickOutsideAction = Action<Element, ClickOutsideParameter, ClickOutsideAttributes>;
-
-/**  */
 export type ClickOutsideActionReturn = ActionReturn<ClickOutsideParameter, ClickOutsideAttributes>;
+
