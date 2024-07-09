@@ -18,15 +18,15 @@ export class Popover {
 	// public API
 	open = $state(false);
 
-	/** @type {import('./public').PopoverConfig} */
+	/** @type {import('./types.public').PopoverConfig} */
 	config;
-	/** @type {import('./public').PopoverControl} */
+	/** @type {import('./types.public').PopoverControl} */
 	control;
-	/** @type {import('./public').PopoverTarget} */
+	/** @type {import('./types.public').PopoverTarget} */
 	target;
 
 	/**
-	 * @param {import('./public').PopoverInit} [init]
+	 * @param {import('./types.public').PopoverInit} [init]
 	 */
 	constructor(init = {}) {
 		this.config = {
@@ -52,7 +52,7 @@ export class Popover {
 			plugins: [],
 		};
 		if (init.triggers) {
-			const keys = /** @type {Array<keyof import('./public').PopoverConfig['triggers']>} */ (
+			const keys = /** @type {Array<keyof import('./types.public').PopoverConfig['triggers']>} */ (
 				Object.keys(this.config.triggers)
 			);
 			for (const key of keys) {
