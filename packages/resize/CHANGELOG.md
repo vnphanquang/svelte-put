@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.1.0
+
+### Minor Changes
+
+- [#315](https://github.com/vnphanquang/svelte-put/pull/315) [`7c33b35`](https://github.com/vnphanquang/svelte-put/commit/7c33b35cfd50b5d602bd07ccfa157d2061211cca) Thanks [@regexident](https://github.com/regexident)! - allow passing options to [ResizeObserver.observe](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver/observe#options)
+
+- [#314](https://github.com/vnphanquang/svelte-put/pull/314) [`bb81599`](https://github.com/vnphanquang/svelte-put/commit/bb81599449554c64e26363453449cf6d4345f498) Thanks [@regexident](https://github.com/regexident)! - relax node type to `Element`
+
 ## 3.0.1
 
 ### Patch Changes
