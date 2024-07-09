@@ -60,6 +60,34 @@ This example is ported from [MDN Docs](https://developer.mozilla.org/en-US/docs/
 ```svelte src=./_page/examples/example.svelte title=example.svelte
 ```
 
+## Configuration
+
+`resize` accepts a config object with the following interface.
+
+```typescript title="ResizeConfig"
+/** config behavior of `resize` */
+export interface ResizeConfig {
+	/**
+	 * whether to activate the action. Default to `true`
+	 * @default true
+	 */
+	enabled?: boolean;
+	/**
+	 * Be default, a singleton ResizeObserver is used for all actions for
+	 * better performance. You can use this option to create a new ResizeObserver
+	 * or provide your own.
+	 * @default 'singleton'
+	 */
+	observer?: 'singleton' | 'new' | ResizeObserver;
+
+	/**
+	 * Options passed to {@link https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver/observe#options | ResizeObserver.observe}
+	 * @default undefined
+	 */
+	options?: ResizeObserverOptions;
+}
+```
+
 ## Browser Support & Polyfill
 
 As of this writing, [caniuse](https://caniuse.com/resizeobserver) shows that `ResizeObserver` is supported by all major browsers, but not IE11. `@svelte-put/resize` tries to stay minimal and hence does not include a polyfill. If one is needed, consider [resize-observer-polyfill].
