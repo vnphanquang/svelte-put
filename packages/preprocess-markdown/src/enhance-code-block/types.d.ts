@@ -24,11 +24,25 @@ interface EnhancedCodeBlockProps extends HTMLAttributes<HTMLElement> {
 }
 
 interface EnhancedCodeBlockGroupProps extends HTMLAttributes<HTMLElement> {
+	/**
+	 * number of code blocks inside group
+	 * Required but should be injected automatically
+	 * by the `enhance-code-block` preprocessor
+	 */
 	cols: number;
+	/**
+	 * unique name for group.
+	 * Required but should be injected automatically
+	 * by the `enhance-code-block` preprocessor
+	 */
 	name: string;
+	/**
+	 * display mode for group. Default to `files`
+	 */
 	display?: 'files' | 'tabs';
 	/**
 	 * bindable, title of the current active child code block
 	 */
 	title?: string;
 }
+

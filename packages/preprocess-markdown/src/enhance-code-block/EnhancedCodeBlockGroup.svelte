@@ -5,7 +5,7 @@
 	let {
 		cols,
 		name,
-		display,
+		display = 'files',
 		title = $bindable(),
 		children,
 		class: cls,

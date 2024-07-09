@@ -4,3 +4,4 @@ import { EnhancedCodeBlockProps } from './types';
 
 declare const EnhancedCodeBlock: Component<EnhancedCodeBlockProps>;
 export default EnhancedCodeBlock;
+

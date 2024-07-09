@@ -120,8 +120,10 @@ export function enhanceCodeBlock(config = {}) {
 							const nameAttr = attributes.find((attr) => attr.name === 'name');
 							if (!nameAttr) {
 								let id = (++globalCounter).toString();
-								if (crypto?.randomUUID) {
+								if ('crypto' in globalThis && crypto?.randomUUID) {
 									id = crypto.randomUUID();
+								} else {
+									id = Math.random().toString(36).slice(2);
 								}
 								additionalAttributes += ` name="${id}"`;
 							}
