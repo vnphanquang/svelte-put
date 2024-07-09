@@ -1,8 +1,8 @@
 /**
  * lock scroll within the given node
  * @param {HTMLElement} node
- * @param {import('./public').LockScrollParameter} param
- * @returns {import('./public').LockScrollActionReturn}
+ * @param {import('./types.public').LockScrollParameter} param
+ * @returns {import('./types.public').LockScrollActionReturn}
  */
 export function lockscroll(node, param) {
 	let locked = false;
@@ -39,3 +39,4 @@ export function lockscroll(node, param) {
 		},
 	};
 }
+
