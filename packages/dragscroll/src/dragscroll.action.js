@@ -2,7 +2,7 @@ import { on } from 'svelte/events';
 
 /**
  * @package
- * @param {import('./public').DragScrollParameter} param
+ * @param {import('./types.public').DragScrollParameter} param
  * @returns {{
  * 	enabled: boolean;
  * 	axes: {
@@ -49,8 +49,8 @@ export function resolveConfig(param = {}) {
 /**
  * svelte action `use:dragscroll` for adding 'drag-to-scroll' behavior
  * @param {HTMLElement} node - node to apply the action
- * @param {import('./public').DragScrollParameter} param - instructions for customizing action behavior
- * @returns {import('./public').DragScrollActionReturn}
+ * @param {import('./types.public').DragScrollParameter} param - instructions for customizing action behavior
+ * @returns {import('./types.public').DragScrollActionReturn}
  */
 export function dragscroll(node, param = {}) {
 	let isDown = false;
@@ -144,5 +144,6 @@ export function dragscroll(node, param = {}) {
 
 /**
  * Deprecated, use `DragScrollParameter` and `DragScrollConfig` instead
- * @typedef {import('./public').DragScrollConfig} DragScrollParameters
+ * @typedef {import('./types.public').DragScrollConfig} DragScrollParameters
  */
+
