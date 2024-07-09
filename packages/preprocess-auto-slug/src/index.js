@@ -6,7 +6,7 @@ import { walk } from 'zimmerframe';
 /**
  * default options for auto-slug
  */
-const DEFAULT_AUTO_SLUG_OPTIONS = /** @satisfies {import('./types').AutoSlugOptions} */({
+const DEFAULT_AUTO_SLUG_OPTIONS = /** @satisfies {import('./types.public').AutoSlugOptions} */({
 	tags: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
 	files: () => true,
 	attributeName: 'id',
@@ -25,13 +25,13 @@ const DEFAULT_AUTO_SLUG_OPTIONS = /** @satisfies {import('./types').AutoSlugOpti
 
 /**
  * create a preprocessor that slugifies matching elements in svelte markup
- * @param {import('./types').AutoSlugInput} [input] - behavioral configurations
+ * @param {import('./types.public').AutoSlugInput} [input] - behavioral configurations
  * @returns {import('svelte/compiler').PreprocessorGroup} - svelte preprocessor interface
  */
 export function autoSlug(input = {}) {
 	const userOptions = typeof input === 'function' ? input(DEFAULT_AUTO_SLUG_OPTIONS) : input;
 
-	/** @type {import('./types').AutoSlugOptions} */
+	/** @type {import('./types.public').AutoSlugOptions} */
 	const options = {
 		...DEFAULT_AUTO_SLUG_OPTIONS,
 		...userOptions,
@@ -163,3 +163,5 @@ export function autoSlug(input = {}) {
 }
 
 export default autoSlug;
+export * from './types.public.js';
+
