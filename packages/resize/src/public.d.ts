@@ -35,17 +35,15 @@ export interface ResizeConfig {
 	 */
 	enabled?: boolean;
 	/**
-	 *
-	 *Be default, a singleton ResizeObserver is used for all actions for
-	 *better performance. You can use this option to create a new ResizeObserver
-	 *or provide your own.
+	 * Be default, a singleton ResizeObserver is used for all actions for
+	 * better performance. You can use this option to create a new ResizeObserver
+	 * or provide your own.
 	 * @default 'singleton'
 	 */
 	observer?: 'singleton' | 'new' | ResizeObserver;
 
 	/**
-	 *
-	 * An options object allowing you to set options for the observation.
+	 * Options passed to {@link https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver/observe#options | ResizeObserver.observe}
 	 * @default undefined
 	 */
 	options?: ResizeObserverOptions;
@@ -73,3 +71,4 @@ export type ResizeAction = Action<Element, ResizeParameter, ResizeAttributes>;
 
 /**  */
 export type ResizeActionReturn = ActionReturn<ResizeParameter, ResizeAttributes>;
+
