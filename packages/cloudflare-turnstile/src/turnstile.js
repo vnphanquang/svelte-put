@@ -1,6 +1,6 @@
 /**
  * @param {HTMLElement} node
- * @returns {import('./public').TurnstileActionReturn}
+ * @returns {import('./types.public').TurnstileActionReturn}
  */
 export function turnstile(node) {
 	/** @type {string | undefined} */
@@ -20,8 +20,8 @@ export function turnstile(node) {
 	}
 
 	/**
-	 * @template {import('./public').TurnstileCustomEventName} E
-	 * @template [D=Parameters<NonNullable<import('./public').TurnstileEventAttributes[`on${E}`]>>[0]['detail'] extends import('./public').TurnstileEventDetail<infer T extends Record<string, any>> ? T : never]
+	 * @template {import('./types.public').TurnstileCustomEventName} E
+	 * @template [D=Parameters<NonNullable<import('./types.public').TurnstileEventAttributes[`on${E}`]>>[0]['detail'] extends import('./types.public').TurnstileEventDetail<infer T extends Record<string, any>> ? T : never]
 	 * @param {E} event
 	 * @param {D} detail
 	 */
@@ -40,18 +40,18 @@ export function turnstile(node) {
 		const sitekey = node.getAttribute('turnstile-sitekey');
 		if (!sitekey) throw new Error('Attribute `turnstile-sitekey` is required but not provided');
 
-		/** @type {import('./public').TurnstileConfig} */
+		/** @type {import('./types.public').TurnstileConfig} */
 		const config = {
 			// data
 			sitekey,
 			action: node.getAttribute('turnstile-action') ?? undefined,
 			cData: node.getAttribute('turnstile-cData') ?? undefined,
 			execution:
-				/** @type {import('./public').TurnstileConfig['execution']} */ (
+				/** @type {import('./types.public').TurnstileConfig['execution']} */ (
 					node.getAttribute('turnstile-execution')
 				) ?? undefined,
 			theme:
-				/** @type {import('./public').TurnstileConfig['theme']} */ (
+				/** @type {import('./types.public').TurnstileConfig['theme']} */ (
 					node.getAttribute('turnstile-theme')
 				) ?? undefined,
 			language: node.getAttribute('turnstile-language') ?? undefined,
@@ -61,22 +61,22 @@ export function turnstile(node) {
 			'response-field': node.hasAttribute('turnstile-response-field'),
 			'response-field-name': node.getAttribute('turnstile-response-field-name') ?? undefined,
 			size:
-				/** @type {import('./public').TurnstileConfig['size']} */ (
+				/** @type {import('./types.public').TurnstileConfig['size']} */ (
 					node.getAttribute('turnstile-size')
 				) ?? undefined,
 			retry:
-				/** @type {import('./public').TurnstileConfig['retry']} */ (
+				/** @type {import('./types.public').TurnstileConfig['retry']} */ (
 					node.getAttribute('turnstile-retry')
 				) ?? undefined,
 			'retry-interval': node.hasAttribute('turnstile-retry-interval')
 				? parseInt(node.getAttribute('turnstile-retry-interval') || '8000') || 8000
 				: undefined,
 			'refresh-expired':
-				/** @type {import('./public').TurnstileConfig['refresh-expired']} */ (
+				/** @type {import('./types.public').TurnstileConfig['refresh-expired']} */ (
 					node.getAttribute('turnstile-refresh-expired')
 				) ?? undefined,
 			appearance:
-				/** @type {import('./public').TurnstileConfig['appearance']} */ (
+				/** @type {import('./types.public').TurnstileConfig['appearance']} */ (
 					node.getAttribute('turnstile-appearance')
 				) ?? undefined,
 
@@ -123,3 +123,4 @@ export function turnstile(node) {
 		},
 	};
 }
+
