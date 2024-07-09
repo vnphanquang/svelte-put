@@ -101,3 +101,4 @@ export interface AvatarProps extends HTMLImgAttributes {
 	alt?: string;
 	img?: Snippet<[{ src: string; size: number; alt: string; sources: string[] }]>;
 }
+
