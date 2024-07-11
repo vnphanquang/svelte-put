@@ -5,7 +5,7 @@ import { createQrPngDataUrl } from '../qr';
  * @param {string} url
  * @returns {Promise<string>}
  */
-export async function toDataURL(url) {
+async function toDataURL(url) {
 	return fetch(url)
 		.then((response) => response.blob())
 		.then(
@@ -22,8 +22,8 @@ export async function toDataURL(url) {
 /**
  * Svelte action for rendering a QR as base64 data URL into the src attribute of this HTMLImageElement
  * @param {HTMLImageElement} node
- * @param {import('./types').ImgQRParameter} param
- * @returns {import('./types').ImgQRActionReturn}
+ * @param {import('./types.public').ImgQRParameter} param
+ * @returns {import('./types.public').ImgQRActionReturn}
  */
 export function qr(node, param) {
 	async function init() {
@@ -32,7 +32,7 @@ export function qr(node, param) {
 			logo = await toDataURL(logo);
 		}
 
-		/** @type {import('./types').ImgQRParameter} */
+		/** @type {import('./types.public').ImgQRParameter} */
 		const rConfig = {
 			...param,
 			width: parseInt(node.getAttribute('width') || '') || param.width,
@@ -56,3 +56,5 @@ export function qr(node, param) {
 		},
 	};
 }
+export * from './types.public.js';
+

@@ -2,7 +2,7 @@
 import type { Snippet, Component } from 'svelte';
 import type { HTMLImgAttributes } from 'svelte/elements';
 
-import type { QRConfig } from '../qr/types';
+import type { QRConfig } from '../qr/types.public';
 
 export interface QRProps extends Omit<HTMLImgAttributes, 'src'>, QRConfig {
 	backgroundFill?: string;
@@ -15,3 +15,4 @@ export interface QRProps extends Omit<HTMLImgAttributes, 'src'>, QRConfig {
 
 declare const QR: Component<QRProps>;
 export default QR;
+

@@ -1,6 +1,6 @@
 import QR from 'qrcode-generator';
 
-import type { resolveConfig } from './index.js';
+import { SizeAttributes } from './types.private';
 
 export type QRCode = ReturnType<typeof import('qrcode-generator')>;
 
@@ -49,23 +49,6 @@ export type QRConfig = {
 	errorCorrectionLevel?: Parameters<typeof QR>[1];
 };
 
-/**
- * @package
- */
-export type ResolvedQRConfig = ReturnType<typeof resolveConfig>;
-
-/**
- * @package
- */
-export type SizeAttributes = {
-	width: number;
-	height: number;
-};
-
-
-/**
- * @package
- */
 export type QRSVGParts = {
 	attributes: {
 		viewBox: string;
@@ -76,3 +59,9 @@ export type QRSVGParts = {
 	modules: string;
 	logo: string;
 };
+
+export type CreateQrPngDataUrlConfig = QRConfig &
+	SizeAttributes & {
+		backgroundFill?: string;
+	};
+

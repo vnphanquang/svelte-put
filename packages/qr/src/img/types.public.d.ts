@@ -1,11 +1,13 @@
 import { ActionReturn, Action } from 'svelte/action';
 
-import { SizeAttributes } from '../qr/types';
+import { SizeAttributes } from '../qr/types.private';
+import { QRConfig } from '../qr/types.public';
 
-export type ImgQRParameter = import('../qr/types').QRConfig & SizeAttributes & {
-	/** background of the generated png. Default to transparent */
-	backgroundFill?: string;
-};
+export type ImgQRParameter = QRConfig &
+	SizeAttributes & {
+		/** background of the generated png. Default to transparent */
+		backgroundFill?: string;
+	};
 
 /** Configurations available for */
 export type ImgQRAttributes = {
@@ -13,3 +15,4 @@ export type ImgQRAttributes = {
 };
 export type ImgQRAction = Action<HTMLImageElement, ImgQRParameter, ImgQRAttributes>;
 export type ImgQRActionReturn = ActionReturn<ImgQRParameter, ImgQRAttributes>;
+
