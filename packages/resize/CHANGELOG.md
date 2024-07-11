@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.0.0-next.2
+
+### Patch Changes
+
+- [`d3c4b06`](https://github.com/vnphanquang/svelte-put/commit/d3c4b06c91a3a7e85698a7d5447e22f86b96947a) Thanks [@vnphanquang](https://github.com/vnphanquang)! - re-expose public typedef (following https://github.com/Rich-Harris/dts-buddy/pull/82)
+
 ## 4.0.0-next.1
 
 ### Patch Changes
@@ -51,4 +57,3 @@
 ### Major Changes
 
 - [`9378a43`](https://github.com/vnphanquang/svelte-put/commit/9378a430f3593c85e2a80a211bf41d1e07304d6d) Thanks [@vnphanquang](https://github.com/vnphanquang)! - Boostrap, docs site, minimal implementation
-

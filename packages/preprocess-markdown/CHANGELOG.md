@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.0-next.5
+
+### Patch Changes
+
+- [`68d61c6`](https://github.com/vnphanquang/svelte-put/commit/68d61c6c63efb477d3db8ba6d664476a3dd10c9d) Thanks [@vnphanquang](https://github.com/vnphanquang)! - docs for props, fallback for crypto
+
+- Updated dependencies [[`b0ab530`](https://github.com/vnphanquang/svelte-put/commit/b0ab5304e4b355c8f8c93d0feae13779dbd36d5a)]:
+  - @svelte-put/copy@4.0.0-next.3
+
 ## 1.0.0-next.4
 
 ### Minor Changes

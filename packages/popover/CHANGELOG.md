@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0-next.3
+
+### Patch Changes
+
+- [`9d271da`](https://github.com/vnphanquang/svelte-put/commit/9d271da7bbddc5e2d8e00ed91e67e60b7ec8f792) Thanks [@vnphanquang](https://github.com/vnphanquang)! - explicit name type module
+
 ## 1.0.0-next.2
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-next.3
+
+### Patch Changes
+
+- [`7cc5e6b`](https://github.com/vnphanquang/svelte-put/commit/7cc5e6bcd78aa934708b94201b224c2203d8e1c2) Thanks [@vnphanquang](https://github.com/vnphanquang)! - module does not need to be .svelte.js
+
+- [`1b5bb2a`](https://github.com/vnphanquang/svelte-put/commit/1b5bb2a00524f48464b21cc3696119c59116c1be) Thanks [@vnphanquang](https://github.com/vnphanquang)! - re-expose public typedef (following https://github.com/Rich-Harris/dts-buddy/pull/82)
+
 ## 2.0.0-next.2
 
 ### Patch Changes
