@@ -1,5 +1,5 @@
 // Copyright (c) Quang Phan. All rights reserved. Licensed under the MIT license.
 
-export * from './lockscroll.svelte.js';
+export * from './lockscroll.js';
 export * from './types.public.js';
 
