@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0-next.5
+
+### Patch Changes
+
+- [`49ab3f1`](https://github.com/vnphanquang/svelte-put/commit/49ab3f1f638834a4a005c30dfff350e8ebb5f00b) Thanks [@vnphanquang](https://github.com/vnphanquang)! - reexport png `toDataURL`
+
 ## 2.0.0-next.4
 
 ### Patch Changes
