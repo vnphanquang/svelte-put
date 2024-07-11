@@ -14,20 +14,20 @@ export class Toc {
 
 	/**
 	 * the extracted toc items, populated on mount (`tocinit`)
-	 * @type {SvelteMap<string, import('./types.js').TocItem>}
+	 * @type {SvelteMap<string, import('./types.public').TocItem>}
 	 */
 	items = new SvelteMap();
 
 	/**
 	 * the active toc items, set on update (`tocchange`) if `observer` is set to true
-	 * @type {import('./types.js').TocItem | undefined}
+	 * @type {import('./types.public').TocItem | undefined}
 	 */
 	// eslint-disable-next-line no-undef
 	activeItem = $state(undefined);
 
 	/**
 	 * configuration for `toc` behavior
-	 * @type {import('./types.js').TocConfig}
+	 * @type {import('./types.public').TocConfig}
 	 */
 	// eslint-disable-next-line no-undef
 	config = $state(DEFAULT_TOC_CONFIG);
@@ -57,7 +57,7 @@ export class Toc {
 	observeThrottled = $state(false);
 
 	/**
-	 * @param {import('./types.js').TocInit} [init]
+	 * @param {import('./types.public').TocInit} [init]
 	 */
 	constructor(init) {
 		if (init) {

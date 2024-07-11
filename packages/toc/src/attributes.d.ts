@@ -1,9 +1,8 @@
-import type { Toc } from '../toc.svelte.js';
-import type { TocObserveConfig } from '../types';
+import type { Toc } from './toc.svelte.js';
+import type { TocObserveConfig } from './types.public';
 
 /**
  * Data attributes to override `toc` behavior per matching element
- *
  */
 export interface TocElementDataAttributes {
 	/** whether to ignore this element when searching for matching elements */
@@ -96,10 +95,10 @@ export interface TocReferenceMarkerDataAttributes {
 export interface TocDataAttributes extends TocElementDataAttributes, TocObserveDataAttributes, TocReferenceMarkerDataAttributes {}
 
 /**
- * ambient typing for `toc` event handlers
- *
+ * event attributes on toc root, set by `toc.actions.root`
  */
-export interface TocEventAttributes {
+export interface TocRootEventAttributes {
 	ontocinit?: (event: CustomEvent<Toc>) => void;
 	ontocchange?: (event: CustomEvent<Toc>) => void;
 }
+

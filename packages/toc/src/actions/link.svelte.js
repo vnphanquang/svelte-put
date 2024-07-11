@@ -1,10 +1,10 @@
 import { on } from 'svelte/events';
 
-import { ATTRIBUTES } from '../attributes/index.js';
+import { ATTRIBUTES } from '../constants.js';
 
 /**
  * @param {import('../toc.svelte.js').Toc} toc
- * @returns {import('./types.js').TocLinkAction}
+ * @returns {import('./actions').TocLinkAction}
  */
 export function createTocLinkAction(toc) {
 	// eslint-disable-next-line no-undef

@@ -1,9 +1,9 @@
-import { ATTRIBUTES } from '../attributes/index.js';
+import { ATTRIBUTES } from '../constants.js';
 
 /**
  * @package
  * @param {HTMLElement} element
- * @param {import('../types').TocAnchorConfig} anchor
+ * @param {import('../types.public').TocAnchorConfig} anchor
  * @param {string} tocId
  * @returns {HTMLAnchorElement | undefined}
  */
@@ -104,19 +104,19 @@ export function processAnchor(element, anchor, tocId) {
 /**
  * @package
  * @param {HTMLElement} element
- * @param {import('../types').TocObserveConfig} observe
+ * @param {import('../types.public').TocObserveConfig} observe
  * @param {string} tocId
  * @param {(activeTocItemId?: string) => void} updateActiveTocItem
  * @param {Record<number, IntersectionObserver>} observerPool
- * @returns {import('../types').TocItem['observe']}
+ * @returns {import('../types.public').TocItem['observe']}
  */
 export function processObserve(element, observe, tocId, updateActiveTocItem, observerPool) {
 	if (!observe.enabled) return undefined;
 	const parentElement = element.parentElement;
-	/** @type {Exclude<import('../types').TocObserveConfig['strategy'], 'auto'>} */
+	/** @type {Exclude<import('../types.public').TocObserveConfig['strategy'], 'auto'>} */
 	let rStrategy;
 	const userDefinedStrategy =
-		/** @type {import('../types').TocObserveConfig['strategy']} */ (
+		/** @type {import('../types.public').TocObserveConfig['strategy']} */ (
 			element.getAttribute(ATTRIBUTES.strategy)
 		) || observe.strategy;
 	if (typeof userDefinedStrategy !== 'number' && userDefinedStrategy !== 'auto') {
@@ -249,3 +249,4 @@ function slugify(text) {
 		.replace(/^-+/, '')
 		.replace(/-+/g, '-');
 }
+

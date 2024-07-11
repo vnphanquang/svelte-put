@@ -1,7 +1,6 @@
 import { tick } from 'svelte';
 
-import { ATTRIBUTES } from '../attributes/index.js';
-import { DEFAULT_TOC_CONFIG } from '../constants.js';
+import { DEFAULT_TOC_CONFIG, ATTRIBUTES } from '../constants.js';
 
 import {
 	extractElementText,
@@ -12,7 +11,7 @@ import {
 
 /**
  * @param {import('../toc.svelte.js').Toc} toc
- * @returns {import('./types.js').TocRootAction}
+ * @returns {import('./actions').TocRootAction}
  */
 export function createTocRootAction(toc) {
 	// eslint-disable-next-line no-undef
@@ -91,7 +90,7 @@ export function createTocRootAction(toc) {
 			const { anchor, observe, scrollMarginTop } = toc.config;
 			/** @type {HTMLElement[]} */
 			const elements = Array.from(node.querySelectorAll(selector));
-			/** @type {Promise<import('../types').TocItem['observe']>[]} */
+			/** @type {Promise<import('../types.public').TocItem['observe']>[]} */
 			const observePromises = [];
 
 			node.toggleAttribute(ATTRIBUTES.observeActiveId, true);
@@ -121,7 +120,7 @@ export function createTocRootAction(toc) {
 						new Promise((resolve) => {
 							const rObserve = processObserve(element, observe, tocId, updateActiveTocItem, intersectionObservers);
 							if (toc.items.has(tocId)) {
-								const tocItem = /** @type {import('../types').TocItem} */ (toc.items.get(tocId));
+								const tocItem = /** @type {import('../types.public').TocItem} */ (toc.items.get(tocId));
 								toc.items.set(tocId, { ...tocItem, observe: rObserve });
 							}
 
@@ -157,3 +156,4 @@ export function createTocRootAction(toc) {
 		};
 	};
 }
+

@@ -186,3 +186,7 @@ export interface TocItem {
 		element: HTMLElement;
 	};
 }
+
+export * from './attributes';
+export * from './actions/actions';
+
