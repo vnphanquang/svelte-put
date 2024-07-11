@@ -9,6 +9,8 @@
   import Interactive from './_page/examples/interactive/usage.svelte';
   import RecipeModalUsage from './_page/examples/modal/usage.svelte';
   import RecipeModalPortal from './_page/examples/modal/ModalPortal.svelte';
+  import RecipeToastUsage from './_page/examples/toast/usage.svelte';
+  import RecipeToastPortal from './_page/examples/toast/ToastPortal.svelte';
 
   const settings = SettingsContext.get();
 </script>
@@ -498,15 +500,11 @@ export type NotiStack = typeof notiStack;
 
 </enhanced-code-block>
 
-### Push Notification / Toast
-
-As demonstrated throughout this documentation, `svelte-put/async-stack` can be used to build a push notification system. See [Comprehensive Example] for a complete example.
-
 ### Modal / Dialog
 
 A modal or dialog system shares much similarity with a notification system, although components tend to be much more complex. The following example shows one possible setup for such system.
 
-<div class="not-prose">
+<div class="not-prose contents">
   <RecipeModalPortal />
 </div>
 <fieldset class="border-2 border-violet-500 p-4">
@@ -544,6 +542,35 @@ The `ConfirmationModal` component uses a native `<dialog>` element, which is a g
 - Currently there is no way yet to natively capture click event on the `<dialog>`backdrop, the `enhancedialog` action is there for that.
 
 </div>
+
+### [Svelte Sonner](https://svelte-sonner.vercel.app/) Inspired Toast System
+
+As demonstrated throughout this documentation, `svelte-put/async-stack` can be used to build a push notification system. See [Comprehensive Example] for a complete example. The example below shows a more fancy version that is inspired by [Svelte Sonner](https://svelte-sonner.vercel.app/).
+
+<div class="not-prose contents">
+  <RecipeToastPortal />
+</div>
+<fieldset class="border-2 border-violet-500 p-4">
+  <legend>Example</legend>
+  <RecipeToastUsage />
+</fieldset>
+
+<enhanced-code-block group display="files">
+
+```typescript title="toast.ts" src="./_page/examples/toast/toast.ts"
+```
+
+```svelte title="Toast.svelte" src="./_page/examples/toast/Toast.svelte"
+```
+
+```svelte title="ToastPortal.svelte" src="./_page/examples/toast/ToastPortal.svelte"
+```
+
+```typescript title="usage.svelte" src="./_page/examples/toast/usage.svelte"
+```
+
+</enhanced-code-block>
+
 
 [@svelte-put/noti]: /docs/noti
 [@svelte-put/modal]: /docs/modal

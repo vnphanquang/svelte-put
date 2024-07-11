@@ -53,10 +53,13 @@ export default {
 			},
 			{
 				theme: {
-					lineHeight: {
-						unset: 'unset',
-					},
 					extend: {
+						borderRadius: {
+							inherit: 'inherit',
+						},
+						lineHeight: {
+							unset: 'unset',
+						},
 						fontFamily: {
 							fingerpaint: ['Finger Paint', 'sans-serif'],
 						},

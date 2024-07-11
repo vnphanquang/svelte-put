@@ -12,6 +12,7 @@ declare module 'svelte/elements' {
 			| 'phosphor/clipboard'
 			| 'phosphor/moon-stars'
 			| 'phosphor/sliders-horizontal'
+			| 'phosphor/spinner-gap'
 			| 'phosphor/sun'
 			| 'phosphor/x'
 			| 'simpleicon/cloudflare'
