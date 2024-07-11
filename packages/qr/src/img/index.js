@@ -5,7 +5,7 @@ import { createQrPngDataUrl } from '../qr';
  * @param {string} url
  * @returns {Promise<string>}
  */
-async function toDataURL(url) {
+export async function toDataURL(url) {
 	return fetch(url)
 		.then((response) => response.blob())
 		.then(
