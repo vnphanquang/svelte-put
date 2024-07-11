@@ -198,23 +198,33 @@ export class Stack {
 	}
 
 	/**
-	 * pause a stack item, if it has a timeout
-	 * @param {string} id
+	 * pause a stack item, if it has a timeout. If no `id` is provided,
+	 * will pause all stack items with a timeout
+	 * @param {string} [id]
 	 * @returns {void}
 	 */
 	pause(id) {
-		const pushed = this.items.find((i) => i.config.id === id);
-		return pushed?.pause();
+		if (!id) {
+			this.items.forEach((i) => i.pause());
+		} else {
+			const pushed = this.items.find((i) => i.config.id === id);
+			pushed?.pause();
+		}
 	}
 
 	/**
-	 * resume a stack item, if it has been paused
-	 * @param {string} id
+	 * resume a stack item, if it has been paused. If no `id` is provided,
+	 * will resume all stack items with a timeout
+	 * @param {string} [id]
 	 * @returns {void}
 	 */
 	resume(id) {
-		const pushed = this.items.find((i) => i.config.id === id);
-		return pushed?.resume();
+		if (!id) {
+			this.items.forEach((i) => i.resume());
+		} else {
+			const pushed = this.items.find((i) => i.config.id === id);
+			return pushed?.resume();
+		}
 	}
 }
 
