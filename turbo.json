@@ -10,7 +10,7 @@
 			"cache": true
 		},
 		"build": {
-			"dependsOn": ["^build", "^dts"],
+			"dependsOn": ["^build"],
       "outputs": ["dist/**", "build/**", ".svelte-kit/**"],
 			"inputs": [
 				"*.config.js",
@@ -34,3 +34,4 @@
 		}
 	}
 }
+
