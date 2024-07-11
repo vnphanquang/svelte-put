@@ -31,8 +31,8 @@
  * <Component use:resize/>
  * ```
  * @param {Element} node - element to observe
- * @param {import('./public').ResizeParameter} param - svelte action parameters
- * @returns {import('./public').ResizeActionReturn}
+ * @param {import('./types.public').ResizeParameter} param - svelte action parameters
+ * @returns {import('./types.public').ResizeActionReturn}
  */
 export function resize(node, param = {}) {
 	let { enabled = true, observer = 'singleton', options } = param;
@@ -73,7 +73,7 @@ export function resize(node, param = {}) {
  */
 function callback(entries) {
 	for (const entry of entries) {
-		/** @type {import('./public').ResizeDetail} */
+		/** @type {import('./types.public').ResizeDetail} */
 		const detail = { observer: observerSingleton, entry };
 		entry.target.dispatchEvent(new CustomEvent('resized', { detail }));
 	}
@@ -89,7 +89,7 @@ let observerSingleton;
 /**
  * resolve to a ResizeObserver for use in action
  * @package
- * @param {import('./public').ResizeConfig['observer']} input
+ * @param {import('./types.public').ResizeConfig['observer']} input
  * @returns {ResizeObserver}
  */
 function resolveObserver(input = 'singleton') {
@@ -107,5 +107,6 @@ function resolveObserver(input = 'singleton') {
 
 /**
  * Deprecated, use `ResizeConfig` and `ResizeParameter` instead
- * @typedef {import('./public').ResizeConfig} ResizeParameters
+ * @typedef {import('./types.public').ResizeConfig} ResizeParameters
  */
+
