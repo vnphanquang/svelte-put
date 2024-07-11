@@ -76,8 +76,8 @@ import { on } from 'svelte/events';
  * Either way, only use `callback` or `onshortcut` and not both to
  * avoid handler duplication.
  * @param {HTMLElement} node - HTMLElement to add event listener to
- * @param {import('./public').ShortcutParameter} param - svelte action parameters
- * @returns {import('./public').ShortcutActionReturn}
+ * @param {import('./types.public').ShortcutParameter} param - svelte action parameters
+ * @returns {import('./types.public').ShortcutActionReturn}
  */
 export function shortcut(node, param) {
 	let { enabled = true, trigger, type = 'keydown' } = param;
@@ -87,7 +87,7 @@ export function shortcut(node, param) {
 	 */
 	function handler(event) {
 		const normalizedTriggers = Array.isArray(trigger) ? trigger : [trigger];
-		/** @type {Record<import('./public').ShortcutModifier, boolean>} */
+		/** @type {Record<import('./types.public').ShortcutModifier, boolean>} */
 		const modifiedMap = {
 			alt: event.altKey,
 			ctrl: event.ctrlKey,
@@ -114,7 +114,7 @@ export function shortcut(node, param) {
 				}
 				if (event.key === key) {
 					if (preventDefault) event.preventDefault();
-					/** @type {import('./public').ShortcutEventDetail} */
+					/** @type {import('./types.public').ShortcutEventDetail} */
 					const detail = {
 						node,
 						trigger: mergedTrigger,
@@ -152,3 +152,4 @@ export function shortcut(node, param) {
 		},
 	};
 }
+
