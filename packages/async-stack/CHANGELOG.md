@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.0-next.2
+
+### Minor Changes
+
+- [`eb3a404`](https://github.com/vnphanquang/svelte-put/commit/eb3a404539b381e17b67b82f09822e655bd7b841) Thanks [@vnphanquang](https://github.com/vnphanquang)! - allow pause/resume all items by invoking corresponding methods on `Stack`
+
+### Patch Changes
+
+- [`ca2a0da`](https://github.com/vnphanquang/svelte-put/commit/ca2a0dad7fcf7edd9342ba40b1a88f6c2ad4be82) Thanks [@vnphanquang](https://github.com/vnphanquang)! - make Resolved generic param to StackItemProps optional
+
 ## 1.0.0-next.1
 
 ### Minor Changes

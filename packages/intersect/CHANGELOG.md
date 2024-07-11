@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.0.0-next.2
+
+### Patch Changes
+
+- [`1f88e0f`](https://github.com/vnphanquang/svelte-put/commit/1f88e0f1dc8ae169acce21095ee5ad6100ba81ff) Thanks [@vnphanquang](https://github.com/vnphanquang)! - re-expose public typedef (following https://github.com/Rich-Harris/dts-buddy/pull/82)
+
 ## 4.0.0-next.1
 
 ### Patch Changes

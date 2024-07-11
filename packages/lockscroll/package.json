@@ -1,6 +1,6 @@
 {
 	"name": "@svelte-put/lockscroll",
-	"version": "2.0.0-next.2",
+	"version": "2.0.0-next.3",
 	"description": "locking scroll and hide scrollbar within an HTML element",
 	"main": "src/index.js",
 	"module": "src/index.js",
@@ -56,4 +56,3 @@
 		"extends": "../../package.json"
 	}
 }
-

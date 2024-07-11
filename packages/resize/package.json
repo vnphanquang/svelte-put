@@ -1,6 +1,6 @@
 {
 	"name": "@svelte-put/resize",
-	"version": "4.0.0-next.1",
+	"version": "4.0.0-next.2",
 	"description": "Svelte action wrapper for ResizeObserver",
 	"main": "src/index.js",
 	"module": "src/index.js",
@@ -57,4 +57,3 @@
 		"extends": "../../package.json"
 	}
 }
-
