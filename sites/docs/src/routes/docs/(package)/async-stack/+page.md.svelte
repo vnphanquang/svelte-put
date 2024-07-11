@@ -337,7 +337,7 @@ notiStack.pause(pushed.id);
 notiStack.resume(pushed.id);
 ```
 
-The `pause` and `resume` methods on `Stack` instance are actually just proxies for the same ones on `StackItem` instance, which is accessible from within component via the injected `item` prop.
+The `pause` and `resume` methods on `Stack` instance are actually just proxies for the same ones on `StackItem` instance, which is accessible from within component via the injected `item` prop...
 
 ```svelte title="Pausing & Resuming - Notification instance"
 <script lang="ts">
@@ -351,6 +351,13 @@ The `pause` and `resume` methods on `Stack` instance are actually just proxies f
 </script>
 
 <!-- ...truncated... -->
+```
+
+...accept when no `id` is specified, in which case the method will be applied to all active `StackItem` instances.
+
+```typescript title="Pausing & Resuming All- Stack"
+notiStack.pause(); // pausing all items
+notiStack.resume(); // resuming all items
 ```
 
 <div class="c-callout c-callout--info">
