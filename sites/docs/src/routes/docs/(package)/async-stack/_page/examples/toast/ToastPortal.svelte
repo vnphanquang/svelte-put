@@ -15,7 +15,7 @@
 	let expanded = $state(false);
 	let visibleItems = $derived(toastStack.items.slice(-3));
 	const olHeight = $derived.by(() => {
-		if (expanded) return 'auto';
+		if (!expanded) return 'auto';
 		const contentPx = visibleItems.reduce(
 			(acc, item) => acc + (heights.get(item.config.id) ?? 0) + EXPAND_REM_GAP,
 			0,
@@ -26,12 +26,18 @@
 
 	function collect(node: HTMLLIElement): ActionReturn {
 		const id = node.dataset.id;
-		const height = node.clientHeight;
-		if (id) heights.set(id, height);
+
+		function collectHeight() {
+			if (id) heights.set(id, node.clientHeight);
+		}
+
+		node.addEventListener('resize', collectHeight);
+		collectHeight();
 
 		return {
 			destroy() {
 				if (id) heights.delete(id);
+				node.removeEventListener('resize', collectHeight);
 			},
 		};
 	}
@@ -64,17 +70,17 @@
 
 	function onMouseEnter() {
 		expanded = true;
-		visibleItems.forEach(i => i.pause());
+		visibleItems.forEach((i) => i.pause());
 	}
 	function onMouseLeave() {
 		expanded = false;
-		visibleItems.forEach(i => i.resume());
+		visibleItems.forEach((i) => i.resume());
 	}
 </script>
 
 <!-- toast portal, typically setup at somewhere global like root layout -->
 <ol
-	class="fixed bottom-10 right-10 z-notification grid content-end items-end"
+	class="fixed bottom-2 right-4 z-notification grid content-end items-end tb:bottom-10 tb:right-10"
 	style:height={olHeight}
 	onmouseenter={onMouseEnter}
 	onmouseleave={onMouseLeave}
@@ -97,7 +103,7 @@
 
 <style lang="postcss">
 	ol {
-		width: min(100%, 40rem);
+		width: min(calc(100% - 2rem), 40rem);
 		transition-duration: 500ms;
 
 		&:hover {
