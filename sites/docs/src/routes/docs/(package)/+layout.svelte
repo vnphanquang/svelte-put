@@ -14,20 +14,6 @@
 	let { data, children } = $props();
 </script>
 
-<h1 class="flex items-center justify-between font-fingerpaint">
-	{data.package.name}
-	<a href={data.package.githubUrl} class="c-link c-link--icon" data-external>
-		<svg inline-src="simpleicon/github" class="inline" height="28" width="28" />
-	</a>
-</h1>
-{#if data.package.description}
-	<p class="c-callout c-callout--info c-callout--icon-bulb">{data.package.description}</p>
-{/if}
-
-{#if data.package.rune}
-	<Runes class="float-right" />
-{/if}
-
 {#snippet badge(href: string, src: string, width: number, height: number)}
 	<a {href} data-external class="h-full">
 		<img
@@ -41,6 +27,21 @@
 		/>
 	</a>
 {/snippet}
+
+<h1 class="flex items-center justify-between font-fingerpaint">
+	{data.package.name}
+	<a href={data.package.githubUrl} class="c-link c-link--icon" data-external>
+		<svg inline-src="simpleicon/github" class="inline" height="28" width="28" />
+	</a>
+</h1>
+
+{#if data.package.description}
+	<p class="c-callout c-callout--info c-callout--icon-bulb">{data.package.description}</p>
+{/if}
+
+{#if data.package.rune}
+	<Runes class="float-right" />
+{/if}
 
 <p class="flex flex-wrap items-center gap-2 not-prose">
 	{@render badge(

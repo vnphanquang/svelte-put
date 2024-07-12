@@ -3,7 +3,7 @@
 </script>
 
 {#snippet hint()}
-	<p class="m-0">Built with ♡ using <code>@svelte-put/popover </code> and <code>@floating-ui</code></p>
+	<span class="m-0">Built with ♡ using <code>@svelte-put/popover </code> and <code>@floating-ui</code></span>
 {/snippet}
 
 <p class="m-0">

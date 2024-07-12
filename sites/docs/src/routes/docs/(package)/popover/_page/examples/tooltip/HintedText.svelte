@@ -15,7 +15,7 @@
 
 	let controlEl: HTMLButtonElement;
 	let targetEl: HTMLElement;
-	let arrowEl: HTMLDivElement;
+	let arrowEl: HTMLSpanElement;
 
 	let cleanup = () => {};
 	const tooltipPlugin: PopoverPlugin = () => ({
@@ -53,7 +53,7 @@
 	{...rest}>{@render children()}</button
 >
 
-<div class="text-hint" bind:this={targetEl} {...popover.target.attributes} use:popover.target.actions>
-	<div class="arrow" bind:this={arrowEl}></div>
+<span class="text-hint" bind:this={targetEl} {...popover.target.attributes} use:popover.target.actions>
+	<span class="arrow" bind:this={arrowEl}></span>
 	{@render hint()}
-</div>
+</span>
