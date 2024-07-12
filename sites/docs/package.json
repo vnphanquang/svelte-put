@@ -26,8 +26,8 @@
 		"@svelte-put/intersect": "workspace:*",
 		"@svelte-put/lockscroll": "workspace:*",
 		"@svelte-put/movable": "workspace:*",
-		"@svelte-put/preaction": "workspace:*",
 		"@svelte-put/popover": "workspace:*",
+		"@svelte-put/preaction": "workspace:*",
 		"@svelte-put/preprocess-auto-slug": "workspace:*",
 		"@svelte-put/preprocess-external-link": "workspace:*",
 		"@svelte-put/preprocess-markdown": "workspace:*",
@@ -35,7 +35,7 @@
 		"@svelte-put/resize": "workspace:*",
 		"@svelte-put/shortcut": "workspace:*",
 		"@svelte-put/toc": "workspace:*",
-		"@sveltejs/adapter-cloudflare": "^4.6.0",
+		"@sveltejs/adapter-cloudflare": "^4.6.1",
 		"@sveltejs/enhanced-img": "^0.3.0",
 		"@sveltejs/kit": "^2.5.18",
 		"@sveltejs/vite-plugin-svelte": "4.0.0-next.3",
@@ -50,4 +50,3 @@
 		"extends": "../../package.json"
 	}
 }
-
