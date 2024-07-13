@@ -392,6 +392,16 @@ importers:
         specifier: workspace:*
         version: link:../../internals/tsconfig
 
+  packages/swipeable:
+    dependencies:
+      svelte:
+        specifier: ^5.0.0-next.181
+        version: 5.0.0-next.181
+    devDependencies:
+      '@internals/tsconfig':
+        specifier: workspace:*
+        version: link:../../internals/tsconfig
+
   packages/toc:
     dependencies:
       svelte:
@@ -465,6 +475,9 @@ importers:
       '@svelte-put/shortcut':
         specifier: workspace:*
         version: link:../../packages/shortcut
+      '@svelte-put/swipeable':
+        specifier: workspace:*
+        version: link:../../packages/swipeable
       '@svelte-put/toc':
         specifier: workspace:*
         version: link:../../packages/toc

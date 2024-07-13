@@ -280,6 +280,20 @@ export const packages = {
 		githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/next/packages/toc',
 		changelogUrl: 'https://github.com/vnphanquang/svelte-put/blob/next/packages/toc/CHANGELOG.md',
 	},
+	swipeable: {
+		id: 'swipeable',
+		name: '@svelte-put/swipeable',
+		publishedAt: 1720777185388,
+		description: 'set up quick swipe gesture action on element',
+		path: '/docs/swipeable',
+		replId: 'undefined',
+		status: 'new',
+		rune: true,
+		ready: true,
+		githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/next/packages/swipeable',
+		changelogUrl:
+			'https://github.com/vnphanquang/svelte-put/blob/next/packages/swipeable/CHANGELOG.md',
+	},
 } as const satisfies Record<string, Package>;
 
 export type PackageId = keyof typeof packages;

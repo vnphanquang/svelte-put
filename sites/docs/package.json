@@ -35,6 +35,7 @@
 		"@svelte-put/resize": "workspace:*",
 		"@svelte-put/shortcut": "workspace:*",
 		"@svelte-put/toc": "workspace:*",
+		"@svelte-put/swipeable": "workspace:*",
 		"@sveltejs/adapter-cloudflare": "^4.6.1",
 		"@sveltejs/enhanced-img": "^0.3.0",
 		"@sveltejs/kit": "^2.5.18",
@@ -50,3 +51,4 @@
 		"extends": "../../package.json"
 	}
 }
+
