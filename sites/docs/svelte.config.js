@@ -3,7 +3,7 @@ import { readFileSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import preaction from '@svelte-put/preaction';
+import preaction from '@svelte-put/preaction/preprocess';
 import autoSlug from '@svelte-put/preprocess-auto-slug';
 import externalLink from '@svelte-put/preprocess-external-link';
 import { markdown, enhanceCodeBlock } from '@svelte-put/preprocess-markdown';

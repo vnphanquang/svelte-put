@@ -91,7 +91,7 @@ Attribute spread is added before any other `use` directives or attributes to avo
 Start by adding `preaction` to your Svelte config.
 
 ```js title="svelte.config.js"
-import preaction from '@svelte-put/preaction';
+import { preaction } from '@svelte-put/preaction';
 
 /** @type {import('@sveltejs/kit').Config} */
 export default {

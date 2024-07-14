@@ -91,3 +91,5 @@ export function preaction() {
 	};
 }
 
+export default preaction;
+

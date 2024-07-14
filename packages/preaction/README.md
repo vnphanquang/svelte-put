@@ -25,7 +25,7 @@ Given this `svelte.config.js`...
 
 ```javascript
 // svelte.config.js
-import preaction from '@svelte-put/preaction';
+import preaction from '@svelte-put/preaction/preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
