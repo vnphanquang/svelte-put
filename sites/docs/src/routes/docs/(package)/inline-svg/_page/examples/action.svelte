@@ -1,7 +1,7 @@
 <script>
   import { inlineSvg } from '@svelte-put/inline-svg';
 
-  export let src = 'https://raw.githubusercontent.com/sveltejs/branding/master/svelte-logo.svg';
+  let { src = 'https://raw.githubusercontent.com/sveltejs/branding/master/svelte-logo.svg' } = $props();
 </script>
 
 <!-- add attributes and styling as with any other HTML element -->

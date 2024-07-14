@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
   import Avatar from '@svelte-put/avatar/Avatar.svelte';
   /** passed from parent */
-  export let color = 'blue';
+	let { color = 'blue' }: { color?: string } = $props();
 </script>
 
 <Avatar
