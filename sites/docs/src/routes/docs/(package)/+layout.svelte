@@ -12,6 +12,8 @@
 	} from '$lib/utils/badge';
 
 	let { data, children } = $props();
+
+	const githubSourceUrl = `https://github.com/vnphanquang/svelte-put/edit/next/sites/docs/src/routes/docs/(package)/${data.package.id}/+page.md.svelte`;
 </script>
 
 <h1 class="flex items-center justify-between font-fingerpaint">
@@ -65,32 +67,17 @@
 	{/if}
 </p>
 
-<!-- {#if data.package.ready} -->
 <p class="c-callout c-callout--success c-callout--icon-megaphone max-w-md xl:hidden">
 	Still on Svelte 4? See
 	<a class="c-link" href="https://svelte-put-svelte-4.vnphanquang.com">the old docs site here.</a>
 </p>
+
 {@render children()}
-<p class="text-right text-sm">
-	<a
-		class="c-link"
-		href="https://github.com/vnphanquang/svelte-put/edit/next/sites/docs/src/routes/docs/(package)/{data
-			.package.id}/+page.md.svelte"
-	>
-		Edit this page on Github
-	</a>
-</p>
-<!-- {:else} -->
-<!-- 	<div class="flex flex-col items-center text-center"> -->
-<!--     <p class="text-lg font-bold">Wow, such empty</p> -->
-<!-- 		<svg inline-src="blocks" height="200" width="655" class="text-bg-200 max-w-full h-auto" /> -->
-<!--     <p class="mt-10"> -->
-<!-- 			Documentation is being put together and will be available very soon. -->
-<!-- 			<br /> -->
-<!-- 			<br /> -->
-<!--       In the mean time, you can visit -->
-<!--       <a href={data.package.githubUrl} data-external>github</a> for more information. -->
-<!--     </p> -->
-<!-- 	</div> -->
-<!-- {/if} -->
+
+<!-- temp fix for Svelte hydration bug, probably related to https://github.com/sveltejs/svelte/issues/12422 -->
+<!-- <p class="text-right text-sm"> -->
+<!-- 	<a class="c-link" href={githubSourceUrl}> -->
+<!-- 		Edit this page on Github -->
+<!-- 	</a> -->
+<!-- </p> -->
 

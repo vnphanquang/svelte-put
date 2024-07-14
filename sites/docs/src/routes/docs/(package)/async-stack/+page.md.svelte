@@ -578,7 +578,6 @@ As demonstrated throughout this documentation, `svelte-put/async-stack` can be u
 
 </enhanced-code-block>
 
-
 [@svelte-put/noti]: /docs/noti
 [@svelte-put/modal]: /docs/modal
 [Comprehensive Example]: #comprehensive-example

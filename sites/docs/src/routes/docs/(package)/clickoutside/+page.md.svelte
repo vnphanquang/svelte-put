@@ -135,7 +135,7 @@ Additionally, event modifier `|stopPropagation` is no longer support in Svelte, 
 
 ---
 
-Happy clicking outside! 👨‍💻
+Happy clicking outside!
 
 [Advanced Usage & Customization]: #advanced-usage-and-customization
 [CustomEvent]: https://developer.mozilla.org/en-US/docs/Web/API/CustomEventj
