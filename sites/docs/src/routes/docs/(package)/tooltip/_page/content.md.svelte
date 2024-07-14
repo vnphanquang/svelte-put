@@ -8,6 +8,10 @@
   const { packageManager } = getSettingsContext();
 </script>
 
+## Deprecation Notice
+
+This package will be deprecated when [Svelte 5](https://svelte-5-preview.vercel.app/status) lands, in favor for [@svelte-put/popover](https://svelte-put-next.vnphanquang.com/docs/popover) - a more generic package that builds upon the new [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API). If you are using Svelte 5 today, head over to [@svelte-put/popover](https://svelte-put-next.vnphanquang.com/docs/popover) for more information.
+
 ## Introduction
 
 This library is not a plug-and-play, prebuilt component. Rather, it is designed to help build composable tooltips, utilizing [Svelte action](https://svelte.dev/docs/svelte-action).

@@ -1,5 +1,8 @@
-:::div c-callout c-callout--success c-callout--icon-megaphone
-I am experimenting with new solutions for `@svelte-put/modal` (v2) that will adopt a "headless" approach, reducing complexity and allow easier integration with any UI preferences.
+## Deprecation Notice
 
-In the meantime, you can see the [old docs here](https://02e439f1.svelte-put.pages.dev/). Sorry about the inconvenience.
-:::
+This package has been dropped in favor of [@svelte-put/async-stack](/docs/async-stack) (requires [Svelte 5](https://svelte-5-preview.vercel.app/status)). `@svelte-put/async-stack` is a generic implementation inspired by `@svelte-put/modal` and `@svelte-put/noti`, and now is more minimal, unopinionated, and powerful thanks to Svelte runes.
+
+Follow patterns introduced in the `async-stack` ["Recipes" section](/docs/async-stack#modal--dialog) to migrate your existing `@svelte-put/modal` system to `@svelte-put/async-stack`.
+
+To see the original documentation, [visit here](https://02e439f1.svelte-put.pages.dev/docs/modal).
+

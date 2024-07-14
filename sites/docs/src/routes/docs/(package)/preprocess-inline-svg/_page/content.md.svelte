@@ -3,6 +3,10 @@
   const { packageManager } = getSettingsContext();
 </script>
 
+## Deprecation Notice
+
+In [Svelte 5](https://svelte-5-preview.vercel.app/status), this package is merged into [@svelte-put/inline-svg](https://svelte-put-next.vnphanquang.com/docs/inline-svg) for cohesiveness. If you are using Svelte 5 today, head over to [Migration Guides](https://svelte-put-next.vnphanquang.com/docs/preprocess-inline-svg) for more information.
+
 ## Introduction
 
 Current solutions (that I know of) for inlining SVGs in Svelte land require either runtime logics or a component-oriented strategy. These solutions are acceptable in most cases but have been proven to be problematic when additional styling / attributes are needed for the inlined `SVGElement`.
@@ -380,3 +384,4 @@ Happy inlining SVGs! 👨‍💻
 [svg-to-svelte]: https://github.com/metonym/svg-to-svelte
 [Svelte preprocessor]: https://svelte.dev/docs/svelte-compiler#preprocess
 [Setup]: #setup
+
