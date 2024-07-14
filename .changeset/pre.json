@@ -21,7 +21,8 @@
     "@svelte-put/preprocess-markdown": "0.0.0",
     "@svelte-put/async-stack": "0.0.0-next.0",
     "@svelte-put/popover": "1.0.0-next.0",
-    "@svelte-put/preaction": "0.0.0-next.0"
+    "@svelte-put/preaction": "0.0.0-next.0",
+    "@svelte-put/swipeable": "1.0.0-next.0"
   },
   "changesets": [
     "afraid-parrots-rescue",
@@ -101,6 +102,7 @@
     "warm-horses-swim",
     "weak-peaches-smell",
     "wise-crews-destroy",
-    "wise-points-own"
+    "wise-points-own",
+    "yellow-donkeys-own"
   ]
 }
