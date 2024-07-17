@@ -35,6 +35,15 @@
 	svg[inline-src^='simpleicon/'] {
 		fill: currentcolor;
 	}
+
+	mark {
+		background-color: theme('colors.yellow.100');
+
+		@dark {
+			color: inherit;
+			background-color: theme('colors.yellow.900');
+		}
+	}
 }
 
 @layer components {
@@ -51,6 +60,44 @@
 
 		background-color: theme('colors.orange.600');
 		border-radius: theme('borderRadius.full');
+	}
+
+	/* temporary style before @sveltevietnam/ui is completely patched */
+	.c-input-temp {
+		--active-color: theme('colors.blue.500');
+
+		overflow: hidden;
+		display: block;
+
+		padding: theme('spacing.3') theme('spacing.4');
+
+		line-height: theme('lineHeight.tight');
+
+		background-color: theme('colors.bg.DEFAULT');
+		border: 1.5px solid theme('colors.outline.DEFAULT');
+		border-radius: theme('borderRadius.DEFAULT');
+
+		&::placeholder {
+			color: theme('colors.outline.DEFAULT');
+		}
+
+		&:where(:is(input, textarea)),
+		& :where(:is(input, textarea)) {
+			background: transparent;
+			outline: none;
+		}
+
+		&:focus-visible,
+		&:focus-within,
+		&:has(input:focus-visible) {
+			border-color: var(--active-color);
+			outline: none;
+		}
+
+		&:user-invalid,
+		&:has(input:user-invalid) {
+			border-color: theme('colors.red.400');
+		}
 	}
 
 	.c-tooltip[popover] {
