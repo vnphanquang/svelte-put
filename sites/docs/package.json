@@ -5,7 +5,8 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev --port 4545",
-		"build": "vite build --mode production",
+		"build": "vite build --mode production && pnpm pagefind",
+		"pagefind": "node ./scripts/pagefind.js",
 		"preview": "vite preview",
 		"lint": "run-p lint:*",
 		"lint:svelte": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -13,7 +14,8 @@
 	},
 	"dependencies": {
 		"@floating-ui/dom": "^1.6.7",
-		"mustache": "^4.2.0"
+		"mustache": "^4.2.0",
+		"pagefind": "^1.1.0"
 	},
 	"devDependencies": {
 		"@svelte-put/async-stack": "workspace:*",
@@ -51,3 +53,4 @@
 		"extends": "../../package.json"
 	}
 }
+

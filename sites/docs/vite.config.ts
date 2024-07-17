@@ -7,16 +7,21 @@ import type { UserConfig } from 'vite';
 
 const config: UserConfig = {
 	plugins: [
-		inlineSvg([{
-			directories: [path.resolve(__dirname, 'src/lib/assets/images/svg')],
-			attributes: {
-				height: '24',
-				width: '24',
+		inlineSvg(
+			[
+				{
+					directories: [path.resolve(__dirname, 'src/lib/assets/images/svg')],
+					attributes: {
+						height: '24',
+						width: '24',
+					},
+				},
+			],
+			{
+				inlineSrcAttributeName: 'inline-src',
+				typedef: true,
 			},
-		}], {
-			inlineSrcAttributeName: 'inline-src',
-			typedef: true,
-		}),
+		),
 		enhancedImages(),
 		sveltekit(),
 	],
