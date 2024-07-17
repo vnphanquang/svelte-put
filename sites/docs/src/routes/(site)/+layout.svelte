@@ -1,5 +1,6 @@
 <script>
 	import { Toc } from '@svelte-put/toc';
+	import { onMount } from 'svelte';
 
 	import { navigating } from '$app/stores';
 	import { ColorSchemeMenu } from '$lib/components/color-scheme-menu';
@@ -32,6 +33,12 @@
 	function closeLeftSidebar() {
 		isleftSidebarOpen = false;
 	}
+
+	let hydrated = $state(false);
+
+	onMount(() => {
+		hydrated = true;
+	});
 </script>
 
 {#if $navigating}
@@ -44,7 +51,16 @@
 				<svg inline-src="svelte-put" width="32" height="32" />
 				<span class="font-fingerpaint text-sm font-bold text-gradient-brand">svelte-put</span>
 			</a>
-			<ColorSchemeMenu />
+			{#if hydrated}
+				<a
+					class="c-link c-link--icon flex items-center gap-2 rounded-full border border-current py-1 pl-2 pr-4"
+					href="/search"
+				>
+					<svg class="h-5 w-5" inline-src="phosphor/magnifying-glass" width="20" height="20"></svg>
+					<span class="text-sm">Search</span>
+				</a>
+			{/if}
+			<ColorSchemeMenu class="ml-4" />
 			<a href={SOCIAL_LINKS.GITHUB} data-external class="c-link c-link--icon ml-4">
 				<svg inline-src="simpleicon/github" height="28" width="28" />
 			</a>

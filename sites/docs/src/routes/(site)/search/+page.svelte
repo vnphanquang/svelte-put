@@ -6,8 +6,6 @@
 
 	let { data } = $props();
 
-	console.log($page.url.searchParams.get('q'), data.query);
-
 	let pagefind: typeof import('@pagefind') | null = $state(null);
 	let sanitize: typeof import('sanitize-html') | null = null;
 	let query = $state(data.query);
