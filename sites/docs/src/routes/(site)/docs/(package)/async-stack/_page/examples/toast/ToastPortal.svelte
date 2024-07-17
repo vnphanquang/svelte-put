@@ -55,11 +55,11 @@
 
 	function onMouseEnter() {
 		expanded = true;
-		visibleItems.forEach((i) => i.pause());
+		toastStack.pause(); // pause all items;
 	}
 	function onMouseLeave() {
 		expanded = false;
-		visibleItems.forEach((i) => i.resume());
+		toastStack.resume(); // resume all items;
 	}
 </script>
 
