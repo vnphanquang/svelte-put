@@ -28,6 +28,12 @@ const config: UserConfig = {
 	define: {
 		__BUILD_TIMESTAMP__: JSON.stringify(Date.now().toString()),
 	},
+	build: {
+		rollupOptions: {
+			external: ["/pagefind/pagefind.js"],
+		}
+	},
+	assetsInclude: "**/pagefind.js",
 	server: {
 		fs: {
 			strict: false,

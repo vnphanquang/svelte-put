@@ -49,6 +49,7 @@ const config = {
 		},
 		alias: {
 			$routes: path.resolve(__dirname, 'src/routes'),
+			'@pagefind': path.resolve(__dirname, '/pagefind/pagefind.js'),
 		},
 	},
 	compilerOptions: {

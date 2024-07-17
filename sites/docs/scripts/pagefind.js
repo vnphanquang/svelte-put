@@ -7,7 +7,7 @@ import * as pagefind from 'pagefind';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const BUILD_PATH = path.resolve(__dirname, '../.svelte-kit/cloudflare');
-const OUTPUT_PATH = path.resolve(__dirname, '../src/lib/pagefind');
+const OUTPUT_PATH = path.resolve(__dirname, '../static/pagefind');
 
 const { index } = await pagefind.createIndex();
 await index.addDirectory({
