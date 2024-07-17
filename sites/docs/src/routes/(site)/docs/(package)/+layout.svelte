@@ -13,7 +13,7 @@
 
 	let { data, children } = $props();
 
-	const githubSourceUrl = `https://github.com/vnphanquang/svelte-put/edit/next/sites/docs/src/routes/docs/(package)/${data.package.id}/+page.md.svelte`;
+	const githubSourceUrl = `https://github.com/vnphanquang/svelte-put/edit/next/sites/docs/src/routes/(site)/docs/(package)/${data.package.id}/+page.md.svelte`;
 </script>
 
 <h1 class="flex items-center justify-between font-fingerpaint">

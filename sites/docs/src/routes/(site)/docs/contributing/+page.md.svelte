@@ -26,7 +26,7 @@ Stop by [this Github discussion thread](https://github.com/vnphanquang/svelte-pu
 If you are based in Vietnam, stop by [sveltevietnam.dev](https://sveltevietnam.dev), a community for people of Svelte in Vietnam that I am proudly a part of.
 
 <p class="text-right text-sm">
-  <a class="c-link" href="https://github.com/vnphanquang/svelte-put/edit/next/sites/docs/src/routes/docs/contributing/+page.md.svelte">
+  <a class="c-link" href="https://github.com/vnphanquang/svelte-put/edit/next/sites/docs/src/routes/(site)/docs/contributing/+page.md.svelte">
     Edit this page on Github
   </a>
 </p>

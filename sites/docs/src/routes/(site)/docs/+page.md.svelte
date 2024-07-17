@@ -60,7 +60,7 @@ Happy coding! 👨‍💻
 
 
 <p class="text-right text-sm">
-  <a class="c-link" href="https://github.com/vnphanquang/svelte-put/edit/next/sites/docs/src/routes/docs/_page/content.md.svelte">
+  <a class="c-link" href="https://github.com/vnphanquang/svelte-put/edit/next/sites/docs/src/routes/(site)/docs/_page/content.md.svelte">
     Edit this page on Github
   </a>
 </p>

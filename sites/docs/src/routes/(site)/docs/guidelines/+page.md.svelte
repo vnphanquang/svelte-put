@@ -26,7 +26,7 @@ If you are developing Svelte application (typically with SvelteKit & Vite), ther
 Throughout the documentation, however, you will see example code in [Typescript](https://www.typescriptlang.org/). This is frankly just me being lazy and not wanting to maintain two versions of every code block. Sorry!
 
 <p class="text-right text-sm">
-  <a class="c-link" href="https://github.com/vnphanquang/svelte-put/edit/next/sites/docs/src/routes/docs/guidelines/+page.md.svelte">
+  <a class="c-link" href="https://github.com/vnphanquang/svelte-put/edit/next/sites/docs/src/routes/(site)/docs/guidelines/+page.md.svelte">
     Edit this page on Github
   </a>
 </p>
