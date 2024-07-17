@@ -7,3 +7,4 @@ export const load: PageServerLoad = () => {
 		},
 	};
 }
+

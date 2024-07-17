@@ -4,7 +4,7 @@
 	import ogImageHome from '$lib/assets/images/og/svelte-put.jpg';
 	import { SettingsContext } from '$lib/contexts/settings.svelte';
 
-	import '../lib/css/app.css';
+	import '../../lib/css/app.css';
 
 	let { children, data } = $props();
 
