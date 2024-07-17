@@ -12,6 +12,7 @@ declare module 'svelte/elements' {
 			| 'phosphor/archive'
 			| 'phosphor/clipboard'
 			| 'phosphor/envelope-simple'
+			| 'phosphor/magnifying-glass'
 			| 'phosphor/moon-stars'
 			| 'phosphor/sliders-horizontal'
 			| 'phosphor/spinner-gap'
