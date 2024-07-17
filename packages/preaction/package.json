@@ -57,7 +57,7 @@
 		"@types/estree": "^1.0.5"
 	},
 	"peerDependencies": {
-		"svelte": "^5.0.0-next.183"
+		"svelte": "^5.0.0-next.188"
 	},
 	"dependencies": {
 		"magic-string": "^0.30.10",

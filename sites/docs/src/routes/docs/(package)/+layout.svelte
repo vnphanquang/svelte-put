@@ -74,10 +74,9 @@
 
 {@render children()}
 
-<!-- temp fix for Svelte hydration bug, probably related to https://github.com/sveltejs/svelte/issues/12422 -->
-<!-- <p class="text-right text-sm"> -->
-<!-- 	<a class="c-link" href={githubSourceUrl}> -->
-<!-- 		Edit this page on Github -->
-<!-- 	</a> -->
-<!-- </p> -->
+<p class="text-right text-sm">
+	<a class="c-link" href={githubSourceUrl}>
+		Edit this page on Github
+	</a>
+</p>
 
