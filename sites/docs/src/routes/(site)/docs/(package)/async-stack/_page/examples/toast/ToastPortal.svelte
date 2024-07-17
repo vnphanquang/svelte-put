@@ -1,7 +1,5 @@
 <script lang="ts">
-	import type { ActionReturn } from 'svelte/action';
 	import { flip } from 'svelte/animate';
-	import { SvelteMap } from 'svelte/reactivity';
 	import { fly } from 'svelte/transition';
 
 	import { toastStack } from './toast';
@@ -11,36 +9,22 @@
 	const EXPAND_REM_GAP = 1;
 	const TRANSLATE_REM_STEP = 1;
 
-	const heights = new SvelteMap<string, number>();
+	let olElement: HTMLOListElement;
 	let expanded = $state(false);
 	let visibleItems = $derived(toastStack.items.slice(-3));
 	const olHeight = $derived.by(() => {
 		if (!expanded) return 'auto';
 		const contentPx = visibleItems.reduce(
-			(acc, item) => acc + (heights.get(item.config.id) ?? 0) + EXPAND_REM_GAP,
+			(acc, item) => {
+				const el = olElement.querySelector(`[data-id="${item.config.id}"]`);
+				acc = acc + (el?.clientHeight ?? 0) + EXPAND_REM_GAP;
+				return acc;
+			},
 			0,
 		);
 		const remGap = EXPAND_REM_GAP * (visibleItems.length - 1);
 		return `calc(${contentPx}px + ${remGap}rem)`;
 	});
-
-	function collect(node: HTMLLIElement): ActionReturn {
-		const id = node.dataset.id;
-
-		function collectHeight() {
-			if (id) heights.set(id, node.clientHeight);
-		}
-
-		node.addEventListener('resize', collectHeight);
-		collectHeight();
-
-		return {
-			destroy() {
-				if (id) heights.delete(id);
-				node.removeEventListener('resize', collectHeight);
-			},
-		};
-	}
 
 	function getTransform(index: number) {
 		if (!expanded) {
@@ -54,7 +38,8 @@
 		let rem = 0;
 		for (let i = toastStack.items.length - 1; i > index; i--) {
 			const notification = toastStack.items[i];
-			accumulatedHeight += heights.get(notification.config.id) ?? 0;
+			const el = olElement.querySelector(`[data-id="${notification.config.id}"]`);
+			accumulatedHeight += el?.clientHeight ?? 0;
 			rem += EXPAND_REM_GAP;
 		}
 
@@ -85,6 +70,7 @@
 	onmouseenter={onMouseEnter}
 	onmouseleave={onMouseLeave}
 	data-expanded={expanded}
+	bind:this={olElement}
 >
 	{#each toastStack.items as notification, index (notification.config.id)}
 		{@const id = notification.config.id}
@@ -96,7 +82,6 @@
 			style:opacity={getOpacity(index)}
 			style:transform={getTransform(index)}
 			use:toastStack.actions.render={notification}
-			use:collect
 		></li>
 	{/each}
 </ol>
