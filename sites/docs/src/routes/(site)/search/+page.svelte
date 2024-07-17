@@ -7,7 +7,7 @@
 	let { data } = $props();
 
 	let pagefind: typeof import('@pagefind') | null = $state(null);
-	let sanitize: typeof import('sanitize-html') | null = null;
+	let sanitize: typeof import('sanitize-html') | null = $state(null);
 	let query = $state(data.query);
 	let promise: ReturnType<import('@pagefind').PageFind['debouncedSearch']> = $derived.by(() => {
 		if (!pagefind || !data.query) return new Promise(() => {});
