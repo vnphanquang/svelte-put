@@ -1,8 +1,7 @@
 <script>
   import { packages } from '$lib/data/packages';
+  import { StatusBadge } from '$lib/components/status-badge';
   import { createNpmBadgeUrl, createNpmUrl } from '$lib/utils/badge';
-
-  import StatusBadge from './_page/components/StatusBadge.svelte';
 </script>
 
 # @svelte-put
