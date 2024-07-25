@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.0-next.4
+
+### Patch Changes
+
+- [`59d5052`](https://github.com/vnphanquang/svelte-put/commit/59d505294502f65fb3dfef762a6303b7965562a3) Thanks [@vnphanquang](https://github.com/vnphanquang)! - split preprocessor to own subpath to avoid leaking export into client code
+
 ## 0.0.0-next.3
 
 ### Patch Changes
