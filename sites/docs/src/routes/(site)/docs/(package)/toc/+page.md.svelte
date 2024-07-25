@@ -14,15 +14,15 @@ This package relies on [Svelte action] and attempts to stay minimal. If you are 
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/toc@latest
+npm install --save-dev @svelte-put/toc@next
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/toc@latest
+pnpm add -D @svelte-put/toc@next
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/toc@latest
+yarn add -D @svelte-put/toc@next
 ```
 
 </enhanced-code-block>

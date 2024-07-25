@@ -23,15 +23,15 @@ For content-heavy sites such as blogs or documentation, manually adding `target=
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/preprocess-external-link@latest
+npm install --save-dev @svelte-put/preprocess-external-link@next
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/preprocess-external-link@latest
+pnpm add -D @svelte-put/preprocess-external-link@next
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/preprocess-external-link@latest
+yarn add -D @svelte-put/preprocess-external-link@next
 ```
 
 </enhanced-code-block>

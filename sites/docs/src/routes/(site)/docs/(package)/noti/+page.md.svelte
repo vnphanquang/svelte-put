@@ -17,15 +17,15 @@ Make sure you first install the latest version of `@svelte-put/async-stack`.
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/async-stack@latest
+npm install --save-dev @svelte-put/async-stack@next
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/async-stack@latest
+pnpm add -D @svelte-put/async-stack@next
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/async-stack@latest
+yarn add -D @svelte-put/async-stack@next
 ```
 
 </enhanced-code-block>

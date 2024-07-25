@@ -17,15 +17,15 @@
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/resize@latest
+npm install --save-dev @svelte-put/resize@next
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/resize@latest
+pnpm add -D @svelte-put/resize@next
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/resize@latest
+yarn add -D @svelte-put/resize@next
 ```
 
 </enhanced-code-block>

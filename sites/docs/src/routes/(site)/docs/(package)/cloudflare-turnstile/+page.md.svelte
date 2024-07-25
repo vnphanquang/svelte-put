@@ -14,15 +14,15 @@ This implementation of [Cloudflare Turnstile] utilizes [Svelte action]. If you a
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/cloudflare-turnstile@latest
+npm install --save-dev @svelte-put/cloudflare-turnstile@next
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/cloudflare-turnstile@latest
+pnpm add -D @svelte-put/cloudflare-turnstile@next
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/cloudflare-turnstile@latest
+yarn add -D @svelte-put/cloudflare-turnstile@next
 ```
 
 </enhanced-code-block>
