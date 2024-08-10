@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.0.0-next.4
+
+### Patch Changes
+
+- [`59d5052`](https://github.com/vnphanquang/svelte-put/commit/59d505294502f65fb3dfef762a6303b7965562a3) Thanks [@vnphanquang](https://github.com/vnphanquang)! - split preprocessor to own subpath to avoid leaking export into client code
+
+- [`5d30599`](https://github.com/vnphanquang/svelte-put/commit/5d3059929a1846fae63e8e35a1423544321f55cc) Thanks [@vnphanquang](https://github.com/vnphanquang)! - set up [package provenence](https://docs.npmjs.com/generating-provenance-statements#publishing-packages-with-provenance-via-github-actions)
+
 ## 0.0.0-next.3
 
 ### Patch Changes
