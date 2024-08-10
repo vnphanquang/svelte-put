@@ -45,7 +45,8 @@
 		}
 	},
 	"publishConfig": {
-		"access": "public"
+		"access": "public",
+		"provenance": true
 	},
 	"files": [
 		"src",
@@ -95,4 +96,3 @@
 		"qrcode-generator": "^1.4.4"
 	}
 }
-

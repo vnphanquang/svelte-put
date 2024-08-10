@@ -13,7 +13,8 @@
 		}
 	},
 	"publishConfig": {
-		"access": "public"
+		"access": "public",
+		"provenance": true
 	},
 	"files": [
 		"src",
@@ -63,4 +64,3 @@
 		"zimmerframe": "^1.1.2"
 	}
 }
-

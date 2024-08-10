@@ -15,6 +15,11 @@ env:
   HUSKY: 0
 jobs:
   Version:
+    if: github.repository == 'vnphanquang/svelte-put' # prevents this action from running on forks
+    permissions:
+      contents: write # to create release (changesets/action)
+      id-token: write # OpenID Connect token needed for provenance
+      pull-requests: write # to create pull request (changesets/action)
     timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
