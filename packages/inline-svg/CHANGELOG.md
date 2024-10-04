@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.0.0-next.4
+
+### Patch Changes
+
+- [`8990206`](https://github.com/vnphanquang/svelte-put/commit/89902067a60ebe05a18b34c6fbb0eb8ba1a965a1) Thanks [@vnphanquang](https://github.com/vnphanquang)! - start source typing union with `|` for consistency
+
+- [`b7e69fe`](https://github.com/vnphanquang/svelte-put/commit/b7e69fe31946fe875454f764ec4a81f377ad7603) Thanks [@vnphanquang](https://github.com/vnphanquang)! - make sure path separator is in POSIX format when generating source typings (fixes 320)
+
 ## 4.0.0-next.3
 
 ### Patch Changes
