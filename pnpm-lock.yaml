@@ -282,14 +282,14 @@ importers:
         specifier: ^4.0.8
         version: 4.0.8
       magic-string:
-        specifier: ^0.30.9
-        version: 0.30.9
+        specifier: ^0.30.10
+        version: 0.30.11
       svelte:
         specifier: ^3.55.0 || ^4.0.0
         version: 4.2.12
       svelte-parse-markup:
-        specifier: ^0.1.2
-        version: 0.1.2(svelte@4.2.12)
+        specifier: ^0.1.5
+        version: 0.1.5(svelte@4.2.12)
       svg-parser:
         specifier: ^2.0.4
         version: 2.0.4
@@ -1274,6 +1274,9 @@ packages:
 
   '@jridgewell/sourcemap-codec@1.4.15':
     resolution: {integrity: sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==}
+
+  '@jridgewell/sourcemap-codec@1.5.0':
+    resolution: {integrity: sha512-gv3ZRaISU3fjPAgNsriBRqGWQL6quFx04YMPW/zD8XMLsU32mhCCbfbO6KZFLjvYpCZ8zyDEgqsgf+PwPaM7GQ==}
 
   '@jridgewell/trace-mapping@0.3.22':
     resolution: {integrity: sha512-Wf963MzWtA2sjrNt+g18IAln9lKnlRp+K2eH4jjIoF1wYeq3aMREpG09xhlhdzS0EjwU7qmUJYangWa+151vZw==}
@@ -3004,6 +3007,9 @@ packages:
   magic-string@0.25.9:
     resolution: {integrity: sha512-RmF0AsMzgt25qzqqLc1+MbHmhdx0ojF2Fvs4XnOqz2ZOBXzzkEwc/dJQZCYHAn7v1jbVOjAZfK8msRn4BxO4VQ==}
 
+  magic-string@0.30.11:
+    resolution: {integrity: sha512-+Wri9p0QHMy+545hKww7YAu5NyzF8iomPL/RQazugQ9+Ez4Ic3mERMd8ZTX5rfK944j+560ZJi8iAwgak1Ac7A==}
+
   magic-string@0.30.7:
     resolution: {integrity: sha512-8vBuFF/I/+OSLRmdf2wwFCJCz+nSn0m6DPvGH1fS/KiQoSaR+sETbov0eIk9KhEKy8CYqIkIAnbohxT/4H0kuA==}
     engines: {node: '>=12'}
@@ -4171,6 +4177,11 @@ packages:
     peerDependencies:
       svelte: ^3.0.0 || ^4.0.0
 
+  svelte-parse-markup@0.1.5:
+    resolution: {integrity: sha512-T6mqZrySltPCDwfKXWQ6zehipVLk4GWfH1zCMGgRtLlOIFPuw58ZxVYxVvotMJgJaurKi1i14viB2GIRKXeJTQ==}
+    peerDependencies:
+      svelte: ^3.0.0 || ^4.0.0 || ^5.0.0-next.1
+
   svelte-preprocess@5.1.3:
     resolution: {integrity: sha512-xxAkmxGHT+J/GourS5mVJeOXZzne1FR5ljeOUAMXUkfEhkLEllRreXpbl3dIYJlcJRfL1LO1uIAPpBpBfiqGPw==}
     engines: {node: '>= 16.0.0', pnpm: ^8.0.0}
@@ -5288,6 +5299,8 @@ snapshots:
 
   '@jridgewell/sourcemap-codec@1.4.15': {}
 
+  '@jridgewell/sourcemap-codec@1.5.0': {}
+
   '@jridgewell/trace-mapping@0.3.22':
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
@@ -5413,8 +5426,8 @@ snapshots:
 
   '@sveltejs/enhanced-img@0.2.0(rollup@4.14.1)(svelte@4.2.12)':
     dependencies:
-      magic-string: 0.30.9
-      svelte-parse-markup: 0.1.2(svelte@4.2.12)
+      magic-string: 0.30.11
+      svelte-parse-markup: 0.1.5(svelte@4.2.12)
       vite-imagetools: 7.0.1(rollup@4.14.1)
     transitivePeerDependencies:
       - rollup
@@ -5479,7 +5492,7 @@ snapshots:
       autoprefixer: 10.4.19(postcss@8.4.38)
       hast-util-to-string: 3.0.0
       hastscript: 9.0.0
-      magic-string: 0.30.9
+      magic-string: 0.30.11
       mdsvex: https://github.com/vnphanquang/MDsveX/raw/master/packages/mdsvex/mdsvex-0.11.0.tgz(svelte@4.2.12)
       postcss: 8.4.38
       postcss-color-scheme: 1.0.1(postcss@8.4.38)
@@ -5493,7 +5506,7 @@ snapshots:
       remark-gfm: 4.0.0
       shiki: 1.2.0
       svelte: 4.2.12
-      svelte-parse-markup: 0.1.2(svelte@4.2.12)
+      svelte-parse-markup: 0.1.5(svelte@4.2.12)
       tailwindcss: 3.4.3
     transitivePeerDependencies:
       - supports-color
@@ -7303,6 +7316,10 @@ snapshots:
     dependencies:
       sourcemap-codec: 1.4.8
 
+  magic-string@0.30.11:
+    dependencies:
+      '@jridgewell/sourcemap-codec': 1.5.0
+
   magic-string@0.30.7:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.4.15
@@ -8694,11 +8711,15 @@ snapshots:
     dependencies:
       svelte: 4.2.12
 
+  svelte-parse-markup@0.1.5(svelte@4.2.12):
+    dependencies:
+      svelte: 4.2.12
+
   svelte-preprocess@5.1.3(postcss-load-config@4.0.2(postcss@8.4.38))(postcss@8.4.38)(sugarss@4.0.1(postcss@8.4.38))(svelte@4.2.12)(typescript@5.4.4):
     dependencies:
       '@types/pug': 2.0.10
       detect-indent: 6.1.0
-      magic-string: 0.30.9
+      magic-string: 0.30.11
       sorcery: 0.11.0
       strip-indent: 3.0.0
       svelte: 4.2.12

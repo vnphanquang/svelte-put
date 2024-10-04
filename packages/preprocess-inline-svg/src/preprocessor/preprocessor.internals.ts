@@ -158,7 +158,8 @@ export function transform(
 				);
 			}
 
-			const hast = parseSvg(fs.readFileSync(svgSource, 'utf8'));
+			const svgStr = fs.readFileSync(svgSource, 'utf8').replace(/&amp;/g, '&');
+			const hast = parseSvg(svgStr);
 			const svg = hast.children[0] as ElementNode;
 
 			const attributes = {
@@ -199,3 +200,4 @@ export function transform(
 		map: s.generateMap(),
 	};
 }
+

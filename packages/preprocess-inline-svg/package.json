@@ -68,8 +68,9 @@
 	"dependencies": {
 		"hast-util-to-html": "^9.0.1",
 		"lodash.debounce": "^4.0.8",
-		"magic-string": "^0.30.9",
-		"svelte-parse-markup": "^0.1.2",
+		"magic-string": "^0.30.10",
+		"svelte-parse-markup": "^0.1.5",
 		"svg-parser": "^2.0.4"
 	}
 }
+
