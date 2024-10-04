@@ -36,7 +36,7 @@ export function generateSourceTyping(sources, config, out) {
 		for (const dir of directories) {
 			const files = findSvgRecursively(dir);
 			for (const file of files) {
-				const svg = path.relative(dir, file).replace('.svg', '');
+				let svg = path.posix.relative(dir, file).replace('.svg', '');
 				svgs.add(`'${svg}'`);
 			}
 		}
