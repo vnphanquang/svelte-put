@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.1.4
+
+### Patch Changes
+
+- [`15de2df`](https://github.com/vnphanquang/svelte-put/commit/15de2df630e8d6b4389c72bac8f1c7f634d11e0b) Thanks [@vnphanquang](https://github.com/vnphanquang)! - unescape &amp; to & during preprocessing (fixes #322)
+
 ## 2.1.3
 
 ### Patch Changes
