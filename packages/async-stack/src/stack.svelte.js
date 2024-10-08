@@ -41,7 +41,7 @@ export class Stack {
 					...item.config.props,
 					item,
 				},
-				intro: true
+				intro: true,
 			});
 			return {};
 		},
@@ -70,8 +70,8 @@ export class Stack {
 	 * @template {VariantMap[Variant]} [UserComponent=VariantMap[Variant]]
 	 * @overload
 	 * @param {'custom'} variant
-	 * @param {import('./types.package').StackItemCustomPushConfig<UserComponent>} config
-	 * @returns {StackItem<UserComponent>}
+	 * @param {import('./types.package').StackItemCustomPushConfig<import('svelte').Component<any>>} config
+	 * @returns {StackItem<import('svelte').Component<any>>}
 	 */
 	/**
 	 * @template {Extract<keyof VariantMap, string>} Variant
@@ -194,7 +194,7 @@ export class Stack {
 			this.items = this.items.filter((n) => n.config.id !== pushed.config.id);
 		}
 
-		return  pushed;
+		return pushed;
 	}
 
 	/**
@@ -227,4 +227,3 @@ export class Stack {
 		}
 	}
 }
-
