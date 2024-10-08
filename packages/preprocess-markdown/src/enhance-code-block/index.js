@@ -88,7 +88,7 @@ export function enhanceCodeBlock(config = {}) {
 			}
 
 			walk(
-				/** @type {import('svelte/compiler').ElementLike} */ (
+				/** @type {import('svelte/compiler').AST.RegularElement} */ (
 					/** @type {unknown} */ (ast.fragment)
 				),
 				null,
@@ -96,7 +96,7 @@ export function enhanceCodeBlock(config = {}) {
 					RegularElement(node, { next }) {
 						if (node.name !== enhancedElement) return next();
 
-						const attributes = /** @type {import('svelte/compiler').Attribute[]} */ (
+						const attributes = /** @type {import('svelte/compiler').AST.Attribute[]} */ (
 							node.attributes.filter((attr) => attr.type === 'Attribute')
 						);
 
@@ -166,4 +166,3 @@ export function enhanceCodeBlock(config = {}) {
 }
 
 export default enhanceCodeBlock;
-

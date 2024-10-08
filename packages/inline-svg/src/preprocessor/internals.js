@@ -14,7 +14,7 @@ import path from 'path';
  */
 
 /** @package */
-export const DEFAULT_SOURCES_CONFIG = /** @satisfies {ResolvedSourceDefinition} */({
+export const DEFAULT_SOURCES_CONFIG = /** @satisfies {ResolvedSourceDefinition} */ ({
 	directories: [],
 	attributes: {},
 });
@@ -78,7 +78,7 @@ export function resolveSources(sources) {
  */
 
 /** @package */
-export const DEFAULT_INLINE_SVG_CONFIG = /** @type {ResolvedPreprocessorConfig} */({
+export const DEFAULT_INLINE_SVG_CONFIG = /** @type {ResolvedPreprocessorConfig} */ ({
 	inlineSrcAttributeName: 'inline-src',
 	keepInlineSrcAttribute: false,
 });
@@ -126,14 +126,14 @@ export function findSvgSrc(filename, directories, inlineSrc) {
 
 /**
  * @param {string} source
- * @param {import('svelte/compiler').RegularElement} node
+ * @param {import('svelte/compiler').AST.RegularElement} node
  * @param {string} attributeName
  * @returns {string | undefined}
  */
 export function getAttribute(source, node, attributeName) {
-	const attr = /** @type {import('svelte/compiler').Attribute} */(node.attributes.find(
-		(attr) => attr.type === 'Attribute' && attr.name === attributeName,
-	));
+	const attr = /** @type {import('svelte/compiler').AST.Attribute} */ (
+		node.attributes.find((attr) => attr.type === 'Attribute' && attr.name === attributeName)
+	);
 	if (attr) {
 		let raw = source.slice(attr.start + attributeName.length + 1, attr.end);
 		if (raw.startsWith('"') && raw.endsWith('"')) {

@@ -35,7 +35,7 @@ export function inlineSvg(uSources, uConfig) {
 			const ast = parseSvelteMarkup(content, { filename, modern: true });
 
 			walk(
-				/** @type {import('svelte/compiler').ElementLike} */ (
+				/** @type {import('svelte/compiler').AST.RegularElement} */ (
 					/** @type {unknown} */ (ast.fragment)
 				),
 				null,

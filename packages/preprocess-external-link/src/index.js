@@ -2,12 +2,13 @@ import MagicString from 'magic-string';
 import { parse } from 'svelte-parse-markup';
 import { walk } from 'zimmerframe';
 
-const DEFAULT_EXTERNAL_LINK_CONFIG = /** @satisfies {Required<import('./types.public').ExternalLinkConfig>} */ ({
-	hosts: ['localhost'],
-	markerAttribute: 'data-external',
-	attributes: { target: '_blank', rel: 'noopener noreferrer' },
-	files: () => true,
-});
+const DEFAULT_EXTERNAL_LINK_CONFIG =
+	/** @satisfies {Required<import('./types.public').ExternalLinkConfig>} */ ({
+		hosts: ['localhost'],
+		markerAttribute: 'data-external',
+		attributes: { target: '_blank', rel: 'noopener noreferrer' },
+		files: () => true,
+	});
 
 /**
  * search for external links and add appropriate attributes
@@ -39,7 +40,7 @@ export function externalLink(config) {
 			const ast = parse(content, { filename, modern: true });
 
 			walk(
-				/** @type {import('svelte/compiler').ElementLike} */ (
+				/** @type {import('svelte/compiler').AST.RegularElement} */ (
 					/** @type {unknown} */ (ast.fragment)
 				),
 				null,
@@ -47,7 +48,7 @@ export function externalLink(config) {
 					RegularElement(node, { next }) {
 						if (node.name !== 'a') return next();
 
-						const attributes = /** @type {import('svelte/compiler').Attribute[]} */ (
+						const attributes = /** @type {import('svelte/compiler').AST.Attribute[]} */ (
 							node.attributes.filter((attr) => attr.type === 'Attribute')
 						);
 
@@ -113,4 +114,3 @@ export * from './types.public.js';
  *<a {href}>Through variable</a>
  *<a {href} data-external>Forced external</a>
  */
-
