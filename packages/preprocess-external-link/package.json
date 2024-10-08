@@ -21,7 +21,7 @@
 		"types"
 	],
 	"scripts": {
-		"lint": "eslint . --ignore-path=\"../../.eslintignore\"",
+		"lint": "eslint .",
 		"format": "prettier --ignore-path ../../.prettierignore --write .",
 		"dts": "dts-buddy --write && publint",
 		"prepublishOnly": "turbo run dts --filter=@svelte-put/preprocess-external-link"
@@ -54,10 +54,10 @@
 		"@internals/tsconfig": "workspace:*"
 	},
 	"peerDependencies": {
-		"svelte": "^5.0.0-next.188"
+		"svelte": "^5.0.0-next.262"
 	},
 	"dependencies": {
-		"magic-string": "^0.30.10",
+		"magic-string": "^0.30.11",
 		"svelte-parse-markup": "^0.1.5",
 		"zimmerframe": "^1.1.2"
 	}

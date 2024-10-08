@@ -10,12 +10,13 @@ export class Popover {
 	#showTimeoutId = undefined;
 
 	/** @type {HTMLButtonElement | null} */
-	#controlEl = null;
+	// #controlEl = null;
 
 	/** @type {HTMLElement | null} */
 	#targetEl = null;
 
 	// public API
+	// eslint-disable-next-line no-undef
 	open = $state(false);
 
 	/** @type {import('./types.public').PopoverConfig} */
@@ -32,8 +33,7 @@ export class Popover {
 		this.config = {
 			id: init.id
 				? init.id
-				: // eslint-disable-next-line no-undef
-					'crypto' in globalThis
+				: 'crypto' in globalThis
 					? crypto.randomUUID()
 					: Math.random().toString(36).substring(2),
 			inertWhenHidden: init.inertWhenHidden ?? true,
@@ -75,7 +75,7 @@ export class Popover {
 				: [init.plugins]
 			: [];
 
-		const rPlugins = this.config.plugins.map(p => p(this.config));
+		const rPlugins = this.config.plugins.map((p) => p(this.config));
 		const plugined = {
 			control: {
 				attributes: rPlugins
@@ -98,7 +98,7 @@ export class Popover {
 				...(plugined.control?.attributes ?? {}),
 			},
 			actions: (node) => {
-				this.#controlEl = node;
+				// this.#controlEl = node;
 
 				/** @type {Array<() => void>} */
 				const offs = [];
@@ -142,7 +142,9 @@ export class Popover {
 			actions: (node) => {
 				this.#targetEl = node;
 
+				// eslint-disable-next-line no-undef
 				$effect.root(() => {
+					// eslint-disable-next-line no-undef
 					$effect(() => {
 						// make popover inert when not open
 						node.inert = !this.open;
@@ -240,4 +242,3 @@ export class Popover {
 		this.show();
 	};
 }
-

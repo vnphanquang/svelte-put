@@ -39,7 +39,7 @@
 		"types"
 	],
 	"scripts": {
-		"lint": "eslint . --ignore-path=\"../../.eslintignore\"",
+		"lint": "eslint .",
 		"format": "prettier --ignore-path ../../.prettierignore --write .",
 		"dts": "dts-buddy --write && publint",
 		"prepublishOnly": "turbo run dts --filter=@svelte-put/inline-svg"
@@ -79,16 +79,16 @@
 		"@types/svg-parser": "^2.0.6"
 	},
 	"dependencies": {
-		"hast-util-to-html": "^9.0.1",
+		"hast-util-to-html": "^9.0.3",
 		"lodash.debounce": "^4.0.8",
-		"magic-string": "^0.30.10",
+		"magic-string": "^0.30.11",
 		"svelte-parse-markup": "^0.1.5",
 		"svg-parser": "^2.0.4",
 		"zimmerframe": "^1.1.2"
 	},
 	"peerDependencies": {
-		"svelte": "^5.0.0-next.188",
-		"vite": "^5.0.0"
+		"svelte": "^5.0.0-next.262",
+		"vite": "^5.4.8"
 	},
 	"volta": {
 		"extends": "../../package.json"

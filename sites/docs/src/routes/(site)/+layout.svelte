@@ -44,12 +44,12 @@
 {#if $navigating}
 	<PageLoadIndicator />
 {/if}
-<div class="relative flex w-full flex-1 flex-col pt-header" id="docs">
-	<header class="fixed inset-x-0 top-0 z-header flex h-header flex-col border-b border-outline">
+<div class="pt-header relative flex w-full flex-1 flex-col" id="docs">
+	<header class="z-header h-header border-outline fixed inset-x-0 top-0 flex flex-col border-b">
 		<nav class="max-w-pad flex flex-1 items-center py-2" aria-label="header">
 			<a href="/" class="mr-auto flex items-center gap-2">
 				<svg inline-src="svelte-put" width="32" height="32" />
-				<span class="font-fingerpaint text-sm font-bold text-gradient-brand">svelte-put</span>
+				<span class="font-fingerpaint text-gradient-brand text-sm font-bold">svelte-put</span>
 			</a>
 			{#if hydrated}
 				<a
@@ -63,10 +63,11 @@
 			<ColorSchemeMenu class="ml-4" />
 			<a href={SOCIAL_LINKS.GITHUB} data-external class="c-link c-link--icon ml-4">
 				<svg inline-src="simpleicon/github" height="28" width="28" />
+				<span class="sr-only">Github</span>
 			</a>
 		</nav>
 		<div
-			class="max-w-pad flex flex-1 items-center justify-between border-t border-outline py-1 lg:justify-end xl:hidden"
+			class="max-w-pad border-outline flex flex-1 items-center justify-between border-t py-1 lg:justify-end xl:hidden"
 		>
 			<MenuLabel class="lg:hidden" for="pages-toggler">Navigation</MenuLabel>
 			<MenuLabel align="right" for="toc-toggler">Table of Contents</MenuLabel>
@@ -79,13 +80,13 @@
 			<ul class="sidebar-content space-y-4">
 				<li>
 					<p class="font-bold uppercase">Overview</p>
-					<ul class="mt-3 space-y-1 border-l border-outline">
+					<ul class="border-outline mt-3 space-y-1 border-l">
 						<li>
 							{#each Object.entries(TOP_LEVEL_PATHS) as [label, path]}
 								<a
 									href={path}
 									data-current={data.pathname === path}
-									class="c-link c-link--lazy -ml-px block whitespace-nowrap border-l border-transparent py-1 pl-3 data-current:border-link data-current:text-link"
+									class="c-link c-link--lazy data-current:border-link data-current:text-link -ml-px block whitespace-nowrap border-l border-transparent py-1 pl-3"
 								>
 									{label}
 								</a>
@@ -95,16 +96,16 @@
 				</li>
 				<li>
 					<p class="font-bold uppercase">Packages</p>
-					<ul class="mt-3 space-y-1 border-l border-outline">
+					<ul class="border-outline mt-3 space-y-1 border-l">
 						{#each Object.values(packages) as { path, status, id }}
 							<li>
 								<a
 									href={path}
 									data-current={data.pathname.includes(`/${id}`)}
-									class="data-current:link c-link c-link--lazy -ml-px block whitespace-nowrap border-l border-transparent py-1 pl-3 data-current:border-link"
+									class="data-current:link c-link c-link--lazy data-current:border-link -ml-px block whitespace-nowrap border-l border-transparent py-1 pl-3"
 									onclick={closeLeftSidebar}
 								>
-									<span class="h-full w-1 bg-primary"></span>
+									<span class="bg-primary h-full w-1"></span>
 									{id}
 									<sup>
 										{#if status !== 'stable'}
@@ -122,10 +123,10 @@
 										<a
 											href={path}
 											data-current={data.pathname.includes(`/${id}`)}
-											class="data-current:link c-link c-link--lazy -ml-px block whitespace-nowrap border-l border-transparent py-1 pl-3 data-current:border-link"
+											class="data-current:link c-link c-link--lazy data-current:border-link -ml-px block whitespace-nowrap border-l border-transparent py-1 pl-3"
 											onclick={closeLeftSidebar}
 										>
-											<span class="h-full w-1 bg-primary"></span>
+											<span class="bg-primary h-full w-1"></span>
 											{id}
 										</a>
 									</li>
@@ -145,13 +146,13 @@
 		{/key}
 
 		<nav class="sidebar sidebar-right" aria-label="table of contents">
-			<p class="c-callout c-callout--success c-callout--icon-megaphone mt-10 upto-xl:hidden">
+			<p class="c-callout c-callout--success c-callout--icon-megaphone upto-xl:hidden mt-10">
 				Still on Svelte 4? See
 				<a class="c-link" href="https://svelte-put-svelte-4.vnphanquang.com"
 					>the old docs site here.</a
 				>
 			</p>
-			<div class="sveltevietnam-banner mt-5 space-y-2 rounded border p-4 upto-xl:hidden">
+			<div class="sveltevietnam-banner upto-xl:hidden mt-5 space-y-2 rounded border p-4">
 				<p class="font-medium">Are you based in Vietnam?</p>
 				<div class="flex items-center gap-4">
 					<div class="c-logo c-logo--themed"></div>
@@ -164,14 +165,14 @@
 			<div class="sidebar-content text-sm">
 				{#if toc.items.size}
 					<p class="py-2 font-bold uppercase">On This Page</p>
-					<ul class="space-y-1 border-l border-outline">
+					<ul class="border-outline space-y-1 border-l">
 						{#each toc.items.values() as tocItem (tocItem.id)}
 							{@const level = tocItem.element.tagName.slice(1)}
 							<li>
 								<!-- svelte-ignore a11y_missing_attribute -->
 								<a
 									use:toc.actions.link={tocItem}
-									class="c-link c-link--lazy -ml-px block border-l border-transparent py-1 capitalize data-current:border-link data-current:text-link"
+									class="c-link c-link--lazy data-current:border-link data-current:text-link -ml-px block border-l border-transparent py-1 capitalize"
 									class:pl-3={level === '2'}
 									class:pl-5={level === '3'}
 									class:pl-7={level === '4'}
@@ -334,4 +335,3 @@
 		border-bottom: 1px solid theme('colors.outline.DEFAULT');
 	}
 </style>
-

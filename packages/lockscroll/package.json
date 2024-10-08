@@ -21,7 +21,7 @@
 		"types"
 	],
 	"scripts": {
-		"lint": "eslint . --ignore-path=\"../../.eslintignore\"",
+		"lint": "eslint .",
 		"format": "prettier --ignore-path ../../.prettierignore --write .",
 		"dts": "dts-buddy --write && publint",
 		"prepublishOnly": "turbo run dts --filter=@svelte-put/lockscroll"
@@ -51,7 +51,7 @@
 		"@internals/tsconfig": "workspace:*"
 	},
 	"peerDependencies": {
-		"svelte": "^5.0.0-next.188"
+		"svelte": "^5.0.0-next.262"
 	},
 	"volta": {
 		"extends": "../../package.json"

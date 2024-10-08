@@ -25,9 +25,11 @@
 						cleanup = compute(controlEl, targetEl, arrowEl);
 					},
 				},
-				actions: [(node) => {
-					node.classList.toggle('enhanced', true);
-				}],
+				actions: [
+					(node) => {
+						node.classList.toggle('enhanced', true);
+					},
+				],
 			},
 		}),
 	});
@@ -36,12 +38,13 @@
 <div class="not-prose {cls}" {...rest}>
 	<button
 		type="button"
-		class="transition-colors hover:text-link"
+		class="hover:text-link transition-colors"
 		bind:this={controlEl}
 		{...popover.control.attributes}
 		use:popover.control.actions
 	>
 		<svg inline-src="runes" width="80" height="80"></svg>
+		<span class="sr-only">Run support</span>
 	</button>
 
 	<div
@@ -57,4 +60,3 @@
 		</p>
 	</div>
 </div>
-

@@ -21,7 +21,7 @@
 		}
 		let currentSourceIndex = 0;
 		if (rElement) {
-			rElement.addEventListener('error', (_) => {
+			rElement.addEventListener('error', () => {
 				if (currentSourceIndex < sources.length - 1) {
 					currentSourceIndex++;
 					rElement.src = rSrc = sources[currentSourceIndex];
@@ -59,4 +59,3 @@
 		aspect-ratio: 1 / 1;
 	}
 </style>
-

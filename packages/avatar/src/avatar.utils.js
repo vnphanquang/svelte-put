@@ -89,6 +89,7 @@ export function resolveSize(
 		if (src) return getSizeFromUrl(src) || fallback;
 		return fallback;
 	} catch (error) {
+		console.error('[@svelte-put/avatar] error resolving avatar size', error);
 		return fallback;
 	}
 }
@@ -128,4 +129,3 @@ export function resolveSrc(
 
 	return [src, rGravatar, rUIAvatar, fallback].filter(nonNullableFilter);
 }
-

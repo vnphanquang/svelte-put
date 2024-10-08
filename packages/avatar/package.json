@@ -36,7 +36,7 @@
 	"scripts": {
 		"lint": "run-p lint:*",
 		"lint:svelte": "svelte-check --tsconfig ./tsconfig.json",
-		"lint:es": "eslint . --ignore-path=\"../../.eslintignore\"",
+		"lint:es": "eslint .",
 		"lint:style": "stylelint '**/*.{svelte,css}'",
 		"format": "prettier --ignore-path ../../.prettierignore --write .",
 		"dts": "dts-buddy --write && publint",
@@ -73,7 +73,7 @@
 		"extends": "../../package.json"
 	},
 	"peerDependencies": {
-		"svelte": "^5.0.0-next.188"
+		"svelte": "^5.0.0-next.262"
 	},
 	"dependencies": {
 		"md5": "^2.3.0"

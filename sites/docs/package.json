@@ -10,13 +10,14 @@
 		"preview": "vite preview",
 		"lint": "run-p lint:*",
 		"lint:svelte": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"lint:es": "eslint .",
 		"format": "prettier --write ."
 	},
 	"dependencies": {
-		"@floating-ui/dom": "^1.6.8",
+		"@floating-ui/dom": "^1.6.11",
 		"mustache": "^4.2.0",
-		"pagefind": "^1.1.0",
-		"sanitize-html": "^2.13.0"
+		"pagefind": "^1.1.1",
+		"sanitize-html": "^2.13.1"
 	},
 	"devDependencies": {
 		"@svelte-put/async-stack": "workspace:*",
@@ -39,17 +40,17 @@
 		"@svelte-put/shortcut": "workspace:*",
 		"@svelte-put/swipeable": "workspace:*",
 		"@svelte-put/toc": "workspace:*",
-		"@sveltejs/adapter-cloudflare": "^4.7.0",
-		"@sveltejs/enhanced-img": "^0.3.1",
-		"@sveltejs/kit": "^2.5.18",
+		"@sveltejs/adapter-cloudflare": "^4.7.2",
+		"@sveltejs/enhanced-img": "^0.3.8",
+		"@sveltejs/kit": "^2.6.3",
 		"@sveltejs/vite-plugin-svelte": "4.0.0-next.3",
 		"@sveltevietnam/ui": "1.0.0-next.30",
-		"@total-typescript/ts-reset": "^0.5.1",
+		"@total-typescript/ts-reset": "^0.6.1",
 		"@types/mustache": "^4.2.5",
-		"@types/sanitize-html": "^2.11.0",
-		"postcss": "^8.4.40",
-		"tailwindcss": "^3.4.6",
-		"vite": "^5.3.4"
+		"@types/sanitize-html": "^2.13.0",
+		"postcss": "^8.4.47",
+		"tailwindcss": "^3.4.13",
+		"vite": "^5.4.8"
 	},
 	"volta": {
 		"extends": "../../package.json"

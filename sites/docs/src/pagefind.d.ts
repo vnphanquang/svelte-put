@@ -23,7 +23,7 @@ declare module '@pagefind' {
 		 *
 		 * Only applies in multisite setups.
 		 */
-		mergeFilter?: Object;
+		mergeFilter?: object;
 		/**
 		 * If set, will ass the search term as a query parameter under this key, for use with Pagefind's highlighting script.
 		 */
@@ -79,9 +79,9 @@ declare module '@pagefind' {
 		/** Add more verbose console logging for this search query */
 		verbose?: boolean;
 		/** The set of filters to execute with this search. Input type is extremely flexible, see the filtering docs for details */
-		filters?: Object;
+		filters?: object;
 		/** The set of sorts to use for this search, instead of relevancy */
-		sort?: Object;
+		sort?: object;
 	};
 
 	/** Filter counts returned from pagefind.filters(), and alongside results from pagefind.search() */
@@ -301,4 +301,3 @@ declare module '@pagefind' {
 	 */
 	export { debouncedSearch, destroy, filters, init, mergeIndex, options, preload, search };
 }
-

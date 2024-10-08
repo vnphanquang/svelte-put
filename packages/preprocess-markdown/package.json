@@ -40,7 +40,7 @@
 		"types"
 	],
 	"scripts": {
-		"lint": "eslint . --ignore-path=\"../../.eslintignore\"",
+		"lint": "eslint .",
 		"format": "prettier --ignore-path ../../.prettierignore --write .",
 		"dts": "dts-buddy --write && publint",
 		"prepublishOnly": "turbo run dts --filter=@svelte-put/preprocess-markdown"
@@ -70,20 +70,20 @@
 		"@types/hast": "^3.0.4"
 	},
 	"peerDependencies": {
-		"svelte": "^5.0.0-next.188"
+		"svelte": "^5.0.0-next.262"
 	},
 	"dependencies": {
-		"@shikijs/rehype": "^1.11.1",
+		"@shikijs/rehype": "^1.22.0",
 		"@svelte-put/copy": "workspace:*",
-		"hast-util-to-html": "^9.0.1",
-		"hast-util-to-string": "^3.0.0",
+		"hast-util-to-html": "^9.0.3",
+		"hast-util-to-string": "^3.0.1",
 		"hastscript": "^9.0.0",
-		"magic-string": "^0.30.10",
-		"rehype-stringify": "^10.0.0",
+		"magic-string": "^0.30.11",
+		"rehype-stringify": "^10.0.1",
 		"remark-gfm": "^4.0.0",
 		"remark-parse": "^11.0.0",
-		"remark-rehype": "^11.1.0",
-		"shiki": "^1.11.1",
+		"remark-rehype": "^11.1.1",
+		"shiki": "^1.22.0",
 		"svelte-parse-markup": "^0.1.5",
 		"unified": "^11.0.5",
 		"unist-util-visit": "^5.0.0",

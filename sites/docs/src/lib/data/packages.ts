@@ -285,6 +285,7 @@ export const deprecatedPackages = {
 		path: '/docs/modal',
 		replId: '0a68001337544b8ab55995fb3d02d1f6',
 		status: 'stable',
+		rune: false,
 		githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/next/packages/modal',
 		changelogUrl: 'https://github.com/vnphanquang/svelte-put/blob/next/packages/modal/CHANGELOG.md',
 	},
@@ -329,4 +330,3 @@ export const deprecatedPackages = {
 			'https://github.com/vnphanquang/svelte-put/blob/next/packages/tooltip/CHANGELOG.md',
 	},
 } as const satisfies Record<string, Package>;
-
