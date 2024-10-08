@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0-next.4
+
+### Patch Changes
+
+- [`896c0ef`](https://github.com/vnphanquang/svelte-put/commit/896c0efef855fc00e95e94db4d854d03394764c4) Thanks [@vnphanquang](https://github.com/vnphanquang)! - correct typing for the `custom` variant of generic `push` function
+
 ## 1.0.0-next.3
 
 ### Patch Changes
