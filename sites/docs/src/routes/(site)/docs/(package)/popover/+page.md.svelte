@@ -18,15 +18,15 @@ We are, however, still waiting for browsers to implement the [CSS Anchor Positio
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/popover@next
+npm install --save-dev @svelte-put/popover@latest
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/popover@next
+pnpm add -D @svelte-put/popover@latest
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/popover@next
+yarn add -D @svelte-put/popover@latest
 ```
 
 </enhanced-code-block>

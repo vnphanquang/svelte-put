@@ -1,52 +1,47 @@
 <script>
-  import { notiStack } from '../comprehensive/notification-stack';
+	import { notiStack } from '../comprehensive/notification-stack';
 
 	// :::highlight
-  import InteractiveNotification from './InteractiveNotification.svelte';
+	import InteractiveNotification from './InteractiveNotification.svelte';
 	// :::
 
-  let state = $state('idle');
-  async function pushNoti() {
-    const pushed = notiStack.push('custom', {
-      timeout: 0,
+	let state = $state('idle');
+	async function pushNoti() {
+		const pushed = notiStack.push('custom', {
+			timeout: 0,
 			// :::highlight
-      component: InteractiveNotification,
+			component: InteractiveNotification,
 			// :::
-      props: {
-        message: 'You are invited to join the Svelte community!',
-      },
-    });
+			props: {
+				message: 'You are invited to join the Svelte community!',
+			},
+		});
 
-    state = 'pending';
+		state = 'pending';
 		// :::highlight
-    const agreed = await pushed.resolution;
+		const agreed = await pushed.resolution;
 		// :::
-    state = agreed ? 'accepted' : 'denied';
-  }
+		state = agreed ? 'accepted' : 'denied';
+	}
 </script>
 
 <p>
-  {#if state === 'idle'}
-    Waiting for notification to be pushed
-  {:else if state === 'pending'}
-    Waiting for user action to resolve notification
-  {:else}
-    Invitation was <span
+	{#if state === 'idle'}
+		Waiting for notification to be pushed
+	{:else if state === 'pending'}
+		Waiting for user action to resolve notification
+	{:else}
+		Invitation was <span
 			class="px-2"
-      class:text-error-text={state == 'denied'}
-      class:bg-error-surface={state == 'denied'}
-      class:text-success-text={state === 'accepted'}
-      class:bg-success-surface={state == 'accepted'}
-    >
-      {state}
-    </span>
-  {/if}
+			class:text-error-text={state == 'denied'}
+			class:bg-error-surface={state == 'denied'}
+			class:text-success-text={state === 'accepted'}
+			class:bg-success-surface={state == 'accepted'}
+		>
+			{state}
+		</span>
+	{/if}
 </p>
-<button
-	class="c-btn"
-	onclick={pushNoti}
-	disabled={state === 'pending'}
->
+<button class="c-btn" onclick={pushNoti} disabled={state === 'pending'}>
 	Trigger Interactive Notification
 </button>
-

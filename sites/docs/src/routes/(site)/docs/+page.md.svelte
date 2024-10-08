@@ -19,7 +19,7 @@ Check out their corresponding documentation for more details.
 	<p>Description</p>
 	<p>Version</p>
 	<p>Status</p>
-	{#each Object.values(packages) as { id, description, name, path, status }}
+	{#each Object.values(packages) as { id, description, name, path, status, releaseTag }}
 		<p>
 			<a href={path} class="c-link font-medium">
 				{id}
@@ -30,7 +30,7 @@ Check out their corresponding documentation for more details.
 			<a href={createNpmUrl(name)} target="_blank" class="block" data-external>
 				<img
 					class="block rounded"
-					src={createNpmBadgeUrl(name)}
+					src={createNpmBadgeUrl(name, releaseTag)}
 					alt={name}
 					width="180"
 					height="22"
@@ -60,3 +60,4 @@ like a good fit, hence this project. To contribute or support the project, head 
 		Edit this page on Github
 	</a>
 </p>
+

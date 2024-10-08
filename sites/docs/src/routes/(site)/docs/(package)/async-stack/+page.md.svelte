@@ -43,15 +43,15 @@ This package was extracted from the core logic of now-deprecated [@svelte-put/no
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/async-stack@next
+npm install --save-dev @svelte-put/async-stack@latest
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/async-stack@next
+pnpm add -D @svelte-put/async-stack@latest
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/async-stack@next
+yarn add -D @svelte-put/async-stack@latest
 ```
 
 </enhanced-code-block>

@@ -46,7 +46,12 @@
 {/snippet}
 
 <p class="not-prose flex flex-wrap items-center gap-2">
-	{@render badge(createNpmUrl(data.package.name), createNpmBadgeUrl(data.package.name), 24, 107)}
+	{@render badge(
+		createNpmUrl(data.package.name),
+		createNpmBadgeUrl(data.package.name, data.package.releaseTag),
+		24,
+		107,
+	)}
 	{@render badge(
 		createNpmUrl(data.package.name),
 		createNpmDownloadBadgeUrl(data.package.name),

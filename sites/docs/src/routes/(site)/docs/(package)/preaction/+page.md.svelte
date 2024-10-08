@@ -25,15 +25,15 @@ Be aware that `@svelte-put/preaction` requires at least Svelte 5 at the time of 
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/preaction@next
+npm install --save-dev @svelte-put/preaction@latest
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/preaction@next
+pnpm add -D @svelte-put/preaction@latest
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/preaction@next
+yarn add -D @svelte-put/preaction@latest
 ```
 
 </enhanced-code-block>

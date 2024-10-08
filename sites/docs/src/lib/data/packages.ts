@@ -6,6 +6,7 @@ export interface Package {
 	path: string;
 	replId?: string;
 	status: 'dev' | 'beta' | 'new' | 'flux' | 'stable';
+	releaseTag?: string;
 	rune: boolean;
 	githubUrl: string;
 	changelogUrl: string;
@@ -20,6 +21,7 @@ export const packages = {
 		path: '/docs/async-stack',
 		replId: undefined,
 		status: 'new',
+		releaseTag: 'latest',
 		rune: true,
 		githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/next/packages/async-stack',
 		changelogUrl:
@@ -33,6 +35,7 @@ export const packages = {
 		path: '/docs/avatar',
 		replId: 'd54381946b1c4ebd8e612e4568fbbbd0',
 		status: 'stable',
+		releaseTag: 'next',
 		rune: true,
 		githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/next/packages/avatar',
 		changelogUrl:
@@ -46,6 +49,7 @@ export const packages = {
 		path: '/docs/clickoutside',
 		replId: '9e5f9ee41c2c45aa8523993e357f6e78',
 		status: 'stable',
+		releaseTag: 'next',
 		rune: true,
 		githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/next/packages/clickoutside',
 		changelogUrl:
@@ -59,6 +63,7 @@ export const packages = {
 		path: '/docs/cloudflare-turnstile',
 		replId: '',
 		status: 'new',
+		releaseTag: 'next',
 		rune: true,
 		githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/next/packages/cloudflare-turnstile',
 		changelogUrl:
@@ -72,6 +77,7 @@ export const packages = {
 		path: '/docs/copy',
 		replId: undefined,
 		status: 'stable',
+		releaseTag: 'next',
 		rune: true,
 		githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/next/packages/copy',
 		changelogUrl: 'https://github.com/vnphanquang/svelte-put/blob/next/packages/copy/CHANGELOG.md',
@@ -84,6 +90,7 @@ export const packages = {
 		path: '/docs/dragscroll',
 		replId: undefined,
 		status: 'stable',
+		releaseTag: 'next',
 		rune: true,
 		githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/next/packages/dragscroll',
 		changelogUrl:
@@ -97,6 +104,7 @@ export const packages = {
 		path: '/docs/inline-svg',
 		replId: undefined,
 		status: 'stable',
+		releaseTag: 'next',
 		rune: true,
 		githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/next/packages/inline-svg',
 		changelogUrl:
@@ -110,6 +118,7 @@ export const packages = {
 		path: '/docs/intersect',
 		replId: '835eacce6ac44aff95a7cb0bb5ca200d',
 		status: 'stable',
+		releaseTag: 'next',
 		rune: true,
 		githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/next/packages/intersect',
 		changelogUrl:
@@ -123,6 +132,7 @@ export const packages = {
 		path: '/docs/lockscroll',
 		replId: '8bfbdc1af58e43b2af4d625f63358a35',
 		status: 'stable',
+		releaseTag: 'next',
 		rune: true,
 		githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/next/packages/lockscroll',
 		changelogUrl:
@@ -136,6 +146,7 @@ export const packages = {
 		path: '/docs/movable',
 		replId: '88a7c1fc2e134db7b58786d5f385fc5d',
 		status: 'stable',
+		releaseTag: 'next',
 		rune: true,
 		githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/next/packages/popover',
 		changelogUrl:
@@ -149,6 +160,7 @@ export const packages = {
 		path: '/docs/preaction',
 		replId: undefined,
 		status: 'beta',
+		releaseTag: 'latest',
 		rune: false,
 		githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/next/packages/preaction',
 		changelogUrl:
@@ -162,6 +174,7 @@ export const packages = {
 		path: '/docs/popover',
 		replId: undefined,
 		status: 'new',
+		releaseTag: 'latest',
 		rune: true,
 		githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/next/packages/popover',
 		changelogUrl:
@@ -175,6 +188,7 @@ export const packages = {
 		path: '/docs/preprocess-auto-slug',
 		replId: undefined,
 		status: 'stable',
+		releaseTag: 'next',
 		rune: false,
 		githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/next/packages/auto-slug',
 		changelogUrl:
@@ -189,6 +203,7 @@ export const packages = {
 		path: '/docs/preprocess-external-link',
 		replId: undefined,
 		status: 'new',
+		releaseTag: 'latest',
 		rune: false,
 		githubUrl:
 			'https://github.com/vnphanquang/svelte-put/tree/next/packages/preprocess-external-link',
@@ -203,6 +218,7 @@ export const packages = {
 		path: '/docs/qr',
 		replId: '74c053b447e94244833f9c3d73210ae5',
 		status: 'stable',
+		releaseTag: 'next',
 		rune: true,
 		githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/next/packages/qr',
 		changelogUrl: 'https://github.com/vnphanquang/svelte-put/blob/next/packages/qr/CHANGELOG.md',
@@ -215,6 +231,7 @@ export const packages = {
 		path: '/docs/resize',
 		replId: undefined,
 		status: 'stable',
+		releaseTag: 'next',
 		rune: true,
 		githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/next/packages/resize',
 		changelogUrl:
@@ -241,6 +258,7 @@ export const packages = {
 		path: '/docs/shortcut',
 		replId: undefined,
 		status: 'stable',
+		releaseTag: 'next',
 		rune: true,
 		githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/next/packages/shortcut',
 		changelogUrl:
@@ -254,6 +272,7 @@ export const packages = {
 		path: '/docs/toc',
 		replId: 'd9c896ac62cd41d49f80ffa249d292e6',
 		status: 'stable',
+		releaseTag: 'next',
 		rune: true,
 		githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/next/packages/toc',
 		changelogUrl: 'https://github.com/vnphanquang/svelte-put/blob/next/packages/toc/CHANGELOG.md',
@@ -266,6 +285,7 @@ export const packages = {
 		path: '/docs/swipeable',
 		replId: 'undefined',
 		status: 'new',
+		releaseTag: 'latest',
 		rune: true,
 		githubUrl: 'https://github.com/vnphanquang/svelte-put/tree/next/packages/swipeable',
 		changelogUrl:
