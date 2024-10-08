@@ -85,7 +85,7 @@ Additional options can be passed to [addEventListener] should it be necessary.
 In the [Advanced Usage & Customization] feature demo, notice the `stopPropagation` is explicitly called in the event listener of the "Enable/Disable" button. Without this, the button would also trigger an `clickoutside` CustomEvent.
 
 ```svelte
-<button on:click={(e) => e.stopPropagation()}>...</button>
+<button onclick={(e) => e.stopPropagation()}>...</button>
 ```
 
 <p class="c-callout c-callout--info">
@@ -98,7 +98,7 @@ Be aware to reflect customization made to the event listener as mentioned in the
 <div use:clickoutside={{ event: 'mousedown' }}>...</div>
 
 <!-- later -->
-<button on:mousedown={(e) => e.stopPropagation()}>...</button>
+<button onmousedown={(e) => e.stopPropagation()}>...</button>
 ```
 
 Below is another demo where `stopPropagation` is generally recommended. Consider two buttons, each should trigger the corresponding box on its side:
