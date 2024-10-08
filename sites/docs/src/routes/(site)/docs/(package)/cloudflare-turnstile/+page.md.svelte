@@ -35,7 +35,7 @@ yarn add -D @svelte-put/cloudflare-turnstile@next
 
 ## Quick Start
 
-<fieldset class="border-2 border-violet-500 py-4">
+<fieldset class="border-2 border-violet-500 py-4 grid place-items-center">
   <legend>Example</legend>
   <DemoQuickStart />
 </fieldset>
