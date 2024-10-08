@@ -106,7 +106,7 @@ When migrating to v2, you first need to update event attribute syntax to remove 
 <!-- ::: -->
 ```
 
-If you previously used the `createLockScrollStore` helper, that is no longer support. Instead, extend from the pattern introduced in [Usage with Svelte Rune](#usage-with-svelte-rune).
+If you previously used the `createLockScrollStore` helper, that is no longer supported. Instead, extend from the pattern introduced in [Usage with Svelte Rune](#usage-with-svelte-rune).
 
 ```svelte title="Migration to Svelte 5"
 <script>

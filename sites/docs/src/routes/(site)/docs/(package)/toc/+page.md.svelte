@@ -7,7 +7,7 @@
 
 ## Acknowledgement
 
-This package relies on [Svelte action] and attempts to stay minimal. If you are looking for a declarative, component-oriented solution, checkout [janosh/svelte-toc].
+This package relies on [Svelte action] and attempts to stay minimal. If you are looking for a declarative, component-oriented solution, check out [janosh/svelte-toc].
 
 ## Installation
 

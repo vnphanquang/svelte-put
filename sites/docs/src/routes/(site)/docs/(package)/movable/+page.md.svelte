@@ -57,8 +57,7 @@ In the following minimal example, try dragging the <span class="bg-blue-200 text
 
 `movable` provides two [CustomEvents][CustomEvent], `movablestart` and `movableend`, with `event.detail` as `MovableEventDetail`.
 
-```typescript
-/// title=MovableEventDetail
+```typescript title=MovableEventDetail
 export interface MovableEventDetail {
 	/** the node that the action was placed on */
 	node: HTMLElement;

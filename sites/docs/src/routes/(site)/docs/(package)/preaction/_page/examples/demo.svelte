@@ -7,7 +7,7 @@
 	const popover = {
 		// :::highlight
 		control: make((id: string) => {
-		// :::
+			// :::
 			return {
 				action: (node: HTMLButtonElement) => {
 					// regular runtime Svelte action business
@@ -17,12 +17,12 @@
 					popovertarget: id,
 					popovertargetaction: 'show',
 				} as HTMLButtonAttributes,
-			}
+			};
 		}),
 
 		// :::highlight
 		target: make((id: string) => {
-		// :::
+			// :::
 			return {
 				action: (node: HTMLDivElement) => {
 					// regular runtime Svelte action business
@@ -32,19 +32,19 @@
 					id,
 					popover: 'auto',
 				} as HTMLAttributes<HTMLDivElement>,
-			}
-		})
-	}
+			};
+		}),
+	};
 </script>
 
 <!-- :::highlight -->
 <button use:apply={popover.control('my-popover')} class="c-btn">
-<!-- ::: -->
+	<!-- ::: -->
 	Open Popover
 </button>
 
 <!-- :::highlight -->
-<div use:apply={popover.target('my-popover')} class="p-10">
-<!-- ::: -->
+<div use:apply={popover.target('my-popover')} class="border-2 p-10">
+	<!-- ::: -->
 	My simple popover
 </div>
