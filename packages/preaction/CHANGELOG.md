@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.0-next.5
+
+### Patch Changes
+
+- [`8745198`](https://github.com/vnphanquang/svelte-put/commit/874519803cc04f1124d7d028ab5029937bf921f3) Thanks [@vnphanquang](https://github.com/vnphanquang)! - update typing to Svelte AST (following [svelte@5.0.0-next.243](https://github.com/sveltejs/svelte/releases/tag/svelte%405.0.0-next.243) where AST has been exposed back to public typedef)
+
 ## 0.0.0-next.4
 
 ### Patch Changes

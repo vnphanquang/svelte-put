@@ -1,6 +1,6 @@
 {
 	"name": "@svelte-put/preaction",
-	"version": "0.0.0-next.4",
+	"version": "0.0.0-next.5",
 	"description": "allow Svelte action to spread SSR-friendly attriutes",
 	"main": "src/index.js",
 	"module": "src/index.js",
