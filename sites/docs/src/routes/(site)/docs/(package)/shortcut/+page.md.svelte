@@ -9,15 +9,15 @@
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/shortcut@next
+npm install --save-dev @svelte-put/shortcut
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/shortcut@next
+pnpm add -D @svelte-put/shortcut
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/shortcut@next
+yarn add -D @svelte-put/shortcut
 ```
 
 </enhanced-code-block>

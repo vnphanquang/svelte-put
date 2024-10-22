@@ -16,15 +16,15 @@ This packages employs the [Svelte action](https://svelte.dev/docs/svelte-action)
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/intersect@next
+npm install --save-dev @svelte-put/intersect
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/intersect@next
+pnpm add -D @svelte-put/intersect
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/intersect@next
+yarn add -D @svelte-put/intersect
 ```
 
 </enhanced-code-block>

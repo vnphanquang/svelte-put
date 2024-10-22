@@ -58,10 +58,10 @@
 		"@types/estree": "^1.0.6"
 	},
 	"peerDependencies": {
-		"svelte": "^5.0.0-next.262"
+		"svelte": "^5.0.0"
 	},
 	"dependencies": {
-		"magic-string": "^0.30.11",
+		"magic-string": "^0.30.12",
 		"zimmerframe": "^1.1.2"
 	}
 }

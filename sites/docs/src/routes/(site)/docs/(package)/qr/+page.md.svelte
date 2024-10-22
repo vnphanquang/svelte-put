@@ -22,15 +22,15 @@
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/qr@next
+npm install --save-dev @svelte-put/qr
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/qr@next
+pnpm add -D @svelte-put/qr
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/qr@next
+yarn add -D @svelte-put/qr
 ```
 
 </enhanced-code-block>

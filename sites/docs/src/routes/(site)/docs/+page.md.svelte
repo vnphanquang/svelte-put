@@ -11,8 +11,9 @@
 	from (my) real world projects that might be helpful for yours.
 </p>
 
-## Packages @svelte-put includes several packages with self-manged release cycles, listed below.
-Check out their corresponding documentation for more details.
+## Packages
+
+@svelte-put includes several packages with self-manged release cycles, listed below. Check out their corresponding documentation for more details.
 
 <div class="not-prose c-gtable-4 max-w-full grid-cols-[198px,1fr,180px,80px] items-center *:p-4">
 	<p>ID</p>
@@ -43,7 +44,9 @@ Check out their corresponding documentation for more details.
 	{/each}
 </div>
 
-## Inspiration & Acknowledgement There is already a great pool of [svelte actions collected by Shawn
+## Inspiration & AcknowledgementThere
+
+There is already a great pool of [svelte actions collected by Shawn
 and other contributors](https://github.com/sw-yx/svelte-actions) that you should check out. There
 might be some duplications here and there. However: - Shawn's project aims to be a source for RFCs
 into Svelte; I believe stuff I am putting here should stay in user land. - I prefer having separate

@@ -32,15 +32,15 @@ This package is heavily inspired by [rehype-slug] and [rehype-autolink-headings]
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/preprocess-auto-slug@next
+npm install --save-dev @svelte-put/preprocess-auto-slug
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/preprocess-auto-slug@next
+pnpm add -D @svelte-put/preprocess-auto-slug
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/preprocess-auto-slug@next
+yarn add -D @svelte-put/preprocess-auto-slug
 ```
 
 </enhanced-code-block>

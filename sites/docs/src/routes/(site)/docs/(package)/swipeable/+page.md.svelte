@@ -10,15 +10,15 @@
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/swipeable@latest
+npm install --save-dev @svelte-put/swipeable
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/swipeable@latest
+pnpm add -D @svelte-put/swipeable
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/swipeable@latest
+yarn add -D @svelte-put/swipeable
 ```
 
 </enhanced-code-block>

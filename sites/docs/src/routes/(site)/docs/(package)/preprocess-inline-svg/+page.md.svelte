@@ -19,15 +19,15 @@ Make sure you have version 4 of `@svelte-put/inline-svg` installed:
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/inline-svg@next
+npm install --save-dev @svelte-put/inline-svg
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/inline-svg@next
+pnpm add -D @svelte-put/inline-svg
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/inline-svg@next
+yarn add -D @svelte-put/inline-svg
 ```
 
 </enhanced-code-block>

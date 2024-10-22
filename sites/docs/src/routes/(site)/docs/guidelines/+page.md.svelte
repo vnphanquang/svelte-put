@@ -15,10 +15,6 @@ Any [svelte action](https://svelte.dev/docs/svelte-action) exported by a package
 <!-- ::: -->
 ```
 
-## Svelte Store Reactive Syntax
-
-Note that the [$ syntax](https://svelte.dev/docs/svelte-components#script-4-prefix-stores-with-$-to-access-their-values) for unpacking reactive store value is only available in `*.svelte` files and not in JS/TS. Instead, use the `.subscribe` method on the store instance itself in such cases.
-
 ## Should I use Typescript or not?
 
 If you are developing Svelte application (typically with SvelteKit & Vite), there is no reason not to use Typescript for its convenience in development workflow. One completely valid alternative to Typescript, is just plain Javascript with [JSDoc](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html), which, if setup correctly, will go to the same Typescript type checker and provide similar type checking benefits without the hassle of tooling setup. The packages in this collection are in fact written in Javascript with JSDoc.

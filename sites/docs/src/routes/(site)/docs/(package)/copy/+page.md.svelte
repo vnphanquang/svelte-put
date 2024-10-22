@@ -14,15 +14,15 @@
 <enhanced-code-block group display="tabs" bind:title={settings.packageManager}>
 
 ```bash title=npm
-npm install --save-dev @svelte-put/copy@next
+npm install --save-dev @svelte-put/copy
 ```
 
 ```bash title=pnpm
-pnpm add -D @svelte-put/copy@next
+pnpm add -D @svelte-put/copy
 ```
 
 ```bash title=yarn
-yarn add -D @svelte-put/copy@next
+yarn add -D @svelte-put/copy
 ```
 
 </enhanced-code-block>
