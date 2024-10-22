@@ -92,8 +92,8 @@ importers:
   packages/async-stack:
     dependencies:
       svelte:
-        specifier: ^5.0.0-next.262
-        version: 5.0.0-next.262
+        specifier: ^5.0.0
+        version: 5.0.5
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -105,8 +105,8 @@ importers:
         specifier: ^2.3.0
         version: 2.3.0
       svelte:
-        specifier: ^5.0.0-next.262
-        version: 5.0.0-next.262
+        specifier: ^5.0.0
+        version: 5.0.5
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -118,8 +118,8 @@ importers:
   packages/clickoutside:
     dependencies:
       svelte:
-        specifier: ^5.0.0-next.262
-        version: 5.0.0-next.262
+        specifier: ^5.0.0
+        version: 5.0.5
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -128,8 +128,8 @@ importers:
   packages/cloudflare-turnstile:
     dependencies:
       svelte:
-        specifier: ^5.0.0-next.262
-        version: 5.0.0-next.262
+        specifier: ^5.0.0
+        version: 5.0.5
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -138,8 +138,8 @@ importers:
   packages/copy:
     dependencies:
       svelte:
-        specifier: ^5.0.0-next.262
-        version: 5.0.0-next.262
+        specifier: ^5.0.0
+        version: 5.0.5
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -148,8 +148,8 @@ importers:
   packages/dragscroll:
     dependencies:
       svelte:
-        specifier: ^5.0.0-next.262
-        version: 5.0.0-next.262
+        specifier: ^5.0.0
+        version: 5.0.5
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -177,7 +177,7 @@ importers:
         version: 2.0.4
       vite:
         specifier: ^5.4.8
-        version: 5.4.8(@types/node@22.7.5)(sugarss@4.0.1(postcss@8.4.47))
+        version: 5.4.8(@types/node@22.7.8)(sugarss@4.0.1(postcss@8.4.47))
       zimmerframe:
         specifier: ^1.1.2
         version: 1.1.2
@@ -195,8 +195,8 @@ importers:
   packages/intersect:
     dependencies:
       svelte:
-        specifier: ^5.0.0-next.262
-        version: 5.0.0-next.262
+        specifier: ^5.0.0
+        version: 5.0.5
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -205,8 +205,8 @@ importers:
   packages/lockscroll:
     dependencies:
       svelte:
-        specifier: ^5.0.0-next.262
-        version: 5.0.0-next.262
+        specifier: ^5.0.0
+        version: 5.0.5
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -215,8 +215,8 @@ importers:
   packages/movable:
     dependencies:
       svelte:
-        specifier: ^5.0.0-next.262
-        version: 5.0.0-next.262
+        specifier: ^5.0.0
+        version: 5.0.5
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -225,8 +225,8 @@ importers:
   packages/popover:
     dependencies:
       svelte:
-        specifier: ^5.0.0-next.262
-        version: 5.0.0-next.262
+        specifier: ^5.0.0
+        version: 5.0.5
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -238,8 +238,8 @@ importers:
         specifier: ^0.30.12
         version: 0.30.12
       svelte:
-        specifier: ^5.0.0-next.262
-        version: 5.0.0-next.262
+        specifier: ^5.0.0
+        version: 5.0.5
       zimmerframe:
         specifier: ^1.1.2
         version: 1.1.2
@@ -359,8 +359,8 @@ importers:
         specifier: ^1.4.4
         version: 1.4.4
       svelte:
-        specifier: ^5.0.0-next.262
-        version: 5.0.0-next.262
+        specifier: ^5.0.0
+        version: 5.0.5
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -369,8 +369,8 @@ importers:
   packages/resize:
     dependencies:
       svelte:
-        specifier: ^5.0.0-next.262
-        version: 5.0.0-next.262
+        specifier: ^5.0.0
+        version: 5.0.5
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -379,8 +379,8 @@ importers:
   packages/shortcut:
     dependencies:
       svelte:
-        specifier: ^5.0.0-next.262
-        version: 5.0.0-next.262
+        specifier: ^5.0.0
+        version: 5.0.5
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -389,8 +389,8 @@ importers:
   packages/swipeable:
     dependencies:
       svelte:
-        specifier: ^5.0.0-next.262
-        version: 5.0.0-next.262
+        specifier: ^5.0.0
+        version: 5.0.5
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -399,8 +399,8 @@ importers:
   packages/toc:
     dependencies:
       svelte:
-        specifier: ^5.0.0-next.262
-        version: 5.0.0-next.262
+        specifier: ^5.0.0
+        version: 5.0.5
     devDependencies:
       '@internals/tsconfig':
         specifier: workspace:*
@@ -1447,9 +1447,6 @@ packages:
   '@types/node@12.20.55':
     resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
 
-  '@types/node@22.7.5':
-    resolution: {integrity: sha512-jML7s2NAzMWc//QSJ1a3prpk78cOPchGvXJsC3C6R6PSMoooztvRVQEz89gmBTBY1SPMaqo5teB4uNHPdetShQ==}
-
   '@types/node@22.7.8':
     resolution: {integrity: sha512-a922jJy31vqR5sk+kAdIENJjHblqcZ4RmERviFsER4WJcEONqxKcjNOlk0q7OUfrF5sddT+vng070cdfMlrPLg==}
 
@@ -1541,11 +1538,6 @@ packages:
   acorn-walk@8.3.4:
     resolution: {integrity: sha512-ueEepnujpqee2o5aIYnvHU6C0A42MNdsIDeqy5BydrkuC5R1ZuUFnm27EeFJGoEHJQgn3uleRvmTXaJgfXbt4g==}
     engines: {node: '>=0.4.0'}
-
-  acorn@8.12.1:
-    resolution: {integrity: sha512-tcpGyI9zbizT9JbV6oYE477V6mTlXvvi0T0G3SNIYE2apm/G5huBa1+K89VGeovbg+jycCrfhl3ADxErOuO6Jg==}
-    engines: {node: '>=0.4.0'}
-    hasBin: true
 
   acorn@8.13.0:
     resolution: {integrity: sha512-8zSiw54Oxrdym50NlZ9sUusyO1Z1ZchgRLWRaK6c86XJFClyCgFKetdowBg5bKxyp/u+CDBJG4Mpp0m3HLZl9w==}
@@ -2722,9 +2714,6 @@ packages:
   magic-string@0.25.9:
     resolution: {integrity: sha512-RmF0AsMzgt25qzqqLc1+MbHmhdx0ojF2Fvs4XnOqz2ZOBXzzkEwc/dJQZCYHAn7v1jbVOjAZfK8msRn4BxO4VQ==}
 
-  magic-string@0.30.11:
-    resolution: {integrity: sha512-+Wri9p0QHMy+545hKww7YAu5NyzF8iomPL/RQazugQ9+Ez4Ic3mERMd8ZTX5rfK944j+560ZJi8iAwgak1Ac7A==}
-
   magic-string@0.30.12:
     resolution: {integrity: sha512-Ea8I3sQMVXr8JhN4z+H/d8zwo+tYDgHE9+5G4Wnrwhs0gaK9fXTKx0Tw5Xwsd/bCPTTZNRAdpyzvoeORe9LYpw==}
 
@@ -3797,10 +3786,6 @@ packages:
     resolution: {integrity: sha512-T6mqZrySltPCDwfKXWQ6zehipVLk4GWfH1zCMGgRtLlOIFPuw58ZxVYxVvotMJgJaurKi1i14viB2GIRKXeJTQ==}
     peerDependencies:
       svelte: ^3.0.0 || ^4.0.0 || ^5.0.0-next.1
-
-  svelte@5.0.0-next.262:
-    resolution: {integrity: sha512-gAY0POArLN5yI/ihvItG0wQCh7ycfvxSvvVlvPECshFKmR/ep6ZAlqX50+aUGDSG/5megFqnSJfP7piC6lOtew==}
-    engines: {node: '>=18'}
 
   svelte@5.0.5:
     resolution: {integrity: sha512-f4WBlP5g8W6pEoDfx741lewMlemy+LIGpEqjGPWqnHVP92wqlQXl87U5O5Bi2tkSUrO95OxOoqwU8qlqiHmFKA==}
@@ -5058,11 +5043,6 @@ snapshots:
 
   '@types/node@12.20.55': {}
 
-  '@types/node@22.7.5':
-    dependencies:
-      undici-types: 6.19.8
-    optional: true
-
   '@types/node@22.7.8':
     dependencies:
       undici-types: 6.19.8
@@ -5177,10 +5157,6 @@ snapshots:
     dependencies:
       acorn: 8.13.0
 
-  acorn-typescript@1.4.13(acorn@8.12.1):
-    dependencies:
-      acorn: 8.12.1
-
   acorn-typescript@1.4.13(acorn@8.13.0):
     dependencies:
       acorn: 8.13.0
@@ -5188,8 +5164,6 @@ snapshots:
   acorn-walk@8.3.4:
     dependencies:
       acorn: 8.13.0
-
-  acorn@8.12.1: {}
 
   acorn@8.13.0: {}
 
@@ -6480,10 +6454,6 @@ snapshots:
     dependencies:
       sourcemap-codec: 1.4.8
 
-  magic-string@0.30.11:
-    dependencies:
-      '@jridgewell/sourcemap-codec': 1.5.0
-
   magic-string@0.30.12:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.0
@@ -7755,22 +7725,6 @@ snapshots:
     dependencies:
       svelte: 5.0.5
 
-  svelte@5.0.0-next.262:
-    dependencies:
-      '@ampproject/remapping': 2.3.0
-      '@jridgewell/sourcemap-codec': 1.5.0
-      '@types/estree': 1.0.6
-      acorn: 8.12.1
-      acorn-typescript: 1.4.13(acorn@8.12.1)
-      aria-query: 5.3.2
-      axobject-query: 4.1.0
-      esm-env: 1.0.0
-      esrap: 1.2.2
-      is-reference: 3.0.2
-      locate-character: 3.0.0
-      magic-string: 0.30.11
-      zimmerframe: 1.1.2
-
   svelte@5.0.5:
     dependencies:
       '@ampproject/remapping': 2.3.0
@@ -8049,13 +8003,13 @@ snapshots:
     transitivePeerDependencies:
       - rollup
 
-  vite@5.4.8(@types/node@22.7.5)(sugarss@4.0.1(postcss@8.4.47)):
+  vite@5.4.8(@types/node@22.7.8)(sugarss@4.0.1(postcss@8.4.47)):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.47
       rollup: 4.24.0
     optionalDependencies:
-      '@types/node': 22.7.5
+      '@types/node': 22.7.8
       fsevents: 2.3.3
       sugarss: 4.0.1(postcss@8.4.47)
 
