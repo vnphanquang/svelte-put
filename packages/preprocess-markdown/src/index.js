@@ -6,7 +6,7 @@ import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import { unified } from 'unified';
-import { visit } from 'unist-util-visit'
+import { CONTINUE, SKIP, visit } from 'unist-util-visit';
 
 import { highlighter, transformer } from './shiki.js';
 
@@ -38,7 +38,7 @@ export function markdown(config) {
 				.use(remarkParse)
 				.use(remarkGfm)
 				.use(remarkRehype, { allowDangerousHtml: true })
-				.use(rehypeShikiFromHighlighter, /** @type {any} */(highlighter), {
+				.use(rehypeShikiFromHighlighter, /** @type {any} */ (highlighter), {
 					themes: {
 						light: 'light-plus',
 						dark: 'dark-plus',
@@ -54,11 +54,10 @@ export function markdown(config) {
 						const matches = Array.from(metaStr.matchAll(regex));
 						for (const match of matches) {
 							const key = match[1];
-							let value = match[2]
+							let value = match[2];
 							if (!value) {
 								value = 'true';
-							}
-							else {
+							} else {
 								if (value.startsWith('=')) {
 									value = value.slice(1);
 								}
@@ -81,13 +80,15 @@ export function markdown(config) {
 			return {
 				code: s.toString(),
 				map: s.generateMap(),
-			}
+			};
 		},
 	};
 }
 
 // logic blocks such as {#if}, {#each} will be treated by remark-rehype as text and goes into <p> tag.
 // this plugin unpack such p tags
+//
+// For node removal pattern during traversal, see: https://unifiedjs.com/learn/recipe/remove-node
 function rehypeNegateSvelteLogicBlock() {
 	/**
 	 * @param {import('hast').Root} tree
@@ -95,14 +96,14 @@ function rehypeNegateSvelteLogicBlock() {
 	 */
 	return (tree) => {
 		visit(tree, 'element', (node, index, parent) => {
-			if (node.tagName !== 'p') return;
-			if (!parent || !index) return;
+			if (node.tagName !== 'p' || !parent || !index) return CONTINUE;
 			const firstChild = node.children.at(0);
-			if (!firstChild) return;
-			if (firstChild.type === 'text' && ['{#', '{@'].some(t => firstChild.value.startsWith(t))) {
+			if (!firstChild) return CONTINUE;
+			if (firstChild.type === 'text' && ['{#', '{@'].some((t) => firstChild.value.startsWith(t))) {
 				parent.children.splice(index, 1, ...node.children);
+				return [SKIP, index];
 			}
-		})
+		});
 	};
 }
 
@@ -135,14 +136,14 @@ function rehypeEscapeCodeBlock() {
 			if (node.tagName !== 'code') return;
 			const html = toHtml(node);
 
-			const pNode = /** @type {any} */(node);
+			const pNode = /** @type {any} */ (node);
 			delete pNode.children;
 			delete pNode.tagName;
 			delete pNode.properties;
 
 			pNode.type = 'raw';
 			pNode.value = escapeHtml(html);
-		})
+		});
 	};
 }
 
