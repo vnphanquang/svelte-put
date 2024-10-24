@@ -30,10 +30,10 @@ const config: UserConfig = {
 	},
 	build: {
 		rollupOptions: {
-			external: ["/pagefind/pagefind.js"],
-		}
+			external: ['/pagefind/pagefind.js'],
+		},
 	},
-	assetsInclude: "**/pagefind.js",
+	assetsInclude: '**/pagefind.js',
 	server: {
 		fs: {
 			strict: false,
@@ -42,4 +42,3 @@ const config: UserConfig = {
 };
 
 export default config;
-
