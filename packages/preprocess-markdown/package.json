@@ -12,23 +12,11 @@
 			"types": "./types/index.d.ts",
 			"import": "./src/index.js"
 		},
-		"./EnhancedCodeBlock.svelte": {
-			"types": "./src/enhance-code-block/EnhancedCodeBlock.svelte.d.ts",
-			"svelte": "./src/enhance-code-block/EnhancedCodeBlock.svelte"
+		"./CodeBlock.svelte": {
+			"svelte": "./src/enhance-code-block/CodeBlock.svelte"
 		},
-		"./EnhancedCodeBlockGroup.svelte": {
-			"types": "./src/enhance-code-block/EnhancedCodeBlockGroup.svelte.d.ts",
-			"svelte": "./src/enhance-code-block/EnhancedCodeBlockGroup.svelte"
-		}
-	},
-	"typesVersions": {
-		"*": {
-			"EnhancedCodeBlock.svelte": [
-				"./src/enhance-code-block/EnhancedCodeBlock.svelte.d.ts"
-			],
-			"EnhancedCodeBlockGroup.svelte": [
-				"./src/enhance-code-block/EnhancedCodeBlockGroup.svelte.d.ts"
-			]
+		"./CodeBlockGroup.svelte": {
+			"svelte": "./src/enhance-code-block/CodeBlockGroup.svelte"
 		}
 	},
 	"publishConfig": {
@@ -70,7 +58,7 @@
 		"@types/hast": "^3.0.4"
 	},
 	"peerDependencies": {
-		"svelte": "^5.0.0"
+		"svelte": "^5.1.0"
 	},
 	"dependencies": {
 		"@shikijs/rehype": "^1.22.0",

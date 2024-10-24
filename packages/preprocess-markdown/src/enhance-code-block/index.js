@@ -27,12 +27,12 @@ const DEFAULT_CONFIG =
 		components: {
 			one: {
 				name: 'EnhancedCodeBlock',
-				path: '@svelte-put/preprocess-markdown/EnhancedCodeBlock.svelte',
+				path: '@svelte-put/preprocess-markdown/CodeBlock.svelte',
 				default: true,
 			},
 			group: {
 				name: 'EnhancedCodeBlockGroup',
-				path: '@svelte-put/preprocess-markdown/EnhancedCodeBlockGroup.svelte',
+				path: '@svelte-put/preprocess-markdown/CodeBlockGroup.svelte',
 				default: true,
 			},
 		},

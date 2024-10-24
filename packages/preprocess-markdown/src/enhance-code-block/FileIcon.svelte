@@ -1,6 +1,11 @@
-<script>
-	/** @type {{ lang: string }}*/
-	let { lang } = $props();
+<script lang="ts" module>
+	export type FileIconProps = {
+		lang: string;
+	};
+</script>
+
+<script lang="ts">
+	let { lang }: FileIconProps = $props();
 </script>
 
 <!-- https://shiki.style/languages -->
