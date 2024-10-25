@@ -10,8 +10,7 @@ Useful svelte stuff to put in your projects
 
 </div>
 
-> [!NOTE]
-> [Svelte 5](https://svelte.dev/blog/svelte-5-release-candidate) is coming! All action-based packages in this collection should continue to work, while others are being updated to support the new version. Support for Svelte 4 and lower will be dropped in the next major releases.
+> [!NOTE] > [Svelte 5](https://svelte.dev/blog/svelte-5-release-candidate) is coming! All action-based packages in this collection should continue to work, while others are being updated to support the new version. Support for Svelte 4 and lower will be dropped in the next major releases.
 
 ## Documentation
 
@@ -21,26 +20,26 @@ Useful svelte stuff to put in your projects
 
 `@svelte-put` includes several packages that have self-managed release cycles, listed below. Check out their corresponding README for more details.
 
-| Package                                                           | Short Description                                 | Version                                                         | Changelog                                           | Docs                                        |
-| ----------------------------------------------------------------- | ------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------- | ------------------------------------------- |
-| [@svelte-put/async-stack][github.async-stack]                               | component & utilities for async-stack                  | [![npm.async-stack.badge]][npm.async-stack]                               | [Changelog][github.async-stack.changelog]                | [![docs.badge]][docs.async-stack]                |
-| [@svelte-put/avatar][github.avatar]                               | component & utilities for avatar                  | [![npm.avatar.badge]][npm.avatar]                               | [Changelog][github.avatar.changelog]                | [![docs.badge]][docs.avatar]                |
-| [@svelte-put/clickoutside][github.clickoutside]                   | event for clicking outside node                   | [![npm.clickoutside.badge]][npm.clickoutside]                   | [Changelog][github.clickoutside.changelog]          | [![docs.badge]][docs.clickoutside]          |
-| [@svelte-put/cloudflare-turnstile][github.cloudflare-turnstile]   | event for clicking outside node                   | [![npm.cloudflare-turnstile.badge]][npm.cloudflare-turnstile]   | [Changelog][github.cloudflare-turnstile.changelog]  | [![docs.badge]][docs.cloudflare-turnstile]  |
-| [@svelte-put/copy][github.copy]                                   | copy text to clipboard                            | [![npm.copy.badge]][npm.copy]                                   | [Changelog][github.copy.changelog]                  | [![docs.badge]][docs.copy]                  |
-| [@svelte-put/dragscroll][github.dragscroll]                       | add drag-to-scroll behavior                       | [![npm.dragscroll.badge]][npm.dragscroll]                       | [Changelog][github.dragscroll.changelog]            | [![docs.badge]][docs.dragscroll]            |
-| [@svelte-put/intersect][github.intersect]                         | wrapper for IntersectionObserver                  | [![npm.intersect.badge]][npm.intersect]                         | [Changelog][github.intersect.changelog]             | [![docs.badge]][docs.intersect]             |
-| [@svelte-put/inline-svg][github.inline-svg]                       | dynamically inline SVGs                           | [![npm.inline-svg.badge]][npm.inline-svg]                       | [Changelog][github.inline-svg.changelog]            | [![docs.badge]][docs.inline-svg]            |
-| [@svelte-put/lockscroll][github.lockscroll]                       | lock scroll, hide scrollbar                       | [![npm.lockscroll.badge]][npm.lockscroll]                       | [Changelog][github.lockscroll.changelog]            | [![docs.badge]][docs.lockscroll]            |
-| [@svelte-put/movable][github.movable]                             | move node on mousedown                            | [![npm.movable.badge]][npm.movable]                             | [Changelog][github.movable.changelog]               | [![docs.badge]][docs.movable]               |
-| [@svelte-put/preaction][github.preaction]                             | move node on mousedown                            | [![npm.preaction.badge]][npm.preaction]                             | [Changelog][github.preaction.changelog]               | [![docs.badge]][docs.preaction]               |
-| [@svelte-put/popover][github.popover]                             | move node on mousedown                            | [![npm.popover.badge]][npm.popover]                             | [Changelog][github.popover.changelog]               | [![docs.badge]][docs.popover]               |
-| [@svelte-put/preprocess-auto-slug][github.preprocess-auto-slug]   | auto add `id` and anchor to selected nodes        | [![npm.preprocess-auto-slug.badge]][npm.preprocess-auto-slug]   | [Changelog][github.preprocess-auto-slug.changelog]  | [![docs.badge]][docs.preprocess-auto-slug]  |
-| [@svelte-put/preprocess-external-link][github.preprocess-external-link]   | auto add `id` and anchor to selected nodes        | [![npm.preprocess-external-link.badge]][npm.preprocess-external-link]   | [Changelog][github.preprocess-external-link.changelog]  | [![docs.badge]][docs.preprocess-external-link]  |
-| [@svelte-put/qr][github.qr]                                       | render QR as `img` or `svg`                       | [![npm.qr.badge]][npm.qr]                                       | [Changelog][github.qr.changelog]                    | [![docs.badge]][docs.qr]                    |
-| [@svelte-put/resize][github.resize]                               | wrapper for ResizeObserver                        | [![npm.resize.badge]][npm.resize]                               | [Changelog][github.resize.changelog]                | [![docs.badge]][docs.resize]                |
-| [@svelte-put/shortcut][github.shortcut]                           | add keyboard shortcuts to node                    | [![npm.shortcut.badge]][npm.shortcut]                           | [Changelog][github.shortcut.changelog]              | [![docs.badge]][docs.shortcut]              |
-| [@svelte-put/toc][github.toc]                                     | action & utilities for building table of contents | [![npm.toc.badge]][npm.toc]                                     | [Changelog][github.toc.changelog]                   | [![docs.badge]][docs.toc]                   |
+| Package                                                                 | Short Description                                 | Version                                                               | Changelog                                              | Docs                                           |
+| ----------------------------------------------------------------------- | ------------------------------------------------- | --------------------------------------------------------------------- | ------------------------------------------------------ | ---------------------------------------------- |
+| [@svelte-put/async-stack][github.async-stack]                           | component & utilities for async-stack             | [![npm.async-stack.badge]][npm.async-stack]                           | [Changelog][github.async-stack.changelog]              | [![docs.badge]][docs.async-stack]              |
+| [@svelte-put/avatar][github.avatar]                                     | component & utilities for avatar                  | [![npm.avatar.badge]][npm.avatar]                                     | [Changelog][github.avatar.changelog]                   | [![docs.badge]][docs.avatar]                   |
+| [@svelte-put/clickoutside][github.clickoutside]                         | event for clicking outside node                   | [![npm.clickoutside.badge]][npm.clickoutside]                         | [Changelog][github.clickoutside.changelog]             | [![docs.badge]][docs.clickoutside]             |
+| [@svelte-put/cloudflare-turnstile][github.cloudflare-turnstile]         | event for clicking outside node                   | [![npm.cloudflare-turnstile.badge]][npm.cloudflare-turnstile]         | [Changelog][github.cloudflare-turnstile.changelog]     | [![docs.badge]][docs.cloudflare-turnstile]     |
+| [@svelte-put/copy][github.copy]                                         | copy text to clipboard                            | [![npm.copy.badge]][npm.copy]                                         | [Changelog][github.copy.changelog]                     | [![docs.badge]][docs.copy]                     |
+| [@svelte-put/dragscroll][github.dragscroll]                             | add drag-to-scroll behavior                       | [![npm.dragscroll.badge]][npm.dragscroll]                             | [Changelog][github.dragscroll.changelog]               | [![docs.badge]][docs.dragscroll]               |
+| [@svelte-put/intersect][github.intersect]                               | wrapper for IntersectionObserver                  | [![npm.intersect.badge]][npm.intersect]                               | [Changelog][github.intersect.changelog]                | [![docs.badge]][docs.intersect]                |
+| [@svelte-put/inline-svg][github.inline-svg]                             | dynamically inline SVGs                           | [![npm.inline-svg.badge]][npm.inline-svg]                             | [Changelog][github.inline-svg.changelog]               | [![docs.badge]][docs.inline-svg]               |
+| [@svelte-put/lockscroll][github.lockscroll]                             | lock scroll, hide scrollbar                       | [![npm.lockscroll.badge]][npm.lockscroll]                             | [Changelog][github.lockscroll.changelog]               | [![docs.badge]][docs.lockscroll]               |
+| [@svelte-put/movable][github.movable]                                   | move node on mousedown                            | [![npm.movable.badge]][npm.movable]                                   | [Changelog][github.movable.changelog]                  | [![docs.badge]][docs.movable]                  |
+| [@svelte-put/preaction][github.preaction]                               | move node on mousedown                            | [![npm.preaction.badge]][npm.preaction]                               | [Changelog][github.preaction.changelog]                | [![docs.badge]][docs.preaction]                |
+| [@svelte-put/popover][github.popover]                                   | move node on mousedown                            | [![npm.popover.badge]][npm.popover]                                   | [Changelog][github.popover.changelog]                  | [![docs.badge]][docs.popover]                  |
+| [@svelte-put/preprocess-auto-slug][github.preprocess-auto-slug]         | auto add `id` and anchor to selected nodes        | [![npm.preprocess-auto-slug.badge]][npm.preprocess-auto-slug]         | [Changelog][github.preprocess-auto-slug.changelog]     | [![docs.badge]][docs.preprocess-auto-slug]     |
+| [@svelte-put/preprocess-external-link][github.preprocess-external-link] | auto add `id` and anchor to selected nodes        | [![npm.preprocess-external-link.badge]][npm.preprocess-external-link] | [Changelog][github.preprocess-external-link.changelog] | [![docs.badge]][docs.preprocess-external-link] |
+| [@svelte-put/qr][github.qr]                                             | render QR as `img` or `svg`                       | [![npm.qr.badge]][npm.qr]                                             | [Changelog][github.qr.changelog]                       | [![docs.badge]][docs.qr]                       |
+| [@svelte-put/resize][github.resize]                                     | wrapper for ResizeObserver                        | [![npm.resize.badge]][npm.resize]                                     | [Changelog][github.resize.changelog]                   | [![docs.badge]][docs.resize]                   |
+| [@svelte-put/shortcut][github.shortcut]                                 | add keyboard shortcuts to node                    | [![npm.shortcut.badge]][npm.shortcut]                                 | [Changelog][github.shortcut.changelog]                 | [![docs.badge]][docs.shortcut]                 |
+| [@svelte-put/toc][github.toc]                                           | action & utilities for building table of contents | [![npm.toc.badge]][npm.toc]                                           | [Changelog][github.toc.changelog]                      | [![docs.badge]][docs.toc]                      |
 
 <!-- ### In the Pipeline
 
@@ -65,41 +64,41 @@ pnpm turbo
 
 [github.contributing]: ./CONTRIBUTING.md
 [github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
-[github.async-stack]: https://github.com/vnphanquang/svelte-put/tree/next/packages/async-stack
+[github.async-stack]: https://github.com/vnphanquang/svelte-put/tree/main/packages/async-stack
 [github.async-stack.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/async-stack/CHANGELOG.md
-[github.avatar]: https://github.com/vnphanquang/svelte-put/tree/next/packages/avatar
+[github.avatar]: https://github.com/vnphanquang/svelte-put/tree/main/packages/avatar
 [github.avatar.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/avatar/CHANGELOG.md
-[github.clickoutside]: https://github.com/vnphanquang/svelte-put/tree/next/packages/clickoutside
+[github.clickoutside]: https://github.com/vnphanquang/svelte-put/tree/main/packages/clickoutside
 [github.clickoutside.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/clickoutside/CHANGELOG.md
-[github.cloudflare-turnstile]: https://github.com/vnphanquang/svelte-put/tree/next/packages/cloudflare-turnstile
+[github.cloudflare-turnstile]: https://github.com/vnphanquang/svelte-put/tree/main/packages/cloudflare-turnstile
 [github.cloudflare-turnstile.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/cloudflare-turnstile/CHANGELOG.md
-[github.copy]: https://github.com/vnphanquang/svelte-put/tree/next/packages/copy
+[github.copy]: https://github.com/vnphanquang/svelte-put/tree/main/packages/copy
 [github.copy.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/copy/CHANGELOG.md
-[github.dragscroll]: https://github.com/vnphanquang/svelte-put/tree/next/packages/dragscroll
+[github.dragscroll]: https://github.com/vnphanquang/svelte-put/tree/main/packages/dragscroll
 [github.dragscroll.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/dragscroll/CHANGELOG.md
-[github.intersect]: https://github.com/vnphanquang/svelte-put/tree/next/packages/intersect
+[github.intersect]: https://github.com/vnphanquang/svelte-put/tree/main/packages/intersect
 [github.intersect.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/intersect/CHANGELOG.md
-[github.inline-svg]: https://github.com/vnphanquang/svelte-put/tree/next/packages/inline-svg
+[github.inline-svg]: https://github.com/vnphanquang/svelte-put/tree/main/packages/inline-svg
 [github.inline-svg.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/inline-svg/CHANGELOG.md
-[github.lockscroll]: https://github.com/vnphanquang/svelte-put/tree/next/packages/lockscroll
+[github.lockscroll]: https://github.com/vnphanquang/svelte-put/tree/main/packages/lockscroll
 [github.lockscroll.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/lockscroll/CHANGELOG.md
-[github.movable]: https://github.com/vnphanquang/svelte-put/tree/next/packages/movable
+[github.movable]: https://github.com/vnphanquang/svelte-put/tree/main/packages/movable
 [github.movable.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/movable/CHANGELOG.md
-[github.preaction]: https://github.com/vnphanquang/svelte-put/tree/next/packages/preaction
+[github.preaction]: https://github.com/vnphanquang/svelte-put/tree/main/packages/preaction
 [github.preaction.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/preaction/CHANGELOG.md
-[github.popover]: https://github.com/vnphanquang/svelte-put/tree/next/packages/popover
+[github.popover]: https://github.com/vnphanquang/svelte-put/tree/main/packages/popover
 [github.popover.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/popover/CHANGELOG.md
-[github.preprocess-auto-slug]: https://github.com/vnphanquang/svelte-put/tree/next/packages/preprocess-auto-slug
+[github.preprocess-auto-slug]: https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocess-auto-slug
 [github.preprocess-auto-slug.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/preprocess-auto-slug/CHANGELOG.md
-[github.preprocess-external-link]: https://github.com/vnphanquang/svelte-put/tree/next/packages/preprocess-external-link
+[github.preprocess-external-link]: https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocess-external-link
 [github.preprocess-external-link.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/preprocess-external-link/CHANGELOG.md
-[github.qr]: https://github.com/vnphanquang/svelte-put/tree/next/packages/qr
+[github.qr]: https://github.com/vnphanquang/svelte-put/tree/main/packages/qr
 [github.qr.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/qr/CHANGELOG.md
-[github.resize]: https://github.com/vnphanquang/svelte-put/tree/next/packages/resize
+[github.resize]: https://github.com/vnphanquang/svelte-put/tree/main/packages/resize
 [github.resize.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/resize/CHANGELOG.md
-[github.shortcut]: https://github.com/vnphanquang/svelte-put/tree/next/packages/shortcut
+[github.shortcut]: https://github.com/vnphanquang/svelte-put/tree/main/packages/shortcut
 [github.shortcut.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/shortcut/CHANGELOG.md
-[github.toc]: https://github.com/vnphanquang/svelte-put/tree/next/packages/toc
+[github.toc]: https://github.com/vnphanquang/svelte-put/tree/main/packages/toc
 [github.toc.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/toc/CHANGELOG.md
 
 <!-- heading badge -->
@@ -174,4 +173,3 @@ pnpm turbo
 [docs.shortcut]: https://svelte-put.vnphanquang.com/docs/shortcut
 [docs.toc]: https://svelte-put.vnphanquang.com/docs/toc
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue
-
