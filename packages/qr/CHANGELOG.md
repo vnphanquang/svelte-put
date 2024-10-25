@@ -1,5 +1,29 @@
 # Changelog
 
+## 2.0.0
+
+### Major Changes
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`da81da3`](https://github.com/vnphanquang/svelte-put/commit/da81da32ae619a22015ef9112f8f09a938816b62) Thanks [@github-actions](https://github.com/apps/github-actions)! - drop support for Svelte 4 and below. `on:qr:init` and `on:qr:logofetch` are now `onqrinit` and `onqrlogofetch`, respectively
+
+### Minor Changes
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`b137385`](https://github.com/vnphanquang/svelte-put/commit/b1373858ae97bd0ce360ee4591e896651e60ad17) Thanks [@github-actions](https://github.com/apps/github-actions)! - drop the deprecated `SvelteComponent` and use `Component` for typing
+
+### Patch Changes
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`49ab3f1`](https://github.com/vnphanquang/svelte-put/commit/49ab3f1f638834a4a005c30dfff350e8ebb5f00b) Thanks [@github-actions](https://github.com/apps/github-actions)! - reexport png `toDataURL`
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`5d30599`](https://github.com/vnphanquang/svelte-put/commit/5d3059929a1846fae63e8e35a1423544321f55cc) Thanks [@github-actions](https://github.com/apps/github-actions)! - set up [package provenence](https://docs.npmjs.com/generating-provenance-statements#publishing-packages-with-provenance-via-github-actions)
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`15a319a`](https://github.com/vnphanquang/svelte-put/commit/15a319a0e4a8bb3547d7bca3f38f0c64ed812b36) Thanks [@github-actions](https://github.com/apps/github-actions)! - re-expose public typedef (following https://github.com/Rich-Harris/dts-buddy/pull/82)
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`e7a276c`](https://github.com/vnphanquang/svelte-put/commit/e7a276c0613d16d1becf7f2d8cae65f205317614) Thanks [@github-actions](https://github.com/apps/github-actions)! - export component type as default
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`caa909a`](https://github.com/vnphanquang/svelte-put/commit/caa909aff4afb87b56226f08c302cda5141a34b2) Thanks [@github-actions](https://github.com/apps/github-actions)! - clean up debris
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`c559185`](https://github.com/vnphanquang/svelte-put/commit/c55918517ef53fbc07870fa33e1f6c2e13e7c995) Thanks [@github-actions](https://github.com/apps/github-actions)! - sync README.md and installation version in docs page
+
 ## 2.0.0-next.6
 
 ### Patch Changes

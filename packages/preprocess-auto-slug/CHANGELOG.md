@@ -1,5 +1,23 @@
 # Changelog
 
+## 2.0.0
+
+### Major Changes
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`0c3173c`](https://github.com/vnphanquang/svelte-put/commit/0c3173ce669fbadf041ec5905ac98652d6f2f5cf) Thanks [@github-actions](https://github.com/apps/github-actions)! - [BREAKING] drop support for Svelte 4 and lower, now using Svelte modern AST and witten in JS with JSDocs
+
+### Patch Changes
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`170e410`](https://github.com/vnphanquang/svelte-put/commit/170e4108b3bb04f458154f1d793fe73a4d355cb8) Thanks [@github-actions](https://github.com/apps/github-actions)! - should exhaust the AST walk (invoking `next` from zimmerframe)
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`8745198`](https://github.com/vnphanquang/svelte-put/commit/874519803cc04f1124d7d028ab5029937bf921f3) Thanks [@github-actions](https://github.com/apps/github-actions)! - update typing to Svelte AST (following [svelte@5.0.0-next.243](https://github.com/sveltejs/svelte/releases/tag/svelte%405.0.0-next.243) where AST has been exposed back to public typedef)
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`5d30599`](https://github.com/vnphanquang/svelte-put/commit/5d3059929a1846fae63e8e35a1423544321f55cc) Thanks [@github-actions](https://github.com/apps/github-actions)! - set up [package provenence](https://docs.npmjs.com/generating-provenance-statements#publishing-packages-with-provenance-via-github-actions)
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`c559185`](https://github.com/vnphanquang/svelte-put/commit/c55918517ef53fbc07870fa33e1f6c2e13e7c995) Thanks [@github-actions](https://github.com/apps/github-actions)! - sync README.md and installation version in docs page
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`4ac365c`](https://github.com/vnphanquang/svelte-put/commit/4ac365cbfab03363c778b52e6a978252e025503f) Thanks [@github-actions](https://github.com/apps/github-actions)! - re-expose public typedef (following https://github.com/Rich-Harris/dts-buddy/pull/82)
+
 ## 2.0.0-next.5
 
 ### Patch Changes

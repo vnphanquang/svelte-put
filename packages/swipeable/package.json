@@ -1,6 +1,6 @@
 {
 	"name": "@svelte-put/swipeable",
-	"version": "1.0.0-next.2",
+	"version": "1.0.0",
 	"description": "set up quick swipe gesture action on element",
 	"main": "src/index.js",
 	"module": "src/index.js",

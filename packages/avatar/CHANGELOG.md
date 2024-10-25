@@ -1,5 +1,25 @@
 # Changelog
 
+## 4.0.0
+
+### Major Changes
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`7f9b93c`](https://github.com/vnphanquang/svelte-put/commit/7f9b93c9e814c039d8391979726bd0303e03f587) Thanks [@github-actions](https://github.com/apps/github-actions)! - drop `@svelte-put/avatar/hepers` submodules (just import from root instead)
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`01b0897`](https://github.com/vnphanquang/svelte-put/commit/01b08976ae4cec8164e52d8c68fa8713be183916) Thanks [@github-actions](https://github.com/apps/github-actions)! - [BREAKING] drop support for Svelte 4 and lower; now using runes and snippets
+
+### Minor Changes
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`b137385`](https://github.com/vnphanquang/svelte-put/commit/b1373858ae97bd0ce360ee4591e896651e60ad17) Thanks [@github-actions](https://github.com/apps/github-actions)! - drop the deprecated `SvelteComponent` and use `Component` for typing
+
+### Patch Changes
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`5d30599`](https://github.com/vnphanquang/svelte-put/commit/5d3059929a1846fae63e8e35a1423544321f55cc) Thanks [@github-actions](https://github.com/apps/github-actions)! - set up [package provenence](https://docs.npmjs.com/generating-provenance-statements#publishing-packages-with-provenance-via-github-actions)
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`c559185`](https://github.com/vnphanquang/svelte-put/commit/c55918517ef53fbc07870fa33e1f6c2e13e7c995) Thanks [@github-actions](https://github.com/apps/github-actions)! - sync README.md and installation version in docs page
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`a2f8449`](https://github.com/vnphanquang/svelte-put/commit/a2f8449ada1f8d1b091fe9261ef43c7f85281165) Thanks [@github-actions](https://github.com/apps/github-actions)! - re-expose public typedef (following https://github.com/Rich-Harris/dts-buddy/pull/82)
+
 ## 4.0.0-next.5
 
 ### Patch Changes

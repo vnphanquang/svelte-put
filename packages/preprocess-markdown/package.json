@@ -1,6 +1,6 @@
 {
 	"name": "@svelte-put/preprocess-markdown",
-	"version": "1.0.0-next.7",
+	"version": "1.0.0",
 	"description": "parse markdown in svelte",
 	"private": true,
 	"main": "src/index.js",

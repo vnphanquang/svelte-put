@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.0.0
+
+### Major Changes
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`4c275ca`](https://github.com/vnphanquang/svelte-put/commit/4c275cadf63ee1a51c8da075ee8de7c45f00f2b1) Thanks [@github-actions](https://github.com/apps/github-actions)! - drop support for Svelte 4 and below. Event name is now all lowercase, without colon (e.g `onturnstilebeforeinteractive`)
+
+### Patch Changes
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`7c50ad2`](https://github.com/vnphanquang/svelte-put/commit/7c50ad2177f8172414f3a178902898f5f43644af) Thanks [@github-actions](https://github.com/apps/github-actions)! - re-expose public typedef (following https://github.com/Rich-Harris/dts-buddy/pull/82)
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`5d30599`](https://github.com/vnphanquang/svelte-put/commit/5d3059929a1846fae63e8e35a1423544321f55cc) Thanks [@github-actions](https://github.com/apps/github-actions)! - set up [package provenence](https://docs.npmjs.com/generating-provenance-statements#publishing-packages-with-provenance-via-github-actions)
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`c559185`](https://github.com/vnphanquang/svelte-put/commit/c55918517ef53fbc07870fa33e1f6c2e13e7c995) Thanks [@github-actions](https://github.com/apps/github-actions)! - sync README.md and installation version in docs page
+
 ## 1.0.0-next.3
 
 ### Patch Changes
