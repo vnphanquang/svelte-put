@@ -1,22 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { SvelteComponent } from 'svelte';
+import type { Snippet, Component } from 'svelte';
 import type { HTMLImgAttributes } from 'svelte/elements';
 
-import type { QRConfig } from '../qr/types';
+import type { QRConfig } from '../qr/types.public';
 
 export interface QRProps extends Omit<HTMLImgAttributes, 'src'>, QRConfig {
 	backgroundFill?: string;
+	onqrinit?: (img: HTMLImageElement) => void;
+	onqrlogofetch?: (uri: string) => void;
+	img?: Snippet<[{ src: string }]>;
+	width: string;
+	height: string;
 }
 
-export interface QREvents {
-	'qr:init': CustomEvent<HTMLImgAttributes>;
-	'qr:logofetch': CustomEvent<string>;
-}
+declare const QR: Component<QRProps>;
+export default QR;
 
-export interface QRSlots {
-	default: {
-		src: string;
-	};
-}
-
-export default class QR extends SvelteComponent<QRProps, QREvents, QRSlots> {}

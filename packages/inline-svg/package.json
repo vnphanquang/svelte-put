@@ -1,6 +1,6 @@
 {
 	"name": "@svelte-put/inline-svg",
-	"version": "3.0.1",
+	"version": "4.0.0",
 	"description": "solution to inline SVGs in svelte land",
 	"main": "src/index.js",
 	"module": "src/index.js",
@@ -10,17 +10,36 @@
 		".": {
 			"types": "./types/index.d.ts",
 			"import": "./src/index.js"
+		},
+		"./preprocessor": {
+			"types": "./types/index.d.ts",
+			"import": "./src/preprocessor/index.js"
+		},
+		"./vite": {
+			"types": "./types/index.d.ts",
+			"import": "./src/vite/index.js"
+		}
+	},
+	"typesVersions": {
+		"*": {
+			"preprocessor": [
+				"./types/index.d.ts"
+			],
+			"vite": [
+				"./types/index.d.ts"
+			]
 		}
 	},
 	"publishConfig": {
-		"access": "public"
+		"access": "public",
+		"provenance": true
 	},
 	"files": [
 		"src",
 		"types"
 	],
 	"scripts": {
-		"lint": "eslint . --ignore-path=\"../../.eslintignore\"",
+		"lint": "eslint .",
 		"format": "prettier --ignore-path ../../.prettierignore --write .",
 		"dts": "dts-buddy --write && publint",
 		"prepublishOnly": "turbo run dts --filter=@svelte-put/inline-svg"
@@ -33,7 +52,11 @@
 		"dynamic",
 		"static",
 		"build",
-		"runtime"
+		"runtime",
+		"vite",
+		"preprocessor",
+		"static",
+		"compiletime"
 	],
 	"author": {
 		"email": "vnphanquang@gmail.com",
@@ -41,7 +64,7 @@
 		"url": "https://github.com/vnphanquang"
 	},
 	"license": "MIT",
-	"homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/inline-svg",
+	"homepage": "https://github.com/vnphanquang/svelte-put/tree/next/packages/inline-svg",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/vnphanquang/svelte-put.git",
@@ -51,10 +74,21 @@
 		"url": "https://github.com/vnphanquang/svelte-put/issues"
 	},
 	"devDependencies": {
-		"@internals/tsconfig": "workspace:*"
+		"@internals/tsconfig": "workspace:*",
+		"@types/lodash.debounce": "^4.0.9",
+		"@types/svg-parser": "^2.0.6"
+	},
+	"dependencies": {
+		"hast-util-to-html": "^9.0.3",
+		"lodash.debounce": "^4.0.8",
+		"magic-string": "^0.30.12",
+		"svelte-parse-markup": "^0.1.5",
+		"svg-parser": "^2.0.4",
+		"zimmerframe": "^1.1.2"
 	},
 	"peerDependencies": {
-		"svelte": "^3.55.0 || ^4.0.0 || ^5.0.0"
+		"svelte": "^5.1.0",
+		"vite": "^5.4.8"
 	},
 	"volta": {
 		"extends": "../../package.json"

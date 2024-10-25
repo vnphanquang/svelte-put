@@ -1,6 +1,8 @@
+import { on } from 'svelte/events';
+
 /**
  * @package
- * @param {import('./public').DragScrollParameter} param
+ * @param {import('./types.public').DragScrollParameter} param
  * @returns {{
  * 	enabled: boolean;
  * 	axes: {
@@ -47,8 +49,8 @@ export function resolveConfig(param = {}) {
 /**
  * svelte action `use:dragscroll` for adding 'drag-to-scroll' behavior
  * @param {HTMLElement} node - node to apply the action
- * @param {import('./public').DragScrollParameter} param - instructions for customizing action behavior
- * @returns {import('./public').DragScrollActionReturn}
+ * @param {import('./types.public').DragScrollParameter} param - instructions for customizing action behavior
+ * @returns {import('./types.public').DragScrollActionReturn}
  */
 export function dragscroll(node, param = {}) {
 	let isDown = false;
@@ -97,20 +99,20 @@ export function dragscroll(node, param = {}) {
 		}
 	}
 
+	/** @type {Array<() => void>} */
+	let offs = [];
 	function addEvents() {
 		if (!node) return;
-		node.addEventListener(events.down, handlePointerDown);
-		node.addEventListener(events.leave, handlePointerUpAndLeave);
-		node.addEventListener(events.up, handlePointerUpAndLeave);
-		node.addEventListener(events.move, handlePointerMove);
+		offs.push(on(node, events.down, handlePointerDown));
+		offs.push(on(node, events.leave, handlePointerUpAndLeave));
+		offs.push(on(node, events.up, handlePointerUpAndLeave));
+		offs.push(on(node, events.move, handlePointerMove));
 	}
 
 	function removeEvents() {
 		if (!node) return;
-		node.removeEventListener(events.down, handlePointerDown);
-		node.removeEventListener(events.leave, handlePointerUpAndLeave);
-		node.removeEventListener(events.up, handlePointerUpAndLeave);
-		node.removeEventListener(events.move, handlePointerMove);
+		offs.forEach(unsub => unsub());
+		offs = [];
 	}
 
 	function changeCursor(active = false) {
@@ -142,5 +144,6 @@ export function dragscroll(node, param = {}) {
 
 /**
  * Deprecated, use `DragScrollParameter` and `DragScrollConfig` instead
- * @typedef {import('./public').DragScrollConfig} DragScrollParameters
+ * @typedef {import('./types.public').DragScrollConfig} DragScrollParameters
  */
+

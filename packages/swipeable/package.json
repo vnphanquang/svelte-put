@@ -1,0 +1,61 @@
+{
+	"name": "@svelte-put/swipeable",
+	"version": "1.0.0",
+	"description": "set up quick swipe gesture action on element",
+	"main": "src/index.js",
+	"module": "src/index.js",
+	"types": "types/index.d.ts",
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./types/index.d.ts",
+			"import": "./src/index.js"
+		}
+	},
+	"publishConfig": {
+		"access": "public",
+		"provenance": true
+	},
+	"files": [
+		"src",
+		"types"
+	],
+	"scripts": {
+		"lint": "eslint .",
+		"format": "prettier --ignore-path ../../.prettierignore --write .",
+		"dts": "dts-buddy --write && publint",
+		"prepublishOnly": "turbo run dts --filter=@svelte-put/swipeable"
+	},
+	"keywords": [
+		"svelte",
+		"action",
+		"event",
+		"swipe",
+		"touch",
+		"gesture"
+	],
+	"author": {
+		"email": "vnphanquang@gmail.com",
+		"name": "Quang Phan",
+		"url": "https://github.com/vnphanquang"
+	},
+	"license": "MIT",
+	"homepage": "https://svelte-put.vnphanquang.com/docs/swipeable",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/vnphanquang/svelte-put.git",
+		"directory": "packages/swipeable"
+	},
+	"bugs": {
+		"url": "https://github.com/vnphanquang/svelte-put/issues"
+	},
+	"devDependencies": {
+		"@internals/tsconfig": "workspace:*"
+	},
+	"peerDependencies": {
+		"svelte": "^5.1.0"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	}
+}

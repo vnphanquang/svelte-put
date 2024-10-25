@@ -32,7 +32,7 @@ declare global {
 		declare type Settings = {
 			colorScheme: ColorScheme;
 			packageManager: PackageManager;
-		}
+		};
 
 		interface Locals {
 			userId: string;
@@ -71,3 +71,4 @@ declare global {
 }
 
 export {};
+

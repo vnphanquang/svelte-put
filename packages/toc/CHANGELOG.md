@@ -1,5 +1,71 @@
 # Changelog
 
+## 6.0.0
+
+### Major Changes
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`11d3948`](https://github.com/vnphanquang/svelte-put/commit/11d3948d958d8a9d61fb475d5c668eefb9da1235) Thanks [@github-actions](https://github.com/apps/github-actions)! - drop support for Svelte 4 and below; rework public API with `Toc` class, now powered by Svelte runes. See [docs page](https://svelte-put.vnphanquang.com/docs/toc) for more information.
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`3b7d3b2`](https://github.com/vnphanquang/svelte-put/commit/3b7d3b28fe323e2120f877eda621d7b14df82eeb) Thanks [@github-actions](https://github.com/apps/github-actions)! - bump Svelte peer dependency, `Map` is now `SvelteMap` from `svelte/reactivity`
+
+### Patch Changes
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`50834e6`](https://github.com/vnphanquang/svelte-put/commit/50834e6129256ff4483dc2e226ed702737c038b1) Thanks [@github-actions](https://github.com/apps/github-actions)! - re-expose public typedef (following https://github.com/Rich-Harris/dts-buddy/pull/82)
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`53c20a8`](https://github.com/vnphanquang/svelte-put/commit/53c20a8b910890564bad005cff67a47fe3a1078f) Thanks [@github-actions](https://github.com/apps/github-actions)! - reset when toc root change
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`b773e8a`](https://github.com/vnphanquang/svelte-put/commit/b773e8a77710c88a066456a018e84bd0b4637b37) Thanks [@github-actions](https://github.com/apps/github-actions)! - relax type of parameter for link action
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`5d30599`](https://github.com/vnphanquang/svelte-put/commit/5d3059929a1846fae63e8e35a1423544321f55cc) Thanks [@github-actions](https://github.com/apps/github-actions)! - set up [package provenence](https://docs.npmjs.com/generating-provenance-statements#publishing-packages-with-provenance-via-github-actions)
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`c559185`](https://github.com/vnphanquang/svelte-put/commit/c55918517ef53fbc07870fa33e1f6c2e13e7c995) Thanks [@github-actions](https://github.com/apps/github-actions)! - sync README.md and installation version in docs page
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`9a2e375`](https://github.com/vnphanquang/svelte-put/commit/9a2e375915b0654af3f13b1ac4d325507e5e2b98) Thanks [@github-actions](https://github.com/apps/github-actions)! - defer events to Svelte internal delegation system where applicable
+
+## 6.0.0-next.6
+
+### Patch Changes
+
+- [`5d30599`](https://github.com/vnphanquang/svelte-put/commit/5d3059929a1846fae63e8e35a1423544321f55cc) Thanks [@vnphanquang](https://github.com/vnphanquang)! - set up [package provenence](https://docs.npmjs.com/generating-provenance-statements#publishing-packages-with-provenance-via-github-actions)
+
+## 6.0.0-next.5
+
+### Patch Changes
+
+- [`50834e6`](https://github.com/vnphanquang/svelte-put/commit/50834e6129256ff4483dc2e226ed702737c038b1) Thanks [@vnphanquang](https://github.com/vnphanquang)! - re-expose public typedef (following https://github.com/Rich-Harris/dts-buddy/pull/82)
+
+## 6.0.0-next.4
+
+### Patch Changes
+
+- [`bb1269e`](https://github.com/vnphanquang/svelte-put/commit/bb1269e1d5102df6e57c6745b5daf05f32a53428) Thanks [@vnphanquang](https://github.com/vnphanquang)! - relax type of parameter for link action
+
+## 6.0.0-next.3
+
+### Major Changes
+
+- [`fa5c475`](https://github.com/vnphanquang/svelte-put/commit/fa5c475df4c68ab48c88f1c0fc16a81249977526) Thanks [@vnphanquang](https://github.com/vnphanquang)! - bump Svelte peer dependency, `Map` is now `SvelteMap` from `svelte/reactivity`
+
+## 6.0.0-next.2
+
+### Patch Changes
+
+- [`26bbd81`](https://github.com/vnphanquang/svelte-put/commit/26bbd813c1e65ead04d5d6bcb29b97a34045646b) Thanks [@vnphanquang](https://github.com/vnphanquang)! - sync README.md and installation version in docs page
+
+## 6.0.0-next.1
+
+### Patch Changes
+
+- [#302](https://github.com/vnphanquang/svelte-put/pull/302) [`3744bfd`](https://github.com/vnphanquang/svelte-put/commit/3744bfd44c7f9ae2798949ff305656c4fdef96e7) Thanks [@github-actions](https://github.com/apps/github-actions)! - reset when toc root change
+
+- [#302](https://github.com/vnphanquang/svelte-put/pull/302) [`db35158`](https://github.com/vnphanquang/svelte-put/commit/db351580dfb3eea612be5435be1b6ac466fa6ac5) Thanks [@github-actions](https://github.com/apps/github-actions)! - defer events to Svelte internal delegation system where applicable
+
+## 6.0.0-next.0
+
+### Major Changes
+
+- [#298](https://github.com/vnphanquang/svelte-put/pull/298) [`6b85cc2`](https://github.com/vnphanquang/svelte-put/commit/6b85cc22ddaa6ba540e39a390a7597acf3188317) Thanks [@github-actions](https://github.com/apps/github-actions)! - drop support for Svelte 4 and below; rework public API with `Toc` class, now powered by Svelte runes. See [docs page](https://svelte-put.vnphanquang.com/docs/toc) for more information.
+
 ## 5.0.2
 
 ### Patch Changes

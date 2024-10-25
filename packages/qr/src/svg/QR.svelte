@@ -1,15 +1,28 @@
 <script>
-	import { createEventDispatcher, onMount } from 'svelte';
-
 	import { createQrSvgParts } from '../qr/index.js';
 
-	$: ({ data, anchorInnerFill, anchorOuterFill, logo: logoURL, logoRatio, margin, moduleFill, shape, errorCorrectionLevel, typeNumber, ...rest } = /** @type {import('../qr/types.js').QRConfig} */($$props));
-
-	$: ({ anchors, attributes, logo, modules } = createQrSvgParts({
+	/** @type {import('./QR.svelte').QRProps} */
+	let {
+		onqrinit,
+		svg,
 		data,
 		anchorInnerFill,
 		anchorOuterFill,
-		logo: logoURL,
+		logo,
+		logoRatio,
+		margin,
+		moduleFill,
+		shape,
+		errorCorrectionLevel,
+		typeNumber,
+		...rest
+	} = $props();
+
+	let parts = $derived(createQrSvgParts({
+		data,
+		anchorInnerFill,
+		anchorOuterFill,
+		logo,
 		logoRatio,
 		margin,
 		moduleFill,
@@ -17,20 +30,21 @@
 		errorCorrectionLevel,
 		typeNumber,
 	}));
-	$: innerHTML = `${anchors}${modules}${logo}`;
+	let innerHTML = $derived(`${parts.anchors}${parts.modules}${parts.logo}`)
 
-	/** @type {SVGElement}*/
-	let element;
-	/** @type {ReturnType<typeof createEventDispatcher<{ 'qr:init': typeof element }>>}*/
-	const dispatch = createEventDispatcher();
-	onMount(() => {
-		if (element) dispatch('qr:init', element);
+	/** @type {SVGElement | undefined}*/
+	let element = $state(undefined);
+
+	$effect(() => {
+		if (element) onqrinit?.(element);
 	});
 </script>
 
-<!-- eslint-disable svelte/no-at-html-tags  -->
-<slot {attributes} {innerHTML}>
-	<svg {...attributes} {...rest} bind:this={element}>
+{#if svg}
+	{@render svg({ attributes: parts.attributes, innerHTML })}
+{:else}
+	<svg {...parts.attributes} {...rest} bind:this={element}>
+		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 		{@html innerHTML}
 	</svg>
-</slot>
+{/if}

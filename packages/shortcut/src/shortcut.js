@@ -1,3 +1,5 @@
+import { on } from 'svelte/events';
+
 /**
  * Listen for keyboard event and trigger `shortcut` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent }
  * @example Typical usage
@@ -60,35 +62,22 @@
  *      },
  *     ],
  *   }}
- *   on:shortcut={onShortcut}
+ *   onshortcut={onShortcut}
  * />
  * ```
- *
- *
- *
- * As with any svelte action, `shortcut` should be use with element and not component.
- *
- * ```html
- * <-- correct usage-->
- *  <div use:intersect />
- *
- * <-- incorrect usage-->
- * <Component use:intersect/>
- * ```
- *
  * You can either:
  *
  * - pass multiple callbacks to their associated triggers, or
  *
- * - pass one single handler to the `on:shortcut` event, in which case you should
+ * - pass one single handler to the `onshortcut` event, in which case you should
  * provide an ID to each trigger to be able to distinguish what trigger was activated
  * in the event handler.
  *
- * Either way, only use `callback` or `on:shortcut` and not both to
+ * Either way, only use `callback` or `onshortcut` and not both to
  * avoid handler duplication.
  * @param {HTMLElement} node - HTMLElement to add event listener to
- * @param {import('./public').ShortcutParameter} param - svelte action parameters
- * @returns {import('./public').ShortcutActionReturn}
+ * @param {import('./types.public').ShortcutParameter} param - svelte action parameters
+ * @returns {import('./types.public').ShortcutActionReturn}
  */
 export function shortcut(node, param) {
 	let { enabled = true, trigger, type = 'keydown' } = param;
@@ -98,7 +87,7 @@ export function shortcut(node, param) {
 	 */
 	function handler(event) {
 		const normalizedTriggers = Array.isArray(trigger) ? trigger : [trigger];
-		/** @type {Record<import('./public').ShortcutModifier, boolean>} */
+		/** @type {Record<import('./types.public').ShortcutModifier, boolean>} */
 		const modifiedMap = {
 			alt: event.altKey,
 			ctrl: event.ctrlKey,
@@ -125,7 +114,7 @@ export function shortcut(node, param) {
 				}
 				if (event.key === key) {
 					if (preventDefault) event.preventDefault();
-					/** @type {import('./public').ShortcutEventDetail} */
+					/** @type {import('./types.public').ShortcutEventDetail} */
 					const detail = {
 						node,
 						trigger: mergedTrigger,
@@ -138,16 +127,20 @@ export function shortcut(node, param) {
 		}
 	}
 
-	if (enabled) node.addEventListener(type, handler);
+	/** @type {undefined | (() => void)} */
+	let off;
+	if (enabled) {
+		off = on(node, type, handler);
+	}
 
 	return {
 		update: (update) => {
 			const { enabled: newEnabled = true, type: newType = 'keydown' } = update;
 
 			if (enabled && (!newEnabled || type !== newType)) {
-				node.removeEventListener(type, handler);
+				off?.();
 			} else if (!enabled && newEnabled) {
-				node.addEventListener(newType, handler);
+				off = on(node, newType, handler);
 			}
 
 			enabled = newEnabled;
@@ -155,7 +148,8 @@ export function shortcut(node, param) {
 			trigger = update.trigger;
 		},
 		destroy: () => {
-			node.removeEventListener(type, handler);
+			off?.();
 		},
 	};
 }
+

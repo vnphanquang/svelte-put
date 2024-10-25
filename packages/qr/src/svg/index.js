@@ -3,8 +3,8 @@ import { createQrSvgParts } from '../qr';
 /**
  * Svelte action for rendering a QR as innerHTML of this SVGElement
  * @param {SVGElement} node
- * @param {import('./types').SvgQRParameter} param
- * @returns {import('./types').SvgQRActionReturn}
+ * @param {import('./types.public').SvgQRParameter} param
+ * @returns {import('./types.public').SvgQRActionReturn}
  */
 export function qr(node, param) {
 	async function init() {
@@ -13,7 +13,7 @@ export function qr(node, param) {
 			node.setAttribute(name, value);
 		}
 		node.innerHTML = `${anchors}${modules}${logo}`;
-		node.dispatchEvent(new CustomEvent('qr:init', { detail: node }));
+		node.dispatchEvent(new CustomEvent('qrinit', { detail: node }));
 	}
 
 	init();
@@ -27,3 +27,6 @@ export function qr(node, param) {
 		},
 	};
 }
+
+export * from './types.public.js';
+

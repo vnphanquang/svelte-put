@@ -1,4 +1,5 @@
 import { tick } from 'svelte';
+import { on } from 'svelte/events';
 
 /**
  * Trigger node displacement on pointerdown (via position.left & position.top)
@@ -42,8 +43,8 @@ import { tick } from 'svelte';
  *         },
  *         handle: handleNode,
  *       }}
- *       on:movablestart={(event) => console.log('movable:start', event.detail.node, event.detail.position)}
- *       on:movableend={(event) => console.log('movable:end', event.detail.node, event.detail.position)}
+ *       onmovablestart={(event) => console.log('movable:start', event.detail.node, event.detail.position)}
+ *       onmovableend={(event) => console.log('movable:end', event.detail.node, event.detail.position)}
  *     >
  *       <button bind:this={handleNode}>
  *          likely some 'move' icon
@@ -90,8 +91,8 @@ import { tick } from 'svelte';
  *
  * - document.body.cursor is set to `move` after `pointerdown` and restored on `pointerup`
  * @param {HTMLElement} node - HTMLElement to be moved
- * @param {import('./public').MovableParameter} param - svelte action parameters
- * @returns {import('./public').MovableActionReturn}
+ * @param {import('./types.public').MovableParameter} param - svelte action parameters
+ * @returns {import('./types.public').MovableActionReturn}
  */
 export function movable(node, param = { enabled: true }) {
 	let { parent, normalizedDelta, handle, enabled, ignore, cursor } = input(node, param);
@@ -249,6 +250,8 @@ export function movable(node, param = { enabled: true }) {
 		updateLastNodePosition({ top, left });
 	}
 
+	/** @type {Array<() => void>} */
+	let offPointerEvents = [];
 	function end() {
 		document.body.style.userSelect = '';
 		if (cursor) {
@@ -257,11 +260,10 @@ export function movable(node, param = { enabled: true }) {
 			}
 			handle.style.cursor = 'grab';
 		}
-		window.removeEventListener('pointermove', move);
-		window.removeEventListener('pointerup', end);
-		window.removeEventListener('pointercancel', end);
+		offPointerEvents.forEach((off) => off());
+		offPointerEvents = [];
 
-		/** @type {import('./public').MovableEventDetail} */
+		/** @type {import('./types.public').MovableEventDetail} */
 		const detail = { node, position: lastNodePosition };
 		node.dispatchEvent(new CustomEvent('movableend', { detail }));
 	}
@@ -288,7 +290,7 @@ export function movable(node, param = { enabled: true }) {
 		const top = parseInt(computedStyles.getPropertyValue('top').match(regex)?.[0] ?? '0');
 		updateLastNodePosition({ left, top });
 
-		/** @type {import('./public').MovableEventDetail} */
+		/** @type {import('./types.public').MovableEventDetail} */
 		const detail = { node, position: lastNodePosition };
 		node.dispatchEvent(new CustomEvent('movablestart', { detail }));
 
@@ -305,9 +307,9 @@ export function movable(node, param = { enabled: true }) {
 			document.body.style.cursor = 'grabbing';
 			handle.style.cursor = 'grabbing';
 		}
-		window.addEventListener('pointermove', move);
-		window.addEventListener('pointerup', end);
-		window.addEventListener('pointercancel', end);
+		offPointerEvents.push(on(window, 'pointermove', /** @type {EventListener} */(move)));
+		offPointerEvents.push(on(window, 'pointerup', end));
+		offPointerEvents.push(on(window, 'pointercancel', end));
 	}
 
 	function addStyles() {
@@ -337,8 +339,10 @@ export function movable(node, param = { enabled: true }) {
 		}
 	}
 
+	/** @type {undefined | (() => void)} */
+	let offPointerDownEvent;
 	if (enabled) {
-		handle.addEventListener('pointerdown', start, true);
+		offPointerDownEvent = on(handle, 'pointerdown', start, { capture: true });
 		tick().then(() => {
 			addStyles();
 		});
@@ -346,18 +350,18 @@ export function movable(node, param = { enabled: true }) {
 	return {
 		update(update) {
 			removeStyles();
-			handle.removeEventListener('pointerdown', start, true);
+			offPointerDownEvent?.();
 			({ parent, normalizedDelta, handle, enabled, ignore, cursor } = input(node, update));
 
 			if (enabled) {
-				handle.addEventListener('pointerdown', start, true);
+				offPointerDownEvent = on(handle, 'pointerdown', start, { capture: true });
 				tick().then(() => {
 					addStyles();
 				});
 			}
 		},
 		destroy() {
-			handle.removeEventListener('pointerdown', start, true);
+			offPointerDownEvent?.();
 			removeStyles();
 		},
 	};
@@ -376,7 +380,7 @@ export function movable(node, param = { enabled: true }) {
 
 /**
  * @package
- * @param {import('./public').MovableLimit['delta']} delta - MovableLimit to normalize
+ * @param {import('./types.public').MovableLimit['delta']} delta - MovableLimit to normalize
  * @returns {{ x?: NormalizedLimit, y?: NormalizedLimit }}
  */
 export function normalizeDelta(delta) {
@@ -454,7 +458,7 @@ function extractUnit(text, axis = undefined) {
  *
  * @package
  * @param {HTMLElement} node
- * @param {import('./public').MovableParameter} param
+ * @param {import('./types.public').MovableParameter} param
  * @returns {{
  * 	enabled: boolean;
  * 	parent: HTMLElement | "screen" | undefined;
@@ -485,10 +489,11 @@ export function input(node, param = {}) {
 
 /**
  * Deprecated, use `MovableEventDetail` instead
- * @typedef {import('./public').MovableEventDetail} MovableEventDetails
+ * @typedef {import('./types.public').MovableEventDetail} MovableEventDetails
  */
 
 /**
  * Deprecated, use `MovableParameter` and `MovableConfig` instead
- * @typedef {import('./public').MovableConfig} MovableParameters
+ * @typedef {import('./types.public').MovableConfig} MovableParameters
  */
+

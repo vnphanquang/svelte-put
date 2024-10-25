@@ -19,15 +19,15 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 ## Quick Start
 
 ```html
-<script lang="ts">
-	import { lockscroll, createLockScrollStore } from '@svelte-put/lockscroll';
+<script>
+  import { lockscroll } from '@svelte-put/lockscroll';
 
-	const locked = createLockScrollStore();
-	// ... later
-	locked.toggle();
+  let locked = $state(false);
 </script>
 
-<svelte:body use:lockscroll="{locked}" />
+<svelte:body use:lockscroll={locked} />
+
+<button onclick={() => locked = !locked}>Toggle lock scroll on body</button>
 ```
 
 ## [Changelog][github.changelog]
@@ -35,7 +35,7 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 <!-- github specifics -->
 
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
-[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/lockscroll/CHANGELOG.md
+[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/lockscroll/CHANGELOG.md
 [github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
 
 <!-- heading badge -->
@@ -48,3 +48,4 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 [repl.badge]: https://img.shields.io/static/v1?label=&message=Svelte+REPL&logo=svelte&logoColor=fff&color=ff3e00
 [docs]: https://svelte-put.vnphanquang.com/docs/lockscroll
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue
+

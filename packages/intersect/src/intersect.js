@@ -27,8 +27,8 @@
  * <section
  *  class="{once ? 'animate-fade-in-up' : 'opacity-0'}"
  *  use:intersect={{ threshold: 0.4 }}
- *  on:intersectonce={onIntersectOnce}
- *  on:intersect={onIntersect}
+ *  onintersectonce={onIntersectOnce}
+ *  onintersect={onIntersect}
  * >
  *  <p>
  *    A section that will fade in once, when intersected with viewport by 40%,
@@ -59,7 +59,7 @@
  *
  * <section
  *  use:intersect={{ threshold: 0.4 }}
- *  on:intersect={onIntersect}
+ *  onintersect={onIntersect}
  * >
  * >
  *  <p>
@@ -84,8 +84,8 @@
  * <Component use:intersect/>
  * ```
  * @param {HTMLElement} node - HTMLElement to observe
- * @param {import('./public').IntersectParameter} param - svelte action parameters
- * @returns {import('./public').IntersectActionReturn}
+ * @param {import('./types.public').IntersectParameter} param - svelte action parameters
+ * @returns {import('./types.public').IntersectActionReturn}
  */
 export function intersect(node, param = { enabled: true }) {
 	let hasIntersect = false;
@@ -98,7 +98,7 @@ export function intersect(node, param = { enabled: true }) {
 		const y = entries[0].boundingClientRect.y ?? 0;
 		if (entries.some((e) => !!e.intersectionRatio)) {
 			const direction = y < previousY ? 'down' : 'up';
-			/** @type {import('./public').IntersectDetail} */
+			/** @type {import('./types.public').IntersectDetail} */
 			const detail = {
 				observer,
 				entries,
@@ -159,5 +159,6 @@ export function intersect(node, param = { enabled: true }) {
 
 /**
  * Deprecated, use `IntersectParameter` and `IntersectConfig` instead
- * @typedef {import('./public').IntersectConfig} IntersectParameters
+ * @typedef {import('./types.public').IntersectConfig} IntersectParameters
  */
+

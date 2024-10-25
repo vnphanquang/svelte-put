@@ -1,0 +1,15 @@
+{
+	"$schema": "https://jsr.io/schema/config-file.v1.json",
+	"name": "@svelte-put/clickoutside",
+	"version": "4.0.0-next.2",
+	"exports": "./src/index.js",
+	"publish": {
+		"include": [
+			"README.md",
+			"src",
+			"types",
+			"package.json",
+			"jsr.json"
+		]
+	}
+}

@@ -46,8 +46,8 @@ function nonNullableFilter(value) {
 /**
  * @package
  * @param {string | undefined} alt
- * @param {import('./Avatar.svelte.d.ts').AvatarProps['gravatar'] | undefined} gravatar
- * @param {import('./Avatar.svelte.d.ts').AvatarProps['uiAvatar'] | undefined} uiAvatar
+ * @param {import('./types.public').AvatarProps['gravatar'] | undefined} gravatar
+ * @param {import('./types.public').AvatarProps['uiAvatar'] | undefined} uiAvatar
  * @param {string | undefined } src
  * @returns {string}
  */
@@ -71,8 +71,8 @@ export function resolveAlt(
  * @param {number} fallback
  * @param {number | undefined} size
  * @param {string | undefined} src
- * @param {import('./Avatar.svelte.d.ts').AvatarProps['gravatar'] | undefined} gravatar
- * @param {import('./Avatar.svelte.d.ts').AvatarProps['uiAvatar'] | undefined} uiAvatar
+ * @param {import('./types.public').AvatarProps['gravatar'] | undefined} gravatar
+ * @param {import('./types.public').AvatarProps['uiAvatar'] | undefined} uiAvatar
  * @returns {number}
  */
 export function resolveSize(
@@ -89,6 +89,7 @@ export function resolveSize(
 		if (src) return getSizeFromUrl(src) || fallback;
 		return fallback;
 	} catch (error) {
+		console.error('[@svelte-put/avatar] error resolving avatar size', error);
 		return fallback;
 	}
 }
@@ -98,8 +99,8 @@ export const DEFINITIVE_FALLBACK = 'https://www.gravatar.com/avatar?d=mp';
 /**
  * @package
  * @param {string | undefined} src
- * @param {import('./Avatar.svelte.d.ts').AvatarProps['gravatar'] | undefined} gravatar
- * @param {import('./Avatar.svelte.d.ts').AvatarProps['uiAvatar'] | undefined} uiAvatar
+ * @param {import('./types.public').AvatarProps['gravatar'] | undefined} gravatar
+ * @param {import('./types.public').AvatarProps['uiAvatar'] | undefined} uiAvatar
  * @param {string | undefined} fallback
  * @returns {string[]}
  */

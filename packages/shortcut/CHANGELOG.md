@@ -1,5 +1,51 @@
 # Changelog
 
+## 4.0.0
+
+### Major Changes
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`7af1455`](https://github.com/vnphanquang/svelte-put/commit/7af1455f9c13de2f08d66a58d98cc0443150393e) Thanks [@github-actions](https://github.com/apps/github-actions)! - drop support for Svelte 4 and below. `on:shortcut` is now `onshortcut`
+
+### Patch Changes
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`5d30599`](https://github.com/vnphanquang/svelte-put/commit/5d3059929a1846fae63e8e35a1423544321f55cc) Thanks [@github-actions](https://github.com/apps/github-actions)! - set up [package provenence](https://docs.npmjs.com/generating-provenance-statements#publishing-packages-with-provenance-via-github-actions)
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`c559185`](https://github.com/vnphanquang/svelte-put/commit/c55918517ef53fbc07870fa33e1f6c2e13e7c995) Thanks [@github-actions](https://github.com/apps/github-actions)! - sync README.md and installation version in docs page
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`2414af5`](https://github.com/vnphanquang/svelte-put/commit/2414af57598bc5e74498831f2b63c78dd3d9971d) Thanks [@github-actions](https://github.com/apps/github-actions)! - re-expose public typedef (following https://github.com/Rich-Harris/dts-buddy/pull/82)
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`9a2e375`](https://github.com/vnphanquang/svelte-put/commit/9a2e375915b0654af3f13b1ac4d325507e5e2b98) Thanks [@github-actions](https://github.com/apps/github-actions)! - defer events to Svelte internal delegation system where applicable
+
+## 4.0.0-next.4
+
+### Patch Changes
+
+- [`5d30599`](https://github.com/vnphanquang/svelte-put/commit/5d3059929a1846fae63e8e35a1423544321f55cc) Thanks [@vnphanquang](https://github.com/vnphanquang)! - set up [package provenence](https://docs.npmjs.com/generating-provenance-statements#publishing-packages-with-provenance-via-github-actions)
+
+## 4.0.0-next.3
+
+### Patch Changes
+
+- [`2414af5`](https://github.com/vnphanquang/svelte-put/commit/2414af57598bc5e74498831f2b63c78dd3d9971d) Thanks [@vnphanquang](https://github.com/vnphanquang)! - re-expose public typedef (following https://github.com/Rich-Harris/dts-buddy/pull/82)
+
+## 4.0.0-next.2
+
+### Patch Changes
+
+- [`26bbd81`](https://github.com/vnphanquang/svelte-put/commit/26bbd813c1e65ead04d5d6bcb29b97a34045646b) Thanks [@vnphanquang](https://github.com/vnphanquang)! - sync README.md and installation version in docs page
+
+## 4.0.0-next.1
+
+### Patch Changes
+
+- [#302](https://github.com/vnphanquang/svelte-put/pull/302) [`db35158`](https://github.com/vnphanquang/svelte-put/commit/db351580dfb3eea612be5435be1b6ac466fa6ac5) Thanks [@github-actions](https://github.com/apps/github-actions)! - defer events to Svelte internal delegation system where applicable
+
+## 4.0.0-next.0
+
+### Major Changes
+
+- [#298](https://github.com/vnphanquang/svelte-put/pull/298) [`eb4704f`](https://github.com/vnphanquang/svelte-put/commit/eb4704f6f27c79ee8a6d02d2a8acd338d8385c57) Thanks [@github-actions](https://github.com/apps/github-actions)! - drop support for Svelte 4 and below. `on:shortcut` is now `onshortcut`
+
 ## 3.1.1
 
 ### Patch Changes

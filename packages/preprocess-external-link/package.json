@@ -1,0 +1,64 @@
+{
+	"name": "@svelte-put/preprocess-external-link",
+	"version": "1.0.0",
+	"description": "add appropriate attributes to external links",
+	"main": "src/index.js",
+	"module": "src/index.js",
+	"types": "types/index.d.ts",
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./types/index.d.ts",
+			"import": "./src/index.js"
+		}
+	},
+	"publishConfig": {
+		"access": "public",
+		"provenance": true
+	},
+	"files": [
+		"src",
+		"types"
+	],
+	"scripts": {
+		"lint": "eslint .",
+		"format": "prettier --ignore-path ../../.prettierignore --write .",
+		"dts": "dts-buddy --write && publint",
+		"prepublishOnly": "turbo run dts --filter=@svelte-put/preprocess-external-link"
+	},
+	"keywords": [
+		"svelte",
+		"preprocess",
+		"href",
+		"anchor",
+		"external",
+		"link",
+		"target"
+	],
+	"author": {
+		"email": "vnphanquang@gmail.com",
+		"name": "Quang Phan",
+		"url": "https://github.com/vnphanquang"
+	},
+	"license": "MIT",
+	"homepage": "https://github.com/vnphanquang/svelte-put/tree/next/packages/preprocess-external-link",
+	"bugs": {
+		"url": "https://github.com/vnphanquang/svelte-put/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/vnphanquang/svelte-put.git",
+		"directory": "packages/preprocess-external-link"
+	},
+	"devDependencies": {
+		"@internals/tsconfig": "workspace:*"
+	},
+	"peerDependencies": {
+		"svelte": "^5.1.0"
+	},
+	"dependencies": {
+		"magic-string": "^0.30.12",
+		"svelte-parse-markup": "^0.1.5",
+		"zimmerframe": "^1.1.2"
+	}
+}

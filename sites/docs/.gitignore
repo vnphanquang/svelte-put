@@ -1,0 +1,3 @@
+static/pagefind/*
+!static/pagefind/pagefind.js
+

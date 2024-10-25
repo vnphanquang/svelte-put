@@ -1,7 +1,7 @@
 {
 	"name": "@svelte-put/resize",
-	"version": "3.1.0",
-	"description": "Svelte action that wraps ResizeObserver",
+	"version": "4.0.0",
+	"description": "Svelte action wrapper for ResizeObserver",
 	"main": "src/index.js",
 	"module": "src/index.js",
 	"types": "types/index.d.ts",
@@ -13,14 +13,15 @@
 		}
 	},
 	"publishConfig": {
-		"access": "public"
+		"access": "public",
+		"provenance": true
 	},
 	"files": [
 		"src",
 		"types"
 	],
 	"scripts": {
-		"lint": "eslint . --ignore-path=\"../../.eslintignore\"",
+		"lint": "eslint .",
 		"format": "prettier --ignore-path ../../.prettierignore --write .",
 		"dts": "dts-buddy --write && publint",
 		"prepublishOnly": "turbo run dts --filter=@svelte-put/resize"
@@ -38,7 +39,7 @@
 		"url": "https://github.com/vnphanquang"
 	},
 	"license": "MIT",
-	"homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/resize",
+	"homepage": "https://github.com/vnphanquang/svelte-put/tree/next/packages/resize",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/vnphanquang/svelte-put.git",
@@ -51,7 +52,7 @@
 		"@internals/tsconfig": "workspace:*"
 	},
 	"peerDependencies": {
-		"svelte": "^3.55.0 || ^4.0.0 || ^5.0.0"
+		"svelte": "^5.1.0"
 	},
 	"volta": {
 		"extends": "../../package.json"

@@ -19,27 +19,27 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 ## Quick Start
 
 ```html
-<!-- input -->
+<!-- input.svelte -->
 <h2>Quick start</h2>
 ```
 
 ```javascript
-// config
+// svelte.config.js
 import autoSlug from '@svelte-put/preprocess-auto-slug';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	preprocess: [autoSlug()],
+  preprocess: [autoSlug()],
 };
 
 export default config;
 ```
 
 ```html
-<!-- output -->
+<!-- output.html -->
 <h2 id="quick-start">
-	<a href="#quick-start" aria-hidden="true" tabindex="-1">#</a>
-	Quick Start
+  <a href="#quick-start" aria-hidden="true" tabindex="-1">#</a>
+  Quick Start
 </h2>
 ```
 
@@ -48,7 +48,7 @@ export default config;
 <!-- github specifics -->
 
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
-[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocess-auto-slug/CHANGELOG.md
+[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/preprocess-auto-slug/CHANGELOG.md
 [github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
 
 <!-- heading badge -->
@@ -59,3 +59,4 @@ export default config;
 [bundlephobia]: https://bundlephobia.com/package/@svelte-put/preprocess-auto-slug
 [docs]: https://svelte-put.vnphanquang.com/docs/preprocess-auto-slug
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue
+

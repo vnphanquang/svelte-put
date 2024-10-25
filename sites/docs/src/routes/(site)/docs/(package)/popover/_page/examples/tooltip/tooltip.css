@@ -1,0 +1,54 @@
+.text-hint[popover] {
+	position: absolute;
+
+	display: block; /* required for animation to work */
+
+	max-width: 100dvw;
+	max-width: 100vw;
+	padding: 0.25rem 0.5rem;
+
+	color: theme('colors.fg.DEFAULT');
+
+	background-color: theme('colors.bg.100');
+	border: 1px solid theme('colors.bg.200');
+	box-shadow: 0 0 8px theme('colors.bg.200');
+
+	animation-name: fade-out;
+	animation-duration: 500ms;
+	animation-timing-function: theme('transitionTimingFunction.DEFAULT');
+	animation-fill-mode: forwards;
+
+	&.enhanced {
+		z-index: 1;
+		top: 0;
+		left: 0;
+
+		overflow: visible;
+
+		/* Avoid layout interference */
+		width: max-content;
+		height: fit-content;
+		margin: 0;
+	}
+
+	&:popover-open {
+		animation-name: fade-in;
+		animation-duration: 200ms;
+	}
+
+	& > .arrow {
+		pointer-events: none;
+
+		position: absolute;
+		z-index: -1;
+
+		width: theme('spacing.3');
+		height: theme('spacing.3');
+
+		background-color: inherit;
+		border-color: theme('colors.bg.200');
+		border-style: solid;
+		border-right-width: 1px;
+		border-bottom-width: 1px;
+	}
+}

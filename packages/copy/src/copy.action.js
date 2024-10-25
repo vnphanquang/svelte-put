@@ -1,11 +1,13 @@
+import { on } from 'svelte/events';
+
 import { copyToClipboard } from './copy.helpers.js';
 
 /**
  * Copy text to clipboard on `click` event
  * @template {keyof HTMLElementEventMap} K
  * @param {HTMLElement} node - HTMLElement to register action
- * @param {import('./public.js').CopyParameter<K>} parameter - svelte action parameters
- * @returns {import('./public.js').CopyReturn<K>}
+ * @param {import('./types.public').CopyParameter<K>} parameter - svelte action parameters
+ * @returns {import('./types.public').CopyReturn<K>}
  */
 export function copy(node, parameter = {}) {
 	let { trigger, enabled, text, events, synthetic } = resolveConfig(node, parameter);
@@ -14,7 +16,7 @@ export function copy(node, parameter = {}) {
 	async function handler(e) {
 		const rText = await text({ node, trigger, event: e });
 		copyToClipboard(rText);
-		/** @type {import('./public').CopyDetail} */
+		/** @type {import('./types.public').CopyDetail} */
 		const detail = { text: rText };
 		node.dispatchEvent(new CustomEvent('copied', { detail }));
 		if (synthetic) {
@@ -32,20 +34,18 @@ export function copy(node, parameter = {}) {
 		}
 	}
 
-
+	/** @type {Array<() => void>} */
+	let offs = [];
 	function addEvents() {
 		if (trigger) {
-			for (const event of events) {
-				trigger.addEventListener(/** @type {K} */ (event), handler);
-			}
+			offs = events.map((event) => on(trigger, /** @type {K} */(event), handler));
 		}
 	}
 
 	function removeEvents() {
 		if (trigger) {
-			for (const event of events) {
-				trigger.removeEventListener(/** @type {K} */ (event), handler);
-			}
+			offs.forEach(unsub => unsub());
+			offs = [];
 		}
 	}
 
@@ -67,11 +67,11 @@ export function copy(node, parameter = {}) {
  * @package
  * @template {keyof HTMLElementEventMap} K
  * @param {HTMLElement} node
- * @param {import('./public').CopyParameter<K>} param
+ * @param {import('./types.public').CopyParameter<K>} param
  * @returns {{
  * 	trigger: HTMLElement;
  * 	enabled: boolean;
- * 	text: import('./public.js').TextResolver<K>;
+ * 	text: import('./types.public').TextResolver<K>;
  * 	events: K[] | "click"[];
  * 	synthetic: boolean;
  * }}
@@ -81,13 +81,14 @@ function resolveConfig(node, param = {}) {
 	const text =
 		typeof param.text === 'function'
 			? param.text
-			: /** @type {import('./public.js').TextResolver<K>} */ (() => param.text ?? node.innerText);
+			: /** @type {import('./types.public').TextResolver<K>} */ (() => param.text ?? node.innerText);
 	const events = typeof param.event === 'string' ? [param.event] : param.event ?? ['click'];
 	return { trigger, enabled, text, events, synthetic };
 }
 
 /**
  * Deprecated, use `CopyParameter` and `CopyConfig` instead
- * @typedef {import('./public').CopyConfig<K>} CopyParameters
+ * @typedef {import('./types.public').CopyConfig<K>} CopyParameters
  * @template {keyof HTMLElementEventMap} K
  */
+

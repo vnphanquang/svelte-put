@@ -1,31 +1,19 @@
 import QR from 'qrcode-generator';
 
-const __ANCHOR_SIZE = 7;
-
-/**
- * @package
- * @param {import('./types').QRConfig} config
- * @returns {Required<Omit<import('./types').QRConfig, 'logo'>> & { logo?: string }}
- */
-export function resolveConfig(config) {
-	return /** @satisfies {import('./types').QRConfig} */ ({
-		...config,
-		margin: config.margin ?? 1,
-		shape: config.shape ?? /** @type {const} */ ('square'),
-		logoRatio: config.logoRatio ?? 1,
-		moduleFill: config.moduleFill ?? 'currentcolor',
-		anchorOuterFill: config.anchorOuterFill ?? 'currentcolor',
-		anchorInnerFill: config.anchorInnerFill ?? 'currentcolor',
-		typeNumber: config.typeNumber ?? 0,
-		errorCorrectionLevel: config.errorCorrectionLevel ?? 'H',
-	});
-}
+import {
+	isLogo,
+	isAnchor,
+	calculateLogoSize,
+	resolveConfig,
+	DEFAULT_PNG_FILLS,
+	ANCHOR_SIZE,
+} from './internals.js';
 
 /**
  * create SVG parts that make up a QR. You should typically use {@link createQrSvgString} instead
- * @param {import('./types').QRConfig} config
- * @param {import('./types').QRCode} [qr]
- * @returns {import('./types').QRSVGParts}
+ * @param {import('./types.public').QRConfig} config
+ * @param {import('./types.public').QRCode} [qr]
+ * @returns {import('./types.public').QRSVGParts}
  */
 export function createQrSvgParts(config, qr) {
 	const { data, margin, shape, logo, logoRatio, anchorInnerFill, anchorOuterFill, moduleFill, typeNumber, errorCorrectionLevel } = resolveConfig(config);
@@ -41,8 +29,8 @@ export function createQrSvgParts(config, qr) {
 	/** @type {[string, number, number][]} */
 	const anchors = [
 		['top-left', margin, margin],
-		['top-right', count - __ANCHOR_SIZE + margin, margin],
-		['bottom-left', margin, count - __ANCHOR_SIZE + margin],
+		['top-right', count - ANCHOR_SIZE + margin, margin],
+		['bottom-left', margin, count - ANCHOR_SIZE + margin],
 	];
 
 	let anchorsSvg = '';
@@ -102,12 +90,12 @@ export function createQrSvgParts(config, qr) {
 
 /**
  * create QR as an SVG string
- * @param {import('./types').QRConfig & Partial<import('./types').SizeAttributes>} config
+ * @param {import('./types.public').QRConfig & Partial<import('./types.private').SizeAttributes>} config
  * @returns {string}
  */
 export function createQrSvgString(config) {
 	const { anchors, attributes, logo, modules } = createQrSvgParts(config);
-	/** @type {typeof attributes & Partial<import('./types').SizeAttributes>} */
+	/** @type {typeof attributes & Partial<import('./types.private').SizeAttributes>} */
 	const rAttributes = { ...attributes };
 	if (config.width) rAttributes.width = config.width;
 	if (config.height) rAttributes.height = config.height;
@@ -118,7 +106,7 @@ export function createQrSvgString(config) {
 
 /**
  * create QR as a base64 data URL (image/svg+xml)
- * @param {import('./types').QRConfig & Partial<import('./types').SizeAttributes>} config
+ * @param {import('./types.public').QRConfig & Partial<import('./types.private').SizeAttributes>} config
  * @returns {string}
  */
 export function createQrSvgDataUrl(config) {
@@ -130,76 +118,7 @@ export function createQrSvgDataUrl(config) {
 }
 
 /**
- * @package
- * @param {number} col
- * @param {number} row
- * @param {number} count
- * @returns {boolean}
- */
-function isAnchor(col, row, count) {
-	if (row <= __ANCHOR_SIZE) return col <= __ANCHOR_SIZE || col >= count - __ANCHOR_SIZE;
-	if (col <= __ANCHOR_SIZE) return row >= count - __ANCHOR_SIZE;
-	return false;
-}
-
-/**
- * @package
- * @param {number} col
- * @param {number} row
- * @param {number} count
- * @returns {boolean}
- */
-function isLogo(col, row, count) {
-	const center = count / 2;
-	const maskXToYRatio = 1;
-
-	const safelyRemovableHalf = Math.floor((count * Math.sqrt(0.1)) / 2);
-	const safelyRemovableHalfX = safelyRemovableHalf * maskXToYRatio;
-	const safelyRemovableHalfY = safelyRemovableHalf / maskXToYRatio;
-	const safelyRemovableStartX = center - safelyRemovableHalfX;
-	const safelyRemovableEndX = center + safelyRemovableHalfX;
-	const safelyRemovableStartY = center - safelyRemovableHalfY;
-	const safelyRemovableEndY = center + safelyRemovableHalfY;
-
-	return (
-		row >= safelyRemovableStartY &&
-		row <= safelyRemovableEndY &&
-		col >= safelyRemovableStartX &&
-		col <= safelyRemovableEndX
-	);
-}
-
-/**
- * @package
- * @param {number} logoSize
- * @param {number} logoRatio
- * @returns {{ width: number, height: number }}
- */
-function calculateLogoSize(logoSize, logoRatio) {
-	if (logoRatio >= 1) {
-		return {
-			width: logoSize,
-			height: logoSize / logoRatio,
-		};
-	}
-	return {
-		width: logoSize * logoRatio,
-		height: logoSize,
-	};
-}
-
-const DEFAULT_PNG_FILLS = {
-	moduleFill: 'black',
-	anchorOuterFill: 'black',
-	anchorInnerFill: 'black',
-}
-
-/**
- * @typedef {import('./types').QRConfig & import('./types').SizeAttributes & { backgroundFill?: string }} CreateQrPngDataUrlConfig
- */
-
-/**
- * @param {CreateQrPngDataUrlConfig} config
+ * @param {import('./types.public.js').CreateQrPngDataUrlConfig} config
  * @returns {Promise<string>}
  */
 export async function createQrPngDataUrl(config) {
@@ -210,7 +129,7 @@ export async function createQrPngDataUrl(config) {
 	const width = config.width || 1000;
 	const height = config.height || 1000;
 
-	/** @type {CreateQrPngDataUrlConfig} */
+	/** @type {import('./types.public.js').CreateQrPngDataUrlConfig} */
 	const rConfig = {
 		...DEFAULT_PNG_FILLS,
 		...config,
@@ -250,3 +169,6 @@ export async function createQrPngDataUrl(config) {
 
 	return promise;
 }
+
+export * from './types.public.js';
+

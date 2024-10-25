@@ -1,6 +1,7 @@
 {
-	"$schema": "https://turborepo.org/schema.json",
-	"pipeline": {
+  "$schema": "https://turbo.build/schema.json",
+	"ui": "tui",
+	"tasks": {
 		"prepublishOnly": {},
 		"dts": {
 			"dependsOn": ["^dts"],
@@ -9,7 +10,7 @@
 			"cache": true
 		},
 		"build": {
-			"dependsOn": ["^build", "^dts"],
+			"dependsOn": ["^build"],
       "outputs": ["dist/**", "build/**", ".svelte-kit/**"],
 			"inputs": [
 				"*.config.js",

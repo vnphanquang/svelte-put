@@ -1,15 +1,13 @@
 <script lang="ts">
 	import { clickoutside } from '@svelte-put/clickoutside';
+	import type { HTMLAttributes } from 'svelte/elements';
 
 	import { COLOR_SCHEMES } from '$lib/constants';
-	import { getSettingsContext } from '$lib/contexts/settings';
+	import { SettingsContext } from '$lib/contexts/settings.svelte';
 
-	let cls = '';
-	export { cls as class };
-
-	const { colorScheme } = getSettingsContext();
-
-	let open = false;
+	let { class: cls, ...rest }: HTMLAttributes<HTMLDivElement> = $props();
+	let open = $state(false);
+	let settings = SettingsContext.get();
 
 	function toggle(force?: boolean) {
 		open = force ?? !open;
@@ -22,28 +20,31 @@
 	};
 </script>
 
-<!-- eslint-disable svelte/valid-compile -->
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-<div class="color-scheme-menu csm relative {cls}">
+{#snippet icon(scheme: App.ColorScheme)}
+		{#if scheme === 'light'}
+			<svg inline-src="phosphor/sun" width="20" height="20"></svg>
+		{:else if scheme === 'dark'}
+			<svg inline-src="phosphor/moon-stars" width="20" height="20"></svg>
+		{:else}
+			<svg inline-src="phosphor/sliders-horizontal" width="20" height="20"></svg>
+		{/if}
+{/snippet}
+
+<div class="color-scheme-menu csm relative {cls}" {...rest}>
+	<!-- svelte-ignore a11y_click_events_have_key_events -->
+	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 	<label
 		class="c-link c-link--icon grid cursor-pointer place-items-center rounded-2xl border border-current px-3 py-1"
 		id="csm-toggler"
-		on:click|stopPropagation
+		onclick={e => e.stopPropagation()}
 	>
-		{#if $colorScheme === 'light'}
-			<svg inline-src="lucide/sun" width="20" height="20" stroke-width="1.5" />
-		{:else if $colorScheme === 'dark'}
-			<svg inline-src="lucide/moon-star" width="20" height="20" stroke-width="1.5" />
-		{:else}
-			<svg inline-src="lucide/sliders-horizontal" width="20" height="20" stroke-width="1.5" />
-		{/if}
+		{@render icon(settings.colorScheme)}
 		<input type="checkbox" bind:checked={open} class="sr-only" />
 	</label>
 	<div
 		class="csm-dropdown"
 		use:clickoutside={{ enabled: open }}
-		on:clickoutside={() => toggle(false)}
+		onclickoutside={() => toggle(false)}
 	>
 		<div class="overflow-hidden">
 			<svg
@@ -67,23 +68,18 @@
 					<li>
 						<form
 							method="GET"
-							on:submit|preventDefault={() => {
-								$colorScheme = scheme;
+							onsubmit={(e) => {
+								e.preventDefault();
+								settings.colorScheme = scheme;
 								toggle(false);
 							}}
 						>
 							<label
 								class="w-100% relative flex cursor-pointer items-center p-2.5 hover:text-link"
-								class:text-link={scheme === $colorScheme}
+								class:text-link={scheme === settings.colorScheme}
 							>
 								<input type="submit" value={scheme} name="color-scheme" class="sr-only" />
-								{#if scheme === 'light'}
-									<svg inline-src="lucide/sun" width="20" height="20" stroke-width="1.5" />
-								{:else if scheme === 'dark'}
-									<svg inline-src="lucide/moon-star" width="20" height="20" stroke-width="1.5" />
-								{:else}
-									<svg inline-src="lucide/sliders-horizontal" width="20" height="20" stroke-width="1.5" />
-								{/if}
+								{@render icon(scheme)}
 								<span class="c-text-body2 ml-2">{LABELS[scheme]}</span>
 							</label>
 						</form>
@@ -127,3 +123,4 @@
 		}
 	}
 </style>
+

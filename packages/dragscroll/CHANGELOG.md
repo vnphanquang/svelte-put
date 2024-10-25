@@ -1,5 +1,51 @@
 # Changelog
 
+## 4.0.0
+
+### Major Changes
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`d2ad6ba`](https://github.com/vnphanquang/svelte-put/commit/d2ad6bae861addd6262d43910f9354b685483acc) Thanks [@github-actions](https://github.com/apps/github-actions)! - drop support for svelte 4 and below
+
+### Patch Changes
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`5d30599`](https://github.com/vnphanquang/svelte-put/commit/5d3059929a1846fae63e8e35a1423544321f55cc) Thanks [@github-actions](https://github.com/apps/github-actions)! - set up [package provenence](https://docs.npmjs.com/generating-provenance-statements#publishing-packages-with-provenance-via-github-actions)
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`c559185`](https://github.com/vnphanquang/svelte-put/commit/c55918517ef53fbc07870fa33e1f6c2e13e7c995) Thanks [@github-actions](https://github.com/apps/github-actions)! - sync README.md and installation version in docs page
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`dab2ff5`](https://github.com/vnphanquang/svelte-put/commit/dab2ff5ecadd16270feff8e92c2f31e5f400d6c0) Thanks [@github-actions](https://github.com/apps/github-actions)! - re-expose public typedef (following https://github.com/Rich-Harris/dts-buddy/pull/82)
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`9a2e375`](https://github.com/vnphanquang/svelte-put/commit/9a2e375915b0654af3f13b1ac4d325507e5e2b98) Thanks [@github-actions](https://github.com/apps/github-actions)! - defer events to Svelte internal delegation system where applicable
+
+## 4.0.0-next.4
+
+### Patch Changes
+
+- [`5d30599`](https://github.com/vnphanquang/svelte-put/commit/5d3059929a1846fae63e8e35a1423544321f55cc) Thanks [@vnphanquang](https://github.com/vnphanquang)! - set up [package provenence](https://docs.npmjs.com/generating-provenance-statements#publishing-packages-with-provenance-via-github-actions)
+
+## 4.0.0-next.3
+
+### Patch Changes
+
+- [`dab2ff5`](https://github.com/vnphanquang/svelte-put/commit/dab2ff5ecadd16270feff8e92c2f31e5f400d6c0) Thanks [@vnphanquang](https://github.com/vnphanquang)! - re-expose public typedef (following https://github.com/Rich-Harris/dts-buddy/pull/82)
+
+## 4.0.0-next.2
+
+### Patch Changes
+
+- [`26bbd81`](https://github.com/vnphanquang/svelte-put/commit/26bbd813c1e65ead04d5d6bcb29b97a34045646b) Thanks [@vnphanquang](https://github.com/vnphanquang)! - sync README.md and installation version in docs page
+
+## 4.0.0-next.1
+
+### Patch Changes
+
+- [#302](https://github.com/vnphanquang/svelte-put/pull/302) [`db35158`](https://github.com/vnphanquang/svelte-put/commit/db351580dfb3eea612be5435be1b6ac466fa6ac5) Thanks [@github-actions](https://github.com/apps/github-actions)! - defer events to Svelte internal delegation system where applicable
+
+## 4.0.0-next.0
+
+### Major Changes
+
+- [#298](https://github.com/vnphanquang/svelte-put/pull/298) [`15b262c`](https://github.com/vnphanquang/svelte-put/commit/15b262cd30e52a906cef6080ff5838e66b0dc515) Thanks [@github-actions](https://github.com/apps/github-actions)! - drop support for svelte 4 and below
+
 ## 3.0.1
 
 ### Patch Changes

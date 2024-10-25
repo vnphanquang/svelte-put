@@ -5,7 +5,7 @@
 
 <main class="h-dvh flex items-center flex-col justify-center gap-10">
 	<div class="flex items-end gap-6">
-		<svg inline-src="svelte-put" height="100" width="100" />
+		<svg inline-src="svelte-put" height="100" width="100"></svg>
 		<h1 class=" text-4xl c-text-h1 font-fingerpaint text-gradient-brand">svelte-put</h1>
 	</div>
 	<p>
@@ -16,7 +16,7 @@
 		<a class="c-link c-link--preserved text-link" href="/docs">
 			Read Docs
 		</a>
-		<a class="c-link c-link--preserved text-link" href={SOCIAL_LINKS.GITHUB} external>
+		<a class="c-link c-link--preserved text-link" href={SOCIAL_LINKS.GITHUB} data-external>
 			See Github
 		</a>
 	</div>

@@ -6,7 +6,7 @@
 
 Svelte action `use:intersect` - wrapper for [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
 
-![demo](https://raw.githubusercontent.com/vnphanquang/svelte-put/main/packages/intersect/static/images/demo.gif)
+![demo](https://raw.githubusercontent.com/vnphanquang/svelte-put/next/packages/intersect/static/images/demo.gif)
 
 </div>
 
@@ -22,16 +22,17 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 
 ```html
 <script lang="ts">
-	import { intersect, type IntersectDetail } from '@svelte-put/intersect';
-	function onIntersect(e: CustomEvent<IntersectDetail>) {
-		const { observer, entries, direction } = e.detail;
-		console.log('the observer itself', observer);
-		console.log('scrolling direction:', direction);
-		console.log('intersecting:', entries[0]?.isIntersecting ? 'entering' : 'leaving');
-	}
+  import { intersect, type IntersectDetail } from '@svelte-put/intersect';
+
+  function onIntersect(e: CustomEvent<IntersectDetail>) {
+    const { observer, entries, direction } = e.detail;
+    console.log('the observer itself', observer);
+    console.log('scrolling direction:', direction);
+    console.log('intersecting:', entries[0]?.isIntersecting ? 'entering' : 'leaving');
+  }
 </script>
 
-<div use:intersect on:intersect="{onIntersect}" on:intersectonce />
+<div use:intersect onintersect={onIntersect} onintersectonce></div>
 ```
 
 ## [Changelog][github.changelog]
@@ -39,7 +40,7 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 <!-- github specifics -->
 
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
-[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/intersect/CHANGELOG.md
+[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/intersect/CHANGELOG.md
 [github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
 
 <!-- heading badge -->
@@ -52,3 +53,4 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 [repl.badge]: https://img.shields.io/static/v1?label=&message=Svelte+REPL&logo=svelte&logoColor=fff&color=ff3e00
 [docs]: https://svelte-put.vnphanquang.com/docs/intersect
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue
+

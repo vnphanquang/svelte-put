@@ -1,7 +1,11 @@
 import type { Handle } from '@sveltejs/kit';
 
+import { building } from '$app/environment';
 import { COOKIE_USER_ID } from '$env/static/private';
-import { PUBLIC_COOKIE_SETTINGS_COLOR_SCHEME, PUBLIC_COOKIE_SETTINGS_PACKAGE_MANAGER } from '$env/static/public';
+import {
+	PUBLIC_COOKIE_SETTINGS_COLOR_SCHEME,
+	PUBLIC_COOKIE_SETTINGS_PACKAGE_MANAGER,
+} from '$env/static/public';
 import { COMMON_COOKIE_CONFIG, PUBLIC_COOKIE_CONFIG } from '$lib/constants';
 
 export const handle: Handle = async ({ event, resolve }) => {
@@ -18,16 +22,26 @@ export const handle: Handle = async ({ event, resolve }) => {
 
 	locals.settings = {
 		colorScheme:
-			(url.searchParams.get('color-scheme') as App.ColorScheme) ||
+			(!building && (url.searchParams.get('color-scheme') as App.ColorScheme)) ||
 			(cookies.get(PUBLIC_COOKIE_SETTINGS_COLOR_SCHEME) as App.ColorScheme) ||
 			'system',
-		packageManager: cookies.get(PUBLIC_COOKIE_SETTINGS_PACKAGE_MANAGER) as App.PackageManager || 'npm',
+		packageManager:
+			(cookies.get(PUBLIC_COOKIE_SETTINGS_PACKAGE_MANAGER) as App.PackageManager) || 'npm',
 	};
 
-	cookies.set(PUBLIC_COOKIE_SETTINGS_COLOR_SCHEME, locals.settings.colorScheme, PUBLIC_COOKIE_CONFIG);
-	cookies.set(PUBLIC_COOKIE_SETTINGS_PACKAGE_MANAGER, locals.settings.packageManager, PUBLIC_COOKIE_CONFIG);
+	cookies.set(
+		PUBLIC_COOKIE_SETTINGS_COLOR_SCHEME,
+		locals.settings.colorScheme,
+		PUBLIC_COOKIE_CONFIG,
+	);
+	cookies.set(
+		PUBLIC_COOKIE_SETTINGS_PACKAGE_MANAGER,
+		locals.settings.packageManager,
+		PUBLIC_COOKIE_CONFIG,
+	);
 
 	return await resolve(event, {
 		transformPageChunk: ({ html }) => html.replace('%color-scheme%', locals.settings.colorScheme),
 	});
-}
+};
+

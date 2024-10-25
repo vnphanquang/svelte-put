@@ -1,5 +1,43 @@
 # Changelog
 
+## 4.0.0
+
+### Major Changes
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`9fcb6a6`](https://github.com/vnphanquang/svelte-put/commit/9fcb6a6257632c0a1bfdf3c3681f868f2fed3e91) Thanks [@github-actions](https://github.com/apps/github-actions)! - drop support for Svelte 4 and below. `on:intersect` and `on:intersect:once` is now `onintersect` and `onintersectonce`, respectively
+
+### Patch Changes
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`1f88e0f`](https://github.com/vnphanquang/svelte-put/commit/1f88e0f1dc8ae169acce21095ee5ad6100ba81ff) Thanks [@github-actions](https://github.com/apps/github-actions)! - re-expose public typedef (following https://github.com/Rich-Harris/dts-buddy/pull/82)
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`5d30599`](https://github.com/vnphanquang/svelte-put/commit/5d3059929a1846fae63e8e35a1423544321f55cc) Thanks [@github-actions](https://github.com/apps/github-actions)! - set up [package provenence](https://docs.npmjs.com/generating-provenance-statements#publishing-packages-with-provenance-via-github-actions)
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`c559185`](https://github.com/vnphanquang/svelte-put/commit/c55918517ef53fbc07870fa33e1f6c2e13e7c995) Thanks [@github-actions](https://github.com/apps/github-actions)! - sync README.md and installation version in docs page
+
+## 4.0.0-next.3
+
+### Patch Changes
+
+- [`5d30599`](https://github.com/vnphanquang/svelte-put/commit/5d3059929a1846fae63e8e35a1423544321f55cc) Thanks [@vnphanquang](https://github.com/vnphanquang)! - set up [package provenence](https://docs.npmjs.com/generating-provenance-statements#publishing-packages-with-provenance-via-github-actions)
+
+## 4.0.0-next.2
+
+### Patch Changes
+
+- [`1f88e0f`](https://github.com/vnphanquang/svelte-put/commit/1f88e0f1dc8ae169acce21095ee5ad6100ba81ff) Thanks [@vnphanquang](https://github.com/vnphanquang)! - re-expose public typedef (following https://github.com/Rich-Harris/dts-buddy/pull/82)
+
+## 4.0.0-next.1
+
+### Patch Changes
+
+- [`26bbd81`](https://github.com/vnphanquang/svelte-put/commit/26bbd813c1e65ead04d5d6bcb29b97a34045646b) Thanks [@vnphanquang](https://github.com/vnphanquang)! - sync README.md and installation version in docs page
+
+## 4.0.0-next.0
+
+### Major Changes
+
+- [#298](https://github.com/vnphanquang/svelte-put/pull/298) [`4f1d76b`](https://github.com/vnphanquang/svelte-put/commit/4f1d76b6f0b7474c1778d6e73e4401c97babd212) Thanks [@github-actions](https://github.com/apps/github-actions)! - drop support for Svelte 4 and below. `on:intersect` and `on:intersect:once` is now `onintersect` and `onintersectonce`, respectively
+
 ## 3.0.1
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
 	"name": "@svelte-put/avatar",
-	"version": "3.0.1",
+	"version": "4.0.0",
 	"description": "Component and utils for handling avatar",
 	"type": "module",
 	"svelte": "./src/index.js",
@@ -16,25 +16,18 @@
 		"./Avatar.svelte": {
 			"types": "./src/Avatar.svelte.d.ts",
 			"svelte": "./src/Avatar.svelte"
-		},
-		"./helpers": {
-			"types": "./types/index.d.ts",
-			"svelte": "./src/avatar.helpers.js",
-			"import": "./src/avatar.helpers.js"
 		}
 	},
 	"typesVersions": {
 		"*": {
-			"helpers": [
-				"./types/index.d.ts"
-			],
 			"Avatar.svelte": [
 				"./src/Avatar.svelte.d.ts"
 			]
 		}
 	},
 	"publishConfig": {
-		"access": "public"
+		"access": "public",
+		"provenance": true
 	},
 	"files": [
 		"src",
@@ -43,7 +36,7 @@
 	"scripts": {
 		"lint": "run-p lint:*",
 		"lint:svelte": "svelte-check --tsconfig ./tsconfig.json",
-		"lint:es": "eslint . --ignore-path=\"../../.eslintignore\"",
+		"lint:es": "eslint .",
 		"lint:style": "stylelint '**/*.{svelte,css}'",
 		"format": "prettier --ignore-path ../../.prettierignore --write .",
 		"dts": "dts-buddy --write && publint",
@@ -74,15 +67,13 @@
 	},
 	"devDependencies": {
 		"@internals/tsconfig": "workspace:*",
-		"@types/md5": "^2.3.5",
-		"dts-buddy": "^0.4.6",
-		"svelte": "^4.2.12"
+		"@types/md5": "^2.3.5"
 	},
 	"volta": {
 		"extends": "../../package.json"
 	},
 	"peerDependencies": {
-		"svelte": "^3.55.0 || ^4.0.0 || ^5.0.0"
+		"svelte": "^5.1.0"
 	},
 	"dependencies": {
 		"md5": "^2.3.0"

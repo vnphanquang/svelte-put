@@ -1,3 +1,4 @@
+import { on } from 'svelte/events';
 /**
  * Dispatch a `clickoutside` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent } on click outside of node
  * @example
@@ -28,7 +29,7 @@
  *    <aside
  *      class="absolute top-0 left-0 right-0 bottom-0"
  *      use:clickoutside={{ limit: { parent: containerNode }}}
- *      on:clickoutside={onClickOutside}
+ *      onclickoutside={onClickOutside}
  *    >
  *      ...some modal content...
  *    </aside>
@@ -47,11 +48,11 @@
  * <Component use:clickoutside/>
  * ```
  * @param {Element} node - node outside of which `click` event will trigger `clickoutside`
- * @param {import('./public').ClickOutsideParameter} param - instructions for `clickoutside` behavior
- * @returns {import('./public').ClickOutsideActionReturn}
+ * @param {import('./types.public').ClickOutsideParameter} param - instructions for `clickoutside` behavior
+ * @returns {import('./types.public').ClickOutsideActionReturn}
  */
 export function clickoutside(node, param = { enabled: true }) {
-	let { enabled, eventType, nodeForEvent, options, capture } = resolveConfig(param);
+	let { enabled, eventType, nodeForEvent, options } = resolveConfig(param);
 
 	/**
 	 * @param {Event} event
@@ -63,31 +64,32 @@ export function clickoutside(node, param = { enabled: true }) {
 		}
 	}
 
+	/** @type {undefined | (() => void)} */
+	let off;
 	if (param.enabled !== false) {
-		nodeForEvent.addEventListener(eventType, handle, options);
+		off = on(/** @type {Element} */(nodeForEvent), eventType, handle, options);
 	}
 
 	return {
 		update(update) {
-			nodeForEvent.removeEventListener(eventType, handle, capture);
-			({ enabled, eventType, nodeForEvent, options, capture } = resolveConfig(update));
-			if (enabled) nodeForEvent.addEventListener(eventType, handle, options);
+			off?.();
+			({ enabled, eventType, nodeForEvent, options } = resolveConfig(update));
+			if (enabled) off = on(/** @type {Element} */(nodeForEvent), eventType, handle, options);
 		},
 		destroy() {
-			nodeForEvent.removeEventListener(eventType, handle, capture);
+			off?.();
 		},
 	};
 }
 
 /**
  * @package
- * @param {import('./public').ClickOutsideParameter} param
+ * @param {import('./types.public').ClickOutsideParameter} param
  * @returns {{
  * 	enabled: boolean;
  * 	nodeForEvent: Element | Document;
  * 	eventType: string;
- * 	options: boolean | AddEventListenerOptions | undefined;
- * 	capture: boolean | undefined;
+ * 	options?: AddEventListenerOptions;
  * }}
  */
 export function resolveConfig(param = {}) {
@@ -95,12 +97,14 @@ export function resolveConfig(param = {}) {
 		enabled: param.enabled ?? true,
 		nodeForEvent: param.limit?.parent ?? document,
 		eventType: param.event ?? 'click',
-		options: param.options,
-		capture: typeof param.options === 'object' ? param.options?.capture : param.options,
+		options: typeof param.options === 'boolean'
+			? { capture: param.options }
+			: param.options,
 	};
 }
 
 /**
  * Deprecated, use `ClickOutsideParameter` and `ClickOutsideConfig` instead
- * @typedef {import('./public').ClickOutsideConfig} ClickOutsideParameters
+ * @typedef {import('./types.public').ClickOutsideConfig} ClickOutsideParameters
  */
+

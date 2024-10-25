@@ -52,3 +52,4 @@ export default {
 	},
 	ignoreFiles: ['**/app.html', '**/*.template.html', '**/*.md.svelte', 'dist/**/*'],
 };
+

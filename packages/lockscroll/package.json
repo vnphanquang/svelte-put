@@ -1,6 +1,6 @@
 {
 	"name": "@svelte-put/lockscroll",
-	"version": "1.0.2",
+	"version": "2.0.0",
 	"description": "locking scroll and hide scrollbar within an HTML element",
 	"main": "src/index.js",
 	"module": "src/index.js",
@@ -13,14 +13,15 @@
 		}
 	},
 	"publishConfig": {
-		"access": "public"
+		"access": "public",
+		"provenance": true
 	},
 	"files": [
 		"src",
 		"types"
 	],
 	"scripts": {
-		"lint": "eslint . --ignore-path=\"../../.eslintignore\"",
+		"lint": "eslint .",
 		"format": "prettier --ignore-path ../../.prettierignore --write .",
 		"dts": "dts-buddy --write && publint",
 		"prepublishOnly": "turbo run dts --filter=@svelte-put/lockscroll"
@@ -50,7 +51,7 @@
 		"@internals/tsconfig": "workspace:*"
 	},
 	"peerDependencies": {
-		"svelte": "^3.55.0 || ^4.0.0 || ^5.0.0"
+		"svelte": "^5.1.0"
 	},
 	"volta": {
 		"extends": "../../package.json"
