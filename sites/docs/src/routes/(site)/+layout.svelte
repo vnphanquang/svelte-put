@@ -9,6 +9,9 @@
 	import { StatusBadge } from '$lib/components/status-badge';
 	import { SOCIAL_LINKS } from '$lib/constants';
 	import { deprecatedPackages, packages } from '$lib/data/packages';
+	import NotificationPortal from '$lib/notifications/components/NotificationPortal.svelte';
+	import Svelte5 from '$lib/notifications/components/Svelte5.svelte';
+	import { NotificationContext } from '$lib/notifications/notification.context.svelte';
 
 	let { data, children } = $props();
 
@@ -36,8 +39,15 @@
 
 	let hydrated = $state(false);
 
+	const { stack } = NotificationContext.set();
 	onMount(() => {
 		hydrated = true;
+		if (!localStorage.getItem('skip-svelte-5-notification')) {
+			stack.push('custom', {
+				component: Svelte5,
+				timeout: 10_000,
+			});
+		}
 	});
 </script>
 
@@ -190,6 +200,7 @@
 		<label class="sidebar-backdrop" for="toc-toggler"></label>
 	</div>
 </div>
+<NotificationPortal />
 
 <style lang="postcss">
 	#docs {
