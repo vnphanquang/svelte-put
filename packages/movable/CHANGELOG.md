@@ -1,5 +1,21 @@
 # Changelog
 
+## 4.0.0
+
+### Major Changes
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`7096a8e`](https://github.com/vnphanquang/svelte-put/commit/7096a8ee6366f0f7df500b59778eded200aebfa6) Thanks [@github-actions](https://github.com/apps/github-actions)! - drop support for Svelte 4. `on:movablestart` and `on:movableend` is now `onmovablestart` and `onmovableend` , respectively
+
+### Patch Changes
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`2ee858a`](https://github.com/vnphanquang/svelte-put/commit/2ee858a0760312983b29d66a6c903a4a1bd6f307) Thanks [@github-actions](https://github.com/apps/github-actions)! - re-expose public typedef (following https://github.com/Rich-Harris/dts-buddy/pull/82)
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`5d30599`](https://github.com/vnphanquang/svelte-put/commit/5d3059929a1846fae63e8e35a1423544321f55cc) Thanks [@github-actions](https://github.com/apps/github-actions)! - set up [package provenence](https://docs.npmjs.com/generating-provenance-statements#publishing-packages-with-provenance-via-github-actions)
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`c559185`](https://github.com/vnphanquang/svelte-put/commit/c55918517ef53fbc07870fa33e1f6c2e13e7c995) Thanks [@github-actions](https://github.com/apps/github-actions)! - sync README.md and installation version in docs page
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`9a2e375`](https://github.com/vnphanquang/svelte-put/commit/9a2e375915b0654af3f13b1ac4d325507e5e2b98) Thanks [@github-actions](https://github.com/apps/github-actions)! - defer events to Svelte internal delegation system where applicable
+
 ## 4.0.0-next.4
 
 ### Patch Changes

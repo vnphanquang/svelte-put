@@ -1,5 +1,23 @@
 # Changelog
 
+## 2.0.0
+
+### Major Changes
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`6187f6b`](https://github.com/vnphanquang/svelte-put/commit/6187f6b46217e754c8d39f971f40fbad5fa54552) Thanks [@github-actions](https://github.com/apps/github-actions)! - drop support for `createLockScrollStore` helper; use svelte rune pattern instead (see docs page)
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`afbfaa1`](https://github.com/vnphanquang/svelte-put/commit/afbfaa1fc1976f40024d6fdaf25eee7ef1c43eb8) Thanks [@github-actions](https://github.com/apps/github-actions)! - drop support for Svelte 4. `on:lockscroll:toggle` is now `onlockscrolltoggle`
+
+### Patch Changes
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`7cc5e6b`](https://github.com/vnphanquang/svelte-put/commit/7cc5e6bcd78aa934708b94201b224c2203d8e1c2) Thanks [@github-actions](https://github.com/apps/github-actions)! - module does not need to be .svelte.js
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`1b5bb2a`](https://github.com/vnphanquang/svelte-put/commit/1b5bb2a00524f48464b21cc3696119c59116c1be) Thanks [@github-actions](https://github.com/apps/github-actions)! - re-expose public typedef (following https://github.com/Rich-Harris/dts-buddy/pull/82)
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`5d30599`](https://github.com/vnphanquang/svelte-put/commit/5d3059929a1846fae63e8e35a1423544321f55cc) Thanks [@github-actions](https://github.com/apps/github-actions)! - set up [package provenence](https://docs.npmjs.com/generating-provenance-statements#publishing-packages-with-provenance-via-github-actions)
+
+- [#327](https://github.com/vnphanquang/svelte-put/pull/327) [`c559185`](https://github.com/vnphanquang/svelte-put/commit/c55918517ef53fbc07870fa33e1f6c2e13e7c995) Thanks [@github-actions](https://github.com/apps/github-actions)! - sync README.md and installation version in docs page
+
 ## 2.0.0-next.4
 
 ### Patch Changes

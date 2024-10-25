@@ -1,6 +1,6 @@
 {
 	"name": "@svelte-put/inline-svg",
-	"version": "4.0.0-next.5",
+	"version": "4.0.0",
 	"description": "solution to inline SVGs in svelte land",
 	"main": "src/index.js",
 	"module": "src/index.js",
