@@ -5,10 +5,7 @@ import { ActionReturn } from 'svelte/action';
 import type { StackItem } from './stack-item.svelte.js';
 import type { ComponentResolved } from './types.public.js';
 
-export type StackItemCommonConfig<
-	Variant extends string,
-	UserComponent extends Component<any>,
-> = {
+export type StackItemCommonConfig<Variant extends string, UserComponent extends Component<any>> = {
 	/**
 	 * milliseconds to wait and automatically pop the stack item.
 	 * Defaults to `0` (disabled)
@@ -24,9 +21,7 @@ export type StackItemCommonConfig<
 	id?:
 		| 'counter'
 		| 'uuid'
-		| ((
-				config: Required<Omit<StackItemInstanceConfig<Variant, UserComponent>, 'id'>>,
-		  ) => string);
+		| ((config: Required<Omit<StackItemInstanceConfig<Variant, UserComponent>, 'id'>>) => string);
 };
 
 /** predefined variant config provided while building a {@link Stack} instance */
@@ -56,23 +51,28 @@ export type StackItemState = 'idle' | 'elapsing' | 'paused' | 'timeout' | 'resol
 export type StackItemByVariantPushConfig<
 	Variant extends string,
 	UserComponent extends Component<any>,
-> = StackItemCommonConfig< Variant, UserComponent> & {
+> = StackItemCommonConfig<Variant, UserComponent> & {
 	props?: Omit<ComponentProps<UserComponent>, 'item'>;
 };
 
-export type StackItemCustomPushConfig<
-	UserComponent extends Component<any>,
-> = StackItemCommonConfig<'custom', UserComponent> & {
+export type StackItemCustomPushConfig<UserComponent extends Component<any>> = StackItemCommonConfig<
+	'custom',
+	UserComponent
+> & {
 	component: UserComponent;
 	props?: Omit<ComponentProps<UserComponent>, 'item'>;
 };
 
-export type StackItemPopVerboseInput <
-	UserComponent extends Component<any>,
->= {
+export type StackItemPopVerboseInput<UserComponent extends Component<any>> = {
 	id?: string;
 	resolved?: ComponentResolved<UserComponent>;
 };
 
-export type StackItemRenderActionReturn = ActionReturn<StackItem<any>>;
-
+export interface StackItemRenderActionAttributes {
+	onstackitemmount?: (event: CustomEvent<{ item: StackItem<any> }>) => void;
+	onstackitemunmount?: (event: CustomEvent<{ item: StackItem<any> }>) => void;
+}
+export type StackItemRenderActionReturn = ActionReturn<
+	StackItem<any>,
+	StackItemRenderActionAttributes
+>;

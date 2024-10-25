@@ -368,7 +368,11 @@ notiStack.resume(); // resuming all items
 
 <h2 id="portal">Portal for Rendering Stack</h2>
 
-As seen in [Comprehensive Example], `@svelte-put/async-stack` does not control how and where you render your stack items, as it cannot assume the styling and animation required for your project. To make it easier to set up one, however, you can utilize the `render` action on a `Stack` instance with the following pattern:
+As seen in [Comprehensive Example], `@svelte-put/async-stack` does not control how and where you render your stack items, as it cannot assume the styling and animation required for your project. To make it easier to set up one, however, you can utilize the `render` action on a `Stack`.
+
+### The helper `render` action
+
+The `render` action makes sure your `StackItem` components receive all the correct props upon `push`. In the example above, the associated components will be rendered as direct children of `<div>`.
 
 ```svelte title=NotificationPortal.svelte
 <script>
@@ -377,17 +381,33 @@ As seen in [Comprehensive Example], `@svelte-put/async-stack` does not control h
 
 <!-- notification portal, typically setup at somewhere global like root layout -->
 <aside>
-  <!-- :::focus -->
-  <!-- :::highlight -->
-  {#each notiStack.items as notification (notification.config.id)}
-    <div use:notiStack.actions.render={notification}></div>
-  {/each}
-  <!-- ::: -->
-  <!-- ::: -->
+  <ul>
+    <!-- :::focus -->
+    <!-- :::highlight -->
+    {#each notiStack.items as notification (notification.config.id)}
+      <li use:notiStack.actions.render={notification}></li>
+    {/each}
+    <!-- ::: -->
+    <!-- ::: -->
+  </ul>
 </aside>
 ```
 
-The `render` action makes sure your `StackItem` components receive all the correct props upon `push`. In the example above, the associated components will be rendered as direct children of `<div>`.
+### Events upon Mounting & Unmounting `StackItem`
+
+The `render` action also exposes two helpful events, `stackitemmount` and `stackitemunmount`, helpful for post processing and cleanup.
+
+```svelte title="stackitemmount & stackitemunmount"
+<li
+  use:notiStack.actions.render={notification}
+  <!-- :::highlight -->
+  onstackitemmount
+  onstackitemunmount
+  <!-- ::: -->
+></li>
+```
+
+For a more concrete example on how these events are helpful, see [Recipes - Svelte Sonner Inspired Toast System](#recipes-svelte-sonner).
 
 <h2 id="component">Component for StackItem</h2>
 
@@ -550,7 +570,7 @@ The `ConfirmationModal` component uses a native `<dialog>` element, which is a g
 
 </div>
 
-### [Svelte Sonner](https://svelte-sonner.vercel.app/) Inspired Toast System
+<h3 id="recipes-svelte-sonner"> <a href="https://svelte-sonner.vercel.app/">Svelte Sonner</a> Inspired Toast System </h3>
 
 As demonstrated throughout this documentation, `svelte-put/async-stack` can be used to build a push notification system. See [Comprehensive Example] for a complete example. The example below shows a more fancy version that is inspired by [Svelte Sonner](https://svelte-sonner.vercel.app/).
 

@@ -8,50 +8,82 @@
 	const SCALE_STEP = 0.05;
 	const EXPAND_REM_GAP = 1;
 	const TRANSLATE_REM_STEP = 1;
+	/** if render top down, 1, if bottom up, -1 */
+	const Y_SIGN = -1;
 
-	let olElement: HTMLOListElement;
 	let expanded = $state(false);
 	let visibleItems = $derived(toastStack.items.slice(-3));
-	const olHeight = $derived.by(() => {
-		if (!expanded) return 'auto';
-		const contentPx = visibleItems.reduce(
-			(acc, item) => {
-				const el = olElement.querySelector(`[data-id="${item.config.id}"]`);
-				acc = acc + (el?.clientHeight ?? 0) + EXPAND_REM_GAP;
+
+	let liMap: Record<string, HTMLLIElement> = $state({});
+	let liHeightMap = $derived(
+		Object.entries(liMap).reduce(
+			(acc, [id, li]) => {
+				acc[id] = li.clientHeight;
 				return acc;
 			},
-			0,
-		);
+			{} as Record<string, number>,
+		),
+	);
+	let liOpacityMap = $derived(
+		Object.entries(liMap).reduce(
+			(acc, [id, li]) => {
+				const index = parseInt(li.dataset.index ?? '0') || 0;
+				acc[id] = index >= toastStack.items.length - MAX_ITEMS ? 1 : 0;
+				return acc;
+			},
+			{} as Record<string, number>,
+		),
+	);
+	let liTransformMap = $derived(
+		Object.entries(liMap).reduce(
+			(acc, [id, li]) => {
+				const index = parseInt(li.dataset.index ?? '0') || 0;
+				if (!expanded) {
+					const delta = Math.min(toastStack.items.length - index, MAX_ITEMS + 1) - 1;
+					const scaleX = 1 - delta * SCALE_STEP;
+
+					const liHeight = liHeightMap[id] ?? 0;
+					let topLiHeight = 0;
+					const topItem = toastStack.items.at(-1);
+					if (topItem) topLiHeight = liHeightMap[topItem.config.id] ?? 0;
+
+					let scaleY = scaleX;
+					let yPx = 0;
+					if (liHeight >= topLiHeight) {
+						scaleY = topLiHeight / liHeight || 1;
+					} else {
+						yPx = Y_SIGN * (topLiHeight - liHeight * scaleY);
+					}
+					const yRem = (Y_SIGN * delta * TRANSLATE_REM_STEP) / scaleY;
+
+					acc[id] = `scaleX(${scaleX}) scaleY(${scaleY}) translateY(calc(${yPx}px + ${yRem}rem))`;
+					return acc;
+				}
+
+				let accumulatedHeight = 0;
+				let rem = 0;
+				for (let i = toastStack.items.length - 1; i > index; i--) {
+					accumulatedHeight += liHeightMap[toastStack.items[i].config.id] ?? 0;
+					rem += EXPAND_REM_GAP;
+				}
+				let scale = index < toastStack.items.length - MAX_ITEMS ? 1 - MAX_ITEMS * SCALE_STEP : 1;
+
+				acc[id] =
+					`scale(${scale}) translateY(calc(${Y_SIGN * accumulatedHeight}px + ${Y_SIGN * rem}rem))`;
+				return acc;
+			},
+			{} as Record<string, string>,
+		),
+	);
+	const olHeight = $derived.by(() => {
+		if (!expanded) return 'auto';
+		const contentPx = visibleItems.reduce((acc, item) => {
+			acc += (liHeightMap[item.config.id] ?? 0) + EXPAND_REM_GAP;
+			return acc;
+		}, 0);
 		const remGap = EXPAND_REM_GAP * (visibleItems.length - 1);
 		return `calc(${contentPx}px + ${remGap}rem)`;
 	});
-
-	function getTransform(index: number) {
-		if (!expanded) {
-			const delta = Math.min(toastStack.items.length - index, MAX_ITEMS + 1) - 1;
-			const scale = 1 - delta * SCALE_STEP;
-			const translateY = -1 * delta * TRANSLATE_REM_STEP;
-			return `scale(${scale}) translateY(${translateY}rem)`;
-		}
-
-		let accumulatedHeight = 0;
-		let rem = 0;
-		for (let i = toastStack.items.length - 1; i > index; i--) {
-			const notification = toastStack.items[i];
-			const el = olElement.querySelector(`[data-id="${notification.config.id}"]`);
-			accumulatedHeight += el?.clientHeight ?? 0;
-			rem += EXPAND_REM_GAP;
-		}
-
-		let scale = index < toastStack.items.length - MAX_ITEMS ? 1 - MAX_ITEMS * SCALE_STEP : 1;
-
-		return `scale(${scale}) translateY(calc(-${accumulatedHeight}px - ${rem}rem))`;
-	}
-
-	function getOpacity(index: number) {
-		if (index >= toastStack.items.length - MAX_ITEMS) return 1;
-		return 0;
-	}
 
 	function onMouseEnter() {
 		expanded = true;
@@ -65,23 +97,28 @@
 
 <!-- toast portal, typically setup at somewhere global like root layout -->
 <ol
-	class="fixed bottom-2 right-4 z-notification grid content-end items-end tb:bottom-10 tb:right-10"
+	class="z-notification tb:bottom-10 tb:right-10 fixed bottom-2 right-4 grid content-end items-end"
 	style:height={olHeight}
 	onmouseenter={onMouseEnter}
 	onmouseleave={onMouseLeave}
 	data-expanded={expanded}
-	bind:this={olElement}
 >
 	{#each toastStack.items as notification, index (notification.config.id)}
 		{@const id = notification.config.id}
 		<li
-			data-id={id}
+			data-index={index}
 			class="w-full origin-center"
 			animate:flip={{ duration: 200 }}
 			transition:fly={{ duration: 200, y: '2rem' }}
-			style:opacity={getOpacity(index)}
-			style:transform={getTransform(index)}
+			style:opacity={liOpacityMap[id]}
+			style:transform={liTransformMap[id]}
 			use:toastStack.actions.render={notification}
+			onstackitemmount={(e) => {
+				liMap[id] = e.target as HTMLLIElement;
+			}}
+			onstackitemunmount={() => {
+				delete liMap[id];
+			}}
 		></li>
 	{/each}
 </ol>

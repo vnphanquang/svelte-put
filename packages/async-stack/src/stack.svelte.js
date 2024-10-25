@@ -1,4 +1,4 @@
-import { mount } from 'svelte';
+import { mount, tick } from 'svelte';
 
 import { MissingComponentInCustomPush, NotFoundVariantConfig } from './errors.js';
 import { StackItem } from './stack-item.svelte.js';
@@ -43,7 +43,18 @@ export class Stack {
 				},
 				intro: true,
 			});
-			return {};
+			tick().then(() => {
+				const detail = { item };
+				const event = new CustomEvent('stackitemmount', { detail });
+				node.dispatchEvent(event);
+			});
+			return {
+				destroy: () => {
+					const detail = { item };
+					const event = new CustomEvent('stackitemunmount', { detail });
+					node.dispatchEvent(event);
+				},
+			};
 		},
 	};
 
