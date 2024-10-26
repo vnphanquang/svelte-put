@@ -25,6 +25,12 @@ build/
 
 temp/
 
+# Env
+.env
+.env.*
+!.env.example
+!.env.test
+
 # svelte-kit
 .svelte-kit/
 .vercel

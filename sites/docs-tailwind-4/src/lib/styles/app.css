@@ -1,0 +1,18 @@
+/* stylelint-disable import-notation */
+@layer theme, base, utilities;
+
+@import 'tailwindcss';
+@import './theme/index.css';
+@import './utilities/index.css';
+@import './components/index.css';
+
+@layer base {
+	html {
+		font-family: var(--font-family-lexend);
+		line-height: 1.5;
+		color: var(--color-fg);
+
+		background-color: var(--color-bg);
+		border-color: currentcolor;
+	}
+}
