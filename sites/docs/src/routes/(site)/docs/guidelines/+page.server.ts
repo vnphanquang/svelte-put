@@ -6,4 +6,4 @@ export const load: PageServerLoad = () => {
 			title: 'Guidelines | @svelte-put',
 		},
 	};
-}
+};

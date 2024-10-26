@@ -1,4 +1,4 @@
-const pagefind_version = '1.1.1';
+const pagefind_version = '1.2.0';
 let wasm_bindgen;
 (function () {
 	const __exports = {};

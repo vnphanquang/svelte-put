@@ -1,0 +1,20 @@
+/* stylelint-disable import-notation */
+/* stylelint-disable no-invalid-position-at-import-rule */
+
+@variant light {
+	@mixin light {
+		@slot;
+	}
+}
+
+@variant dark {
+	@mixin dark {
+		@slot;
+	}
+}
+
+@variant high-contrast {
+	@mixin high-contrast {
+		@slot;
+	}
+}

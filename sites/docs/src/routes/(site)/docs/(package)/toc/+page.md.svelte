@@ -1,5 +1,5 @@
 <script>
-  import { SettingsContext } from '$lib/contexts/settings.svelte';
+  import { SettingsContext } from '$lib/settings/context.svelte';
   import { ConnectedList, ConnectedListItem } from '$lib/components/connected-list';
 
   const settings = SettingsContext.get();

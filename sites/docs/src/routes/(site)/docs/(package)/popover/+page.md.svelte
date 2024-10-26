@@ -1,5 +1,5 @@
 <script>
-	import { SettingsContext } from '$lib/contexts/settings.svelte';
+	import { SettingsContext } from '$lib/settings/context.svelte';
 
   import QuickStartDemo from './_page/examples/quick-start.svelte';
   import TooltipDemo from './_page/examples/tooltip/usage.svelte';

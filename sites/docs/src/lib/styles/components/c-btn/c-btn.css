@@ -1,0 +1,122 @@
+/*
+	Default button component
+
+	```html
+	<button class="c-btn">
+		<span>Click me</span>
+	</button>
+	```
+*/
+@utility c-btn {
+	@layer components {
+		--duration: 200ms;
+		--easing: var(--transition-timing-function-in);
+
+		cursor: pointer;
+
+		position: relative;
+
+		display: grid;
+		column-gap: calc(var(--spacing) * 3);
+		align-items: center;
+		justify-content: center;
+
+		padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
+
+		border: 1px solid currentcolor;
+
+		transition-timing-function: var(--easing);
+		transition-duration: var(--duration);
+		transition-property: transform, opacity, background-color, color, border-color;
+
+		&:--disabled,
+		&:has(input:--disabled) {
+			cursor: not-allowed;
+			opacity: 0.5;
+		}
+
+		&:hover {
+			--duration: 120ms;
+			--easing: var(--transition-timing-function-out);
+		}
+
+		&:active {
+			--duration: 40ms;
+		}
+
+		&:focus-visible:not(:--disabled),
+		&:is(label):has(input:focus-visible) {
+			border-color: var(--color-outline-focus);
+			outline: 1.5px solid var(--color-outline-focus);
+			outline-offset: 1px;
+		}
+
+		&:--delayed,
+		&:--timeout {
+			cursor: wait;
+
+			&::after {
+				content: '';
+
+				position: absolute;
+				z-index: 2;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+
+				aspect-ratio: 1/1;
+				width: 1.5rem;
+				height: auto;
+
+				background-color: currentcolor;
+
+				mask-image: var(--mask-image);
+				mask-position: center;
+				mask-repeat: no-repeat;
+				mask-size: 100%;
+			}
+
+			& > * {
+				opacity: 0.1;
+			}
+		}
+
+		&:--delayed {
+			--mask-image: url('$lib/styles/components/c-btn/icons/animated-spinner.svg');
+		}
+
+		&:--timeout {
+			--mask-image: url('$lib/styles/components/c-btn/icons/animated-three-dots.svg');
+		}
+
+		/*
+		```html
+		<button class="c-btn">
+			<svg class="w-6 h-6" inline-src="phosphor/info" width="24" height="24"></svg>
+			<span>Click me</span>
+		</button>
+		```
+	*/
+		&:not(.c-btn--icon):has(:is(img, svg)) {
+			grid-template-columns: auto auto;
+			padding-inline: calc(var(--spacing) * 2.5) calc(var(--spacing) * 3);
+		}
+
+		&:not(:has(:is(img, svg))) {
+			text-align: center;
+		}
+
+		&:not(.c-btn--pop, .c-btn--outlined, .c-btn--icon) {
+			color: var(--color-bg);
+			background-color: var(--color-fg);
+
+			&:hover:not(:--disabled, :has(input:--disabled)) {
+				background-color: oklch(from var(--color-fg) calc(l - 0.08) c h);
+			}
+
+			&:active:not(:--disabled, :has(input:--disabled)) {
+				background-color: oklch(from var(--color-fg) calc(l - 0.04) c h);
+			}
+		}
+	}
+}

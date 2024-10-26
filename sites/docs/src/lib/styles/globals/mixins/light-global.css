@@ -1,0 +1,11 @@
+@define-mixin light-global {
+	html[data-color-scheme='light'] {
+		@mixin-content;
+	}
+
+	@media (prefers-color-scheme: light) and (not (prefers-contrast: more)) {
+		html:not([data-color-scheme='dark'], [data-color-scheme='high-contrast']) {
+			@mixin-content;
+		}
+	}
+}

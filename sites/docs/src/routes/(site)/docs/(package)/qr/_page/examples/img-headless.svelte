@@ -7,7 +7,7 @@
 		width: 500,
 		height: 500,
 		backgroundFill: '#fff',
-	}
+	};
 
 	let src = '';
 	onMount(async () => {
@@ -15,7 +15,7 @@
 	});
 </script>
 
-<div class="flex items-center gap-2 flex-col">
+<div class="flex flex-col items-center gap-2">
 	<img {src} width="180" height="180" alt="a qr code" />
 	<a class="c-btn" href={src} download="qr.png">Download QR as PNG</a>
 </div>

@@ -1,7 +1,7 @@
 <script>
   import DemoQuickStart from './_page/examples/quick-start.svelte';
 
-	import { SettingsContext } from '$lib/contexts/settings.svelte';
+	import { SettingsContext } from '$lib/settings/context.svelte';
   const settings = SettingsContext.get();
 </script>
 

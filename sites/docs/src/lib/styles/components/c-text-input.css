@@ -1,0 +1,69 @@
+@custom-selector :--text-inputs input, textarea;
+
+@utility c-text-input {
+	@layer components {
+		position: relative;
+
+		display: block;
+
+		padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
+
+		line-height: 1.5;
+
+		border: 1px solid currentcolor;
+
+		&::placeholder {
+			color: var(--color-placeholder);
+		}
+
+		&:--text-inputs,
+		& :--text-inputs {
+			appearance: none;
+			background: transparent;
+			outline: none;
+		}
+
+		&:not(input, textarea):has(input, textarea) {
+			& :--text-inputs {
+				border: none;
+			}
+		}
+
+		&:has(img, svg) {
+			display: grid;
+			grid-template-columns: auto 1fr;
+			column-gap: calc(var(--spacing) * 3);
+		}
+
+		&:focus-visible,
+		&:focus-within,
+		&:has(:--text-inputs:focus-visible) {
+			border-color: var(--color-outline-focus);
+			outline: 1.5px solid var(--color-outline-focus);
+			outline-offset: 1px;
+
+			&:--user-invalid {
+				border-color: var(--color-error-bg-200);
+				outline-color: var(--color-error-bg-200);
+			}
+		}
+
+		&:--user-invalid {
+			border-color: var(--color-error-bg-200);
+		}
+
+		&:--disabled,
+		&:has(:--text-inputs:disabled) {
+			cursor: not-allowed;
+			background-color: var(--color-bg-100);
+
+			& :--text-inputs {
+				cursor: not-allowed;
+			}
+
+			& * {
+				opacity: 0.5;
+			}
+		}
+	}
+}

@@ -29,10 +29,10 @@ import preaction from '@svelte-put/preaction/preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  preprocess: [
+	preprocess: [
 		preaction(),
-    // other preprocessors
-  ],
+		// other preprocessors
+	],
 };
 export default config;
 ```
@@ -104,7 +104,7 @@ export const setMyColor = make((initialColor = 'blue') => {
 <!-- github specifics -->
 
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
-[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/preaction/CHANGELOG.md
+[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/preaction/CHANGELOG.md
 [github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
 
 <!-- heading badge -->
@@ -115,4 +115,3 @@ export const setMyColor = make((initialColor = 'blue') => {
 [bundlephobia]: https://bundlephobia.com/package/@svelte-put/preaction
 [docs]: https://svelte-put.vnphanquang.com/docs/preaction
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue
-

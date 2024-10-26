@@ -1,8 +1,9 @@
-<script>
+<script lang="ts">
 	import { Toc } from '@svelte-put/toc';
 	import { onMount } from 'svelte';
 
-	import { navigating } from '$app/stores';
+	import { goto } from '$app/navigation';
+	import { navigating, page } from '$app/stores';
 	import { ColorSchemeMenu } from '$lib/components/color-scheme-menu';
 	import { MenuLabel } from '$lib/components/menu-label';
 	import { PageLoadIndicator } from '$lib/components/page-load-indicator/';
@@ -11,7 +12,7 @@
 	import { deprecatedPackages, packages } from '$lib/data/packages';
 	import NotificationPortal from '$lib/notifications/components/NotificationPortal.svelte';
 	import Svelte5 from '$lib/notifications/components/Svelte5.svelte';
-	import { NotificationContext } from '$lib/notifications/notification.context.svelte';
+	import { NotificationContext } from '$lib/notifications/context.svelte';
 
 	let { data, children } = $props();
 
@@ -42,6 +43,12 @@
 	const { stack } = NotificationContext.set();
 	onMount(() => {
 		hydrated = true;
+		const url = $page.url;
+		if (url.searchParams.has('color-scheme')) {
+			url.searchParams.delete('color-scheme');
+			goto(url, { replaceState: true });
+		}
+
 		if (!localStorage.getItem('skip-svelte-5-notification')) {
 			stack.push('custom', {
 				component: Svelte5,
@@ -58,33 +65,32 @@
 	<header class="z-header h-header border-outline fixed inset-x-0 top-0 flex flex-col border-b">
 		<nav class="max-w-pad flex flex-1 items-center py-2" aria-label="header">
 			<a href="/" class="mr-auto flex items-center gap-2">
-				<svg inline-src="svelte-put" width="32" height="32" />
+				<svg class="h-8 w-8 shrink-0" inline-src="svelte-put" width="32" height="32" />
 				<span class="font-fingerpaint text-gradient-brand text-sm font-bold">svelte-put</span>
 			</a>
 			{#if hydrated}
-				<a
-					class="c-link c-link--icon flex items-center gap-2 rounded-full border border-current py-1 pl-2 pr-4"
-					href="/search"
-				>
+				<a class="c-btn c-btn--outlined gap-2 py-1.5 pl-3 pr-4" href="/search">
 					<svg class="h-5 w-5" inline-src="phosphor/magnifying-glass" width="20" height="20"></svg>
-					<span class="text-sm">Search</span>
+					<span class="text-sm">Search...</span>
 				</a>
 			{/if}
-			<ColorSchemeMenu class="ml-4" />
-			<a href={SOCIAL_LINKS.GITHUB} data-external class="c-link c-link--icon ml-4">
+			<ColorSchemeMenu class="ml-5" />
+			<a href={SOCIAL_LINKS.GITHUB} data-external class="c-link-icon ml-5">
 				<svg inline-src="simpleicon/github" height="28" width="28" />
 				<span class="sr-only">Github</span>
 			</a>
 		</nav>
 		<div
-			class="max-w-pad border-outline flex flex-1 items-center justify-between border-t py-1 lg:justify-end xl:hidden"
+			class="max-w-pad border-outline desktop:justify-end widescreen:hidden flex flex-1 items-center justify-between
+			border-t py-1"
 		>
-			<MenuLabel class="lg:hidden" for="pages-toggler">Navigation</MenuLabel>
+			<MenuLabel class="desktop:hidden" for="pages-toggler">Navigation</MenuLabel>
 			<MenuLabel align="right" for="toc-toggler">Table of Contents</MenuLabel>
 		</div>
 	</header>
 
 	<div class="max-w-pad flex items-stretch">
+		<!-- left sidebar -->
 		<nav class="sidebar sidebar-left" aria-label="pages">
 			<input id="pages-toggler" type="checkbox" hidden bind:checked={isleftSidebarOpen} />
 			<ul class="sidebar-content space-y-4">
@@ -96,7 +102,7 @@
 								<a
 									href={path}
 									data-current={data.pathname === path}
-									class="c-link c-link--lazy data-current:border-link data-current:text-link -ml-px block whitespace-nowrap border-l border-transparent py-1 pl-3"
+									class="c-link-lazy current:border-link current:text-link -ml-px block whitespace-nowrap border-l border-transparent py-1 pl-3"
 								>
 									{label}
 								</a>
@@ -112,7 +118,7 @@
 								<a
 									href={path}
 									data-current={data.pathname.includes(`/${id}`)}
-									class="data-current:link c-link c-link--lazy data-current:border-link -ml-px block whitespace-nowrap border-l border-transparent py-1 pl-3"
+									class="current:text-link c-link-lazy current:border-link -ml-px block whitespace-nowrap border-l border-transparent py-1 pl-3"
 									onclick={closeLeftSidebar}
 								>
 									<span class="bg-primary h-full w-1"></span>
@@ -133,7 +139,7 @@
 										<a
 											href={path}
 											data-current={data.pathname.includes(`/${id}`)}
-											class="data-current:link c-link c-link--lazy data-current:border-link -ml-px block whitespace-nowrap border-l border-transparent py-1 pl-3"
+											class="current:text-link c-link-lazy current:border-link -ml-px block whitespace-nowrap border-l border-transparent py-1 pl-3"
 											onclick={closeLeftSidebar}
 										>
 											<span class="bg-primary h-full w-1"></span>
@@ -149,20 +155,24 @@
 		</nav>
 		<label class="sidebar-backdrop" for="pages-toggler"></label>
 
+		<!-- main content -->
 		{#key data.pathname}
-			<main class="prose dark:prose-invert" use:toc.actions.root>
+			<main class="prose dark:prose-invert high-contrast:prose-invert" use:toc.actions.root>
 				{@render children()}
 			</main>
 		{/key}
 
+		<!-- right sidebar -->
 		<nav class="sidebar sidebar-right" aria-label="table of contents">
-			<p class="c-callout c-callout--success c-callout--icon-megaphone upto-xl:hidden mt-10">
+			<p
+				class="c-callout c-callout--success c-callout--icon-megaphone upto-widescreen:hidden mt-10"
+			>
 				Still on Svelte 4? See
 				<a class="c-link" href="https://svelte-put-svelte-4.vnphanquang.com"
 					>the old docs site here.</a
 				>
 			</p>
-			<div class="sveltevietnam-banner upto-xl:hidden mt-5 space-y-2 rounded border p-4">
+			<div class="sveltevietnam-banner upto-widescreen:hidden mt-5 space-y-2 rounded border p-4">
 				<p class="font-medium">Are you based in Vietnam?</p>
 				<div class="flex items-center gap-4">
 					<div class="c-logo c-logo--themed"></div>
@@ -182,12 +192,8 @@
 								<!-- svelte-ignore a11y_missing_attribute -->
 								<a
 									use:toc.actions.link={tocItem}
-									class="c-link c-link--lazy data-current:border-link data-current:text-link -ml-px block border-l border-transparent py-1 capitalize"
-									class:pl-3={level === '2'}
-									class:pl-5={level === '3'}
-									class:pl-7={level === '4'}
-									class:pl-9={level === '5'}
-									class:pl-11={level === '6'}
+									class="c-link-lazy current:border-link current:text-link -ml-px block border-l border-transparent py-1 capitalize"
+									style:padding-left="calc(({level} - 1) * 2ch)"
 								>
 									<!-- textContent injected by toc -->
 								</a>
@@ -197,14 +203,13 @@
 				{/if}
 			</div>
 		</nav>
-		<label class="sidebar-backdrop" for="toc-toggler"></label>
 	</div>
 </div>
 <NotificationPortal />
 
 <style lang="postcss">
 	#docs {
-		--color-bg-aside: color-mix(in hsl, theme('colors.bg.DEFAULT'), theme('colors.fg.DEFAULT') 4%);
+		--color-bg-aside: color-mix(in oklch, var(--color-bg), var(--color-fg) 4%);
 	}
 
 	header {
@@ -214,32 +219,30 @@
 	.sidebar {
 		flex-shrink: 0;
 
-		width: theme('spacing.sidebar');
+		width: var(--spacing-sidebar);
 
-		font-size: theme('fontSize.sm');
+		font-size: var(--font-size-sm);
 
-		border-color: theme('colors.outline.DEFAULT');
-
-		transition-timing-function: theme('transitionTimingFunction.DEFAULT');
+		transition-timing-function: var(--default-transition-timing-function);
 		transition-duration: 200ms;
 		transition-property: transform, opacity;
 
 		& .sidebar-content {
 			position: sticky;
-			top: theme('spacing.header');
+			top: var(--spacing-header);
 			overflow: auto;
-			padding-block: theme('spacing.10');
+			padding-block: calc(var(--spacing) * 10);
 		}
 
 		&.sidebar-left {
 			& .sidebar-content {
-				max-height: calc(100dvh - theme('spacing.header'));
-				padding-inline: theme('spacing.4');
+				max-height: calc(100dvh - var(--spacing-header));
+				padding-inline: calc(var(--spacing) * 4);
 			}
 
-			@screen upto-lg {
+			@media (--upto-desktop) {
 				position: fixed;
-				z-index: calc(theme('zIndex.header') + 2);
+				z-index: calc(var(--z-index-header) + 2);
 				top: 0;
 				bottom: 0;
 				left: 0;
@@ -249,8 +252,8 @@
 
 				opacity: 0;
 				background-color: var(--color-bg-aside);
-				border-right: theme('borderWidth.DEFAULT');
-				box-shadow: theme('boxShadow.lg');
+				border-right-width: 1px;
+				box-shadow: var(--box-shadow-lg);
 
 				& .sidebar-content {
 					max-height: 100vh;
@@ -260,15 +263,14 @@
 
 		&.sidebar-right {
 			& .sidebar-content {
-				max-height: calc(100vh - theme('spacing.header'));
-				padding: theme('spacing.2');
-				padding-top: theme('spacing.10');
+				max-height: calc(100dvh - var(--spacing-header));
+				padding: calc(var(--spacing) * 10) calc(var(--spacing) * 2) calc(var(--spacing) * 2);
 			}
 
-			@screen upto-xl {
+			@media (--upto-widescreen) {
 				position: fixed;
-				z-index: calc(theme('zIndex.header') + 2);
-				top: theme('spacing.header');
+				z-index: calc(var(--z-index-header) + 2);
+				top: var(--spacing-header);
 				right: 0;
 				transform: translateX(100%);
 
@@ -280,13 +282,13 @@
 
 				opacity: 0;
 				background-color: var(--color-bg-aside);
-				border-bottom-right-radius: theme('borderRadius.DEFAULT');
-				border-bottom-left-radius: theme('borderRadius.DEFAULT');
-				box-shadow: theme('boxShadow.lg');
+				border-bottom-right-radius: var(--radius-sm);
+				border-bottom-left-radius: var(--radius-sm);
+				box-shadow: var(--box-shadow-lg);
 
 				& .sidebar-content {
-					max-height: calc(95dvh - theme('spacing.header'));
-					padding: theme('spacing.8') theme('spacing.8') theme('spacing.10');
+					max-height: calc(95dvh - var(--spacing-header));
+					padding: calc(var(--spacing) * 8) calc(var(--spacing) * 8) calc(var(--spacing) * 10);
 				}
 			}
 		}
@@ -296,14 +298,14 @@
 		pointer-events: none;
 
 		position: fixed;
-		z-index: calc(theme('zIndex.header') + 1);
+		z-index: calc(var(--z-index-header) + 1);
 		inset: 0;
 
 		opacity: 0;
-		background-color: theme('backgroundColor.black / 20%');
+		background-color: color-mix(in oklch, var(--color-black) 50%, transparent 50%);
 		backdrop-filter: blur(1px);
 
-		transition: opacity 200ms theme('transitionTimingFunction.DEFAULT');
+		transition: opacity 200ms var(--default-transition-timing-function);
 
 		&::-webkit-scrollbar {
 			display: none;
@@ -323,26 +325,22 @@
 	main {
 		width: 100%;
 		max-width: 100%;
-		padding-top: theme('spacing.10');
-		padding-bottom: theme('spacing.20');
+		padding-top: calc(var(--spacing) * 10);
+		padding-bottom: calc(var(--spacing) * 20);
 
-		@screen lg {
-			max-width: calc(100% - theme('spacing.sidebar'));
-			padding-inline: theme('spacing.10');
+		@media (--desktop) {
+			max-width: calc(100% - var(--spacing-sidebar));
+			padding-inline: calc(var(--spacing) * 10);
 		}
 
-		@screen xl {
-			max-width: calc(100% - theme('spacing.sidebar') * 2);
-			padding-inline: theme('spacing.14');
+		@media (--widescreen) {
+			max-width: calc(100% - var(--spacing-sidebar) * 2);
+			padding-inline: calc(var(--spacing) * 14);
 		}
-	}
-
-	#docs :global(:where(h1)) {
-		font-family: theme('fontFamily.fingerpaint');
 	}
 
 	#docs :global(:where(h1, h2, h3, h4, h5, h6)) {
 		padding-bottom: 0.5rem;
-		border-bottom: 1px solid theme('colors.outline.DEFAULT');
+		border-bottom: 1px solid var(--color-outline);
 	}
 </style>

@@ -1,5 +1,5 @@
 <script>
-	import { SettingsContext } from '$lib/contexts/settings.svelte';
+	import { SettingsContext } from '$lib/settings/context.svelte';
   import Demo from './_page/examples/demo.svelte';
 
   const settings = SettingsContext.get();

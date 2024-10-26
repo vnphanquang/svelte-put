@@ -1,0 +1,46 @@
+/*
+	Thumbnails as links. For example:
+
+	```html
+	<a {href} class="c-link-image">
+		<enhanced:img src={post.thumbnail} alt={post.title} />
+	</a>
+	```
+*/
+@utility c-link-image {
+	@layer components {
+		--duration: 300ms;
+		--easing: var(--transition-timing-function-in);
+		--active-color: var(--color-link);
+
+		position: relative;
+		overflow: hidden;
+		display: inline-block;
+
+		& img {
+			width: 100%;
+			max-width: 100%;
+			height: auto;
+
+			object-fit: cover;
+			object-position: center;
+
+			transition: transform 400ms ease-out;
+			transition-timing-function: var(--easing);
+			transition-duration: var(--duration);
+			transition-property: transform;
+		}
+
+		&:hover img {
+			--duration: 400ms;
+			--easing: var(--transition-timing-function-out);
+
+			transform: scale(1.05);
+		}
+
+		&:focus-visible:not(:--disabled) {
+			outline: 1.5px solid var(--color-outline-focus);
+			outline-offset: 1px;
+		}
+	}
+}

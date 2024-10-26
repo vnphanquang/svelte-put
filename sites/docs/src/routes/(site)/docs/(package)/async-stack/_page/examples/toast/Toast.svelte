@@ -43,6 +43,14 @@
 	data-status={status}
 	{...rest}
 >
+	<!-- x button to dismiss -->
+	<button
+		onclick={dismiss}
+		class="absolute right-0 top-0 -translate-y-1/2 translate-x-1/2 cursor-pointer rounded-full border border-current bg-inherit p-1.5"
+	>
+		<svg class="h-3.5 w-3.5" inline-src="phosphor/x" width="14" height="14"></svg>
+		<span class="sr-only">Dismiss</span>
+	</button>
 	<div class="rounded-inherit relative flex items-start gap-3 overflow-hidden p-3">
 		{#await iconUrl}
 			<svg
@@ -70,15 +78,6 @@
 			aria-disabled="true"
 		></div>
 	</div>
-
-	<!-- x button to dismiss -->
-	<button
-		onclick={dismiss}
-		class="absolute right-0 top-0 -translate-y-1/2 translate-x-1/2 rounded-full border border-current bg-inherit p-1.5"
-	>
-		<svg class="h-3.5 w-3.5" inline-src="phosphor/x" width="14" height="14"></svg>
-		<span class="sr-only">Dismiss</span>
-	</button>
 </article>
 
 <style>
@@ -87,31 +86,31 @@
 		background-color: var(--toast-color-bg);
 
 		&[data-status='info'] {
-			--toast-color-icon: theme('colors.info.element');
-			--toast-color-progress: theme('colors.info.surface.200');
-			--toast-color-bg: theme('colors.info.surface.DEFAULT');
-			--toast-color-fg: theme('colors.info.text');
+			--toast-color-icon: var(--color-info-fg);
+			--toast-color-progress: var(--color-info-bg-200);
+			--toast-color-bg: var(--color-info-bg);
+			--toast-color-fg: var(--color-info-fg);
 		}
 
 		&[data-status='success'] {
-			--toast-color-icon: theme('colors.success.element');
-			--toast-color-progress: theme('colors.success.surface.200');
-			--toast-color-bg: theme('colors.success.surface.DEFAULT');
-			--toast-color-fg: theme('colors.success.text');
+			--toast-color-icon: var(--color-success-fg);
+			--toast-color-progress: var(--color-success-bg-200);
+			--toast-color-bg: var(--color-success-bg);
+			--toast-color-fg: var(--color-success-fg);
 		}
 
 		&[data-status='warning'] {
-			--toast-color-icon: theme('colors.warning.element');
-			--toast-color-progress: theme('colors.warning.surface.200');
-			--toast-color-bg: theme('colors.warning.surface.DEFAULT');
-			--toast-color-fg: theme('colors.warning.text');
+			--toast-color-icon: var(--color-warning-fg);
+			--toast-color-progress: var(--color-warning-bg-200);
+			--toast-color-bg: var(--color-warning-bg);
+			--toast-color-fg: var(--color-warning-fg);
 		}
 
 		&[data-status='error'] {
-			--toast-color-icon: theme('colors.error.element');
-			--toast-color-progress: theme('colors.error.surface.200');
-			--toast-color-bg: theme('colors.error.surface.DEFAULT');
-			--toast-color-fg: theme('colors.error.text');
+			--toast-color-icon: var(--color-error-fg);
+			--toast-color-progress: var(--color-error-bg-200);
+			--toast-color-bg: var(--color-error-bg);
+			--toast-color-fg: var(--color-error-fg);
 		}
 	}
 

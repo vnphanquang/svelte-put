@@ -2,7 +2,7 @@
 	import { flip } from 'svelte/animate';
 	import { fly } from 'svelte/transition';
 
-	import { NotificationContext } from '../notification.context.svelte';
+	import { NotificationContext } from '../context.svelte';
 
 	const MAX_ITEMS = 3;
 	const SCALE_STEP = 0.05;
@@ -98,7 +98,7 @@
 </script>
 
 <ol
-	class="z-notification tb:top-10 tb:right-10 fixed right-4 top-2 grid content-start items-start"
+	class="z-notification tablet:top-10 tablet:right-10 fixed right-4 top-2 grid content-start items-start"
 	style:height={olHeight}
 	onmouseenter={onMouseEnter}
 	onmouseleave={onMouseLeave}
@@ -138,7 +138,7 @@
 		grid-column: 1;
 		grid-row: 1;
 
-		transition-timing-function: theme('transitionTimingFunction.DEFAULT');
+		transition-timing-function: var(--default-transition-timing-function);
 		transition-duration: inherit;
 		transition-property: transform;
 	}

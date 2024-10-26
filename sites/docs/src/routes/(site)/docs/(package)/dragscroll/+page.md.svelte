@@ -1,5 +1,5 @@
 <script>
-	import { SettingsContext } from '$lib/contexts/settings.svelte';
+	import { SettingsContext } from '$lib/settings/context.svelte';
 
   import DemoNoParameters from './_page/examples/no-parameters.svelte';
   import DemoOptionAxis from './_page/examples/option-axis.svelte';

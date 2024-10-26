@@ -1,0 +1,10 @@
+@utility bg-gradient-brand {
+	background-image: linear-gradient(to right, var(--color-svelte), #42b883);
+}
+
+@utility text-gradient-brand {
+	width: 100%;
+	color: transparent;
+	background-image: linear-gradient(to right, var(--color-svelte), #42b883);
+	background-clip: text;
+}

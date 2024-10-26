@@ -2,9 +2,8 @@
 	import { page } from '$app/stores';
 	import { PUBLIC_MODE } from '$env/static/public';
 	import ogImageHome from '$lib/assets/images/og/svelte-put.jpg';
-	import { SettingsContext } from '$lib/contexts/settings.svelte';
-
-	import '../lib/css/app.css';
+	import { SettingsContext } from '$lib/settings/context.svelte';
+	import '$lib/styles/app.css';
 
 	let { children, data } = $props();
 
@@ -87,4 +86,3 @@
 </svelte:head>
 
 {@render children()}
-

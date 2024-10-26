@@ -1,0 +1,78 @@
+@utility c-callout {
+	@layer components.base {
+		--callout-padding-x: calc(var(--spacing) * 6);
+		--callout-padding-y: calc(var(--spacing) * 5);
+		--callout-icon-size: calc(var(--spacing) * 8);
+		--callout-color-text: var(--color-fg);
+		--callout-color-icon: var(--color-fg);
+		--callout-color-bg: var(--color-bg-100);
+		--callout-color-border: var(--color-fg);
+		--callout-border-l-width: var(--spacing);
+		--callout-icon-url: url('$lib/styles/components/c-callout/icons/info.svg');
+		--callout-clip-path: path('M 0,26 A 26 26 0 0 0 26,0 H 2000 V 2000 H 0 Z');
+
+		position: relative;
+
+		overflow: visible;
+
+		padding-right: var(--callout-padding-x);
+		padding-left: calc(var(--callout-padding-x) + var(--callout-border-l-width));
+		padding-block: var(--callout-padding-y);
+
+		color: var(--callout-color-text);
+
+		&::before {
+			content: '';
+
+			position: absolute;
+			z-index: -1;
+			inset: 0;
+
+			background-color: var(--callout-color-bg);
+			clip-path: var(--callout-clip-path);
+			border-left: var(--callout-border-l-width) solid var(--callout-color-border);
+		}
+
+		&::after {
+			content: '';
+
+			position: absolute;
+			top: calc(-0.5 * var(--callout-icon-size) + var(--callout-border-l-width) / 2);
+			left: calc(-0.5 * var(--callout-icon-size) + var(--callout-border-l-width) / 2);
+
+			width: var(--callout-icon-size);
+			height: var(--callout-icon-size);
+
+			background-color: var(--callout-color-icon);
+
+			mask-image: var(--callout-icon-url);
+
+			mask-position: center;
+			mask-repeat: no-repeat;
+
+			mask-size: var(--callout-icon-size);
+		}
+	}
+}
+
+@layer typography {
+	.prose .c-callout {
+		margin-block: 32px;
+
+		& ::marker {
+			color: inherit;
+		}
+
+		&p {
+			margin: 0;
+		}
+
+		& p:first-of-type {
+			margin-top: 0;
+		}
+
+		& p:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+}

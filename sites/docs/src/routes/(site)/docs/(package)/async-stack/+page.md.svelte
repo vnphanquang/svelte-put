@@ -1,5 +1,5 @@
 <script>
-	import { SettingsContext } from '$lib/contexts/settings.svelte';
+	import { SettingsContext } from '$lib/settings/context.svelte';
   import { ConnectedList, ConnectedListItem } from '$lib/components/connected-list';
 
   import introImage from './_page/images/intro.png?enhanced&imagetools'
@@ -17,7 +17,7 @@
 
 ## Introduction
 
-`@svelte-put/async-stack` is no more than a [stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) structure that sits between your component library and application, providing type-safe push&pop mechanism to mount/unmount components from anywhere to a centralized DOM element.
+`@svelte-put/async-stack` is no more than a [stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) structure that sits between your component library and application, providing type-safe push&pop mechanism to mount/unmount components from anywhere to a centralized DOM parent element.
 
 <figure>
 <enhanced:img src={introImage} class="mx-auto rounded w-full max-w-3xl h-auto" alt="async-stack manages
@@ -64,7 +64,7 @@ This section presents a working example of the package. You will notice that `@s
   <legend>Example</legend>
   <p class="mt-0">Click to push toast notification</p>
   <ComprehensivePortal />
-  <div class="flex flex-col tb:flex-row gap-4 tb:gap-6">
+  <div class="flex flex-col tablet:flex-row gap-4 tablet:gap-6">
     <ComprehensiveUsage />
   </div>
 </fieldset>
@@ -135,7 +135,7 @@ type StackItemCommonConfig = {
 	timeout?: number;
 	/**
 	 * id generator for stack items. Defaults to 'uuid'
-	 *   - counter: use an auto-incremented counter that is scoped to the
+	 *   - counter: use an auto-incremented counter that is scoped to the stack
 	 *   - uuid: use `crypto.randomUUID()`, fallback to `counter` if not available
 	 *   - callback: a custom function that accepts {@link StackItemInstanceConfig} and returns a string as the id
 	 */
@@ -362,7 +362,7 @@ notiStack.resume(); // resuming all items
 
 <div class="c-callout c-callout--info">
 
-`item.state` is a reactive Svelte rune with value of `'idle' | 'elapsing' | 'paused' | 'timeout' | 'resolved'`, helpful to control the play state of some animation, for example, as seen in [Comprehensive Example].
+`item.state` is a reactive Svelte rune with value of `'idle' | 'elapsing' | 'paused' | 'timeout' | 'resolved'`, helpful to control the play state of some animation, for example as seen in [Comprehensive Example].
 
 </div>
 
@@ -460,7 +460,7 @@ When a`StackItem` is pushed with a `timeout`, calling `pause` or `resume` can he
   <legend>Example</legend>
   <p class="mt-0">Click to push toast notification</p>
   <ComprehensivePortal />
-  <div class="flex flex-col tb:flex-row gap-4 tb:gap-6">
+  <div class="flex flex-col tablet:flex-row gap-4 tablet:gap-6">
     <ComprehensiveUsage />
   </div>
 </fieldset>
@@ -491,7 +491,7 @@ This section presents some useful patterns to better integrate `@svelte-put/asyn
 
 <h3 id="wrapping-stack-in-svelte-context">Wrapping Stack in Svelte Context</h3>
 
-To share a `Stack` instance across the application, it is useful to wrap it in an idiomatic [Svelte context]. The example below shows such pattern.
+To share a `Stack` instance across the application, it is useful to wrap it in an idiomatic [Svelte context]. The example below shows a minimal version of such pattern.
 
 <enhanced-code-block group display="files">
 

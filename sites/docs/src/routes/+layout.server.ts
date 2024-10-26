@@ -7,4 +7,3 @@ export const load: LayoutServerLoad = ({ url, locals }) => {
 		settings: locals.settings,
 	};
 };
-

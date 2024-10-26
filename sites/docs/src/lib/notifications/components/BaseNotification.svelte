@@ -10,17 +10,10 @@
 </script>
 
 <script lang="ts">
-	import { getNotificationIcon } from '../notification.icon';
-	let {
-		item,
-		title,
-		status = 'info',
-		class: cls,
-		children,
-		...rest
-	}: BaseNotificationProps = $props();
+	import { getNotificationIcon } from '../icon';
+	let { item, title, status, class: cls, children, ...rest }: BaseNotificationProps = $props();
 
-	const iconUrl = $derived(getNotificationIcon(status));
+	const iconUrl = $derived(status ? getNotificationIcon(status) : null);
 
 	function dismiss() {
 		item.resolve();
@@ -35,21 +28,33 @@
 	data-status={status}
 	{...rest}
 >
+	<!-- x button to dismiss -->
+	<button
+		onclick={dismiss}
+		class="absolute right-0 top-0 -translate-y-1/2 translate-x-1/2 cursor-pointer rounded-full
+		border border-current bg-inherit p-1.5"
+	>
+		<svg class="h-3.5 w-3.5" inline-src="phosphor/x" width="14" height="14"></svg>
+		<span class="sr-only">Dismiss</span>
+	</button>
+
 	<div class="rounded-inherit relative flex items-start gap-3 overflow-hidden p-3">
-		{#await iconUrl}
-			<svg
-				class="h-6 w-6 shrink-0 animate-spin [animation-duration:1.5s]"
-				inline-src="phosphor/spinner-gap"
-				width="24"
-				height="24"
-			></svg>
-		{:then url}
-			<svg class="h-6 w-6 shrink-0" use:inlineSvg={url} width="24" height="24"></svg>
-		{/await}
+		{#if iconUrl}
+			{#await iconUrl}
+				<svg
+					class="h-6 w-6 shrink-0 animate-spin [animation-duration:1.5s]"
+					inline-src="phosphor/spinner-gap"
+					width="24"
+					height="24"
+				></svg>
+			{:then url}
+				<svg class="h-6 w-6 shrink-0" use:inlineSvg={url} width="24" height="24"></svg>
+			{/await}
+		{/if}
 
 		<div class="w-full leading-normal">
-			<p class="mb-2 border-b border-current pb-1 font-medium">
-				{title ?? status[0].toUpperCase() + status.slice(1)}
+			<p class="mb-2 border-b {status ? 'border-current' : ''} pb-1 font-medium">
+				{title ?? (status ? status[0].toUpperCase() + status.slice(1) : '')}
 			</p>
 			{#if children}
 				{@render children()}
@@ -64,48 +69,44 @@
 			aria-disabled="true"
 		></div>
 	</div>
-
-	<!-- x button to dismiss -->
-	<button
-		onclick={dismiss}
-		class="absolute right-0 top-0 -translate-y-1/2 translate-x-1/2 rounded-full border border-current bg-inherit p-1.5"
-	>
-		<svg class="h-3.5 w-3.5" inline-src="phosphor/x" width="14" height="14"></svg>
-		<span class="sr-only">Dismiss</span>
-	</button>
 </article>
 
 <style>
 	article {
+		--noti-color-icon: var(--color-fg);
+		--noti-color-progress: var(--color-fg-100);
+		--noti-color-bg: var(--color-bg);
+		--noti-color-fg: var(--color-fg);
+
 		color: var(--noti-color-fg);
 		background-color: var(--noti-color-bg);
 
 		&[data-status='info'] {
-			--noti-color-icon: theme('colors.info.element');
-			--noti-color-progress: theme('colors.info.surface.200');
-			--noti-color-bg: theme('colors.info.surface.DEFAULT');
-			--noti-color-fg: theme('colors.info.text');
+			--noti-color-icon: var(--color-info-fg);
+			--noti-color-progress: var(--color-info-bg-200);
+			--noti-color-bg: var(--color-info-bg);
+			--noti-color-fg: var(--color-info-fg);
 		}
 
 		&[data-status='success'] {
-			--noti-color-icon: theme('colors.success.element');
-			--noti-color-progress: theme('colors.success.surface.200');
-			--noti-color-bg: theme('colors.success.surface.DEFAULT');
-			--noti-color-fg: theme('colors.success.text');
+			--noti-color-icon: var(--color-success-fg);
+			--noti-color-progress: var(--color-success-bg-200);
+			--noti-color-bg: var(--color-success-bg);
+			--noti-color-fg: var(--color-success-fg);
 		}
 
 		&[data-status='warning'] {
-			--noti-color-icon: theme('colors.warning.element');
-			--noti-color-progress: theme('colors.warning.surface.200');
-			--noti-color-bg: theme('colors.warning.surface.DEFAULT');
-			--noti-color-fg: theme('colors.warning.text');
+			--noti-color-icon: var(--color-warning-fg);
+			--noti-color-progress: var(--color-warning-bg-200);
+			--noti-color-bg: var(--color-warning-bg);
+			--noti-color-fg: var(--color-warning-fg);
 		}
 
 		&[data-status='error'] {
-			--noti-color-icon: theme('colors.error.element');
-			--noti-color-progress: theme('colors.error.surface.200');
-			--noti-color-bg: theme('colors.error.surface.DEFAULT');
-			--noti-color-fg: theme('colors.error.text');
+			--noti-color-icon: var(--color-error-fg);
+			--noti-color-progress: var(--color-error-bg-200);
+			--noti-color-bg: var(--color-error-bg);
+			--noti-color-fg: var(--color-error-fg);
 		}
 	}
 

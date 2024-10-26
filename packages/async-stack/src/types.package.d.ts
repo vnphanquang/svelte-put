@@ -14,7 +14,7 @@ export type StackItemCommonConfig<Variant extends string, UserComponent extends 
 	/**
 	 * id generator for stack items. Defaults to 'uuid'
 	 *
-	 *   - counter: use an auto-incremented counter that is scoped to the
+	 *   - counter: use an auto-incremented counter that is scoped to the stack
 	 *   - uuid: use `crypto.randomUUID()`, fallback to `counter` if not available
 	 *   - callback: a custom function that accepts {@link StackItemInstanceConfig} and returns a string as the id
 	 */

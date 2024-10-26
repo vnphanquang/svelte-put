@@ -20,14 +20,14 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 
 ```html
 <script lang="ts">
-  import { copy, type CopyDetail } from '@svelte-put/copy';
+	import { copy, type CopyDetail } from '@svelte-put/copy';
 
-  function handleCopied(e: CustomEvent<CopyDetail>) {
-    console.log('Text copied:', e.detail.text);
-  }
+	function handleCopied(e: CustomEvent<CopyDetail>) {
+		console.log('Text copied:', e.detail.text);
+	}
 </script>
 
-<button type="button" use:copy oncopied={handleCopied}>Click to copy this</button>
+<button type="button" use:copy oncopied="{handleCopied}">Click to copy this</button>
 ```
 
 ## [Changelog][github.changelog]
@@ -35,7 +35,7 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 <!-- github specifics -->
 
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
-[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/copy/CHANGELOG.md
+[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/copy/CHANGELOG.md
 [github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
 
 <!-- heading badge -->
@@ -46,4 +46,3 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 [bundlephobia]: https://bundlephobia.com/package/@svelte-put/copy
 [docs]: https://svelte-put.vnphanquang.com/docs/copy
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue
-

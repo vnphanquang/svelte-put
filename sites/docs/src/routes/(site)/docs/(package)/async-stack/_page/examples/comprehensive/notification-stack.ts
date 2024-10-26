@@ -16,4 +16,3 @@ export const notiStack = stack({ timeout: 3000 })
 	})
 	// build the actual stack
 	.build();
-

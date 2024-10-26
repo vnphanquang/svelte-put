@@ -1,2 +1,1 @@
-export { default as PageLoadIndicator } from './PageLoadIndicator.svelte';
-
+export { default as PageLoadIndicator } from './Component.svelte';

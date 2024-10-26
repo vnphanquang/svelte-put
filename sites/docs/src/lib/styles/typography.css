@@ -1,0 +1,268 @@
+/* stylelint-disable import-notation */
+@custom-selector :--is-prose :not(:where([class~='not-prose'], [class~='not-prose'] *));
+
+@layer typography {
+	@mixin dark-global {
+		--color-pre-fg: hsl(0deg 0% 83%);
+		--color-pre-bg: hsl(0deg 0% 12%);
+	}
+
+	@mixin high-contrast-global {
+		--color-pre-fg: hsl(0deg 0% 83%);
+		--color-pre-bg: hsl(0deg 0% 12%);
+	}
+
+	:root {
+		--color-pre-fg: hsl(0deg 0% 0%);
+		--color-pre-bg: hsl(224deg 19% 98%);
+	}
+
+	/*
+	dark theme setup for shiki,
+	see https://shiki.style/guide/dual-themes
+*/
+	:where(.shiki) {
+		@mixin light {
+			background-color: hsl(224deg 19% 98%) !important;
+		}
+	}
+
+	:where(.shiki),
+	:where(.shiki) :where(span) {
+		@mixin dark {
+			font-weight: var(--shiki-dark-font-weight) !important;
+
+			/* Optional, if you also want font styles */
+			font-style: var(--shiki-dark-font-style) !important;
+			color: var(--shiki-dark) !important;
+			text-decoration: var(--shiki-dark-text-decoration) !important;
+
+			background-color: var(--shiki-dark-bg) !important;
+		}
+
+		@mixin high-contrast {
+			font-weight: var(--shiki-dark-font-weight) !important;
+
+			/* Optional, if you also want font styles */
+			font-style: var(--shiki-dark-font-style) !important;
+			color: var(--shiki-dark) !important;
+			text-decoration: var(--shiki-dark-text-decoration) !important;
+
+			background-color: var(--shiki-dark-bg) !important;
+		}
+	}
+
+	.prose {
+		& figcaption:--is-prose {
+			text-align: center;
+		}
+
+		& figure:--is-prose {
+			margin-block: 40px;
+		}
+
+		& iframe:--is-prose {
+			max-width: 100%;
+			margin-inline: auto;
+			border: 1px solid var(--color-outline);
+		}
+
+		& a:--is-prose {
+			&:not(.heading-anchor) {
+				@apply c-link;
+
+				text-decoration: none;
+			}
+
+			&.heading-anchor {
+				position: absolute;
+				top: 0;
+				right: 100%;
+				bottom: 0;
+
+				margin-right: 2px;
+
+				font-weight: inherit;
+				text-decoration: none;
+
+				opacity: 0;
+
+				transition: opacity 200ms var(--default-transition-timing-function);
+
+				@media (--tablet) {
+					margin-right: 8px;
+				}
+			}
+		}
+
+		& :is(h2, h3, h4, h5, h6) {
+			position: relative;
+
+			&:hover :where(.heading-anchor) {
+				opacity: 1;
+			}
+		}
+
+		& :not(pre, a) > :where(code):--is-prose {
+			padding: 0.2em 0.375em;
+
+			font-weight: 400;
+
+			background-color: var(--color-bg-200); /* fallback if color-mix is not support */
+			background-color: color-mix(in hsl, var(--color-bg-200), transparent 95%);
+			border: 1px solid;
+			border-color: transparent; /* fallback if color-mix is not support */
+			border-color: color-mix(in hsl, var(--color-fg), transparent 80%);
+			border-radius: 0.375rem;
+
+			&::after,
+			&::before {
+				content: none;
+			}
+		}
+
+		/*
+		Assume shikijs integration,
+		emitting :where to take precedence over @tailwindcss/typography defautls
+	*/
+		& pre:--is-prose {
+			position: relative;
+
+			padding-top: 16px;
+			padding-bottom: 16px;
+			padding-inline: 0;
+
+			border: 1px solid var(--color-outline);
+
+			&:hover::before {
+				opacity: 0;
+			}
+
+			& code {
+				display: inline-block;
+				min-width: 100%;
+			}
+
+			& .line {
+				--padding-inline-start: 1ch;
+				--padding-inline-end: 3ch;
+				--color-bg-info: hsl(199.4deg 100% 93.3%);
+				--color-bg-warning: hsl(52.8deg 100% 88.6%);
+				--color-bg-success: hsl(134.4deg 100% 95.1%);
+				--color-bg-error: hsl(5.5deg 100% 95.7%);
+
+				@mixin dark {
+					--color-bg-info: hsl(215deg 39% 18%);
+					--color-bg-warning: hsl(43deg 100% 50% / 15%);
+					--color-bg-success: hsl(123.04deg 36.07% 42.94% / 15%);
+					--color-bg-error: hsl(3.12deg 74.76% 59.61% / 10%);
+				}
+
+				@mixin high-contrast {
+					--color-bg-info: hsl(215deg 39% 18%);
+					--color-bg-warning: hsl(43deg 100% 50% / 15%);
+					--color-bg-success: hsl(123.04deg 36.07% 42.94% / 15%);
+					--color-bg-error: hsl(3.12deg 74.76% 59.61% / 10%);
+				}
+
+				display: inline-block;
+				width: 100%;
+				padding-inline-start: var(--padding-inline-start);
+				padding-inline-end: var(--padding-inline-end);
+
+				&::before {
+					content: attr(data-line);
+
+					display: inline-block;
+
+					width: var(--num-line-width);
+					margin-right: 2ch;
+
+					font-variant-numeric: tabular-nums;
+					color: currentcolor;
+					text-align: right;
+
+					opacity: 0.5;
+				}
+
+				&[data-line-diff] {
+					--shiki-dark-bg: transparent;
+
+					display: inline-block;
+					width: 100%;
+
+					&::after {
+						position: absolute;
+						left: 1ch;
+						display: inline-block;
+					}
+
+					&[data-line-diff='+'] {
+						background-color: var(--color-bg-success) !important;
+
+						&::after {
+							content: '+';
+						}
+					}
+
+					&[data-line-diff='-'] {
+						background-color: var(--color-bg-error) !important;
+
+						&::after {
+							content: '-';
+						}
+					}
+				}
+
+				&[data-line-highlighted] {
+					--shiki-dark-bg: transparent;
+
+					display: inline-block;
+					width: 100%;
+
+					&[data-line-highlighted='info'] {
+						background-color: var(--color-bg-info) !important;
+					}
+
+					&[data-line-highlighted='success'] {
+						background-color: var(--color-bg-success) !important;
+					}
+
+					&[data-line-highlighted='warning'] {
+						background-color: var(--color-bg-warning) !important;
+					}
+
+					&[data-line-highlighted='error'] {
+						background-color: var(--color-bg-error) !important;
+					}
+				}
+			}
+
+			&:has([data-focus]) {
+				& .line:not([data-focus]) {
+					opacity: 0.5;
+					filter: blur(0.15rem);
+					transition: filter 200ms ease-out;
+				}
+
+				&:is(:focus, :hover) .line:not([data-focus]) {
+					opacity: 1;
+					filter: blur(0);
+				}
+			}
+		}
+	}
+
+	:is(
+			.prose pre:--is-prose[data-num-lines='1']:not(:has(.line[data-line-diff])),
+			.hide-line-number
+		) {
+		& .line {
+			padding-left: 2ch;
+
+			&::before {
+				content: none;
+			}
+		}
+	}
+}

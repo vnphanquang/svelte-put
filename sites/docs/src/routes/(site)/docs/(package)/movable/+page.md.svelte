@@ -1,5 +1,5 @@
 <script>
-	import { SettingsContext } from '$lib/contexts/settings.svelte';
+	import { SettingsContext } from '$lib/settings/context.svelte';
 
   import DemoQuickStart from './_page/examples/quick-start.svelte';
   import DemoLimitScreen from './_page/examples/limit-screen.svelte';

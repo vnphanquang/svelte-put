@@ -1,10 +1,10 @@
 <script>
-  import { lockscroll } from '@svelte-put/lockscroll';
+	import { lockscroll } from '@svelte-put/lockscroll';
 
-  let locked = $state(false);
-  function toggleLockScroll() {
-    locked = !locked;
-  }
+	let locked = $state(false);
+	function toggleLockScroll() {
+		locked = !locked;
+	}
 </script>
 
 <svelte:body use:lockscroll={locked} />

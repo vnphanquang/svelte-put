@@ -1,6 +1,6 @@
 <script>
   import { ConnectedList, ConnectedListItem } from '$lib/components/connected-list';
-	import { SettingsContext } from '$lib/contexts/settings.svelte';
+	import { SettingsContext } from '$lib/settings/context.svelte';
 
   import DirectUrl from './_page/examples/direct-url.svelte';
   import GravatarMinimal from './_page/examples/gravatar.minimal.svelte';
@@ -81,7 +81,7 @@ For example:
 1. `src` - you have a dedicated api & database for avatar,
 2. `gravatar` - you also want to automatically fetch avatar from [Gravatar] with user's email if they have not uploaded their own avatar to your server,
 3. `uiAvatar` - you also want to fallback to an [UI Avatar] with user's initials if their gravatar is not available,
-4. `fallback` - you provide your own custom fallback (last resort) just in case [UI Avatar] is out of service all of the sudden.
+4. `fallback` - you provide your own custom fallback just in case [UI Avatar] is out of service all of the sudden.
 
 ```svelte title=MyAvatar.svelte
 <script>

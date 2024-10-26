@@ -1,2 +1,1 @@
-export { default as MenuLabel } from './MenuLabel.svelte';
-
+export { default as MenuLabel } from './Component.svelte';

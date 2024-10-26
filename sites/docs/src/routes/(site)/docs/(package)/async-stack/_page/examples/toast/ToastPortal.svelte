@@ -97,7 +97,7 @@
 
 <!-- toast portal, typically setup at somewhere global like root layout -->
 <ol
-	class="z-notification tb:bottom-10 tb:right-10 fixed bottom-2 right-4 grid content-end items-end"
+	class="z-notification tablet:bottom-10 tablet:right-10 fixed bottom-2 right-4 grid content-end items-end"
 	style:height={olHeight}
 	onmouseenter={onMouseEnter}
 	onmouseleave={onMouseLeave}
@@ -137,7 +137,7 @@
 		grid-column: 1;
 		grid-row: 1;
 
-		transition-timing-function: theme('transitionTimingFunction.DEFAULT');
+		transition-timing-function: var(--default-transition-timing-function);
 		transition-duration: inherit;
 		transition-property: transform;
 	}

@@ -1,5 +1,5 @@
 <script>
-  import { SettingsContext } from '$lib/contexts/settings.svelte';
+  import { SettingsContext } from '$lib/settings/context.svelte';
 
   import ImgAction from './_page/examples/img-action.svelte';
   import ImgComponentWithSnippet from './_page/examples/img-component-with-snippet.svelte';

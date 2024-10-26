@@ -9,7 +9,7 @@
 </button>
 
 <div
-	class="backdrop:bg-black backdrop:opacity-50 p-6 fixed inset-0"
+	class="fixed inset-0 p-6 backdrop:bg-black backdrop:opacity-50"
 	{...popover.target.attributes}
 	use:popover.target.actions
 >

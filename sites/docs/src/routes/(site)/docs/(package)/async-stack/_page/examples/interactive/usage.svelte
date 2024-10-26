@@ -33,10 +33,10 @@
 	{:else}
 		Invitation was <span
 			class="px-2"
-			class:text-error-text={state == 'denied'}
-			class:bg-error-surface={state == 'denied'}
-			class:text-success-text={state === 'accepted'}
-			class:bg-success-surface={state == 'accepted'}
+			class:text-error-fg={state == 'denied'}
+			class:bg-error-bg={state == 'denied'}
+			class:text-success-fg={state === 'accepted'}
+			class:bg-success-bg={state == 'accepted'}
 		>
 			{state}
 		</span>

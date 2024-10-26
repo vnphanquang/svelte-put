@@ -39,10 +39,7 @@ import { inlineSvg } from '@svelte-put/inline-svg/vite';
 
 /** @type {import('vite').UserConfig} */
 const config = {
-  plugins: [
-    inlineSvg(),
-    sveltekit(),
-  ],
+	plugins: [inlineSvg(), sveltekit()],
 };
 export default config;
 ```
@@ -57,7 +54,7 @@ import { inlineSvg } from '@svelte-put/inline-svg/preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  preprocess: [inlineSvg()],
+	preprocess: [inlineSvg()],
 };
 export default config;
 ```
@@ -67,7 +64,7 @@ export default config;
 <!-- github specifics -->
 
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
-[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/inline-svg/CHANGELOG.md
+[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/inline-svg/CHANGELOG.md
 [github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
 
 <!-- heading badge -->
@@ -78,4 +75,3 @@ export default config;
 [bundlephobia]: https://bundlephobia.com/package/@svelte-put/inline-svg
 [docs]: https://svelte-put.vnphanquang.com/docs/inline-svg
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue
-

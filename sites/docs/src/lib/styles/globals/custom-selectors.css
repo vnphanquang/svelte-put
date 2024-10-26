@@ -1,0 +1,12 @@
+@custom-selector :--disabled :disabled, [disabled]:not([disabled='false']);
+@custom-selector :--delayed [data-delayed]:not([data-delayed='false']);
+@custom-selector :--timeout [data-timeout]:not([data-timeout='false']);
+@custom-selector :--current
+	[aria-current]:not([aria-current='false']),
+	[data-current]:not([data-current='false']);
+@custom-selector :--checked :checked, [data-checked]:not([data-checked='false']);
+@custom-selector :--user-invalid
+	:user-invalid,
+	[aria-invalid='true'],
+	:has(:user-invalid),
+	:has([aria-invalid='true']);

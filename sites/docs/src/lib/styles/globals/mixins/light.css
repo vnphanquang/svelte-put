@@ -1,0 +1,11 @@
+@define-mixin light $target: & {
+	html[data-color-scheme='light'] $(target) {
+		@mixin-content;
+	}
+
+	@media (prefers-color-scheme: light) and (not (prefers-contrast: more)) {
+		html:not([data-color-scheme='dark'], [data-color-scheme='high-contrast']) $(target) {
+			@mixin-content;
+		}
+	}
+}

@@ -1,2 +1,1 @@
-export { default as StatusBadge } from './StatusBadge.svelte';
-
+export { default as StatusBadge } from './Component.svelte';

@@ -1,0 +1,95 @@
+/* stylelint-disable import-notation */
+@layer theme, base, typogrpahy, utilities;
+
+@import 'tailwindcss';
+@import './theme/index.css';
+@import './utilities/index.css';
+@import './components/index.css';
+@import './typography.css';
+
+@plugin '@tailwindcss/typography';
+
+@layer base {
+	:root {
+		--header-height: 90px;
+		--sidebar-width: 250px;
+
+		@media (--tablet) {
+			--pad-min-padding-x: 24px;
+		}
+
+		@media (--desktop) {
+			--sidebar-width: 230px;
+			--pad-max-width: 1920px;
+		}
+
+		@media (--widescreen) {
+			--pad-min-padding-x: 32px;
+			--header-height: 55px;
+		}
+	}
+
+	html {
+		font-family: var(--font-family-inter);
+		color: var(--color-fg);
+
+		background-color: var(--color-bg);
+		border-color: currentcolor;
+		border-color: var(--color-outline);
+	}
+
+	* {
+		border-color: inherit;
+	}
+
+	h1 {
+		font-family: var(--font-family-fingerpaint);
+		letter-spacing: var(--letter-spacing-wide);
+	}
+
+	svg[inline-src^='simpleicon/'] {
+		fill: currentcolor;
+	}
+
+	mark {
+		@mixin dark {
+			background-color: var(--color-yellow.900);
+		}
+
+		@mixin high-contrast {
+			background-color: var(--color-yellow.950);
+		}
+
+		color: inherit;
+		background-color: var(--color-yellow.100);
+	}
+
+	button:focus-visible:not(:--disabled),
+	label:has(input:focus-visible) {
+		outline: 1.5px solid var(--color-outline-focus);
+		outline-offset: 1px;
+	}
+}
+
+@layer components {
+	.c-num {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+
+		width: 1.75em;
+
+		font-size: 0.75rem;
+		line-height: 1.75em;
+		color: var(--color-primary-fg);
+
+		background-color: var(--color-primary-bg);
+		border-radius: var(--radius-full);
+	}
+}
+
+@variant current {
+	&:--current {
+		@slot;
+	}
+}

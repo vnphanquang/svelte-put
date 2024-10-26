@@ -167,9 +167,9 @@
 		--color-header-fg: hsl(0deg 0% 50%);
 
 		/* assume integration with @sveltevietnam/ui */
-		@dark global {
-			--color-header-fg: hsl(0deg 0% 64%);
-		}
+		/* @mixin dark { */
+		/* 	--color-header-fg: hsl(0deg 0% 64%); */
+		/* } */
 
 		position: relative;
 
@@ -195,7 +195,7 @@
 	.codeblock:global(:--fullscreen),
 	:--g-fullscreen {
 		position: fixed;
-		z-index: theme('zIndex.overlay');
+		z-index: var(--z-index-overlay);
 		inset: 0;
 
 		height: 100dvh;
@@ -221,7 +221,7 @@
 		margin: 0;
 		padding: 0;
 
-		font-size: theme('fontSize.xs');
+		font-size: var(--font-size-xs);
 		white-space: nowrap;
 	}
 
@@ -236,11 +236,11 @@
 
 		padding: 12px 16px;
 
-		font-size: theme('fontSize.sm');
+		font-size: var(--font-size-sm);
 		line-height: normal;
 		color: var(--color-header-fg);
 
-		background-color: theme('colors.bg.DEFAULT');
+		background-color: var(--color-bg);
 		border-top-width: 1px;
 		border-left-width: 1px;
 

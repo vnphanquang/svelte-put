@@ -1,0 +1,9 @@
+@custom-media --mobile (width < 48rem); /* 768px */
+
+@custom-media --tablet (width >= 48rem); /* 768px */
+
+@custom-media --upto-desktop (width < 64rem); /* 1024px */
+@custom-media --desktop (width >= 64rem); /* 1024px */
+
+@custom-media --upto-widescreen (width < 80rem); /* 1280px */
+@custom-media --widescreen (width >= 80rem); /* 1280px */

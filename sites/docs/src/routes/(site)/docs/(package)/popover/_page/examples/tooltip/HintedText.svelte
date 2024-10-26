@@ -53,7 +53,12 @@
 	{...rest}>{@render children()}</button
 >
 
-<span class="text-hint" bind:this={targetEl} {...popover.target.attributes} use:popover.target.actions>
+<span
+	class="text-hint"
+	bind:this={targetEl}
+	{...popover.target.attributes}
+	use:popover.target.actions
+>
 	<span class="arrow" bind:this={arrowEl}></span>
 	{@render hint()}
 </span>

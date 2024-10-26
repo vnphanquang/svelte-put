@@ -17,11 +17,11 @@ await index.addDirectory({
 // write to static folder for development
 await index.writeFiles({
 	outputPath: OUTPUT_PATH,
-})
+});
 // write to build directory for production
 await index.writeFiles({
 	outputPath: path.join(BUILD_PATH, 'pagefind'),
-})
+});
 
 const EXCLUDE_PATHS = [
 	'pagefind-highlight.js',
@@ -30,9 +30,8 @@ const EXCLUDE_PATHS = [
 	'pagefind-ui.css',
 	'pagefind-ui.js',
 ];
-await Promise.allSettled(EXCLUDE_PATHS.map(f => rm(path.join(OUTPUT_PATH, f))));
-await Promise.allSettled(EXCLUDE_PATHS.map(f => rm(path.join(path.join('pagefind'), f))));
+await Promise.allSettled(EXCLUDE_PATHS.map((f) => rm(path.join(OUTPUT_PATH, f))));
+await Promise.allSettled(EXCLUDE_PATHS.map((f) => rm(path.join(path.join('pagefind'), f))));
 
 // clean up once complete
 await pagefind.close();
-

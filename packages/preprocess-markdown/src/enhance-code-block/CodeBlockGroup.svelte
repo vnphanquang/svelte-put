@@ -144,8 +144,8 @@
 
 		grid-column: -2;
 
-		background-color: theme('colors.bg.DEFAULT');
-		border-color: theme('colors.outline.DEFAULT');
+		background-color: var(--color-bg);
+		border-color: var(--color-outline);
 		border-style: solid;
 		border-top-right-radius: 4px;
 	}

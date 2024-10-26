@@ -1,0 +1,6 @@
+@utility c-callout--icon-megaphone {
+	@layer components.mod2 {
+		--callout-icon-url: url('$lib/styles/components/c-callout/icons/megaphone.svg');
+		--callout-clip-path: path('M 0,26 A 26 26 0 0 0 26,0 H 2000 V 2000 H 0 Z');
+	}
+}

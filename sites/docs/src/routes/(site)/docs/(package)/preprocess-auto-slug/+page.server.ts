@@ -9,7 +9,7 @@ export const load: PageServerLoad = async ({ parent }) => {
 			...data.meta,
 			og: {
 				image: ogImage,
-			}
+			},
 		},
 	};
-}
+};

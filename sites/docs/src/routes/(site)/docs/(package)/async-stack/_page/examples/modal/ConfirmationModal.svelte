@@ -27,7 +27,7 @@
 </script>
 
 <dialog
-	class="space-y-4 bg-bg-200 p-8 text-fg shadow-lg backdrop:bg-bg backdrop:opacity-50"
+	class="bg-bg-200 text-fg backdrop:bg-bg space-y-4 p-8 shadow-lg backdrop:opacity-50"
 	bind:this={dialog}
 	use:enhancedialog
 	onclickbackdrop={() => dialog.close()}
@@ -47,9 +47,11 @@
 
 		display: block; /* required for animation to work */
 
+		margin: auto;
+
 		animation-name: fly-out-down;
 		animation-duration: 150ms;
-		animation-timing-function: theme('transitionTimingFunction.DEFAULT');
+		animation-timing-function: var(--default-transition-timing-function);
 		animation-fill-mode: forwards;
 	}
 

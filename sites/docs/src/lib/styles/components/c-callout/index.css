@@ -1,0 +1,15 @@
+/* stylelint-disable import-notation */
+@import './c-callout.css';
+
+/* status modifiers */
+@import './c-callout--info.css';
+@import './c-callout--success.css';
+@import './c-callout--warning.css';
+@import './c-callout--error.css';
+
+/* icon modifiers */
+@import './c-callout--icon-bulb.css';
+@import './c-callout--icon-confetti.css';
+@import './c-callout--icon-megaphone.css';
+@import './c-callout--icon-question.css';
+@import './c-callout--icon-trophy.css';

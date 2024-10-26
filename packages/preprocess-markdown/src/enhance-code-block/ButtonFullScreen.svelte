@@ -46,9 +46,9 @@
 	}
 
 	onMount(() => {
-		codeblock?.addEventListener('fullscreenchange', onFullScreenChange);
+		document.addEventListener('fullscreenchange', onFullScreenChange);
 		return () => {
-			codeblock?.removeEventListener('fullscreenchange', onFullScreenChange);
+			document.removeEventListener('fullscreenchange', onFullScreenChange);
 		};
 	});
 </script>

@@ -1,5 +1,5 @@
 <script>
-  import Avatar from '@svelte-put/avatar/Avatar.svelte';
+	import Avatar from '@svelte-put/avatar/Avatar.svelte';
 </script>
 
 <Avatar size={50} gravatar="billy.hargrove@domain.com" uiAvatar="Billy+Hargrove">

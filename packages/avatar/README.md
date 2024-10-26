@@ -20,16 +20,16 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 
 ```html
 <script>
-  import Avatar from '@svelte-put/avatar/Avatar.svelte';
+	import Avatar from '@svelte-put/avatar/Avatar.svelte';
 
-  let { id, email, firstName, lastName } = $props();
+	let { id, email, firstName, lastName } = $props();
 </script>
 
 <Avatar
-  src="https://your.api/avatar/{id}"
-  gravatar="{email}"
-  uiAvatar="{firstName}+{lastName}"
-  fallback="https://your.api/avatar/default"
+	src="https://your.api/avatar/{id}"
+	gravatar="{email}"
+	uiAvatar="{firstName}+{lastName}"
+	fallback="https://your.api/avatar/default"
 />
 ```
 
@@ -38,7 +38,7 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 <!-- github specifics -->
 
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
-[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/next/packages/avatar/CHANGELOG.md
+[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/avatar/CHANGELOG.md
 
 <!-- heading badge -->
 
@@ -58,4 +58,3 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 [repl.badge]: https://img.shields.io/static/v1?label=&message=Svelte+REPL&logo=svelte&logoColor=fff&color=ff3e00
 [docs]: https://svelte-put.vnphanquang.com/docs/avatar
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue
-

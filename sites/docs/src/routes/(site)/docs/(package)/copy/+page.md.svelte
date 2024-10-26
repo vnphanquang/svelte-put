@@ -5,7 +5,7 @@
   import DemoSyntheticCopy from './_page/examples/synthetic-copy.svelte';
   import memeImage from './_page/images/copy-meme.webp';
 
-	import { SettingsContext } from '$lib/contexts/settings.svelte';
+	import { SettingsContext } from '$lib/settings/context.svelte';
   const settings = SettingsContext.get();
 </script>
 

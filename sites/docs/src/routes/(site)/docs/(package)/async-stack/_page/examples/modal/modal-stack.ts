@@ -11,4 +11,3 @@ export const modalStack = stack()
 		},
 	})
 	.build();
-

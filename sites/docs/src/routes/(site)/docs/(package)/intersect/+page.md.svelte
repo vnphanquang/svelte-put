@@ -1,5 +1,5 @@
 <script>
-	import { SettingsContext } from '$lib/contexts/settings.svelte';
+	import { SettingsContext } from '$lib/settings/context.svelte';
 
   import DemoEventIntersect from './_page/examples/event-intersect.svelte';
   import DemoEventIntersectOnce from './_page/examples/event-intersectonce.svelte';

@@ -1,12 +1,38 @@
 import path from 'path';
 
+import postcssGlobalData from '@csstools/postcss-global-data';
 import { inlineSvg } from '@svelte-put/inline-svg/vite';
 import { enhancedImages } from '@sveltejs/enhanced-img';
 import { sveltekit } from '@sveltejs/kit/vite';
-import type { UserConfig } from 'vite';
+// import tailwindcss from '@tailwindcss/vite';
+import tailwindcss from '@tailwindcss/postcss';
+import postcssCustomMedia from 'postcss-custom-media';
+import postcssCustomSelectors from 'postcss-custom-selectors';
+import postcssMixins from 'postcss-mixins';
+import { defineConfig } from 'vite';
 
-const config: UserConfig = {
+export default defineConfig({
+	css: {
+		transformer: 'postcss',
+		postcss: {
+			plugins: [
+				postcssGlobalData({
+					files: [
+						path.resolve(__dirname, 'src/lib/styles/globals/custom-medias.css'),
+						path.resolve(__dirname, 'src/lib/styles/globals/custom-selectors.css'),
+					],
+				}),
+				postcssMixins({
+					mixinsDir: path.resolve(__dirname, 'src/lib/styles/globals/mixins'),
+				}),
+				postcssCustomMedia(),
+				postcssCustomSelectors(),
+				tailwindcss(),
+			],
+		},
+	},
 	plugins: [
+		// tailwindcss(),
 		inlineSvg(
 			[
 				{
@@ -39,6 +65,4 @@ const config: UserConfig = {
 			strict: false,
 		},
 	},
-};
-
-export default config;
+});
