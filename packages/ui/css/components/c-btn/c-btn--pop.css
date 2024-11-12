@@ -1,0 +1,76 @@
+/* stylelint-disable import-notation */
+@import '../../selectors.css';
+
+/*
+	A special button with thick shadow. Often used to draw
+	attention when standing alone
+
+	```html
+	<button class="c-btn c-btn--pop">
+		<!-- optionally with an icon on either side -->
+		<svg class="w-6 h-6" inline-src="phosphor/info" width="24" height="24"></svg>
+		<span>Click me</span>
+	</button>
+	``
+*/
+@utility c-btn--pop {
+	@layer components {
+		--y: 0;
+
+		will-change: transform;
+
+		transform-style: preserve-3d;
+		transform: translateY(var(--y));
+
+		color: var(--color-fg);
+
+		background-color: var(--color-bg);
+
+		&::before {
+			--shadow-initial-y: 4px;
+			--shadow-y: var(--shadow-initial-y);
+
+			will-change: transform;
+			content: '';
+
+			position: absolute;
+			z-index: -1;
+			inset: -2px;
+			transform: translateX(var(--shadow-initial-y)) translateY(var(--shadow-y)) translateZ(-1px);
+
+			background-color: currentcolor;
+
+			transition-timing-function: inherit;
+			transition-duration: inherit;
+			transition-property: transform;
+		}
+
+		&:focus-visible:not(:--disabled),
+		&:is(label):has(input:focus-visible) {
+			outline: none;
+
+			&::before {
+				background-color: var(--color-outline-focus);
+			}
+		}
+
+		&:hover:not(:--disabled, :has(input:--disabled)) {
+			--y: -2px;
+
+			&::before {
+				--shadow-y: calc(var(--shadow-initial-y) - var(--y));
+			}
+		}
+
+		&:active:not(:--disabled, :has(input:--disabled)) {
+			--y: -1px;
+		}
+
+		&:--disabled,
+		&:has(input:--disabled) {
+			opacity: unset;
+			background-color: var(--color-bg-100);
+			background-color: color-mix(in oklch, var(--color-bg), var(--color-fg) 20%);
+		}
+	}
+}

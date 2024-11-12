@@ -1,0 +1,36 @@
+/* stylelint-disable import-notation */
+@import '../selectors.css';
+
+/*
+	Links that are just icon and no text. For example:
+
+	```html
+	<a href={SOCIAL_LINKS.GITHUB} class="c-link-icon" external>
+		<svg height="16" width="16" inline-src="lucide/github" />
+	</a>
+	```
+*/
+@utility c-link-icon {
+	@layer components {
+		--duration: 300ms;
+		--easing: var(--transition-timing-function-in);
+		--active-color: var(--color-link);
+
+		transition-timing-function: var(--easing);
+		transition-duration: var(--duration);
+		transition-property: color, border-color, background-color;
+
+		&:hover,
+		&:--current {
+			--duration: 120ms;
+			--easing: var(--transition-timing-function-out);
+
+			color: var(--active-color);
+		}
+
+		&:focus-visible:not(:--disabled) {
+			outline: 1.5px solid var(--color-outline-focus);
+			outline-offset: 1px;
+		}
+	}
+}

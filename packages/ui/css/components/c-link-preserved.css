@@ -1,0 +1,46 @@
+/* stylelint-disable import-notation */
+@import '../selectors.css';
+
+/*
+	Links that inherit color from parent, only change to "colors.link" on hover,
+	often used in title of item cards
+
+	```html
+	<a {href} class="c-link-preserved">Link me</a>
+	```
+*/
+@utility c-link-preserved {
+	@layer components {
+		--duration: 400ms;
+		--easing: var(--transition-timing-function-in);
+		--underline-color: currentcolor;
+		--active-color: var(--color-link);
+
+		will-change: background-size;
+
+		display: inline;
+
+		background-image: linear-gradient(to right, var(--underline-color), var(--underline-color));
+		background-repeat: no-repeat;
+		background-position: left bottom;
+		background-size: 0 var(--underline-height, 1px);
+
+		transition-timing-function: var(--easing);
+		transition-duration: calc(0.75 * var(--duration)), var(--duration);
+		transition-property: color, background-size;
+
+		&:--current,
+		&:hover {
+			--duration: 200ms;
+			--easing: var(--transition-timing-function-out);
+
+			color: var(--active-color);
+			background-size: 100% var(--underline-height, 1px);
+		}
+
+		&:focus-visible:not(:--disabled) {
+			outline: 1.5px solid var(--color-outline-focus);
+			outline-offset: 1px;
+		}
+	}
+}

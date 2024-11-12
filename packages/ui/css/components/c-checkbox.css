@@ -1,0 +1,63 @@
+/* stylelint-disable import-notation */
+@import '../selectors.css';
+
+@utility c-checkbox {
+	@layer components {
+		--checkbox-bg: var(--color-bg);
+		--checkbox-fg: var(--color-fg);
+		--tw-border-opacity: 0.2;
+
+		cursor: pointer;
+
+		flex-shrink: 0;
+
+		width: 1.5rem;
+		height: 1.5rem;
+
+		appearance: none;
+		border-color: var(--checkbox-fg);
+		border-width: 1px;
+
+		&:focus-visible:not(:--disabled) {
+			border-color: var(--color-outline-focus);
+			outline: 1.5px solid var(--color-outline-focus);
+			outline-offset: 1px;
+		}
+
+		&:--checked {
+			background-color: var(--checkbox-bg);
+			background-image: linear-gradient(-45deg, transparent 65%, var(--checkbox-bg) 65.99%),
+				linear-gradient(45deg, transparent 75%, var(--checkbox-bg) 75.99%),
+				linear-gradient(-45deg, var(--checkbox-bg) 40%, transparent 40.99%),
+				linear-gradient(
+					45deg,
+					var(--checkbox-bg) 30%,
+					var(--checkbox-fg) 30.99%,
+					var(--checkbox-fg) 40%,
+					transparent 40.99%
+				),
+				linear-gradient(-45deg, var(--checkbox-fg) 50%, var(--checkbox-bg) 50.99%);
+			background-repeat: no-repeat;
+			animation: checkmark 200ms ease-out;
+		}
+
+		&:--disabled {
+			cursor: not-allowed;
+			background-color: var(--color-bg-100);
+		}
+	}
+}
+
+@keyframes checkmark {
+	0% {
+		background-position-y: 5px;
+	}
+
+	50% {
+		background-position-y: -2px;
+	}
+
+	100% {
+		background-position-y: 0;
+	}
+}

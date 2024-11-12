@@ -1,0 +1,10 @@
+@utility c-callout--error {
+	@layer components.mod1 {
+		--callout-color-text: var(--color-error-fg);
+		--callout-color-icon: var(--color-error-fg);
+		--callout-color-bg: var(--color-error-bg);
+		--callout-color-border: var(--color-error-bg-200);
+		--callout-icon-url: url('@svelte-put/ui/icons/warning-octagon');
+		--callout-clip-path: path('M 0,26 H 13 L 26,13 V0 H 2000 V 2000 H 0 Z');
+	}
+}

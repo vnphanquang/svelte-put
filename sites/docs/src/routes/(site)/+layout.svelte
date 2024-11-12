@@ -208,6 +208,8 @@
 <NotificationPortal />
 
 <style lang="postcss">
+	@import '@svelte-put/ui/medias'; /* stylelint-disable-line import-notation */
+
 	#docs {
 		--color-bg-aside: color-mix(in oklch, var(--color-bg), var(--color-fg) 4%);
 	}

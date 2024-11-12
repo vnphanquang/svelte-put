@@ -1,0 +1,54 @@
+/* stylelint-disable import-notation */
+@import '../selectors.css';
+
+/*
+	Default link component, often used inline between paragraph.
+*/
+@utility c-link {
+	@layer components {
+		--active-color: var(--color-link);
+		--underline-color: currentcolor;
+
+		will-change: background-size;
+
+		display: inline;
+
+		color: var(--active-color);
+
+		background-image: linear-gradient(to right, var(--underline-color), var(--underline-color));
+		background-repeat: no-repeat;
+		background-position: left bottom;
+		background-size: 100% var(--underline-height, 1px);
+
+		&:hover:not(:--disabled) {
+			animation: underline-swipe 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+		}
+
+		&:focus-visible:not(:--disabled) {
+			outline: 1.5px solid var(--color-outline-focus);
+			outline-offset: 1px;
+		}
+	}
+}
+
+@keyframes underline-swipe {
+	0% {
+		background-position: right bottom;
+		background-size: 100% var(--underline-height, 1px);
+	}
+
+	50% {
+		background-position: right bottom;
+		background-size: 0 var(--underline-height, 1px);
+	}
+
+	51% {
+		background-position: left bottom;
+		background-size: 0 var(--underline-height, 1px);
+	}
+
+	100% {
+		background-position: left bottom;
+		background-size: 100% var(--underline-height, 1px);
+	}
+}

@@ -1,5 +1,3 @@
-import iconInfo from '$lib/assets/images/svg/phosphor/status/info.svg?url';
-
 const iconModules = import.meta.glob<string>('$lib/assets/images/svg/phosphor/status/*.svg', {
 	query: '?url',
 	import: 'default',
@@ -7,8 +5,8 @@ const iconModules = import.meta.glob<string>('$lib/assets/images/svg/phosphor/st
 
 export async function getNotificationIcon(status: App.Status) {
 	const path = `$lib/assets/images/svg/phosphor/status/${status}.svg`;
-	if (path in iconModules) {
-		return await iconModules[path]();
+	if (!(path in iconModules)) {
+		throw new Error('Invalid status for notification icon');
 	}
-	return iconInfo;
+	return await iconModules[path]();
 }

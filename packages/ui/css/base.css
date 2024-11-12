@@ -1,0 +1,81 @@
+/* stylelint-disable import-notation */
+@layer theme, base, typogrpahy, utilities;
+
+/* ad-hoc custom media and selectors */
+@import './medias.css';
+@import './selectors.css';
+@import './mixins/dark.css';
+@import './mixins/high-contrast.css';
+
+/* tailwind customization */
+@import './theme/index.css';
+@import './utilities/index.css';
+@import './components/index.css';
+
+@layer base {
+	:root {
+		--header-height: 90px;
+		--sidebar-width: 250px;
+
+		@media (--tablet) {
+			--pad-min-padding-x: 24px;
+		}
+
+		@media (--desktop) {
+			--sidebar-width: 230px;
+			--pad-max-width: 1920px;
+		}
+
+		@media (--widescreen) {
+			--pad-min-padding-x: 32px;
+			--header-height: 55px;
+		}
+	}
+
+	html {
+		font-family: var(--font-family-inter);
+		color: var(--color-fg);
+
+		background-color: var(--color-bg);
+		border-color: currentcolor;
+		border-color: var(--color-outline);
+	}
+
+	* {
+		border-color: inherit;
+	}
+
+	h1 {
+		font-family: var(--font-family-fingerpaint);
+		letter-spacing: var(--letter-spacing-wide);
+	}
+
+	svg[inline-src^='simpleicon/'] {
+		fill: currentcolor;
+	}
+
+	mark {
+		@mixin dark {
+			background-color: var(--color-yellow.900);
+		}
+
+		@mixin high-contrast {
+			background-color: var(--color-yellow.950);
+		}
+
+		color: inherit;
+		background-color: var(--color-yellow.100);
+	}
+
+	button:focus-visible:not(:--disabled),
+	label:has(input:focus-visible) {
+		outline: 1.5px solid var(--color-outline-focus);
+		outline-offset: 1px;
+	}
+}
+
+@variant current {
+	&:--current {
+		@slot;
+	}
+}

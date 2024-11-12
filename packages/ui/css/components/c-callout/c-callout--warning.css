@@ -1,0 +1,10 @@
+@utility c-callout--warning {
+	@layer components.mod1 {
+		--callout-color-text: var(--color-warning-fg);
+		--callout-color-icon: var(--color-warning-fg);
+		--callout-color-bg: var(--color-warning-bg);
+		--callout-color-border: var(--color-warning-bg-200);
+		--callout-icon-url: url('@svelte-put/ui/icons/warning-circle');
+		--callout-clip-path: path('M 0,24 H 16 Q 28,24 26,10 Q 25,6 20,0 H 2000 V 2000 H 0 Z');
+	}
+}

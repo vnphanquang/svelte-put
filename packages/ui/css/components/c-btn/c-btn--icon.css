@@ -1,0 +1,27 @@
+/* stylelint-disable import-notation */
+@import '../../selectors.css';
+
+/*
+
+	```html
+	```
+*/
+@utility c-btn--icon {
+	@layer components {
+		padding: var(--spacing) calc(var(--spacing) * 2);
+		background-color: none;
+		border: none;
+
+		&::after {
+			background-color: var(--color-fg) !important;
+		}
+
+		&:hover:not(:--disabled, :has(input:--disabled)) {
+			color: var(--color-primary);
+		}
+
+		&:active:not(:--disabled, :has(input:--disabled)) {
+			color: oklch(from var(--color-primary) calc(l - 0.05) c h);
+		}
+	}
+}

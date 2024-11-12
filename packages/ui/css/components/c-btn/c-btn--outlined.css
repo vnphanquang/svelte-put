@@ -1,0 +1,28 @@
+/* stylelint-disable import-notation */
+@import '../../selectors.css';
+
+/*
+	An outlined button, often used along side a default `c-btn` and
+	acts as secondary action
+
+	```html
+	<button class="c-btn c-btn--outlined">
+		<svg class="w-6 h-6" inline-src="phosphor/info" width="24" height="24"></svg>
+		<span>Click me</span>
+	</button>
+	```
+*/
+@utility c-btn--outlined {
+	@layer components {
+		background-color: var(--color-bg);
+		border-color: var(--color-fg);
+
+		&:hover:not(:--disabled, :has(input:--disabled)) {
+			background-color: oklch(from var(--color-bg) calc(l + 0.08) c h);
+		}
+
+		&:active:not(:--disabled, :has(input:--disabled)) {
+			background-color: oklch(from var(--color-bg) calc(l + 0.04) c h);
+		}
+	}
+}

@@ -1,0 +1,26 @@
+/* stylelint-disable import-notation */
+/* stylelint-disable no-invalid-position-at-import-rule */
+
+@variant light {
+	@import '../../mixins/light.css';
+
+	@mixin light {
+		@slot;
+	}
+}
+
+@variant dark {
+	@import '../../mixins/dark.css';
+
+	@mixin dark {
+		@slot;
+	}
+}
+
+@variant high-contrast {
+	@import '../../mixins/high-contrast.css';
+
+	@mixin high-contrast {
+		@slot;
+	}
+}

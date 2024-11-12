@@ -1,0 +1,32 @@
+/* stylelint-disable import-notation */
+@import '../medias.css';
+
+@variant mobile {
+	@media (--mobile) {
+		@slot;
+	}
+}
+
+@variant tablet {
+	@media (--tablet) {
+		@slot;
+	}
+}
+
+@variant desktop {
+	@media (--desktop) {
+		@slot;
+	}
+}
+
+@variant widescreen {
+	@media (--widescreen) {
+		@slot;
+	}
+}
+
+@variant upto-widescreen {
+	@media (--upto-widescreen) {
+		@slot;
+	}
+}
