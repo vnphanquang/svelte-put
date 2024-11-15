@@ -53,10 +53,9 @@
 			out:slide={{ axis: 'y', duration: 200 }}
 		>
 			{#if direction === 'right'}
-				<svg
-					class="absolute left-4 top-1/2 z-0 h-6 w-6 -translate-y-1/2 text-white"
-					inline-src="phosphor/trash"
-				></svg>
+				<div
+					class="i i-[trash] absolute left-4 top-1/2 z-0 h-6 w-6 -translate-y-1/2 text-white"
+				></div>
 			{/if}
 
 			<!-- :::focus -->
@@ -71,14 +70,9 @@
 			>
 				<!-- ::: -->
 				<!-- ::: -->
-				<p class="leading-normal">
-					<svg
-						class="inline-block h-6 w-6"
-						inline-src="phosphor/envelope-simple"
-						width="24"
-						height="24"
-					></svg>
-					>>
+				<p class="flex items-center gap-2 leading-normal">
+					<span class="i i-[envelope-simple] h-6 w-6"></span>
+					<span>>></span>
 					<span class="font-medium">{title}</span>
 				</p>
 				<hr />
@@ -86,10 +80,9 @@
 			</article>
 
 			{#if direction === 'left'}
-				<svg
-					class="absolute right-4 top-1/2 z-0 h-6 w-6 -translate-y-1/2 text-white"
-					inline-src="phosphor/archive"
-				></svg>
+				<div
+					class="i i-[archive] absolute right-4 top-1/2 z-0 h-6 w-6 -translate-y-1/2 text-white"
+				></div>
 			{/if}
 		</li>
 	{/each}

@@ -12,7 +12,7 @@
 <li class="group flex items-baseline space-x-4 {cls}" {...rest}>
 	<div class="mt-0 flex flex-col items-center self-stretch">
 		<p
-			class="bg-primary-bg text-primary-fg grid h-7 w-7 place-items-center rounded-full text-xs font-bold"
+			class="connected-step bg-primary-bg text-primary-fg grid h-7 w-7 place-items-center rounded-full text-xs font-bold"
 		></p>
 		{#if line}
 			<div class="bg-primary-bg/75 min-h-[1rem] w-0.5 flex-1 group-last:hidden"></div>
@@ -25,8 +25,8 @@
 	</div>
 </li>
 
-<style>
-	p::after {
+<style lang="postcss">
+	.connected-step {
 		content: counter(connected-list);
 		counter-increment: connected-list;
 	}

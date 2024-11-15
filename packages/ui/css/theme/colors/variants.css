@@ -16,11 +16,3 @@
 		@slot;
 	}
 }
-
-@variant high-contrast {
-	@import '../../mixins/high-contrast.css';
-
-	@mixin high-contrast {
-		@slot;
-	}
-}

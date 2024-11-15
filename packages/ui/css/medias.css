@@ -7,3 +7,5 @@
 
 @custom-media --upto-widescreen (width < 80rem); /* 1280px */
 @custom-media --widescreen (width >= 80rem); /* 1280px */
+
+@custom-media --high-contrast (prefers-contrast: more);

@@ -1,9 +1,15 @@
 /* stylelint-disable import-notation */
 @import 'tailwindcss';
-@import '@svelte-put/ui/base';
-@import '@svelte-put/ui/typography';
+@import '@svelte-put/ui/css/base';
+@import '@svelte-put/ui/css/typography';
 
 @plugin '@tailwindcss/typography';
+
+@plugin 'phosphor-icons-tailwindcss' {
+	prefix: i;
+	/* stylelint-disable-next-line property-no-unknown, order/properties-order  */
+	customproperty: --icon-url;
+}
 
 @layer components {
 	.c-num {

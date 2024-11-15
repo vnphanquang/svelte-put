@@ -4,7 +4,7 @@
 	}
 
 	@media (prefers-color-scheme: dark) and (not (prefers-contrast: more)) {
-		html:not([data-color-scheme='light'], [data-color-scheme='high-contrast']) {
+		html:not([data-color-scheme='light']) {
 			@mixin-content;
 		}
 	}

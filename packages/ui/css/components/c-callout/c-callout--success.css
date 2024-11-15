@@ -1,10 +1,11 @@
 @utility c-callout--success {
 	@layer components.mod1 {
+		@apply i-[check-circle];
+
 		--callout-color-text: var(--color-success-fg);
 		--callout-color-icon: var(--color-success-fg);
 		--callout-color-bg: var(--color-success-bg);
 		--callout-color-border: var(--color-success-bg-200);
-		--callout-icon-url: url('@svelte-put/ui/icons/check-circle');
 		--callout-clip-path: path('M 0,26 A 26 26 0 0 0 26,0 H 2000 V 2000 H 0 Z');
 	}
 }

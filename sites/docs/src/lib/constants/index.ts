@@ -5,7 +5,7 @@ export const SOCIAL_LINKS = {
 } as const;
 
 export const STATUSES = ['info', 'success', 'warning', 'error'] as const;
-export const COLOR_SCHEMES = ['light', 'dark', 'high-contrast', 'system'] as const;
+export const COLOR_SCHEMES = ['light', 'dark', 'system'] as const;
 export const PACKAGE_MANAGER = ['npm', 'pnpm', 'yarn'] as const;
 
 export const COMMON_COOKIE_CONFIG = {

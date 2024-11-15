@@ -70,7 +70,7 @@
 			</a>
 			{#if hydrated}
 				<a class="c-btn c-btn--outlined gap-2 py-1.5 pl-3 pr-4" href="/search">
-					<svg class="h-5 w-5" inline-src="phosphor/magnifying-glass" width="20" height="20"></svg>
+					<span class="i i-[magnifying-glass] h-5 w-5"></span>
 					<span class="text-sm">Search...</span>
 				</a>
 			{/if}
@@ -93,7 +93,7 @@
 		<!-- left sidebar -->
 		<nav class="sidebar sidebar-left" aria-label="pages">
 			<input id="pages-toggler" type="checkbox" hidden bind:checked={isleftSidebarOpen} />
-			<ul class="sidebar-content space-y-4">
+			<ul class="sidebar-content space-y-4 text-sm">
 				<li>
 					<p class="font-bold uppercase">Overview</p>
 					<ul class="border-outline mt-3 space-y-1 border-l">
@@ -157,7 +157,7 @@
 
 		<!-- main content -->
 		{#key data.pathname}
-			<main class="prose dark:prose-invert high-contrast:prose-invert" use:toc.actions.root>
+			<main class="prose dark:prose-invert" use:toc.actions.root>
 				{@render children()}
 			</main>
 		{/key}
@@ -208,7 +208,7 @@
 <NotificationPortal />
 
 <style lang="postcss">
-	@import '@svelte-put/ui/medias'; /* stylelint-disable-line import-notation */
+	@import '@svelte-put/ui/css/medias'; /* stylelint-disable-line import-notation */
 
 	#docs {
 		--color-bg-aside: color-mix(in oklch, var(--color-bg), var(--color-fg) 4%);

@@ -28,7 +28,7 @@
 					</th>
 					<td>
 						<button class={css}>
-							<svg class="h-6 w-6" width="24" height="24" inline-src="phosphor/status/info"></svg>
+							<span class="i i-[info] h-6 w-6"></span>
 							<span class:sr-only={variant === 'icon'}>Click me</span>
 						</button>
 					</td>
@@ -41,19 +41,19 @@
 					</td>
 					<td>
 						<button class={css} data-delayed>
-							<svg class="h-6 w-6" width="24" height="24" inline-src="phosphor/status/info"></svg>
+							<span class="i i-[info] h-6 w-6"></span>
 							<span class:sr-only={variant === 'icon'}>Click me</span>
 						</button>
 					</td>
 					<td>
 						<button class={css} data-timeout>
-							<svg class="h-6 w-6" width="24" height="24" inline-src="phosphor/status/info"></svg>
+							<span class="i i-[info] h-6 w-6"></span>
 							<span class:sr-only={variant === 'icon'}>Click me</span>
 						</button>
 					</td>
 					<td>
 						<button class={css} disabled>
-							<svg class="h-6 w-6" width="24" height="24" inline-src="phosphor/status/info"></svg>
+							<span class="i i-[info] h-6 w-6"></span>
 							<span class:sr-only={variant === 'icon'}>Click me</span>
 						</button>
 					</td>

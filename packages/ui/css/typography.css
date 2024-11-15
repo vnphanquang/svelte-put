@@ -2,17 +2,11 @@
 @import './mixins/light.css';
 @import './mixins/dark.css';
 @import './mixins/dark-global.css';
-@import './mixins/high-contrast-global.css';
 
 @custom-selector :--is-prose :not(:where([class~='not-prose'], [class~='not-prose'] *));
 
 @layer typography {
 	@mixin dark-global {
-		--color-pre-fg: hsl(0deg 0% 83%);
-		--color-pre-bg: hsl(0deg 0% 12%);
-	}
-
-	@mixin high-contrast-global {
 		--color-pre-fg: hsl(0deg 0% 83%);
 		--color-pre-bg: hsl(0deg 0% 12%);
 	}
@@ -35,17 +29,6 @@
 	:where(.shiki),
 	:where(.shiki) :where(span) {
 		@mixin dark {
-			font-weight: var(--shiki-dark-font-weight) !important;
-
-			/* Optional, if you also want font styles */
-			font-style: var(--shiki-dark-font-style) !important;
-			color: var(--shiki-dark) !important;
-			text-decoration: var(--shiki-dark-text-decoration) !important;
-
-			background-color: var(--shiki-dark-bg) !important;
-		}
-
-		@mixin high-contrast {
 			font-weight: var(--shiki-dark-font-weight) !important;
 
 			/* Optional, if you also want font styles */
@@ -157,13 +140,6 @@
 				--color-bg-error: hsl(5.5deg 100% 95.7%);
 
 				@mixin dark {
-					--color-bg-info: hsl(215deg 39% 18%);
-					--color-bg-warning: hsl(43deg 100% 50% / 15%);
-					--color-bg-success: hsl(123.04deg 36.07% 42.94% / 15%);
-					--color-bg-error: hsl(3.12deg 74.76% 59.61% / 10%);
-				}
-
-				@mixin high-contrast {
 					--color-bg-info: hsl(215deg 39% 18%);
 					--color-bg-warning: hsl(43deg 100% 50% / 15%);
 					--color-bg-success: hsl(123.04deg 36.07% 42.94% / 15%);

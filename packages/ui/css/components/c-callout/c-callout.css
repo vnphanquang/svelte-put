@@ -1,5 +1,7 @@
 @utility c-callout {
 	@layer components.base {
+		@apply i-[info];
+
 		--callout-padding-x: calc(var(--spacing) * 6);
 		--callout-padding-y: calc(var(--spacing) * 5);
 		--callout-icon-size: calc(var(--spacing) * 8);
@@ -8,7 +10,7 @@
 		--callout-color-bg: var(--color-bg-100);
 		--callout-color-border: var(--color-fg);
 		--callout-border-l-width: var(--spacing);
-		--callout-icon-url: url('@svelte-put/ui/icons/info');
+		--callout-icon-url: var(--icon-url);
 		--callout-clip-path: path('M 0,26 A 26 26 0 0 0 26,0 H 2000 V 2000 H 0 Z');
 
 		position: relative;

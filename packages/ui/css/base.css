@@ -5,10 +5,10 @@
 @import './medias.css';
 @import './selectors.css';
 @import './mixins/dark.css';
-@import './mixins/high-contrast.css';
 
 /* tailwind customization */
 @import './theme/index.css';
+@import './icons/index.css';
 @import './utilities/index.css';
 @import './components/index.css';
 
@@ -57,10 +57,6 @@
 	mark {
 		@mixin dark {
 			background-color: var(--color-yellow.900);
-		}
-
-		@mixin high-contrast {
-			background-color: var(--color-yellow.950);
 		}
 
 		color: inherit;

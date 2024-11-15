@@ -34,7 +34,7 @@
 	<section>
 		<p>Input with icon .c-text-input:</p>
 		<div class="c-text-input">
-			<svg class="h-6 w-6" width="24" height="24" inline-src="phosphor/magnifying-glass"></svg>
+			<div class="i i-[magnifying-glass] h-6 w-6"></div>
 			<input type="email" placeholder="user@example.com" />
 		</div>
 	</section>
@@ -42,7 +42,7 @@
 	<section>
 		<p>Input with icon .c-text-input but disabled:</p>
 		<div class="c-text-input">
-			<svg class="h-6 w-6" width="24" height="24" inline-src="phosphor/magnifying-glass"></svg>
+			<div class="i i-[magnifying-glass] h-6 w-6"></div>
 			<input type="email" placeholder="user@example.com" required disabled />
 		</div>
 	</section>

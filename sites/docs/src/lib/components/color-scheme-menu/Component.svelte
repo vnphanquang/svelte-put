@@ -17,20 +17,17 @@
 		light: 'Light',
 		dark: 'Dark',
 		system: 'System',
-		'high-contrast': 'High Contrast',
+	} satisfies Record<App.ColorScheme, string>;
+
+	const iconClassMap = {
+		light: 'i-[sun]',
+		dark: 'i-[moon-stars]',
+		system: 'i-[desktop]',
 	} satisfies Record<App.ColorScheme, string>;
 </script>
 
 {#snippet icon(scheme: App.ColorScheme)}
-	{#if scheme === 'light'}
-		<svg class="h-6 w-6" inline-src="phosphor/sun" width="24" height="24"></svg>
-	{:else if scheme === 'dark'}
-		<svg class="h-6 w-6" inline-src="phosphor/moon-stars" width="24" height="24"></svg>
-	{:else if scheme === 'high-contrast'}
-		<svg class="h-6 w-6" inline-src="phosphor/drop-half" height="24"></svg>
-	{:else}
-		<svg class="h-6 w-6" inline-src="phosphor/desktop" width="24" height="24"></svg>
-	{/if}
+	<span class="i {iconClassMap[scheme]} h-6 w-6 shrink-0"></span>
 {/snippet}
 
 <div class="color-scheme-menu csm relative {cls}" {...rest}>
@@ -44,7 +41,7 @@
 		<span class="sr-only">{settings.colorScheme}</span>
 		{@render icon(settings.colorScheme)}
 		<input type="checkbox" bind:checked={open} class="sr-only" />
-		<svg class="csm-caret h-5 w-5" inline-src="phosphor/caret-down" width="20" height="20"></svg>
+		<span class="i i-[caret-down] h-5 w-5 transition-transform" class:rotate-180={open}></span>
 	</label>
 	<div
 		class="csm-dropdown"

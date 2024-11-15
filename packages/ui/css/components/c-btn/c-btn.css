@@ -1,5 +1,6 @@
 /* stylelint-disable import-notation */
 @import '../../selectors.css';
+@import '../../icons/index.css';
 
 /*
 	Default button component
@@ -73,7 +74,7 @@
 
 				background-color: currentcolor;
 
-				mask-image: var(--mask-image);
+				mask-image: var(--icon-url);
 				mask-position: center;
 				mask-repeat: no-repeat;
 				mask-size: 100%;
@@ -85,22 +86,22 @@
 		}
 
 		&:--delayed {
-			--mask-image: url('@svelte-put/ui/icons/animated-spinner');
+			@apply ia-spinner;
 		}
 
 		&:--timeout {
-			--mask-image: url('@svelte-put/ui/icons/animated-three-dots');
+			@apply ia-3dots;
 		}
 
 		/*
 		```html
 		<button class="c-btn">
-			<svg class="w-6 h-6" inline-src="phosphor/info" width="24" height="24"></svg>
+			<span class="i i-[info] h-6 w-6"></span>
 			<span>Click me</span>
 		</button>
 		```
 	*/
-		&:not(.c-btn--icon):has(:is(img, svg)) {
+		&:not(.c-btn--icon):has(:is(img, svg, .i)) {
 			grid-template-columns: auto auto;
 			padding-inline: calc(var(--spacing) * 2.5) calc(var(--spacing) * 3);
 		}

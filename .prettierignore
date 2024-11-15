@@ -1,11 +1,6 @@
+node_modules/
 CHANGELOG.md
 *.md.svelte
 *.svg
-
-node_modules/
-
-# Package Managers
-package-lock.json
 pnpm-lock.yaml
-yarn.lock
 

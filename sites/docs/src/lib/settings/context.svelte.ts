@@ -17,7 +17,6 @@ export const DEFAULT_SETTINGS = {
  */
 function getPreferredColorScheme(): App.ColorScheme {
 	if (!browser) return 'light';
-	if (window.matchMedia?.('(prefers-contrast: more)').matches) return 'high-contrast';
 	if (window.matchMedia?.('(prefers-color-scheme: dark)').matches) return 'dark';
 	return 'light';
 }

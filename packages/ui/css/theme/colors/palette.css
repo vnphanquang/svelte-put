@@ -19,13 +19,13 @@
 	--palette-placeholder: var(--color-stone-400);
 	--palette-link: var(--color-svelte);
 
-	/* 1st, i.e primary */
+	/* primary */
 	--palette-primary: var(--color-orange-500);
 	--palette-primary-fg: var(--color-orange-800);
 	--palette-primary-bg: var(--color-orange-200);
 	--palette-primary-shadow: var(--color-orange-900);
 
-	/* secondary, i.e secondary */
+	/* secondary */
 	--palette-secondary: var(--color-sky-500);
 	--palette-secondary-fg: var(--color-sky-800);
 
@@ -70,13 +70,13 @@
 	--palette-placeholder: var(--color-stone-500);
 	--palette-link: var(--color-svelte);
 
-	/* 1st, i.e primary */
+	/* primary */
 	--palette-primary: var(--color-orange-500);
 	--palette-primary-fg: var(--color-orange-200);
 	--palette-primary-bg: var(--color-orange-800);
 	--palette-primary-shadow: var(--color-orange-700);
 
-	/* secondary, i.e secondary */
+	/* secondary */
 	--palette-secondary: var(--color-sky-500);
 	--palette-secondary-fg: var(--color-sky-400);
 
@@ -105,55 +105,4 @@
 	--palette-error-bg: var(--color-red-900);
 	--palette-error-bg-100: var(--color-red-800);
 	--palette-error-bg-200: var(--color-red-700);
-}
-
-@utility palette-high-contrast {
-	/* default foreground */
-	--palette-fg: var(--color-white);
-	--palette-fg-100: var(--color-stone-300);
-
-	/* default background */
-	--palette-bg: var(--color-black);
-	--palette-bg-100: var(--color-stone-900);
-	--palette-bg-200: var(--color-stone-800);
-
-	/* elements */
-	--palette-placeholder: var(--color-stone-400);
-	--palette-link: var(--color-svelte);
-
-	/* primary */
-	--palette-primary: var(--color-orange-500);
-	--palette-primary-fg: var(--color-orange-100);
-	--palette-primary-bg: var(--color-orange-950);
-	--palette-primary-shadow: var(--color-orange-800);
-
-	/* secondary */
-	--palette-secondary: var(--color-sky-500);
-	--palette-secondary-fg: var(--color-sky-300);
-
-	/* outline */
-	--palette-outline: var(--color-stone-500);
-	--palette-outline-100: var(--color-stone-700);
-	--palette-outline-focus: var(--color-blue-500);
-
-	/* status */
-	--palette-info-fg: var(--color-sky-100);
-	--palette-info-bg: var(--color-sky-950);
-	--palette-info-bg-100: var(--color-sky-900);
-	--palette-info-bg-200: var(--color-sky-800);
-
-	--palette-success-fg: var(--color-emerald-100);
-	--palette-success-bg: var(--color-emerald-950);
-	--palette-success-bg-100: var(--color-emerald-900);
-	--palette-success-bg-200: var(--color-emerald-800);
-
-	--palette-warning-fg: var(--color-yellow-100);
-	--palette-warning-bg: var(--color-yellow-950);
-	--palette-warning-bg-100: var(--color-yellow-900);
-	--palette-warning-bg-200: var(--color-yellow-800);
-
-	--palette-error-fg: var(--color-red-100);
-	--palette-error-bg: var(--color-red-950);
-	--palette-error-bg-100: var(--color-red-900);
-	--palette-error-bg-200: var(--color-red-800);
 }

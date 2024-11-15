@@ -8,7 +8,7 @@
 	```html
 	<button class="c-btn c-btn--pop">
 		<!-- optionally with an icon on either side -->
-		<svg class="w-6 h-6" inline-src="phosphor/info" width="24" height="24"></svg>
+		<span class="i i-[info] h-6 w-6"></span>
 		<span>Click me</span>
 	</button>
 	``

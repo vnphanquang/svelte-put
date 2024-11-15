@@ -2,7 +2,7 @@ import { stack } from '@svelte-put/async-stack';
 
 import Toast from './Toast.svelte';
 
-export const toastStack = stack({ timeout: 3_000 }).addVariant('toast', Toast).build();
+export const toastStack = stack({ timeout: 0 }).addVariant('toast', Toast).build();
 
 // create push proxies
 const STATUSES = ['info', 'success', 'warning', 'error'] as const;

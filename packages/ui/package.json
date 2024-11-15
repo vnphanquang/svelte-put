@@ -5,20 +5,9 @@
 	"private": true,
 	"type": "module",
 	"exports": {
-		"./base": "./css/base.css",
-		"./typography": "./css/typography.css",
-		"./medias": "./css/medias.css",
-		"./icons/animated-spinner": "./icons/animated-spinner.svg",
-		"./icons/animated-three-dots": "./icons/animated-three-dots.svg",
-		"./icons/check-circle": "./icons/check-circle.svg",
-		"./icons/confetti": "./icons/confetti.svg",
-		"./icons/info": "./icons/info.svg",
-		"./icons/lightbulb": "./icons/lightbulb.svg",
-		"./icons/megaphone": "./icons/megaphone.svg",
-		"./icons/question": "./icons/question.svg",
-		"./icons/trophy": "./icons/trophy.svg",
-		"./icons/warning-circle": "./icons/warning-circle.svg",
-		"./icons/warning-octagon": "./icons/warning-octagon.svg"
+		"./css/base": "./css/base.css",
+		"./css/typography": "./css/typography.css",
+		"./css/medias": "./css/medias.css"
 	},
 	"publishConfig": {
 		"access": "public",

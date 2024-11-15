@@ -32,7 +32,7 @@
 >
 	<p>Notification (variant: {item.config.variant}): {content} (id = {item.config.id})</p>
 	<button onclick={dismiss} class="md-max:mt-0.5">
-		<svg inline-src="phosphor/x" width="24" height="24" />
+		<span class="i i-[x] h-6 w-6"></span>
 		<span class="sr-only">Dismiss</span>
 	</button>
 	<div
