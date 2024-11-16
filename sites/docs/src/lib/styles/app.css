@@ -8,7 +8,7 @@
 @plugin 'phosphor-icons-tailwindcss' {
 	prefix: i;
 	/* stylelint-disable-next-line property-no-unknown, order/properties-order  */
-	customproperty: --icon-url;
+	custom-property: --icon-url;
 }
 
 @layer components {
