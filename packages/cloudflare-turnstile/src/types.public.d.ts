@@ -19,7 +19,7 @@ declare global {
 export type TurnstileConfig = TurnstileDataConfig & TurnstileEventConfig;
 
 /**
- * @package
+ * @see {@link https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/#configurations | Cloudflare Turnstile Docs}
  */
 export type TurnstileDataConfig = {
 	sitekey: string;
@@ -34,12 +34,14 @@ export type TurnstileDataConfig = {
 	size?: 'normal' | 'compact';
 	retry?: 'auto' | 'never';
 	'retry-interval'?: number;
-	'refresh-expired'?: 'auto' | 'manual' | 'never' | 'auto';
+	'refresh-expired'?: 'auto' | 'manual' | 'never';
+	'refresh-timeout'?: 'auto' | 'manual' | 'never';
 	appearance?: 'always' | 'execute' | 'interaction-only';
+	'feedback-enabled': boolean;
 };
 
 /**
- * @package
+ * @see {@link https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/#configurations | Cloudflare Turnstile Docs}
  */
 export type TurnstileEventConfig = {
 	callback?: (token: string) => void;
@@ -51,9 +53,6 @@ export type TurnstileEventConfig = {
 	'timeout-callback'?: () => void;
 };
 
-/**
- * @package
- */
 export type TurnstileDataAttributes = {
 	[K in keyof TurnstileDataConfig as K extends string
 		? `turnstile-${K}`
@@ -66,7 +65,7 @@ export type TurnstileEventDetail<T extends Record<string, any> = Record<string, 
 } & T;
 
 /**
- * @package
+ * @see {@link https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/#configurations}
  */
 export type TurnstileEventAttributes = {
 	onturnstile?: (event: CustomEvent<TurnstileEventDetail<{ token: string }>>) => void;

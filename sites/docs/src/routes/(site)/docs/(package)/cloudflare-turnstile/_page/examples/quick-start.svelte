@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { turnstile } from '@svelte-put/cloudflare-turnstile';
 
+	// assume using SvelteKit and the '$env/static/public' module is available
 	import { PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY } from '$env/static/public';
 
 	let token = $state('');
@@ -18,6 +19,6 @@
 	onturnstile={(e) => (token = e.detail.token)}
 ></div>
 <p>
-	Captured Token: <span class="bg-success-surface text-success-text px-2">{token ?? 'pending'}</span
+	Captured Token: <span class="bg-success-bg text-success-fg px-2">{token ?? 'pending'}</span
 	>
 </p>

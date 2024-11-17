@@ -53,7 +53,7 @@ PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY="1x00000000000000000000AA"
 
 ## Configuration Attributes
 
-As seen in [Quick Start], `@svelte-put/cloudflare-turnstile` can be customized by adding `turnstile-*` attributes, where `*` are properties as described in [Cloudflare Turnstile's client configuration][turnstile.client.configurations] documentation, except for `*-callback` properties, which can be specified via Svelte event handler syntax `onturnstile:*` (more in [Events]).
+As seen in [Quick Start], `@svelte-put/cloudflare-turnstile` can be customized by adding `turnstile-*` attributes, where `*` are properties as described in [Cloudflare Turnstile's client configuration][turnstile.client.configurations] documentation, except for `*-callback` properties, which can be specified via Svelte event handler syntax `onturnstile*` (more in [Events]).
 
 If you have Typescript language server set up correctly, you should get autocomplete / intellisense for these `turnstile*` attributes.
 
@@ -81,7 +81,9 @@ The `turnstile-sitekey` is the only mandatory property. In [Quick Start], it is 
   turnstile-retry="auto"
   turnstile-retry-interval="8000"
   turnstile-refresh-expired="auto"
+  turnstile-refresh-timeout="auto"
   turnstile-appearance="always"
+  turnstile-feedback-enabled
 ></div>
 ```
 

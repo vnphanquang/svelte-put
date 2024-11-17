@@ -75,10 +75,15 @@ export function turnstile(node) {
 				/** @type {import('./types.public').TurnstileConfig['refresh-expired']} */ (
 					node.getAttribute('turnstile-refresh-expired')
 				) ?? undefined,
+			'refresh-timeout':
+				/** @type {import('./types.public').TurnstileConfig['refresh-timeout']} */ (
+					node.getAttribute('turnstile-refresh-timeout')
+				) ?? undefined,
 			appearance:
 				/** @type {import('./types.public').TurnstileConfig['appearance']} */ (
 					node.getAttribute('turnstile-appearance')
 				) ?? undefined,
+			'feedback-enabled': node.hasAttribute('turnstile-feedback-enabled'),
 
 			// events
 			callback: (token) => {
