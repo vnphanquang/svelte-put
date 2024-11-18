@@ -82,9 +82,16 @@
 	@custom-selector :--fullscreen :has(.codeblock-fullscreen:checked);
 	@custom-selector :--g-fullscreen
 		:global(.codeblock-group:has(.codeblock-group-fullscreen:checked));
+	@custom-selector :--g-fullscreen-focus
+		:global(.codeblock-group:has(.codeblock-group-fullscreen:focus-visible));
 
 	.minimize {
 		display: none;
+	}
+
+	:--g-fullscreen-focus label {
+		outline: 2px solid var(--color-outline-focus);
+		outline-offset: -2px;
 	}
 
 	:--g-fullscreen,

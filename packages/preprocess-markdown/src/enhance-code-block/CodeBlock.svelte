@@ -244,6 +244,10 @@
 		border-top-width: 1px;
 		border-left-width: 1px;
 
+		&:has(:global(input:focus-visible)) {
+			outline-offset: -1px;
+		}
+
 		&:hover {
 			color: currentcolor;
 		}
@@ -331,10 +335,6 @@
 
 		&:hover {
 			color: currentcolor;
-		}
-
-		:--c-tabs-grouped & {
-			border-radius: 0.375rem;
 		}
 	}
 
