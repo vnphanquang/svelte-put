@@ -4,11 +4,11 @@
 
 @theme {
 	/** font family */
-	--font-family-fingerpaint: 'Finger Paint', 'serif';
-	--font-family-inter: 'Inter', 'sans-serif';
+	--font-fingerpaint: 'Finger Paint', 'serif';
+	--font-inter: 'Inter', 'sans-serif';
 
 	/** font size */
-	--font-size-xs: 0.75rem; /* 12px */
+	--text-xs: 0.75rem; /* 12px */
 
 	/* z-index */
 	--z-index-px: 1;
@@ -23,8 +23,7 @@
 	--radius-full: calc(infinity * 1px);
 
 	/* miscellaneous */
-	--width-sidebar: var(--sidebar-width);
-	--line-height-unset: unset;
+	--leading-unset: unset;
 
 	/* spacing */
 	--spacing: 0.25rem;

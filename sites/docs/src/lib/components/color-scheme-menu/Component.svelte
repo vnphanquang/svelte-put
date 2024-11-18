@@ -34,14 +34,14 @@
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
 	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 	<label
-		class="c-btn c-btn--icon grid-cols-[auto_auto] gap-2"
+		class="c-btn c-btn--icon grid grid-cols-[auto_auto] gap-2"
 		id="csm-toggler"
 		onclick={(e) => e.stopPropagation()}
 	>
 		<span class="sr-only">{settings.colorScheme}</span>
 		{@render icon(settings.colorScheme)}
 		<input type="checkbox" bind:checked={open} class="sr-only" />
-		<span class="i i-[caret-down] h-5 w-5 transition-transform" class:rotate-180={open}></span>
+		<i class="i i-[caret-down] h-5 w-5 transition-transform" class:rotate-180={open}></i>
 	</label>
 	<div
 		class="csm-dropdown"

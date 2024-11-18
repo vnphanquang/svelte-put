@@ -13,7 +13,7 @@
 @utility c-link-image {
 	@layer components {
 		--duration: 300ms;
-		--easing: var(--transition-timing-function-in);
+		--easing: var(--ease-in);
 		--active-color: var(--color-link);
 
 		position: relative;
@@ -36,7 +36,7 @@
 
 		&:hover img {
 			--duration: 400ms;
-			--easing: var(--transition-timing-function-out);
+			--easing: var(--ease-out);
 
 			transform: scale(1.05);
 		}

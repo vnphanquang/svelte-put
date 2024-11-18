@@ -39,7 +39,7 @@
 		class="absolute right-0 top-0 flex -translate-y-1/2 translate-x-1/2 cursor-pointer rounded-full
 		border border-current bg-inherit p-1.5"
 	>
-		<span class="i i-[x] h-3.5 w-3.5"></span>
+		<i class="i i-[x] h-3.5 w-3.5"></i>
 		<span class="sr-only">Dismiss</span>
 	</button>
 

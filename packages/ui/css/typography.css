@@ -3,6 +3,8 @@
 @import './mixins/dark.css';
 @import './mixins/dark-global.css';
 
+@plugin '@tailwindcss/typography';
+
 @custom-selector :--is-prose :not(:where([class~='not-prose'], [class~='not-prose'] *));
 
 @layer typography {

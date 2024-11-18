@@ -14,16 +14,11 @@
 @utility c-btn {
 	@layer components {
 		--duration: 200ms;
-		--easing: var(--transition-timing-function-in);
+		--easing: var(--ease-in);
 
 		cursor: pointer;
 
 		position: relative;
-
-		display: grid;
-		column-gap: calc(var(--spacing) * 3);
-		align-items: center;
-		justify-content: center;
 
 		padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
 
@@ -41,7 +36,7 @@
 
 		&:hover {
 			--duration: 120ms;
-			--easing: var(--transition-timing-function-out);
+			--easing: var(--ease-out);
 		}
 
 		&:active {
@@ -96,13 +91,18 @@
 		/*
 		```html
 		<button class="c-btn">
-			<span class="i i-[info] h-6 w-6"></span>
+			<i class="i i-[info] h-6 w-6"></i>
 			<span>Click me</span>
 		</button>
 		```
 	*/
 		&:not(.c-btn--icon):has(:is(img, svg, .i)) {
+			display: grid;
 			grid-template-columns: auto auto;
+			column-gap: calc(var(--spacing) * 3);
+			align-items: center;
+			justify-content: center;
+
 			padding-inline: calc(var(--spacing) * 2.5) calc(var(--spacing) * 3);
 		}
 

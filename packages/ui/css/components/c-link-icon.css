@@ -13,7 +13,7 @@
 @utility c-link-icon {
 	@layer components {
 		--duration: 300ms;
-		--easing: var(--transition-timing-function-in);
+		--easing: var(--ease-in);
 		--active-color: var(--color-link);
 
 		transition-timing-function: var(--easing);
@@ -23,7 +23,7 @@
 		&:hover,
 		&:--current {
 			--duration: 120ms;
-			--easing: var(--transition-timing-function-out);
+			--easing: var(--ease-out);
 
 			color: var(--active-color);
 		}

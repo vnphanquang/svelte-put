@@ -8,7 +8,7 @@
 	```html
 	<button class="c-btn c-btn--pop">
 		<!-- optionally with an icon on either side -->
-		<span class="i i-[info] h-6 w-6"></span>
+		<i class="i i-[info] h-6 w-6"></i>
 		<span>Click me</span>
 	</button>
 	``

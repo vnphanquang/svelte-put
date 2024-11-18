@@ -3,14 +3,6 @@
 @import '@svelte-put/ui/css/base';
 @import '@svelte-put/ui/css/typography';
 
-@plugin '@tailwindcss/typography';
-
-@plugin 'phosphor-icons-tailwindcss' {
-	prefix: i;
-	/* stylelint-disable-next-line property-no-unknown, order/properties-order  */
-	custom-property: --icon-url;
-}
-
 @layer components {
 	.c-num {
 		display: inline-flex;

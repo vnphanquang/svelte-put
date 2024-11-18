@@ -221,7 +221,7 @@
 		margin: 0;
 		padding: 0;
 
-		font-size: var(--font-size-xs);
+		font-size: var(--text-xs);
 		white-space: nowrap;
 	}
 
@@ -236,7 +236,7 @@
 
 		padding: 12px 16px;
 
-		font-size: var(--font-size-sm);
+		font-size: var(--text-sm);
 		line-height: normal;
 		color: var(--color-header-fg);
 

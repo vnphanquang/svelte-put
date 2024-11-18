@@ -12,7 +12,7 @@
 @utility c-link-preserved {
 	@layer components {
 		--duration: 400ms;
-		--easing: var(--transition-timing-function-in);
+		--easing: var(--ease-in);
 		--underline-color: currentcolor;
 		--active-color: var(--color-link);
 
@@ -32,7 +32,7 @@
 		&:--current,
 		&:hover {
 			--duration: 200ms;
-			--easing: var(--transition-timing-function-out);
+			--easing: var(--ease-out);
 
 			color: var(--active-color);
 			background-size: 100% var(--underline-height, 1px);

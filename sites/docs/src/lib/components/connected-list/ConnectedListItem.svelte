@@ -26,7 +26,7 @@
 </li>
 
 <style lang="postcss">
-	.connected-step {
+	.connected-step::after {
 		content: counter(connected-list);
 		counter-increment: connected-list;
 	}

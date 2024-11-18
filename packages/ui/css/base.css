@@ -12,6 +12,14 @@
 @import './utilities/index.css';
 @import './components/index.css';
 
+@plugin 'phosphor-icons-tailwindcss' {
+	prefix: i;
+	/* stylelint-disable-next-line property-no-unknown, order/properties-order  */
+	layer: icons;
+	/* stylelint-disable-next-line property-no-unknown, order/properties-order  */
+	custom-property: --icon-url;
+}
+
 @layer base {
 	:root {
 		--header-height: 90px;
@@ -33,7 +41,7 @@
 	}
 
 	html {
-		font-family: var(--font-family-inter);
+		font-family: var(--font-inter);
 		color: var(--color-fg);
 
 		background-color: var(--color-bg);
@@ -46,8 +54,8 @@
 	}
 
 	h1 {
-		font-family: var(--font-family-fingerpaint);
-		letter-spacing: var(--letter-spacing-wide);
+		font-family: var(--font-fingerpaint);
+		letter-spacing: var(--tracking-wide);
 	}
 
 	svg[inline-src^='simpleicon/'] {

@@ -16,6 +16,7 @@
 	<input class="codeblock-collapsed sr-only" type="checkbox" bind:checked={collapsed} {id} />
 	<span class="sr-only">Collapse</span>
 	<svg
+		class:animate-bounce={collapsed}
 		xmlns="http://www.w3.org/2000/svg"
 		width="20"
 		height="20"

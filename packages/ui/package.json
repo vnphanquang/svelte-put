@@ -35,5 +35,12 @@
 		"type": "git",
 		"url": "git+https://github.com/vnphanquang/svelte-put.git",
 		"directory": "packages/ui"
+	},
+	"peerDependencies": {
+		"tailwindcss": ">=3.4.14 || >=4.0.0-alpha.34"
+	},
+	"dependencies": {
+		"@tailwindcss/typography": "^0.5.15",
+		"phosphor-icons-tailwindcss": "^1.1.1"
 	}
 }

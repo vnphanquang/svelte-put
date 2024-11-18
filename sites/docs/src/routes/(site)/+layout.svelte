@@ -70,7 +70,7 @@
 			</a>
 			{#if hydrated}
 				<a class="c-btn c-btn--outlined gap-2 py-1.5 pl-3 pr-4" href="/search">
-					<span class="i i-[magnifying-glass] h-5 w-5"></span>
+					<i class="i i-[magnifying-glass] h-5 w-5"></i>
 					<span class="text-sm">Search...</span>
 				</a>
 			{/if}
@@ -175,7 +175,7 @@
 			<div class="sveltevietnam-banner upto-widescreen:hidden mt-5 space-y-2 rounded border p-4">
 				<p class="font-medium">Are you based in Vietnam?</p>
 				<div class="flex items-center gap-4">
-					<div class="c-logo c-logo--themed"></div>
+					<div class="i i-sveltename w-10 h-10 shrink-0"></div>
 					<p>
 						Join the <a class="c-link" href="https://www.sveltevietnam.dev">Svelte Vietnam</a> community.
 					</p>
@@ -223,7 +223,7 @@
 
 		width: var(--spacing-sidebar);
 
-		font-size: var(--font-size-sm);
+		font-size: var(--text-sm);
 
 		transition-timing-function: var(--default-transition-timing-function);
 		transition-duration: 200ms;
