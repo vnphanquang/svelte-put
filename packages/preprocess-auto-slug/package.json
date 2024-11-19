@@ -59,7 +59,7 @@
 	},
 	"dependencies": {
 		"github-slugger": "^2.0.0",
-		"magic-string": "^0.30.12",
+		"magic-string": "^0.30.13",
 		"svelte-parse-markup": "^0.1.5",
 		"zimmerframe": "^1.1.2"
 	}
