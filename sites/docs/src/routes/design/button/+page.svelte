@@ -28,7 +28,7 @@
 					</th>
 					<td>
 						<button class={css}>
-							<span class="i i-[info] h-6 w-6"></span>
+							<i class="i i-[info] h-6 w-6"></i>
 							<span class:sr-only={variant === 'icon'}>Click me</span>
 						</button>
 					</td>
@@ -41,19 +41,19 @@
 					</td>
 					<td>
 						<button class={css} data-delayed>
-							<span class="i i-[info] h-6 w-6"></span>
+							<i class="i i-[info] h-6 w-6"></i>
 							<span class:sr-only={variant === 'icon'}>Click me</span>
 						</button>
 					</td>
 					<td>
 						<button class={css} data-timeout>
-							<span class="i i-[info] h-6 w-6"></span>
+							<i class="i i-[info] h-6 w-6"></i>
 							<span class:sr-only={variant === 'icon'}>Click me</span>
 						</button>
 					</td>
 					<td>
 						<button class={css} disabled>
-							<span class="i i-[info] h-6 w-6"></span>
+							<i class="i i-[info] h-6 w-6"></i>
 							<span class:sr-only={variant === 'icon'}>Click me</span>
 						</button>
 					</td>

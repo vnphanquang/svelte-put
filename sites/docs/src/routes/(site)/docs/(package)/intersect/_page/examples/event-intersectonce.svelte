@@ -16,13 +16,13 @@
 </script>
 
 <ul
-	class="max-h-[400px] w-full space-y-40 overflow-hidden overflow-y-auto p-4"
+	class="max-h-[400px] w-full space-y-20 overflow-hidden overflow-y-auto p-4"
 	bind:this={ulElement}
 >
 	{#each Object.keys(intersectionMap) as key (key)}
 		{#key intersectionMap[key]}
 			<li
-				class="h-[300px] marker:content-none odd:bg-green-200 even:bg-blue-200"
+				class="odd:bg-success-fg even:bg-info-fg h-[300px] marker:content-none"
 				class:invisible={!intersectionMap[key]}
 				in:fly={{ y: 100, duration: 250 }}
 				use:intersect={{ threshold: 0.4, root: ulElement }}

@@ -2,26 +2,32 @@
 	import { clickoutside } from '@svelte-put/clickoutside';
 
 	let leftOpen = $state(true);
+	// :::highlight success
 	function toggleLeft(e: Event) {
 		e.stopPropagation();
 		leftOpen = !leftOpen;
 	}
+	// :::
 	let rightOpen = $state(false);
+	// :::highlight error
 	function toggleRight() {
 		rightOpen = !rightOpen;
 	}
+	// :::
 
 	let containerEl: HTMLDivElement | undefined = $state(undefined);
 </script>
 
 <div class="relative w-full overflow-hidden" bind:this={containerEl}>
+	<!-- :::highlight success -->
 	<div
-		class="bg-success-surface text-success-text absolute inset-y-0 left-0 grid w-1/3 origin-left place-items-center transition-[opacity,transform] {leftOpen
+		class="bg-success-bg text-success-fg absolute inset-y-0 left-0 grid w-1/3 origin-left place-items-center transition-[opacity,transform] {leftOpen
 			? 'scale-x-100 opacity-100'
 			: 'scale-x-50 opacity-50'}"
 		use:clickoutside={{ enabled: leftOpen, limit: { parent: containerEl } }}
 		onclickoutside={toggleLeft}
 	>
+		<!-- ::: -->
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			width="40"
@@ -38,24 +44,26 @@
 	<div class="mx-auto flex w-1/3">
 		<button
 			onclick={toggleLeft}
-			class="bg-success-surface-200 text-success-text inline flex-1 p-2 active:scale-95"
+			class="bg-success-bg-200 text-success-fg inline flex-1 cursor-pointer p-2 active:scale-95"
 		>
 			Toggle Left
 		</button>
 		<button
 			onclick={toggleRight}
-			class="bg-error-surface-200 text-error-text inline flex-1 p-2 active:scale-95"
+			class="bg-error-bg-200 text-error-fg inline flex-1 cursor-pointer p-2 active:scale-95"
 		>
 			Toggle Right
 		</button>
 	</div>
+	<!-- :::highlight error -->
 	<div
-		class="bg-error-surface text-error-text absolute inset-y-0 right-0 grid w-1/3 origin-right place-items-center {rightOpen
+		class="bg-error-bg text-error-fg absolute inset-y-0 right-0 grid w-1/3 origin-right place-items-center {rightOpen
 			? 'scale-x-100 opacity-100'
 			: 'scale-x-50 opacity-50'}"
 		use:clickoutside={{ enabled: rightOpen, limit: { parent: containerEl } }}
 		onclickoutside={toggleRight}
 	>
+		<!-- ::: -->
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			width="24"

@@ -8,11 +8,11 @@
 
 ## Introduction
 
-Existing solutions for inline SVGs in Svelte land often rely on component, which proves painful when it comes to styling and event handling. This package attempts to achieve a more minimal alternative using [Svelte action] (runtime) and [Svelte preprocessor] (compile time).
+Existing solutions for inline SVGs in Svelte land often rely on component, which proves painful when it comes to custom styling or event handling. This package attempts to achieve a more minimal alternative using [Svelte action] (runtime) and [Svelte preprocessor] (compile time).
 
 <div class="c-callout c-callout--success c-callout--megaphone">
 
-  `@svelte-put/preprocessor-inline-svg` has been merged into V4 of `@svelte-put/inline-svg` for a more coherent package. See [Migration Guides](#migration-guides) if you previously used Svelte preprocessor for compile time solution.
+  `@svelte-put/preprocessor-inline-svg` has been merged into version 4 of `@svelte-put/inline-svg` for a single coherent package. See [Migration Guides](#migration-guides) if you previously used Svelte preprocessor for compile time solution.
 
 </div>
 
@@ -39,7 +39,7 @@ yarn add -D @svelte-put/inline-svg
 This strategy is useful when:
 
 - you don't know in advance what SVGs to inline until runtime (after app/site is loaded or data is fetched in browser), or
-- if your SVG is huge but only conditionally rendered.
+- if your SVG is large in size and only conditionally rendered.
 
 For static icons and pictograms, consider the [compile-time strategy][compile-time] instead.
 
@@ -136,6 +136,13 @@ This strategy is useful for SVGs that live in your repo as static assets. It onl
 
 Alternatively, for dynamic SVGs that are fetched at runtime, consider using the [runtime strategy][runtime] instead.
 
+<p class="c-callout c-callout--info">
+  This library makes no implication that you should or should not use SVG to render icons. For some cases, it
+  is helpful to do so, especially in conjunction with customizable color scheme. For others, different
+  strategies such as icon font or CSS-only icons (see Icons in <a href="https://antfu.me/posts/icons-in-pure-css">Pure CSS by Anthony Fu</a>)
+  might have more benefits.
+</p>
+
 ### Setup
 
 Given the following `vite.config.js` and filesystem...
@@ -213,7 +220,7 @@ src/assets
 
 <h3 id="preprocessor-attributes-and-innerhtml">Attributes and Inner HTML</h3>
 
-Attributes provided to the `svg` element where inline src attribute (`inline-src` as default) is specified will replace existed ones from the original SVG. On the contrary, its inner HTML will be completely replaced.
+Attributes provided to the `svg` element where inline src attribute (`inline-src` by default) is specified will replace existed ones from the original SVG. On the contrary, its inner HTML will be completely replaced.
 
 Take the following SVG as an example:
 
@@ -381,7 +388,7 @@ As mentioned in [Preprocessor Options](#preprocessor-options), when `typedef` se
 
 <div class="c-callout c-callout--warning">
 
-Avoid setting `inlineSrcAttributeName` to `data-*` in this case since it would be "swallowed" by the [broader typedef from svelte/elements](https://github.com/sveltejs/svelte/blob/f1c9edcc63383a254b3708a614b74d524a9739b6/packages/svelte/elements.d.ts#L828).
+Avoid setting `inlineSrcAttributeName` to `data-*` in this case since it would be "swallowed" by the [broader typedef from svelte/elements](https://github.com/sveltejs/svelte/blob/396ea2ef370e7ea5b5d4571c4e5e14384bac3ca6/packages/svelte/elements.d.ts#L843).
 
 </div>
 
@@ -539,4 +546,4 @@ Happy inlining SVGs! 👨‍💻
 [svelte-inline-svg]: https://github.com/robinscholz/svelte-inline-svg
 [vite-plugin-svelte-svg]: https://github.com/metafy-gg/vite-plugin-svelte-svg
 [svg-to-svelte]: https://github.com/metonym/svg-to-svelte
-
+[svgo]: https://github.com/svg/svgo

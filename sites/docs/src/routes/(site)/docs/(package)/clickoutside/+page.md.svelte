@@ -44,7 +44,9 @@ yarn add -D @svelte-put/clickoutside
 
 <Demo />
 
-```svelte src=./_page/examples/demo.svelte title=feature-demo.svelte
+Expand the code block below to see how the demo is implemented.
+
+```svelte src=./_page/examples/demo.svelte title=feature-demo.svelte collapsed=true
 ```
 
 ### Limit the Clickoutside Zone

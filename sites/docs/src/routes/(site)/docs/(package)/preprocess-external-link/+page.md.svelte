@@ -41,11 +41,15 @@ yarn add -D @svelte-put/preprocess-external-link
 Given the following config...
 
 ```javascript title=svelte.config.js
+// :::highlight
 import externalLink from '@svelte-put/preprocess-external-link';
+// :::
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
+  // :::highlight
   preprocess: [externalLink(['your-domain.com', 'your-other-domain.com'])],
+  // :::
 };
 
 export default config;
@@ -53,7 +57,7 @@ export default config;
 
 ...and the following source code...
 
-```svelte title=source.svelte
+```svelte title=input.svelte
 <script>
   let href = 'https://developer.mozilla.org';
 </script>
@@ -63,21 +67,29 @@ export default config;
 <a href="https//your-domain.com/some-path">Internal Path</a>
 <a href="https//your-other-domain.com/some-path">Internal Path</a>
 
-<!-- links that are treated as external -->
+<!-- links that are treated as external, implicitly -->
 <a href="https://svelte.dev/">Svelte</a>
+
+<!-- links that are treated as external, explicitly by specifying data-external -->
 <a {href} data-external>Svelte</a>
 ```
 
-...`preprocess-external-link` will generate the following HTML:
+...`preprocess-external-link` will generate the following **Svelte output**:
 
-```html title=output.html
+```svelte title=output.svelte
+<script>
+  let href = 'https://developer.mozilla.org';
+</script>
+
 <!-- links that are treated as internal -->
 <a href="/internal-path">Internal Path</a>
 <a href="https//your-domain.com/some-path">Internal Path</a>
 <a href="https//your-other-domain.com/some-path">Internal Path</a>
 
-<!-- links that are treated as external -->
+<!-- links that are treated as external, implicitly -->
 <a href="https://svelte.dev/" target="_blank" rel="noreferrer noopener">Svelte</a>
+
+<!-- links that are treated as external, explicitly by specifying data-external -->
 <a {href} data-external target="_blank" rel="noreferrer noopener">Svelte</a>
 ```
 

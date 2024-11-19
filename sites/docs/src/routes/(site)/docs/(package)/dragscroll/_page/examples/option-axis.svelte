@@ -1,7 +1,14 @@
 <script lang="ts">
 	import { dragscroll, type DragScrollParameters } from '@svelte-put/dragscroll';
 
+	// :::focus
+	// :::highlight
 	let axis: DragScrollParameters['axis'] = 'both';
+	// :::
+	// :::
+
+	const classesForOddRows = 'odd:bg-white odd:text-black even:bg-black even:text-white';
+	const classesForEvenRows = 'odd:bg-black odd:text-white even:bg-white even:text-black';
 </script>
 
 <div class="not-prose mx-auto grid max-w-4xl place-items-center">
@@ -20,20 +27,21 @@
 			both
 		</label>
 	</div>
+	<!-- :::focus -->
+	<!-- :::highlight -->
 	<div
 		class="mt-4 max-h-[300px] max-w-[300px] overflow-x-auto border-2 border-violet-500 md:max-h-[400px] md:max-w-[400px]"
 		use:dragscroll={{ axis }}
 	>
+		<!-- ::: -->
+		<!-- ::: -->
 		{#each new Array(10) as _, row}
 			<div class="grid grid-cols-[repeat(10,1fr)]">
 				{#each new Array(10) as _, col}
 					<div
 						class="
-							grid
-              h-20 w-20 select-none place-items-center
-              {row % 2 === 0
-							? 'odd:bg-black odd:text-white even:bg-white even:text-black'
-							: 'odd:bg-white odd:text-black even:bg-black even:text-white'}
+							grid h-20 w-20 select-none place-items-center
+              {row % 2 === 0 ? classesForEvenRows : classesForOddRows}
             "
 					>
 						{row * 10 + col + 1}

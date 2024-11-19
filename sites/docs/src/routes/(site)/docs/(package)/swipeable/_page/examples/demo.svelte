@@ -71,7 +71,7 @@
 				<!-- ::: -->
 				<!-- ::: -->
 				<p class="flex items-center gap-2 leading-normal">
-					<span class="i i-[envelope-simple] h-6 w-6"></span>
+					<i class="i i-[envelope-simple] h-6 w-6"></i>
 					<span>>></span>
 					<span class="font-medium">{title}</span>
 				</p>

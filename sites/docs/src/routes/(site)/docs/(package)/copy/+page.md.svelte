@@ -60,7 +60,7 @@ Pass one or more event types to the `event` option.
 The `trigger` option, which typically takes an `HTMLElement`, specifies the node to which the event listener is attached.
 
 <p class="c-callout c-callout--info">
-The copy <span class="i i-[clipboard] text-lg align-text-bottom"></span> button seen in code blocks on this site is powered by this very action.
+The copy <i class="i i-[clipboard] text-lg align-text-bottom"></i> button seen in code blocks on this site is powered by this very action.
 </p>
 
 A typical use case is clicking on a node to copy text within some other node. In the demo below, try clicking on the <span class="bg-green-500 text-black px-2">green</span> button to copy text in the <span class="border-yellow-500 border px-2">yellow</span>-bordered box.
@@ -118,7 +118,7 @@ Note that since this synthetic `copy` event is not "real", operations on [clipbo
 
 ## The `copyToClipboard` Helper
 
-Behind the scene, `copy` uses a `copyToClipboard` helper (See [its source code here](https://github.com/vnphanquang/svelte-put/blob/08c868417e68b963e2b5a51f4664e0a3b0b6242e/packages/copy/src/copy.helpers.js)). You may skip the action and use this utility directly to build your own custom solution that fits your exact need.
+Behind the scene, `copy` uses a `copyToClipboard` helper (See [its source code here](https://github.com/vnphanquang/svelte-put/blob/08c868417e68b963e2b5a51f4664e0a3b0b6242e/packages/copy/src/copy.helpers.js)). You may use this utility directly to build your own custom solution that fits your exact need.
 
 ```typescript title=copy-helper.ts
 import { copyToClipboard } from '@svelte-put/copy';
@@ -149,6 +149,6 @@ Happy copying! 👨‍💻
 
 <figure>
   <img class="mx-auto" src={memeImage} alt="a meme showing an episode of Mr. Bean where he is copying another student's answers during an exam" width="300" height="217" loading="lazy" decoding="async" />
-  <figcaption>This package was made during <a class="c-link" href="https://en.wikipedia.org/wiki/COVID-19">Covid</a>. Or was it? How could I remember anything from those years...</figcaption>
+  <figcaption>This package was made during <a class="c-link" href="https://en.wikipedia.org/wiki/COVID-19">Covid</a>. Or was it? It's not like I remember anything from those years...</figcaption>
 </figure>
 

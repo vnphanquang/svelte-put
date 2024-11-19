@@ -65,13 +65,13 @@ Which is equivalent to:
 </script>
 
 <!-- :::highlight -->
-<button {...(control.attributes ?? {})} use:control.action={'my-popover'} class="c-btn">
+<button {...(control.attributes ?? {})} use:control.action={'my-popover'}>
 <!-- ::: -->
 	Open Popover
 </button>
 
 <!-- :::highlight -->
-<div {...(target.attributes ?? {})} use:target.action={'my-popover'} class="p-10">
+<div {...(target.attributes ?? {})} use:target.action={'my-popover'}>
 <!-- ::: -->
   My simple popover
 </div>
@@ -91,12 +91,16 @@ Attribute spread is added before any other `use` directives or attributes to avo
 Start by adding `preaction` to your Svelte config.
 
 ```js title="svelte.config.js"
+// :::highlight
 import { preaction } from '@svelte-put/preaction';
+// :::
 
 /** @type {import('@sveltejs/kit').Config} */
 export default {
 	preprocess: [
+    // :::highlight
 		preaction(),
+    // :::
     // other preprocessors
   ],
 

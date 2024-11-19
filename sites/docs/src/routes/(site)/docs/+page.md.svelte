@@ -13,7 +13,7 @@
 
 ## Packages
 
-@svelte-put includes several packages with self-manged release cycles, listed below. Check out their corresponding documentation for more details.
+`@svelte-put` includes several packages with self-manged release cycles, listed below. Check out their corresponding documentation for more details.
 
 <table class="not-prose border-collapse">
   <thead>

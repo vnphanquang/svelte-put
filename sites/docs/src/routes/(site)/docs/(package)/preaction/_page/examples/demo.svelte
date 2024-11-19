@@ -15,6 +15,7 @@
 				},
 				attributes: {
 					popovertarget: id,
+					class: 'c-btn',
 					popovertargetaction: 'show',
 				} as HTMLButtonAttributes,
 			};
@@ -30,6 +31,7 @@
 				},
 				attributes: {
 					id,
+					class: 'border-2 p-10 m-auto',
 					popover: 'auto',
 				} as HTMLAttributes<HTMLDivElement>,
 			};
@@ -38,13 +40,13 @@
 </script>
 
 <!-- :::highlight -->
-<button use:apply={popover.control('my-popover')} class="c-btn">
+<button use:apply={popover.control('my-popover')}>
 	<!-- ::: -->
 	Open Popover
 </button>
 
 <!-- :::highlight -->
-<div use:apply={popover.target('my-popover')} class="border-2 p-10">
+<div use:apply={popover.target('my-popover')}>
 	<!-- ::: -->
 	My simple popover
 </div>

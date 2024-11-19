@@ -11,5 +11,5 @@
 <p class="m-0">
 	<span>Hover on</span>
 	<HintedText {hint} class="c-link">this text ⓘ</HintedText>
-	<span>for some hinting action.</span>
+	<span>for some hinting action (or focus it using keyboard).</span>
 </p>

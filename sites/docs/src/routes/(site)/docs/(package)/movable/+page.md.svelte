@@ -38,7 +38,7 @@ yarn add -D @svelte-put/movable
 
 <h2 id="quick-start">Quick Start</h2>
 
-In the following minimal example, try dragging the <span class="bg-blue-200 text-black px-2">blue</span> box around.
+In the following minimal example, try dragging the <span class="bg-info-bg text-info-fg px-2">blue</span> box around.
 
 <fieldset class="not-prose grid place-items-center space-y-4 border-2 border-violet-500 p-4">
   <legend>Example</legend>
@@ -126,7 +126,7 @@ Set `limit.delta` to limit `movable` to a certain travel distance. It takes a `n
   <p class="text-center">
     Box below can be moved around, but only within a delta of <code>±100%</code> (of its own size).
   </p>
-  <div class="p-20 border border-dashed border-red-500">
+  <div class="p-20 border border-dashed border-error-bg">
     <DemoLimitDelta />
   </div>
 </fieldset>
@@ -150,7 +150,7 @@ Setting `limit.delta.x` or `limit.delta.y` to `0` effectively disables movement 
       >±100%</code
     > (of its width).
   </p>
-  <div class="px-20 my-20 border border-dashed border-red-500">
+  <div class="px-20 my-20 border border-dashed border-error-bg">
     <DemoLimitSingleAxis />
   </div>
 </fieldset>
@@ -174,7 +174,7 @@ By default, the target node itself is the handle. To use a custom handle, set `h
 
 <fieldset class="not-prose grid place-items-center space-y-4 border-2 border-violet-500 p-4">
   <legend>Example</legend>
-  <p class="text-center">Move <span class="bg-blue-200 text-black px-2">blue</span> box by dragging the <span class="bg-green-200 text-black px-2">blue</span> box</p>
+  <p class="text-center">Move <span class="bg-info-bg text-info-fg px-2">blue</span> box by dragging the <span class="bg-warning-bg text-warning-fg px-2">yellow</span> box</p>
   <DemoHandle />
 </fieldset>
 
@@ -193,7 +193,7 @@ The `ignore` option takes one or more CSS selector strings and will prevent matc
 
 <fieldset class="not-prose grid place-items-center space-y-4 border-2 border-violet-500 p-4">
   <legend>Example</legend>
-  <p class="text-center"><code>mousedown</code> on <span class="bg-red-200 text-black px-2">red</span> box will not trigger movable</p>
+  <p class="text-center"><code>mousedown</code> on <span class="bg-error-bg text-error-fg px-2">red</span> box will not trigger movable</p>
   <DemoIgnore />
 </fieldset>
 

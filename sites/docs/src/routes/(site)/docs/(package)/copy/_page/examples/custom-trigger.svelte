@@ -9,10 +9,10 @@
 	}
 </script>
 
-<div class="not-prose grid grid-cols-[0.5fr,auto,0.5fr,auto,1fr] items-center gap-4">
-	<button class="bg-green-500 p-2 text-black active:scale-95" type="button" bind:this={trigger}>
-		Click
-	</button>
+<div class="not-prose grid grid-cols-[0.5fr_auto_0.5fr_auto_1fr] items-center gap-4">
+	<!-- :::focus -->
+	<!-- :::highlight -->
+	<button class="c-btn" type="button" bind:this={trigger}>Click</button>
 	<div>to</div>
 	<div
 		class="grid place-items-center border border-yellow-500 p-2"
@@ -21,8 +21,10 @@
 	>
 		<p>copy this</p>
 	</div>
+	<!-- ::: -->
+	<!-- ::: -->
 	<div>-></div>
-	<div class="grid place-items-center self-stretch bg-blue-200 text-black">
+	<div class="bg-success-bg text-success-fg grid place-items-center self-stretch">
 		{#if copied}
 			<p in:fade={{ duration: 200 }}>
 				{copied}

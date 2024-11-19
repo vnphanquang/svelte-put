@@ -3,7 +3,7 @@
 </script>
 
 <div
-	class="grid h-20 w-20 place-items-center bg-blue-200 dark:text-black"
+	class="bg-info-bg text-info-fg grid h-20 w-20 place-items-center"
 	use:movable={{ limit: { delta: { x: '100%', y: 0 } } }}
 >
 	...

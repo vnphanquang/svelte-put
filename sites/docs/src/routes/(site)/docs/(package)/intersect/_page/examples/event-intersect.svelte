@@ -8,7 +8,7 @@
 </script>
 
 <div
-	class="mx-auto flex h-80 w-4/5 flex-col items-center justify-between bg-blue-200"
+	class="bg-info-bg text-info-fg mx-auto flex h-80 w-4/5 flex-col items-center justify-between"
 	use:intersect={{ threshold: 0.5, rootMargin: '-100px 0px 0px' }}
 	onintersect={onIntersect}
 >

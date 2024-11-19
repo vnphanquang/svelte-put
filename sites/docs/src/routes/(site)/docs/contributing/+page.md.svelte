@@ -14,7 +14,7 @@ It is strange asking for money; but here I am. To sponsor my work, please visit 
 
 <p>
   Why would you donate? I honestly don't know. I build this collection mainly for myself; it is open source and my code is largely inspired by other open source projects. And you too can use it however you wish. So if you find it useful, just reach out to say hello and let me know what amazing project you are building. That probably means more to me than a donation
-  <span class="text-2xs opacity-75">
+  <span class="text-xs opacity-75">
   (unless your donation can help me pay the rent, of course)
   </span>.
 </p>

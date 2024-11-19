@@ -37,7 +37,7 @@ yarn add -D @svelte-put/intersect
 
 ## Quick Start
 
-Below is a minimal example with default options. The event listener provided to the `intersect` [CustomEvent] will be triggered when the targeted `div` intersects viewport.
+Below is a minimal example with default options. An `intersect` [CustomEvent] is fired when the targeted `div` intersects viewport.
 
 ```svelte src=./_page/examples/quick-start.svelte title=quick-start.svelte
 ```
@@ -63,7 +63,10 @@ Listener for the `intersect` [CustomEvent] is essentially the same callback as o
 
 <fieldset class="block border-2 border-violet-500 p-4">
   <legend>Example</legend>
-  <p class="text-center">Scroll down / up so that this box goes in and out of the viewport. Observe the text indicator changes accordingly.</p>
+  <div class="text-center">
+    <p>Scroll down / up so that this box goes in and out of the viewport.</p>
+    <p>Observe the text indicator changes accordingly <strong>near the edge of screen</strong>.</p>
+  </div>
   <DemoEventIntersect />
 </fieldset>
 
@@ -74,7 +77,7 @@ Listener for the `intersect` [CustomEvent] is essentially the same callback as o
 
 Following the same interface as with `intersect`, `intersectonce` [CustomEvent] only fires once on the first intersection and never again. One possible use case is for fading-in animation on scroll, as seen in the below example.
 
-<fieldset class="block border-2 border-violet-500 p-4">
+<fieldset class="block border-2 border-violet-500 p-4 not-prose">
   <legend>Example</legend>
   <p class="text-center">Scroll down within this box and observe the fade-in intro effect!</p>
   <DemoEventIntersectOnce />

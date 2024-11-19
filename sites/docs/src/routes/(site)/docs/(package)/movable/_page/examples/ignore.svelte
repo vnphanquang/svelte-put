@@ -11,10 +11,10 @@
 </script>
 
 <div
-	class="grid h-40 w-40 place-items-center bg-blue-200 dark:text-black"
+	class="bg-info-bg text-info-fg z-overlay grid h-40 w-40 place-items-center"
 	use:movable={{ ignore: '.to-ignore' }}
 >
 	{#if mounted}
-		<p class="to-ignore cursor-auto bg-red-200 p-2 text-sm">To ignore</p>
+		<p class="to-ignore bg-error-bg text-error-fg cursor-auto p-2 text-sm">To ignore</p>
 	{/if}
 </div>
