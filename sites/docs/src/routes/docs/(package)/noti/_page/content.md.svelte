@@ -12,7 +12,7 @@
 
 ## Deprecation Notice
 
-This package will be deprecated when [Svelte 5](https://svelte-5-preview.vercel.app/status) lands, in favor for [@svelte-put/async-stack](https://svelte-put-next.vnphanquang.com/docs/async-stack) - a more generic and minimal package with very similar API. If you are using Svelte 5 today, head over to the [Migration Guides](https://svelte-put-next.vnphanquang.com/docs/noti#migration-to-async-stack) to learn more.
+This package will be deprecated when [Svelte 5](https://svelte-5-preview.vercel.app/status) lands, in favor for [@svelte-put/async-stack](https://svelte-put.vnphanquang.com/docs/async-stack) - a more generic and minimal package with very similar API. If you are using Svelte 5 today, head over to the [Migration Guides](https://svelte-put.vnphanquang.com/docs/noti#migration-to-async-stack) to learn more.
 
 ## Installation
 

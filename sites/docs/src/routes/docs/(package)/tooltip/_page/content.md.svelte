@@ -10,7 +10,7 @@
 
 ## Deprecation Notice
 
-This package will be deprecated when [Svelte 5](https://svelte-5-preview.vercel.app/status) lands, in favor for [@svelte-put/popover](https://svelte-put-next.vnphanquang.com/docs/popover) - a more generic package that builds upon the new [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API). If you are using Svelte 5 today, head over to [@svelte-put/popover](https://svelte-put-next.vnphanquang.com/docs/popover) for more information.
+This package will be deprecated when [Svelte 5](https://svelte-5-preview.vercel.app/status) lands, in favor for [@svelte-put/popover](https://svelte-put.vnphanquang.com/docs/popover) - a more generic package that builds upon the new [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API). If you are using Svelte 5 today, head over to [@svelte-put/popover](https://svelte-put.vnphanquang.com/docs/popover) for more information.
 
 ## Introduction
 

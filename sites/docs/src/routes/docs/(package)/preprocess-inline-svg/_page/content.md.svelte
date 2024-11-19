@@ -5,7 +5,7 @@
 
 ## Deprecation Notice
 
-In [Svelte 5](https://svelte-5-preview.vercel.app/status), this package is merged into [@svelte-put/inline-svg](https://svelte-put-next.vnphanquang.com/docs/inline-svg) for cohesiveness. If you are using Svelte 5 today, head over to [Migration Guides](https://svelte-put-next.vnphanquang.com/docs/preprocess-inline-svg) for more information.
+In [Svelte 5](https://svelte-5-preview.vercel.app/status), this package is merged into [@svelte-put/inline-svg](https://svelte-put.vnphanquang.com/docs/inline-svg) for cohesiveness. If you are using Svelte 5 today, head over to [Migration Guides](https://svelte-put.vnphanquang.com/docs/preprocess-inline-svg) for more information.
 
 ## Introduction
 
