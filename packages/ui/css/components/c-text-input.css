@@ -36,6 +36,7 @@
 			display: grid;
 			grid-template-columns: auto 1fr;
 			column-gap: calc(var(--spacing) * 3);
+			align-items: center;
 		}
 
 		&:focus-visible,

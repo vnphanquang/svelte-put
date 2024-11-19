@@ -63,12 +63,8 @@
 	}
 
 	mark {
-		@mixin dark {
-			background-color: var(--color-yellow.900);
-		}
-
-		color: inherit;
-		background-color: var(--color-yellow.100);
+		color: var(--color-info-fg);
+		background-color: var(--color-info-bg);
 	}
 
 	button:focus-visible:not(:--disabled),
