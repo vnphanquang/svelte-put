@@ -43,19 +43,19 @@ yarn add -D @svelte-put/qr
 
 ## Kudos
 
-This package is made possible by [qrcode-generator](https://www.npmjs.com/package/qrcode-generator) and heavily inspired by [bitjson/qr-code](https://github.com/bitjson/qr-code). Please check out their work for more information.
+This package is made possible by [headless-qr](https://github.com/Rich-Harris/headless-qr) and heavily inspired by [bitjson/qr-code](https://github.com/bitjson/qr-code). Please check out their work for more information.
 
 ## SVG
 
-<div class="grid gap-8 grid-cols-1 sm:grid-cols-[2fr,1fr]">
+<div class="grid gap-8 grid-cols-1 sm:grid-cols-[2fr_1fr]">
 
 <div class="flex-1">
 
 `@svelte-put/qr` allows rendering QR as `svg`. Depending on the scenario, you may find certain strategy more convenient than others.
 
-- **action**: quick and minimal, enough if you do not care about server side rendering (SSR) or prerendering, and is especially helpful if you need access to the `SVGElement` (for styling or event handling),
+- **action**: quick and minimal, enough if you do not care about server side rendering (SSR) or prerendering, and is especially helpful if you need access to the `SVGElement` (for styling or event handling, for example),
 - **component**: good if you prefer having component abstraction, also applicable to SSR and prerendering. However, you lose direct access to the `SVGElement`,
-- **component with custom default slot**: good if you want a component and also need access to the `SVGElement`.
+- **component with custom snippet**: good if you want a component and also need access to the `SVGElement`.
 
 </div>
 
@@ -81,20 +81,20 @@ This package is made possible by [qrcode-generator](https://www.npmjs.com/packag
 ```svelte src=./_page/examples/svg-component.svelte title=component
 ```
 
-```svelte src=./_page/examples/svg-component-with-snippet.svelte title="default slot"
+```svelte src=./_page/examples/svg-component-with-snippet.svelte title="snippet"
 ```
 
 </enhanced-code-block>
 
 <div class="c-callout c-callout--info">
 
-Note the imports from subpackage `@svelte-put/qr/svg` in the _page/examples above.
+Note the imports from subpackage `@svelte-put/qr/svg` in the examples above.
 
 </div>
 
 ### SVG Headless Helpers
 
-<div class="grid gap-8 grid-cols-1 sm:grid-cols-[1fr,auto]">
+<div class="grid gap-8 grid-cols-1 sm:grid-cols-[1fr_auto]">
 
 <div class="flex-1">
 
@@ -113,7 +113,7 @@ Note the imports from subpackage `@svelte-put/qr/svg` in the _page/examples abov
 
 ## Image
 
-<div class="grid gap-8 grid-cols-1 sm:grid-cols-[2fr,1fr]">
+<div class="grid gap-8 grid-cols-1 sm:grid-cols-[2fr_1fr]">
 
 <div class="flex-1">
 
@@ -121,7 +121,7 @@ Note the imports from subpackage `@svelte-put/qr/svg` in the _page/examples abov
 
 - **action**: quick and minimal, only rendered at **runtime** in browser,
 - **component**: useful for SSR and prerendering,
-- **component with custom default slot**: useful if you need to use component and have access to `HTMLImageElement`.
+- **component with custom custom snippet**: useful if you need to use component and have access to `HTMLImageElement`.
 
 </div>
 
@@ -151,20 +151,20 @@ The rendered PNG has the default size of 1000x1000, it is recommended that you s
 ```svelte src=./_page/examples/img-component.svelte title=component
 ```
 
-```svelte src=./_page/examples/img-component-with-snippet.svelte title="default slot"
+```svelte src=./_page/examples/img-component-with-snippet.svelte title="snippet"
 ```
 
 </enhanced-code-block>
 
 <div class="c-callout c-callout--info">
 
-Note the imports from subpackage `@svelte-put/qr/img` in the _page/examples above.
+Note the imports from subpackage `@svelte-put/qr/img` in the examples above.
 
 </div>
 
 ### Background Fill
 
-<div class="grid gap-8 grid-cols-1 sm:grid-cols-[1fr,auto]">
+<div class="grid gap-8 grid-cols-1 sm:grid-cols-[1fr_auto]">
 
 <div class="flex-1">
 
@@ -181,7 +181,7 @@ In addition to `moduleFill`, `anchorOuterFill`, and `anchorInnerFill`, listed in
 
 ### PNG Headless Helper
 
-<div class="grid gap-8 grid-cols-1 sm:grid-cols-[1fr,auto]">
+<div class="grid gap-8 grid-cols-1 sm:grid-cols-[1fr_auto]">
 
 <div class="flex-1">
 
@@ -242,16 +242,25 @@ export type QRConfig = {
 	anchorInnerFill?: string;
 	/**
 	 * Type number (1 ~ 40), or 0 for auto detection,
-	 * passed as parameter to {@link https://github.com/kazuhikoarase/qrcode-generator | qrcode-generator},
-   * default to 0,
+	 * passed as option to {@link https://github.com/Rich-Harris/headless-qr | headless-qr},
+	 * default to 0,
 	 */
-	typeNumber?: Parameters<typeof QR>[0];
+	version?: number;
 	/**
-	 * Error correction level ('L', 'M', 'Q', 'H'),
-	 * passed as parameter to {@link https://github.com/kazuhikoarase/qrcode-generator | qrcode-generator},
-   * default to H,
+	 * Error correction level, one of {'L', 'M', 'Q', 'H'},
+	 * passed as option to {@link https://github.com/Rich-Harris/headless-qr | headless-qr},
+	 * default to M,
 	 */
-	errorCorrectionLevel?: Parameters<typeof QR>[1];
+	correction?: 'L' | 'M' | 'Q' | 'H';
+
+	/**
+	 * @deprecated use `version` instead
+	 */
+	typeNumber?: QRCodeOptions['version'];
+	/**
+	 * @deprecated use `correction` instead
+	 */
+	errorCorrectionLevel?: QRCodeOptions['correction'];
 };
 ```
 
@@ -341,7 +350,7 @@ Default `slot` for svg and img components are deprecated in favor for the `svg` 
   <!-- :::diff + -->
   {#snippet svg({ attributes, html })}
   <!-- ::: -->
-    <svg {...attributes} color="gray">
+    <svg {...attributes}>
       <!-- eslint-disable-next-line svelte/no-at-html-tags -->
       {@html innerHTML}
     </svg>

@@ -1,5 +1,7 @@
 <script lang="ts">
+	// :::highlight
 	import { intersect, type IntersectDetail } from '@svelte-put/intersect';
+	// :::
 
 	function onIntersect(e: CustomEvent<IntersectDetail>) {
 		const { observer, entries, direction } = e.detail;
@@ -9,4 +11,6 @@
 	}
 </script>
 
+<!-- :::highlight -->
 <div use:intersect onintersect={onIntersect}>...</div>
+<!-- ::: -->

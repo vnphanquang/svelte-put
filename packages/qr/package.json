@@ -93,6 +93,6 @@
 		"extends": "../../package.json"
 	},
 	"dependencies": {
-		"qrcode-generator": "^1.4.4"
+		"headless-qr": "^1.0.3"
 	}
 }

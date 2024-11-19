@@ -1,8 +1,9 @@
-import QR from 'qrcode-generator';
+import type { qr } from 'headless-qr';
 
 import { SizeAttributes } from './types.private';
 
-export type QRCode = ReturnType<typeof import('qrcode-generator')>;
+export type QRCode = ReturnType<typeof qr>;
+export type QRCodeOptions = NonNullable<Parameters<typeof qr>[1]>;
 
 /**
  * instructions to render a QR
@@ -37,16 +38,25 @@ export type QRConfig = {
 	anchorInnerFill?: string;
 	/**
 	 * Type number (1 ~ 40), or 0 for auto detection,
-	 * passed as parameter to {@link https://github.com/kazuhikoarase/qrcode-generator | qrcode-generator},
+	 * passed as option to {@link https://github.com/Rich-Harris/headless-qr | headless-qr},
 	 * default to 0,
 	 */
-	typeNumber?: Parameters<typeof QR>[0];
+	version?: QRCodeOptions['version'];
 	/**
-	 * Error correction level ('L', 'M', 'Q', 'H'),
-	 * passed as parameter to {@link https://github.com/kazuhikoarase/qrcode-generator | qrcode-generator},
-	 * default to H,
+	 * Error correction level, one of {'L', 'M', 'Q', 'H'},
+	 * passed as option to {@link https://github.com/Rich-Harris/headless-qr | headless-qr},
+	 * default to M,
 	 */
-	errorCorrectionLevel?: Parameters<typeof QR>[1];
+	correction?: QRCodeOptions['correction'];
+
+	/**
+	 * @deprecated use `version` instead
+	 */
+	typeNumber?: QRCodeOptions['version'];
+	/**
+	 * @deprecated use `correction` instead
+	 */
+	errorCorrectionLevel?: QRCodeOptions['correction'];
 };
 
 export type QRSVGParts = {
@@ -64,4 +74,3 @@ export type CreateQrPngDataUrlConfig = QRConfig &
 	SizeAttributes & {
 		backgroundFill?: string;
 	};
-

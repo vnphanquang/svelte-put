@@ -1,4 +1,4 @@
-import QR from 'qrcode-generator';
+import { qr as createQr } from 'headless-qr';
 
 import {
 	isLogo,
@@ -16,13 +16,27 @@ import {
  * @returns {import('./types.public').QRSVGParts}
  */
 export function createQrSvgParts(config, qr) {
-	const { data, margin, shape, logo, logoRatio, anchorInnerFill, anchorOuterFill, moduleFill, typeNumber, errorCorrectionLevel } = resolveConfig(config);
+	const {
+		data,
+		margin,
+		shape,
+		logo,
+		logoRatio,
+		anchorInnerFill,
+		anchorOuterFill,
+		moduleFill,
+		version,
+		correction,
+		typeNumber,
+		errorCorrectionLevel,
+	} = resolveConfig(config);
 	if (!qr) {
-		qr = QR(typeNumber, errorCorrectionLevel);
-		qr.addData(data);
-		qr.make();
+		qr = createQr(data, {
+			version: version || typeNumber,
+			correction: correction || errorCorrectionLevel,
+		});
 	}
-	const count = qr.getModuleCount();
+	const count = qr.length;
 	const size = count + margin * 2;
 
 	/** ---- ANCHORS ---- */
@@ -55,8 +69,7 @@ export function createQrSvgParts(config, qr) {
 	let modulesSvg = '';
 	for (let col = 0; col < count; col++) {
 		for (let row = 0; row < count; row++) {
-			if (!qr.isDark(col, row) || isAnchor(col, row, count) || (logo && isLogo(col, row, count)))
-				continue;
+			if (!qr[row][col] || isAnchor(col, row, count) || (logo && isLogo(col, row, count))) continue;
 			const x = col + margin;
 			const y = row + margin;
 			modulesSvg += `<rect class="module" fill="${moduleFill}" data-column="${col}" data-row="${row}" x="${x}" y="${y}" width="1" height="1" ${
@@ -171,4 +184,3 @@ export async function createQrPngDataUrl(config) {
 }
 
 export * from './types.public.js';
-

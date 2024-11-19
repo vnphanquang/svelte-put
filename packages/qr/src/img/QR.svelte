@@ -14,7 +14,9 @@
 		anchorInnerFill,
 		anchorOuterFill,
 		backgroundFill,
+		version,
 		typeNumber,
+		correction,
 		errorCorrectionLevel,
 		onqrinit,
 		onqrlogofetch,
@@ -30,6 +32,8 @@
 		margin,
 		moduleFill,
 		shape,
+		version,
+		correction,
 		typeNumber,
 		errorCorrectionLevel,
 	});

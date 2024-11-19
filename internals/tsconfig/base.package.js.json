@@ -8,7 +8,7 @@
 		"target": "es2020",
 		"module": "es2022",
 		"verbatimModuleSyntax": true,
-		"moduleResolution": "node",
+		"moduleResolution": "bundler",
 		"allowSyntheticDefaultImports": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true
