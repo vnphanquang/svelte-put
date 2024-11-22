@@ -46,8 +46,8 @@
 		"@sveltejs/enhanced-img": "^0.4.1",
 		"@sveltejs/kit": "^2.8.1",
 		"@sveltejs/vite-plugin-svelte": "4.0.1",
-		"@tailwindcss/postcss": "4.0.0-alpha.34",
-		"@tailwindcss/vite": "4.0.0-alpha.34",
+		"@tailwindcss/postcss": "4.0.0-beta.1",
+		"@tailwindcss/vite": "4.0.0-beta.1",
 		"@total-typescript/ts-reset": "^0.6.1",
 		"@types/mustache": "^4.2.5",
 		"@types/postcss-mixins": "^9.0.6",
@@ -56,7 +56,7 @@
 		"postcss-custom-media": "^11.0.5",
 		"postcss-custom-selectors": "^8.0.4",
 		"postcss-mixins": "^11.0.3",
-		"tailwindcss": "4.0.0-alpha.34",
+		"tailwindcss": "4.0.0-beta.1",
 		"vite": "^5.4.11"
 	},
 	"volta": {
