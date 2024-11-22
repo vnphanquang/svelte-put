@@ -27,7 +27,7 @@
 </script>
 
 <article
-	class="relative rounded shadow {cls}"
+	class="relative shadow {cls}"
 	role="status"
 	aria-live="polite"
 	aria-atomic="true"
@@ -42,7 +42,7 @@
 		<i class="i i-[x] h-3.5 w-3.5"></i>
 		<span class="sr-only">Dismiss</span>
 	</button>
-	<div class="rounded-inherit relative flex items-start gap-3 overflow-hidden p-3">
+	<div class="relative flex items-start gap-3 overflow-hidden p-3">
 		<div class="i {iconClass} h-6 w-6 shrink-0"></div>
 
 		<div class="leading-normal">

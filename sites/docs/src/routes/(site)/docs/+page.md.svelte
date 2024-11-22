@@ -15,7 +15,7 @@
 
 `@svelte-put` includes several packages with self-manged release cycles, listed below. Check out their corresponding documentation for more details.
 
-<table class="not-prose border-collapse">
+<table class="not-prose border-collapse w-full">
   <thead>
     <tr class="*:text-left *:p-4 *:border *:bg-bg-100">
       <th>ID</th>
@@ -33,7 +33,7 @@
         </a>
       </td>
       <td>{description}</td>
-      <td class="">
+      <td class="w-40">
         <a href={createNpmUrl(name)} target="_blank" class="block" data-external>
           <img
             class="block rounded"

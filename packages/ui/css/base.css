@@ -53,6 +53,18 @@
 		border-color: inherit;
 	}
 
+	button,
+	input {
+		padding-block: 0;
+		padding-inline: 0;
+
+		color: inherit;
+
+		background-color: transparent;
+		border-color: transparent;
+		border-radius: 0;
+	}
+
 	h1 {
 		font-family: var(--font-fingerpaint);
 		letter-spacing: var(--tracking-wide);
@@ -71,6 +83,10 @@
 	label:has(input:focus-visible) {
 		outline: 1.5px solid var(--color-outline-focus);
 		outline-offset: 1px;
+	}
+
+	*[id] {
+		scroll-margin: calc(1.5 * var(--spacing-header));
 	}
 }
 

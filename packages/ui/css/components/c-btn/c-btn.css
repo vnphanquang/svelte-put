@@ -20,6 +20,8 @@
 
 		position: relative;
 
+		display: flex;
+
 		padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
 
 		border: 1px solid currentcolor;

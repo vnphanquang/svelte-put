@@ -30,7 +30,7 @@ yarn add -D @svelte-put/shortcut
 
 ## Quick Start
 
-The minimal example below shows how to register a global shortcut for `Ctrl + K` (`Cmd + K` on macOS) and log the attached node and the original trigger config.
+The minimal example below shows how to register a global shortcut for `Ctrl + K` (`Cmd + K` on macOS).
 
 ```svelte title=quick-start.svelte
 <script lang="ts">
@@ -97,7 +97,7 @@ Each `ShortcutTrigger` can specify either one or multiple modifiers (`ctrl`, `me
 
 ### Single Modifier
 
-Set `trigger.modifier` to one of the modifier strings (`ctrl`, `meta`, `alt`, `shift`) to listen for that modifier.
+Set `trigger.modifier` to one of the modifiers (`ctrl`, `meta`, `alt`, `shift`) to listen for that modifier.
 
 ```svelte title=modifier-single.svelte
 <svelte:window
@@ -105,7 +105,9 @@ Set `trigger.modifier` to one of the modifier strings (`ctrl`, `meta`, `alt`, `s
     // ctrl+k
     trigger: {
       key: 'k',
+      <!-- :::highlight -->
       modifier: 'ctrl',
+      <!-- ::: -->
     },
   }}
 />
@@ -113,7 +115,7 @@ Set `trigger.modifier` to one of the modifier strings (`ctrl`, `meta`, `alt`, `s
 
 ### One of Many Modifiers (OR)
 
-Use a flat array of modifier strings to trigger when one of them is pressed.
+Use a flat array of modifiers to trigger when **one of them** is pressed.
 
 ```svelte title=modifier-or.svelte
 <svelte:window
@@ -121,7 +123,9 @@ Use a flat array of modifier strings to trigger when one of them is pressed.
     // ctrl+k or meta+k
     trigger: {
       key: 'k',
+      <!-- :::highlight -->
       modifier: ['ctrl', 'meta'],
+      <!-- ::: -->
     },
   }}
 />
@@ -129,7 +133,7 @@ Use a flat array of modifier strings to trigger when one of them is pressed.
 
 ### All of Modifiers (AND)
 
-Wrap multiple modifier strings in a subarray to trigger only when all modifiers are pressed at the same time.
+Wrap multiple modifiers in a subarray to trigger only when **all modifiers** are pressed at the same time.
 
 ```svelte title=modifier-and.svelte
 <svelte:window
@@ -137,7 +141,9 @@ Wrap multiple modifier strings in a subarray to trigger only when all modifiers 
     // ctrl+shift+K
     trigger: {
       key: 'K',
+      <!-- :::highlight -->
       modifier: [['ctrl', 'shift']],
+      <!-- ::: -->
     },
   }}
 />
@@ -159,7 +165,9 @@ Use a combination of `OR` and `AND` to create complex modifier combinations.
     // ctrl+alt+Delete or meta+Delete
     trigger: {
       key: 'Delete',
+      <!-- :::highlight -->
       modifier: [['ctrl', 'alt'], 'meta'],
+      <!-- ::: -->
     },
   }}
 />
@@ -184,7 +192,9 @@ Handlers can be provided via either `trigger.callback`...
     trigger: {
       key: 'k',
       modifier: ['ctrl', 'meta'],
+      <!-- :::highlight -->
       callback: toggleCommandPalette,
+      <!-- ::: -->
     },
   }}
 />
@@ -211,7 +221,9 @@ Handlers can be provided via either `trigger.callback`...
       id: 'toggle-command-palette',
     },
   }}
+  <!-- :::highlight -->
   onshortcut={handleShortcuts}
+  <!-- ::: -->
 />
 ```
 
@@ -265,13 +277,13 @@ You can access the original `KeyboardEvent` via `detail.originalEvent`. This is 
 
 <div class="c-callout c-callout--warning">
 
-Be aware that the event listener is placed on the same node the `shortcut` action is attached to. For example, if you use the action on `svelte:window`, and trigger a matching shortcut from an `<input>` element, calling `stopPropagation` or `preventDefault` on `originalEvent` might not result in the behavior you would expected. By the time `trigger.callback` or `onshortcut` event handler runs, the event has already bubbled up to `window`.
+Be aware that the event listener is placed on the same node the `shortcut` action is attached to. For example, if you use the action on `svelte:window`, when a shortcut is triggered from an `<input>` element, calling `stopPropagation` or `preventDefault` on `originalEvent` might not result in the behavior you would expected. By the time `trigger.callback` or `onshortcut` event handler runs, the event has already bubbled up to `window`.
 
 </div>
 
 ## API References
 
-It is recommended to utilize your language server and intellisense for API exploration. In advanced use cases, however, you can refer to shortcut's [type definitions](https://github.com/vnphanquang/svelte-put/blob/c6982b2bfe4f5353498018a65bd1765f4469649a/packages/shortcut/src/public.d.ts).
+It is recommended to utilize your language server and intellisense for API exploration. In advanced use cases, however, you can refer to shortcut's [type definitions](https://github.com/vnphanquang/svelte-put/blob/890f2104be848148d7a3a0d3c6869a0f885eda9e/packages/shortcut/src/types.public.d.ts).
 
 ## Migration Guides
 

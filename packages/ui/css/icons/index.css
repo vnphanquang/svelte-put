@@ -3,3 +3,9 @@
 @import './animated/ia-spinner.css';
 @import './i-svelte.css';
 @import './i-sveltevietnam.css';
+
+@layer base {
+	.i {
+		vertical-align: text-bottom;
+	}
+}

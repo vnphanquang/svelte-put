@@ -59,9 +59,13 @@
 }
 
 :root {
+	color-scheme: light;
+
 	@apply palette-light;
 }
 
 @mixin dark-global {
+	color-scheme: dark;
+
 	@apply palette-dark;
 }

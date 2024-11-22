@@ -57,10 +57,9 @@ export type ResizeParameter = ResizeConfig | undefined;
 export interface ResizeDetail {
 	/** the ResizeObserver itself */
 	readonly observer: ResizeObserver;
-	/** list of ResizeObserverEntry passed from ResizeObserver callback */
+	/** ResizeObserverEntry passed from ResizeObserver callback */
 	readonly entry: ResizeObserverEntry;
 }
 
 export type ResizeAction = Action<Element, ResizeParameter, ResizeAttributes>;
 export type ResizeActionReturn = ActionReturn<ResizeParameter, ResizeAttributes>;
-

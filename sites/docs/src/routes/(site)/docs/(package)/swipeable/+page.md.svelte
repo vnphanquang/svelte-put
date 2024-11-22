@@ -104,7 +104,7 @@ interface SwipeableConfig {
 
 ### Direction
 
-`SwipeableConfig` accepts an optional `direction` property that takes one or an array of directions for `swipeable` to register at runtime. Allow values are:
+`SwipeableConfig` accepts an optional `direction` property that takes one or an array of directions for `swipeable` to register at runtime. Supported values are:
 
 ```typescript title="SwipeDirection.d.ts"
 type SwipeSingleDirection = 'up' | 'down' | 'left' | 'right';
@@ -144,15 +144,15 @@ The default is `--swipe`, i.e `--swipe-distance-x` for horizontal swipe, and `--
 
 ### Follow Through
 
-`SwipeableConfig` accepts an optional `followThrough` property that instructs `swipeable` how to behave when swipe reaches the threshold:
+`SwipeableConfig` accepts an optional `followThrough` property that instructs `swipeable` how to behave when swipe reaches the threshold, either:
 
-1. "Follow through" in the swipe direction, then fire `swipeend` event (as seen in [Demo]). That is, upon `pointerup`, the [CSS Custom Property] will be tweened to element's width / height.
-2. Stop swipe action immediately and fire `swipeend` event.
+- `true` (default): "follow through" in the swipe direction, then fire `swipeend` event (as seen in [Demo]). That is, upon `pointerup`, the [CSS Custom Property] will be tweened to element's width / height, or
+- `false`: stop swipe action immediately and fire `swipeend` event.
 
 `followThrough` takes either a boolean or a config object with the following interface.
 
 ```typescript title="SwipeFollowThrough.d.ts"
-type SwipeFollowThrough = {
+type SwipeFollowThrough = boolean | {
 	/** duration for the follow through animation */
 	duration?: number;
 	/** easing function for the follow through animation */
@@ -160,11 +160,9 @@ type SwipeFollowThrough = {
 }
 ```
 
-The default `true`, i.e (1). Set to `false` for (2).
-
 ### Flick
 
-It is typical to expect a quick swipe with high velocity ("flick") to bypass the threshold and be recognized as a complete swipe action (try this in [Demo]). This can be configured via the `SwipeableConfig.allowFlick`.
+It is typical to expect a quick swipe with high velocity — a so-called "flick" — to bypass the threshold and be recognized as a complete swipe action (try this in [Demo]). This can be configured via the `SwipeableConfig.allowFlick`.
 
 ```typescript title="SwipeableConfig.allowFlick"
 interface SwipeableConfig {

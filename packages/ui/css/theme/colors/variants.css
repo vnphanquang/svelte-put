@@ -1,18 +1,25 @@
-/* stylelint-disable import-notation */
-/* stylelint-disable no-invalid-position-at-import-rule */
+/** match the light & dark mixins at '../../mixins/*' */
 
 @variant light {
-	@import '../../mixins/light.css';
-
-	@mixin light {
+	html[data-color-scheme='light'] & {
 		@slot;
+	}
+
+	@media (prefers-color-scheme: light) and (not (prefers-contrast: more)) {
+		html:not([data-color-scheme='dark']) & {
+			@slot;
+		}
 	}
 }
 
 @variant dark {
-	@import '../../mixins/dark.css';
-
-	@mixin dark {
+	html[data-color-scheme='dark'] & {
 		@slot;
+	}
+
+	@media (prefers-color-scheme: dark) and (not (prefers-contrast: more)) {
+		html:not([data-color-scheme='light']) & {
+			@slot;
+		}
 	}
 }

@@ -6,7 +6,7 @@
   const settings = SettingsContext.get();
 </script>
 
-## Prior Art
+## Prior Arts
 
 - [svelte-actions-resize]: very minimal, no typescript support
 - [svelte-observer-resize]: very similar to this implementation, but no typescript & ssr support
@@ -41,11 +41,18 @@ yarn add -D @svelte-put/resize
 Use the `resized` [CustomEvent] (named so to avoid conflict with window's `resize` event) as the callback for `ResizeObserver`
 
 ```svelte title=quick-start.svelte
-<script>
-  import { resize } from '@svelte-put/resize';
+<script lang="ts">
+  import { resize, type ResizeDetail } from '@svelte-put/resize';
+
+  function onResized(e: CustomEvent<ResizeDetail>) {
+    const {
+      observer, // see https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver
+      entry, // see https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserverEntry
+    } = e.detail;
+  }
 </script>
 
-<div use:resize on:resized />
+<div use:resize onresized={onResized} />
 ```
 
 ## Example
@@ -57,7 +64,9 @@ This example is ported from [MDN Docs](https://developer.mozilla.org/en-US/docs/
   <Example />
 </fieldset>
 
-```svelte src=./_page/examples/example.svelte title=example.svelte
+Expand the code block below to see how the example is implemented.
+
+```svelte src=./_page/examples/example.svelte title=example.svelte collapsed
 ```
 
 ## Configuration
