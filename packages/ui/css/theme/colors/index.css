@@ -1,5 +1,5 @@
 /* stylelint-disable import-notation */
-@import '../../mixins/dark-global.css';
+/* @import './harmony.css'; */
 @import './variants.css';
 @import './palette.css';
 
@@ -62,10 +62,10 @@
 	color-scheme: light;
 
 	@apply palette-light;
-}
 
-@mixin dark-global {
-	color-scheme: dark;
+	@media dark {
+		color-scheme: dark;
 
-	@apply palette-dark;
+		@apply palette-dark;
+	}
 }

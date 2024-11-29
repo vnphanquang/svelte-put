@@ -138,7 +138,7 @@
 	<div class="first-row-last-col-fill"></div>
 </div>
 
-<style>
+<style lang="postcss">
 	.first-row-last-col-fill {
 		position: relative;
 
@@ -161,10 +161,8 @@
 		max-width: 100%;
 		margin-block: 24px;
 
-		&:where(.codeblock-group--files) {
-			& .first-row-last-col-fill {
-				border-width: 1px 1px 0 0;
-			}
+		&:where(:global(.codeblock-group--files)) .first-row-last-col-fill {
+			border-width: 1px 1px 0 0;
 		}
 	}
 </style>

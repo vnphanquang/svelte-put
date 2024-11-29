@@ -1,25 +1,11 @@
-/** match the light & dark mixins at '../../mixins/*' */
-
 @variant light {
-	html[data-color-scheme='light'] & {
+	@media light {
 		@slot;
-	}
-
-	@media (prefers-color-scheme: light) and (not (prefers-contrast: more)) {
-		html:not([data-color-scheme='dark']) & {
-			@slot;
-		}
 	}
 }
 
 @variant dark {
-	html[data-color-scheme='dark'] & {
+	@media dark {
 		@slot;
-	}
-
-	@media (prefers-color-scheme: dark) and (not (prefers-contrast: more)) {
-		html:not([data-color-scheme='light']) & {
-			@slot;
-		}
 	}
 }

@@ -167,7 +167,7 @@
 		--color-header-fg: hsl(0deg 0% 50%);
 
 		/* assume integration with @sveltevietnam/ui */
-		/* @mixin dark { */
+		/* @dark global { */
 		/* 	--color-header-fg: hsl(0deg 0% 64%); */
 		/* } */
 

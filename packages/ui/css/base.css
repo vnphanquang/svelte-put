@@ -4,7 +4,6 @@
 /* ad-hoc custom media and selectors */
 @import './medias.css';
 @import './selectors.css';
-@import './mixins/dark.css';
 
 /* tailwind customization */
 @import './theme/index.css';

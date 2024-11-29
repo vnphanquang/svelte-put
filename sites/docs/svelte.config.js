@@ -16,7 +16,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const commitHash = child_process.execSync('git rev-parse --short HEAD').toString().trim();
 
 /** @type {import('@sveltejs/kit').Config} */
-const config = {
+export default {
 	extensions: ['.md.svelte', '.svelte'],
 	preprocess: [
 		markdown(),
@@ -64,5 +64,3 @@ const config = {
 		},
 	},
 };
-
-export default config;

@@ -8,6 +8,7 @@
 */
 @utility c-btn--icon {
 	@layer components {
+		display: flex;
 		padding: var(--spacing) calc(var(--spacing) * 2);
 		background-color: none;
 		border: none;

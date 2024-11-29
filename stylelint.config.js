@@ -28,8 +28,6 @@ export default {
 					'layer',
 					'config',
 					'screen',
-					'mixin',
-					'define-mixin',
 					'theme',
 					'utility',
 					'variant',
