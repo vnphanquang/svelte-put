@@ -175,7 +175,7 @@
 			<div class="sveltevietnam-banner upto-widescreen:hidden mt-5 space-y-2 rounded border p-4">
 				<p class="font-medium">Are you based in Vietnam?</p>
 				<div class="flex items-center gap-4">
-					<div class="i i-sveltename w-10 h-10 shrink-0"></div>
+					<div class="i i-sveltename h-10 w-10 shrink-0"></div>
 					<p>
 						Join the <a class="c-link" href="https://www.sveltevietnam.dev">Svelte Vietnam</a> community.
 					</p>
@@ -208,7 +208,7 @@
 <NotificationPortal />
 
 <style lang="postcss">
-	@import '@svelte-put/ui/css/medias'; /* stylelint-disable-line import-notation */
+	@import '@svelte-put/ui/css/medias';
 
 	#docs {
 		--color-bg-aside: color-mix(in oklch, var(--color-bg), var(--color-fg) 4%);

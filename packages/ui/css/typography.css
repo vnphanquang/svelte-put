@@ -1,4 +1,3 @@
-/* stylelint-disable import-notation */
 @plugin '@tailwindcss/typography';
 
 @layer typography {

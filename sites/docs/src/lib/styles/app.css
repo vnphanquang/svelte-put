@@ -1,4 +1,3 @@
-/* stylelint-disable import-notation */
 @import 'tailwindcss';
 @import '@svelte-put/ui/css/base';
 @import '@svelte-put/ui/css/typography';

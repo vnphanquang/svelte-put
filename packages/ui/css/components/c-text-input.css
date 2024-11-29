@@ -1,4 +1,3 @@
-/* stylelint-disable import-notation */
 @import '../selectors.css';
 
 @custom-selector :--text-inputs input, textarea;
