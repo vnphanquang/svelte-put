@@ -1,5 +1,7 @@
 @plugin '@tailwindcss/typography';
 
+@custom-selector :--is-prose :not([class~='not-prose'], [class~='not-prose'] *);
+
 @layer typography {
 	:root {
 		--color-pre-fg: hsl(0deg 0% 0%);
@@ -15,14 +17,14 @@
 	dark theme setup for shiki,
 	see https://shiki.style/guide/dual-themes
 */
-	:where(.shiki) {
+	.shiki {
 		@media light {
 			background-color: hsl(224deg 19% 98%) !important;
 		}
 	}
 
-	:where(.shiki),
-	:where(.shiki) :where(span) {
+	.shiki,
+	.shiki span {
 		@media dark {
 			font-weight: var(--shiki-dark-font-weight) !important;
 			font-style: var(--shiki-dark-font-style) !important;
@@ -33,24 +35,23 @@
 		}
 	}
 
-	.prose:not([class~='not-prose']),
-	.prose :not([class~='not-prose']) {
-		& figcaption {
+	.prose {
+		& figcaption:--is-prose {
 			text-align: center;
 		}
 
-		& figure {
+		& figure:--is-prose {
 			margin-block: 40px;
 		}
 
-		& iframe {
+		& iframe:--is-prose {
 			max-width: 100%;
 			margin-inline: auto;
 			border: 1px solid var(--color-outline);
 		}
 
-		& a {
-			&:not(:has(img, svg), .heading-anchor) {
+		& a:--is-prose {
+			&:not(.heading-anchor) {
 				@apply c-link;
 
 				text-decoration: none;
@@ -80,12 +81,12 @@
 		& :is(h2, h3, h4, h5, h6) {
 			position: relative;
 
-			&:hover :where(.heading-anchor) {
+			&:hover .heading-anchor {
 				opacity: 1;
 			}
 		}
 
-		& :not(pre, a) > :where(code) {
+		& :not(pre, a) > code:--is-prose {
 			padding: 0.2em 0.375em;
 
 			font-weight: 400;
@@ -103,11 +104,8 @@
 			}
 		}
 
-		/*
-		Assume shikijs integration,
-		emitting :where to take precedence over @tailwindcss/typography defautls
-	*/
-		& pre {
+		/* Assume shikijs integration */
+		& pre:--is-prose {
 			position: relative;
 
 			padding-top: 16px;
@@ -228,7 +226,10 @@
 		}
 	}
 
-	:is(.prose pre[data-num-lines='1']:not(:has(.line[data-line-diff])), .hide-line-number) {
+	:is(
+		.prose pre:--is-prose[data-num-lines='1']:not(:has(.line[data-line-diff])),
+		.hide-line-number
+	) {
 		& .line {
 			padding-left: 2ch;
 

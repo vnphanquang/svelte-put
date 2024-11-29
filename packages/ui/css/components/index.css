@@ -1,5 +1,3 @@
-@layer utilities.icons.base, utilities.icons, utilities.components.base, utilities.components.mod1, utilities.components.mod2, utilities.components, utilities;
-
 @import './c-btn/index.css';
 @import './c-callout/index.css';
 @import './c-tooltip.css';
