@@ -61,7 +61,7 @@
 		"svelte": "^5.1.0"
 	},
 	"dependencies": {
-		"magic-string": "^0.30.13",
+		"magic-string": "^0.30.14",
 		"zimmerframe": "^1.1.2"
 	}
 }
