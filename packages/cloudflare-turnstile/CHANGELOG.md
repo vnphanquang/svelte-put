@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0
+
+### Minor Changes
+
+- [`d786134`](https://github.com/vnphanquang/svelte-put/commit/d786134db3dca860de98a6939c7d81589889cf25) Thanks [@vnphanquang](https://github.com/vnphanquang)! - add support for `refresh-timeout`, `feedback-enabled` config options
+
 ## 1.0.0
 
 ### Major Changes

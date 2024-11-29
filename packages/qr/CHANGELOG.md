@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.1.0
+
+### Minor Changes
+
+- [`0cde139`](https://github.com/vnphanquang/svelte-put/commit/0cde139ac80411e995b0d354199f50d761246cc6) Thanks [@vnphanquang](https://github.com/vnphanquang)! - swap [qrcode-generator](https://github.com/kazuhikoarase/qrcode-generator) for [headless-qr](https://github.com/Rich-Harris/headless-qr) (resolves #323)
+
 ## 2.0.0
 
 ### Major Changes
