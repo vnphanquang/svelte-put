@@ -62,8 +62,8 @@
 							}}
 						>
 							<label
-								class="c-btn c-btn--outlined justify-start gap-4 border-none px-4 py-2
-								focus-within:outline-none focus-within:bg-bg-200"
+								class="c-btn c-btn--outlined focus-within:bg-bg-200 justify-start gap-4 border-none px-4
+								py-2 focus-within:outline-none"
 								class:text-primary={scheme === settings.colorScheme}
 							>
 								<input type="submit" value={scheme} name="color-scheme" class="sr-only" />

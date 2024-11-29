@@ -1,1 +1,1 @@
-export { default as Runes } from './Component.svelte';
+export { default as Runes } from './Runes.svelte';
