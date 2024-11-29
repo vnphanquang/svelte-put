@@ -58,15 +58,11 @@
 }
 
 @layer typography {
-	.prose .c-callout {
+	.prose .c-callout:not([class~='not-prose'], [class~='not-prose'] *) {
 		margin-block: 32px;
 
 		& ::marker {
 			color: inherit;
-		}
-
-		&p {
-			margin: 0;
 		}
 
 		& p:first-of-type {

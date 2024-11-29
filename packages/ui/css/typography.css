@@ -1,7 +1,5 @@
 @plugin '@tailwindcss/typography';
 
-@custom-selector :--is-prose :not([class~='not-prose'], [class~='not-prose'] *);
-
 @layer typography {
 	:root {
 		--color-pre-fg: hsl(0deg 0% 0%);
@@ -36,21 +34,21 @@
 	}
 
 	.prose {
-		& figcaption:--is-prose {
+		& figcaption:not([class~='not-prose'], [class~='not-prose'] *) {
 			text-align: center;
 		}
 
-		& figure:--is-prose {
+		& figure:not([class~='not-prose'], [class~='not-prose'] *) {
 			margin-block: 40px;
 		}
 
-		& iframe:--is-prose {
+		& iframe:not([class~='not-prose'], [class~='not-prose'] *) {
 			max-width: 100%;
 			margin-inline: auto;
 			border: 1px solid var(--color-outline);
 		}
 
-		& a:--is-prose {
+		& a:not([class~='not-prose'], [class~='not-prose'] *) {
 			&:not(.heading-anchor) {
 				@apply c-link;
 
@@ -86,7 +84,7 @@
 			}
 		}
 
-		& :not(pre, a) > code:--is-prose {
+		& :not(pre, a) > code:not([class~='not-prose'], [class~='not-prose'] *) {
 			padding: 0.2em 0.375em;
 
 			font-weight: 400;
@@ -105,7 +103,7 @@
 		}
 
 		/* Assume shikijs integration */
-		& pre:--is-prose {
+		& pre:not([class~='not-prose'], [class~='not-prose'] *) {
 			position: relative;
 
 			padding-top: 16px;
@@ -227,8 +225,13 @@
 	}
 
 	:is(
-		.prose pre:--is-prose[data-num-lines='1']:not(:has(.line[data-line-diff])),
-		.hide-line-number
+		.hide-line-number,
+		.prose
+			pre[data-num-lines='1']:not(
+				[class~='not-prose'],
+				[class~='not-prose'] *,
+				:has(.line[data-line-diff])
+			)
 	) {
 		& .line {
 			padding-left: 2ch;

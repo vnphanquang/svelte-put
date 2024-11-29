@@ -341,7 +341,7 @@
 		}
 	}
 
-	#docs :global(:where(h1, h2, h3, h4, h5, h6)) {
+	:where(#docs) :global(:where(h1, h2, h3, h4, h5, h6)) {
 		padding-bottom: 0.5rem;
 		border-bottom: 1px solid var(--color-outline);
 	}

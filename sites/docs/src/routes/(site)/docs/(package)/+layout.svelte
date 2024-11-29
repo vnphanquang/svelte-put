@@ -16,15 +16,15 @@
 	const githubSourceUrl = `https://github.com/vnphanquang/svelte-put/edit/main/sites/docs/src/routes/(site)/docs/(package)/${data.package.id}/+page.md.svelte`;
 </script>
 
-<h1 class="font-fingerpaint flex items-center justify-between">
-	{data.package.name}
-	<span class="not-prose">
-		<a href={data.package.githubUrl} class="c-link-icon" data-external>
-			<svg inline-src="simpleicon/github" class="inline" height="28" width="28" />
-			<span class="sr-only">Github</span>
-		</a>
-	</span>
-</h1>
+<div class="mb-8 flex items-center justify-between border-b">
+	<h1 class="font-fingerpaint border-b-0">
+		{data.package.name}
+	</h1>
+	<a href={data.package.githubUrl} class="c-link-icon not-prose" data-external>
+		<svg inline-src="simpleicon/github" class="inline" height="28" width="28" />
+		<span class="sr-only">Github</span>
+	</a>
+</div>
 {#if data.package.description}
 	<p class="c-callout c-callout--info c-callout--icon-bulb">{data.package.description}</p>
 {/if}
@@ -85,3 +85,10 @@
 <p class="text-right text-sm">
 	<a class="c-link" href={githubSourceUrl}> Edit this page on Github </a>
 </p>
+
+<style lang="postcss">
+	h1 {
+		margin-bottom: 0;
+		border-bottom: 0;
+	}
+</style>
