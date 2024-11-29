@@ -3,7 +3,6 @@
 
 @theme {
 	/** font family */
-	--font-fingerpaint: 'Finger Paint', 'serif';
 	--font-inter: 'Inter', 'sans-serif';
 
 	/** font size */
@@ -26,6 +25,4 @@
 
 	/* spacing */
 	--spacing: 0.25rem;
-	--spacing-sidebar: var(--sidebar-width);
-	--spacing-header: var(--header-height);
 }

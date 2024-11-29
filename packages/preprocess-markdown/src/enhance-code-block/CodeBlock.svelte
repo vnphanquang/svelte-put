@@ -166,11 +166,6 @@
 	.codeblock {
 		--color-header-fg: hsl(0deg 0% 50%);
 
-		/* assume integration with @sveltevietnam/ui */
-		/* @dark global { */
-		/* 	--color-header-fg: hsl(0deg 0% 64%); */
-		/* } */
-
 		position: relative;
 
 		overflow: hidden;

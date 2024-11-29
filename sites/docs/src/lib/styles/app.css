@@ -2,6 +2,50 @@
 @import '@svelte-put/ui/css/base';
 @import '@svelte-put/ui/css/typography';
 
+@theme {
+	/** font family */
+	--font-fingerpaint: 'Finger Paint', 'serif';
+
+	/** spacing */
+	--spacing-sidebar: var(--sidebar-width);
+	--spacing-header: var(--header-height);
+}
+
+@layer base {
+	:root {
+		--header-height: 90px;
+		--sidebar-width: 250px;
+
+		@media (--tablet) {
+			--pad-min-padding-x: 24px;
+		}
+
+		@media (--desktop) {
+			--sidebar-width: 230px;
+			--pad-max-width: 1920px;
+		}
+
+		@media (--widescreen) {
+			--pad-min-padding-x: 32px;
+			--header-height: 55px;
+		}
+	}
+
+	h1 {
+		font-family: var(--font-fingerpaint);
+		letter-spacing: var(--tracking-wide);
+	}
+
+	mark {
+		color: var(--color-info-fg);
+		background-color: var(--color-info-bg);
+	}
+
+	*[id] {
+		scroll-margin: calc(1.5 * var(--spacing-header));
+	}
+}
+
 @layer components {
 	.c-num {
 		display: inline-flex;

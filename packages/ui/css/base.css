@@ -22,25 +22,6 @@
 @import './components/index.css';
 
 @layer base {
-	:root {
-		--header-height: 90px;
-		--sidebar-width: 250px;
-
-		@media (--tablet) {
-			--pad-min-padding-x: 24px;
-		}
-
-		@media (--desktop) {
-			--sidebar-width: 230px;
-			--pad-max-width: 1920px;
-		}
-
-		@media (--widescreen) {
-			--pad-min-padding-x: 32px;
-			--header-height: 55px;
-		}
-	}
-
 	html {
 		font-family: var(--font-inter);
 		color: var(--color-fg);
@@ -66,28 +47,14 @@
 		border-radius: 0;
 	}
 
-	h1 {
-		font-family: var(--font-fingerpaint);
-		letter-spacing: var(--tracking-wide);
-	}
-
 	svg[inline-src^='simpleicon/'] {
 		fill: currentcolor;
-	}
-
-	mark {
-		color: var(--color-info-fg);
-		background-color: var(--color-info-bg);
 	}
 
 	button:focus-visible:not(:--disabled),
 	label:has(input:focus-visible) {
 		outline: 1.5px solid var(--color-outline-focus);
 		outline-offset: 1px;
-	}
-
-	*[id] {
-		scroll-margin: calc(1.5 * var(--spacing-header));
 	}
 }
 
