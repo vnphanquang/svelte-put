@@ -24,10 +24,9 @@
 <!-- eslint-disable svelte/valid-compile -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
-	class="not-prose pointer-events-auto relative flex items-start justify-between
-	px-4 py-2 shadow-lg md:items-center {special
-		? 'bg-error-bg text-error-fg'
-		: 'bg-info-bg text-info-fg'}"
+	class="not-prose pointer-events-auto relative flex items-start justify-between px-4 py-2 shadow-lg md:items-center"
+	class:hl-error={special}
+	class:hl-info={!special}
 	in:fly|global={{ duration: 200, y: -20 }}
 	onmouseenter={item.pause}
 	onmouseleave={item.resume}

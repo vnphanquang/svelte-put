@@ -44,12 +44,12 @@
 	<p class="mt-0">Swipe left to archive, swipe right to delete</p>
 	<button class="c-btn c-btn--outlined" onclick={reset}>Reset</button>
 </div>
-<ul class="relative mt-8 overflow-hidden border border-blue-500">
+<ul class="relative mt-8 overflow-hidden border border-current">
 	{#each items as { id, title, excerpt } (id)}
 		<li
 			class="relative"
-			class:bg-red-500={direction === 'right'}
-			class:bg-blue-500={direction === 'left'}
+			class:bg-error-bg={direction === 'right'}
+			class:bg-info-bg={direction === 'left'}
 			out:slide={{ axis: 'y', duration: 200 }}
 		>
 			{#if direction === 'right'}

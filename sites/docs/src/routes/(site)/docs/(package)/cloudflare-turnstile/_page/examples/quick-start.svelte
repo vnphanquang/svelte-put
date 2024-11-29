@@ -19,6 +19,5 @@
 	onturnstile={(e) => (token = e.detail.token)}
 ></div>
 <p>
-	Captured Token: <span class="bg-success-bg text-success-fg px-2">{token ?? 'pending'}</span
-	>
+	Captured Token: <span class="hl-success px-2">{token ?? 'pending'}</span>
 </p>

@@ -13,7 +13,7 @@
 	<!-- :::focus -->
 	<!-- :::highlight -->
 	<button class="c-btn" type="button" bind:this={trigger}>Click</button>
-	<div>to</div>
+	<p>to</p>
 	<div
 		class="grid place-items-center border border-yellow-500 p-2"
 		use:copy={{ trigger }}
@@ -23,8 +23,8 @@
 	</div>
 	<!-- ::: -->
 	<!-- ::: -->
-	<div>-></div>
-	<div class="bg-success-bg text-success-fg grid place-items-center self-stretch">
+	<p>-></p>
+	<div class="hl-success grid place-items-center self-stretch">
 		{#if copied}
 			<p in:fade={{ duration: 200 }}>
 				{copied}

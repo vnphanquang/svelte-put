@@ -20,14 +20,14 @@
 </script>
 
 <fieldset
-	class="border-error-fg bg-error-bg text-error-fg select-none border-4 p-10 {cls}"
+	class="border-error-fg hl-error select-none border-4 p-10 {cls}"
 	bind:this={parent}
 	{...rest}
 >
-	<legend class="text-error-fg font-bold">Limit</legend>
+	<legend class="text-error-fg font-bold">&nbsp; Limit &nbsp;</legend>
 
 	<div
-		class="border-suscess-fg bg-success-bg text-success-fg grid border-2 p-6"
+		class="border-suscess-fg hl-success grid border-2 p-6"
 		use:clickoutside={{ enabled, limit: { parent } }}
 		onclickoutside={onClickOutside}
 	>

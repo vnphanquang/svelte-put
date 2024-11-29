@@ -11,10 +11,10 @@
 	} = $props();
 
 	const BADGE_CLASSES = {
-		beta: 'bg-info-bg text-info-fg',
-		dev: 'bg-warning-bg text-warning-fg',
-		new: 'bg-success-bg text-success-fg',
-		flux: 'bg-error-bg text-error-fg',
+		beta: 'hl-info',
+		dev: 'hl-warning',
+		new: 'hl-success',
+		flux: 'hl-error',
 		stable: 'bg-gray-700 text-white',
 	} satisfies Record<typeof status, string>;
 	let badgeClass = $derived(BADGE_CLASSES[status]);

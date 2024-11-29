@@ -1,0 +1,19 @@
+@utility hl-info {
+	color: var(--color-info-fg);
+	background-color: var(--color-info-bg);
+}
+
+@utility hl-success {
+	color: var(--color-success-fg);
+	background-color: var(--color-success-bg);
+}
+
+@utility hl-warning {
+	color: var(--color-warning-fg);
+	background-color: var(--color-warning-bg);
+}
+
+@utility hl-error {
+	color: var(--color-error-fg);
+	background-color: var(--color-error-bg);
+}

@@ -3,7 +3,8 @@
 </script>
 
 <ul
-	class="not-prose mx-auto flex max-w-4xl snap-x snap-mandatory overflow-x-auto border-2 border-violet-500 p-4"
+	class="not-prose mx-auto flex max-w-4xl snap-x snap-mandatory overflow-x-auto border-2
+	border-violet-500 p-4 text-black"
 	use:dragscroll={{ axis: 'x' }}
 >
 	{#each new Array(10) as _, i}

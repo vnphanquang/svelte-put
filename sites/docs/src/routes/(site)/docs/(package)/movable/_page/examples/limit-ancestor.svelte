@@ -7,7 +7,7 @@
 <div class="grid place-items-center border-2 border-violet-500 p-4" bind:this={parentNode}>
 	<p class="text-center">Box below can be moved around, but only within the violet border</p>
 	<div
-		class="bg-info-bg text-info-fg grid h-20 w-20 place-items-center"
+		class="hl-info grid h-20 w-20 place-items-center"
 		use:movable={{ limit: { parent: parentNode } }}
 	>
 		...

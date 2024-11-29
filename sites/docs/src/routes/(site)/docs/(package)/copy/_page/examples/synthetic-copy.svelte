@@ -18,8 +18,8 @@
 		<!-- ::: -->
 		<strong>Click</strong> <span>synthetic copy</span>
 	</button>
-	<div>-></div>
-	<div class="bg-success-bg text-success-fg grid place-items-center self-stretch">
+	<p>-></p>
+	<div class="hl-success grid place-items-center self-stretch">
 		{#if copied}
 			<p in:fade={{ duration: 200 }}>
 				{copied}
