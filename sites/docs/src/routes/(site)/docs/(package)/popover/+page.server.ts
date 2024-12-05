@@ -1,4 +1,4 @@
-import ogImage from '$lib/assets/images/og/svelte-put-popover.jpg';
+import ogImage from '$lib/assets/images/og/svelte-put-popover.jpg?url';
 
 import type { PageServerLoad } from './$types';
 

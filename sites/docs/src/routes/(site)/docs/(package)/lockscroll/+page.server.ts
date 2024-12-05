@@ -1,4 +1,4 @@
-import ogImage from '$lib/assets/images/og/svelte-put-lockscroll.jpg';
+import ogImage from '$lib/assets/images/og/svelte-put-lockscroll.jpg?url';
 
 import type { PageServerLoad } from './$types';
 

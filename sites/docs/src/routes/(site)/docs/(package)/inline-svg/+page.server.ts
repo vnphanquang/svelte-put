@@ -1,4 +1,4 @@
-import ogImage from '$lib/assets/images/og/svelte-put-inline-svg.jpg';
+import ogImage from '$lib/assets/images/og/svelte-put-inline-svg.jpg?url';
 
 import type { PageServerLoad } from './$types';
 

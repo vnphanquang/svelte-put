@@ -1,4 +1,4 @@
-import ogImage from '$lib/assets/images/og/svelte-put-noti.jpg';
+import ogImage from '$lib/assets/images/og/svelte-put-noti.jpg?url';
 
 import type { PageServerLoad } from './$types';
 

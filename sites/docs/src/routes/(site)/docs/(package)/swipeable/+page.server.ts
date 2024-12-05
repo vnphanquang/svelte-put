@@ -1,4 +1,4 @@
-import ogImage from '$lib/assets/images/og/svelte-put-swipeable.jpg';
+import ogImage from '$lib/assets/images/og/svelte-put-swipeable.jpg?url';
 
 import type { PageServerLoad } from './$types';
 

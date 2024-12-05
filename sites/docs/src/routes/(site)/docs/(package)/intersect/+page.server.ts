@@ -1,4 +1,4 @@
-import ogImage from '$lib/assets/images/og/svelte-put-intersect.jpg';
+import ogImage from '$lib/assets/images/og/svelte-put-intersect.jpg?url';
 
 import type { PageServerLoad } from './$types';
 

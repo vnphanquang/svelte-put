@@ -1,4 +1,4 @@
-import ogImage from '$lib/assets/images/og/svelte-put-preprocess-auto-slug.jpg';
+import ogImage from '$lib/assets/images/og/svelte-put-preprocess-auto-slug.jpg?url';
 
 import type { PageServerLoad } from './$types';
 

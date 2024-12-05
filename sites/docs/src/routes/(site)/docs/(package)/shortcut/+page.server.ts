@@ -1,4 +1,4 @@
-import ogImage from '$lib/assets/images/og/svelte-put-shortcut.jpg';
+import ogImage from '$lib/assets/images/og/svelte-put-shortcut.jpg?url';
 
 import type { PageServerLoad } from './$types';
 

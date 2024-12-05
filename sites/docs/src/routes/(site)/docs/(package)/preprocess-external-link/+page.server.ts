@@ -1,4 +1,4 @@
-import ogImage from '$lib/assets/images/og/svelte-put-preprocess-external-link.jpg';
+import ogImage from '$lib/assets/images/og/svelte-put-preprocess-external-link.jpg?url';
 
 import type { PageServerLoad } from './$types';
 

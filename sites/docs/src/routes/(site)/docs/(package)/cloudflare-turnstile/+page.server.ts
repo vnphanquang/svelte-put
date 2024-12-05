@@ -1,4 +1,4 @@
-import ogImage from '$lib/assets/images/og/svelte-put-cloudflare-turnstile.jpg';
+import ogImage from '$lib/assets/images/og/svelte-put-cloudflare-turnstile.jpg?url';
 
 import type { PageServerLoad } from './$types';
 
