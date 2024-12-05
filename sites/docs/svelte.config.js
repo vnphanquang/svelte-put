@@ -37,6 +37,9 @@ export default {
 		vitePreprocess(),
 	],
 	kit: {
+		prerender: {
+			origin: 'https://svelte-put.vnphanquang.com',
+		},
 		adapter: adapter({
 			routes: {
 				include: ['/*'],
