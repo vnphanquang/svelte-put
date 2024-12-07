@@ -15,17 +15,17 @@
 
 ```bash
 /// title=npm
-npm install --save-dev @svelte-put/copy
+npm install --save-dev @svelte-put/copy@^3.0.0
 ```
 
 ```bash
 /// title=pnpm
-pnpm add -D @svelte-put/copy
+pnpm add -D @svelte-put/copy@^3.0.0
 ```
 
 ```bash
 /// title=yarn
-yarn add -D @svelte-put/copy
+yarn add -D @svelte-put/copy@^3.0.0
 ```
 
 </enhanced-code-block>

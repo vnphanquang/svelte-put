@@ -22,17 +22,17 @@ This library is not a plug-and-play, prebuilt component. Rather, it is designed 
 
 ```bash
 /// title=npm
-npm install --save-dev @svelte-put/tooltip
+npm install --save-dev @svelte-put/tooltip@^1.0.0
 ```
 
 ```bash
 /// title=pnpm
-pnpm add -D @svelte-put/tooltip
+pnpm add -D @svelte-put/tooltip@^1.0.0
 ```
 
 ```bash
 /// title=yarn
-yarn add -D @svelte-put/tooltip
+yarn add -D @svelte-put/tooltip@^1.0.0
 ```
 
 </enhanced-code-block>

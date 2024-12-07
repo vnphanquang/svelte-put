@@ -13,17 +13,17 @@
 
 ```bash
 /// title=npm
-npm install --save-dev @svelte-put/lockscroll
+npm install --save-dev @svelte-put/lockscroll@^1.0.2
 ```
 
 ```bash
 /// title=pnpm
-pnpm add -D @svelte-put/lockscroll
+pnpm add -D @svelte-put/lockscroll@^1.0.2
 ```
 
 ```bash
 /// title=yarn
-yarn add -D @svelte-put/lockscroll
+yarn add -D @svelte-put/lockscroll@^1.0.2
 ```
 
 </enhanced-code-block>

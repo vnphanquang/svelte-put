@@ -10,7 +10,7 @@ import { autoExternalLink } from '@sveltevietnam/ui/preprocessors/auto-external-
 import { enhanceCodeBlock } from '@sveltevietnam/ui/preprocessors/enhance-code-block';
 import { mdsvex, mdsvexDefaultConfig } from '@sveltevietnam/ui/preprocessors/mdsvex';
 
-import pkg from './package.json' assert { type: 'json' };
+import pkg from './package.json' with { type: 'json' };
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const commitHash = child_process.execSync('git rev-parse --short HEAD').toString().trim();

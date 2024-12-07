@@ -15,17 +15,17 @@ This package relies on [Svelte action] and attempts to stay minimal. If you are 
 
 ```bash
 /// title=npm
-npm install --save-dev @svelte-put/toc
+npm install --save-dev @svelte-put/toc@^5.0.0
 ```
 
 ```bash
 /// title=pnpm
-pnpm add -D @svelte-put/toc
+pnpm add -D @svelte-put/toc@^5.0.0
 ```
 
 ```bash
 /// title=yarn
-yarn add -D @svelte-put/toc
+yarn add -D @svelte-put/toc@^5.0.0
 ```
 
 </enhanced-code-block>

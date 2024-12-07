@@ -12,17 +12,17 @@
 
 ```bash
 /// title=npm
-npm install --save-dev @svelte-put/clickoutside
+npm install --save-dev @svelte-put/clickoutside@^3.0.0
 ```
 
 ```bash
 /// title=pnpm
-pnpm add -D @svelte-put/clickoutside
+pnpm add -D @svelte-put/clickoutside@^3.0.0
 ```
 
 ```bash
 /// title=yarn
-yarn add -D @svelte-put/clickoutside
+yarn add -D @svelte-put/clickoutside@^3.0.0
 ```
 
 </enhanced-code-block>

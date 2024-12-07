@@ -20,17 +20,17 @@ This package will be deprecated when [Svelte 5](https://svelte-5-preview.vercel.
 
 ```bash
 /// title=npm
-npm install --save-dev @svelte-put/noti
+npm install --save-dev @svelte-put/noti@^1.0.0
 ```
 
 ```bash
 /// title=pnpm
-pnpm add -D @svelte-put/noti
+pnpm add -D @svelte-put/noti@^1.0.0
 ```
 
 ```bash
 /// title=yarn
-yarn add -D @svelte-put/noti
+yarn add -D @svelte-put/noti@^1.0.0
 ```
 
 </enhanced-code-block>
@@ -313,7 +313,7 @@ The complementary `portal` [Svelte action] provides a quick and minimal solution
 ```svelte
 /// title=Portal Action
 <script>
-  import { portal } from 'svelte-put/noti';
+  import { portal } from '@svelte-put/noti';
   import { notiStore } from './notification-store';
 </script>
 

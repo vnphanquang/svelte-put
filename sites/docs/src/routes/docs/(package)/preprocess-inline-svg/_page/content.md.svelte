@@ -39,17 +39,17 @@ This package works best with static SVGs like icons and pictograms. For dynamic 
 
 ```bash
 /// title=npm
-npm install --save-dev @svelte-put/preprocess-inline-svg
+npm install --save-dev @svelte-put/preprocess-inline-svg@^2.0.0
 ```
 
 ```bash
 /// title=pnpm
-pnpm add -D @svelte-put/preprocess-inline-svg
+pnpm add -D @svelte-put/preprocess-inline-svg@^2.0.0
 ```
 
 ```bash
 /// title=yarn
-yarn add -D @svelte-put/preprocess-inline-svg
+yarn add -D @svelte-put/preprocess-inline-svg@^2.0.0
 ```
 
 </enhanced-code-block>

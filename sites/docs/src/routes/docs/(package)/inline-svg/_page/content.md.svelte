@@ -19,17 +19,17 @@ This packages operates at **runtime**, meaning your prerendered HTML does not co
 
 ```bash
 /// title=npm
-npm install --save-dev @svelte-put/inline-svg
+npm install --save-dev @svelte-put/inline-svg@^3.0.0
 ```
 
 ```bash
 /// title=pnpm
-pnpm add -D @svelte-put/inline-svg
+pnpm add -D @svelte-put/inline-svg@^3.0.0
 ```
 
 ```bash
 /// title=yarn
-yarn add -D @svelte-put/inline-svg
+yarn add -D @svelte-put/inline-svg@^3.0.0
 ```
 
 </enhanced-code-block>

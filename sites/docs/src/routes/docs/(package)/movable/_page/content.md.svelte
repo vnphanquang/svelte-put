@@ -17,17 +17,17 @@
 
 ```bash
 /// title=npm
-npm install --save-dev @svelte-put/movable
+npm install --save-dev @svelte-put/movable@^3.0.0
 ```
 
 ```bash
 /// title=pnpm
-pnpm add -D @svelte-put/movable
+pnpm add -D @svelte-put/movable@^3.0.0
 ```
 
 ```bash
 /// title=yarn
-yarn add -D @svelte-put/movable
+yarn add -D @svelte-put/movable@^3.0.0
 ```
 
 </enhanced-code-block>

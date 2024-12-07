@@ -25,17 +25,17 @@
 
 ```bash
 /// title=npm
-npm install --save-dev @svelte-put/avatar
+npm install --save-dev @svelte-put/avatar@v3.0.0
 ```
 
 ```bash
 /// title=pnpm
-pnpm add -D @svelte-put/avatar
+pnpm add -D @svelte-put/avatar@v3.0.0
 ```
 
 ```bash
 /// title=yarn
-yarn add -D @svelte-put/avatar
+yarn add -D @svelte-put/avatar@v3.0.0
 ```
 
 </enhanced-code-block>

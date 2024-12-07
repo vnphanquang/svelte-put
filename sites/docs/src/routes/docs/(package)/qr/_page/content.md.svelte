@@ -22,17 +22,17 @@
 
 ```bash
 /// title=npm
-npm install --save-dev @svelte-put/qr
+npm install --save-dev @svelte-put/qr@^1.0.0
 ```
 
 ```bash
 /// title=pnpm
-pnpm add -D @svelte-put/qr
+pnpm add -D @svelte-put/qr@^1.0.0
 ```
 
 ```bash
 /// title=yarn
-yarn add -D @svelte-put/qr
+yarn add -D @svelte-put/qr@^1.0.0
 ```
 
 </enhanced-code-block>

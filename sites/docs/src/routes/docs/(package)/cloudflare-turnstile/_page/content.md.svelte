@@ -15,17 +15,17 @@ This implementation of [Cloudflare Turnstile] utilizes [Svelte action]. If you a
 
 ```bash
 /// title=npm
-npm install --save-dev @svelte-put/cloudflare-turnstile
+npm install --save-dev @svelte-put/cloudflare-turnstile@^0.1.3
 ```
 
 ```bash
 /// title=pnpm
-pnpm add -D @svelte-put/cloudflare-turnstile
+pnpm add -D @svelte-put/cloudflare-turnstile@^0.1.3
 ```
 
 ```bash
 /// title=yarn
-yarn add -D @svelte-put/cloudflare-turnstile
+yarn add -D @svelte-put/cloudflare-turnstile@^0.1.3
 ```
 
 </enhanced-code-block>
