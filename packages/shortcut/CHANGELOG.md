@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.0.1
+
+### Patch Changes
+
+- [`8baa99c`](https://github.com/vnphanquang/svelte-put/commit/8baa99c251d1acd674b0895b48a04352b65951a6) Thanks [@vnphanquang](https://github.com/vnphanquang)! - implement stricter modifier matching. Now all definitions are mutually exclusive. For example, `[['ctrl', 'alt']]` will no longer trigger `ctrl`, and vice versa
+
+- [`d5f5168`](https://github.com/vnphanquang/svelte-put/commit/d5f51686be10fe4073b3dc2e69edaae6e9376c05) Thanks [@vnphanquang](https://github.com/vnphanquang)! - falsy modifier should mean 'expect no modifier'. Set to `*` if expect **any** modifier.
+
 ## 4.0.0
 
 ### Major Changes
