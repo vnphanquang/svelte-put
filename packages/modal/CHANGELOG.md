@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.9
+
+### Patch Changes
+
+- Updated dependencies [[`80cbbdd`](https://github.com/vnphanquang/svelte-put/commit/80cbbdd7dbf4003a8f9d337300b8b60652bbe229), [`c5cc32b`](https://github.com/vnphanquang/svelte-put/commit/c5cc32b2f153fbfd8a2e193ee24c651cc93024d6)]:
+  - @svelte-put/shortcut@3.1.2
+
 ## 1.0.8
 
 ### Patch Changes
