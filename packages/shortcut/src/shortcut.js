@@ -1,10 +1,20 @@
-/* resolves from '*' modifier definition */
-const ANY_MODIFIER_DEFS = /** @type {import('./types.public').ShortcutModifier[][]} */ ([
-	['ctrl'],
-	['shift'],
-	['alt'],
-	['meta'],
-]);
+/**
+ * @param {import('./types.public').ShortcutModifier} def
+ * @returns {number}
+ */
+function mapModifierToBitMask(def) {
+	switch (def) {
+		case 'ctrl':
+			return 0b1000;
+		case 'shift':
+			return 0b0100;
+		case 'alt':
+			return 0b0010;
+		case 'meta':
+			return 0b0001;
+	}
+}
+
 /**
  * Listen for keyboard event and trigger `shortcut` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent }
  * @example Typical usage
@@ -106,13 +116,15 @@ export function shortcut(node, param) {
 	 */
 	function handler(event) {
 		const normalizedTriggers = Array.isArray(trigger) ? trigger : [trigger];
-		/** @type {Record<import('./public').ShortcutModifier, boolean>} */
-		const modifiedMap = {
-			alt: event.altKey,
-			ctrl: event.ctrlKey,
-			shift: event.shiftKey,
-			meta: event.metaKey,
-		};
+		const modifierMask = [event.metaKey, event.altKey, event.shiftKey, event.ctrlKey].reduce(
+			(acc, value, index) => {
+				if (value) {
+					return acc | (1 << index);
+				}
+				return acc;
+			},
+			0b0000,
+		);
 		for (const trigger of normalizedTriggers) {
 			const mergedTrigger = {
 				preventDefault: false,
@@ -124,19 +136,24 @@ export function shortcut(node, param) {
 				if (event.key !== key) continue;
 
 				if (!modifier) {
-					if (modifiedMap.alt || modifiedMap.ctrl || modifiedMap.shift || modifiedMap.meta)
-						continue;
+					if (modifierMask !== 0b0000) continue;
+				} else if (modifier === '*') {
+					if (modifierMask === 0b0000) continue;
 				} else {
-					let modifierDefs = ANY_MODIFIER_DEFS;
-					if (Array.isArray(modifier)) {
-						modifierDefs = modifier.map((def) => (typeof def === 'string' ? [def] : def));
-					} else if (modifier !== '*') {
-						modifierDefs = [[modifier]];
+					const orDefs = Array.isArray(modifier) ? modifier : [modifier];
+
+					let modified = false;
+					for (const orDef of orDefs) {
+						const mask = (Array.isArray(orDef) ? orDef : [orDef]).reduce(
+							(acc, def) => acc | mapModifierToBitMask(def),
+							0b0000,
+						);
+						if (mask === modifierMask) {
+							modified = true;
+							break;
+						}
 					}
 
-					const modified = modifierDefs.some((def) =>
-						def.every((modifier) => modifiedMap[modifier]),
-					);
 					if (!modified) continue;
 				}
 
