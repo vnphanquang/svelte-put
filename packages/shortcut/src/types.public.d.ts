@@ -21,6 +21,41 @@ export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
 
 /**
  * Possible variations for modifier definition
+ *
+ * @example
+ *
+ * Listen for no modifier
+ *
+ * ```svelte
+ * <script>
+ *  import { shortcut } from '@svelte-put/shortcut';
+ * </script>
+ *
+ * <window use:shortcut={{
+ *   trigger: {
+ *    key: 'k', // only trigger when no modifier is pressed
+ *   },
+ * }}
+ * />
+ * ```
+ *
+ * @example
+ *
+ * Listen for any modifier (ctrl, shift, alt, or meta)
+ *
+ * ```svelte
+ * <script>
+ *  import { shortcut } from '@svelte-put/shortcut';
+ * </script>
+ *
+ * <window use:shortcut={{
+ *   trigger: {
+ *    key: '*',
+ *   },
+ * }}
+ * />
+ * ```
+ *
  * @example
  *
  * Listen for a single modifier
@@ -32,12 +67,13 @@ export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
  *
  * <window use:shortcut={{
  *   trigger: {
- *    key: 'k' ,
+ *    key: 'k',
  *    modifier: 'ctrl',
  *   },
  * }}
  * />
  * ```
+ *
  * @example
  *
  * Listen for one of many modifiers (or)
@@ -49,12 +85,13 @@ export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
  *
  * <window use:shortcut={{
  *   trigger: {
- *    key: 'k' ,
+ *    key: 'k',
  *    modifier: ['ctrl', 'meta'],
  *   },
  * }}
  * />
  * ```
+ *
  * @example
  *
  * Listen for a combination of multiple modifiers (and)
@@ -66,13 +103,13 @@ export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
  *
  * <window use:shortcut={{
  *   trigger: {
- *    key: 'k' ,
+ *    key: 'k',
  *    modifier: [['ctrl', 'shift']],
  *   },
  * }}
  * />
- *
  * ```
+ *
  * @example
  *
  * A mix of the 3 previous examples
@@ -84,7 +121,7 @@ export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
  *
  * <window use:shortcut={{
  *   trigger: {
- *    key: 'k' ,
+ *    key: 'k',
  *    modifier: [
  *      ['ctrl', 'shift'], // ctrl and shift
  *                         // or
@@ -96,9 +133,13 @@ export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
  * ```
  */
 export type ShortcutModifierDefinition =
-	| ShortcutModifier
-	| ShortcutModifier[]
-	| ShortcutModifier[][];
+	| undefined // none
+	| null // none
+	| false // none
+	| '*' // any
+	| ShortcutModifier // one
+	| ShortcutModifier[] // one of (OR)
+	| ShortcutModifier[][]; // all of (AND)
 
 /**
  * A definition of a shortcut trigger

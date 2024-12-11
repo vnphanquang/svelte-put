@@ -1,5 +1,4 @@
 /* stylelint-disable no-invalid-position-at-import-rule */
-/* @layer theme, base, components, utilities, typography; */
 @layer utilities.icons, utilities.components;
 @layer components.base, utilities.components.mod1, utilities.components.mod2;
 

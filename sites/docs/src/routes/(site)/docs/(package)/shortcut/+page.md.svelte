@@ -95,6 +95,46 @@ This approach does take up some additional memory. It should be negligible in mo
 
 Each `ShortcutTrigger` can specify either one or multiple modifiers (`ctrl`, `meta`, `alt`, `shift`) via `trigger.modifier` in both `AND` & `OR` fashions.
 
+### No modifier
+
+<p class="c-callout c-callout--info c-callout--icon-megaphone w-fit">
+  Available since <a href="https://github.com/vnphanquang/svelte-put/releases/tag/%40svelte-put%2Fshortcut%404.0.1">v4.0.1</a>.
+</p>
+
+Simply omit `trigger.modifier` or set it to any falsy value — `false`, `null`, or `undefined` — to
+listen for the key without any modifier.
+
+```svelte title=modifier-single.svelte
+<svelte:window
+  use:shortcut={{
+    trigger: {
+      key: 'Escape',
+    },
+  }}
+/>
+```
+
+### Any modifier
+
+<p class="c-callout c-callout--info c-callout--icon-megaphone w-fit">
+  Available since <a href="https://github.com/vnphanquang/svelte-put/releases/tag/%40svelte-put%2Fshortcut%404.0.1">v4.0.1</a>.
+</p>
+
+Set `trigger.modifier` to `*` to listen for the key with any modifier.
+
+```svelte title=modifier-single.svelte
+<svelte:window
+  use:shortcut={{
+    trigger: {
+      key: 'k',
+      <!-- :::highlight -->
+      modifier: '*',
+      <!-- ::: -->
+    },
+  }}
+/>
+```
+
 ### Single Modifier
 
 Set `trigger.modifier` to one of the modifiers (`ctrl`, `meta`, `alt`, `shift`) to listen for that modifier.

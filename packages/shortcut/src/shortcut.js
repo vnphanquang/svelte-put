@@ -1,5 +1,13 @@
 import { on } from 'svelte/events';
 
+/* resolves from '*' modifier definition */
+const ANY_MODIFIER_DEFS = /** @type {import('./types.public').ShortcutModifier[][]} */ ([
+	['ctrl'],
+	['shift'],
+	['alt'],
+	['meta'],
+]);
+
 /**
  * Listen for keyboard event and trigger `shortcut` {@link https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent | CustomEvent }
  * @example Typical usage
@@ -44,6 +52,7 @@ import { on } from 'svelte/events';
  *       },
  *       {
  *         key: 'Escape',
+ *         modifier: undefined, // or any falsy value to means 'expect no modifier'
  *
  *         // preferably avoid arrow functions here for better performance
  *         // with arrow functions the action has to be updated more frequently
@@ -96,33 +105,40 @@ export function shortcut(node, param) {
 		};
 		for (const trigger of normalizedTriggers) {
 			const mergedTrigger = {
-				modifier: [],
 				preventDefault: false,
 				enabled: true,
 				...trigger,
 			};
 			const { modifier, key, callback, preventDefault, enabled: triggerEnabled } = mergedTrigger;
 			if (triggerEnabled) {
-				if (modifier.length) {
-					const modifierDefs = (Array.isArray(modifier) ? modifier : [modifier]).map((def) =>
-						typeof def === 'string' ? [def] : def,
-					);
+				if (event.key !== key) continue;
+
+				if (!modifier) {
+					if (modifiedMap.alt || modifiedMap.ctrl || modifiedMap.shift || modifiedMap.meta)
+						continue;
+				} else {
+					let modifierDefs = ANY_MODIFIER_DEFS;
+					if (Array.isArray(modifier)) {
+						modifierDefs = modifier.map((def) => (typeof def === 'string' ? [def] : def));
+					} else if (modifier !== '*') {
+						modifierDefs = [[modifier]];
+					}
+
 					const modified = modifierDefs.some((def) =>
 						def.every((modifier) => modifiedMap[modifier]),
 					);
 					if (!modified) continue;
 				}
-				if (event.key === key) {
-					if (preventDefault) event.preventDefault();
-					/** @type {import('./types.public').ShortcutEventDetail} */
-					const detail = {
-						node,
-						trigger: mergedTrigger,
-						originalEvent: event,
-					};
-					node.dispatchEvent(new CustomEvent('shortcut', { detail }));
-					callback?.(detail);
-				}
+
+				if (preventDefault) event.preventDefault();
+				/** @type {import('./types.public').ShortcutEventDetail} */
+				const detail = {
+					node,
+					trigger: mergedTrigger,
+					originalEvent: event,
+				};
+				node.dispatchEvent(new CustomEvent('shortcut', { detail }));
+				callback?.(detail);
 			}
 		}
 	}
@@ -152,4 +168,3 @@ export function shortcut(node, param) {
 		},
 	};
 }
-
