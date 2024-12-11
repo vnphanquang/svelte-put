@@ -1,4 +1,5 @@
 {
+	"private": true,
 	"name": "@svelte-put/select",
 	"version": "0.2.6",
 	"description": "Svelte feature-rich, extensible, type-safe, accessible select component",
