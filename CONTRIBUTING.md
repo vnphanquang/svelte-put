@@ -81,7 +81,7 @@ We follow the [Conventional Commits][conventionalcommits] guidelines for writing
 
 The project uses [eslint] and [prettier] for code linting and formatting. Make sure to install necessary plugins or integrations in your code editor.
 
-[husky] & [lint-staged] is setup to run format and lint checks as a `pre-commit` [git hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks).
+[lefthook] is setup to run format and lint checks as a `pre-commit` [git hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks).
 
 To bypass hook (not recommended, for admin only), run `git commit` with the `--no-verify` flag.
 
@@ -99,8 +99,7 @@ To bypass hook (not recommended, for admin only), run `git commit` with the `--n
 
 <!-- TECHNOLOGIES -->
 
-[husky]: https://typicode.github.io/husky/
-[lint-staged]: https://github.com/okonet/lint-staged
+[lefthook]: https://github.com/evilmartians/lefthook
 [eslint]: https://eslint.org
 [prettier]: https://prettier.io
 [node]: https://nodejs.org/en/

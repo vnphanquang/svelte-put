@@ -12,7 +12,6 @@ env:
   CI: true
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
   TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-  HUSKY: 0
 jobs:
   Version:
     if: github.repository == 'vnphanquang/svelte-put' # prevents this action from running on forks
