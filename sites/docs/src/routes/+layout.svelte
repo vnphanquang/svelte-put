@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { PUBLIC_MODE } from '$env/static/public';
-	import ogImageHome from '$lib/assets/images/og/svelte-put.jpg?url';
+	import ogImageHome from '$lib/assets/images/svelte-put-og.jpg?url';
 	import { SettingsContext } from '$lib/settings/context.svelte';
 	import '$lib/styles/app.css';
 

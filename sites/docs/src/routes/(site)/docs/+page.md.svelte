@@ -1,7 +1,8 @@
 <script>
-	import { packages } from '$lib/data/packages';
 	import { StatusBadge } from '$lib/components/status-badge';
 	import { createNpmBadgeUrl, createNpmUrl } from '$lib/utils/badge';
+
+  let { data } = $props();
 </script>
 
 # @svelte-put
@@ -25,29 +26,30 @@
     </tr>
   </thead>
   <tbody class="*:even:bg-bg-100/50">
-    {#each Object.values(packages) as { id, description, name, path, status, releaseTag }}
-    <tr class="*:border *:p-4">
-      <td>
-        <a href={path} class="c-link font-medium">
-          {id}
-        </a>
-      </td>
-      <td>{description}</td>
-      <td class="w-40">
-        <a href={createNpmUrl(name)} target="_blank" class="block" data-external>
-          <img
-            class="block rounded"
-            src={createNpmBadgeUrl(name, releaseTag)}
-            alt={name}
-            width="180"
-            height="22"
-            loading="lazy"
-            decoding="async"
-          />
-        </a>
-      </td>
-      <td class=""><StatusBadge {status} /></td>
-    </tr>
+    {#each data.packages.active as { id, description, status, releaseTag }}
+      {@const name = `@svelte-put/${id}`}
+      <tr class="*:border *:p-4">
+        <td>
+          <a href="/docs/{id}" class="c-link font-medium">
+            {id}
+          </a>
+        </td>
+        <td>{description}</td>
+        <td class="w-40">
+          <a href={createNpmUrl(name)} target="_blank" class="block" data-external>
+            <img
+              class="block rounded"
+              src={createNpmBadgeUrl(name, releaseTag)}
+              alt={name}
+              width="180"
+              height="22"
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
+        </td>
+        <td class=""><StatusBadge {status} /></td>
+      </tr>
     {/each}
   </tbody>
 </table>

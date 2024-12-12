@@ -9,7 +9,6 @@
 	import { PageLoadIndicator } from '$lib/components/page-load-indicator/';
 	import { StatusBadge } from '$lib/components/status-badge';
 	import { SOCIAL_LINKS } from '$lib/constants';
-	import { deprecatedPackages, packages } from '$lib/data/packages';
 	import NotificationPortal from '$lib/notifications/components/NotificationPortal.svelte';
 	import Svelte5 from '$lib/notifications/components/Svelte5.svelte';
 	import { NotificationContext } from '$lib/notifications/context.svelte';
@@ -113,10 +112,10 @@
 				<li>
 					<p class="font-bold uppercase">Packages</p>
 					<ul class="border-outline mt-3 space-y-1 border-l">
-						{#each Object.values(packages) as { path, status, id }}
+						{#each data.packages.active as { id, status } (id)}
 							<li>
 								<a
-									href={path}
+									href="/docs/{id}"
 									data-current={data.pathname.includes(`/${id}`)}
 									class="current:text-link c-link-lazy current:border-link -ml-px block whitespace-nowrap border-l border-transparent py-1 pl-3"
 									onclick={closeLeftSidebar}
@@ -124,7 +123,7 @@
 									<span class="bg-primary h-full w-1"></span>
 									{id}
 									<sup>
-										{#if status !== 'stable'}
+										{#if status !== 'stable' && status !== 'deprecated'}
 											<StatusBadge {status} />
 										{/if}
 									</sup>
@@ -134,10 +133,10 @@
 						<li class="pt-4">
 							<p class="border-t pl-3 pt-4 font-bold uppercase">Deprecated</p>
 							<ul class="mt-3">
-								{#each Object.values(deprecatedPackages) as { path, id }}
+								{#each data.packages.deprecated as { id } (id)}
 									<li>
 										<a
-											href={path}
+											href="/docs/{id}"
 											data-current={data.pathname.includes(`/${id}`)}
 											class="current:text-link c-link-lazy current:border-link -ml-px block whitespace-nowrap border-l border-transparent py-1 pl-3"
 											onclick={closeLeftSidebar}

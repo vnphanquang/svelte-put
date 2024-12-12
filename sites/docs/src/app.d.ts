@@ -20,6 +20,16 @@ declare global {
 			packageManager: PackageManager;
 		};
 
+		declare interface Package {
+			id: string;
+			publishedAt: number;
+			description: string;
+			replId?: string;
+			status: 'dev' | 'beta' | 'new' | 'flux' | 'stable' | 'deprecated';
+			releaseTag?: string;
+			rune: boolean;
+		}
+
 		interface Locals {
 			userId: string;
 			settings: Settings;

@@ -7,7 +7,7 @@
 		children,
 		...rest
 	}: HTMLAttributes<HTMLSpanElement> & {
-		status: 'dev' | 'beta' | 'new' | 'flux' | 'stable';
+		status: Exclude<App.Package['status'], 'deprecated'>;
 	} = $props();
 
 	const BADGE_CLASSES = {

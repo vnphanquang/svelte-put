@@ -52,6 +52,7 @@ export default {
 		},
 		alias: {
 			$routes: path.resolve(__dirname, 'src/routes'),
+			$packages: path.resolve(__dirname, 'src/packages'),
 			'@pagefind': path.resolve(__dirname, '/pagefind/pagefind.js'),
 		},
 	},
