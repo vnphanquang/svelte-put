@@ -39,6 +39,7 @@ export default {
 	kit: {
 		prerender: {
 			origin: 'https://svelte-put.vnphanquang.com',
+			crawl: true,
 		},
 		adapter: adapter({
 			routes: {
