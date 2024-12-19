@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.0
+
+### Minor Changes
+
+- [`b86c53c`](https://github.com/vnphanquang/svelte-put/commit/b86c53c83d5bf72f9407b7908bd0d0455a82f37e) Thanks [@vnphanquang](https://github.com/vnphanquang)! - resolve #334, deprecate [4.0.1](https://github.com/vnphanquang/svelte-put/releases/tag/%40svelte-put/shortcut%404.0.1) (break semver): revert default modifier to catch-all , drop `*` modifier definition (leave `undefined` instead).
+
 ## 4.0.1
 
 ### Patch Changes
