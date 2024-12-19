@@ -26,7 +26,7 @@ export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
  *
  * @example
  *
- * Listen for no modifier
+ * Listen for key (catch-all, modifier or not)
  *
  * ```svelte
  * <script>
@@ -35,7 +35,7 @@ export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
  *
  * <window use:shortcut={{
  *   trigger: {
- *    key: 'k', // only trigger when no modifier is pressed
+ *    key: 'k',
  *   },
  * }}
  * />
@@ -43,7 +43,7 @@ export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
  *
  * @example
  *
- * Listen for any modifier (ctrl, shift, alt, or meta)
+ * Listen for key with no modifier
  *
  * ```svelte
  * <script>
@@ -52,7 +52,8 @@ export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
  *
  * <window use:shortcut={{
  *   trigger: {
- *    key: '*',
+ *    key: 'k',
+ *    modifier: false,  // only trigger when no modifier is pressed
  *   },
  * }}
  * />
@@ -60,7 +61,7 @@ export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
  *
  * @example
  *
- * Listen for a single modifier
+ * Listen for key with a single modifier
  *
  * ```svelte
  * <script>
@@ -78,7 +79,7 @@ export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
  *
  * @example
  *
- * Listen for one of many modifiers (or)
+ * Listen for key with one of many modifiers (or)
  *
  * ```svelte
  * <script>
@@ -96,7 +97,7 @@ export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
  *
  * @example
  *
- * Listen for a combination of multiple modifiers (and)
+ * Listen for key with a combination of multiple modifiers (and)
  *
  * ```svelte
  * <script>
@@ -135,13 +136,10 @@ export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
  * ```
  */
 export type ShortcutModifierDefinition =
-	| undefined // none
 	| null // none
 	| false // none
-	| '*' // any
 	| ShortcutModifier // one
-	| ShortcutModifier[] // one of (OR)
-	| ShortcutModifier[][]; // all of (AND)
+	| (ShortcutModifier|ShortcutModifier[])[] // all of (AND);
 
 /**
  * A definition of a shortcut trigger
@@ -157,7 +155,7 @@ export interface ShortcutTrigger {
 	 *  but event listener is still placed on node
 	 */
 	enabled?: boolean;
-	/** modifier key to listen to in conjunction of `key` */
+	/** modifier key to listen to in conjunction of `key`, defaults to `undefined` (catch-all) */
 	modifier?: ShortcutModifierDefinition;
 	/** id to distinguish this trigger from others, recommended when using `on:shortcut` */
 	id?: string;

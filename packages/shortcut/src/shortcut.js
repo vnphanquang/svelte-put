@@ -59,7 +59,7 @@ function mapModifierToBitMask(def) {
  *       },
  *       {
  *         key: 'Escape',
- *         modifier: undefined, // or any falsy value to means 'expect no modifier'
+ *         modifier: false, // or any falsy value other than undefined to means 'expect no modifier'
  *
  *         // preferably avoid arrow functions here for better performance
  *         // with arrow functions the action has to be updated more frequently
@@ -135,13 +135,13 @@ export function shortcut(node, param) {
 			if (triggerEnabled) {
 				if (event.key !== key) continue;
 
-				if (!modifier) {
+				if (modifier === null || modifier === false) {
 					if (modifierMask !== 0b0000) continue;
-				} else if (modifier === '*') {
-					if (modifierMask === 0b0000) continue;
-				} else {
+				} else if (
+					modifier !== undefined &&
+					modifier?.[0]?.length > 0
+				) {
 					const orDefs = Array.isArray(modifier) ? modifier : [modifier];
-
 					let modified = false;
 					for (const orDef of orDefs) {
 						const mask = (Array.isArray(orDef) ? orDef : [orDef]).reduce(
@@ -153,7 +153,6 @@ export function shortcut(node, param) {
 							break;
 						}
 					}
-
 					if (!modified) continue;
 				}
 
