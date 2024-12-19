@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.7
+
+### Patch Changes
+
+- Updated dependencies [[`209a394`](https://github.com/vnphanquang/svelte-put/commit/209a39412537938108e0f59eaff371bf793d1496)]:
+  - @svelte-put/shortcut@3.2.0
+
 ## 0.2.6
 
 ### Patch Changes

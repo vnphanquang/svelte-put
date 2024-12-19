@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.2.0
+
+### Minor Changes
+
+- [`209a394`](https://github.com/vnphanquang/svelte-put/commit/209a39412537938108e0f59eaff371bf793d1496) Thanks [@vnphanquang](https://github.com/vnphanquang)! - resolve #334, deprecate [3.1.2](https://github.com/vnphanquang/svelte-put/releases/tag/%40svelte-put/shortcut%403.1.2) (break semver): revert default modifier to catch-all , drop `*` modifier definition (leave `undefined` instead).
+
 ## 3.1.2
 
 ### Patch Changes
