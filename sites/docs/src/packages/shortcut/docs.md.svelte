@@ -1,6 +1,5 @@
 <script>
-	import { SettingsContext } from '$lib/settings/context.svelte';
-
+  import { SettingsContext } from '$lib/settings/context.svelte';
   const settings = SettingsContext.get();
 </script>
 
@@ -95,40 +94,35 @@ This approach does take up some additional memory. It should be negligible in mo
 
 Each `ShortcutTrigger` can specify either one or multiple modifiers (`ctrl`, `meta`, `alt`, `shift`) via `trigger.modifier` in both `AND` & `OR` fashions.
 
-### No modifier
+### Catch all
 
-<p class="c-callout c-callout--info c-callout--icon-megaphone w-fit">
-  Available since <a href="https://github.com/vnphanquang/svelte-put/releases/tag/%40svelte-put%2Fshortcut%404.0.1">v4.0.1</a>.
-</p>
-
-Simply omit `trigger.modifier` or set it to any falsy value — `false`, `null`, or `undefined` — to
-listen for the key without any modifier.
-
-```svelte title=modifier-single.svelte
-<svelte:window
-  use:shortcut={{
-    trigger: {
-      key: 'Escape',
-    },
-  }}
-/>
-```
-
-### Any modifier
-
-<p class="c-callout c-callout--info c-callout--icon-megaphone w-fit">
-  Available since <a href="https://github.com/vnphanquang/svelte-put/releases/tag/%40svelte-put%2Fshortcut%404.0.1">v4.0.1</a>.
-</p>
-
-Set `trigger.modifier` to `*` to listen for the key with any modifier.
+When left as `undefined`, `trigger.modifier` means "don't check for modifiers".
 
 ```svelte title=modifier-single.svelte
 <svelte:window
   use:shortcut={{
     trigger: {
       key: 'k',
+    },
+  }}
+/>
+```
+
+### No modifier
+
+<p class="c-callout c-callout--info c-callout--icon-megaphone w-fit">
+  Available since <a href="https://github.com/vnphanquang/svelte-put/releases/tag/%40svelte-put%2Fshortcut%404.1.0">v4.1.0</a>.
+</p>
+
+Set `trigger.modifier` to `false` or `null` for keys that expect **no** modifier.
+
+```svelte title=modifier-single.svelte
+<svelte:window
+  use:shortcut={{
+    trigger: {
+      key: 'Escape',
       <!-- :::highlight -->
-      modifier: '*',
+      modifier: false,
       <!-- ::: -->
     },
   }}
@@ -269,7 +263,7 @@ Handlers can be provided via either `trigger.callback`...
 
 <div class="c-callout c-callout--info">
 
-`trigger.id` is specified definition in the `handler-custom-event.svelte` example to conveniently help identify the trigger in the `onshortcut` event listener.
+`trigger.id` is specified in the `handler-custom-event.svelte` example to conveniently help identify the trigger in the `onshortcut` event listener.
 
 </div>
 
@@ -280,6 +274,25 @@ The two approaches are equivalent and depend on your aesthetic preference when m
 You should use only one of the two presented approaches and **NOT** both to avoid duplicate event handling.
 
 </div>
+
+## Event Type
+
+`@svelte-put/shortcut` support `keydown` (default) or `keyup` event type. You may change this via
+the `type` option.
+
+```svelte title=event-type.svelte
+<svelte:window
+  use:shortcut={{
+    trigger: {
+      key: 'k',
+      modifier: ['ctrl', 'meta'],
+    },
+    <!-- :::highlight -->
+    type: 'keyup',
+    <!-- ::: -->
+  }}
+/>
+```
 
 ## Original `KeyboardEvent`
 
