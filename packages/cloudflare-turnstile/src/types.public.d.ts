@@ -37,7 +37,7 @@ export type TurnstileDataConfig = {
 	'refresh-expired'?: 'auto' | 'manual' | 'never';
 	'refresh-timeout'?: 'auto' | 'manual' | 'never';
 	appearance?: 'always' | 'execute' | 'interaction-only';
-	'feedback-enabled': boolean;
+	'feedback-enabled'?: boolean;
 };
 
 /**
