@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.1
+
+### Patch Changes
+
+- [`38b8618`](https://github.com/vnphanquang/svelte-put/commit/38b8618ff5087d7e5459a3d054efeb5cb229f380) Thanks [@vnphanquang](https://github.com/vnphanquang)! - set 'feedback-enabled' to optional
+
 ## 1.1.0
 
 ### Minor Changes
