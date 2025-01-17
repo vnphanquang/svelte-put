@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.0.1
+
+### Patch Changes
+
+- [#338](https://github.com/vnphanquang/svelte-put/pull/338) [`ff6b2a6`](https://github.com/vnphanquang/svelte-put/commit/ff6b2a6d3257fc03e76467f057aabb5ced3fab34) Thanks [@Gerharddc](https://github.com/Gerharddc)! - mark vite 6 as supported
+
 ## 4.0.0
 
 ### Major Changes
