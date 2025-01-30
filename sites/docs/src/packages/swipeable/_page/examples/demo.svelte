@@ -12,7 +12,7 @@
 	import { slide } from 'svelte/transition';
 
 	const ITEMS = new Array(4).fill(undefined).map(() => ({
-		id: crypto.randomUUID(),
+		id: 'crypto' in globalThis ? crypto.randomUUID() : Math.random().toString(36).slice(2),
 		title: 'Message from Universe',
 		excerpt:
 			'Lorem ipsum dolor sit amet consectetur adipisicing elit. \

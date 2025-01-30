@@ -138,7 +138,7 @@ export class Stack {
 			instanceConfig.id = (++this.#counter).toString();
 		} else if (idResolver === 'uuid') {
 			instanceConfig.id =
-				'crypto' in window && crypto.randomUUID
+				'crypto' in globalThis && crypto.randomUUID
 					? crypto.randomUUID()
 					: (++this.#counter).toString();
 		} else {

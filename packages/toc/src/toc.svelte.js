@@ -9,8 +9,7 @@ export class Toc {
 	 * the ID of this toc operation. see {@link TocParameters}, set on `Toc` instantiation
 	 * @type {string}
 	 */
-	// eslint-disable-next-line no-undef
-	id = crypto.randomUUID();
+	id = ('crypto' in globalThis && crypto.randomUUID) ? crypto.randomUUID() : Math.random().toString(36).slice(2);
 
 	/**
 	 * the extracted toc items, populated on mount (`tocinit`)
