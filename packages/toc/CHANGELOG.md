@@ -1,5 +1,11 @@
 # Changelog
 
+## 6.0.1
+
+### Patch Changes
+
+- [`1f0ae6e`](https://github.com/vnphanquang/svelte-put/commit/1f0ae6e79b1794420533e866016bc2409d2db39b) Thanks [@vnphanquang](https://github.com/vnphanquang)! - fallback if crypto api is not available
+
 ## 6.0.0
 
 ### Major Changes
