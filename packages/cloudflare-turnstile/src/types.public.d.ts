@@ -31,7 +31,7 @@ export type TurnstileDataConfig = {
 	tabindex?: number;
 	'response-field'?: boolean;
 	'response-field-name'?: string;
-	size?: 'normal' | 'compact';
+	size?: 'normal' | 'flexible' | 'compact';
 	retry?: 'auto' | 'never';
 	'retry-interval'?: number;
 	'refresh-expired'?: 'auto' | 'manual' | 'never';
