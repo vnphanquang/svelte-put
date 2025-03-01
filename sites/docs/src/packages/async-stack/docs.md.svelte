@@ -353,7 +353,7 @@ The `pause` and `resume` methods on `Stack` instance are actually just proxies f
 <!-- ...truncated... -->
 ```
 
-...accept when no `id` is specified, in which case the method will be applied to all active `StackItem` instances.
+...except when no `id` is specified, in which case the method will be applied to all active `StackItem` instances.
 
 ```typescript title="Pausing & Resuming All- Stack"
 notiStack.pause(); // pausing all items
@@ -372,7 +372,7 @@ As seen in [Comprehensive Example], `@svelte-put/async-stack` does not control h
 
 ### The helper `render` action
 
-The `render` action makes sure your `StackItem` components receive all the correct props upon `push`. In the example above, the associated components will be rendered as direct children of `<div>`.
+The `render` action makes sure your `StackItem` components receive all the correct props upon `push`. In the example above, the associated components will be rendered as direct children of `<li>`.
 
 ```svelte title=NotificationPortal.svelte
 <script>
