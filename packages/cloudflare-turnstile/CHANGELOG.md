@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.2
+
+### Patch Changes
+
+- [#341](https://github.com/vnphanquang/svelte-put/pull/341) [`5581607`](https://github.com/vnphanquang/svelte-put/commit/55816070fa9475e9d8ad88afafb08956f05eb5ad) Thanks [@csprl](https://github.com/csprl)! - support typing for `flexible` size
+
 ## 1.1.1
 
 ### Patch Changes
