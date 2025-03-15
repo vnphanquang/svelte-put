@@ -9,7 +9,10 @@ export class Toc {
 	 * the ID of this toc operation. see {@link TocParameters}, set on `Toc` instantiation
 	 * @type {string}
 	 */
-	id = ('crypto' in globalThis && crypto.randomUUID) ? crypto.randomUUID() : Math.random().toString(36).slice(2);
+	id =
+		'crypto' in globalThis && crypto.randomUUID
+			? crypto.randomUUID()
+			: Math.random().toString(36).slice(2);
 
 	/**
 	 * the extracted toc items, populated on mount (`tocinit`)
@@ -81,9 +84,10 @@ export class Toc {
 			}
 			if (init.observe !== undefined) {
 				if (typeof init.observe === 'boolean') {
-					this.config.observe.enabled = init.observe;
+					this.config.observe.link.enabled = this.config.observe.enabled = init.observe;
 				} else {
-					this.config.observe.link.enabled = this.config.observe.enabled = init.observe.enabled ?? true;
+					this.config.observe.link.enabled = this.config.observe.enabled =
+						init.observe.enabled ?? true;
 					if (init.observe.strategy) this.config.observe.strategy = init.observe.strategy;
 					if (init.observe.threshold) this.config.observe.threshold = init.observe.threshold;
 					if (init.observe.root) this.config.observe.root = init.observe.root;
@@ -92,9 +96,12 @@ export class Toc {
 						if (typeof init.observe.link === 'boolean') {
 							this.config.observe.link.enabled = init.observe.link;
 						} else {
-							this.config.observe.link.enabled = init.observe.link.enabled ?? init.observe.enabled ?? true;
-							if (init.observe.link.activeAttribute) this.config.observe.link.activeAttribute = init.observe.link.activeAttribute;
-							if (init.observe.link.throttleOnClick) this.config.observe.link.throttleOnClick = init.observe.link.throttleOnClick;
+							this.config.observe.link.enabled =
+								init.observe.link.enabled ?? init.observe.enabled ?? true;
+							if (init.observe.link.activeAttribute)
+								this.config.observe.link.activeAttribute = init.observe.link.activeAttribute;
+							if (init.observe.link.throttleOnClick)
+								this.config.observe.link.throttleOnClick = init.observe.link.throttleOnClick;
 						}
 					}
 				}
@@ -109,4 +116,3 @@ export class Toc {
 		this.observeThrottled = false;
 	}
 }
-
