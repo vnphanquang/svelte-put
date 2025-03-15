@@ -1,5 +1,11 @@
 # Changelog
 
+## 6.0.2
+
+### Patch Changes
+
+- [#344](https://github.com/vnphanquang/svelte-put/pull/344) [`c8ab3c5`](https://github.com/vnphanquang/svelte-put/commit/c8ab3c59cb50590dfef54cfe59f6f275ecda5afc) Thanks [@vnphanquang](https://github.com/vnphanquang)! - correctly set `osbserve.link.enable` option when `observe` is boolean (see #343 - thanks @nicholascostadev for reporting)
+
 ## 6.0.1
 
 ### Patch Changes
