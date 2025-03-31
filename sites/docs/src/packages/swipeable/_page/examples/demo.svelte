@@ -61,7 +61,7 @@
 			<!-- :::focus -->
 			<!-- :::highlight -->
 			<article
-				class="z-px border-outline bg-bg-100 relative touch-pan-x space-y-1 border p-4"
+				class="z-px border-outline bg-bg-100 relative touch-none space-y-1 border p-4"
 				use:swipeable
 				onswipestart={swipestart}
 				onswipeend={swipeend}
