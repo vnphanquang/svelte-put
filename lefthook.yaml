@@ -12,7 +12,7 @@ pre-commit:
       glob: '*.{js,ts,svelte}'
       stage_fixed: true
     2_svelte-check:
-      run: pnpm svelte-check {staged_files}
+      run: pnpm svelte-check
       glob: '*.svelte'
       stage_fixed: true
       exclude:
@@ -27,4 +27,3 @@ pre-commit:
       stage_fixed: true
       exclude:
         - pnpm-lock.yaml
-
