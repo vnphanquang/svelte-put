@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0
+
+### Minor Changes
+
+- [`fe427d2`](https://github.com/vnphanquang/svelte-put/commit/fe427d2104e26640faf3ef6752ce5bfec318ddfc) Thanks [@vnphanquang](https://github.com/vnphanquang)! - automatically add `touch-action: none` to node (can be turned off via `disableTouchEvents` option)
+
 ## 1.0.0
 
 ### Major Changes
