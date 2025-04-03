@@ -7,6 +7,7 @@ export type ResolvedConfig = {
 	allowFlick: NonNullable<Exclude<SwipeableConfig['allowFlick'], boolean>>;
 	followThrough: Required<SwipeFollowThrough> & { enabled: boolean };
 	enabled: boolean;
+	disableTouchEvents: boolean;
 }
 
 export type PointerCoordinate = {

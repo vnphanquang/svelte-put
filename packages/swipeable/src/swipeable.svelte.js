@@ -23,6 +23,7 @@ export function swipeable(node, param) {
 		},
 		allowFlick: (ms, px) => ms < 170 && Math.abs(px / ms) > 1,
 		enabled: true,
+		disableTouchEvents: true,
 	});
 
 	let threshold = { x: 0, y: 0 };
@@ -59,16 +60,20 @@ export function swipeable(node, param) {
 				if (param.enabled !== undefined) config.enabled = param.enabled;
 				if (param.allowFlick !== undefined) {
 					if (typeof param.allowFlick === 'function') config.allowFlick = param.allowFlick;
-						else if (!param.allowFlick) config.allowFlick = () => false;
+					else if (!param.allowFlick) config.allowFlick = () => false;
 				}
 				if (param.followThrough !== undefined) {
 					if (typeof param.followThrough === 'object') {
-						if (param.followThrough.easing) config.followThrough.easing = param.followThrough.easing;
+						if (param.followThrough.easing)
+							config.followThrough.easing = param.followThrough.easing;
 						if (param.followThrough.duration)
 							config.followThrough.duration = param.followThrough.duration;
 					} else {
 						config.followThrough.enabled = param.followThrough;
 					}
+				}
+				if (param.disableTouchEvents !== undefined) {
+					config.disableTouchEvents = param.disableTouchEvents;
 				}
 			}
 		}
@@ -130,9 +135,14 @@ export function swipeable(node, param) {
 		}
 		if (!axis) return;
 
-		const newDirection = axis === 'x'
-			? newDistance[axis] > 0 ? 'right' : 'left'
-			: newDistance[axis] > 0 ? 'down' : 'up';
+		const newDirection =
+			axis === 'x'
+				? newDistance[axis] > 0
+					? 'right'
+					: 'left'
+				: newDistance[axis] > 0
+					? 'down'
+					: 'up';
 
 		const shouldFire = !direction || Math.sign(distance[axis]) !== Math.sign(newDistance[axis]);
 
@@ -205,19 +215,29 @@ export function swipeable(node, param) {
 		reset();
 	}
 
+	function addStyles() {
+		/** @type {HTMLElement}*/ (node).style.touchAction = 'none';
+	}
+
+	function removeStyles() {
+		/** @type {HTMLElement}*/ (node).style.removeProperty('touch-action');
+	}
+
 	tNode.addEventListener('resize', onResize);
 	tNode.addEventListener('pointerdown', onPointerDown);
 	resolveConfig();
+	if (config.enabled && config.disableTouchEvents) addStyles();
 
 	return {
 		update(newParam) {
 			param = newParam;
 			resolveConfig();
+			if (config.enabled && config.disableTouchEvents) addStyles();
 		},
 		destroy() {
 			tNode.removeEventListener('resize', onResize);
 			tNode.removeEventListener('pointerdown', onPointerDown);
+			if (config.disableTouchEvents) removeStyles();
 		},
 	};
 }
-

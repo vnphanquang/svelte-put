@@ -55,6 +55,11 @@ export interface SwipeableConfig {
 	 * Default to `true`
 	 */
 	enabled?: boolean;
+	/**
+	 * setting `touch-action: none` on the element.
+	 * Default to `true`
+	 */
+	disableTouchEvents?: boolean;
 }
 
 export interface SwipeStartEventDetail {
