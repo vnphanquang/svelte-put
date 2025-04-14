@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.0
+
+### Minor Changes
+
+- [`1d654d0`](https://github.com/vnphanquang/svelte-put/commit/1d654d014927970f4ebd37a2b417d7bc95bd4df0) Thanks [@vnphanquang](https://github.com/vnphanquang)! - add `@svelte-put/cloudflare-turnstile/tailwind.css` Tailwind V4 extension that adds `turnstile` utility
+
 ## 1.1.2
 
 ### Patch Changes
