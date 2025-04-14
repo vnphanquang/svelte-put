@@ -10,7 +10,8 @@
 		".": {
 			"types": "./types/index.d.ts",
 			"import": "./src/index.js"
-		}
+		},
+		"./tailwind.css": "./src/tailwind.css"
 	},
 	"publishConfig": {
 		"access": "public",
