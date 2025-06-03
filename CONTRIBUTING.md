@@ -39,7 +39,7 @@ This is a monorepo managed with [pnpm] workspace and [turborepo] with the follow
 - `sites/docs`: documentation site live at [svelte-put.vnphanquang.com](https://svelte-put.vnphanquang.com)
 - `internals/*`: private helper
 
-See [package.json at root directory](../package.json) and in each package for available npm scripts. To run package-specific npm scripts, `cd` to package or use the `filter=...` flag at root. For example, to start the documentation site, run:
+See [package.json at root directory](package.json) and in each package for available npm scripts. To run package-specific npm scripts, `cd` to package or use the `filter=...` flag at root. For example, to start the documentation site, run:
 
 ```bash
 pnpm dev --filter=@sites/docs
