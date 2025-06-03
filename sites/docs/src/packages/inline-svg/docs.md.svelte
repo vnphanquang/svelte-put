@@ -160,19 +160,17 @@ const config = {
   plugins: [
     // :::diff +
     inlineSvg([
-     [
-        {
-          directories: 'src/assets/icons',
-          attributes: {
-            class: 'icon',
-            width: '20',
-            height: '20',
-          },
+      {
+        directories: 'src/assets/icons',
+        attributes: {
+          class: 'icon',
+          width: '20',
+          height: '20',
         },
-        {
-          directories: 'src/assets/pictograms',
-        },
-      ],
+      },
+      {
+        directories: 'src/assets/pictograms',
+      },
     ]),
     // :::
     sveltekit(),
