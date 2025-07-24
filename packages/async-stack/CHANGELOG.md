@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1
+
+### Patch Changes
+
+- [#355](https://github.com/vnphanquang/svelte-put/pull/355) [`2e1d1cb`](https://github.com/vnphanquang/svelte-put/commit/2e1d1cb8259b96d96e397e8ec0204c3424ac6aef) Thanks [@vnphanquang](https://github.com/vnphanquang)! - define `Stack` interface explicitly for better type inference in overloaded `push` method
+
 ## 1.0.0
 
 ### Major Changes
