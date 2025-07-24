@@ -11,16 +11,11 @@ export class Stack {
 	#variantConfigMap = {};
 	#counter = 0;
 
-	/**
-	 * the stack items
-	 * @type {StackItem<any>[]}
-	 */
+	/** @type {StackItem<any>[]} */
 	// eslint-disable-next-line no-undef
 	items = $state([]);
 
-	/**
-	 * @type {Required<import('./types.package').StackItemCommonConfig<string, import('svelte').Component<any>>>}
-	 */
+	/** @type {Required<import('./types.package').StackItemCommonConfig<string, import('svelte').Component<any>>>} */
 	// eslint-disable-next-line no-undef
 	config = $state({
 		id: 'uuid',
@@ -29,7 +24,6 @@ export class Stack {
 
 	actions = {
 		/**
-		 * register the element to render a stack item into
 		 * @param {HTMLElement} node
 		 * @param {StackItem<any>} item
 		 * @returns {import('./types.package').StackItemRenderActionReturn}
@@ -70,23 +64,7 @@ export class Stack {
 
 	/**
 	 * @template {Extract<keyof VariantMap, string>} Variant
-	 * @template {VariantMap[Variant]} [UserComponent=VariantMap[Variant]]
-	 * @overload
-	 * @param {Variant} variant
-	 * @param {import('./types.package').StackItemByVariantPushConfig<Variant, UserComponent>} [config]
-	 * @returns {StackItem<UserComponent>}
-	 */
-	/**
-	 * @template {Extract<keyof VariantMap, string>} Variant
-	 * @template {VariantMap[Variant]} [UserComponent=VariantMap[Variant]]
-	 * @overload
-	 * @param {'custom'} variant
-	 * @param {import('./types.package').StackItemCustomPushConfig<import('svelte').Component<any>>} config
-	 * @returns {StackItem<import('svelte').Component<any>>}
-	 */
-	/**
-	 * @template {Extract<keyof VariantMap, string>} Variant
-	 * @template {VariantMap[Variant]} [UserComponent=VariantMap[Variant]]
+	 * @template {import('svelte').Component<any>} [UserComponent=VariantMap[Variant]]
 	 * @param {Variant} variant
 	 * @param {import('./types.package').StackItemByVariantPushConfig<Variant, UserComponent> | import('./types.package').StackItemCustomPushConfig<UserComponent>} [config]
 	 * @returns {StackItem<any>}
@@ -163,19 +141,6 @@ export class Stack {
 
 	/**
 	 * @template {import('svelte').Component<any>} [UserComponent=import('svelte').Component]
-	 * @overload
-	 * @param {string} [id]
-	 * @param {any} [detail]
-	 * @returns {StackItem<UserComponent> | null}
-	 */
-	/**
-	 * @template {import('svelte').Component<any>} [UserComponent=import('svelte').Component]
-	 * @overload
-	 * @param {import('./types.package').StackItemPopVerboseInput<UserComponent>} [config]
-	 * @returns {StackItem<UserComponent> | null}
-	 */
-	/**
-	 * @template {import('svelte').Component<any>} [UserComponent=import('svelte').Component]
 	 * @param {string | import('./types.package').StackItemPopVerboseInput<UserComponent>} [config]
 	 * @param {any} [resolved]
 	 * @returns {StackItem<UserComponent> | null}
@@ -209,8 +174,6 @@ export class Stack {
 	}
 
 	/**
-	 * pause a stack item, if it has a timeout. If no `id` is provided,
-	 * will pause all stack items with a timeout
 	 * @param {string} [id]
 	 * @returns {void}
 	 */
@@ -224,8 +187,6 @@ export class Stack {
 	}
 
 	/**
-	 * resume a stack item, if it has been paused. If no `id` is provided,
-	 * will resume all stack items with a timeout
 	 * @param {string} [id]
 	 * @returns {void}
 	 */
