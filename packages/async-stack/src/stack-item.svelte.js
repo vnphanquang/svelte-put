@@ -39,9 +39,9 @@ export class StackItem {
 		if (this.#internals.msToTimeout <= 0 || this.state === 'elapsing') return;
 		clearTimeout(this.#internals.timeoutId);
 		this.#internals.lastStartedTime = new Date().getTime();
-		this.#internals.timeoutId = setTimeout(() => {
+		this.#internals.timeoutId = setTimeout(async () => {
 			this.#internals.msToTimeout = 0;
-			this.#internals.resolve();
+			await this.resolve();
 			this.state = 'timeout';
 		}, this.#internals.msToTimeout);
 		this.state = 'elapsing';
