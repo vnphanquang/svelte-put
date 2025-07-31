@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.2
+
+### Patch Changes
+
+- [`876690f`](https://github.com/vnphanquang/svelte-put/commit/876690f061f42bbd841113b1777315c297096160) Thanks [@vnphanquang](https://github.com/vnphanquang)! - setting up all event listener within attachment (avoid overriden by user)
+
 ## 1.1.1
 
 ### Patch Changes
