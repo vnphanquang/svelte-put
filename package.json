@@ -29,7 +29,7 @@
 		"@types/eslint": "^9.6.1",
 		"@types/node": "^22.10.1",
 		"@vnphanquang/eslint-config": "^3.0.1",
-		"dts-buddy": "^0.5.4",
+		"dts-buddy": "^0.6.2",
 		"eslint": "^9.16.0",
 		"eslint-plugin-jsdoc": "^50.6.0",
 		"eslint-plugin-svelte": "^2.46.1",
