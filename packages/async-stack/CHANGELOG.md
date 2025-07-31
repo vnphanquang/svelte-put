@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.1.1
+
+### Patch Changes
+
+- [`7958699`](https://github.com/vnphanquang/svelte-put/commit/7958699bc3b95cd7fdc104968cbe563ced49f334) Thanks [@vnphanquang](https://github.com/vnphanquang)! - mark `enhanceDialog` as experimental
+
+- [`e28cac7`](https://github.com/vnphanquang/svelte-put/commit/e28cac7dcfc95c1837673f2ee56dd64ca350115a) Thanks [@vnphanquang](https://github.com/vnphanquang)! - perform `delayResolution` setup within attachment for better lifecycle management
+
+- [`d5868dc`](https://github.com/vnphanquang/svelte-put/commit/d5868dcef5934247e0acf3e14affcbc96506f341) Thanks [@vnphanquang](https://github.com/vnphanquang)! - make sure resolution is consistent on timeout
+
+- [`0665b59`](https://github.com/vnphanquang/svelte-put/commit/0665b59f4d591a293d3036ce551471a4cc3fa472) Thanks [@vnphanquang](https://github.com/vnphanquang)! - make sure `unmount` is call for component lifecycle to end gracefully
+
 ## 1.1.0
 
 ### Minor Changes
