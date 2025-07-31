@@ -59,7 +59,7 @@ export class StackItem {
 	 * @returns {Promise<Resolved | undefined>}
 	 */
 	resolve = async (resolved) => {
-		if (this.state === 'resolved') return this.resolution;
+		if (this.state === 'resolved' || this.state === 'timeout') return this.resolution;
 		await Promise.all(this.#internals.resolveListeners.map((callback) => callback(resolved)));
 		this.#internals.resolve(resolved);
 		this.state = 'resolved';
