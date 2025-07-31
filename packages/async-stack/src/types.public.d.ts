@@ -5,7 +5,7 @@ import type { StackItem } from './stack-item.svelte.js';
 
 export interface StackItemProps<Resolved = undefined> {
 	/** the stack item instance injected by the stack */
-	item: Omit<StackItem<Component<StackItemProps<Resolved>>, Resolved>, '#internals'>;
+	item: StackItem<Component<StackItemProps<Resolved>>, Resolved>;
 }
 
 export type ComponentResolved<UserComponent extends Component<any>> =

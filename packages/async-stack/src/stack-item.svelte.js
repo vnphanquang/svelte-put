@@ -18,10 +18,7 @@ export class StackItem {
 		resolve: () => {},
 	};
 
-	/**
-	 * a promise that resolves when the item is popped or resolved via the .resolve method
-	 * @type {Promise<Resolved | undefined>}
-	 */
+	/** @type {Promise<Resolved | undefined>} */
 	resolution;
 
 	/**
