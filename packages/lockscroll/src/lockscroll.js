@@ -41,5 +41,8 @@ export function lockscroll(node, param) {
 		update(update) {
 			updateLockState(update);
 		},
+		destroy() {
+			unlock();
+		},
 	};
 }
