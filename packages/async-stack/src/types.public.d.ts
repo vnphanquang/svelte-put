@@ -13,3 +13,6 @@ export type ComponentResolved<UserComponent extends Component<any>> =
 		? Resolved
 		: any;
 
+export type StackItemResolveListener<Resolved> = (
+	resolved?: Resolved,
+) => void | Promise<void> | PromiseLike<void>;

@@ -2,7 +2,7 @@
 import type { Component } from 'svelte';
 
 import type { StackItemInstanceConfig, StackItemState } from './types.package';
-import type { ComponentResolved } from './types.public';
+import type { ComponentResolved, StackItemResolveListener } from './types.public';
 
 export class StackItem<
 	UserComponent extends Component<any>,
@@ -29,4 +29,11 @@ export class StackItem<
 	 * unmounting its component
 	 */
 	resolve: (resolved?: Resolved) => Promise<Resolved | undefined>;
+	/**
+	 * runs the provided callback immediately before the stack item is resolved.
+	 * if the callback returns a promise, the promise will be awaited before
+	 * the item is resolved. This allows you to perform cleanup or exit animation.
+	 * Avoid promises that are slow to resolve!
+	 */
+	onResolve: (callback: StackItemResolveListener<Resolved>) => void;
 }

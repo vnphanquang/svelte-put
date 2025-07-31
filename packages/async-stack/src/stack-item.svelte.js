@@ -14,6 +14,8 @@ export class StackItem {
 		/** @type {ReturnType<typeof setTimeout> | undefined} */
 		timeoutId: undefined,
 		lastStartedTime: new Date().getTime(),
+		/** @type {import('./types.public').StackItemResolveListener<Resolved>[]} */
+		resolveListeners: [],
 		/** @type {(r?: Resolved) => void} */
 		resolve: () => {},
 	};
@@ -56,11 +58,18 @@ export class StackItem {
 	 * @param {Resolved} [resolved]
 	 * @returns {Promise<Resolved | undefined>}
 	 */
-	resolve = (resolved) => {
+	resolve = async (resolved) => {
 		if (this.state === 'resolved') return this.resolution;
+		await Promise.all(this.#internals.resolveListeners.map((callback) => callback(resolved)));
 		this.#internals.resolve(resolved);
 		this.state = 'resolved';
 		return this.resolution;
 	};
-}
 
+	/**
+	 * @param {import('./types.public').StackItemResolveListener<Resolved>} callback
+	 */
+	onResolve = (callback) => {
+		this.#internals.resolveListeners.push(callback);
+	};
+}
