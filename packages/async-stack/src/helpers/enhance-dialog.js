@@ -26,16 +26,6 @@ import { createAttachmentKey } from 'svelte/attachments';
  */
 export function enhanceDialog(item, options) {
 	return {
-		/** @param {Event} event */
-		onclose: function (event) {
-			const dialog = /** @type {HTMLDialogElement} */ (event.target);
-			// if dialog is setup with "method=dialog" form / inputs
-			// this will help capture without the need for JavaScript
-			item.resolve(
-				/** @type {Resolved} */ (dialog.returnValue) || options?.defaultReturnValue || undefined,
-			);
-		},
-
 		/** @type {import('svelte/attachments').Attachment<HTMLDialogElement>} */
 		[createAttachmentKey()]: function (dialog) {
 			dialog.showModal();
@@ -53,14 +43,27 @@ export function enhanceDialog(item, options) {
 			}
 			dialog.addEventListener('animationend', onanimationend);
 
+			// set up backdrop click handler
+			dialog.addEventListener('click', onclick);
+			dialog.addEventListener('clickbackdrop', onclickbackdrop);
+
+			// if dialog is setup with "method=dialog" form / inputs
+			// this will help capture without the need for JavaScript
+			function onclose() {
+				item.resolve(
+					/** @type {Resolved} */ (dialog.returnValue) || options?.defaultReturnValue || undefined,
+				);
+			}
+			dialog.addEventListener('close', onclose);
+
 			return () => {
 				resumeResolution?.();
 				dialog.removeEventListener('animationend', onanimationend);
+				dialog.removeEventListener('click', onclick);
+				dialog.removeEventListener('clickbackdrop', onclickbackdrop);
+				dialog.removeEventListener('close', onclose);
 			};
 		},
-
-		onclickbackdrop,
-		onclick,
 	};
 }
 
@@ -82,7 +85,7 @@ function onclick(event) {
 }
 
 /**
- * @param {CustomEvent} event
+ * @param {Event} event
  */
 function onclickbackdrop(event) {
 	const dialog = /** @type {HTMLDialogElement} */ (event.currentTarget);
