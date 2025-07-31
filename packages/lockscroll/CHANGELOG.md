@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.1
+
+### Patch Changes
+
+- [`45fbc8e`](https://github.com/vnphanquang/svelte-put/commit/45fbc8e2ed253a619037c3d979b2816e34e9ee82) Thanks [@vnphanquang](https://github.com/vnphanquang)! - unlock when action is destroyed
+
 ## 2.0.0
 
 ### Major Changes
