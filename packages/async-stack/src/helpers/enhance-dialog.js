@@ -13,6 +13,8 @@ import { createAttachmentKey } from 'svelte/attachments';
  */
 
 /**
+ * NOTE: This is experimental API and may change in the future.
+ *
  * enhance an `HTMLDialogElement` when used as component for `StackItem`. This will:
  * 1. call `showModal()` on the dialog is mounted,
  * 2. capture `form.returnValue` when integrated with method="dialog" form / inputs,
