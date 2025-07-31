@@ -25,22 +25,7 @@ import { createAttachmentKey } from 'svelte/attachments';
  * @returns {import('svelte/elements').HTMLDialogAttributes & EnhanceDialogAttributes}
  */
 export function enhanceDialog(item, options) {
-	/** @type {undefined | (() => void)}  */
-	let resumeResolution = undefined;
-	if (options?.delayResolution) {
-		item.onResolve(() => new Promise((resolve) => (resumeResolution = resolve)));
-	}
-
 	return {
-		/** @param {Event} event */
-		onanimationend(event) {
-			const dialog = /** @type {HTMLDialogElement} */ (event.target);
-			if (dialog.open) return;
-			if (options?.delayResolution === 'animationend') {
-				resumeResolution?.();
-			}
-		},
-
 		/** @param {Event} event */
 		onclose: function (event) {
 			const dialog = /** @type {HTMLDialogElement} */ (event.target);
@@ -51,12 +36,27 @@ export function enhanceDialog(item, options) {
 			);
 		},
 
-		/**
-		 * @param {HTMLDialogElement} element
-		 */
-		[createAttachmentKey()]: function (element) {
-			const dialog = /** @type {HTMLDialogElement} */ (element);
+		/** @type {import('svelte/attachments').Attachment<HTMLDialogElement>} */
+		[createAttachmentKey()]: function (dialog) {
 			dialog.showModal();
+
+			/** @type {undefined | (() => void)}  */
+			let resumeResolution = undefined;
+			if (options?.delayResolution) {
+				item.onResolve(() => new Promise((resolve) => (resumeResolution = resolve)));
+			}
+			function onanimationend() {
+				if (dialog.open) return;
+				if (options?.delayResolution === 'animationend') {
+					resumeResolution?.();
+				}
+			}
+			dialog.addEventListener('animationend', onanimationend);
+
+			return () => {
+				resumeResolution?.();
+				dialog.removeEventListener('animationend', onanimationend);
+			};
 		},
 
 		onclickbackdrop,
