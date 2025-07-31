@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.1.0
+
+### Minor Changes
+
+- [`165aeea`](https://github.com/vnphanquang/svelte-put/commit/165aeea7b8e890ac1b8ee638f7f5b53c21fcc1a3) Thanks [@vnphanquang](https://github.com/vnphanquang)! - export an `enhanceDialog` helper for convenient usage with `HTMLDialogElement`
+
+- [`951499f`](https://github.com/vnphanquang/svelte-put/commit/951499f8caf3b8101849459c96ed4186177a13d4) Thanks [@vnphanquang](https://github.com/vnphanquang)! - add `onResolve` to listen to (or perform pre steps to) item resolve
+
+### Patch Changes
+
+- [`4d0fa85`](https://github.com/vnphanquang/svelte-put/commit/4d0fa8592903d0a4648393762cf7dfb20f73cd40) Thanks [@vnphanquang](https://github.com/vnphanquang)! - should skip resolution if has already timeouted
+
 ## 1.0.3
 
 ### Patch Changes
