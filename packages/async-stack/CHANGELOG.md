@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.3
+
+### Patch Changes
+
+- [`0d1161b`](https://github.com/vnphanquang/svelte-put/commit/0d1161b83e15171f1c1cdf4dd982aa3bc7be4319) Thanks [@vnphanquang](https://github.com/vnphanquang)! - provide explicit d.ts for `StackItem` for greater control
+
 ## 1.0.2
 
 ### Patch Changes
