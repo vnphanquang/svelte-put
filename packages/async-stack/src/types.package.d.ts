@@ -46,6 +46,13 @@ export type StackItemInstanceConfig<
 	timeout: number;
 };
 
+/**
+ * - 'idle': stack item is active with no timeout, its component is rendered
+ * - 'elapsing': stack item is active with a timeout that is currently counting down
+ * - 'paused': stack item is active with a timeout that is paused
+ * - 'timeout': stack item has reached its timeout and has been resolved
+ * - 'resolved': stack item has been resolved (popped from the stack, its component unmounted)
+ */
 export type StackItemState = 'idle' | 'elapsing' | 'paused' | 'timeout' | 'resolved';
 
 export type StackItemByVariantPushConfig<
