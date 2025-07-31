@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.2
+
+### Patch Changes
+
+- [`a9c9fc5`](https://github.com/vnphanquang/svelte-put/commit/a9c9fc5ec05c644360c5e094f1b4e00f2e1151c8) Thanks [@vnphanquang](https://github.com/vnphanquang)! - add JSDocs for `StackItemState`
+
 ## 1.0.1
 
 ### Patch Changes
