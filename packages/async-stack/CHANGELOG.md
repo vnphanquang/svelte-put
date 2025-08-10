@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.3
+
+### Patch Changes
+
+- [`ce47264`](https://github.com/vnphanquang/svelte-put/commit/ce4726424a19767aa307162b942902d0318b6451) Thanks [@vnphanquang](https://github.com/vnphanquang)! - fix issue when using `enhanceDialog` and calling `item.resolve` does not close the dialog
+
 ## 1.1.2
 
 ### Patch Changes
