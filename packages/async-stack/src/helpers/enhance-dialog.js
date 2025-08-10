@@ -33,7 +33,17 @@ export function enhanceDialog(item, options) {
 			/** @type {undefined | (() => void)}  */
 			let resumeResolution = undefined;
 			if (options?.delayResolution) {
-				item.onResolve(() => new Promise((resolve) => (resumeResolution = resolve)));
+				item.onResolve(
+					() =>
+						new Promise((resolve) => {
+							if (dialog.open) {
+								// user calls `item.resolve(...)`
+								dialog.removeEventListener('close', onclose);
+								dialog.close();
+							}
+							resumeResolution = resolve;
+						}),
+				);
 			}
 			function onanimationend() {
 				if (dialog.open) return;
