@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.4
+
+### Patch Changes
+
+- [`4f3ee9e`](https://github.com/vnphanquang/svelte-put/commit/4f3ee9e7139186298fb417c5d8c4812fa1105df8) Thanks [@vnphanquang](https://github.com/vnphanquang)! - call `requestClose` if available in enhance-dialog
+
+- [`93c7d99`](https://github.com/vnphanquang/svelte-put/commit/93c7d999ba4bc1ffc78d2e12227a0972e1c5c70c) Thanks [@vnphanquang](https://github.com/vnphanquang)! - correct clickoutside logic in enhance-dialog attachment
+
 ## 1.1.3
 
 ### Patch Changes
