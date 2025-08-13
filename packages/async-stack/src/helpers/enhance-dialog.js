@@ -39,8 +39,11 @@ export function enhanceDialog(item, options) {
 							if (dialog.open) {
 								// user calls `item.resolve(...)`
 								dialog.removeEventListener('close', onclose);
-								// TODO: change to https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/requestClose
-								dialog.close();
+								if ('requestClose' in dialog) {
+									dialog.requestClose();
+								} else {
+									dialog.close();
+								}
 							}
 							resumeResolution = resolve;
 						}),
@@ -100,5 +103,9 @@ function onclick(event) {
  */
 function onclickbackdrop(event) {
 	const dialog = /** @type {HTMLDialogElement} */ (event.currentTarget);
-	dialog.close();
+	if ('requestClose' in dialog) {
+		dialog.requestClose();
+	} else {
+		dialog.close();
+	}
 }
