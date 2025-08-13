@@ -39,6 +39,7 @@ export function enhanceDialog(item, options) {
 							if (dialog.open) {
 								// user calls `item.resolve(...)`
 								dialog.removeEventListener('close', onclose);
+								// TODO: change to https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement/requestClose
 								dialog.close();
 							}
 							resumeResolution = resolve;
@@ -82,7 +83,7 @@ export function enhanceDialog(item, options) {
  */
 function onclick(event) {
 	const dialog = /** @type {HTMLDialogElement} */ (event.currentTarget);
-	const rect = /** @type {HTMLDialogElement} */ (event.target).getBoundingClientRect();
+	const rect = dialog.getBoundingClientRect();
 	if (!event.clientX || !event.clientY) return; // not a mouse event (probably triggered by keyboard)
 	if (
 		rect.left > event.clientX ||
