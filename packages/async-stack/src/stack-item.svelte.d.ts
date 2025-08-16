@@ -30,10 +30,18 @@ export class StackItem<
 	 */
 	resolve: (resolved?: Resolved) => Promise<Resolved | undefined>;
 	/**
+	 * @experimental
 	 * runs the provided callback immediately before the stack item is resolved.
 	 * if the callback returns a promise, the promise will be awaited before
-	 * the item is resolved. This allows you to perform cleanup or exit animation.
+	 * the item is resolved. All onResolve callbacks are run in parallel.
+	 *
+	 * This allows you to perform cleanup or exit animation.
 	 * Avoid promises that are slow to resolve!
+	 * If you need to perform some operation in response to user interaction,
+	 * do that either in the component (e.g. `onclick`), or after item
+	 * is resolved (e.g. `await pushed.resolution`).
+	 *
+	 * Note: this feature is experimental and may change at any time.
 	 */
 	onResolve: (callback: StackItemResolveListener<Resolved>) => void;
 }
