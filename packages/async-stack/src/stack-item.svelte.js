@@ -14,8 +14,8 @@ export class StackItem {
 		/** @type {ReturnType<typeof setTimeout> | undefined} */
 		timeoutId: undefined,
 		lastStartedTime: new Date().getTime(),
-		/** @type {import('./types.public').StackItemResolveListener<Resolved>[]} */
-		resolveListeners: [],
+		/** @type {Set<import('./types.public').StackItemResolveListener<Resolved>>} */
+		resolveListeners: new Set(),
 		/** @type {(r?: Resolved) => void} */
 		resolve: () => {},
 	};
@@ -60,7 +60,9 @@ export class StackItem {
 	 */
 	resolve = async (resolved) => {
 		if (this.state === 'resolved' || this.state === 'timeout') return this.resolution;
-		await Promise.all(this.#internals.resolveListeners.map((callback) => callback(resolved)));
+		await Promise.all(
+			Array.from(this.#internals.resolveListeners).map((callback) => callback(resolved)),
+		);
 		this.#internals.resolve(resolved);
 		this.state = 'resolved';
 		return this.resolution;
@@ -70,6 +72,6 @@ export class StackItem {
 	 * @param {import('./types.public').StackItemResolveListener<Resolved>} callback
 	 */
 	onResolve = (callback) => {
-		this.#internals.resolveListeners.push(callback);
+		this.#internals.resolveListeners.add(callback);
 	};
 }
