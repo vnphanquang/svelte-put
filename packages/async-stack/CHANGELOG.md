@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.5
+
+### Patch Changes
+
+- [`cd7fefc`](https://github.com/vnphanquang/svelte-put/commit/cd7fefc1d7f87936321932fe1ffe283554e468e4) Thanks [@vnphanquang](https://github.com/vnphanquang)! - mark `item.onResolve` as experimental and clarify async behavior
+
+- [`5793e71`](https://github.com/vnphanquang/svelte-put/commit/5793e7139482554d73de30d305b324532df2caec) Thanks [@vnphanquang](https://github.com/vnphanquang)! - use `Set` instead of array for `StackItemResolveListener` to **help** avoid duplicated callbacks (should discourage the usage of arrow functions)
+
 ## 1.1.4
 
 ### Patch Changes
