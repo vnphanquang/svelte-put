@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.3.0
+
+### Minor Changes
+
+- [`d897673`](https://github.com/vnphanquang/svelte-put/commit/d89767336f422ccf689388ff84e8d762242150df) Thanks [@vnphanquang](https://github.com/vnphanquang)! - (experimental) allow passing `preventResolution` to `enhanceDialog` to effectively make all `item.resolve` and `dialog.requestClose` inert
+
+### Patch Changes
+
+- [`09a97b4`](https://github.com/vnphanquang/svelte-put/commit/09a97b42bb3e6e5933062f6ab1827eb044ffa8c1) Thanks [@vnphanquang](https://github.com/vnphanquang)! - call import('svelte').tick() before resolution to make sure DOM updates are applied
+
 ## 1.2.0
 
 ### Minor Changes
