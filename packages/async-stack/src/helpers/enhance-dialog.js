@@ -73,6 +73,7 @@ export function enhanceDialog(item, options) {
 				dialog.removeEventListener('click', onclick);
 				dialog.removeEventListener('clickbackdrop', onclickbackdrop);
 				dialog.removeEventListener('close', onclose);
+				dialog.removeEventListener('cancel', oncancel);
 			};
 		},
 	};
