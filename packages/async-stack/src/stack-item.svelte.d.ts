@@ -41,6 +41,10 @@ export class StackItem<
 	 * do that either in the component (e.g. `onclick`), or after item
 	 * is resolved (e.g. `await pushed.resolution`).
 	 *
+	 * You may also call the `cancel` method provided in the callback parameter
+	 * to stop the resolution flow. Note, however, that other resolve listeners
+	 * will still run to completion.
+	 *
 	 * Note: this feature is experimental and may change at any time.
 	 */
 	onResolve: (callback: StackItemResolveListener<Resolved>) => void;

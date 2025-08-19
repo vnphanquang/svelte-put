@@ -60,9 +60,16 @@ export class StackItem {
 	 */
 	resolve = async (resolved) => {
 		if (this.state === 'resolved' || this.state === 'timeout') return this.resolution;
+		let cancelled = false;
+		function cancel() {
+			cancelled = true;
+		}
 		await Promise.all(
-			Array.from(this.#internals.resolveListeners).map((callback) => callback(resolved)),
+			Array.from(this.#internals.resolveListeners).map((callback) =>
+				callback({ resolved, cancel }),
+			),
 		);
+		if (cancelled) return;
 		this.#internals.resolve(resolved);
 		this.state = 'resolved';
 		return this.resolution;

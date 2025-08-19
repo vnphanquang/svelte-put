@@ -13,6 +13,12 @@ export type ComponentResolved<UserComponent extends Component<any>> =
 		? Resolved
 		: any;
 
-export type StackItemResolveListener<Resolved> = (
-	resolved?: Resolved,
-) => void | Promise<void> | PromiseLike<void>;
+export type StackItemResolveListener<Resolved> = (event: {
+	/** the resolved parameter passed to `item.resolve` */
+	resolved?: Resolved;
+	/**
+	 * if called will cancel the resolution flow.
+	 * Note, however, other resolve listeners will still run to completion.
+	 */
+	cancel: () => void;
+}) => void | Promise<void> | PromiseLike<void>;
