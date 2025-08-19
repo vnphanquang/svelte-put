@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.2.0
+
+### Minor Changes
+
+- [`7cb4da8`](https://github.com/vnphanquang/svelte-put/commit/7cb4da81038f1013b426d923d116e963afdc727b) Thanks [@vnphanquang](https://github.com/vnphanquang)! - (experimental) `onResolve` now returns callback that removes the listener
+
+- [`a70e65b`](https://github.com/vnphanquang/svelte-put/commit/a70e65b2cf2613dda369831016cc5c985a145c8d) Thanks [@vnphanquang](https://github.com/vnphanquang)! - (experimental) allow cancelling resolution via `StackItem.onResolve` callback
+
+### Patch Changes
+
+- [`139b7da`](https://github.com/vnphanquang/svelte-put/commit/139b7da792d3b9c4603e56193bead1a30ed9853e) Thanks [@vnphanquang](https://github.com/vnphanquang)! - (experimental) use `Set` instead of array for `StackItemResolveListener` to **help** avoid duplicated callbacks
+
+  NOTE: should discourage user from using arrow functions.
+
 ## 1.1.5
 
 ### Patch Changes
