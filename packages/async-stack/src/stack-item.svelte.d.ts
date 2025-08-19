@@ -45,7 +45,9 @@ export class StackItem<
 	 * to stop the resolution flow. Note, however, that other resolve listeners
 	 * will still run to completion.
 	 *
+	 * This also returns a function that can be called to remove the listener.
+	 *
 	 * Note: this feature is experimental and may change at any time.
 	 */
-	onResolve: (callback: StackItemResolveListener<Resolved>) => void;
+	onResolve: (callback: StackItemResolveListener<Resolved>) => () => void;
 }

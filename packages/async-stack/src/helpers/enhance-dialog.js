@@ -30,24 +30,28 @@ export function enhanceDialog(item, options) {
 		[createAttachmentKey()]: function (dialog) {
 			dialog.showModal();
 
+			// set up listener when user calls item.resolve manually
 			/** @type {undefined | (() => void)}  */
 			let resumeResolution = undefined;
+			/** @type {undefined | (() => void)} */
+			let offResolve = undefined;
+			/** @returns {Promise<void>} */
+			function onResolve() {
+				return new Promise((resolvePromise) => {
+					if (dialog.open) {
+						// user calls `item.resolve(...)`
+						dialog.removeEventListener('close', onclose);
+						if ('requestClose' in dialog) {
+							dialog.requestClose();
+						} else {
+							dialog.close();
+						}
+					}
+					resumeResolution = resolvePromise;
+				});
+			}
 			if (options?.delayResolution) {
-				item.onResolve(
-					() =>
-						new Promise((resolve) => {
-							if (dialog.open) {
-								// user calls `item.resolve(...)`
-								dialog.removeEventListener('close', onclose);
-								if ('requestClose' in dialog) {
-									dialog.requestClose();
-								} else {
-									dialog.close();
-								}
-							}
-							resumeResolution = resolve;
-						}),
-				);
+				offResolve = item.onResolve(onResolve);
 			}
 			function onanimationend() {
 				if (dialog.open) return;
@@ -71,6 +75,7 @@ export function enhanceDialog(item, options) {
 			dialog.addEventListener('close', onclose);
 
 			return () => {
+				offResolve?.();
 				resumeResolution?.();
 				dialog.removeEventListener('animationend', onanimationend);
 				dialog.removeEventListener('click', onclick);

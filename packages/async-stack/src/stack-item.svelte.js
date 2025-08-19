@@ -77,8 +77,12 @@ export class StackItem {
 
 	/**
 	 * @param {import('./types.public').StackItemResolveListener<Resolved>} callback
+	 * @returns {() => void}
 	 */
 	onResolve = (callback) => {
 		this.#internals.resolveListeners.add(callback);
+		return () => {
+			this.#internals.resolveListeners.delete(callback);
+		};
 	};
 }
