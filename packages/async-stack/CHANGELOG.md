@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.1
+
+### Patch Changes
+
+- [`d04480c`](https://github.com/vnphanquang/svelte-put/commit/d04480c2c94ac03bd8c050c7f43268c347d62d99) Thanks [@vnphanquang](https://github.com/vnphanquang)! - (experimental) clean up old `cancel` listener in `enhanceDialog`
+
 ## 1.3.0
 
 ### Minor Changes
