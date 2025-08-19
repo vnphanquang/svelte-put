@@ -2,27 +2,9 @@ import { createAttachmentKey } from 'svelte/attachments';
 
 /**
  * @template Resolved
- * @typedef EnhanceDialogOptions
- * @property {Resolved} [defaultReturnValue] default return value when dialog is closed, helpful to capture method="dialog" form / inputs without the need for additional JavaScript
- * @property {'animationend'} [delayResolution] delay resolution, helpful for exit animation and such
- */
-
-/**
- * @typedef EnhanceDialogAttributes
- * @property {(e: CustomEvent<void>) => void} [onclickbackdrop] fired when clicked on backdrop
- */
-
-/**
- * NOTE: This is experimental API and may change in the future.
- *
- * enhance an `HTMLDialogElement` when used as component for `StackItem`. This will:
- * 1. call `showModal()` on the dialog is mounted,
- * 2. capture `form.returnValue` when integrated with method="dialog" form / inputs,
- * 3. close the dialog when backdrop is clicked.
- * @template Resolved
  * @param {import('../stack-item.svelte').StackItem<import('svelte').Component<import('../types.public').StackItemProps<Resolved>>, Resolved>} item
- * @param {EnhanceDialogOptions<Resolved>} [options]
- * @returns {import('svelte/elements').HTMLDialogAttributes & EnhanceDialogAttributes}
+ * @param {import('./enhance-dialog').EnhanceDialogOptions<Resolved>} [options]
+ * @returns {import('svelte/elements').HTMLDialogAttributes}
  */
 export function enhanceDialog(item, options) {
 	return {
@@ -35,8 +17,9 @@ export function enhanceDialog(item, options) {
 			let resumeResolution = undefined;
 			/** @type {undefined | (() => void)} */
 			let offResolve = undefined;
-			/** @returns {Promise<void>} */
-			function onResolve() {
+			/** @type {import('@svelte-put/async-stack').StackItemResolveListener<Resolved>} */
+			const onResolve = ({ cancel }) => {
+				if (options?.preventResolution) return cancel();
 				return new Promise((resolvePromise) => {
 					if (dialog.open) {
 						// user calls `item.resolve(...)`
@@ -49,7 +32,7 @@ export function enhanceDialog(item, options) {
 					}
 					resumeResolution = resolvePromise;
 				});
-			}
+			};
 			if (options?.delayResolution) {
 				offResolve = item.onResolve(onResolve);
 			}
@@ -73,6 +56,15 @@ export function enhanceDialog(item, options) {
 				);
 			}
 			dialog.addEventListener('close', onclose);
+
+			// prevent dialog from closing if specified
+			/** @param {Event} event */
+			function oncancel(event) {
+				if (options?.preventResolution) {
+					event.preventDefault();
+				}
+			}
+			dialog.addEventListener('cancel', oncancel);
 
 			return () => {
 				offResolve?.();
