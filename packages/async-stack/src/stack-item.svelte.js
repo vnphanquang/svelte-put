@@ -1,3 +1,5 @@
+import { tick } from 'svelte';
+
 /**
  * @template {import('svelte').Component<any>} [UserComponent=import('svelte').Component<any>]
  * @template [Resolved=import('./types.public').ComponentResolved<UserComponent>]
@@ -59,6 +61,7 @@ export class StackItem {
 	 * @returns {Promise<Resolved | undefined>}
 	 */
 	resolve = async (resolved) => {
+		await tick(); // make sure DOM updates are applied before resolving
 		if (this.state === 'resolved' || this.state === 'timeout') return this.resolution;
 		let cancelled = false;
 		function cancel() {
