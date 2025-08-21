@@ -66,6 +66,18 @@ export function enhanceDialog(item, options) {
 			}
 			dialog.addEventListener('cancel', oncancel);
 
+			// prevent escape from closing dialog if specified
+			// this is only needed on Chrome where the cancel event isn't fired
+			// if Escape is pressed twice
+			// See: https://issues.chromium.org/issues/41491338
+			/** @param {KeyboardEvent} event */
+			function onkeydown(event) {
+				if (options?.preventResolution && event.key === 'Escape') {
+					event.preventDefault();
+				}
+			}
+			window.addEventListener('keydown', onkeydown);
+
 			return () => {
 				offResolve?.();
 				resumeResolution?.();
@@ -74,6 +86,7 @@ export function enhanceDialog(item, options) {
 				dialog.removeEventListener('clickbackdrop', onclickbackdrop);
 				dialog.removeEventListener('close', onclose);
 				dialog.removeEventListener('cancel', oncancel);
+				window.removeEventListener('keydown', onkeydown);
 			};
 		},
 	};
