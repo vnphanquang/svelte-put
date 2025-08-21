@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.3.2
+
+### Patch Changes
+
+- [`a7c0e17`](https://github.com/vnphanquang/svelte-put/commit/a7c0e17bdfff46bfb3fef7338055a39bdf3b9888) Thanks [@vnphanquang](https://github.com/vnphanquang)! - (experimental) only call `showModal` in `enhanceDialog` if dialog is not already open
+
+- [`b9bf91a`](https://github.com/vnphanquang/svelte-put/commit/b9bf91a94e6af1ecba01faeca749951c432911f7) Thanks [@vnphanquang](https://github.com/vnphanquang)! - (experimental) proactively invoke `preventDefault` on "Escape" keydown to ensure consistency for `preventResolution` option in `enhanceDialog` on Chrome, where the second Escape keydown will bypass the cancel event
+
 ## 1.3.1
 
 ### Patch Changes
