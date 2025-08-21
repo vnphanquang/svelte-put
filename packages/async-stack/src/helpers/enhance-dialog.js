@@ -10,7 +10,7 @@ export function enhanceDialog(item, options) {
 	return {
 		/** @type {import('svelte/attachments').Attachment<HTMLDialogElement>} */
 		[createAttachmentKey()]: function (dialog) {
-			dialog.showModal();
+			if (!dialog.open) dialog.showModal();
 
 			// set up listener when user calls item.resolve manually
 			/** @type {undefined | (() => void)}  */
