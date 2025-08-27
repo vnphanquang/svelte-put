@@ -11,11 +11,8 @@ export class StackItem {
 	/** @type {Required<import('./types.package').StackItemInstanceConfig<string, UserComponent>>} */
 	config;
 
-	/** @type {number} */
-	// eslint-disable-next-line no-undef
-	msToTimeout = $state(0);
-
 	#internals = {
+		msToTimeout: 0,
 		/** @type {ReturnType<typeof setTimeout> | undefined} */
 		timeoutId: undefined,
 		lastStartedTime: new Date().getTime(),
@@ -33,7 +30,7 @@ export class StackItem {
 	 */
 	constructor(config) {
 		this.config = config;
-		this.msToTimeout = config.timeout;
+		this.#internals.msToTimeout = config.timeout;
 
 		this.resolution = new Promise((resolve) => {
 			this.#internals.resolve = resolve;
@@ -41,21 +38,21 @@ export class StackItem {
 	}
 
 	resume = () => {
-		if (this.msToTimeout <= 0 || this.state === 'elapsing') return;
+		if (this.#internals.msToTimeout <= 0 || this.state === 'elapsing') return;
 		clearTimeout(this.#internals.timeoutId);
 		this.#internals.lastStartedTime = new Date().getTime();
 		this.#internals.timeoutId = setTimeout(async () => {
-			this.msToTimeout = 0;
+			this.#internals.msToTimeout = 0;
 			await this.resolve();
 			this.state = 'timeout';
-		}, this.msToTimeout);
+		}, this.#internals.msToTimeout);
 		this.state = 'elapsing';
 	};
 
 	pause = () => {
 		if (this.state === 'paused' || this.state === 'idle') return;
 		clearTimeout(this.#internals.timeoutId);
-		this.msToTimeout -= new Date().getTime() - this.#internals.lastStartedTime;
+		this.#internals.msToTimeout -= new Date().getTime() - this.#internals.lastStartedTime;
 		this.state = 'paused';
 	};
 
