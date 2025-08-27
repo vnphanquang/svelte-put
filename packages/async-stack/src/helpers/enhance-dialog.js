@@ -96,6 +96,7 @@ export function enhanceDialog(item, options) {
  * @param {MouseEvent} event
  */
 function onclick(event) {
+	if (event.defaultPrevented) return;
 	const dialog = /** @type {HTMLDialogElement} */ (event.currentTarget);
 	const rect = dialog.getBoundingClientRect();
 	if (!event.clientX || !event.clientY) return; // not a mouse event (probably triggered by keyboard)
@@ -113,6 +114,7 @@ function onclick(event) {
  * @param {Event} event
  */
 function onclickbackdrop(event) {
+	if (event.defaultPrevented) return;
 	const dialog = /** @type {HTMLDialogElement} */ (event.currentTarget);
 	if ('requestClose' in dialog) {
 		dialog.requestClose();
