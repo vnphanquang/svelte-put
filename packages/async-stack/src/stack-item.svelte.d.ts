@@ -12,6 +12,12 @@ export class StackItem<
 	state: StackItemState;
 	config: Required<StackItemInstanceConfig<string, UserComponent>>;
 	/**
+	 * milliseconds until the item is timeouted,
+	 * 0 means the item has already timeouted or has no timeouted
+	 * (check config.timeout for more information)
+	 */
+	msToTimeout: number;
+	/**
 	 * a promise that resolves when the item is resolved,
 	 * by timing out or via the .resolve method
 	 */
