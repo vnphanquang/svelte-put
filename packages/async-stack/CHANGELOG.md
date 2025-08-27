@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.4.0
+
+### Minor Changes
+
+- [`44b8343`](https://github.com/vnphanquang/svelte-put/commit/44b834332b2a798fc9dcf0605a90e760ec15c23e) Thanks [@vnphanquang](https://github.com/vnphanquang)! - make `StackItem.msToTimeout` public
+
+### Patch Changes
+
+- [`eaa9f2a`](https://github.com/vnphanquang/svelte-put/commit/eaa9f2a949d7dd1a20b466775ad22aa260fcbc80) Thanks [@vnphanquang](https://github.com/vnphanquang)! - (experimental) return early on `event.defaultPrevented === true` inside click handler of `enhanceDialog`
+
 ## 1.3.2
 
 ### Patch Changes
