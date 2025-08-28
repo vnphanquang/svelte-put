@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.5.0
+
+### Minor Changes
+
+- [`3c22ed9`](https://github.com/vnphanquang/svelte-put/commit/3c22ed9c6ff850cac2c00cc9d98ec7f8eb4f5a57) Thanks [@vnphanquang](https://github.com/vnphanquang)! - expose `StackItem['progress']` as a number from 0 to 1, indicating how far until the timeout is reached, if any
+
+- [`7c60a7a`](https://github.com/vnphanquang/svelte-put/commit/7c60a7a65d27f468395aef28f9229db220ae7c53) Thanks [@vnphanquang](https://github.com/vnphanquang)! - (experimental) new `import('@svelte-put/async-stack/helpers').renderPopover` for rendering `StackItem` as popover (intended for notifications, toasts, etc.)
+
+### Patch Changes
+
+- [`64e5b0f`](https://github.com/vnphanquang/svelte-put/commit/64e5b0f5df23132ac0b6e14d36310f5a131b26e3) Thanks [@vnphanquang](https://github.com/vnphanquang)! - revert `StackItem.msToTimeout` to internals as not helpful to public users
+
+- [`31ee757`](https://github.com/vnphanquang/svelte-put/commit/31ee757cd2afb1f8e81141afc7458298c3cf0a3a) Thanks [@vnphanquang](https://github.com/vnphanquang)! - use `import('svelte/events').on` instead of `addEventListener` (ref: [svelte/events docs](https://svelte.dev/docs/svelte/svelte-events#on))
+
 ## 1.4.0
 
 ### Minor Changes
