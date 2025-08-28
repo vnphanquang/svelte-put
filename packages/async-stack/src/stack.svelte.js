@@ -1,3 +1,4 @@
+import { defu } from 'defu';
 import { mount, tick, unmount } from 'svelte';
 
 import { MissingComponentInCustomPush, NotFoundVariantConfig } from './errors.js';
@@ -59,7 +60,7 @@ export class Stack {
 	 */
 	constructor(variantConfigMap, init) {
 		if (init?.id) this.config.id = init.id;
-		if (init?.timeout) this.config.timeout = init.timeout;
+		if (init?.timeout) this.config.timeout = init.timeout || 0;
 		this.#variantConfigMap = variantConfigMap;
 	}
 
@@ -71,11 +72,13 @@ export class Stack {
 	 * @returns {StackItem<any>}
 	 */
 	push(variant, config) {
+		/** @typedef {import('./types.package').StackItemInstanceConfig<string, import('svelte').Component<any>>} InstanceConfig */
+
+		/** @typedef {NonNullable<import('./types.package').StackItemCommonConfig<any, import('svelte').Component>['id']>} IdResolver */
+
 		// STEP 1: resolve instance config, merge with common config and variant config, if any
-		/** @type {import('./types.package').StackItemInstanceConfig<string, import('svelte').Component<any>>} */
-		let instanceConfig;
-		/** @type {NonNullable<import('./types.package').StackItemCommonConfig<string, import('svelte').Component>['id']>} */
-		let idResolver;
+		/** @type {Omit<InstanceConfig,'id'> & { id: IdResolver }} */
+		let mergedConfig;
 
 		if (variant === 'custom') {
 			const rConfig =
@@ -85,48 +88,35 @@ export class Stack {
 			if (!rConfig || !rConfig.component) {
 				throw new MissingComponentInCustomPush();
 			}
-			instanceConfig = {
-				...this.config,
-				...rConfig,
-				variant: 'custom',
-				component: rConfig.component,
-				props: rConfig.props ?? {},
-				id: '',
-			};
-			idResolver = /** @type {any} */ (rConfig.id) ?? this.config.id;
+			mergedConfig = defu({ variant: 'custom' }, rConfig, this.config);
 		} else {
+			const rConfig =
+				/** @type {import('./types.package').StackItemByVariantPushConfig<string, import('svelte').Component<any>>} */ (
+					config
+				);
 			const variantConfig = this.#variantConfigMap[variant];
 			if (!variantConfig) {
 				throw new NotFoundVariantConfig(variant, Object.keys(this.#variantConfigMap));
 			}
-			instanceConfig = {
-				...this.config,
-				...variantConfig,
-				...config,
-				props: {
-					...variantConfig.props,
-					...config?.props,
-				},
-				id: '',
-			};
-			idResolver = /** @type {any} */ (config?.id) ?? variantConfig.id ?? this.config.id;
+			mergedConfig = /** @type {typeof mergedConfig} */ (defu(rConfig, variantConfig, this.config));
 		}
 
 		// STEP 2: resolve id for the stack item
-		if (idResolver === 'counter') {
-			instanceConfig.id = (++this.#counter).toString();
-		} else if (idResolver === 'uuid') {
-			instanceConfig.id =
+		let id = '';
+		if (mergedConfig.id === 'counter') {
+			id = (++this.#counter).toString();
+		} else if (mergedConfig.id === 'uuid') {
+			id =
 				'crypto' in globalThis && crypto.randomUUID
 					? crypto.randomUUID()
 					: (++this.#counter).toString();
 		} else {
-			instanceConfig.id = idResolver(instanceConfig);
+			id = mergedConfig.id(mergedConfig);
 		}
 
 		// STEP 3: preparing the `StackItem` instance
 		/** @type {StackItem<any>} */
-		let pushed = new StackItem(instanceConfig);
+		let pushed = new StackItem({ ...mergedConfig, id });
 		pushed.resolution.then(() => {
 			this.items = this.items.filter((n) => n.config.id !== pushed.config.id);
 		});

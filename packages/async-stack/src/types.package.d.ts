@@ -21,7 +21,7 @@ export type StackItemCommonConfig<Variant extends string, UserComponent extends 
 	id?:
 		| 'counter'
 		| 'uuid'
-		| ((config: Required<Omit<StackItemInstanceConfig<Variant, UserComponent>, 'id'>>) => string);
+		| ((config: Omit<StackItemInstanceConfig<Variant, UserComponent>, 'id'>) => string);
 };
 
 /** predefined variant config provided while building a {@link Stack} instance */
@@ -37,13 +37,16 @@ export type StackItemVariantConfig<
 	props?: Omit<ComponentProps<UserComponent>, 'item'>;
 };
 
-/** a resolved config for a {@link StackItemInstance} */
+/** a resolved config for a {@link StackItem} */
 export type StackItemInstanceConfig<
 	Variant extends string,
 	UserComponent extends Component<any>,
-> = Required<Omit<StackItemVariantConfig<Variant, UserComponent>, 'id'>> & {
+> = {
 	id: string;
 	timeout: number;
+	variant: Variant;
+	component: UserComponent;
+	props?: Omit<ComponentProps<UserComponent>, 'item'>;
 };
 
 /**

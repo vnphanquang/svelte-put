@@ -8,7 +8,7 @@ export class StackItem {
 	/** @type {import('./types.package').StackItemState} */
 	// eslint-disable-next-line no-undef
 	state = $state('idle');
-	/** @type {Required<import('./types.package').StackItemInstanceConfig<string, UserComponent>>} */
+	/** @type {import('./types.package').StackItemInstanceConfig<string, UserComponent>} */
 	config;
 
 	#internals = {
@@ -26,7 +26,7 @@ export class StackItem {
 	resolution;
 
 	/**
-	 * @param {Required<import('./types.package').StackItemInstanceConfig<string, UserComponent>>} config
+	 * @param {import('./types.package').StackItemInstanceConfig<string, UserComponent>} config
 	 */
 	constructor(config) {
 		this.config = config;

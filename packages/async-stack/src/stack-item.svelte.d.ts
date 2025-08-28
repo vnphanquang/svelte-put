@@ -10,7 +10,7 @@ export class StackItem<
 > {
 	/** @default 'idle' */
 	state: StackItemState;
-	config: Required<StackItemInstanceConfig<string, UserComponent>>;
+	config: StackItemInstanceConfig<string, UserComponent>;
 	/**
 	 * a promise that resolves when the item is resolved,
 	 * by timing out or via the .resolve method

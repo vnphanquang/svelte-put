@@ -85,6 +85,9 @@ importers:
 
   packages/async-stack:
     dependencies:
+      defu:
+        specifier: ^6.1.4
+        version: 6.1.4
       svelte:
         specifier: ^5.29.0
         version: 5.37.1

@@ -15,7 +15,7 @@ export class Stack<VariantMap extends Record<string, Component<any>> = {}> {
 	/** stack items */
 	items: StackItem<any>[];
 	/** global config applied to the entire stack by default */
-	config: Required<StackItemCommonConfig<string, Component<any>>>;
+	config: StackItemCommonConfig<string, Component<any>>;
 	actions: {
 		/** register the element to render a stack item into */
 		render: (node: HTMLElement, item: StackItem<any>) => StackItemRenderActionReturn;

@@ -62,6 +62,9 @@
 	"bugs": {
 		"url": "https://github.com/vnphanquang/svelte-put/issues"
 	},
+	"dependencies": {
+		"defu": "^6.1.4"
+	},
 	"devDependencies": {
 		"@internals/tsconfig": "workspace:*"
 	},
