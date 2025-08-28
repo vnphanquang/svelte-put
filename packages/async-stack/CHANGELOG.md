@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.1
+
+### Patch Changes
+
+- [`65180bd`](https://github.com/vnphanquang/svelte-put/commit/65180bd6a48ed61783849e7738802a99b654b628) Thanks [@vnphanquang](https://github.com/vnphanquang)! - make sure push configs are merged correctly and recursively but ignoring nullish values
+
 ## 1.5.0
 
 ### Minor Changes
