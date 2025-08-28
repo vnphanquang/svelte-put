@@ -19,6 +19,12 @@ export class StackItem<
 
 	constructor(config: StackItemInstanceConfig<string, UserComponent>);
 
+	/**
+	 * progress of the timeout, from 0 to 1
+	 * or null if item has no timeout.
+	 * This property is not reactive!
+	 */
+	readonly progress: number | null;
 	/** resume the stack item, if it has been paused */
 	resume: () => void;
 	/** pause the stack item, if it has a timeout */

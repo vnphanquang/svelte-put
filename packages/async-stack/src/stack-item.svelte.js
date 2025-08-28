@@ -37,6 +37,19 @@ export class StackItem {
 		});
 	}
 
+	/**
+	 * @returns {number | null}
+	 */
+	get progress() {
+		if (this.config.timeout === 0) return null;
+		if (this.state === 'elapsing') {
+			const elapsedMs = Date.now() - this.#internals.lastStartedTime;
+			const actualMsToTimeout = this.#internals.msToTimeout - elapsedMs;
+			return (this.config.timeout - actualMsToTimeout) / this.config.timeout;
+		}
+		return (this.config.timeout - this.#internals.msToTimeout) / this.config.timeout;
+	}
+
 	resume = () => {
 		if (this.#internals.msToTimeout <= 0 || this.state === 'elapsing') return;
 		clearTimeout(this.#internals.timeoutId);

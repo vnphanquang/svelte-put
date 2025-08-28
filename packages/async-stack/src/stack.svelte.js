@@ -124,17 +124,17 @@ export class Stack {
 			instanceConfig.id = idResolver(instanceConfig);
 		}
 
-		// STEP 4: preparing the `StackItem` instance
+		// STEP 3: preparing the `StackItem` instance
 		/** @type {StackItem<any>} */
 		let pushed = new StackItem(instanceConfig);
 		pushed.resolution.then(() => {
 			this.items = this.items.filter((n) => n.config.id !== pushed.config.id);
 		});
 
-		// STEP 5: push to store
+		// STEP 4: push to store
 		this.items.push(pushed);
 
-		// STEP 6: start timer if any
+		// STEP 5: start timer if any
 		pushed.resume();
 
 		return pushed;
