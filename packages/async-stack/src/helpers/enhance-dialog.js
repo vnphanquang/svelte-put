@@ -1,4 +1,5 @@
 import { createAttachmentKey } from 'svelte/attachments';
+import { on } from 'svelte/events';
 
 /**
  * @template Resolved
@@ -11,12 +12,12 @@ export function enhanceDialog(item, options) {
 		/** @type {import('svelte/attachments').Attachment<HTMLDialogElement>} */
 		[createAttachmentKey()]: function (dialog) {
 			if (!dialog.open) dialog.showModal();
+			/** @type {(() => void)[]} */
+			const offs = [];
 
 			// set up listener when user calls item.resolve manually
 			/** @type {undefined | (() => void)}  */
 			let resumeResolution = undefined;
-			/** @type {undefined | (() => void)} */
-			let offResolve = undefined;
 			/** @type {import('@svelte-put/async-stack').StackItemResolveListener<Resolved>} */
 			const onResolve = ({ cancel }) => {
 				if (options?.preventResolution) return cancel();
@@ -34,7 +35,7 @@ export function enhanceDialog(item, options) {
 				});
 			};
 			if (options?.delayResolution) {
-				offResolve = item.onResolve(onResolve);
+				offs.push(item.onResolve(onResolve));
 			}
 			function onanimationend() {
 				if (dialog.open) return;
@@ -42,11 +43,11 @@ export function enhanceDialog(item, options) {
 					resumeResolution?.();
 				}
 			}
-			dialog.addEventListener('animationend', onanimationend);
+			offs.push(on(dialog, 'animationend', onanimationend));
 
 			// set up backdrop click handler
-			dialog.addEventListener('click', onclick);
-			dialog.addEventListener('clickbackdrop', onclickbackdrop);
+			offs.push(on(dialog, 'click', onclick));
+			offs.push(on(dialog, 'clickbackdrop', onclickbackdrop));
 
 			// if dialog is setup with "method=dialog" form / inputs
 			// this will help capture without the need for JavaScript
@@ -55,7 +56,7 @@ export function enhanceDialog(item, options) {
 					/** @type {Resolved} */ (dialog.returnValue) || options?.defaultReturnValue || undefined,
 				);
 			}
-			dialog.addEventListener('close', onclose);
+			offs.push(on(dialog, 'close', onclose));
 
 			// prevent dialog from closing if specified
 			/** @param {Event} event */
@@ -64,7 +65,7 @@ export function enhanceDialog(item, options) {
 					event.preventDefault();
 				}
 			}
-			dialog.addEventListener('cancel', oncancel);
+			offs.push(on(dialog, 'cancel', oncancel));
 
 			// prevent escape from closing dialog if specified
 			// this is only needed on Chrome where the cancel event isn't fired
@@ -76,17 +77,11 @@ export function enhanceDialog(item, options) {
 					event.preventDefault();
 				}
 			}
-			window.addEventListener('keydown', onkeydown);
+			offs.push(on(window, 'keydown', onkeydown));
 
 			return () => {
-				offResolve?.();
+				offs.forEach((off) => off());
 				resumeResolution?.();
-				dialog.removeEventListener('animationend', onanimationend);
-				dialog.removeEventListener('click', onclick);
-				dialog.removeEventListener('clickbackdrop', onclickbackdrop);
-				dialog.removeEventListener('close', onclose);
-				dialog.removeEventListener('cancel', oncancel);
-				window.removeEventListener('keydown', onkeydown);
 			};
 		},
 	};
