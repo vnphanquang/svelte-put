@@ -1,6 +1,6 @@
 {
 	"name": "@svelte-put/async-stack",
-	"version": "1.5.1",
+	"version": "1.5.2",
 	"description": "type-safe and headless builder for async component stack",
 	"type": "module",
 	"main": "src/index.js",

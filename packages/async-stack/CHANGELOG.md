@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.2
+
+### Patch Changes
+
+- [`2783fdb`](https://github.com/vnphanquang/svelte-put/commit/2783fdb381ffa6fe79795c024dd1d28af3fc73b0) Thanks [@vnphanquang](https://github.com/vnphanquang)! - progress should be checked against null not falsy (can be 0)
+
 ## 1.5.1
 
 ### Patch Changes
