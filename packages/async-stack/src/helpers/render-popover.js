@@ -20,7 +20,7 @@ function moveNodeIntoParent(node, parent) {
  * @param {import('../stack-item.svelte').StackItem<any>} item
  */
 function setProgressAndSpeed(node, item) {
-	if (!item.progress) return;
+	if (item.progress === null) return;
 	node.style.setProperty('--play-progress', item.progress.toString());
 	node.style.setProperty('--play-speed', (1 - item.progress) * item.config.timeout + 'ms');
 }
