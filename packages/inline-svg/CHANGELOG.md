@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.0.2
+
+### Patch Changes
+
+- [`7f4f496`](https://github.com/vnphanquang/svelte-put/commit/7f4f4964d94ea28e0c1a476486b3127104ea817a) Thanks [@vnphanquang](https://github.com/vnphanquang)! - support wider range of possible dimension syntaxes (#372)
+
 ## 4.0.1
 
 ### Patch Changes
