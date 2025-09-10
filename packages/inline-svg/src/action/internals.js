@@ -4,14 +4,16 @@
  * @typedef {{ width: number } | { height: number }} DimensionConstraint
  */
 
+// Matches a CSS / SVG dimension: signed decimal or scientific number + optional unit (letters or %).
+const DIMENSION_REGEX = /^([+-]?(?:\d+(?:\.\d+)?|\.\d+)(?:[eE][+-]?\d+)?)\s*([a-zA-Z%]+)?$/;
+
 /**
  * @package
  * @param {string} dimension
  * @returns {{ number: number; unit: string }}
  */
 export function extractDimensionNumberAndUnit(dimension) {
-	const regex = /(\d+)(\D*)/;
-	const [, number = '0', unit = ''] = dimension.match(regex) || [];
+	const [, number = '0', unit = ''] = dimension.match(DIMENSION_REGEX) || [];
 	return { number: parseInt(number, 10), unit };
 }
 
