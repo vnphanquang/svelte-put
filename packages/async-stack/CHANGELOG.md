@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.3
+
+### Patch Changes
+
+- [`4854311`](https://github.com/vnphanquang/svelte-put/commit/48543119bf8c1ac4a1237c457d35f08f99457396) Thanks [@vnphanquang](https://github.com/vnphanquang)! - improve clickbackdrop behavior in `enhanceDialog`: only register if `pointerup` and `pointerdown` have both been 'outside'
+
 ## 1.5.2
 
 ### Patch Changes
