@@ -46,7 +46,7 @@ export function enhanceDialog(item, options) {
 			offs.push(on(dialog, 'animationend', onanimationend));
 
 			// set up backdrop click handler
-			offs.push(on(dialog, 'click', onclick));
+			offs.push(on(dialog, 'pointerdown', onpointer));
 			offs.push(on(dialog, 'clickbackdrop', onclickbackdrop));
 
 			// if dialog is setup with "method=dialog" form / inputs
@@ -90,7 +90,7 @@ export function enhanceDialog(item, options) {
 /**
  * @param {MouseEvent} event
  */
-function onclick(event) {
+function onpointer(event) {
 	if (event.defaultPrevented) return;
 	const dialog = /** @type {HTMLDialogElement} */ (event.currentTarget);
 	const rect = dialog.getBoundingClientRect();
@@ -101,7 +101,16 @@ function onclick(event) {
 		rect.top > event.clientY ||
 		rect.bottom < event.clientY
 	) {
-		dialog.dispatchEvent(new CustomEvent('clickbackdrop'));
+		// only register clickbackdrop if both pointerdown and pointerup
+		// are outside the dialog
+		if (event.type === 'pointerdown') {
+			const off = on(dialog, 'pointerup', (e) => {
+				off();
+				onpointer(e);
+			});
+		} else if (event.type === 'pointerup') {
+			dialog.dispatchEvent(new CustomEvent('clickbackdrop'));
+		}
 	}
 }
 
