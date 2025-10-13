@@ -1,4 +1,4 @@
-import { createQrPngDataUrl } from '../qr';
+import { createQrPngDataUrl } from '../qr/index.js';
 
 /**
  * Fetch a remote image and convert to base64 string
@@ -38,8 +38,8 @@ export function qr(node, param) {
 			width: parseInt(node.getAttribute('width') || '') || param.width,
 			height: parseInt(node.getAttribute('height') || '') || param.height,
 			logo,
-		}
-		const pngBase64 = await createQrPngDataUrl(rConfig)
+		};
+		const pngBase64 = await createQrPngDataUrl(rConfig);
 
 		node.src = pngBase64;
 		node.dispatchEvent(new CustomEvent('qrinit', { detail: node }));
@@ -57,4 +57,3 @@ export function qr(node, param) {
 	};
 }
 export * from './types.public.js';
-

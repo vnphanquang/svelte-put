@@ -1,4 +1,4 @@
-import { createQrSvgParts } from '../qr';
+import { createQrSvgParts } from '../qr/index.js';
 
 /**
  * Svelte action for rendering a QR as innerHTML of this SVGElement
@@ -29,4 +29,3 @@ export function qr(node, param) {
 }
 
 export * from './types.public.js';
-
