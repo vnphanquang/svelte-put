@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.1.1
+
+### Patch Changes
+
+- [`6aa317b`](https://github.com/vnphanquang/svelte-put/commit/6aa317b6ad5cabb7cf43137137e4db163f5f4fa1) Thanks [@vnphanquang](https://github.com/vnphanquang)! - avoid directory import
+
 ## 2.1.0
 
 ### Minor Changes
