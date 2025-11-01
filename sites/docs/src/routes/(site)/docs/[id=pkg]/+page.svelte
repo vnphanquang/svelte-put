@@ -18,7 +18,7 @@
 		`https://github.com/vnphanquang/svelte-put/edit/main/sites/docs/src/routes/(site)/docs/(package)/${data.package.id}/+page.md.svelte`,
 	);
 	const changelogUrl = $derived(
-		`https://github.com/vnphanquang/svelte-put/tree/main/packages/${data.package.id}`,
+		`https://github.com/vnphanquang/svelte-put/tree/main/packages/${data.package.id}/CHANGELOG.md`,
 	);
 	const githubUrl = $derived(
 		`https://github.com/vnphanquang/svelte-put/tree/main/packages/${data.package.id}`,
