@@ -15,7 +15,7 @@
 
 	const name = $derived(`@svelte-put/${data.package.id}`);
 	const githubSourceUrl = $derived(
-		`https://github.com/vnphanquang/svelte-put/edit/main/sites/docs/src/routes/(site)/docs/(package)/${data.package.id}/+page.md.svelte`,
+		`https://github.com/vnphanquang/svelte-put/edit/main/sites/docs/src/packages/${data.package.id}/docs.md.svelte`,
 	);
 	const changelogUrl = $derived(
 		`https://github.com/vnphanquang/svelte-put/tree/main/packages/${data.package.id}`,
