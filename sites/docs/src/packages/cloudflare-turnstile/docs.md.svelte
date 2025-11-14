@@ -115,11 +115,11 @@ type TurnstileEventDetail<T extends Record<string, any> = Record<string, never>>
 
 type TurnstileEventAttributes = {
 	'onturnstile'?: (event: CustomEvent<TurnstileEventDetail<{ token: string }>>) => void;
-	'onturnstiletrror'?: (event: CustomEvent<TurnstileEventDetail<{ code: string }>>) => void;
-	'onturnstiletxpired'?: (event: CustomEvent<TurnstileEventDetail>) => void;
-	'onturnstileteforeinteractive'?: (event: CustomEvent<TurnstileEventDetail>) => void;
-	'onturnstiletfterinteractive'?: (event: CustomEvent<TurnstileEventDetail>) => void;
-	'onturnstiletnsupported'?: (event: CustomEvent<TurnstileEventDetail>) => void;
+	'onturnstileerror'?: (event: CustomEvent<TurnstileEventDetail<{ code: string }>>) => void;
+	'onturnstileexpired'?: (event: CustomEvent<TurnstileEventDetail>) => void;
+	'onturnstilebeforeinteractive'?: (event: CustomEvent<TurnstileEventDetail>) => void;
+	'onturnstileafterinteractive'?: (event: CustomEvent<TurnstileEventDetail>) => void;
+	'onturnstileunsupported'?: (event: CustomEvent<TurnstileEventDetail>) => void;
 	'onturnstiletimeout'?: (event: CustomEvent<TurnstileEventDetail>) => void;
 };
 ```
