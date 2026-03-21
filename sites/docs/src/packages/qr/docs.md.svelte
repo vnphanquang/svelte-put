@@ -43,7 +43,7 @@ yarn add -D @svelte-put/qr
 
 ## Kudos
 
-This package is made possible by [headless-qr](https://github.com/Rich-Harris/headless-qr) and heavily inspired by [bitjson/qr-code](https://github.com/bitjson/qr-code). Please check out their work for more information.
+This package is made possible by [headless-qr] and heavily inspired by [bitjson/qr-code](https://github.com/bitjson/qr-code). Please check out their work for more information.
 
 ## SVG
 
@@ -264,6 +264,16 @@ export type QRConfig = {
 };
 ```
 
+<div class="c-callout c-callout--warning">
+
+Certain combinations of `version` & `correction` may lead to runtime error, depending on the input data. An example for such error is "code length overflow. (348>128)", in which case you'll need to adjust accordingly.
+This is beyond the scope of the package.
+If you find any defect in the QR code generation, please file an issue at the [headless-qr] repository. Thanks!
+<br />
+When in doubt, use the default configuration!
+
+</div>
+
 ## Events
 
 All rendering strategies share a `qrinit` [CustomEvent] that fires when the rendering is completed. Its `event.detail` is the element itself (`SVGElement` or `HTMLImageElement`).
@@ -400,4 +410,4 @@ Happy making QR! 👨‍💻
 
 [CustomEvent]: https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent
 [Canvas API]: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
-
+[headless-qr]: https://github.com/Rich-Harris/headless-qr

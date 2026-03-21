@@ -29,7 +29,6 @@ export function createQrSvgParts(config, qr) {
 		correction,
 	} = resolveConfig(config);
 
-	console.log({ version, correction });
 	if (!qr) {
 		qr = createQr(data, { version, correction });
 	}
