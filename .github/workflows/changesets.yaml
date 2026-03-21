@@ -4,8 +4,8 @@ on:
     branches:
       - main
     paths:
-      - ".changeset/**"
-      - ".github/workflows/changesets.yaml"
+      - '.changeset/**'
+      - '.github/workflows/changesets.yaml'
   workflow_dispatch:
 
 env:
@@ -40,10 +40,9 @@ jobs:
         with:
           version: pnpm ci:version
           publish: pnpm ci:publish
-          commit: "chore(release): changesets versioning & publication"
-          title: "Changesets: Versioning & Publication"
+          commit: 'chore(release): changesets versioning & publication'
+          title: 'Changesets: Versioning & Publication'
           createGithubReleases: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
+          NPM_CONFIG_PROVENANCE: true
