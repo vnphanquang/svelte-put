@@ -10,8 +10,7 @@
 		"./css/medias": "./css/medias.css"
 	},
 	"publishConfig": {
-		"access": "public",
-		"provenance": true
+		"access": "public"
 	},
 	"files": [
 		"src"

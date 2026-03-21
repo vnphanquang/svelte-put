@@ -17,8 +17,7 @@
 		}
 	},
 	"publishConfig": {
-		"access": "public",
-		"provenance": true
+		"access": "public"
 	},
 	"files": [
 		"src",

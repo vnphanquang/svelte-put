@@ -14,8 +14,7 @@
 		"./tailwind.css": "./src/tailwind.css"
 	},
 	"publishConfig": {
-		"access": "public",
-		"provenance": true
+		"access": "public"
 	},
 	"files": [
 		"src",
