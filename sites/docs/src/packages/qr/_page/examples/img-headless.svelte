@@ -1,5 +1,5 @@
-<script>
-	import { createQrPngDataUrl } from '@svelte-put/qr';
+<script lang="ts">
+	import { createQrPngDataUrl, type QRConfig } from '@svelte-put/qr';
 	import { onMount } from 'svelte';
 
 	const config = {
@@ -7,7 +7,7 @@
 		width: 500,
 		height: 500,
 		backgroundFill: '#fff',
-	};
+	} satisfies QRConfig;
 
 	let src = '';
 	onMount(async () => {

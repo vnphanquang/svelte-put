@@ -1,7 +1,7 @@
-<script>
-	import { createQrSvgString, createQrSvgDataUrl } from '@svelte-put/qr';
+<script lang="ts">
+	import { createQrSvgString, createQrSvgDataUrl, type QRConfig } from '@svelte-put/qr';
 
-	const config = { data: 'https://svelte.dev' };
+	const config = { data: 'https://svelte.dev' } satisfies QRConfig;
 
 	const dataURL = createQrSvgDataUrl(config);
 	const svgString = createQrSvgString(config);
