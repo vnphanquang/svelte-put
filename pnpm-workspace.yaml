@@ -1,4 +1,7 @@
 packages:
-  - "internals/*"
-  - "packages/*"
-  - "sites/*"
+  - 'internals/*'
+  - 'packages/*'
+  - 'sites/*'
+allowBuilds:
+  '@sveltejs/kit': true
+  svelte-preprocess: true

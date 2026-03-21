@@ -49,12 +49,12 @@
 		"typescript": "5.7.2",
 		"typescript-eslint": "8.17.0"
 	},
-	"packageManager": "pnpm@9.12.0",
+	"packageManager": "pnpm@10.32.1",
 	"engines": {
-		"pnpm": ">=9.0.0",
-		"node": ">=22.0.0"
+		"pnpm": ">=10.0.0",
+		"node": ">=24.0.0"
 	},
 	"volta": {
-		"node": "22.11.0"
+		"node": "24.14.0"
 	}
 }
