@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.1.2
+
+### Patch Changes
+
+- [`244439b`](https://github.com/vnphanquang/svelte-put/commit/244439bc0e663812c6272b8c9511f15db483d557) Thanks [@vnphanquang](https://github.com/vnphanquang)! - correctly export public typing to root
+
+- [`586eb54`](https://github.com/vnphanquang/svelte-put/commit/586eb5457c189f3b4b86cb6d7cd267953ce5c4e4) Thanks [@vnphanquang](https://github.com/vnphanquang)! - correctly apply `version` & `correction` options instead of the now-deprecated `typeNumber` & `errorCorrectionLevel`, respectively (reported in https://github.com/vnphanquang/svelte-put/issues/287#issuecomment-3618911016)
+
 ## 2.1.1
 
 ### Patch Changes
