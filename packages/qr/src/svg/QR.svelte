@@ -13,6 +13,8 @@
 		margin,
 		moduleFill,
 		shape,
+		correction,
+		version,
 		errorCorrectionLevel,
 		typeNumber,
 		...rest
@@ -28,6 +30,8 @@
 		moduleFill,
 		shape,
 		errorCorrectionLevel,
+		version,
+		correction,
 		typeNumber,
 	}));
 	let innerHTML = $derived(`${parts.anchors}${parts.modules}${parts.logo}`)

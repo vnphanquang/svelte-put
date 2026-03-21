@@ -27,14 +27,11 @@ export function createQrSvgParts(config, qr) {
 		moduleFill,
 		version,
 		correction,
-		typeNumber,
-		errorCorrectionLevel,
 	} = resolveConfig(config);
+
+	console.log({ version, correction });
 	if (!qr) {
-		qr = createQr(data, {
-			version: version || typeNumber,
-			correction: correction || errorCorrectionLevel,
-		});
+		qr = createQr(data, { version, correction });
 	}
 	const count = qr.length;
 	const size = count + margin * 2;

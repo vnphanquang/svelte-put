@@ -8,7 +8,7 @@ export const DEFAULT_PNG_FILLS = {
 /**
  * @package
  * @param {import('./types.public').QRConfig} config
- * @returns {Required<Omit<import('./types.public').QRConfig, 'logo'>> & { logo?: string }}
+ * @returns {Required<Omit<import('./types.public').QRConfig, 'logo' | 'errorCorrectionLevel' | 'typeNumber'>> & { logo?: string }}
  */
 export function resolveConfig(config) {
 	return /** @satisfies {import('./types.public').QRConfig} */ ({
@@ -19,8 +19,8 @@ export function resolveConfig(config) {
 		moduleFill: config.moduleFill ?? 'currentcolor',
 		anchorOuterFill: config.anchorOuterFill ?? 'currentcolor',
 		anchorInnerFill: config.anchorInnerFill ?? 'currentcolor',
-		typeNumber: config.typeNumber ?? 0,
-		errorCorrectionLevel: config.errorCorrectionLevel ?? 'H',
+		version: config.version ?? config.typeNumber ?? 0,
+		correction: config.correction ?? config.errorCorrectionLevel ?? 'H',
 	});
 }
 
