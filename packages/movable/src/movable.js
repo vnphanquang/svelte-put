@@ -95,8 +95,13 @@ import { on } from 'svelte/events';
  * @returns {import('./types.public').MovableActionReturn}
  */
 export function movable(node, param = { enabled: true }) {
-	let { parent, normalizedDelta, handle, enabled, ignore, cursor } = input(node, param);
+	let { parent, normalizedDelta, handle, enabled, ignore, cursor, preventClickThreshold } = input(
+		node,
+		param,
+	);
 
+	/* position upon `movablestart`  */
+	const startMousePosition = { x: 0, y: 0 };
 	const lastMousePosition = { x: 0, y: 0 };
 	const lastNodePosition = { top: 0, left: 0 };
 	let ΣΔx = 0; // total displacement in x-axis
@@ -111,10 +116,11 @@ export function movable(node, param = { enabled: true }) {
 
 	/**
 	 * @param {PointerEvent} event
+	 * @param {{ x: number, y: number }} tracker
 	 */
-	function updateLastMousePosition(event) {
-		lastMousePosition.x = event.clientX;
-		lastMousePosition.y = event.clientY;
+	function updatePosition(event, tracker) {
+		tracker.x = event.clientX;
+		tracker.y = event.clientY;
 	}
 
 	/**
@@ -160,7 +166,7 @@ export function movable(node, param = { enabled: true }) {
 
 		const Δx = event.clientX - lastMousePosition.x;
 		const Δy = event.clientY - lastMousePosition.y;
-		updateLastMousePosition(event);
+		updatePosition(event, lastMousePosition);
 
 		let left = lastNodePosition.left;
 		if (boundX !== 0) {
@@ -300,14 +306,15 @@ export function movable(node, param = { enabled: true }) {
 			node.style.position = 'relative';
 		}
 
-		updateLastMousePosition(event);
+		updatePosition(event, startMousePosition);
+		updatePosition(event, lastMousePosition);
 
 		document.body.style.userSelect = 'none';
 		if (cursor) {
 			document.body.style.cursor = 'grabbing';
 			handle.style.cursor = 'grabbing';
 		}
-		offPointerEvents.push(on(window, 'pointermove', /** @type {EventListener} */(move)));
+		offPointerEvents.push(on(window, 'pointermove', /** @type {EventListener} */ (move)));
 		offPointerEvents.push(on(window, 'pointerup', end));
 		offPointerEvents.push(on(window, 'pointercancel', end));
 	}
@@ -347,10 +354,30 @@ export function movable(node, param = { enabled: true }) {
 			addStyles();
 		});
 	}
+
+	/** @type {(() => void) | undefined} */
+	let offClickEvent = undefined;
+	/** @param {Event} e */
+	function interceptClickEvent(e) {
+		if (!preventClickThreshold) return;
+
+		const Δx = Math.abs(lastMousePosition.x - startMousePosition.x);
+		const Δy = Math.abs(lastMousePosition.y - startMousePosition.y);
+
+		if (Δx > preventClickThreshold || Δy > preventClickThreshold) {
+			e.preventDefault();
+			e.stopPropagation();
+		}
+	}
+	if (enabled) {
+		offClickEvent = on(handle, 'click', interceptClickEvent);
+	}
+
 	return {
 		update(update) {
 			removeStyles();
 			offPointerDownEvent?.();
+			offClickEvent?.();
 			({ parent, normalizedDelta, handle, enabled, ignore, cursor } = input(node, update));
 
 			if (enabled) {
@@ -358,10 +385,12 @@ export function movable(node, param = { enabled: true }) {
 				tick().then(() => {
 					addStyles();
 				});
+				offClickEvent = on(handle, 'click', interceptClickEvent);
 			}
 		},
 		destroy() {
 			offPointerDownEvent?.();
+			offClickEvent?.();
 			removeStyles();
 		},
 	};
@@ -463,12 +492,13 @@ function extractUnit(text, axis = undefined) {
  * 	enabled: boolean;
  * 	parent: HTMLElement | "screen" | undefined;
  * 	normalizedDelta: {
-	* 	x?: NormalizedLimit | undefined;
-	* 	y?: NormalizedLimit | undefined;
+ * 	  x?: NormalizedLimit | undefined;
+ * 	  y?: NormalizedLimit | undefined;
  * 	};
  * 	handle: HTMLElement;
  * 	ignore: string;
  * 	cursor: boolean;
+ * 	preventClickThreshold?: number;
  * }}
  */
 export function input(node, param = {}) {
@@ -484,6 +514,12 @@ export function input(node, param = {}) {
 			: []
 		).join(','),
 		cursor: param.cursor ?? true,
+		preventClickThreshold:
+			typeof param.preventClickThreshold === 'number'
+				? param.preventClickThreshold
+				: param.handle && !param.handle.isSameNode(node)
+					? undefined
+					: 5,
 	};
 }
 
@@ -496,4 +532,3 @@ export function input(node, param = {}) {
  * Deprecated, use `MovableParameter` and `MovableConfig` instead
  * @typedef {import('./types.public').MovableConfig} MovableParameters
  */
-

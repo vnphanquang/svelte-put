@@ -86,7 +86,10 @@ export interface MovableLimit {
  * That means they can be updated after initialization.
  */
 export interface MovableConfig {
-	/** whether to activate the action. Default to `true` */
+	/**
+	 * whether to activate the action.
+	 * @default true
+	 */
 	enabled?: boolean;
 	/** Set a limit within which node can be moved */
 	limit?: MovableLimit;
@@ -115,8 +118,20 @@ export interface MovableConfig {
 	 * Use this options with caution because it might affect performance.
 	 */
 	ignore?: string | string[];
-	/** automatically change cursor to `grab` on hover and `grabbing` on mousedown of `handle` */
+	/**
+	 * automatically change cursor to `grab` on hover and `grabbing` on mousedown of `handle`
+	 * @default true
+	 **/
 	cursor?: boolean;
+	/**
+	 * when `movable` is applied on an element that is also the `handle`, e.g. a floating button,
+	 * dragging will also trigger pointer click event, which may cause unexpected behavior. This
+	 * option disable click event if the pointer has moved more than the specified threshold. Can be:
+	 * - 'auto': 5px in either direction, if handle is the node `movable` is applied on
+	 * - number: custom threshold in pixels
+	 * @default 'auto'
+	 */
+	preventClickThreshold?: number | 'auto';
 }
 
 /**
