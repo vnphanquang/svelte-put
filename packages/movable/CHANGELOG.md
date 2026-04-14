@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.0
+
+### Minor Changes
+
+- [`27fbbb1`](https://github.com/vnphanquang/svelte-put/commit/27fbbb190c3564b60bcd34046c651277a3833d8e) Thanks [@vnphanquang](https://github.com/vnphanquang)! - support `preventClickThreshold` option to prevent dragging handle from triggering click event. Example use case is a floating button that opens a popover and can be moved around
+
 ## 4.0.0
 
 ### Major Changes
