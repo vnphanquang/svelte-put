@@ -220,7 +220,7 @@ Notice that the `key` option in the above example is set to a **capital K**. Thi
 
 </div>
 
-### Including No Modifier
+### Explicit No Modifier
 
 <p class="c-callout c-callout--info c-callout--icon-megaphone w-fit">
   Available since <a href="https://github.com/vnphanquang/svelte-put/releases/tag/%40svelte-put%2Fshortcut%404.2.0">v4.2.0</a>.
@@ -389,7 +389,7 @@ Be aware that the event listener is placed on the same node the `shortcut` actio
 
 ## API References
 
-It is recommended to utilize your language server and intellisense for API exploration. In advanced use cases, however, you can refer to shortcut's [type definitions](https://github.com/vnphanquang/svelte-put/blob/890f2104be848148d7a3a0d3c6869a0f885eda9e/packages/shortcut/src/types.public.d.ts).
+It is recommended to utilize your language server and intellisense for API exploration. In advanced use cases, however, you can refer to shortcut's [type definitions](https://github.com/vnphanquang/svelte-put/blob/c6d1ac6a4e002a6ecfb22e23e1824f6fd83666f9/packages/shortcut/src/types.public.d.ts).
 
 ## Migration Guides
 
