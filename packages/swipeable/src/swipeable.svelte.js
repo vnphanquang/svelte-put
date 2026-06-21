@@ -5,6 +5,18 @@ import { tweened } from 'svelte/motion';
 import { resolveDirection, resolveThreshold } from './internals.js';
 
 /**
+ * set up quick swipe gesture action on element
+ * @example
+ *
+ * ```svelte
+ * <script>
+ *   import { swipeable } from '@svelte-put/swipeable';
+ * </script>
+ *
+ * <ul class="p-2">
+ *   <li use:swipeable={{ direction: 'x', followThrough: { container: 'ul' } }}>Swipe me</li>
+ * </ul>
+ * ```
  * @param {Element} node
  * @param {import('./types.public').SwipeableParameter} [param]
  * @returns {import('./types.public').SwipeableActionReturn}
@@ -68,6 +80,7 @@ export function swipeable(node, param) {
 							config.followThrough.easing = param.followThrough.easing;
 						if (param.followThrough.duration)
 							config.followThrough.duration = param.followThrough.duration;
+						config.followThrough.container = param.followThrough.container;
 					} else {
 						config.followThrough.enabled = param.followThrough;
 					}
@@ -184,10 +197,24 @@ export function swipeable(node, param) {
 		let to = null;
 		let duration = config.followThrough.duration;
 		let easing = config.followThrough.easing;
+		let container = config.followThrough.container;
 
 		if (passThreshold) {
 			if (config.followThrough.enabled) {
-				const max = axis === 'x' ? tNode.clientWidth : tNode.clientHeight;
+				let max = axis === 'x' ? tNode.clientWidth : tNode.clientHeight;
+				if (container) {
+					/** @type {Element | null} */
+					let parent = null;
+					if (typeof container === 'string') {
+						parent = tNode.closest(container);
+					} else {
+						parent = container;
+					}
+					if (parent) {
+						const parentDimension = axis === 'x' ? parent.clientWidth : parent.clientHeight;
+						max = max + (parentDimension - max) / 2;
+					}
+				}
 				to = distance[axis] > 0 ? max : -max;
 				if (flick) {
 					const distanceToMax = Math.abs(max - Math.abs(distance[axis]));

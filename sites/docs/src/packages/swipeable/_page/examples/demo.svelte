@@ -44,7 +44,7 @@
 	<p class="mt-0">Swipe left to archive, swipe right to delete</p>
 	<button class="c-btn c-btn--outlined" onclick={reset}>Reset</button>
 </div>
-<ul class="relative mt-8 overflow-hidden border border-current">
+<ul class="relative mt-8 overflow-hidden border border-current p-2">
 	{#each items as { id, title, excerpt } (id)}
 		<li
 			class="relative"
@@ -61,8 +61,8 @@
 			<!-- :::focus -->
 			<!-- :::highlight -->
 			<article
-				class="z-px border-outline bg-bg-100 relative touch-none space-y-1 border p-4"
-				use:swipeable
+				class="z-px border-outline bg-bg-100 relative touch-pan-y space-y-1 border p-4"
+				use:swipeable={{ disableTouchEvents: false, followThrough: { container: 'ul' } }}
 				onswipestart={swipestart}
 				onswipeend={swipeend}
 				style:left="var(--swipe-distance-x)"

@@ -12,7 +12,26 @@ export type SwipeFollowThrough = {
 	duration?: number;
 	/** easing function for the follow through animation */
 	easing?: (t: number) => number;
-}
+	/**
+	 * takes an container element, CSS selector to select one (closest matching ancestor)
+	 *
+	 * @example
+	 * sometimes your swipeable element lives in a padded container and you want it to leave the
+	 * container completely instead of stopping at the element bounding box.
+	 *
+	 * ```svelte
+	 * <script>
+	 *   import { swipeable } from '@svelte-put/swipeable';
+	 * </script>
+	 *
+	 * <ul class="...">
+	 *   <li use:swipeable={{ followThrough: { container: 'parent' } }}>Swipe me</li>
+	 * </ul>
+	 *
+	 * ```
+	 **/
+	container?: Element | string;
+};
 
 /**
  * svelte action parameters to config behavior of `swipeable`
@@ -81,4 +100,3 @@ export interface SwipeableAttributes {
 export type SwipeableParameter = SwipeableConfig['direction'] | SwipeableConfig | undefined;
 export type SwipeableAction = Action<Element, SwipeableParameter, SwipeableAttributes>;
 export type SwipeableActionReturn = ActionReturn<SwipeableParameter, SwipeableAttributes>;
-

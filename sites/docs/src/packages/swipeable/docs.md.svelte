@@ -157,7 +157,19 @@ type SwipeFollowThrough = boolean | {
 	duration?: number;
 	/** easing function for the follow through animation */
 	easing?: (t: number) => number;
+	/** takes an container element, CSS selector to select one (closest matching ancestor) */
+	container?: Element | string;
 }
+```
+
+#### Leaving Padded Container
+
+Sometimes, swipeable elements live inside a container with some padding. If you want the item to move completely out of the container during its follow-through movement, set explicit parent:
+
+```svelte title="SwipeableConfig.followThrough.container"
+<ul class="p-4">
+  <li use:swipeable={{ followThrough: { container: 'ul' } }}>Swipe me</li>
+</ul>
 ```
 
 ### Flick
