@@ -90,6 +90,37 @@ This approach does take up some additional memory. It should be negligible in mo
 
 </div>
 
+## `KeyboardEvent.code`
+
+<p class="c-callout c-callout--info c-callout--icon-megaphone w-fit">
+  Available since <a href="https://github.com/vnphanquang/svelte-put/releases/tag/%40svelte-put%2Fshortcut%404.2.0">v4.2.0</a>.
+</p>
+
+You can specify `trigger.code` instead of `trigger.key` to use
+[KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code) for
+matching. This is useful for keys that have different `key` values depending on the keyboard layout,
+or if you care about where the key is physically located.
+
+```svelte title=code.svelte
+<svelte:window
+  use:shortcut={{
+    trigger: {
+      code: 'KeyK',
+      modifier: ['ctrl', 'meta'],
+    },
+  }}
+/>
+```
+
+<div class="c-callout c-callout--warning">
+
+You should use either `trigger.key` or `trigger.code`, but not both. If both are specified,
+`trigger.code` will take precedence.
+
+Keep in mind also that `KeyboardEvent.code` may not be supported in all browsers at the time of this writing (2026).
+
+</div>
+
 ## Modifier
 
 Each `ShortcutTrigger` can specify either one or multiple modifiers (`ctrl`, `meta`, `alt`, `shift`) via `trigger.modifier` in both `AND` & `OR` fashions.

@@ -129,9 +129,22 @@ export function shortcut(node, param) {
 				enabled: true,
 				...trigger,
 			};
-			const { modifier, key, callback, preventDefault, enabled: triggerEnabled } = mergedTrigger;
-			if (triggerEnabled) {
-				if (event.key !== key) continue;
+			const {
+				modifier,
+				key,
+				code,
+				callback,
+				preventDefault,
+				enabled: triggerEnabled,
+			} = mergedTrigger;
+			if (!key && !code) {
+				console.warn(
+					'[svelte-put/shortcut] Trigger should have either `key` or `code`, a trigger missing both was detected! Check your configuration',
+				);
+			}
+			if (triggerEnabled && (key || code)) {
+				if (code && event.code !== code) continue;
+				else if (key && event.key !== key) continue;
 
 				if (modifier === null || modifier === false) {
 					if (modifierMask !== 0b0000) continue;

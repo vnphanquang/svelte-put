@@ -155,7 +155,15 @@ export interface ShortcutTrigger {
 	/** id to distinguish this trigger from others, recommended when using `onshortcut` */
 	id?: string;
 	/** the {@link https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent | KeyboardEvent}.key to listen to */
-	key: string;
+	key?: string;
+	/**
+	 * @experimental
+	 * be aware that `KeyboardEvent.code` may not be supported in all browsers
+	 *
+	 * the {@link https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent | KeyboardEvent}.code to listen to;
+	 * this takes precedence over `key` if both are defined. Typically, you should only specify `code` or `key`, not both.
+	 */
+	code?: string;
 	/** callback for when the trigger is matched */
 	callback?: (detail: ShortcutEventDetail) => void;
 	/**
