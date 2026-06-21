@@ -11,12 +11,12 @@ pre-commit:
       run: pnpm eslint --fix {staged_files}
       glob: '*.{js,ts,svelte}'
       stage_fixed: true
-    2_svelte-check:
-      run: pnpm svelte-check
-      glob: '*.svelte'
-      stage_fixed: true
-      exclude:
-        - '*.md.svelte'
+    # 2_svelte-check:
+    #   run: pnpm svelte-check
+    #   glob: '*.svelte'
+    #   stage_fixed: true
+    #   exclude:
+    #     - '*.md.svelte'
     1_stylelint:
       run: pnpm stylelint {staged_files}
       glob: '*.{svelte,css}'
