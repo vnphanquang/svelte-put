@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.2.0
+
+### Minor Changes
+
+- [`9f632fb`](https://github.com/vnphanquang/svelte-put/commit/9f632fba7592a549ea82a314f11881d9aecb2901) Thanks [@vnphanquang](https://github.com/vnphanquang)! - Specify `'none'` for `trigger.modifier` to match when no modifier is pressed
+
+- [`c6d1ac6`](https://github.com/vnphanquang/svelte-put/commit/c6d1ac6a4e002a6ecfb22e23e1824f6fd83666f9) Thanks [@vnphanquang](https://github.com/vnphanquang)! - support using `KeyboardEvent.code` for matching (mutually exclusive to `key`, i.e use one not both) - resolve #387
+
 ## 4.1.0
 
 ### Minor Changes
