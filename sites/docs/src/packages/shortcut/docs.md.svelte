@@ -189,6 +189,28 @@ Notice that the `key` option in the above example is set to a **capital K**. Thi
 
 </div>
 
+### Including No Modifier
+
+<p class="c-callout c-callout--info c-callout--icon-megaphone w-fit">
+  Available since <a href="https://github.com/vnphanquang/svelte-put/releases/tag/%40svelte-put%2Fshortcut%404.2.0">v4.2.0</a>.
+</p>
+
+Add to `'none'` to also match when no modifier is pressed.
+
+```svelte title=no-modifier.svelte
+<svelte:window
+  use:shortcut={{
+    // x or ctrl/meta+x
+    trigger: {
+      key: 'x',
+      <!-- :::highlight -->
+      modifier: ['none', 'ctrl', 'meta'],
+      <!-- ::: -->
+    },
+  }}
+/>
+```
+
 ### Mix & Match
 
 Use a combination of `OR` and `AND` to create complex modifier combinations.

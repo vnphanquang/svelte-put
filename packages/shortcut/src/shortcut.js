@@ -6,6 +6,8 @@ import { on } from 'svelte/events';
  */
 function mapModifierToBitMask(def) {
 	switch (def) {
+		case 'none':
+			return 0b0000;
 		case 'ctrl':
 			return 0b1000;
 		case 'shift':
@@ -58,6 +60,13 @@ function mapModifierToBitMask(def) {
  *
  *         callback: onOpenCommandPalette,
  *         preventDefault: true,
+ *       {
+ *         key: 'x',
+ *
+ *         // trigger if either no modifier or ctrl is pressed
+ *         modifier: ['none', 'ctrl'],
+ *
+ *         callback: () => 'x was pressed with no modifier or ctrl',
  *       },
  *       {
  *         key: 'Escape',
@@ -126,10 +135,7 @@ export function shortcut(node, param) {
 
 				if (modifier === null || modifier === false) {
 					if (modifierMask !== 0b0000) continue;
-				} else if (
-					modifier !== undefined &&
-					modifier?.[0]?.length > 0
-				) {
+				} else if (modifier !== undefined && modifier?.[0]?.length > 0) {
 					const orDefs = Array.isArray(modifier) ? modifier : [modifier];
 					let modified = false;
 					for (const orDef of orDefs) {

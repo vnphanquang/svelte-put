@@ -17,7 +17,7 @@ export interface ShortcutAttributes {
  * {@link https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/shiftKey | shiftKey},
  * {@link https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/metaKey | metaKey}.
  */
-export type ShortcutModifier = 'alt' | 'ctrl' | 'meta' | 'shift';
+export type ShortcutModifier = 'none' | 'alt' | 'ctrl' | 'meta' | 'shift';
 
 /**
  * Possible variations for modifier definition
@@ -137,7 +137,7 @@ export type ShortcutModifierDefinition =
 	| null // none
 	| false // none
 	| ShortcutModifier // one
-	| (ShortcutModifier|ShortcutModifier[])[] // all of (AND);
+	| (ShortcutModifier | ShortcutModifier[])[]; // all of (AND);
 
 /**
  * A definition of a shortcut trigger
