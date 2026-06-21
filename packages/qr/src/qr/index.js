@@ -62,18 +62,20 @@ export function createQrSvgParts(config, qr) {
 	anchorsSvg = `<g class="anchors">${anchorsSvg}</g>`;
 
 	/** ---- MODULES ---- */
-	let modulesSvg = '';
+	let modulesPath = '';
 	for (let col = 0; col < count; col++) {
 		for (let row = 0; row < count; row++) {
 			if (!qr[row][col] || isAnchor(col, row, count) || (logo && isLogo(col, row, count))) continue;
 			const x = col + margin;
 			const y = row + margin;
-			modulesSvg += `<rect class="module" fill="${moduleFill}" data-column="${col}" data-row="${row}" x="${x}" y="${y}" width="1" height="1" ${
-				shape === 'circle' ? 'rx="0.5"' : ''
-			} />`;
+			if (shape === 'circle') {
+				modulesPath += `M${x + 0.5} ${y}a0.5 0.5 0 1 1 0 1a0.5 0.5 0 1 1 0 -1z`;
+			} else {
+				modulesPath += `M${x} ${y}h1v1h-1v-1z`;
+			}
 		}
 	}
-	modulesSvg = `<g class="modules">${modulesSvg}</g>`;
+	let modulesSvg = `<path class="module" fill="${moduleFill}" d="${modulesPath}" />`;
 
 	/** ---- LOGO ---- */
 	let logoSvg = '';
