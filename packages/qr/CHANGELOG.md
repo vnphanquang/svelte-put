@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.1.3
+
+### Patch Changes
+
+- [`57e90b0`](https://github.com/vnphanquang/svelte-put/commit/57e90b037b771834efc5ae430811d1f1a43205b9) Thanks [@vnphanquang](https://github.com/vnphanquang)! - Optimise SVG generation: squash all modules into a single path. Also solves #386 (gaps in PNG)
+
 ## 2.1.2
 
 ### Patch Changes
