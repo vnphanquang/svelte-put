@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.2.0
+
+### Minor Changes
+
+- [`c46bbca`](https://github.com/vnphanquang/svelte-put/commit/c46bbca78600818f9ef5f4993769a0edbe88513e) Thanks [@vnphanquang](https://github.com/vnphanquang)! - add `followThrough.container` option for leaving a padded container during a follow-through movement
+
+### Patch Changes
+
+- [`9f1ff77`](https://github.com/vnphanquang/svelte-put/commit/9f1ff77d531f9f846bf7a7a4e58193e0e74b7e1c) Thanks [@vnphanquang](https://github.com/vnphanquang)! - add note about touch event issue
+
 ## 1.1.0
 
 ### Minor Changes
