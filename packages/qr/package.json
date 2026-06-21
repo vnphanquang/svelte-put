@@ -1,6 +1,6 @@
 {
 	"name": "@svelte-put/qr",
-	"version": "2.1.2",
+	"version": "2.1.3",
 	"description": "render QR as svg or img",
 	"main": "src/index.js",
 	"module": "src/index.js",
