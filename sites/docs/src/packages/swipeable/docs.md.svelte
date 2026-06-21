@@ -178,6 +178,16 @@ For complex configuration, you can provide a function that takes the duration in
 const DEFAULT_FLICK_CHECK = (ms, px) => ms < 170 && Math.abs(px / ms) > 1;
 ```
 
+### Scrolling Conflict with Touch Events
+
+On mobile, you may run into scrolling issue. By default, `swipeable` sets `touch-action: none` on the element (argubaly could be smarter).
+
+To mitigate this issue, limit [direction](#direction) to one axis and set [touch-action](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/touch-action) for the other axis on the item:
+
+```svelte title="touch-action vs swipeable"
+<div class="touch-pan-y" use:swipeable={{ direction: 'x', disableTouchEvents: false }}></div>
+```
+
 ---
 
 Happy swiping!
