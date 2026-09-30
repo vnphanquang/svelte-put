@@ -1,8 +1,0 @@
-@utility c-callout--info {
-	@layer components.mod1 {
-		--callout-color-text: var(--color-info-fg);
-		--callout-color-icon: var(--color-info-fg);
-		--callout-color-bg: var(--color-info-bg);
-		--callout-color-border: var(--color-info-bg-200);
-	}
-}

@@ -1,0 +1,25 @@
+vnphanquang
+
+Developer: Quang Phan
+Github: https://github.com/vnphanquang
+Bluesky: https://bsky.app/profile/vnphanquang.com
+From: Vietnam
+
+/* SITE */
+
+Languages: English, Vietnamese
+Doctype: HTML5
+
+/* TECHNOLOGY */
+
+Vite: https://vite.dev/
+Svelte: https://svelte.dev/
+Svelte-kit: https://kit.svelte.dev/
+Tailwind CSS: https://tailwindcss.com/
+Unified: https://unifiedjs.com/
+Typescript: https://www.typescriptlang.org/
+
+ ,_,
+(O,O)
+(   )
+-"-"---- (ASCII Art Credit:  Donovan Baker)

@@ -1,64 +1,47 @@
 {
-	"name": "@sites/docs",
-	"version": "0.0.1",
+	"name": "docs",
+	"version": "v2",
 	"private": true,
 	"type": "module",
+	"imports": {
+		"#lib/*": [
+			"./src/lib/*",
+			"./src/lib/*.js",
+			"./src/lib/*/index.js",
+			"./src/lib/*.ts",
+			"./src/lib/*/index.ts"
+		],
+		"#data/*": [
+			"./src/data/*",
+			"./src/data/*.js",
+			"./src/data/*/index.js",
+			"./src/data/*.ts",
+			"./src/data/*/index.ts"
+		]
+	},
 	"scripts": {
-		"dev": "vite dev --port 4545",
-		"build": "vite build --mode production && pnpm pagefind",
-		"pagefind": "node ./scripts/pagefind.js",
+		"boot:env": "shx cp .env.example .env",
+		"dev": "vite dev",
+		"build": "vite build",
 		"preview": "vite preview",
 		"lint": "run-p lint:*",
+		"lint:es": "svelte-kit sync && eslint .",
 		"lint:svelte": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"lint:es": "eslint .",
-		"format": "prettier --write ."
-	},
-	"dependencies": {
-		"@floating-ui/dom": "^1.6.12",
-		"mustache": "^4.2.0",
-		"pagefind": "^1.2.0",
-		"sanitize-html": "^2.13.1"
+		"lint:style": "stylelint '**/*.{svelte,css}'",
+		"format": "prettier --write --ignore-path=../../.prettierignore --config=../../prettier.config.js ."
 	},
 	"devDependencies": {
-		"@csstools/postcss-global-data": "^3.0.0",
-		"@svelte-put/async-stack": "workspace:*",
-		"@svelte-put/avatar": "workspace:*",
-		"@svelte-put/clickoutside": "workspace:*",
-		"@svelte-put/cloudflare-turnstile": "workspace:^",
-		"@svelte-put/copy": "workspace:*",
-		"@svelte-put/dragscroll": "workspace:*",
-		"@svelte-put/inline-svg": "workspace:*",
-		"@svelte-put/intersect": "workspace:*",
-		"@svelte-put/lockscroll": "workspace:*",
-		"@svelte-put/movable": "workspace:*",
-		"@svelte-put/popover": "workspace:*",
-		"@svelte-put/preaction": "workspace:*",
-		"@svelte-put/preprocess-auto-slug": "workspace:*",
-		"@svelte-put/preprocess-external-link": "workspace:*",
-		"@svelte-put/preprocess-markdown": "workspace:*",
-		"@svelte-put/qr": "workspace:^",
-		"@svelte-put/resize": "workspace:*",
-		"@svelte-put/shortcut": "workspace:*",
-		"@svelte-put/swipeable": "workspace:*",
-		"@svelte-put/toc": "workspace:*",
-		"@svelte-put/ui": "workspace:^",
-		"@sveltejs/adapter-cloudflare": "4.8.0",
-		"@sveltejs/enhanced-img": "0.4.1",
-		"@sveltejs/kit": "2.9.0",
-		"@sveltejs/vite-plugin-svelte": "5.0.1",
-		"@tailwindcss/typography": "0.5.15",
-		"@tailwindcss/vite": "4.0.0-beta.3",
-		"@total-typescript/ts-reset": "0.6.1",
-		"@types/mustache": "4.2.5",
-		"@types/sanitize-html": "2.13.0",
-		"postcss": "8.4.49",
-		"postcss-color-scheme": "2.1.0",
-		"postcss-custom-media": "11.0.5",
-		"postcss-custom-selectors": "8.0.4",
-		"tailwindcss": "4.0.0-beta.3",
-		"vite": "6.0.2"
-	},
-	"volta": {
-		"extends": "../../package.json"
+		"@sveltejs/adapter-cloudflare": "8.0.0-next.7",
+		"@sveltejs/enhanced-img": "^0.11.0",
+		"@sveltejs/kit": "3.0.0-next.30",
+		"@sveltejs/vite-plugin-svelte": "^7.3.0",
+		"@types/umami-browser": "^2.18.1",
+		"@vnphanquang/gach": "link:../../../vnphanquang/packages/gach",
+		"@vnphanquang/markdown": "link:../../../vnphanquang/markdown/gach",
+		"node-addon-api": "^8.9.2",
+		"node-gyp": "^13.0.2",
+		"tailwindcss": "^4.3.3",
+		"valibot": "^1.5.0",
+		"vite-plugin-qrcode": "^0.4.1"
 	}
 }

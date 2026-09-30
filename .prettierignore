@@ -1,6 +1,6 @@
 node_modules/
 CHANGELOG.md
-*.md.svelte
 *.svg
 pnpm-lock.yaml
+.svelte-kit/
 

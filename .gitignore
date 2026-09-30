@@ -1,29 +1,11 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
 node_modules
-.pnp
-.pnp.js
 
-# testing
-coverage
+# Output
+.svelte-kit
 
-# next.js
-.next/
-out/
-build/
-
-# misc
+# OS
 .DS_Store
-*.pem
-
-# debug
-*.log*
-
-# turbo
-.turbo
-
-temp/
+Thumbs.db
 
 # Env
 .env
@@ -31,19 +13,15 @@ temp/
 !.env.example
 !.env.test
 
-# svelte-kit
-.svelte-kit/
-.vercel
-
-# vite temp
+# Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
-# git secret
-.gitsecret/keys/random_seed
-!*.secret
+# Devenv
+.devenv*
+devenv.local.nix
+devenv.local.yaml
 
-# turborepo
-.turbo
-types/
-dist/
+# direnv
+.direnv
+

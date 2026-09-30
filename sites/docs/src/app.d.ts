@@ -1,66 +1,23 @@
-/// <reference types="@sveltejs/kit" />
-/// <reference types="svelte" />
+/// <reference types="umami-browser" />
 /// <reference types="vite/client" />
-/// <reference types="@sveltejs/adapter-cloudflare" />
+
+import type { ColorScheme } from '@vnphanquang/gach/constants';
 
 declare global {
-	declare const __BUILD_TIMESTAMP__: string;
-
-	declare module '*&imagetools' {
-		const src: string;
-		export default src;
+	interface Window {
+		umami?: umami.umami;
 	}
 
 	namespace App {
-		declare type Status = (typeof import('$lib/constants').STATUSES)[number];
-		declare type ColorScheme = (typeof import('$lib/constants').COLOR_SCHEMES)[number];
-		declare type PackageManager = (typeof import('$lib/constants').PACKAGE_MANAGER)[number];
-		declare type Settings = {
-			colorScheme: ColorScheme;
-			packageManager: PackageManager;
-		};
-
-		declare interface Package {
-			id: string;
-			publishedAt: number;
-			description: string;
-			replId?: string;
-			status: 'dev' | 'beta' | 'new' | 'flux' | 'stable' | 'deprecated';
-			releaseTag?: string;
-			rune: boolean;
-		}
-
+		// interface Error {}
 		interface Locals {
-			userId: string;
-			settings: Settings;
+			colorScheme: ColorScheme;
 		}
-		interface PageData {
-			settings: Settings;
-			meta?: {
-				title?: string;
-				description?: string;
-				keywords?: string[];
-				canonical?: string;
-				og?: {
-					title?: string;
-					description?: string;
-					type?: 'website' | 'article' | 'profile';
-					image?: string;
-					imageAlt?: string;
-					url?: string;
-				};
-				twitter?: {
-					title?: string;
-					description?: string;
-					card?: string;
-					image?: string;
-					imageAlt?: string;
-					site?: string;
-					creator?: string;
-				};
-			};
-		}
+		// interface PageData {}
+		// interface PageState {}
+		// interface Platform {}
 	}
 }
 
 export {};
+

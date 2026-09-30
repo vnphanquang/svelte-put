@@ -1,57 +1,59 @@
-import path from 'path';
+import child_process from 'node:child_process';
 
-import { inlineSvg } from '@svelte-put/inline-svg/vite';
+import adapter from '@sveltejs/adapter-cloudflare';
 import { enhancedImages } from '@sveltejs/enhanced-img';
 import { sveltekit } from '@sveltejs/kit/vite';
-import tailwindcssVite from '@tailwindcss/vite';
-import postcssColorScheme from 'postcss-color-scheme';
-import postcssCustomMedia from 'postcss-custom-media';
-import postcssCustomSelectors from 'postcss-custom-selectors';
+import { gach } from '@vnphanquang/gach/vite';
 import { defineConfig } from 'vite';
+import { qrcode } from 'vite-plugin-qrcode';
+
+import pkg from './package.json' with { type: 'json' };
+// import { autoSlug } from '@svelte-put/preprocess-auto-slug';
+// import { externalLink } from '@svelte-put/preprocess-external-link';
+
+const commitHash = child_process.execSync('git rev-parse --short HEAD').toString().trim();
 
 export default defineConfig({
-	css: {
-		transformer: 'postcss',
-		postcss: {
-			plugins: [
-				postcssCustomMedia(),
-				postcssCustomSelectors(),
-				postcssColorScheme({ name: 'media' }),
-			],
-		},
-	},
+	server: { port: 4545 },
 	plugins: [
-		inlineSvg(
-			[
-				{
-					directories: [path.resolve(__dirname, 'src/lib/assets/images/svg')],
-					attributes: {
-						height: '24',
-						width: '24',
-					},
-				},
-			],
-			{
-				inlineSrcAttributeName: 'inline-src',
-				typedef: true,
-			},
-		),
+		qrcode(),
+		gach({ markdown: true }),
 		enhancedImages(),
-		sveltekit(),
-		tailwindcssVite(),
+		// FIXME: add auto-slug, inline-svg, external-link, etc.
+		// autoSlug((defaultOptions) => ({
+		// 	include: /data\/posts\/.*\.svelte$/,
+		// 	tags: ['h2', 'h3', 'h4', 'h5', 'h6'],
+		// 	anchor: {
+		// 		content: '#',
+		// 		position: 'prepend',
+		// 		properties: {
+		// 			...defaultOptions.anchor?.properties,
+		// 			class: 'heading-anchor',
+		// 		},
+		// 	},
+		// })),
+		// externalLink(['vnphanquang.com']),
+		sveltekit({
+			adapter: adapter(),
+			version: {
+				name: `${pkg.version} (#${commitHash})@${Date.now()}`,
+			},
+			compilerOptions: {
+				modernAst: true,
+				experimental: {
+					async: true,
+				},
+			},
+			experimental: {
+				remoteFunctions: true,
+				explicitEnvironmentVariables: true,
+			},
+			inspector: {
+				toggleKeyCombo: 'alt-shift',
+				holdMode: true,
+				showToggleButton: 'always',
+				toggleButtonPos: 'bottom-left',
+			},
+		}),
 	],
-	define: {
-		__BUILD_TIMESTAMP__: JSON.stringify(Date.now().toString()),
-	},
-	build: {
-		rollupOptions: {
-			external: ['/pagefind/pagefind.js'],
-		},
-	},
-	assetsInclude: '**/pagefind.js',
-	server: {
-		fs: {
-			strict: false,
-		},
-	},
 });

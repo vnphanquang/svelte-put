@@ -1,9 +1,7 @@
+import { getPreferences } from '#lib/preferences/get-preferences.remote';
+
 import type { LayoutServerLoad } from './$types';
 
-export const prerender = true;
-export const load: LayoutServerLoad = ({ url, locals }) => {
-	return {
-		pathname: url.pathname, // to trigger when pathname changes
-		settings: locals.settings,
-	};
+export const load: LayoutServerLoad = async () => {
+	return { preferences: await getPreferences() };
 };

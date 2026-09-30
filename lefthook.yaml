@@ -1,29 +1,34 @@
 assert_lefthook_installed: true
-min_version: 1.7.18
+min_version: 2.0.0
+glob_matcher: doublestar
 pre-commit:
   piped: true
   follow: true
   skip:
     - merge
     - rebase
-  commands:
-    1_eslint:
-      run: pnpm eslint --fix {staged_files}
-      glob: '*.{js,ts,svelte}'
+  jobs:
+    - name: 1_eslint
+      group:
+        parallel: true
+        jobs:
+          - name: 'docs'
+            root: sites/docs
+            run: pnpm eslint --fix {staged_files}
+            stage_fixed: true
+            glob: 'sites/docs/*.{js,ts,svelte}'
+          - name: catchall
+            run: pnpm eslint --fix {staged_files}
+            stage_fixed: true
+            glob: '*.{js,ts}'
+    - name: 2_stylelint
+      run: pnpm stylelint --fix {staged_files}
+      glob: '**/*.{css,svelte}'
       stage_fixed: true
-    # 2_svelte-check:
-    #   run: pnpm svelte-check
-    #   glob: '*.svelte'
-    #   stage_fixed: true
-    #   exclude:
-    #     - '*.md.svelte'
-    1_stylelint:
-      run: pnpm stylelint {staged_files}
-      glob: '*.{svelte,css}'
-      stage_fixed: true
-    2_prettier:
+    - name: 3_prettier
       run: pnpm prettier --write {staged_files}
-      glob: '*.{js,ts,svelte,css,json,md,yaml}'
+      glob: '**/*.{js,ts,json,md,yaml,svelte}'
       stage_fixed: true
       exclude:
         - pnpm-lock.yaml
+
