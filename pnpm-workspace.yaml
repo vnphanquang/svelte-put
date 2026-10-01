@@ -1,5 +1,4 @@
 packages:
-  - 'internals/*'
   - 'packages/*'
   - 'sites/*'
 allowBuilds:
