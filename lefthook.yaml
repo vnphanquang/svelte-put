@@ -12,7 +12,12 @@ pre-commit:
       group:
         parallel: true
         jobs:
-          - name: 'docs'
+          - name: '@svelte-put/preprocess-auto-slug'
+            root: packages/preprocess-auto-slug
+            run: pnpm eslint --fix {staged_files}
+            stage_fixed: true
+            glob: 'sites/docs/*.{js,ts,svelte}'
+          - name: docs
             root: sites/docs
             run: pnpm eslint --fix {staged_files}
             stage_fixed: true
@@ -31,4 +36,3 @@ pre-commit:
       stage_fixed: true
       exclude:
         - pnpm-lock.yaml
-
