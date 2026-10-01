@@ -1,0 +1,14 @@
+name: Setup
+description: configure node, package manager, and install dependencies
+runs:
+  using: composite
+  steps:
+    - name: Setup pnpm
+      uses: pnpm/setup@v2
+      with:
+        cache: true
+        install: false
+
+    - name: Install dependencies
+      shell: bash
+      run: pnpm install --ignore-scripts --no-frozen-lockfile
