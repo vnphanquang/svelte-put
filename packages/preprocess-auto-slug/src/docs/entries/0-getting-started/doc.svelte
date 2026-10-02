@@ -75,5 +75,4 @@ Happy slugging!
 [rehype-slug]: https://github.com/rehypejs/rehype-slug
 [rehype-autolink-headings]: https://github.com/rehypejs/rehype-autolink-headings
 [MDsveX]: https://github.com/pngwn/MDsveX
-[@svelte-put/toc]: /docs/toc
 `}
