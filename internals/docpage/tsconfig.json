@@ -5,13 +5,14 @@
 		"checkJs": true,
 		"noEmit": true,
 		"strict": true,
-		"target": "es2020",
-		"module": "es2022",
+		"target": "esnext",
+		"module": "esnext",
 		"verbatimModuleSyntax": true,
 		"moduleResolution": "bundler",
 		"allowSyntheticDefaultImports": true,
 		"noUnusedLocals": true,
-		"noUnusedParameters": true
+		"noUnusedParameters": true,
+		"types": ["node"]
 	},
 	"include": ["src/**/*"],
 	"exclude": ["node_modules"]

@@ -24,7 +24,8 @@
 		"lint": "run-p lint:*",
 		"lint:es": "eslint .",
 		"format": "prettier --write --ignore-path=../../.prettierignore --config=../../prettier.config.js .",
-		"build": "dts-buddy --write && publint"
+		"build": "dts-buddy --write && publint",
+		"dev": "vite dev"
 	},
 	"keywords": [
 		"svelte",

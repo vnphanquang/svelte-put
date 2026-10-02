@@ -1,4 +1,7 @@
 {
-	"include": ["src/**/*"],
-	"extends": "../../internals/tsconfig/base.package.js.json"
+	"extends": "$app/tsconfig",
+	"compilerOptions": {
+		"strict": true
+	},
+	"include": ["src"]
 }

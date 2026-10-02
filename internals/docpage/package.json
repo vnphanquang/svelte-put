@@ -1,0 +1,13 @@
+{
+	"name": "@internals/docpage",
+	"private": true,
+	"type": "module",
+	"exports": {
+		".": {
+			"import": "./src/index.ts"
+		},
+		"./vite": {
+			"import": "./src/vite.ts"
+		}
+	}
+}
