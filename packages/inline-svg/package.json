@@ -71,7 +71,8 @@
 	"devDependencies": {
 		"@types/estree": "^1.0.6",
 		"@types/lodash.debounce": "^4.0.9",
-		"@types/svg-parser": "^2.0.6"
+		"@types/svg-parser": "^2.0.6",
+		"svelte": "^5.57.1"
 	},
 	"dependencies": {
 		"hast-util-to-html": "^9.0.3",

@@ -1,17 +1,29 @@
 import type BananaSlug from 'github-slugger';
 
-export type FilterIdSpecs = (string | RegExp)[] | string | RegExp;
-
-export type DefaultAutoSlugOptions = Omit<AutoSlugOptions, 'anchor'> & {
-	anchor?: AutoSlugAnchorOptions;
-};
-
 /**
  * input to preprocessor. Either on object of options or a
  * function that returns one (with the defaultOptions as its parameter).
  */
 export type AutoSlugInput =
 	AutoSlugOptions | ((defaultOptions: DefaultAutoSlugOptions) => AutoSlugOptions);
+
+/**
+ * options to config preprocess-auto-slug
+ */
+export interface AutoSlugOptions {
+	/** what files the vite plugin should process, passed to Vite `transform.filter.id.include` */
+	include?: FilterIdSpecs;
+	/** what files the vite plugin should skip, passed to Vite `transform.filter.id.exclude` */
+	exclude?: FilterIdSpecs;
+	/** target tag, default to all heading tags */
+	tags?: string[];
+	/** default to `id` */
+	attributeName?: string;
+	/** instructions to add the anchor tag */
+	anchor?: AutoSlugAnchorOptions | false;
+	/** slug resolver */
+	slug?: (input: SlugResolverInput) => string;
+}
 
 /**
  * instructions for adding anchor tag
@@ -64,20 +76,8 @@ export interface SlugResolverInput {
 	slugger: BananaSlug;
 }
 
-/**
- * options to config preprocess-auto-slug
- */
-export interface AutoSlugOptions {
-	/** what files the vite plugin should process, passed to Vite `transform.filter.id.include` */
-	include?: FilterIdSpecs;
-	/** what files the vite plugin should skip, passed to Vite `transform.filter.id.exclude` */
-	exclude?: FilterIdSpecs;
-	/** target tag, default to all heading tags */
-	tags?: string[];
-	/** default to `id` */
-	attributeName?: string;
-	/** instructions to add the anchor tag */
-	anchor?: AutoSlugAnchorOptions | false;
-	/** slug resolver */
-	slug?: (input: SlugResolverInput) => string;
-}
+export type FilterIdSpecs = (string | RegExp)[] | string | RegExp;
+
+export type DefaultAutoSlugOptions = Omit<AutoSlugOptions, 'anchor'> & {
+	anchor?: AutoSlugAnchorOptions;
+};

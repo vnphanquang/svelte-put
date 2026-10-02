@@ -1,3 +1,1 @@
-export * from './action/index.js';
-
-export function inlineSvg() {}
+export * from './runtime/action/index.js';

@@ -288,9 +288,6 @@ importers:
       magic-string:
         specifier: ^1.4.2
         version: 1.4.2
-      svelte:
-        specifier: '>=5.0.0'
-        version: 5.57.1
       svg-parser:
         specifier: ^2.0.4
         version: 2.1.0
@@ -310,6 +307,9 @@ importers:
       '@types/svg-parser':
         specifier: ^2.0.6
         version: 2.0.6
+      svelte:
+        specifier: ^5.57.1
+        version: 5.57.1
 
   packages/preprocess-auto-slug:
     dependencies:
