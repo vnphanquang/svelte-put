@@ -6,3 +6,8 @@ allowBuilds:
   esbuild: true
   sharp: true
   workerd: true
+minimumReleaseAgeExclude:
+  - '@sveltejs/adapter-auto'
+  - '@sveltejs/adapter-cloudflare'
+  - '@sveltejs/kit'
+  - '@sveltejs/enhanced-img'
