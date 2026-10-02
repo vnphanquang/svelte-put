@@ -12,6 +12,10 @@
 			"types": "./types/index.d.ts",
 			"import": "./src/lib/index.js"
 		},
+		"./preprocessor": {
+			"types": "./types/index.d.ts",
+			"import": "./src/lib/preprocessor/index.js"
+		},
 		"./vite": {
 			"types": "./types/index.d.ts",
 			"import": "./src/lib/vite/index.js"
@@ -19,6 +23,9 @@
 	},
 	"typesVersions": {
 		"*": {
+			"preprocessor": [
+				"./types/index.d.ts"
+			],
 			"vite": [
 				"./types/index.d.ts"
 			]
