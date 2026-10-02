@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<style>
+			/* FIXME: keep an eye on @vnphanquang/gach and abstract this later */
+			@layer theme, base, components, markdown, utilities, icons;
+			@layer utilities.components, utilities.icons;
+		</style>
+		%sveltekit.head%
+	</head>
+	<body>
+		<div class="text-" style="display: contents">%sveltekit.body%</div>
+	</body>
+</html>
