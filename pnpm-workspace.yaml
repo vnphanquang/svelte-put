@@ -7,7 +7,10 @@ allowBuilds:
   sharp: true
   workerd: true
 minimumReleaseAgeExclude:
+  - 'svelte'
   - '@sveltejs/adapter-auto'
   - '@sveltejs/adapter-cloudflare'
   - '@sveltejs/kit'
   - '@sveltejs/enhanced-img'
+  - '@sveltejs/vite-plugin-svelte'
+  - 'vite'

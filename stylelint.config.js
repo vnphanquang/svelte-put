@@ -14,7 +14,18 @@ export default {
 			},
 		],
 	},
-	overrides: [],
+	overrides: [
+		{
+			files: ['packages/**/*.css'],
+			rules: {
+				'at-rule-no-unknown': [
+					true,
+					{
+						ignoreAtRules: ['theme'],
+					},
+				],
+			},
+		},
+	],
 	ignoreFiles: ['**/app.html'],
 };
-

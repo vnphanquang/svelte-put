@@ -1,7 +1,7 @@
 {
-	"name": "@svelte-put/preprocess-auto-slug",
-	"version": "2.0.0",
-	"description": "Generate slug from text content, to add id to headings for example",
+	"name": "@svelte-put/inline-svg",
+	"version": "4.0.2",
+	"description": "solution to inline SVGs in svelte land",
 	"main": "src/lib/index.js",
 	"module": "src/lib/index.js",
 	"types": "types/index.d.ts",
@@ -11,13 +11,24 @@
 		".": {
 			"types": "./types/index.d.ts",
 			"import": "./src/lib/index.js"
+		},
+		"./vite": {
+			"types": "./types/index.d.ts",
+			"import": "./src/lib/vite/index.js"
+		}
+	},
+	"typesVersions": {
+		"*": {
+			"vite": [
+				"./types/index.d.ts"
+			]
 		}
 	},
 	"publishConfig": {
 		"access": "public"
 	},
 	"files": [
-		"src/lib",
+		"src",
 		"types"
 	],
 	"scripts": {
@@ -30,12 +41,17 @@
 	},
 	"keywords": [
 		"svelte",
-		"preprocess",
-		"heading",
-		"id",
-		"tag",
-		"link",
-		"slug"
+		"action",
+		"svg",
+		"inline",
+		"dynamic",
+		"static",
+		"build",
+		"runtime",
+		"vite",
+		"preprocessor",
+		"static",
+		"compiletime"
 	],
 	"author": {
 		"email": "oss@vnphanquang.com",
@@ -43,25 +59,29 @@
 		"url": "https://github.com/vnphanquang"
 	},
 	"license": "MIT",
-	"homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocess-auto-slug",
+	"homepage": "https://github.com/vnphanquang/svelte-put/tree/main/packages/inline-svg",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/vnphanquang/svelte-put.git",
-		"directory": "packages/preprocess-auto-slug"
+		"directory": "packages/inline-svg"
 	},
 	"bugs": {
 		"url": "https://github.com/vnphanquang/svelte-put/issues"
 	},
 	"devDependencies": {
-		"@types/estree": "^1.0.6"
+		"@types/estree": "^1.0.6",
+		"@types/lodash.debounce": "^4.0.9",
+		"@types/svg-parser": "^2.0.6"
+	},
+	"dependencies": {
+		"hast-util-to-html": "^9.0.3",
+		"lodash.debounce": "^4.0.8",
+		"magic-string": "^1.4.2",
+		"svg-parser": "^2.0.4",
+		"zimmerframe": "^1.1.5"
 	},
 	"peerDependencies": {
 		"svelte": ">=5.0.0",
 		"vite": ">=8.0.0"
-	},
-	"dependencies": {
-		"github-slugger": "^2.0.0",
-		"magic-string": "^1.4.2",
-		"zimmerframe": "^1.1.5"
 	}
 }
