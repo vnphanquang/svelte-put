@@ -12,8 +12,8 @@ import { generateSourceTyping, matchFileExtension } from './internals.js';
 
 /**
  * create a preprocessor that inlines SVG from disk to source code at compile time
- * @param {InlineSvgSource} source
- * @param {InlineSvgViteConfig} config
+ * @param {InlineSvgSource} [source]
+ * @param {InlineSvgViteConfig} [config]
  * @returns {Plugin} - vite plugin that wraps a Svelte preprocessor
  */
 export function inlineSvg(source, config) {
@@ -21,7 +21,7 @@ export function inlineSvg(source, config) {
 
 	/** @type {FilterIdSpecs | null} */
 	let svelteIdFilter = null;
-	let typedef = config.typedef;
+	let typedef = config?.typedef;
 
 	return {
 		name: 'vite-plugin-svelte-preprocess-inline-svg',
@@ -79,8 +79,8 @@ export function inlineSvg(source, config) {
 			order: 'pre',
 			filter: {
 				id: {
-					include: config.include || svelteIdFilter || /\.svelte$/,
-					exclude: config.exclude,
+					include: config?.include || svelteIdFilter || /\.svelte$/,
+					exclude: config?.exclude,
 				},
 			},
 			async handler(content, filename) {
