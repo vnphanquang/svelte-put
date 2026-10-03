@@ -15,7 +15,7 @@ A lot of aspects of \`preprocess-auto-slug\` can be cusomtised, including:
 - the placement of anchor tag.
 
 To avoid being verbose, please utilise language server during
-development or see the type definition below for more details:
+development or see the type definition below for more information:
 
 ~~~typescript #title="preprocess-auto-slug.d.ts" src="fs:../../../lib/types.public.d.ts"
 

@@ -10,3 +10,5 @@
 		--header-height: 4.5rem;
 	}
 }
+
+@source '../../../internals/docpage/**/*.{ts,js,svelte}';

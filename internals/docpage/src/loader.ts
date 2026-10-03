@@ -3,10 +3,14 @@ import type { Component } from 'svelte';
 import { collectDocPages } from './collection';
 import type { DocPage, PerDefinedDocPageMetadata } from './definition';
 
+export interface DocPageLoader {
+	(input: { slug: string }): Promise<DocPage | null>;
+}
+
 export function createDocPageLoader(
 	contentModules: Record<string, () => Promise<Component>>,
 	metadataModules: Record<string, () => Promise<PerDefinedDocPageMetadata>>,
-): (input: { slug: string }) => Promise<DocPage | null> {
+): DocPageLoader {
 	const mapping = collectDocPages(contentModules, metadataModules);
 	return async function (input) {
 		const { slug } = input;

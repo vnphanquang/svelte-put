@@ -4,6 +4,7 @@
 	"type": "module",
 	"exports": {
 		".": {
+			"svelte": "./src/index.ts",
 			"import": "./src/index.ts"
 		},
 		"./vite": {

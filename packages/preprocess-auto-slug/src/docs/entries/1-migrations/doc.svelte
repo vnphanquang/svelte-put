@@ -3,7 +3,7 @@
 	import { markdown } from '@vnphanquang/markdown/svelte';
 
 	export const metadata = defineDocPageMetadata({
-		title: 'Migrations',
+		title: 'Migration Guides',
 	});
 </script>
 

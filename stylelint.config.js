@@ -13,6 +13,12 @@ export default {
 				ignoreShorthands: ['grid-template'],
 			},
 		],
+		'at-rule-no-unknown': [
+			true,
+			{
+				ignoreAtRules: ['source'],
+			},
+		],
 	},
 	overrides: [
 		{
