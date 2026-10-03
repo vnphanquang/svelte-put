@@ -53,8 +53,8 @@ documentation page for more information on setup and usage:
 
 ## Frequently Asked Questions
 
-Q: Why should I care about **runtime** vs **build time**?<br>
-A: Javascript! **Runtime** [requires Javascript](https://www.kryogenix.org/code/browser/everyonehasjs.html). Without it, users will not see your SVG. On the other hand, **build time** does the work beforehand, so SVGs are already there in the initial HTML.
+Q: Why should I care about **runtime** vs **compile time**?<br>
+A: Javascript! **Runtime** [requires Javascript](https://www.kryogenix.org/code/browser/everyonehasjs.html). Without it, users will not see your SVG. On the other hand, **compile time** does the work beforehand, so SVGs are already there in the initial HTML.
 
 Q: When to use which?<br>
 A: If you do not know in advance what SVGs to inline, or if your SVG is huge but only conditionally rendered: use Svelte action [runtime strategy][runtime]. Otherwise, especially for static icons and pictograms, use Svelte preprocessor [compile-time strategy][compile-time].

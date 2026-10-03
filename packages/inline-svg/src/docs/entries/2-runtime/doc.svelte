@@ -4,7 +4,7 @@
 	import Demo from './includes/demo.svelte';
 
 	export const metadata = defineDocPageMetadata({
-		title: 'Runtime - Dynamic SVGs - Svelte Action',
+		title: 'Runtime - Dynamic - Svelte Action',
 	});
 </script>
 
@@ -24,9 +24,9 @@ For static icons and pictograms, consider the [compile-time strategy][compile-ti
 
 <div class="flex items-center justify-between gap-10">
 	<p>
-		The Svelte logo SVG on the right is dynamically fetched via network at **runtime** upon page
-		load. Notice in the source code below, only `width` (or `height`) needs to be specified. By
-		default, `inlineSvg` will calculate the other dimension the keep the aspect ratio.
+		The Svelte logo SVG on the right is dynamically fetched via network at <strong>runtime </strong>
+		upon page load. Notice in the source code below, only `width` (or `height`) needs to be specified.
+		By default, `inlineSvg` will calculate the other dimension the keep the aspect ratio.
 	</p>
 	<div>
 		<Demo />
@@ -75,10 +75,22 @@ The resulting SVG at runtime will be:
 ## API
 
 The \`inlineSvg\` action takes either a string as the remote SVG url, or a config object with some
-more options. To avoid being verbose, please utilise language server during development, or see the
-type definition below for more information:
+more options. The code snippet below shows default options with type hinting. If you are using a
+pointer device, try hovering to see more information. To avoid being verbose, please utilise language
+server during development.
 
-~~~typescript src="fs:../../../lib/runtime/action/types.public.d.ts"
+~~~svelte #typehint
+<script lang="ts">
+	import { inlineSvg } from '@svelte-put/inline-svg';
+</script>
 
+<svg
+	use:inlineSvg={{
+		src: '', // this is required
+		cache: 'no-cache',
+		autoDimensions: true,
+		transform: (svg) => svg,
+	}}
+></svg>
 ~~~
 `}

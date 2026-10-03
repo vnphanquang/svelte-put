@@ -3,7 +3,7 @@
 	import { markdown } from '@vnphanquang/markdown/svelte';
 
 	export const metadata = defineDocPageMetadata({
-		title: 'Compile Time - Static SVGs - Vite Plugin',
+		title: 'Compile Time - Static - Vite Plugin',
 	});
 </script>
 
@@ -16,9 +16,12 @@ time by [Svelte preprocessor] (via Vite plugin) during development, and therefor
 <svg inline-src="google/info"> <!-- innerHTML inlined at compile time --> </svg>
 ~~~
 
-...which allows additional styling and attributes to be added idiomatically as with any other HTML element. This is different from current solutions that I know of for inlining SVGs in Svelte land, which require either runtime logics or a component-oriented strategy.
+...which allows additional styling and attributes to be added idiomatically as with any other HTML
+element. This is different from current solutions that I know of for inlining SVGs in Svelte land,
+which require either runtime logics or a component-oriented strategy.
 
-Alternatively, for dynamic SVGs that are fetched at runtime, consider using the [runtime strategy][runtime] instead.
+Alternatively, for dynamic SVGs that are fetched at runtime, consider using the
+[runtime strategy][runtime] instead.
 
 > [!INFO]
 > This library makes no implication that you should or should not use SVG to render icons. For some
@@ -88,7 +91,8 @@ This is because it is difficult for the preprocessor to statically analyze a var
 its immutability at compile time, i.e a variable is meant to be changed. In these case, some
 alternatives are:
 
-- use \`if-else\` statements to render different svg element with static inline src attribute as literal string, or
+- use \`if-else\` statements to render different svg element with static inline src attribute as
+  literal string, or
 - use the [runtime strategy][runtime] to dynamically inline SVGs in browser.
 
 If you have an idea for improvements, please [raise an issue over at
@@ -157,19 +161,18 @@ export function inlineSvg(
 The first parameter to Vite plugin / Svelte preprocessor can be either a single object, or an array
 of such (as seen in [Setup](#setup)), helpful for organizing SVG sources into different directories.
 
-~~~typescript
-/** sources for the inline svg */
-export type InlineSvgSourceDefinition = {
-	/**
-	 * directories relative to which the svg source path will be resolved
-	 */
-	directories?: string[] | string;
-	/**
-	 * default attributes to add to the svg element, will override the attributes from the svg source,
-	 * but be overridden by the attributes from the element itself (in svelte source)
-	 */
-	attributes?: Record<string, string>;
-};
+~~~typescript #typehint
+import { inlineSvg } from '@svelte-put/inline-svg/vite';
+inlineSvg([
+	{
+		directories: [/* ... */],
+		attributes: {/* ... */},
+	},
+	{
+		/** this will be the default source definition */
+		attributes: {/* ... */},
+	},
+]);
 ~~~
 
 > [!INFO]
@@ -181,20 +184,21 @@ export type InlineSvgSourceDefinition = {
 > 2. If multiple config objects without \`directories\` are provided, an error will be thrown
 >    during development. If none is provided, the internal default config is used.
 
-During build, each SVG source will then be searched top down in the config until a match is found, or else an error will be thrown. Relative SVGs (relative to current Svelte source file) always has the highest priority and will use the **default config** as described above.
+During build, each SVG source will then be searched top down in the config until a match is found,
+or else an error will be thrown. Relative SVGs (relative to current Svelte source file) always has
+the highest priority and will use the **default config** as described above.
 
 ### Processing Options
 
 The second parameter to the Vite plugin / Svelte preprocessor provides customization to the
-underlying Svelte processor itself. Their corresponding interfaces are as follow:
+underlying Svelte processor itself. The default options are shown as follow:
 
-~~~typescript #title="InlineSvgPreprocessorConfig"
-export interface InlineSvgPreprocessorConfig {
-	/** attribute to get the svg source from, default to \`inline-src\` */
-	inlineSrcAttributeName?: string;
-	/** whether to keep the inline src attribute after compilation, default to \`false\` */
-	keepInlineSrcAttribute?: boolean;
-}
+~~~typescript #typehint
+import { inlineSvg } from '@svelte-put/inline-svg/vite';
+inlineSvg([], {
+	inlineSrcAttributeName: 'inline-src',
+	keepInlineSrcAttribute: false,
+});
 ~~~
 
 ### Typescript Support
@@ -206,14 +210,15 @@ attribute. This is useful to enable type checking and auto-completion in your ed
 >
 > ~~~typescript #title="vite.config.ts"
 > import path from 'path';
-> import { inlineSvg } from '@svelte-put/inline-svg/vite';
+> import { sveltekit } from '@sveltejs/kit/vite';
+> import { inlineSvg } from '@svelte-put/inline-svg/vite'; // [!code ++]
 >
 > /** @type {import('vite').UserConfig} */
 > const config = {
 > 	plugins: [
 > 		inlineSvg([
 > 			[/** truncated source config as in Setup */],
-> 			{ typedef: true }, // [!code info] [!code focus]
+> 			{ typedef: true }, // [!code ++] [!code focus]
 > 		]),
 > 		sveltekit(),
 > 	],

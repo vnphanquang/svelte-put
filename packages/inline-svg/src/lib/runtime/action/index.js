@@ -2,8 +2,8 @@ import { calculateDimensions } from '../internals.js';
 
 /**
  * Svelte action for dynamically inlining remote-fetched SVG into DOM
- * @example
  *
+ * @example
  * ```html
  * <script>
  *   import { inlineSvg } from '@svelte-put/inline-svg;
@@ -11,6 +11,7 @@ import { calculateDimensions } from '../internals.js';
  *
  * <svg use:inlineSvg={"http://example.com/icon.svg"}></svg>
  * ```
+ *
  * @param {SVGElement} node - SVGElement to inline SVG into
  * @param {import('./types.public').InlineSvgActionParameter} param - config for the action.
  * @returns {import('./types.public').InlineSvgActionReturn}
