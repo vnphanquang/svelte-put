@@ -10,7 +10,7 @@
 {markdown`
 ## Migrating to v3
 
-Before v3, \`preprocess-auto-slug\` was exported as a direct Svelte preprocessor:
+Before v3, \`preprocess-auto-slug\` was exported as a Svelte preprocessor:
 
 ~~~javascript #title="svelte.config.js"
 import autoSlug from '@svelte-put/preprocess-auto-slug'; // [!code --]
@@ -23,7 +23,7 @@ const config = {
 export default config;
 ~~~
 
-Now, use it as a vite plugin instead:
+Now, use it as a Vite plugin instead:
 
 ~~~typescript #title="vite.config.ts"
 import { defineConfig } from 'vite';
@@ -37,4 +37,8 @@ export default defineConfig({
 	],
 });
 ~~~
+
+The preprocessor, however, is still accessible at \`@svelte-put/preprocess-auto-slug/preprocessor\`.
+See [Using Bare Svelte Preprocessor](../customisation#using-bare-svelte-preprocessor) for more
+information.
 `}

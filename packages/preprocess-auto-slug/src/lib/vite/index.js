@@ -4,7 +4,7 @@ import { autoSlug as createPreprocessor } from '../preprocessor/index.js';
 /** @import { Plugin, TransformResult } from 'vite' */
 
 /**
- * create a preprocessor that slugifies matching elements in svelte markup
+ * create a Vite plugin wrapping a preprocessor that slugifies matching elements in svelte markup
  * @param {AutoSlugViteOptions} [options] - behavioral configurations
  * @returns {Plugin} - vite plugin that wraps a Svelte preprocessor
  */

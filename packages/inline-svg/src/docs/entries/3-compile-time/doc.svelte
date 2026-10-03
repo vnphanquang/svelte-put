@@ -248,7 +248,7 @@ If your setup doesn't allow Vite, however, you can import the preprocessor direc
 \`@svelte-put/inline-svg/preprocessor\`:
 
 ~~~javascript #title="svelte.config.js"
-import inlineSvg from '@svelte-put/inline-svg/preprocessor'; // [!code ++]
+import { inlineSvg } from '@svelte-put/inline-svg/preprocessor'; // [!code ++]
 
 /** @type {import('@sveltejs/kit').Config} */
 export default {

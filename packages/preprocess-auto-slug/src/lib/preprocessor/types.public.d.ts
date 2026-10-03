@@ -13,55 +13,47 @@ export type AutoSlugInput =
  */
 export interface AutoSlugPreprocessorOptions {
 	/**
-	 * filter which files the preprocessor will run on
-	 *
-	 * Alternatively, you can skip processing per file by adding
+	 * filter which files the preprocessor will run on;
+	 * alternatively, you can skip processing per file by adding
 	 * `<!-- ignore @svelte-put/preprocess-auto-slug -->` somewhere in the file.
 	 */
 	files?: (options: Parameters<MarkupPreprocessor>[0]) => boolean;
 	/** target tag, default to all heading tags */
 	tags?: string[];
-	/** default to `id` */
+	/**
+	 * look for this attribute, if present will be taken as slug otherwise, set it to the generated slug
+	 * @default to 'id'
+	 */
 	attributeName?: string;
-	/** instructions to add the anchor tag */
+	/** instructions for adding the anchor tag */
 	anchor?: AutoSlugAnchorOptions | false;
-	/** slug resolver */
+	/** instructions for generating slug */
 	slug?: (input: SlugResolverInput) => string;
 }
 
-/**
- * instructions for adding anchor tag
- */
+/** instructions for adding anchor tag */
 export interface AutoSlugAnchorOptions {
 	/** whether to insert an anchor tag for each matching node */
 	enabled?: boolean;
 	/**
 	 * where to create the anchor tag
-	 *
-	 * - 'prepend' — inject link before the target tag text
-	 *
-	 * - 'append' — inject link after the target tag text
-	 *
-	 * - 'wrap' — wrap the whole target tag text with the link
-	 *
-	 * - 'before' — insert link before the target tag
-	 *
-	 * - 'after' — insert link after the target tag
-	 *
-	 * default to `prepend`
+	 * - 'prepend' - inject link before the target tag text
+	 * - 'append' - inject link after the target tag text
+	 * - 'wrap' - wrap the whole target tag text with the link
+	 * - 'before' - insert link before the target tag
+	 * - 'after' - insert link after the target tag
+	 * @default 'prepend'
 	 */
 	position?: 'prepend' | 'append' | 'wrap' | 'before' | 'after';
 	/**
-	 * content of the inserted anchor tag,
-	 * ignored when behavior is `wrap`.
-	 * Default to '#'
+	 * content of the inserted anchor tag, ignored when behavior is `wrap`.
+	 * @default '#'
 	 */
 	content?: string;
 	/**
-	 * properties set to the inserted anchor tag,
-	 * defaults to `{ 'aria-hidden': 'true', 'tab-index': '-1' }`,
-	 * unless position is 'wrap' (no properties).
+	 * properties set to the inserted anchor tag, unless position is 'wrap' (no properties).
 	 * When provided will replace the default completely (no merging)
+	 * @default { 'aria-hidden': 'true', 'tab-index': '-1' },
 	 */
 	properties?: Record<string, string>;
 	/** href attribute of the inserted anchor tag */
@@ -76,7 +68,7 @@ export interface SlugResolverInput {
 	generated: string;
 	/** text extracted from original node */
 	nodeText: string;
-	/** the {@link https://github.com/Flet/github-slugger | BananaSlug} object */
+	/** see https://github.com/Flet/github-slugger */
 	slugger: BananaSlug;
 }
 
