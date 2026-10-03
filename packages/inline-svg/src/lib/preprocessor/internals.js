@@ -1,6 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+/** @import { InlineSvgSourceDefinition, InlineSvgPreprocessorConfig } from './types.public.js' */
+/** @import { AST } from 'svelte/compiler' */
+
 /**
  * @typedef ResolvedSourceDefinition
  * @property {string[]} directories - directories to search for SVG files
@@ -19,7 +22,7 @@ export const DEFAULT_SOURCES_CONFIG = /** @satisfies {ResolvedSourceDefinition} 
 });
 
 /**
- * @param {import('./types.public').InlineSvgSourceDefinition} [options]
+ * @param {InlineSvgSourceDefinition} [options]
  * @returns {ResolvedSourceDefinition}
  */
 function resolveSourceOptions(options) {
@@ -39,7 +42,7 @@ function resolveSourceOptions(options) {
  * resolve config input and search for a default
  * If none is found, use DEFAULT_SOURCES_CONFIG.
  * If multiple of such input are found, throw an error.
- * @param {import('./types.public').InlineSvgSourceDefinition | import('./types.public').InlineSvgSourceDefinition[]} [sources]
+ * @param {InlineSvgSourceDefinition | InlineSvgSourceDefinition[]} [sources]
  * @returns {ResolvedSources}
  */
 export function resolveSources(sources) {
@@ -73,7 +76,7 @@ export function resolveSources(sources) {
 }
 
 /**
- * @typedef {Required<Omit<import('./types.public').InlineSvgPreprocessorConfig, 'include' | 'exclude'>>} ResolvedPreprocessorConfig
+ * @typedef {Required<Omit<InlineSvgPreprocessorConfig, 'include' | 'exclude'>>} ResolvedPreprocessorConfig
  */
 
 export const DEFAULT_INLINE_SVG_CONFIG = /** @type {ResolvedPreprocessorConfig} */ ({
@@ -82,7 +85,7 @@ export const DEFAULT_INLINE_SVG_CONFIG = /** @type {ResolvedPreprocessorConfig} 
 });
 
 /**
- * @param {import('./types.public').InlineSvgPreprocessorConfig} [config]
+ * @param {InlineSvgPreprocessorConfig} [config]
  * @returns {ResolvedPreprocessorConfig}
  */
 export function resolveConfig(config = {}) {
@@ -124,12 +127,12 @@ export function findSvgSrc(filename, directories, inlineSrc) {
 
 /**
  * @param {string} source
- * @param {import('svelte/compiler').AST.RegularElement} node
+ * @param {AST.RegularElement} node
  * @param {string} attributeName
  * @returns {string | undefined}
  */
 export function getAttribute(source, node, attributeName) {
-	const attr = /** @type {import('svelte/compiler').AST.Attribute} */ (
+	const attr = /** @type {AST.Attribute} */ (
 		node.attributes.find((attr) => attr.type === 'Attribute' && attr.name === attributeName)
 	);
 	if (attr) {

@@ -6,16 +6,20 @@ import { inlineSvg as createPreprocessor } from '../preprocessor/index.js';
 
 import { generateSourceTyping, matchFileExtension } from './internals.js';
 
+/** @import { FilterIdSpecs, InlineSvgViteConfig } from './types.public.js' */
+/** @import { Plugin, TransformResult } from 'vite' */
+/** @import { InlineSvgSource } from '../preprocessor' */
+
 /**
  * create a preprocessor that inlines SVG from disk to source code at compile time
- * @param {import('../preprocessor').InlineSvgSource} source
- * @param {import('./types.public').InlineSvgViteConfig} config
- * @returns {import('vite').Plugin} - vite plugin that wraps a Svelte preprocessor
+ * @param {InlineSvgSource} source
+ * @param {InlineSvgViteConfig} config
+ * @returns {Plugin} - vite plugin that wraps a Svelte preprocessor
  */
 export function inlineSvg(source, config) {
 	const preprocessor = createPreprocessor(source, config);
 
-	/** @type {import('./types.public').FilterIdSpecs | null} */
+	/** @type {FilterIdSpecs | null} */
 	let svelteIdFilter = null;
 	let typedef = config.typedef;
 
@@ -80,9 +84,7 @@ export function inlineSvg(source, config) {
 				},
 			},
 			async handler(content, filename) {
-				return /** @type {import('vite').TransformResult} */ (
-					preprocessor.markup?.({ content, filename })
-				);
+				return /** @type {TransformResult} */ (preprocessor.markup?.({ content, filename }));
 			},
 		},
 	};

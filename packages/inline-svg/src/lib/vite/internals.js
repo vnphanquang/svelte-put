@@ -1,6 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+/** @import { ResolvedSources, ResolvedPreprocessorConfig } from '../preprocessor/internals' */
+
 /**
  * @param {string} dir
  * @returns {string[]}
@@ -23,8 +25,8 @@ function findSvgRecursively(dir) {
 }
 
 /**
- * @param {import('../preprocessor/internals.js').ResolvedSources} sources
- * @param {import('../preprocessor/internals.js').ResolvedPreprocessorConfig} config
+ * @param {ResolvedSources} sources
+ * @param {ResolvedPreprocessorConfig} config
  * @param {string} out - output path
  */
 export function generateSourceTyping(sources, config, out) {

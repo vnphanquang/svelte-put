@@ -10,17 +10,22 @@ import { walk } from 'zimmerframe';
 
 import { findSvgSrc, getAttribute, resolveConfig, resolveSources } from './internals.js';
 
+/** @import { InlineSvgSource, InlineSvgPreprocessorConfig } from './types.public.js' */
+/** @import { ResolvedSources, ResolvedPreprocessorConfig } from './internals.js' */
+/** @import { PreprocessorGroup, AST } from 'svelte/compiler' */
+/** @import { ElementNode } from 'svg-parser' */
+
 /**
  * @typedef Params
- * @property {import('./internals.js').ResolvedSources} sources - resolved sources parameter
- * @property {import('./internals.js').ResolvedPreprocessorConfig} config - resolved config parameter
+ * @property {ResolvedSources} sources - resolved sources parameter
+ * @property {ResolvedPreprocessorConfig} config - resolved config parameter
  */
 
 /**
  * create a preprocessor that inlines SVG from disk to source code at compile time
- * @param {import('./types.public').InlineSvgSource} [source]
- * @param {import('./types.public').InlineSvgPreprocessorConfig} [config]
- * @returns {import('svelte/compiler').PreprocessorGroup & { __params__: Params }}
+ * @param {InlineSvgSource} [source]
+ * @param {InlineSvgPreprocessorConfig} [config]
+ * @returns {PreprocessorGroup & { __params__: Params }}
  */
 export function inlineSvg(source, config) {
 	const rConfig = resolveConfig(config);
@@ -38,73 +43,67 @@ export function inlineSvg(source, config) {
 
 			const { local, dirs } = rSources;
 			const { inlineSrcAttributeName, keepInlineSrcAttribute } = rConfig;
-			walk(
-				/** @type {import('svelte/compiler').AST.RegularElement} */ (
-					/** @type {unknown} */ (ast.fragment)
-				),
-				null,
-				{
-					RegularElement(node, { next }) {
-						if (node.name !== 'svg') return next();
-						let options = local;
-						let inlineSrc = getAttribute(content, node, inlineSrcAttributeName);
-						let svgSource = findSvgSrc(filename, options.directories, inlineSrc);
-						if (!svgSource) {
-							for (let i = 0; i < dirs.length; i++) {
-								options = dirs[i];
-								inlineSrc = getAttribute(content, node, inlineSrcAttributeName);
-								svgSource = findSvgSrc(filename, options.directories, inlineSrc);
-								if (svgSource) break;
+			walk(/** @type {AST.RegularElement} */ (/** @type {unknown} */ (ast.fragment)), null, {
+				RegularElement(node, { next }) {
+					if (node.name !== 'svg') return next();
+					let options = local;
+					let inlineSrc = getAttribute(content, node, inlineSrcAttributeName);
+					let svgSource = findSvgSrc(filename, options.directories, inlineSrc);
+					if (!svgSource) {
+						for (let i = 0; i < dirs.length; i++) {
+							options = dirs[i];
+							inlineSrc = getAttribute(content, node, inlineSrcAttributeName);
+							svgSource = findSvgSrc(filename, options.directories, inlineSrc);
+							if (svgSource) break;
+						}
+					}
+
+					if (!inlineSrc) return;
+					if (!svgSource) {
+						throw new Error(
+							`\n@svelte-put/inline-svg (preprocessor): cannot find svg source for ${inlineSrc} at ${filename}`,
+						);
+					}
+
+					const hast = parseSvg(fs.readFileSync(svgSource, 'utf8'));
+					const svg = /** @type {ElementNode} */ (hast.children[0]);
+
+					const attributes = {
+						...svg.properties,
+						...options.attributes,
+					};
+
+					node.attributes.map((attr) => {
+						if (attr.type === 'Attribute') {
+							// remove the source attribute, unless instructed otherwise by global user config
+							if (attr.name === inlineSrcAttributeName && !keepInlineSrcAttribute) {
+								s.remove(attr.start, attr.end);
+							}
+
+							// if user specify an attribute, overwrite any existing one
+							if (attributes[attr.name]) {
+								delete attributes[attr.name];
 							}
 						}
+					});
 
-						if (!inlineSrc) return;
-						if (!svgSource) {
-							throw new Error(
-								`\n@svelte-put/inline-svg (preprocessor): cannot find svg source for ${inlineSrc} at ${filename}`,
-							);
-						}
+					for (const [name, value] of Object.entries(attributes)) {
+						s.appendRight(node.start + '<svg'.length, ` ${name}="${value}" `);
+					}
 
-						const hast = parseSvg(fs.readFileSync(svgSource, 'utf8'));
-						const svg = /** @type {import('svg-parser').ElementNode} */ (hast.children[0]);
+					let insertIndex = node.end - '/>'.length;
+					if (s.slice(insertIndex, node.end) !== '/>') {
+						insertIndex = node.end - '</svg>'.length;
+					}
 
-						const attributes = {
-							...svg.properties,
-							...options.attributes,
-						};
+					const html = toHtml(/** @type {any} */ (svg.children), {
+						allowDangerousCharacters: true,
+					});
+					s.update(insertIndex, node.end, `>${html}</svg>`);
 
-						node.attributes.map((attr) => {
-							if (attr.type === 'Attribute') {
-								// remove the source attribute, unless instructed otherwise by global user config
-								if (attr.name === inlineSrcAttributeName && !keepInlineSrcAttribute) {
-									s.remove(attr.start, attr.end);
-								}
-
-								// if user specify an attribute, overwrite any existing one
-								if (attributes[attr.name]) {
-									delete attributes[attr.name];
-								}
-							}
-						});
-
-						for (const [name, value] of Object.entries(attributes)) {
-							s.appendRight(node.start + '<svg'.length, ` ${name}="${value}" `);
-						}
-
-						let insertIndex = node.end - '/>'.length;
-						if (s.slice(insertIndex, node.end) !== '/>') {
-							insertIndex = node.end - '</svg>'.length;
-						}
-
-						const html = toHtml(/** @type {any} */ (svg.children), {
-							allowDangerousCharacters: true,
-						});
-						s.update(insertIndex, node.end, `>${html}</svg>`);
-
-						return;
-					},
+					return;
 				},
-			);
+			});
 
 			return {
 				code: s.toString(),
