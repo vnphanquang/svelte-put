@@ -2,4 +2,4 @@
 '@svelte-put/preprocess-auto-slug': major
 ---
 
-[breaking] drop svelte preprocessor export, use as a vite plugin instead
+[breaking] the entry export is now a vite plugin instead of a preprocessor. Import `@svelte-put/preprocess-auto-slug/preprocessor` to use the bare preprocessor instead

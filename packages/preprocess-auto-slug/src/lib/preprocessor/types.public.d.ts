@@ -5,16 +5,20 @@ import type BananaSlug from 'github-slugger';
  * function that returns one (with the defaultOptions as its parameter).
  */
 export type AutoSlugInput =
-	AutoSlugOptions | ((defaultOptions: DefaultAutoSlugOptions) => AutoSlugOptions);
+	| AutoSlugPreprocessorOptions
+	| ((defaultOptions: DefaultAutoSlugPreprocessorOptions) => AutoSlugPreprocessorOptions);
 
 /**
- * options to config preprocess-auto-slug
+ * options to config preprocessor
  */
-export interface AutoSlugOptions {
-	/** what files the vite plugin should process, passed to Vite `transform.filter.id.include` */
-	include?: FilterIdSpecs;
-	/** what files the vite plugin should skip, passed to Vite `transform.filter.id.exclude` */
-	exclude?: FilterIdSpecs;
+export interface AutoSlugPreprocessorOptions {
+	/**
+	 * filter which files the preprocessor will run on
+	 *
+	 * Alternatively, you can skip processing per file by adding
+	 * `<!-- ignore @svelte-put/preprocess-auto-slug -->` somewhere in the file.
+	 */
+	files?: (options: Parameters<MarkupPreprocessor>[0]) => boolean;
 	/** target tag, default to all heading tags */
 	tags?: string[];
 	/** default to `id` */
@@ -76,8 +80,8 @@ export interface SlugResolverInput {
 	slugger: BananaSlug;
 }
 
-export type FilterIdSpecs = (string | RegExp)[] | string | RegExp;
-
-export type DefaultAutoSlugOptions = Omit<AutoSlugOptions, 'anchor'> & {
+export type DefaultAutoSlugPreprocessorOptions = Required<
+	Omit<AutoSlugPreprocessorOptions, 'anchor'>
+> & {
 	anchor?: AutoSlugAnchorOptions;
 };

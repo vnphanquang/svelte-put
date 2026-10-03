@@ -11,6 +11,17 @@
 		".": {
 			"types": "./types/index.d.ts",
 			"import": "./src/lib/index.js"
+		},
+		"./preprocessor": {
+			"types": "./types/index.d.ts",
+			"import": "./src/lib/preprocessor/index.js"
+		}
+	},
+	"typesVersions": {
+		"*": {
+			"preprocessor": [
+				"./types/index.d.ts"
+			]
 		}
 	},
 	"publishConfig": {
