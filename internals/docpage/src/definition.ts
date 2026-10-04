@@ -13,6 +13,7 @@ export interface DocPage {
 			title: string;
 		};
 	};
+	contentEditUrl: string;
 }
 
 export interface DocPageMetadata {
@@ -24,7 +25,7 @@ export interface DocPageMetadata {
 	slug: string;
 }
 
-export type AutoDetectedFields = 'slug';
+export type AutoDetectedFields = 'slug' | 'contentEditUrl';
 export type PerDefinedDocPageMetadata = Omit<DocPageMetadata, AutoDetectedFields>;
 
 export function defineDocPageMetadata(

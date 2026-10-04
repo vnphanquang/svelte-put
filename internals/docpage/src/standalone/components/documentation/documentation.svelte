@@ -71,8 +71,7 @@
 		<div class="desktop:mbs-15 mbs-10 space-y-10">
 			<p class="border-fill-200 border-b py-1 text-sm">
 				Found typo or problem?
-				<!-- FIXME: add link to github -->
-				<a class="c-link" href="FIXME"> Suggest an edit! </a>
+				<a class="c-link" href={doc.contentEditUrl} data-external> Suggest an edit! </a>
 			</p>
 			{#if doc.nav}
 				{const commonClasses =

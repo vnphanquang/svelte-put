@@ -14,6 +14,7 @@ export interface Loaders {
 }
 
 export function createLoaders(
+	pkg: string,
 	contentModules: Record<string, () => Promise<Component>>,
 	metadataModules: Record<string, () => Promise<PerDefinedDocPageMetadata>>,
 ): Loaders {
@@ -22,17 +23,18 @@ export function createLoaders(
 	return {
 		async loadDocPage(input) {
 			const { slug } = input;
-			const defined = mapping[slug];
-			if (!defined) return null;
-			const [content, metadata] = await Promise.all([defined.content(), defined.metadata()]);
+			const collected = mapping[slug];
+			if (!collected) return null;
+			const [content, metadata] = await Promise.all([collected.content(), collected.metadata()]);
 			const merged: DocPage = {
 				content,
 				metadata: {
 					...metadata,
 					slug,
 				},
+				contentEditUrl: `https://github.com/vnphanquang/svelte-put/edit/${import.meta.env.GIT_REF}/packages/${pkg}/src/docs/${collected.path}`,
 			};
-			const { previousSlug, nextSlug } = defined;
+			const { previousSlug, nextSlug } = collected;
 			if (previousSlug !== null || nextSlug !== null) {
 				merged.nav = {};
 				if (previousSlug !== null) {

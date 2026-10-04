@@ -2,6 +2,7 @@ import { type PerDefinedDocPageMetadata, createLoaders } from '@internals/docpag
 import type { Component } from 'svelte';
 
 const { loadDocPage, loadDocPageLinks } = createLoaders(
+	'preprocess-external-link',
 	import.meta.glob<Component>('./entries/**/doc.svelte', {
 		import: 'default',
 	}),

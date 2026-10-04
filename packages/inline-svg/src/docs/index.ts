@@ -2,6 +2,7 @@ import { type PerDefinedDocPageMetadata, createLoaders } from '@internals/docpag
 import type { Component } from 'svelte';
 
 const { loadDocPage, loadDocPageLinks } = createLoaders(
+	'inline-svg',
 	import.meta.glob<Component>('./entries/**/doc.svelte', {
 		import: 'default',
 	}),
