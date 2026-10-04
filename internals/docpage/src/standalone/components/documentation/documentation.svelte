@@ -45,14 +45,14 @@
 		</nav>
 		<section class="sidebar toc"></section>
 	</div>
-	<main class="doc">
+	<main class="doc @container">
 		<section class="md flex-1">
-			<Markdown>
-				<h1>{doc.metadata.title}</h1>
-				{#key slug}
+			{#key slug}
+				<Markdown>
+					<h1>{doc.metadata.title}</h1>
 					<doc.content />
-				{/key}
-			</Markdown>
+				</Markdown>
+			{/key}
 		</section>
 		<div class="desktop:mbs-15 mbs-10 space-y-10">
 			<p class="border-fill-200 border-b py-1 text-sm">
