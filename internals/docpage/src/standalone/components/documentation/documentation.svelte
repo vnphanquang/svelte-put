@@ -76,8 +76,8 @@
 			</p>
 			{#if doc.nav}
 				{const commonClasses =
-					'border border-current py-3 gap-1 px-4 flex flex-col hover:border-primary transition-colors w-full max-w-100'}
-				<nav class="desktop:gap-20 grid grid-cols-2 gap-10">
+					'border border-current py-3 gap-1 px-4 flex flex-col hover:border-primary transition-colors w-full max-w-100 flex-1'}
+				<nav class="tablet:gap-10 flex gap-4">
 					{#if doc.nav.previous}
 						<a class={commonClasses} href={doc.nav.previous.href}>
 							<span class="text-stroke-200 text-sm"> Previous page </span>
@@ -87,10 +87,7 @@
 						</a>
 					{/if}
 					{#if doc.nav.next}
-						<a
-							class={[commonClasses, 'col-start-2 items-end justify-self-end']}
-							href={doc.nav.next.href}
-						>
+						<a class={[commonClasses, 'ms-auto']} href={doc.nav.next.href}>
 							<span class="text-stroke-200 text-sm"> Next page </span>
 							<span class="text-primary">
 								{doc.nav.next.title}
