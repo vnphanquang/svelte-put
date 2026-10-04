@@ -45,8 +45,8 @@ import { autoSlug } from '@svelte-put/preprocess-auto-slug';
 
 export default defineConfig({
 	plugins: [
-		autoSlug(),
 		svelte(), // or import('@sveltejs/kit/vite').sveltekit
+		autoSlug(),
 	],
 });
 ~~~

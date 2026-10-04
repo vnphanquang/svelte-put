@@ -26,7 +26,9 @@
 	<section class="md flex-1">
 		<Markdown>
 			<h1>{doc.metadata.title}</h1>
-			<doc.content />
+			{#key slug}
+				<doc.content />
+			{/key}
 		</Markdown>
 	</section>
 	{#if doc.nav}

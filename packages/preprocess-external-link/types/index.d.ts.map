@@ -1,0 +1,24 @@
+{
+	"version": 3,
+	"file": "index.d.ts",
+	"names": [
+		"externalLink",
+		"ExternalLinkViteOptions",
+		"FilterIdSpecs",
+		"ExternalLinkPreprocessorOptions"
+	],
+	"sources": [
+		"../src/lib/vite/index.js",
+		"../src/lib/vite/types.public.d.ts",
+		"../src/lib/preprocessor/types.public.d.ts",
+		"../src/lib/preprocessor/index.js"
+	],
+	"sourcesContent": [
+		null,
+		null,
+		null,
+		null
+	],
+	"mappings": ";;;;;;;iBAWgBA,YAAYA;;;;kBCNXC,uBAAuBA;;;;;;;;;;aAU5BC,aAAaA;MCfbC,+BAA+BA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;iBCc3BH,YAAYA;aDdhBG,+BAA+BA",
+	"ignoreList": []
+}

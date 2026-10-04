@@ -216,11 +216,11 @@ attribute. This is useful to enable type checking and auto-completion in your ed
 > /** @type {import('vite').UserConfig} */
 > const config = {
 > 	plugins: [
+> 		sveltekit(),
 > 		inlineSvg([
 > 			[/** truncated source config as in Setup */],
 > 			{ typedef: true }, // [!code ++] [!code focus]
 > 		]),
-> 		sveltekit(),
 > 	],
 > };
 > export default config;

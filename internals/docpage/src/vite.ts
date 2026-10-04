@@ -1,3 +1,5 @@
+import { autoSlug } from '@svelte-put/preprocess-auto-slug';
+import { externalLink } from '@svelte-put/preprocess-external-link';
 import adapter from '@sveltejs/adapter-auto';
 import { enhancedImages } from '@sveltejs/enhanced-img';
 import { sveltekit } from '@sveltejs/kit/vite';
@@ -26,6 +28,20 @@ export default defineConfig({
 				showToggleButton: 'always',
 				toggleButtonPos: 'bottom-left',
 			},
+		}),
+		externalLink(),
+		autoSlug({
+			preprocessor: (defaultOptions) => ({
+				tags: ['h2', 'h3', 'h4', 'h5', 'h6'],
+				anchor: {
+					content: '#',
+					position: 'prepend',
+					properties: {
+						...defaultOptions.anchor.properties,
+						class: 'heading-anchor',
+					},
+				},
+			}),
 		}),
 	],
 });

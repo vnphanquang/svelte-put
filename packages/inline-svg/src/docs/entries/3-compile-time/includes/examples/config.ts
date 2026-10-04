@@ -5,6 +5,7 @@ import { inlineSvg } from '@svelte-put/inline-svg/vite';
 
 export default defineConfig({
 	plugins: [
+		svelte(), // or import('@sveltejs/kit/vite').sveltekit
 		inlineSvg([
 			// [!code info:13]
 			{
@@ -19,6 +20,5 @@ export default defineConfig({
 				directories: 'src/assets/pictograms',
 			},
 		]),
-		svelte(), // or import('@sveltejs/kit/vite').sveltekit
 	],
 });

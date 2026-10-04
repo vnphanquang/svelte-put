@@ -8,16 +8,16 @@
 </script>
 
 {markdown`
-## Migrating to v3
+## Migrating to v2
 
-Before v3, \`preprocess-auto-slug\` was exported as a Svelte preprocessor:
+Before v2, \`preprocess-auto-slug\` was exported as a Svelte preprocessor:
 
 ~~~javascript #title="svelte.config.js"
-import autoSlug from '@svelte-put/preprocess-auto-slug'; // [!code --]
+import externalLink from '@svelte-put/preprocess-external-link'; // [!code --]
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	preprocess: [autoSlug()], // [!code --]
+	preprocess: [externalLink()], // [!code --]
 };
 
 export default config;
@@ -28,17 +28,17 @@ Now, use it as a Vite plugin instead:
 ~~~typescript #title="vite.config.ts"
 import { defineConfig } from 'vite';
 import { svelte } from '@sveltejs/vite-plugin-svelte';
-import { autoSlug } from '@svelte-put/preprocess-auto-slug'; // [!code ++]
+import { externalLink } from '@svelte-put/preprocess-external-link'; // [!code ++]
 
 export default defineConfig({
 	plugins: [
 		svelte(), // or import('@sveltejs/kit/vite').sveltekit
-		autoSlug(), // [!code ++]
+		externalLink(), // [!code ++]
 	],
 });
 ~~~
 
-The preprocessor, however, is still accessible at \`@svelte-put/preprocess-auto-slug/preprocessor\`.
+The preprocessor, however, is still accessible at \`@svelte-put/preprocess-external-link/preprocessor\`.
 See [Using Bare Svelte Preprocessor](../customisation#using-bare-svelte-preprocessor) for more
 information.
 `}
