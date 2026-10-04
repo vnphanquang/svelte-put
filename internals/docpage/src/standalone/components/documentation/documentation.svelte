@@ -1,5 +1,5 @@
 <script lang="ts" module>
-	export interface StandaloneDoc {
+	export interface DocumentationProps {
 		slug: string;
 		loader: DocPageLoader;
 	}
@@ -9,9 +9,11 @@
 	import { error } from '@sveltejs/kit';
 	import { Markdown } from '@vnphanquang/markdown/svelte';
 
-	import type { DocPageLoader } from '../../loader';
+	import './styles.css';
 
-	let { slug, loader }: StandaloneDoc = $props();
+	import type { DocPageLoader } from '../../../loader';
+
+	let { slug, loader }: DocumentationProps = $props();
 
 	let doc = $derived(await loader({ slug }));
 

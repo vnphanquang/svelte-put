@@ -1,3 +1,5 @@
+import path from 'node:path';
+
 import { autoSlug } from '@svelte-put/preprocess-auto-slug';
 import { externalLink } from '@svelte-put/preprocess-external-link';
 import adapter from '@sveltejs/adapter-auto';
@@ -21,6 +23,9 @@ export default defineConfig({
 				experimental: {
 					async: true,
 				},
+			},
+			files: {
+				appTemplate: path.resolve(import.meta.dirname, './app.html'),
 			},
 			inspector: {
 				toggleKeyCombo: 'alt-shift',

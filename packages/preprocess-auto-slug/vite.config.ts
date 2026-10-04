@@ -1,3 +1,3 @@
-import config from '@internals/docpage/vite';
+import config from '@internals/docpage/standalone/vite';
 
 export default config;

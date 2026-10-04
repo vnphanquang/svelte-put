@@ -7,8 +7,12 @@
 			"svelte": "./src/index.ts",
 			"import": "./src/index.ts"
 		},
-		"./vite": {
-			"import": "./src/vite.ts"
+		"./standalone": {
+			"svelte": "./src/standalone/index.ts",
+			"import": "./src/standalone/index.ts"
+		},
+		"./standalone/vite": {
+			"import": "./src/standalone/vite.ts"
 		}
 	}
 }
