@@ -14,21 +14,26 @@
 		"boot:packages": "pnpm --filter=\"./packages/**\" build",
 		"boot:env": "pnpm --filter=\"./sites/**\" boot:env",
 		"lint": "pnpm -r lint",
-		"format": "prettier --write ."
+		"format": "prettier --write .",
+		"test": "vitest --coverage",
+		"ci:test": "vitest run --coverage"
 	},
 	"devDependencies": {
 		"@changesets/changelog-github": "^1.0.1",
 		"@changesets/cli": "^3.0.3",
 		"@internals/docpage": "workspace:*",
+		"@svelte-put/inline-svg": "workspace:*",
 		"@svelte-put/preprocess-auto-slug": "workspace:*",
 		"@svelte-put/preprocess-external-link": "workspace:*",
-		"@svelte-put/inline-svg": "workspace:*",
+		"@internals/testing": "workspace:*",
 		"@sveltejs/adapter-auto": "^8.0.0",
 		"@sveltejs/enhanced-img": "^1.0.0",
 		"@sveltejs/kit": "^3.0.0",
 		"@sveltejs/load-config": "^0.2.3",
 		"@sveltejs/vite-plugin-svelte": "^7.3.1",
 		"@types/node": "24.19.0",
+		"@vitest/coverage-v8": "^5.0.3",
+		"@vitest/ui": "^5.0.3",
 		"@vnphanquang/eslint-config": "link:../vnphanquang/packages/eslint-config",
 		"@vnphanquang/gach": "link:../vnphanquang/packages/gach",
 		"@vnphanquang/markdown": "link:../vnphanquang/packages/markdown",
@@ -54,7 +59,8 @@
 		"typescript": "^6.0.3",
 		"valibot": "^1.5.0",
 		"vite": "^8.3.2",
-		"vite-plugin-qrcode": "^0.4.1"
+		"vite-plugin-qrcode": "^0.4.1",
+		"vitest": "^5.0.3"
 	},
 	"devEngines": {
 		"runtime": {

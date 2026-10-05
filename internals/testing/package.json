@@ -1,0 +1,10 @@
+{
+	"name": "@internals/testing",
+	"private": true,
+	"type": "module",
+	"exports": {
+		".": {
+			"import": "./src/index.ts"
+		}
+	}
+}
