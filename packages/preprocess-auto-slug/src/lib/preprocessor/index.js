@@ -31,7 +31,7 @@ export function autoSlug(input = {}) {
 	};
 
 	return {
-		name: 'preproocess-auto-slug',
+		name: 'preprocess-auto-slug',
 		markup({ content, filename }) {
 			if (content.includes('<!-- ignore @svelte-put/preprocess-auto-slug -->')) return;
 			const slugger = new BananaSlug();
