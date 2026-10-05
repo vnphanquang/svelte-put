@@ -1,3 +1,4 @@
+import type { CompileTimeToc } from '@svelte-put/toc';
 import type { Component } from 'svelte';
 
 import { collectDocPages } from './collection';
@@ -15,28 +16,37 @@ export interface Loaders {
 
 export function createLoaders(
 	pkg: string,
-	contentModules: Record<string, () => Promise<Component>>,
-	metadataModules: Record<string, () => Promise<PerDefinedDocPageMetadata>>,
+	...modules: [
+		Record<string, () => Promise<Component>>,
+		Record<string, () => Promise<PerDefinedDocPageMetadata>>,
+		Record<string, () => Promise<CompileTimeToc>>,
+	]
 ): Loaders {
-	const mapping = collectDocPages(contentModules, metadataModules);
+	const mapping = collectDocPages(...modules);
 
 	return {
 		async loadDocPage(input) {
 			const { slug } = input;
 			const collected = mapping[slug];
 			if (!collected) return null;
-			const [content, metadata] = await Promise.all([collected.content(), collected.metadata()]);
+			const [content, metadata, toc] = await Promise.all([
+				collected.content(),
+				collected.metadata(),
+				collected.toc(),
+			]);
 			const merged: DocPage = {
 				content,
 				metadata: {
 					...metadata,
 					slug,
 				},
+				nav: {
+					toc: toc.items,
+				},
 				contentEditUrl: `https://github.com/vnphanquang/svelte-put/edit/${import.meta.env.GIT_REF}/packages/${pkg}/src/docs/${collected.path}`,
 			};
 			const { previousSlug, nextSlug } = collected;
 			if (previousSlug !== null || nextSlug !== null) {
-				merged.nav = {};
 				if (previousSlug !== null) {
 					const { title } = await mapping[previousSlug]!.metadata();
 					merged.nav.previous = {

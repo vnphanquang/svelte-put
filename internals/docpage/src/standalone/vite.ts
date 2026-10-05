@@ -1,7 +1,7 @@
 import path from 'node:path';
 
-import { autoSlug } from '@svelte-put/preprocess-auto-slug';
 import { externalLink } from '@svelte-put/preprocess-external-link';
+import { toc } from '@svelte-put/toc/vite';
 import adapter from '@sveltejs/adapter-auto';
 import { enhancedImages } from '@sveltejs/enhanced-img';
 import { sveltekit } from '@sveltejs/kit/vite';
@@ -35,18 +35,17 @@ export default defineConfig({
 			},
 		}),
 		externalLink(),
-		autoSlug({
-			preprocessor: (defaultOptions) => ({
-				tags: ['h2', 'h3', 'h4', 'h5', 'h6'],
+		toc({
+			include: /doc\.svelte$/,
+			preprocessor: {
 				anchor: {
-					content: '#',
-					position: 'prepend',
-					properties: {
-						...defaultOptions.anchor.properties,
+					properties: (defaultProps) => ({
+						...defaultProps,
 						class: 'heading-anchor',
-					},
+					}),
 				},
-			}),
+				autoDeclare: true,
+			},
 		}),
 	],
 });

@@ -1,9 +1,11 @@
+import type { CompileTimeTocItem } from '@svelte-put/toc';
 import type { Component } from 'svelte';
 
 export interface DocPage {
 	content: Component;
 	metadata: DocPageMetadata;
-	nav?: {
+	nav: {
+		toc: CompileTimeTocItem[];
 		previous?: {
 			href: string;
 			title: string;
@@ -25,7 +27,7 @@ export interface DocPageMetadata {
 	slug: string;
 }
 
-export type AutoDetectedFields = 'slug' | 'contentEditUrl';
+export type AutoDetectedFields = 'slug';
 export type PerDefinedDocPageMetadata = Omit<DocPageMetadata, AutoDetectedFields>;
 
 export function defineDocPageMetadata(

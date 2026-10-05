@@ -38,7 +38,7 @@
 					{#each pages as page (page.slug)}
 						<li>
 							<a
-								class="c-link-lazy block w-full overflow-hidden py-2 text-ellipsis whitespace-nowrap"
+								class="c-link-lazy leading-double block w-full overflow-hidden text-ellipsis whitespace-nowrap"
 								href="../{page.slug}"
 								{...page.slug === slug && { 'aria-current': true }}
 							>
@@ -55,7 +55,23 @@
 		</button>
 		<div class="sidebar-popover-container" popover id="toc">
 			<nav class="sidebar toc space-y-4" aria-labelledby="toc-label">
-				<p class="text-stroke-200 mobile:sr-only text-sm uppercase" id="toc-label">On this page</p>
+				{#if doc.nav.toc.length}
+					<p class="text-stroke-200 mobile:sr-only text-sm uppercase" id="toc-label">
+						On this page
+					</p>
+					<ol>
+						{#each doc.nav.toc as item (item.id)}
+							{const level = item.tag[1]}
+							<a
+								class="c-link-lazy leading-double block w-full overflow-hidden text-ellipsis whitespace-nowrap"
+								href="#{item.id}"
+								style:padding-inline-start="calc(1rem * ({level} - 2))"
+							>
+								{item.text}
+							</a>
+						{/each}
+					</ol>
+				{/if}
 			</nav>
 		</div>
 	</div>
@@ -73,10 +89,10 @@
 				Found typo or problem?
 				<a class="c-link" href={doc.contentEditUrl} data-external> Suggest an edit! </a>
 			</p>
-			{#if doc.nav}
+			{#if doc.nav.previous || doc.nav.next}
 				{const commonClasses =
-					'border border-current py-3 gap-1 px-4 flex flex-col hover:border-primary transition-colors w-full max-w-100 flex-1'}
-				<nav class="tablet:gap-10 flex gap-4">
+					'border border-current py-3 gap-1 px-4 flex flex-col hover:border-primary transition-colors w-full max-w-100 flex-1 min-w-50'}
+				<nav class="tablet:gap-10 flex flex-wrap gap-4">
 					{#if doc.nav.previous}
 						<a class={commonClasses} href={doc.nav.previous.href}>
 							<span class="text-stroke-200 text-sm"> Previous page </span>
@@ -86,7 +102,7 @@
 						</a>
 					{/if}
 					{#if doc.nav.next}
-						<a class={[commonClasses, 'ms-auto']} href={doc.nav.next.href}>
+						<a class={[commonClasses, 'ms-auto items-end']} href={doc.nav.next.href}>
 							<span class="text-stroke-200 text-sm"> Next page </span>
 							<span class="text-primary">
 								{doc.nav.next.title}
@@ -105,8 +121,8 @@
 	.page {
 		--py: 2.5rem;
 		--px: 1rem;
-		--pages-wdith: 10rem;
-		--toc-wdith: 12rem;
+		--pages-width: 10rem;
+		--toc-width: 12rem;
 
 		grid-template-columns: 1fr;
 
@@ -206,9 +222,11 @@
 			--pie: 0.2rem;
 
 			inset-block-start: calc(var(--bs) + var(--pie));
+
 			max-width: 75dvw;
 			max-height: calc(100dvh - var(--bs) - var(--pie) * 2);
 			margin-inline: auto 0.2rem;
+			padding: 1rem;
 		}
 
 		&:popover-open {

@@ -1,6 +1,7 @@
 <script lang="ts" module>
 	import { defineDocPageMetadata } from '@internals/docpage';
 	import { markdown } from '@vnphanquang/markdown/svelte';
+
 	import Demo from './includes/demo.svelte';
 
 	export const metadata = defineDocPageMetadata({
