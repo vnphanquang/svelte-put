@@ -55,12 +55,12 @@
 		</button>
 		<div class="sidebar-popover-container" popover id="toc">
 			<nav class="sidebar toc space-y-4" aria-labelledby="toc-label">
-				{#if doc.nav.toc.length}
+				{#if doc.nav.toc.items.size}
 					<p class="text-stroke-200 mobile:sr-only text-sm uppercase" id="toc-label">
 						On this page
 					</p>
 					<ol>
-						{#each doc.nav.toc as item (item.id)}
+						{#each doc.nav.toc.items.values() as item (item.id)}
 							{const level = item.tag[1]}
 							<a
 								class="c-link-lazy leading-double block w-full overflow-hidden text-ellipsis whitespace-nowrap"

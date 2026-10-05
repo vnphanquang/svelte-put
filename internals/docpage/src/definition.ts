@@ -1,11 +1,11 @@
-import type { CompileTimeTocItem } from '@svelte-put/toc';
+import type { CompileTimeToc } from '@svelte-put/toc';
 import type { Component } from 'svelte';
 
 export interface DocPage {
 	content: Component;
 	metadata: DocPageMetadata;
 	nav: {
-		toc: CompileTimeTocItem[];
+		toc: CompileTimeToc;
 		previous?: {
 			href: string;
 			title: string;

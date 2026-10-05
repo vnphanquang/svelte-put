@@ -40,9 +40,7 @@ export function createLoaders(
 					...metadata,
 					slug,
 				},
-				nav: {
-					toc: toc.items,
-				},
+				nav: { toc },
 				contentEditUrl: `https://github.com/vnphanquang/svelte-put/edit/${import.meta.env.GIT_REF}/packages/${pkg}/src/docs/${collected.path}`,
 			};
 			const { previousSlug, nextSlug } = collected;

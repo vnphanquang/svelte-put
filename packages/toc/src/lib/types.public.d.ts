@@ -2,7 +2,7 @@
  * Table-of-Contents data collected at compile time within a Svelte file
  */
 export interface CompileTimeToc {
-	items: CompileTimeTocItem[];
+	items: Map<string, CompileTimeTocItem>;
 }
 
 export interface CompileTimeTocItem {

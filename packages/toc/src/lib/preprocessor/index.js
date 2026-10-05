@@ -26,15 +26,14 @@ export function toc(options = {}) {
 			const s = new MagicString(content);
 			const ast = parse(content, { modern: true, filename });
 
-			const items = processTags({ s, ast, ...o });
-			const toc = { items };
+			const toc = processTags({ s, ast, ...o });
 
 			const names = extractTocImport({ s, ast, ...o });
-			populateToc({ s, ast, names, toc });
+			const expression = populateToc({ s, ast, names, toc });
 
 			const shouldDeclare = o.autoDeclare.enabled(filename);
 			if (shouldDeclare) {
-				const declaration = `export const ${o.autoDeclare.identifier} = ${JSON.stringify(toc)}`;
+				const declaration = `export const ${o.autoDeclare.identifier} = ${expression}`;
 				if (ast.module) {
 					s.appendLeft(nodeWithPosition(ast.module.content).end, declaration);
 				} else {
