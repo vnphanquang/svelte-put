@@ -25,6 +25,7 @@
 		"@svelte-put/inline-svg": "workspace:*",
 		"@svelte-put/preprocess-auto-slug": "workspace:*",
 		"@svelte-put/preprocess-external-link": "workspace:*",
+		"@svelte-put/toc": "workspace:*",
 		"@internals/testing": "workspace:*",
 		"@sveltejs/adapter-auto": "^8.0.0",
 		"@sveltejs/enhanced-img": "^1.0.0",

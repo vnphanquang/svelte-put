@@ -84,6 +84,7 @@
 		"svelte": "^5.57.1"
 	},
 	"dependencies": {
+		"github-slugger": "^2.0.0",
 		"magic-string": "^1.4.2",
 		"svg-parser": "^2.0.4",
 		"zimmerframe": "^1.1.5"

@@ -187,6 +187,9 @@ importers:
       '@svelte-put/preprocess-external-link':
         specifier: workspace:*
         version: link:packages/preprocess-external-link
+      '@svelte-put/toc':
+        specifier: workspace:*
+        version: link:packages/toc
       '@sveltejs/adapter-auto':
         specifier: ^8.0.0
         version: 8.0.0(@sveltejs/kit@3.0.0(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.1)(vite@8.3.2(@types/node@24.19.0)(esbuild@0.28.1)(yaml@2.9.1)))(svelte@5.57.1)(typescript@6.0.3)(vite@8.3.2(@types/node@24.19.0)(esbuild@0.28.1)(yaml@2.9.1)))
@@ -377,6 +380,9 @@ importers:
 
   packages/toc:
     dependencies:
+      github-slugger:
+        specifier: ^2.0.0
+        version: 2.0.0
       magic-string:
         specifier: ^1.4.2
         version: 1.4.2
