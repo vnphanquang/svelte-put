@@ -35,8 +35,7 @@ export function inlineSvg(source, config) {
 		__params__: { config: rConfig, sources: rSources },
 		name: 'preprocess-inline-svg',
 		markup({ content, filename }) {
-			if (!filename || content.includes('<!-- ignore @svelte-put/preprocess-inline-svg -->'))
-				return;
+			if (!filename || content.includes('<!-- ignore @svelte-put/inline-svg -->')) return;
 
 			const s = new MagicString(content);
 			const ast = parse(content, { modern: true, filename });

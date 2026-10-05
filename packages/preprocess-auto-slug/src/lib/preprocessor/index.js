@@ -33,7 +33,12 @@ export function autoSlug(input = {}) {
 	return {
 		name: 'preprocess-auto-slug',
 		markup({ content, filename }) {
-			if (content.includes('<!-- ignore @svelte-put/preprocess-auto-slug -->')) return;
+			if (
+				!options.files(filename) ||
+				content.includes('<!-- ignore @svelte-put/preprocess-auto-slug -->')
+			) {
+				return;
+			}
 			const slugger = new BananaSlug();
 			const s = new MagicString(content);
 			const ast = parse(content, { modern: true, filename });

@@ -28,7 +28,12 @@ export function externalLink(input = {}) {
 	return {
 		name: 'preprocess-auto-slug',
 		markup({ content, filename }) {
-			if (content.includes('<!-- ignore @svelte-put/preprocess-external-link -->')) return;
+			if (
+				!o.files(filename) ||
+				content.includes('<!-- ignore @svelte-put/preprocess-external-link -->')
+			) {
+				return;
+			}
 			const s = new MagicString(content);
 			const ast = parse(content, { modern: true, filename });
 
