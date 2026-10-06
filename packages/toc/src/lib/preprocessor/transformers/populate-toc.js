@@ -22,7 +22,7 @@ import { nodeWithPosition } from '../utils/index.js';
 export function populateToc(input) {
 	const { ast, names, s, toc } = input;
 	const entries = JSON.stringify(toc.map((i) => [i.id, i]));
-	const expression = `{ items: new Map(${entries}) }`;
+	const expression = `({ items: new Map(${entries}) })`;
 
 	if (!names.length) return expression;
 
