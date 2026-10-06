@@ -126,12 +126,9 @@
 
 		grid-template-columns: 1fr;
 
-		@media (--tablet) {
-			grid-template-areas: 'pages doc';
-			grid-template-columns: var(--pages-width) 1fr;
-		}
-
 		@media (--desktop) {
+			--pad-max-width: 90rem;
+			--pad-min-padding-x: 2.5rem;
 			--pb: 5rem;
 
 			grid-template-areas: 'pages doc toc';
@@ -139,16 +136,22 @@
 		}
 
 		@media (--widescreen) {
-			--pages-width: 12rem;
-			--toc-width: 14rem;
+			--pad-max-width: 90rem;
+			--pad-min-padding-x: 5rem;
+			--pages-width: 14rem;
+			--toc-width: 16rem;
 		}
 	}
 
 	.doc {
 		padding-block: var(--py);
 
-		@media (--tablet) {
+		@media (--desktop) {
 			grid-area: doc;
+
+			width: 100%;
+			max-width: 80ch;
+			margin-inline: auto;
 			padding-inline-start: var(--px);
 		}
 
@@ -171,7 +174,7 @@
 
 		background-color: var(--color-fill-100);
 
-		@media (--tablet) {
+		@media (--desktop) {
 			display: contents;
 		}
 	}
@@ -184,7 +187,7 @@
 		padding-block: 1rem;
 		padding-inline-start: 0;
 
-		@media (--tablet) {
+		@media (--desktop) {
 			display: none;
 		}
 	}
@@ -240,7 +243,7 @@
 			}
 		}
 
-		@media (--tablet) {
+		@media (--desktop) {
 			display: contents;
 		}
 
@@ -254,7 +257,7 @@
 		overscroll-behavior: contain;
 		max-height: calc(100dvh - var(--bs, 0));
 
-		@media (--tablet) {
+		@media (--desktop) {
 			position: sticky;
 			inset-block-start: 0;
 
@@ -271,7 +274,7 @@
 			max-width: var(--pages-width);
 		}
 
-		@media (--tablet) {
+		@media (--desktop) {
 			padding-inline-end: var(--px);
 		}
 	}
@@ -283,7 +286,7 @@
 			max-width: var(--toc-width);
 		}
 
-		@media (--tablet) {
+		@media (--desktop) {
 			padding-inline-start: var(--px);
 		}
 	}
