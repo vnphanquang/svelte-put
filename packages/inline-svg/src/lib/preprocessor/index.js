@@ -104,9 +104,14 @@ export function inlineSvg(source, config) {
 				},
 			});
 
+			if (!s.hasChanged()) return;
 			return {
 				code: s.toString(),
-				map: s.generateMap({ hires: true, includeContent: true }),
+				map: s.generateMap({
+					source: filename,
+					includeContent: true,
+					hires: true,
+				}),
 			};
 		},
 	};
