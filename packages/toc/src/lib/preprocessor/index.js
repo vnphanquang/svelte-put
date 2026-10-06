@@ -13,7 +13,8 @@ export * from './types.public.js';
 /** @import { PreprocessorGroup } from 'svelte/compiler' */
 
 /**
- * create a preprocessor that searches for external links and add appropriate attributes
+ * create a preprocessor that collects and transforms indexable contents for building table-of-contents
+ * or internal content linking
  * @param {TocPreprocessorOptions} [options]
  * @returns {PreprocessorGroup}
  */
@@ -43,7 +44,7 @@ export function toc(options = {}) {
 
 			return {
 				code: s.toString(),
-				map: s.generateMap({ hires: 'boundary', includeContent: true }),
+				map: s.generateMap({ hires: true, includeContent: true }),
 			};
 		},
 	};

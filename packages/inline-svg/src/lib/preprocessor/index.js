@@ -106,7 +106,7 @@ export function inlineSvg(source, config) {
 
 			return {
 				code: s.toString(),
-				map: s.generateMap({ hires: 'boundary', includeContent: true }),
+				map: s.generateMap({ hires: true, includeContent: true }),
 			};
 		},
 	};
