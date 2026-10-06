@@ -3,9 +3,9 @@
 /** @import { CompileTimeToc } from './types.public' */
 
 /**
- * a marker for compile-time to collect for static table-of-contents entries from the same Svelte file,
+ * a marker for compile-time to collect for static table-of-contents data from the same Svelte file,
  * for this to work, make sure the Vite plugin / Svelte preprocessor is set up correctly
- * @returns {CompileTimeToc[]}
+ * @returns {CompileTimeToc}
  */
 export function compileToc() {
 	throw new Error(
