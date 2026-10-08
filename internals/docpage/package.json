@@ -13,6 +13,10 @@
 		},
 		"./standalone/vite": {
 			"import": "./src/standalone/vite.ts"
+		},
+		"./eslint": {
+			"types": "./src/eslint/index.d.ts",
+			"import": "./src/eslint/index.js"
 		}
 	}
 }

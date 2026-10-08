@@ -1,10 +1,4 @@
+import { configs } from '@internals/docpage/eslint';
 import { defineConfig } from '@vnphanquang/eslint-config';
 
-export default await defineConfig(
-	{ jsdoc: true, svelte: true },
-	{
-		rules: {
-			'svelte/no-navigation-without-resolve': 'off',
-		},
-	},
-);
+export default await defineConfig({ jsdoc: true, svelte: true }, ...configs);
