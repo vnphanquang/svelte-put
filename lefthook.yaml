@@ -16,12 +16,32 @@ pre-commit:
             root: packages/preprocess-auto-slug
             run: pnpm eslint --fix {staged_files}
             stage_fixed: true
-            glob: 'sites/docs/*.{js,ts,svelte}'
+            glob: 'packages/preprocess-auto-slug/*.{js,ts,svelte}'
+
+          - name: '@svelte-put/preprocess-external-link'
+            root: packages/preprocess-external-link
+            run: pnpm eslint --fix {staged_files}
+            stage_fixed: true
+            glob: 'packages/preprocess-external-link/*.{js,ts,svelte}'
+
+          - name: '@svelte-put/inline-svg'
+            root: packages/inline-svg
+            run: pnpm eslint --fix {staged_files}
+            stage_fixed: true
+            glob: 'packages/inline-svg/*.{js,ts,svelte}'
+
+          - name: '@svelte-put/toc'
+            root: packages/toc
+            run: pnpm eslint --fix {staged_files}
+            stage_fixed: true
+            glob: 'packages/toc/*.{js,ts,svelte}'
+
           - name: docs
             root: sites/docs
             run: pnpm eslint --fix {staged_files}
             stage_fixed: true
             glob: 'sites/docs/*.{js,ts,svelte}'
+
           - name: catchall
             run: pnpm eslint --fix {staged_files}
             stage_fixed: true
