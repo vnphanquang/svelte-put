@@ -64,7 +64,7 @@
 		"directory": "packages/preprocess-external-link"
 	},
 	"devDependencies": {
-		"@types/estree": "^1.0.6"
+		"@types/estree": "^1.0.9"
 	},
 	"peerDependencies": {
 		"svelte": ">=5.0.0",
@@ -76,7 +76,7 @@
 		}
 	},
 	"dependencies": {
-		"magic-string": "^1.4.2",
+		"magic-string": "^1.4.3",
 		"zimmerframe": "^1.1.5"
 	}
 }

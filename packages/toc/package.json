@@ -80,13 +80,13 @@
 		"url": "https://github.com/vnphanquang/svelte-put/issues"
 	},
 	"devDependencies": {
-		"@types/estree": "^1.0.6",
-		"svelte": "^5.57.1"
+		"@types/estree": "^1.0.9",
+		"svelte": "^5.57.2"
 	},
 	"dependencies": {
 		"github-slugger": "^2.0.0",
-		"magic-string": "^1.4.2",
-		"svg-parser": "^2.0.4",
+		"magic-string": "^1.4.3",
+		"svg-parser": "^2.1.0",
 		"zimmerframe": "^1.1.5"
 	},
 	"peerDependencies": {
