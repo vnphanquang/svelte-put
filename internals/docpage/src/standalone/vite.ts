@@ -38,13 +38,9 @@ export default defineConfig({
 		toc({
 			include: /doc\.svelte$/,
 			preprocessor: {
-				anchor: {
-					properties: (defaultProps) => ({
-						...defaultProps,
-						class: 'heading-anchor',
-					}),
+				compileToc: {
+					autoDeclare: true,
 				},
-				autoDeclare: true,
 			},
 		}),
 	],

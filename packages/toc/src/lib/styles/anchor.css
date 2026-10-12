@@ -1,0 +1,53 @@
+[data-toc-index] {
+	anchor-name: var(--current);
+}
+
+[data-toc-anchor] {
+	&:not([data-toc-anchor='content'], [data-toc-anchor='wrap']) {
+		position: absolute;
+		inset-block: anchor(var(--current) start) anchor(var(--current) end);
+		inset-inline: anchor(var(--current) start) anchor(var(--current) end);
+		opacity: 0;
+
+		@media (hover: hover) {
+			inset-inline-start: unset;
+			inset-inline-end: calc(anchor(var(--current) start) + 0.25rem);
+
+			text-decoration: none;
+
+			opacity: 0;
+
+			transition: opacity 200ms ease-in;
+
+			[data-toc-index]:hover &,
+			[data-toc-index]:hover + &,
+			&:has([data-toc-index]:hover + *) {
+				opacity: 1;
+				transition-duration: 150ms;
+			}
+		}
+	}
+
+	&:is([data-toc-anchor='content'], [data-toc-anchor='wrap']) {
+		&::before {
+			content: var(--content) / '';
+
+			position: absolute;
+			inset-inline-start: unset;
+			inset-inline-end: calc(anchor(var(--current) start) + 0.25rem);
+
+			opacity: 0;
+
+			transition: opacity 200ms ease-in;
+		}
+
+		&:hover {
+			text-decoration: underline;
+
+			&::before {
+				opacity: 1;
+				transition-duration: 150ms;
+			}
+		}
+	}
+}

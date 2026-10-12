@@ -1,11 +1,11 @@
 import { MagicString } from 'magic-string';
 import { parse } from 'svelte/compiler';
 
-import { extractTocImport } from './transformers/extract-toc-import.js';
-import { populateToc } from './transformers/populate-toc.js';
-import { processTags } from './transformers/process-tags.js';
-import { nodeWithPosition } from './utils/node-with-position.js';
-import { resolveOptions } from './utils/resolve-options.js';
+import { preprocessAnchor } from '../engine/anchor/preprocess.js';
+import { preprocessCompileToc } from '../engine/compile-toc/preprocess/index.js';
+import { preprocessIndex } from '../engine/index/preprocess/index.js';
+
+import { resolvePreprocessorOptions } from './options.js';
 
 export * from './types.public.js';
 
@@ -19,7 +19,7 @@ export * from './types.public.js';
  * @returns {PreprocessorGroup}
  */
 export function toc(options = {}) {
-	const o = resolveOptions(options);
+	const o = resolvePreprocessorOptions(options);
 	return {
 		name: 'preprocess-toc',
 		markup({ content, filename }) {
@@ -27,20 +27,20 @@ export function toc(options = {}) {
 			const s = new MagicString(content);
 			const ast = parse(content, { modern: true, filename });
 
-			const toc = processTags({ s, ast, ...o });
+			// 2. index content, find matching tags for Table-of-Contents
+			const { items, nodes } = preprocessIndex({ s, ast, options: o.index, track: o.track });
 
-			const names = extractTocImport({ s, ast, ...o });
-			const expression = populateToc({ s, ast, names, toc });
-
-			const shouldDeclare = o.autoDeclare.enabled(filename);
-			if (shouldDeclare) {
-				const declaration = `export const ${o.autoDeclare.identifier} = ${expression}`;
-				if (ast.module) {
-					s.appendLeft(nodeWithPosition(ast.module.content).end, declaration);
-				} else {
-					s.prepend(`<script module>\n\t${declaration}\n</script>`);
+			// 3. inject anchor tag, if instructed so
+			if (o.anchor.enabled) {
+				for (let i = 0; i < items.length; i++) {
+					const item = items[i];
+					const element = nodes[i];
+					preprocessAnchor({ s, items, item, element, options: o.anchor });
 				}
 			}
+
+			// 3. populate `copmileToc`, if used
+			preprocessCompileToc({ items, ast, filename, s, options: o.compileToc });
 
 			if (!s.hasChanged()) return;
 			return {

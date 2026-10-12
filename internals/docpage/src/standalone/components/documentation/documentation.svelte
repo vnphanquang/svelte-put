@@ -1,10 +1,11 @@
 <script lang="ts" module>
+	import { Toc } from '@svelte-put/toc';
 	import { error } from '@sveltejs/kit';
 	import { Markdown } from '@vnphanquang/markdown/svelte';
 
-	import './styles.css';
-
 	import type { Loaders } from '../../../loader';
+
+	import './styles.css';
 
 	export interface DocumentationProps {
 		slug: string;
@@ -23,9 +24,11 @@
 	$effect(() => {
 		if (!doc) error(400, 'No documentation page with this path!'); // for CSR
 	});
+
+	let toc = $derived(new Toc({ items: doc.nav.toc.items }));
 </script>
 
-<div class="page max-w-pad grid flex-1">
+<div class="page max-w-pad grid flex-1" {...toc.enhance.scope()}>
 	<div class="nav">
 		<button class="sidebar-trigger c-btn c-btn--icon text-sm" popovertarget="pages">
 			<i class="i i-[ph--list] h-5 w-5"></i>
@@ -54,21 +57,34 @@
 			<i class="i i-[ph--list] h-5 w-5"></i>
 		</button>
 		<div class="sidebar-popover-container" popover id="toc">
-			<nav class="sidebar toc space-y-4" aria-labelledby="toc-label">
-				{#if doc.nav.toc.items.size}
-					<p class="text-stroke-200 mobile:sr-only text-sm uppercase" id="toc-label">
+			<nav class="sidebar toc" aria-labelledby="toc-label">
+				{#if toc.items.size}
+					<p
+						class="border-fill-200 text-stroke-200 mobile:sr-only border-s ps-4 pbe-4 text-sm uppercase"
+						id="toc-label"
+					>
 						On this page
+						<span class="no-tracking">
+							<i class="i i-[ph--warning] text-warning"></i>
+							<span class="c-infobox max-w-80 normal-case">
+								Your browser hasn't supported CSS scroll-driven animation yet, links still work but
+								there's no visibility tracking for now.
+							</span>
+						</span>
 					</p>
 					<ol>
-						{#each doc.nav.toc.items.values() as item (item.id)}
+						{#each toc.items.values() as item (item.id)}
 							{const level = item.tag[1]}
-							<a
-								class="c-link-lazy leading-double block w-full overflow-hidden text-ellipsis whitespace-nowrap"
-								href="#{item.id}"
-								style:padding-inline-start="calc(1rem * ({level} - 2))"
-							>
-								{item.text}
-							</a>
+							<li>
+								<a
+									class="c-link-lazy leading-double block w-full overflow-hidden text-ellipsis whitespace-nowrap"
+									{...toc.enhance.link(item)}
+								>
+									<span style:padding-inline-start="calc(1rem * ({level} - 2))">
+										{item.text}
+									</span>
+								</a>
+							</li>
 						{/each}
 					</ol>
 				{/if}
@@ -76,14 +92,14 @@
 		</div>
 	</div>
 	<main class="doc @container">
-		<section class="md flex-1">
-			{#key slug}
+		{#key slug}
+			<section class="md flex-1" {...toc.runtime.index()}>
 				<Markdown>
 					<h1>{doc.metadata.title}</h1>
 					<doc.content />
 				</Markdown>
-			{/key}
-		</section>
+			</section>
+		{/key}
 		<div class="desktop:mbs-15 mbs-10 space-y-10">
 			<p class="border-fill-200 border-b py-1 text-sm">
 				Found typo or problem?
@@ -192,6 +208,30 @@
 		}
 	}
 
+	.pages {
+		grid-area: pages;
+
+		& a {
+			max-width: var(--pages-width);
+		}
+
+		@media (--desktop) {
+			padding-inline-end: var(--px);
+		}
+	}
+
+	.toc {
+		grid-area: toc;
+
+		& a {
+			max-width: var(--toc-width);
+		}
+
+		@media (--desktop) {
+			padding-inline-start: var(--px);
+		}
+	}
+
 	.sidebar-popover-container {
 		--x: -100%;
 
@@ -230,6 +270,13 @@
 			max-height: calc(100dvh - var(--bs) - var(--pie) * 2);
 			margin-inline: auto 0.2rem;
 			padding: 1rem;
+
+			& a {
+				@media (--desktop) {
+					padding-inline-start: 1rem;
+					border-inline-start: 1px var(--color-fill-200) solid;
+				}
+			}
 		}
 
 		&:popover-open {
@@ -267,27 +314,9 @@
 		}
 	}
 
-	.pages {
-		grid-area: pages;
-
-		& a {
-			max-width: var(--pages-width);
-		}
-
-		@media (--desktop) {
-			padding-inline-end: var(--px);
-		}
-	}
-
-	.toc {
-		grid-area: toc;
-
-		& a {
-			max-width: var(--toc-width);
-		}
-
-		@media (--desktop) {
-			padding-inline-start: var(--px);
+	.no-tracking {
+		@supports (view-timeline-name: --supported) {
+			display: none;
 		}
 	}
 </style>

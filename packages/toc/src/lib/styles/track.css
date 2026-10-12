@@ -1,0 +1,74 @@
+[data-toc-scope] {
+	@supports (view-timeline-name: --supported) {
+		timeline-scope: var(--items);
+	}
+}
+
+[data-toc-index] {
+	anchor-name: var(--current);
+
+	&:not([data-toc-index*='notrack']) {
+		@supports (view-timeline-name: --supported) {
+			view-timeline-name: var(--current);
+			view-timeline-inset: 0% var(--toc-timeline-inset, 80%);
+
+			&:not([data-toc-index*='nonflat']) {
+				view-timeline-name: unset;
+				view-timeline-inset: unset;
+
+				&::after {
+					content: '';
+
+					position: absolute;
+					z-index: -1;
+					inset-block-start: anchor(var(--current) start);
+					inset-block-end: anchor(var(--next) start);
+					inset-inline-end: anchor(var(--current) start);
+
+					width: 1px;
+
+					view-timeline-name: var(--current);
+					view-timeline-inset: 0% var(--toc-timeline-inset, 80%);
+				}
+
+				&[data-toc-index*='last'] {
+					&::after {
+						inset-block-end: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+[data-toc-link]:not([data-toc-link*='notrack']) {
+	@supports (view-timeline-name: --supported) {
+		animation:
+			var(--toc-animation-in, toc-in) 1ms linear forwards,
+			var(--toc-animation-out, toc-out) 1ms linear forwards;
+		animation-timeline: var(--current), var(--next);
+
+		&[data-toc-link*='last'] {
+			animation: var(--toc-animation-in, toc-in) 1ms linear;
+			animation-timeline: var(--current);
+		}
+	}
+
+	&:hover {
+		color: var(--toc-active-color, blue) !important;
+	}
+}
+
+@keyframes toc-in {
+	0%,
+	100% {
+		color: var(--toc-active-color, blue);
+	}
+}
+
+@keyframes toc-out {
+	0%,
+	100% {
+		color: currentcolor;
+	}
+}

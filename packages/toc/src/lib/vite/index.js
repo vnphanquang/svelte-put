@@ -4,7 +4,7 @@ import { toc as createPreprocessor } from '../preprocessor/index.js';
 /** @import { Plugin, TransformResult } from 'vite' */
 
 /**
- * create a Vite plugin wrapping a preprocessor that search for table of contents
+ * create a Vite plugin wrapping a preprocessor that collects and transforms indexable contents for building table-of-contents
  * @param {TocViteOptions} [options] - behavioral configurations
  * @returns {Plugin} - vite plugin that wraps a Svelte preprocessor
  */

@@ -10,7 +10,7 @@ export default {
 		'declaration-block-no-redundant-longhand-properties': [
 			true,
 			{
-				ignoreShorthands: ['grid-template'],
+				ignoreShorthands: ['grid-template', 'inset-block', 'inset-inline'],
 			},
 		],
 		'at-rule-no-unknown': [

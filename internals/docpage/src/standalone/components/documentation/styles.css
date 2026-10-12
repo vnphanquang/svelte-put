@@ -1,3 +1,10 @@
 @import '@vnphanquang/gach/styles';
+@import '@svelte-put/toc/styles.css' layer(markdown);
 
 @source './**/*.{ts,js,svelte}';
+
+@layer makdown {
+	[data-toc-scope] {
+		--toc-active-color: var(--color-link);
+	}
+}
