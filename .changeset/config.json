@@ -2,6 +2,6 @@
 	"$schema": "https://raw.githubusercontent.com/changesets/changesets/refs/heads/main/packages/config/schema.json",
 	"changelog": ["@changesets/changelog-github", { "repo": "vnphanquang/svelte-put" }],
 	"access": "public",
-	"baseBranch": "main",
+	"baseBranch": "next",
 	"format": false
 }
