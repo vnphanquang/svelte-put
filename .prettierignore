@@ -3,4 +3,6 @@ CHANGELOG.md
 *.svg
 pnpm-lock.yaml
 .svelte-kit/
-
+**/examples/*.svelte
+**/examples/*.ts
+**/examples/*.js
