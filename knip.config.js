@@ -6,6 +6,9 @@ export default defineConfig({
 			ignoreBinaries: ['lefthook'],
 			ignoreDependencies: ['@changesets/cli'],
 		},
+		'internals/docpage': {
+			svelte: true,
+		},
 		'packages/*': {
 			sveltekit: true,
 			project: 'src/lib/**',
