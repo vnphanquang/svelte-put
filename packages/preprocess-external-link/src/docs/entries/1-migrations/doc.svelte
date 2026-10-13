@@ -10,7 +10,7 @@
 {markdown`
 ## Migrating to v2
 
-Before v2, \`preprocess-auto-slug\` was exported as a Svelte preprocessor:
+In v1, \`preprocess-external-link\` was exported as a Svelte preprocessor:
 
 ~~~javascript #title="svelte.config.js"
 import externalLink from '@svelte-put/preprocess-external-link'; // [!code --]

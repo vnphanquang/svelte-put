@@ -26,7 +26,7 @@ export function externalLink(input = {}) {
 			};
 
 	return {
-		name: 'preprocess-auto-slug',
+		name: 'preprocess-external-link',
 		markup({ content, filename }) {
 			if (
 				!o.files(filename) ||

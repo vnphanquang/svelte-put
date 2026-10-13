@@ -11,16 +11,16 @@
 If you are using the Vite plugin, processing options can be specified at \`.preprocessor.*\`:
 
 ~~~typescript $class=" no-line-number" #typehint
-import { autoSlug } from '@svelte-put/preprocess-auto-slug';
-autoSlug({ preprocessor: {/* options */} });
+import { externalLink } from '@svelte-put/preprocess-external-link';
+externalLink({ preprocessor: {/* options */} });
 ~~~
 
 ...whereas if you are [using the bare svelte preprocessor][bare], the same options are available
 at the top level:
 
 ~~~typescript $class=" no-line-number" #typehint
-import { autoSlug } from '@svelte-put/preprocess-auto-slug/preprocessor';
-autoSlug({/* options */});
+import { externalLink } from '@svelte-put/preprocess-external-link/preprocessor';
+externalLink({/* options */});
 ~~~
 
 When possible, utilise language server during development to get the most up-to-date documentation
