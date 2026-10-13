@@ -10,6 +10,12 @@ export default defineConfig({
 			svelte: true,
 			ignoreDependencies: ['tailwindcss', 'node-addon-api', 'node-gyp', '@vnphanquang/markdown'],
 		},
+		'packages/preprocess-external-link': {
+			sveltekit: true,
+			project: 'src/lib/**',
+			ignoreBinaries: ['svelte-kit'],
+			ignoreDependencies: ['vite'],
+		},
 		'packages/*': {
 			sveltekit: true,
 			project: 'src/lib/**',
