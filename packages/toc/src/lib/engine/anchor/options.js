@@ -19,7 +19,7 @@ export function resolveAnchorOptions(options) {
 	};
 }
 
-export const DEFAULT_ANCHOR_OPTIONS = /** @type {ResolvedTocAnchor} */ ({
+const DEFAULT_ANCHOR_OPTIONS = /** @type {ResolvedTocAnchor} */ ({
 	enabled: true,
 	position: 'content',
 	content: '#',

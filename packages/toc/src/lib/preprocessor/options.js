@@ -20,6 +20,6 @@ export function resolvePreprocessorOptions(options = {}) {
 	};
 }
 
-export const DEFAULT_TOP_LEVEL_OPTIONS = {
+const DEFAULT_TOP_LEVEL_OPTIONS = {
 	files: () => true,
 };

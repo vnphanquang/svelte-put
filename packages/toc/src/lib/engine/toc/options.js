@@ -21,6 +21,6 @@ export function resolveTocOptions(options = {}) {
 	};
 }
 
-export const DEFAULT_TOP_LEVEL_OPTIONS = {
+const DEFAULT_TOP_LEVEL_OPTIONS = {
 	items: new Map(),
 };

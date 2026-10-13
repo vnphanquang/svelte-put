@@ -21,18 +21,18 @@ export function resolveIndexOptions(options, runtime = /** @type {R} */ (false))
 	};
 }
 
-export const SHARED_OPTIONS = /** @type {TocSharedIndexOptions} */ ({
+const SHARED_OPTIONS = /** @type {TocSharedIndexOptions} */ ({
 	idAttribute: 'id',
 	slug: ({ generated }) => generated,
 	attributes: ({ defaults }) => defaults,
 });
 
-export const DEFAULT_INDEX_OPTIONS = /** @type {ResolvedTocIndex} */ ({
+const DEFAULT_INDEX_OPTIONS = /** @type {ResolvedTocIndex} */ ({
 	...SHARED_OPTIONS,
 	tags: ['h2', 'h3', 'h4', 'h5', 'h6'],
 });
 
-export const DEFAULT_RUNTIME_INDEX_OPTIONS = /** @type {ResolvedTocIndex<true>} */ ({
+const DEFAULT_RUNTIME_INDEX_OPTIONS = /** @type {ResolvedTocIndex<true>} */ ({
 	...SHARED_OPTIONS,
 	selector: ':is(h2, h3, h4, h5, h6)',
 });

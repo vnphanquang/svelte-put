@@ -33,7 +33,7 @@ export function resolveAutoDeclare(options) {
 	};
 }
 
-export const DEFAULT_COMPILE_TOC_OPTIONS = /** @type {ResolvedCompileToc} */ ({
+const DEFAULT_COMPILE_TOC_OPTIONS = /** @type {ResolvedCompileToc} */ ({
 	importSource: '@svelte-put/toc',
 	autoDeclare: {
 		enabled: () => false,

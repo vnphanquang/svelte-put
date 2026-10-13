@@ -21,7 +21,7 @@ export function resolveTrackOptions(options) {
 	};
 }
 
-export const DEFAULT_TRACK_OPTIONS = /** @type {ResolvedTocTrack} */ ({
+const DEFAULT_TRACK_OPTIONS = /** @type {ResolvedTocTrack} */ ({
 	enabled: () => true,
 	flat: true,
 });
