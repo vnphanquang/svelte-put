@@ -1,5 +1,7 @@
 import child_process from 'node:child_process';
 
+import { externalLink } from '@svelte-put/preprocess-external-link';
+import { toc } from '@svelte-put/toc/vite';
 import adapter from '@sveltejs/adapter-cloudflare';
 import { enhancedImages } from '@sveltejs/enhanced-img';
 import { sveltekit } from '@sveltejs/kit/vite';
@@ -8,8 +10,6 @@ import { defineConfig } from 'vite';
 import { qrcode } from 'vite-plugin-qrcode';
 
 import pkg from './package.json' with { type: 'json' };
-// import { autoSlug } from '@svelte-put/preprocess-auto-slug';
-// import { externalLink } from '@svelte-put/preprocess-external-link';
 
 const commitHash = child_process.execSync('git rev-parse --short HEAD').toString().trim();
 
@@ -19,20 +19,6 @@ export default defineConfig({
 		qrcode(),
 		gach({ markdown: true }),
 		enhancedImages(),
-		// FIXME: add auto-slug, inline-svg, external-link, etc.
-		// autoSlug((defaultOptions) => ({
-		// 	include: /data\/posts\/.*\.svelte$/,
-		// 	tags: ['h2', 'h3', 'h4', 'h5', 'h6'],
-		// 	anchor: {
-		// 		content: '#',
-		// 		position: 'prepend',
-		// 		properties: {
-		// 			...defaultOptions.anchor?.properties,
-		// 			class: 'heading-anchor',
-		// 		},
-		// 	},
-		// })),
-		// externalLink(['vnphanquang.com']),
 		sveltekit({
 			adapter: adapter(),
 			version: {
@@ -46,13 +32,21 @@ export default defineConfig({
 			},
 			experimental: {
 				remoteFunctions: true,
-				explicitEnvironmentVariables: true,
 			},
 			inspector: {
 				toggleKeyCombo: 'alt-shift',
 				holdMode: true,
 				showToggleButton: 'always',
 				toggleButtonPos: 'bottom-left',
+			},
+		}),
+		externalLink(),
+		toc({
+			include: /doc\.svelte$/,
+			preprocessor: {
+				compileToc: {
+					autoDeclare: true,
+				},
 			},
 		}),
 	],
