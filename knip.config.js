@@ -13,13 +13,11 @@ export default defineConfig({
 		'packages/preprocess-external-link': {
 			sveltekit: true,
 			project: 'src/lib/**',
-			ignoreBinaries: ['svelte-kit'],
 			ignoreDependencies: ['vite'],
 		},
 		'packages/*': {
 			sveltekit: true,
 			project: 'src/lib/**',
-			ignoreBinaries: ['svelte-kit'],
 		},
 		'sites/*': {
 			sveltekit: true,

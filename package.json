@@ -22,6 +22,7 @@
 		"@changesets/changelog-github": "^1.0.1",
 		"@changesets/cli": "^3.0.3",
 		"@internals/docpage": "workspace:*",
+		"@sveltejs/kit": "^3.0.1",
 		"@sveltejs/load-config": "^0.2.3",
 		"@types/node": "24.19.0",
 		"@vitest/coverage-v8": "^5.0.4",

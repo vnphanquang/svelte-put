@@ -175,6 +175,9 @@ importers:
       '@internals/docpage':
         specifier: workspace:*
         version: link:internals/docpage
+      '@sveltejs/kit':
+        specifier: ^3.0.1
+        version: 3.0.1(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.2(@typescript-eslint/types@8.71.1))(vite@8.3.4(@types/node@24.19.0)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.1)))(svelte@5.57.2(@typescript-eslint/types@8.71.1))(typescript@6.0.3)(vite@8.3.4(@types/node@24.19.0)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.1))
       '@sveltejs/load-config':
         specifier: ^0.2.3
         version: 0.2.3
