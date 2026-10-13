@@ -8,14 +8,17 @@ export default defineConfig({
 		},
 		'internals/docpage': {
 			svelte: true,
+			ignoreDependencies: ['tailwindcss', 'node-addon-api', 'node-gyp', '@vnphanquang/markdown'],
 		},
 		'packages/*': {
 			sveltekit: true,
 			project: 'src/lib/**',
+			ignoreBinaries: ['svelte-kit'],
 		},
 		'sites/*': {
 			sveltekit: true,
-			ignoreFiles: ['**/src/env.ts'], // FIXME: is this not detected by the svelte/kit plugin?
+			entry: ['src/env.ts'],
+			ignoreDependencies: ['tailwindcss', 'node-addon-api', 'node-gyp', '@vnphanquang/markdown'],
 		},
 	},
 });

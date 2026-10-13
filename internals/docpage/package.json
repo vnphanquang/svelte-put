@@ -18,5 +18,19 @@
 			"types": "./src/eslint/index.d.ts",
 			"import": "./src/eslint/index.js"
 		}
+	},
+	"devDependencies": {
+		"@svelte-put/preprocess-external-link": "workspace:*",
+		"@svelte-put/toc": "workspace:*",
+		"@sveltejs/adapter-auto": "^8.0.0",
+		"@sveltejs/enhanced-img": "^1.0.0",
+		"@sveltejs/kit": "^3.0.1",
+		"@sveltejs/vite-plugin-svelte": "^7.3.1",
+		"node-addon-api": "^8.9.2",
+		"node-gyp": "^13.1.0",
+		"@vnphanquang/gach": "^1.0.1",
+		"@vnphanquang/markdown": "^1.0.1",
+		"tailwindcss": "^4.3.3",
+		"vite-plugin-qrcode": "^0.4.1"
 	}
 }

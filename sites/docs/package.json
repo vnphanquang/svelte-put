@@ -31,7 +31,19 @@
 		"format": "prettier --write --ignore-path=../../.prettierignore --config=../../prettier.config.js ."
 	},
 	"devDependencies": {
+		"@svelte-put/preprocess-external-link": "workspace:*",
+		"@svelte-put/toc": "workspace:*",
 		"@sveltejs/adapter-cloudflare": "^8.0.0",
-		"@types/umami-browser": "^2.18.1"
+		"@sveltejs/enhanced-img": "^1.0.0",
+		"@sveltejs/kit": "^3.0.1",
+		"@sveltejs/vite-plugin-svelte": "^7.3.1",
+		"@types/umami-browser": "^2.18.1",
+		"@vnphanquang/gach": "^1.0.1",
+		"@vnphanquang/markdown": "^1.0.1",
+		"node-addon-api": "^8.9.2",
+		"node-gyp": "^13.1.0",
+		"tailwindcss": "^4.3.3",
+		"valibot": "^1.5.0",
+		"vite-plugin-qrcode": "^0.4.1"
 	}
 }

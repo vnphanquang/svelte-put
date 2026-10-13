@@ -13,9 +13,9 @@ minimumReleaseAgeExclude:
   - '@sveltejs/kit'
   - '@sveltejs/enhanced-img'
   - '@sveltejs/vite-plugin-svelte'
+  - svelte-md-template
   - '@vnphanquang/eslint-config'
   - '@vnphanquang/gach'
   - '@vnphanquang/markdown'
   - 'svelte'
   - 'vite'
-  - svelte-md-template@0.1.9
