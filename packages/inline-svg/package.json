@@ -42,6 +42,7 @@
 		"lint": "run-p lint:*",
 		"lint:es": "svelte-kit sync && eslint .",
 		"lint:style": "stylelint '**/*.{svelte,css}'",
+		"lint:knip": "pnpm knip --directory ../../ --workspace @svelte-put/inline-svg",
 		"format": "prettier --write --ignore-path=../../.prettierignore --config=../../prettier.config.js .",
 		"build": "svelte-kit sync && dts-buddy --write && publint",
 		"dev": "vite dev"
