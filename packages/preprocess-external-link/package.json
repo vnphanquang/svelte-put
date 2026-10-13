@@ -1,7 +1,7 @@
 {
 	"name": "@svelte-put/preprocess-external-link",
 	"version": "1.0.0",
-	"description": "add appropriate attributes to external links",
+	"description": "Add appropriate attributes to external links at compile-time",
 	"main": "src/lib/index.js",
 	"module": "src/lib/index.js",
 	"types": "types/index.d.ts",
