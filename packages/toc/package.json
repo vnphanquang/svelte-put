@@ -6,7 +6,9 @@
 	"module": "src/lib/index.js",
 	"types": "types/index.d.ts",
 	"type": "module",
-	"sideEffects": false,
+	"sideEffects": [
+		"**/*.css"
+	],
 	"exports": {
 		".": {
 			"types": "./types/index.d.ts",
