@@ -18,3 +18,4 @@ minimumReleaseAgeExclude:
   - '@vnphanquang/markdown'
   - 'svelte'
   - 'vite'
+  - svelte-md-template@0.1.9

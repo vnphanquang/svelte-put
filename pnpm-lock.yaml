@@ -218,11 +218,11 @@ importers:
         specifier: ^5.0.0
         version: 5.0.0(@sveltejs/load-config@0.2.3)(@typescript-eslint/utils@8.71.1(eslint@10.12.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(eslint-plugin-svelte@3.23.1(eslint@10.12.0(jiti@2.7.0)(supports-color@10.2.2))(svelte@5.57.2(@typescript-eslint/types@8.71.1)))(eslint@10.12.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       '@vnphanquang/gach':
-        specifier: ^1.0.0
-        version: 1.0.0(@sveltejs/kit@3.0.1(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.2(@typescript-eslint/types@8.71.1))(vite@8.3.4(@types/node@24.19.0)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)))(svelte@5.57.2(@typescript-eslint/types@8.71.1))(typescript@6.0.3)(vite@8.3.4(@types/node@24.19.0)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)))(esbuild@0.28.1)(jiti@2.7.0)(lightningcss@1.33.0)(postcss@8.5.29)(rolldown@1.2.12)(supports-color@10.2.2)(svelte@5.57.2(@typescript-eslint/types@8.71.1))(typescript@6.0.3)(vite@8.3.4(@types/node@24.19.0)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))
+        specifier: ^1.0.1
+        version: 1.0.1(@sveltejs/kit@3.0.1(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.2(@typescript-eslint/types@8.71.1))(vite@8.3.4(@types/node@24.19.0)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)))(svelte@5.57.2(@typescript-eslint/types@8.71.1))(typescript@6.0.3)(vite@8.3.4(@types/node@24.19.0)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)))(esbuild@0.28.1)(jiti@2.7.0)(lightningcss@1.33.0)(postcss@8.5.29)(rolldown@1.2.12)(supports-color@10.2.2)(svelte@5.57.2(@typescript-eslint/types@8.71.1))(typescript@6.0.3)(vite@8.3.4(@types/node@24.19.0)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))
       '@vnphanquang/markdown':
-        specifier: ^1.0.0
-        version: 1.0.0(supports-color@10.2.2)(svelte@5.57.2(@typescript-eslint/types@8.71.1))(typescript@6.0.3)
+        specifier: ^1.0.1
+        version: 1.0.1(supports-color@10.2.2)(svelte@5.57.2(@typescript-eslint/types@8.71.1))(typescript@6.0.3)
       dts-buddy:
         specifier: ^0.8.3
         version: 0.8.3(typescript@6.0.3)
@@ -2148,8 +2148,8 @@ packages:
       eslint-plugin-svelte:
         optional: true
 
-  '@vnphanquang/gach@1.0.0':
-    resolution: {integrity: sha512-BbzoXIAihUujjzyb0hRb9h3wOjAS20QAfMnVDjukuz9t1lRCrTWJodBLr4zbbf6nS7xni2hQuF62Yw+nB4HQUg==}
+  '@vnphanquang/gach@1.0.1':
+    resolution: {integrity: sha512-RRVASPMeyNGT6VWTNKGjhvx/z9908/yWFfNnqpozQUgTmEOi7UurXaRdKTXaAzSZn9J9i1yWkW1YFY/uvMpoHQ==}
     peerDependencies:
       '@sveltejs/kit': '>=2.0.0'
       svelte: '>=5.0.0'
@@ -2157,8 +2157,8 @@ packages:
       '@sveltejs/kit':
         optional: true
 
-  '@vnphanquang/markdown@1.0.0':
-    resolution: {integrity: sha512-5MxG7mg8719lHK0AUKV+zlskc07F8Q7jQvOvdu6pYXzBN7Bs2D0LAqqOdqFvdqoX+u24avhqFMyJuXKa5U3U/w==}
+  '@vnphanquang/markdown@1.0.1':
+    resolution: {integrity: sha512-mjUkA3+VjP6YwzlgGqD0bRM3tyXIiKybUAycIrlgyNG1wcubhvX6RqSDWdhGz4Y0T/RpFherQkJ7qGLGdQY4PQ==}
     peerDependencies:
       svelte: '>=5.0.0'
     peerDependenciesMeta:
@@ -4456,8 +4456,8 @@ packages:
       svelte:
         optional: true
 
-  svelte-md-template@0.1.7:
-    resolution: {integrity: sha512-Boc1EL4VgZ2apeI3cJcebaytprSDYVszrY6pzsVcO+mEj0wjFaYYxf1DIaoKBTiUi7u1sRhbJMZAohSxTqB/ng==}
+  svelte-md-template@0.1.9:
+    resolution: {integrity: sha512-H6/2JI3rGGjmIXEfGRiWL6iwwXdyot7Un6NtwlmTI8OaedGZ3Trnwuox12YR1UpKb/tzRhil/B+MyQcAx9YvKQ==}
     peerDependencies:
       svelte: '>=5.0.0'
 
@@ -6360,13 +6360,13 @@ snapshots:
       - supports-color
       - typescript
 
-  '@vnphanquang/gach@1.0.0(@sveltejs/kit@3.0.1(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.2(@typescript-eslint/types@8.71.1))(vite@8.3.4(@types/node@24.19.0)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)))(svelte@5.57.2(@typescript-eslint/types@8.71.1))(typescript@6.0.3)(vite@8.3.4(@types/node@24.19.0)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)))(esbuild@0.28.1)(jiti@2.7.0)(lightningcss@1.33.0)(postcss@8.5.29)(rolldown@1.2.12)(supports-color@10.2.2)(svelte@5.57.2(@typescript-eslint/types@8.71.1))(typescript@6.0.3)(vite@8.3.4(@types/node@24.19.0)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))':
+  '@vnphanquang/gach@1.0.1(@sveltejs/kit@3.0.1(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.2(@typescript-eslint/types@8.71.1))(vite@8.3.4(@types/node@24.19.0)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)))(svelte@5.57.2(@typescript-eslint/types@8.71.1))(typescript@6.0.3)(vite@8.3.4(@types/node@24.19.0)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1)))(esbuild@0.28.1)(jiti@2.7.0)(lightningcss@1.33.0)(postcss@8.5.29)(rolldown@1.2.12)(supports-color@10.2.2)(svelte@5.57.2(@typescript-eslint/types@8.71.1))(typescript@6.0.3)(vite@8.3.4(@types/node@24.19.0)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))':
     dependencies:
       '@iconify-json/ph': 1.2.2
       '@iconify-json/simple-icons': 1.2.100
       '@iconify/tailwind4': 1.2.3(tailwindcss@4.3.3)
       '@tailwindcss/vite': 4.3.3(vite@8.3.4(@types/node@24.19.0)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))
-      '@vnphanquang/markdown': 1.0.0(supports-color@10.2.2)(svelte@5.57.2(@typescript-eslint/types@8.71.1))(typescript@6.0.3)
+      '@vnphanquang/markdown': 1.0.1(supports-color@10.2.2)(svelte@5.57.2(@typescript-eslint/types@8.71.1))(typescript@6.0.3)
       fontless: 1.3.2(esbuild@0.28.1)(jiti@2.7.0)(lightningcss@1.33.0)(postcss@8.5.29)(rolldown@1.2.12)(vite@8.3.4(@types/node@24.19.0)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.1))
       postcss-color-scheme: 2.1.0(postcss@8.5.29)
       postcss-custom-media: 12.0.3(postcss@8.5.29)
@@ -6395,7 +6395,7 @@ snapshots:
       - vite
       - webpack
 
-  '@vnphanquang/markdown@1.0.0(supports-color@10.2.2)(svelte@5.57.2(@typescript-eslint/types@8.71.1))(typescript@6.0.3)':
+  '@vnphanquang/markdown@1.0.1(supports-color@10.2.2)(svelte@5.57.2(@typescript-eslint/types@8.71.1))(typescript@6.0.3)':
     dependencies:
       '@shikijs/rehype': 4.5.0
       '@shikijs/transformers': 4.5.0
@@ -6408,7 +6408,7 @@ snapshots:
       remark-rehype: 11.1.2
       remark-transform-blockquote: 1.2.5
       shiki: 4.5.0
-      svelte-md-template: 0.1.7(supports-color@10.2.2)(svelte@5.57.2(@typescript-eslint/types@8.71.1))
+      svelte-md-template: 0.1.9(supports-color@10.2.2)(svelte@5.57.2(@typescript-eslint/types@8.71.1))
       twoslash: 0.3.9(supports-color@10.2.2)(typescript@6.0.3)
       twoslash-svelte: 0.3.9(supports-color@10.2.2)(svelte@5.57.2(@typescript-eslint/types@8.71.1))(typescript@6.0.3)
       unist-builder: 4.0.0
@@ -8994,7 +8994,7 @@ snapshots:
     optionalDependencies:
       svelte: 5.57.2(@typescript-eslint/types@8.71.1)
 
-  svelte-md-template@0.1.7(supports-color@10.2.2)(svelte@5.57.2(@typescript-eslint/types@8.71.1)):
+  svelte-md-template@0.1.9(supports-color@10.2.2)(svelte@5.57.2(@typescript-eslint/types@8.71.1)):
     dependencies:
       dedent: 1.7.2
       magic-string: 1.4.3
