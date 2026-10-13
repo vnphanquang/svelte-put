@@ -16,7 +16,7 @@ import path from 'node:path';
  * @property {ResolvedSourceDefinition[]} dirs - specific directories-based definitions
  */
 
-export const DEFAULT_SOURCES_CONFIG = /** @satisfies {ResolvedSourceDefinition} */ ({
+const DEFAULT_SOURCES_CONFIG = /** @satisfies {ResolvedSourceDefinition} */ ({
 	directories: [],
 	attributes: {},
 });
@@ -79,7 +79,7 @@ export function resolveSources(sources) {
  * @typedef {Required<Omit<InlineSvgPreprocessorConfig, 'include' | 'exclude'>>} ResolvedPreprocessorConfig
  */
 
-export const DEFAULT_INLINE_SVG_CONFIG = /** @type {ResolvedPreprocessorConfig} */ ({
+const DEFAULT_INLINE_SVG_CONFIG = /** @type {ResolvedPreprocessorConfig} */ ({
 	inlineSrcAttributeName: 'inline-src',
 	keepInlineSrcAttribute: false,
 });

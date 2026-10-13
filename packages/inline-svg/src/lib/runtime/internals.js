@@ -10,7 +10,7 @@ const DIMENSION_REGEX = /^([+-]?(?:\d+(?:\.\d+)?|\.\d+)(?:[eE][+-]?\d+)?)\s*([a-
  * @param {string} dimension
  * @returns {{ number: number; unit: string }}
  */
-export function extractDimensionNumberAndUnit(dimension) {
+function extractDimensionNumberAndUnit(dimension) {
 	const [, number = '0', unit = ''] = dimension.match(DIMENSION_REGEX) || [];
 	return { number: parseInt(number, 10), unit };
 }
@@ -20,7 +20,7 @@ export function extractDimensionNumberAndUnit(dimension) {
  * @param {DimensionConstraint} constraint
  * @returns {Dimension}
  */
-export function calculateNewDimensions(base, constraint) {
+function calculateNewDimensions(base, constraint) {
 	const { width, height } = base;
 	if ('width' in constraint) {
 		const { width: constraintWidth } = constraint;
