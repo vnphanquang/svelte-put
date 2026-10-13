@@ -43,7 +43,7 @@
 		"lint:es": "svelte-kit sync && eslint .",
 		"lint:style": "stylelint '**/*.{svelte,css}'",
 		"format": "prettier --write --ignore-path=../../.prettierignore --config=../../prettier.config.js .",
-		"build": "svelte-kit sync && dts-buddy --write && node ../../scripts/emit-root-dts.js && publint",
+		"build": "svelte-kit sync && dts-buddy --write && publint",
 		"dev": "vite dev"
 	},
 	"keywords": [
