@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.0.0-next.0
+
+### Major Changes
+
+- [`ad05aff`](https://github.com/vnphanquang/svelte-put/commit/ad05affbda7a259a3b10226fc90070326cafa3d9) Thanks [@vnphanquang](https://github.com/vnphanquang)! - [breaking] drop `api.sveltePreprocess` in vite plugin in favor for `transform` hook
+
 ## 4.0.2
 
 ### Patch Changes
