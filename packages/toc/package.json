@@ -90,7 +90,6 @@
 	"dependencies": {
 		"github-slugger": "^2.0.0",
 		"magic-string": "^1.4.3",
-		"svg-parser": "^2.1.0",
 		"zimmerframe": "^1.1.5"
 	},
 	"peerDependencies": {
