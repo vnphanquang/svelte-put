@@ -15,7 +15,6 @@ export default defineConfig({
 		qrcode(),
 		gach({ markdown: true }),
 		enhancedImages(),
-		// FIXME: add auto-slug, inline-svg, external-link, etc.
 		sveltekit({
 			adapter: adapter(),
 			compilerOptions: {

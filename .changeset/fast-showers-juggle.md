@@ -2,4 +2,4 @@
 '@svelte-put/toc': major
 ---
 
-A new compile-time strategy via Vite plugin / Svelte preprocessor
+a new compile-time strategy via Vite plugin / Svelte preprocessor
