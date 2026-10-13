@@ -18,7 +18,7 @@ export function resolveCompileTocOptions(options) {
  * @param {CompileTocOptions['autoDeclare']} [options]
  * @returns {ResolvedCompileToc['autoDeclare']}
  */
-export function resolveAutoDeclare(options) {
+function resolveAutoDeclare(options) {
 	const defaults = DEFAULT_COMPILE_TOC_OPTIONS.autoDeclare;
 	if (options === undefined || options === null) return { ...defaults };
 	if (typeof options === 'boolean') {
