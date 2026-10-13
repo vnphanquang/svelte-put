@@ -1,6 +1,6 @@
 {
 	"name": "@svelte-put/inline-svg",
-	"version": "4.0.2",
+	"version": "5.0.0-next.0",
 	"description": "Strategies to inline SVGs in Svelte land",
 	"main": "src/lib/index.js",
 	"module": "src/lib/index.js",

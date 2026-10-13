@@ -1,6 +1,6 @@
 {
 	"name": "@svelte-put/toc",
-	"version": "6.0.2",
+	"version": "7.0.0-next.0",
 	"description": "Strategies for building Table of Contents in Svelte land",
 	"main": "src/lib/index.js",
 	"module": "src/lib/index.js",
