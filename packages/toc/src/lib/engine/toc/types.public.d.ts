@@ -46,20 +46,20 @@ export interface TocOptions {
 	 */
 	track?: TocTrackOptions | TocTrackResolver | boolean;
 	/**
-	 * instructions for indexing the Table-of-Contents entries
+	 * instructions for indexing the Table-of-Contents entries, only takes effect when you call
+	 * `toc.index()` on the element under which the DOM subtree will be indexed.
 	 *
-	 * If this is turned off, make sure to initialise toc with necessary data otherwise the library is effectively useless.
-	 * When data is completely static and \`compileToc\` is used, you may turn this off save some bytes.
-	 * @default true
+	 * If you can assert that your content is completely static, and you are already using `compileToc`
+	 * to index at compile-time, simply skip calling `toc.index()` to save some bytes
 	 */
-	index?: TocIndexOptions | boolean;
+	index?: TocIndexOptions;
 	/** instructions for adding anchor tag to the matching tag */
 	anchor?: TocAnchorOptions | boolean;
 }
 
 export type ResolvedTocOptions = Required<Pick<TocOptions, 'items'>> & {
 	track: ResolvedTocTrack;
-	index: ResolvedTocIndex<true> | false;
+	index: ResolvedTocIndex<true>;
 	anchor: ResolvedTocAnchor;
 };
 

@@ -41,13 +41,6 @@ export class Toc {
 				[createAttachmentKey()]: /** @type {Attachment<HTMLElement>} */ (
 					(element) => {
 						const { index, anchor, track } = this.options;
-						if (!index) {
-							console.warn(
-								'runtime parsing was turned off at Toc initialisation. Calling `toc.index()` has no effect',
-							);
-							return;
-						}
-
 						import('../index/runtime/index.js').then(({ runtimeIndex }) => {
 							const { elements, items } = runtimeIndex({ element, options: index, track });
 							this.items.clear();

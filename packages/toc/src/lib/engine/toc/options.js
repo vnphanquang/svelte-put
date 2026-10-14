@@ -13,10 +13,7 @@ export function resolveTocOptions(options = {}) {
 		...DEFAULT_TOP_LEVEL_OPTIONS,
 		...options,
 		track: resolveTrackOptions(options.track),
-		index:
-			options.index === false
-				? false
-				: resolveIndexOptions(options.index === true ? undefined : options.index, true),
+		index: resolveIndexOptions(options.index),
 		anchor: resolveAnchorOptions(options.anchor),
 	};
 }

@@ -105,14 +105,16 @@ The \`compile-time\` strategy is interoperable to the canonical \`Toc\` instance
 This gives the best of both worlds: ready content at load, enhanced after hydration. See [TOC >
 Prefill Compile-Time Data](../toc#prefill-compile-time-data) for some more information.
 
-### Turning off Runtime Indexing
+### Skipping Runtime Indexing
 
 If you can assert that your relevant content is completely static, e.g. there is no dynamically inserted
-content, skip runtime parsing to save resources:
+content, skip runtime parsing, i.e. \`toc.index()\` to save resources:
 
-~~~typescript
-const toc = new Toc({ ...compileToc() }); // [!code --]
-const toc = new Toc({ ...compileToc(), indexing: false }); // [!code ++]
+~~~svelte
+<section {...toc.index()}> <!-- [!code --] -->
+<section> <!-- [!code ++] -->
+ <!-- content to index -->
+</section>
 ~~~
 
 The parsing logic in this case will not be loaded, and the data comes solely from compile-time parsing.

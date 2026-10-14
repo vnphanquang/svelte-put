@@ -49,11 +49,13 @@ Note that, this is the exact same as initialising runtime \`Toc\` with an \`item
 ## Turning off Runtime Indexing
 
 If you can assert that your relevant content is completely static, e.g. there is no dynamically inserted
-content, skip runtime parsing to save resources:
+content, skip runtime parsing, i.e. \`toc.index()\` to save resources:
 
-~~~typescript
-const toc = new Toc({ ...compileToc() }); // [!code --]
-const toc = new Toc({ ...compileToc(), index: false }); // [!code ++]
+~~~svelte
+<section {...toc.index()}> <!-- [!code --] -->
+<section> <!-- [!code ++] -->
+ <!-- content to index -->
+</section>
 ~~~
 
 ## Visibility Tracking
