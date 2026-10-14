@@ -27,50 +27,65 @@ export function runtimeAnchor(input) {
 	const { options, items, item, element } = input;
 
 	const a = document.createElement('a');
+	let position = options.position.try;
 
-	/** @type {() => void} */
-	let insert = () => {};
+	/** @type {(() => void) | null} */
+	let insert = null;
 
 	// =======================================
 	// Calculate appropriate location,
 	// skip if already added
 	// =======================================
-	switch (options.position) {
-		case 'before': {
-			if (isExistingAnchorElement(element.previousElementSibling)) return;
-			insert = () => element.insertAdjacentElement('beforebegin', a);
-			break;
-		}
-		case 'prepend': {
-			if (isExistingAnchorElement(element.firstElementChild)) return;
-			insert = () => element.insertAdjacentElement('afterbegin', a);
-			break;
-		}
-		case 'wrap': {
-			if (isExistingAnchorElement(element.parentElement)) return;
-			insert = () => {
-				a.innerHTML = element.outerHTML;
-				element.replaceWith(a);
-			};
-			break;
-		}
-		case 'content': {
-			if (isExistingAnchorElement(element.parentElement)) return;
-			insert = () => {
-				a.innerHTML = element.innerHTML;
-				element.replaceChildren(a);
-			};
-			break;
-		}
-		case 'append': {
-			if (isExistingAnchorElement(element.lastElementChild)) return;
-			insert = () => element.insertAdjacentElement('beforeend', a);
-			break;
-		}
-		case 'after': {
-			if (isExistingAnchorElement(element.nextElementSibling)) return;
-			insert = () => element.insertAdjacentElement('afterend', a);
-			break;
+	while (!insert) {
+		switch (position) {
+			case 'before': {
+				if (isExistingAnchorElement(element.previousElementSibling)) return;
+				insert = () => element.insertAdjacentElement('beforebegin', a);
+				break;
+			}
+			case 'prepend': {
+				if (isExistingAnchorElement(element.firstElementChild)) return;
+				insert = () => element.insertAdjacentElement('afterbegin', a);
+				break;
+			}
+			case 'wrap': {
+				const containsAnchor = !!element.querySelector('a');
+				if (containsAnchor) {
+					position = options.position.fallback;
+					continue;
+				}
+
+				if (isExistingAnchorElement(element.parentElement)) return;
+				insert = () => {
+					a.innerHTML = element.outerHTML;
+					element.replaceWith(a);
+				};
+				break;
+			}
+			case 'content': {
+				const containsAnchor = !!element.querySelector('a');
+				if (containsAnchor) {
+					position = options.position.fallback;
+					continue;
+				}
+
+				if (isExistingAnchorElement(element.parentElement)) return;
+				insert = () => {
+					a.innerHTML = element.innerHTML;
+					element.replaceChildren(a);
+				};
+				break;
+			}
+			case 'append': {
+				if (isExistingAnchorElement(element.lastElementChild)) return;
+				insert = () => element.insertAdjacentElement('beforeend', a);
+				break;
+			}
+			case 'after': {
+				if (isExistingAnchorElement(element.nextElementSibling)) return;
+				insert = () => element.insertAdjacentElement('afterend', a);
+				break;
+			}
 		}
 	}
 
@@ -80,9 +95,9 @@ export function runtimeAnchor(input) {
 	/** @type {Record<string, string>} */
 	const defaults = {
 		href: options.href(item.id),
-		'data-toc-anchor': options.position,
+		'data-toc-anchor': position,
 	};
-	if (!['wrap', 'content'].includes(options.position)) {
+	if (!['wrap', 'content'].includes(position)) {
 		a.textContent = options.content;
 		defaults['aria-hidden'] = 'true';
 		defaults['tabindex'] = '-1';

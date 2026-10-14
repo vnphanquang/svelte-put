@@ -4,21 +4,33 @@ import type {
 	TocAttributesResolver,
 } from '../attributes/types.public';
 
+export type TocAnchorMixedPosition = 'wrap' | 'content';
+export type TocAnchorIsolatedPosition = 'before' | 'prepend' | 'append' | 'after';
+export type TocAnchorPosition = TocAnchorMixedPosition | TocAnchorIsolatedPosition;
+export type TocAnchorMixedPositionWithFallback = [
+	position: TocAnchorMixedPosition,
+	fallback: TocAnchorIsolatedPosition,
+];
+
 /** instructions for adding anchor tag */
 export interface TocAnchorOptions {
 	/** whether to insert an anchor tag for each matching node */
 	enabled?: boolean;
 	/**
 	 * where to create the anchor tag
-	 * - 'prepend' - inject link before the target tag text
-	 * - 'append' - inject link after the target tag text
-	 * - 'wrap' - wrap the whole target tag text with the link
-	 * - 'content' - wrap the whole content text with the link
 	 * - 'before' - insert link before the target tag
+	 * - 'prepend' - inject link as the first child of the target tag
+	 * - 'wrap' - wrap the whole target tag with a link
+	 * - 'content' - wrap the whole content of the target tag with a link
+	 * - 'append' - inject link as the last child of the target tag
 	 * - 'after' - insert link after the target tag
-	 * @default 'content'
+	 *
+	 * In the case of `'wrap'` or `'content'`, markup becomes invalid if the target tag already has
+	 * some link within (`<a>` cannot go inside another `<a>`). In such case, provide a fallback, e.g. ['wrap', 'append'].
+	 *
+	 * @default ['content', 'prepend']
 	 */
-	position?: 'prepend' | 'append' | 'wrap' | 'before' | 'after' | 'content';
+	position?: TocAnchorPosition | TocAnchorMixedPositionWithFallback;
 	/**
 	 * content of the inserted anchor tag, or value of `--content` CSS variable when `position` is `'wrap'|'content'`
 	 * @default '#'
@@ -41,6 +53,11 @@ export interface TocAnchorOptions {
 	href?: (slug: string) => string;
 }
 
-export type ResolvedTocAnchor = Required<Omit<TocAnchorOptions, 'attributes'>> & {
+export type ResolvedTocAnchorPosition = {
+	try: TocAnchorPosition;
+	fallback: TocAnchorIsolatedPosition;
+};
+export type ResolvedTocAnchor = Required<Omit<TocAnchorOptions, 'attributes' | 'position'>> & {
+	position: ResolvedTocAnchorPosition;
 	attributes: ResolvedTocAttributes;
 };

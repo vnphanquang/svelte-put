@@ -1,6 +1,6 @@
 import { resolveAttributesOptions } from '../attributes/options.js';
 
-/** @import { ResolvedTocAnchor, TocAnchorOptions } from './types.public' */
+/** @import { ResolvedTocAnchor, ResolvedTocAnchorPosition, TocAnchorOptions } from './types.public' */
 
 /**
  * @param {TocAnchorOptions | boolean} [options]
@@ -15,13 +15,36 @@ export function resolveAnchorOptions(options) {
 	return {
 		...defaults,
 		...options,
+		position: resolveAnchorPosition(options.position),
 		attributes: resolveAttributesOptions(defaults.attributes, options.attributes),
+	};
+}
+
+/**
+ * @param {TocAnchorOptions['position']} position
+ * @returns {ResolvedTocAnchorPosition}
+ */
+function resolveAnchorPosition(position) {
+	const defaults = DEFAULT_ANCHOR_OPTIONS.position;
+	if (!position) return { ...defaults };
+	if (Array.isArray(position)) {
+		return {
+			try: position[0],
+			fallback: position[1],
+		};
+	}
+	return {
+		...defaults,
+		try: position,
 	};
 }
 
 const DEFAULT_ANCHOR_OPTIONS = /** @type {ResolvedTocAnchor} */ ({
 	enabled: true,
-	position: 'content',
+	position: {
+		try: 'content',
+		fallback: 'prepend',
+	},
 	content: '#',
 	attributes: ({ defaults }) => defaults,
 	href: (slug) => `#${slug}`,

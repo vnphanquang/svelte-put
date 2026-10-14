@@ -1,3 +1,5 @@
+import { walk } from 'zimmerframe';
+
 import { resolveAttributes } from '../attributes/index.js';
 
 /** @import { MagicString } from 'magic-string' */
@@ -21,14 +23,32 @@ import { resolveAttributes } from '../attributes/index.js';
 export function preprocessAnchor(input) {
 	const { s, items, element, item, options } = input;
 
+	let position = options.position.try;
+
+	if (['wrap', 'content'].includes(position)) {
+		let containsAnchor = false;
+
+		walk(/** @type {AST.RegularElement} */ (/** @type {unknown} */ (element.fragment)), null, {
+			RegularElement(node, { stop }) {
+				if (node.name.toUpperCase() === 'A') {
+					containsAnchor = true;
+					return stop();
+				}
+			},
+		});
+		if (containsAnchor) {
+			position = options.position.fallback;
+		}
+	}
+
 	const { str } = resolveAttributes({
 		items,
 		item,
 		resolver: options.attributes,
 		defaults: {
 			href: options.href(item.id),
-			'data-toc-anchor': options.position,
-			...(!['wrap', 'content'].includes(options.position)
+			'data-toc-anchor': position,
+			...(!['wrap', 'content'].includes(position)
 				? {
 						'aria-hidden': 'true',
 						tabindex: '-1',
@@ -47,7 +67,7 @@ export function preprocessAnchor(input) {
 
 	const firstContentNode = element.fragment.nodes[0];
 	const lastContentNode = element.fragment.nodes[element.fragment.nodes.length - 1];
-	switch (options.position) {
+	switch (position) {
 		case 'before':
 			s.appendLeft(element.start, `${anchorOpening}${options.content}${anchorClosing}`);
 			break;

@@ -54,7 +54,7 @@ content, skip runtime parsing, i.e. \`toc.index()\` to save resources:
 ~~~svelte
 <section {...toc.index()}> <!-- [!code --] -->
 <section> <!-- [!code ++] -->
- <!-- content to index -->
+<!-- content to index -->
 </section>
 ~~~
 
@@ -69,5 +69,13 @@ content, skip runtime parsing, i.e. \`toc.index()\` to save resources:
 - clicking may not highlight
 - no link may be highlight if content is too long
 
+## Injecting Anchor Tag
+
+### Position
+
+If specified as \`'wrap'\` or \`'content'\` but the element already contains some [anchor tag][a],
+toc will fallback to another strategy instead to avoid creating an invalid markup (\`<a>\` should not be in another \`<a>\`).
+
 [compile-time]: ../compile-time
+[a]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/a
 `}
