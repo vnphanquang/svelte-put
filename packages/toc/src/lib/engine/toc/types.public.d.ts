@@ -35,11 +35,11 @@ export interface TocOptions {
 	/**
 	 * initialise toc with data about indexable content. This typically comes from `compileTime`, i.e
 	 * compile-time preprocessing. At runtime, toc will parse the DOM again to search for any newly
-	 * inserted content. If you are sure there is no such dynamic content, set `parsing` to false to
-	 * skip it.
+	 * inserted content via `toc.runtime.index()`.
+	 * If you are sure there is no such dynamic content, use `compileToc` instead.
 	 * @default undefined
 	 */
-	items?: Map<string, TocItem>;
+	items?: Map<string, TocItem> | TocItem[];
 	/**
 	 * set up to enable tracking "active" content in Table-of-Contents
 	 * @default true
@@ -47,10 +47,10 @@ export interface TocOptions {
 	track?: TocTrackOptions | TocTrackResolver | boolean;
 	/**
 	 * instructions for indexing the Table-of-Contents entries, only takes effect when you call
-	 * `toc.index()` on the element under which the DOM subtree will be indexed.
+	 * `toc.runtime.index()` on the element under which the subtree will be indexed.
 	 *
 	 * If you can assert that your content is completely static, and you are already using `compileToc`
-	 * to index at compile-time, simply skip calling `toc.index()` to save some bytes
+	 * to index at compile-time, simply skip calling `toc.runtime.index()` to save some bytes
 	 */
 	index?: TocIndexOptions;
 	/** instructions for adding anchor tag to the matching tag */

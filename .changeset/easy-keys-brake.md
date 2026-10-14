@@ -2,4 +2,4 @@
 '@svelte-put/toc': patch
 ---
 
-set anchor content correctly during `toc.index()`
+set anchor content correctly during `toc.runtime.index()`

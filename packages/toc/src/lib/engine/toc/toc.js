@@ -8,6 +8,9 @@ import { resolveTocOptions } from './options.js';
  * @import { Attachment } from 'svelte/attachments'
  */
 
+/**
+ * a central object that holds the Table-of-Contents data, provides SSR-compatible enhancements and runtime indexing
+ */
 export class Toc {
 	/** @type {ResolvedTocOptions} */
 	options;
@@ -23,7 +26,11 @@ export class Toc {
 	 */
 	constructor(options) {
 		this.options = resolveTocOptions(options);
-		this.items = new SvelteMap(this.options.items);
+		if (Array.isArray(this.options.items)) {
+			this.items = new SvelteMap(this.options.items.map((i) => [i.id, i]));
+		} else {
+			this.items = new SvelteMap(this.options.items);
+		}
 	}
 
 	runtime = {
@@ -31,8 +38,7 @@ export class Toc {
 		 * traverse the DOM from this node downwards, looking for matching tags according to the
 		 * initialisation options: each becomes an item in the Table-of-Contents
 		 *
-		 * Note that this only has effect if `parsing` is `true`. Alternatively, do this with the
-		 * compile-time strategy instead if your content and layout can afford so.
+		 * Alternatively, do this with the compile-time strategy instead if your content and layout can afford so.
 		 *
 		 * @returns {RuntimeIndexAttributes}
 		 */
