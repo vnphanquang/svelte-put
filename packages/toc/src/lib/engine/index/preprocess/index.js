@@ -42,7 +42,11 @@ export function preprocessIndex(input) {
 
 	walk(/** @type {AST.RegularElement} */ (/** @type {unknown} */ (ast.fragment)), null, {
 		RegularElement(node, { next }) {
-			if (!options.tags.includes(node.name) || !node.fragment.nodes?.length) return next();
+			if (
+				!node.fragment.nodes?.length ||
+				options.tags.every((t) => t.toUpperCase() !== node.name.toUpperCase())
+			)
+				return next();
 
 			let text = getElementTextContent(node);
 			let id = getElementId(s, node, options.idAttribute);
