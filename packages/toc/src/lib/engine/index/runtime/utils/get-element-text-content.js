@@ -5,10 +5,14 @@
  * @returns {string}
  */
 export function getElementTextContent(element) {
-	return Array.from(element.children).reduce((acc, child) => {
-		const anchor = /** @type {HTMLElement} */ (child).dataset.anchor;
-		if (!anchor || anchor === 'content') {
-			acc += child.textContent || '';
+	return Array.from(element.childNodes).reduce((acc, child) => {
+		if (child.nodeType === Node.TEXT_NODE) {
+			acc += child.textContent;
+		} else if (child.nodeType === Node.ELEMENT_NODE) {
+			const anchor = /** @type {HTMLElement} */ (child).dataset.anchor;
+			if (!anchor || anchor === 'content') {
+				acc += child.textContent || '';
+			}
 		}
 		return acc;
 	}, '');
