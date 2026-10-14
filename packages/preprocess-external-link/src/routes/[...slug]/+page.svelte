@@ -8,4 +8,4 @@
 	let { params }: PageProps = $props();
 </script>
 
-<Documentation slug={params.slug ?? ''} {loadDocPage} pages={await loadDocPageLinks()} />
+<Documentation slug={params.slug ?? ''} {loadDocPage} links={await loadDocPageLinks()} />

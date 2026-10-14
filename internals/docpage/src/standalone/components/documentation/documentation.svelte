@@ -3,19 +3,19 @@
 	import { error } from '@sveltejs/kit';
 	import { Markdown } from '@vnphanquang/markdown/svelte';
 
-	import type { Loaders } from '../../../loader';
+	import type { LinkPage, Loaders } from '../../../loader';
 
 	import './styles.css';
 
 	export interface DocumentationProps {
 		slug: string;
 		loadDocPage: Loaders['loadDocPage'];
-		pages: Awaited<ReturnType<Loaders['loadDocPageLinks']>>;
+		links: Awaited<ReturnType<Loaders['loadDocPageLinks']>>;
 	}
 </script>
 
 <script lang="ts">
-	let { slug, loadDocPage, pages }: DocumentationProps = $props();
+	let { slug, loadDocPage, links }: DocumentationProps = $props();
 
 	let doc = $derived(await loadDocPage({ slug }));
 
@@ -37,17 +37,33 @@
 		<div class="sidebar-popover-container" popover id="pages">
 			<nav class="sidebar pages space-y-4" aria-labelledby="pages-label">
 				<p class="text-stroke-200 mobile:sr-only text-sm uppercase" id="pages-label">Pages</p>
+				{#snippet pageLink(page: LinkPage)}
+					<li>
+						<a
+							class="c-link-lazy leading-double block w-full overflow-hidden text-ellipsis whitespace-nowrap"
+							href="../{page.slug}"
+							{...page.slug === slug && { 'aria-current': true }}
+						>
+							{page.title}
+						</a>
+					</li>
+				{/snippet}
 				<ol>
-					{#each pages as page (page.slug)}
-						<li>
-							<a
-								class="c-link-lazy leading-double block w-full overflow-hidden text-ellipsis whitespace-nowrap"
-								href="../{page.slug}"
-								{...page.slug === slug && { 'aria-current': true }}
-							>
-								{page.title}
-							</a>
-						</li>
+					{#each links as link, i (link.type + i)}
+						{#if link.type === 'page'}
+							{@render pageLink(link)}
+						{:else}
+							<li class="border-y-stroke-200 page-group my-4 space-y-2 border-y py-4">
+								{#if link.title}
+									<p class="font-bold uppercase">{link.title}</p>
+								{/if}
+								<ol>
+									{#each link.pages as page (page.slug)}
+										{@render pageLink(page)}
+									{/each}
+								</ol>
+							</li>
+						{/if}
 					{/each}
 				</ol>
 			</nav>
@@ -318,5 +334,9 @@
 		@supports (view-timeline-name: --supported) {
 			display: none;
 		}
+	}
+
+	.page-group + .page-group {
+		border-block-start: 0;
 	}
 </style>

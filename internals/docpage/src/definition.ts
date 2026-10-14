@@ -19,6 +19,8 @@ export interface DocPage {
 }
 
 export interface DocPageMetadata {
+	/** organise this page in a group */
+	group?: string;
 	/** h1 on the page an title in SEO */
 	title: string;
 	/**

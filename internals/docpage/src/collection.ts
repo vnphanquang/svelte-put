@@ -15,9 +15,16 @@ export interface DocPageResolver {
 
 function getSlugFromPath(path: string): string {
 	const segments = path.split('/');
-	const slugSegment = segments.at(-2)!;
-	if (slugSegment.startsWith('0-')) return '';
-	return slugSegment.replace(/^\d+-/, '');
+	let finalSegment = segments.at(-2)!;
+	if (finalSegment.startsWith('0-')) {
+		finalSegment = '';
+	} else {
+		finalSegment = finalSegment.replace(/^\d+-/, '');
+	}
+	return [
+		...segments.slice(2, -2).map((s) => s.replace(/^\d+-/, '')),
+		...(finalSegment ? [finalSegment] : []),
+	].join('/');
 }
 
 export function collectDocPages(

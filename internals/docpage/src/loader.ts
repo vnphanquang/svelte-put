@@ -4,14 +4,21 @@ import type { Component } from 'svelte';
 import { collectDocPages } from './collection';
 import type { DocPage, PerDefinedDocPageMetadata } from './definition';
 
+export interface LinkPage {
+	type: 'page';
+	title: string;
+	slug: string;
+}
+
+export interface LinkGroup {
+	type: 'group';
+	title?: string;
+	pages: LinkPage[];
+}
+
 export interface Loaders {
 	loadDocPage: (input: { slug: string }) => Promise<DocPage | null>;
-	loadDocPageLinks: () => Promise<
-		{
-			slug: string;
-			title: string;
-		}[]
-	>;
+	loadDocPageLinks: () => Promise<Array<LinkPage | LinkGroup>>;
 }
 
 export function createLoaders(
@@ -63,15 +70,37 @@ export function createLoaders(
 			return merged;
 		},
 		async loadDocPageLinks() {
-			return await Promise.all(
-				Object.entries(mapping).map(async ([slug, page]) => {
-					const { title } = await page.metadata();
-					return {
-						title,
-						slug,
-					};
-				}),
-			);
+			const groupMap: Record<string, LinkGroup> = {};
+			const entries: Array<LinkGroup | LinkPage> = [];
+
+			const pagePromises: Promise<PerDefinedDocPageMetadata & { slug: string }>[] = [];
+			for (const [slug, page] of Object.entries(mapping)) {
+				pagePromises.push(page.metadata().then((per) => ({ ...per, slug })));
+			}
+			const pages = await Promise.all(pagePromises);
+
+			for (let i = 0; i < pages.length; i++) {
+				const page = pages[i];
+				const { title, group: groupTitle, slug } = page;
+
+				const link: LinkPage = { type: 'page', title, slug };
+				if (groupTitle) {
+					if (!groupMap[groupTitle]) {
+						const group: LinkGroup = {
+							type: 'group',
+							title: groupTitle,
+							pages: [],
+						};
+						groupMap[groupTitle] = group;
+						entries.push(group);
+					}
+					groupMap[groupTitle].pages.push(link);
+				} else {
+					entries.push(link);
+				}
+			}
+
+			return entries;
 		},
 	};
 }
