@@ -83,6 +83,7 @@ export function runtimeAnchor(input) {
 		'data-toc-anchor': options.position,
 	};
 	if (!['wrap', 'content'].includes(options.position)) {
+		a.textContent = options.content;
 		defaults['aria-hidden'] = 'true';
 		defaults['tabindex'] = '-1';
 	} else {
