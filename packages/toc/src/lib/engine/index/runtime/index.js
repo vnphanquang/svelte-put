@@ -70,7 +70,7 @@ export function runtimeIndex(input) {
 			item,
 			resolver: options.attributes,
 			defaults: {
-				id: item.id,
+				[options.idAttribute]: item.id,
 				'data-toc-index': indexValues.join(','),
 				style: styles.join(';') + ';' + (element.getAttribute('style') ?? ''),
 			},

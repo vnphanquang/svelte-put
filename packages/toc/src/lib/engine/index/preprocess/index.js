@@ -77,7 +77,7 @@ export function preprocessIndex(input) {
 			item,
 			resolver: options.attributes,
 			defaults: {
-				id: item.id,
+				[options.idAttribute]: item.id,
 				'data-toc-index': indexValues.join(','),
 				'style:--current': `--toc-${item.index}`,
 				...(isTrackEnabled && {
