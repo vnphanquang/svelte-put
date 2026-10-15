@@ -1,3 +1,5 @@
+import type BananaSlug from 'github-slugger';
+
 import type {
 	ResolvedTocAttributes,
 	TocAttributes,
@@ -19,7 +21,7 @@ export interface TocSharedIndexOptions {
 	 * Defaults:
 	 * - `data-toc-index` includes the folowing comma separated string:
 	 *   - 'first' or 'last', depending on its position
-	 *   - 'nonflat', if track.flat options
+	 *   - 'notrack', if tracking is disabled
 	 * - `style:--current="--toc-{number}"`: where number is its position
 	 * - `style:--next="--toc-{number}"` (if any): where number is the next item's position
 	 */

@@ -8,7 +8,7 @@ export type TocAnchorMixedPosition = 'wrap' | 'content';
 export type TocAnchorIsolatedPosition = 'before' | 'prepend' | 'append' | 'after';
 export type TocAnchorPosition = TocAnchorMixedPosition | TocAnchorIsolatedPosition;
 export type TocAnchorMixedPositionWithFallback = [
-	position: TocAnchorMixedPosition,
+	preferred: TocAnchorMixedPosition,
 	fallback: TocAnchorIsolatedPosition,
 ];
 

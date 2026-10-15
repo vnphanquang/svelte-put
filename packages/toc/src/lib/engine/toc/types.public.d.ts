@@ -1,7 +1,7 @@
 import type { Attachment } from 'svelte/attachments';
 
 import type { ResolvedTocAnchor, TocAnchorOptions } from '../anchor/types.public';
-import type { ResolvedTocIndex, TocIndexOptions } from '../index/types.public';
+import type { ResolvedTocIndex, TocRuntimeIndexOptions } from '../index/types.public';
 import type { ResolvedTocTrack, TocTrackOptions, TocTrackResolver } from '../track/types.public';
 
 /**
@@ -52,7 +52,7 @@ export interface TocOptions {
 	 * If you can assert that your content is completely static, and you are already using `compileToc`
 	 * to index at compile-time, simply skip calling `toc.runtime.index()` to save some bytes
 	 */
-	index?: TocIndexOptions;
+	index?: TocRuntimeIndexOptions;
 	/** instructions for adding anchor tag to the matching tag */
 	anchor?: TocAnchorOptions | boolean;
 }
