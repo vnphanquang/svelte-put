@@ -9,7 +9,14 @@ import type {
 } from '../engine';
 import type { CompileTocOptions, ResolvedCompileToc } from '../engine/compile-toc/preprocess';
 
+export type TocPreprocessorIdResolver = ((input: { filename?: string }) => number);
+
 export interface TocPreprocessorOptions {
+	/**
+	 * distinguish items indexed by this Toc instance from other Toc instances; helpful to avoid styling
+	 * conflict when there are multiple Toc instances on the same page with overlapping indexable contents
+	 */
+	id?: number | TocPreprocessorIdResolver;
 	/**
 	 * a function that returns true if the file should be processed, process all files by default
 	 */
@@ -25,6 +32,7 @@ export interface TocPreprocessorOptions {
 }
 
 export type ResolvedTocPreprocessorOptions = Required<Pick<TocPreprocessorOptions, 'files'>> & {
+	id?: TocPreprocessorIdResolver;
 	track: ResolvedTocTrack;
 	index: ResolvedTocIndex;
 	anchor: ResolvedTocAnchor;

@@ -1,6 +1,7 @@
 import BananaSlug from 'github-slugger';
 import { walk } from 'zimmerframe';
 
+import { tocPositionValue } from '../../../styles/index.js';
 import { resolveAttributes } from '../../attributes/index.js';
 
 import { getElementId } from './utils/get-element-id.js';
@@ -15,6 +16,7 @@ import { getElementTextContent } from './utils/get-element-text-content.js';
 /**
  * @typedef PreprocessIndexInput
  * @property {MagicString} s
+ * @property {number} [id]
  * @property {AST.Root} ast
  * @property {ResolvedTocIndex} options
  * @property {ResolvedTocTrack} track
@@ -31,7 +33,7 @@ import { getElementTextContent } from './utils/get-element-text-content.js';
  * @returns {PreprocessIndexOutput}
  */
 export function preprocessIndex(input) {
-	const { s, ast, options, track } = input;
+	const { s, ast, id, options, track } = input;
 
 	const slugger = new BananaSlug();
 
@@ -55,7 +57,13 @@ export function preprocessIndex(input) {
 				const slugged = slugger.slug(text);
 				id = options.slug({ generated: slugged, nodeText: text, slugger });
 			}
-			const item = { id, text, tag: node.name, index: items.length };
+			/** @type {TocItem} */
+			const item = {
+				id,
+				text,
+				tag: node.name,
+				index: items.length,
+			};
 			items.push(item);
 			nodes.push(node);
 		},
@@ -79,9 +87,9 @@ export function preprocessIndex(input) {
 			defaults: {
 				[options.idAttribute]: item.id,
 				'data-toc-index': indexValues.join(','),
-				'style:--current': `--toc-${item.index}`,
+				'style:--current': tocPositionValue(item.index, id),
 				...(isTrackEnabled && {
-					'style:--next': `--toc-${item.index + 1}`,
+					'style:--next': tocPositionValue(item.index + 1, id),
 				}),
 			},
 		});

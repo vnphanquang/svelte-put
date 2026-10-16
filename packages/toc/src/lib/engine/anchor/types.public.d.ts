@@ -42,6 +42,7 @@ export interface TocAnchorOptions {
 	 * alternatively, provide a callback where input is the default attributes
 	 *
 	 * Defaults:
+	 * - `href`: point to the current item's id
 	 * - `data-toc-anchor`: set to the `position` option
 	 * - `aria-hidden` & `tabindex="-1"`: if `position` is anything other than `'wrap'|'content'`
 	 * - `style` with the following CSS variables if `position` is `'wrap'|'content'`:
@@ -49,8 +50,6 @@ export interface TocAnchorOptions {
 	 *   - `--content: <string>`: value of the content option
 	 */
 	attributes?: TocAttributes | TocAttributesResolver;
-	/** href attribute of the inserted anchor tag */
-	href?: (slug: string) => string;
 }
 
 export type ResolvedTocAnchorPosition = {

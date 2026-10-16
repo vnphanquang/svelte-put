@@ -10,9 +10,11 @@ import { resolveTrackOptions } from '../engine/track/options.js';
  * @returns {ResolvedTocPreprocessorOptions}
  */
 export function resolvePreprocessorOptions(options = {}) {
+	const id = options.id;
 	return {
 		...DEFAULT_TOP_LEVEL_OPTIONS,
 		...options,
+		id: typeof id === 'number' ? () => id : id,
 		track: resolveTrackOptions(options.track),
 		index: resolveIndexOptions(options.index),
 		anchor: resolveAnchorOptions(options.anchor),

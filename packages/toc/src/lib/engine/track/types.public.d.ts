@@ -17,7 +17,7 @@ export interface TocTrackOptions {
 	 *
 	 * - keep this on but provide a callback to the `.enabled` options to filter out special content
 	 *   that isn't in the normal flat flow of main content and therefore should not be tracked, or
-	 * - set `toc.index` and/or `toc.enhance.scope` on just the main flat content
+	 * - set `toc.runtime.index` and/or `toc.enhance.scope` on just the main flat content
 	 *
 	 * @default true
 	 */

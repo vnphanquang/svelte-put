@@ -33,6 +33,11 @@ export interface TocItem {
 /** provide enhancements for Table-of-Contents */
 export interface TocOptions {
 	/**
+	 * distinguish items indexed by this Toc instance from other Toc instances; helpful to avoid styling
+	 * conflict when there are multiple Toc instances on the same page with overlapping indexable contents
+	 */
+	id?: number;
+	/**
 	 * initialise toc with data about indexable content. This typically comes from `compileTime`, i.e
 	 * compile-time preprocessing. At runtime, toc will parse the DOM again to search for any newly
 	 * inserted content via `toc.runtime.index()`.
@@ -57,7 +62,7 @@ export interface TocOptions {
 	anchor?: TocAnchorOptions | boolean;
 }
 
-export type ResolvedTocOptions = Required<Pick<TocOptions, 'items'>> & {
+export type ResolvedTocOptions = Required<Pick<TocOptions, 'id' | 'items'>> & {
 	track: ResolvedTocTrack;
 	index: ResolvedTocIndex<true>;
 	anchor: ResolvedTocAnchor;

@@ -1,4 +1,6 @@
 [data-toc-scope] {
+	position: relative;
+
 	@supports (view-timeline-name: --supported) {
 		timeline-scope: var(--items);
 	}

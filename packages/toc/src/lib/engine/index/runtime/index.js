@@ -1,5 +1,6 @@
 import BananaSlug from 'github-slugger';
 
+import { tocPositionValue } from '../../../styles/index.js';
 import { resolveAttributes } from '../../attributes/index.js';
 
 import { getElementTextContent } from './utils/get-element-text-content.js';
@@ -8,6 +9,7 @@ import { getElementTextContent } from './utils/get-element-text-content.js';
 
 /**
  * @typedef RuntimeIndexInput
+ * @property {number} [id]
  * @property {HTMLElement} element
  * @property {ResolvedTocIndex<true>} options
  * @property {ResolvedTocTrack} track
@@ -24,7 +26,7 @@ import { getElementTextContent } from './utils/get-element-text-content.js';
  * @returns {RuntimeIndexOutput}
  */
 export function runtimeIndex(input) {
-	const { element: root, options, track } = input;
+	const { id, element: root, options, track } = input;
 
 	const slugger = new BananaSlug();
 
@@ -43,7 +45,13 @@ export function runtimeIndex(input) {
 			const slugged = slugger.slug(text);
 			id = options.slug({ generated: slugged, nodeText: text, slugger });
 		}
-		const item = { id, text, tag: element.tagName, index: items.length };
+		/** @type {TocItem} */
+		const item = {
+			id,
+			text,
+			tag: element.tagName,
+			index: items.length,
+		};
 		items.push(item);
 	}
 
@@ -60,9 +68,9 @@ export function runtimeIndex(input) {
 		if (i === elements.length - 1) indexValues.push('last');
 		if (!isTrackEnabled) indexValues.push('notrack');
 
-		const styles = [`--current:--toc-${item.index}`];
+		const styles = [`--current:${tocPositionValue(item.index, id)}`];
 		if (isTrackEnabled) {
-			styles.push(`--next:--toc-${item.index + 1}`);
+			styles.push(`--next:${tocPositionValue(item.index + 1, id)}`);
 		}
 
 		const { map } = resolveAttributes({

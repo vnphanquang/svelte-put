@@ -1,6 +1,8 @@
 import { createAttachmentKey } from 'svelte/attachments';
 import { SvelteMap } from 'svelte/reactivity';
 
+import { tocPositionValue } from '../../styles/index.js';
+
 import { resolveTocOptions } from './options.js';
 
 /**
@@ -48,7 +50,12 @@ export class Toc {
 					(element) => {
 						const { index, anchor, track } = this.options;
 						import('../index/runtime/index.js').then(({ runtimeIndex }) => {
-							const { elements, items } = runtimeIndex({ element, options: index, track });
+							const { elements, items } = runtimeIndex({
+								id: this.options.id,
+								element,
+								options: index,
+								track,
+							});
 							this.items.clear();
 							for (const item of items) {
 								this.items.set(item.id, item);
@@ -58,7 +65,7 @@ export class Toc {
 									for (let i = 0; i < items.length; i++) {
 										const item = items[i];
 										const element = elements[i];
-										runtimeAnchor({ items, item, options: anchor, element });
+										runtimeAnchor({ id: this.options.id, items, item, options: anchor, element });
 									}
 								});
 							}
@@ -82,9 +89,7 @@ export class Toc {
 		 *     <h2>Table of Contents</h2>
 		 *     <ul>
 		 *       {#each toc.items.values as item (item.id)}
-		 *        <li>
-		 *          <a class="">{item.text}</a>
-		 *        </li
+		 *        <li> <a>{item.text}</a> </li>
 		 *       {/each}
 		 *     </ul>
 		 *   </section>
@@ -97,7 +102,9 @@ export class Toc {
 		 * @returns {EnhanceScopeAttributes}
 		 */
 		scope: () => {
-			const items = Array.from(this.items.values().map(({ index }) => `--toc-${index}`)).join(',');
+			const items = Array.from(
+				this.items.values().map((item) => tocPositionValue(item.index, this.options.id)),
+			).join(',');
 			return {
 				'data-toc-scope': this.options.track.flat ? 'flat' : '',
 				...(items && {
@@ -114,9 +121,9 @@ export class Toc {
 			const items = Array.from(this.items.values());
 			/** @type {string[]} */
 			let styles = [];
-			styles.push(`--current:--toc-${item.index}`);
+			styles.push(`--current:${tocPositionValue(item.index, this.options.id)}`);
 			if (items[item.index + 1]) {
-				styles.push(`--next:--toc-${item.index + 1}`);
+				styles.push(`--next:${tocPositionValue(item.index + 1, this.options.id)}`);
 			}
 
 			/** @type {string[]} */

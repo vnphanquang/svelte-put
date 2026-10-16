@@ -27,15 +27,18 @@ export function toc(options = {}) {
 			const s = new MagicString(content);
 			const ast = parse(content, { modern: true, filename });
 
-			// 2. index content, find matching tags for Table-of-Contents
-			const { items, nodes } = preprocessIndex({ s, ast, options: o.index, track: o.track });
+			// resolve id, if any
+			const id = o.id?.({ filename });
 
-			// 3. inject anchor tag, if instructed so
+			// 1. index content, find matching tags for Table-of-Contents
+			const { items, nodes } = preprocessIndex({ s, ast, id, options: o.index, track: o.track });
+
+			// 2. inject anchor tag, if instructed so
 			if (o.anchor.enabled) {
 				for (let i = 0; i < items.length; i++) {
 					const item = items[i];
 					const element = nodes[i];
-					preprocessAnchor({ s, items, item, element, options: o.anchor });
+					preprocessAnchor({ s, id, items, item, element, options: o.anchor });
 				}
 			}
 

@@ -1,9 +1,11 @@
+import { tocPositionValue } from '../../styles/index.js';
 import { resolveAttributes } from '../attributes/index.js';
 
 /** @import { ResolvedTocAnchor, TocItem } from '../..' */
 
 /**
  * @typedef RuntimeAnchorInput
+ * @property {number} [id]
  * @property {TocItem[]} items
  * @property {ResolvedTocAnchor} options
  * @property {TocItem} item
@@ -24,7 +26,7 @@ function isExistingAnchorElement(element) {
  * @param {RuntimeAnchorInput} input
  */
 export function runtimeAnchor(input) {
-	const { options, items, item, element } = input;
+	const { id, options, items, item, element } = input;
 
 	const a = document.createElement('a');
 	let position = options.position.try;
@@ -94,7 +96,7 @@ export function runtimeAnchor(input) {
 	// =======================================
 	/** @type {Record<string, string>} */
 	const defaults = {
-		href: options.href(item.id),
+		href: `#${item.id}`,
 		'data-toc-anchor': position,
 	};
 	if (!['wrap', 'content'].includes(position)) {
@@ -106,7 +108,7 @@ export function runtimeAnchor(input) {
 			!options.content.startsWith('url') && !options.content.startsWith("'")
 				? `'${options.content}'`
 				: options.content;
-		const styles = [`--current:--toc-${item.index}`, `--content:${content}`];
+		const styles = [`--current:${tocPositionValue(item.index, id)}`, `--content:${content}`];
 		defaults['style'] = styles.join(';');
 	}
 	const { map } = resolveAttributes({

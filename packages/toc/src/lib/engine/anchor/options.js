@@ -47,5 +47,4 @@ const DEFAULT_ANCHOR_OPTIONS = /** @type {ResolvedTocAnchor} */ ({
 	},
 	content: '#',
 	attributes: ({ defaults }) => defaults,
-	href: (slug) => `#${slug}`,
 });

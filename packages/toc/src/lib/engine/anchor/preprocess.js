@@ -1,5 +1,6 @@
 import { walk } from 'zimmerframe';
 
+import { tocPositionValue } from '../../styles/index.js';
 import { resolveAttributes } from '../attributes/index.js';
 
 /** @import { MagicString } from 'magic-string' */
@@ -10,6 +11,7 @@ import { resolveAttributes } from '../attributes/index.js';
 /**
  * @typedef PreprocessAnchorInput
  * @property {MagicString} s
+ * @property {number} [id]
  * @property {TocItem[]} items
  * @property {AST.RegularElement} element
  * @property {TocItem} item
@@ -21,7 +23,7 @@ import { resolveAttributes } from '../attributes/index.js';
  * @returns {void}
  */
 export function preprocessAnchor(input) {
-	const { s, items, element, item, options } = input;
+	const { s, items, id, element, item, options } = input;
 
 	let position = options.position.try;
 
@@ -46,7 +48,7 @@ export function preprocessAnchor(input) {
 		item,
 		resolver: options.attributes,
 		defaults: {
-			href: options.href(item.id),
+			href: `#${item.id}`,
 			'data-toc-anchor': position,
 			...(!['wrap', 'content'].includes(position)
 				? {
@@ -54,7 +56,7 @@ export function preprocessAnchor(input) {
 						tabindex: '-1',
 					}
 				: {
-						'style:--current': `--toc-${item.index}`,
+						'style:--current': tocPositionValue(item.index, id),
 						'style:--content':
 							!options.content.startsWith('url') && !options.content.startsWith("'")
 								? `'${options.content}'`
