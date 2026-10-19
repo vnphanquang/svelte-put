@@ -1,0 +1,127 @@
+html {
+	&::before {
+		pointer-events: none;
+		content: 'Unsupported Browser';
+
+		position: fixed;
+		z-index: 9999;
+		inset-block-end: calc(
+			var(--toc-timeline-inset, 80%) + (100dvh - var(--toc-timeline-inset, 80%)) / 2
+		);
+		inset-inline-start: 50%;
+		translate: -50% 50%;
+
+		font-size: 2rem;
+		font-weight: 700;
+		color: red;
+
+		@supports (view-timeline-name: --supported) {
+			content: 'In View';
+
+			inset-block-end: var(--toc-timeline-inset, 80%);
+			inset-inline-start: 20dvw;
+			translate: 0;
+
+			color: rgb(0 255 255 / 50%);
+		}
+	}
+
+	&::after {
+		pointer-events: none;
+		content: '';
+
+		position: fixed;
+		z-index: 9999;
+		inset-block-start: 0;
+		inset-block-end: var(--toc-timeline-inset, 80%);
+		inset-inline: 0;
+
+		border-block-end: 2px solid rgb(255 0 0 / 50%);
+
+		background-color: rgb(255 0 0 / 10%);
+
+		@supports (view-timeline-name: --supported) {
+			border-block-end: 2px solid rgb(0 255 255 / 50%);
+			background-color: rgb(0 255 255 / 10%);
+		}
+	}
+}
+
+@supports (view-timeline-name: --supported) {
+	[data-toc-scope]:not(#important) {
+		counter-reset: index;
+		position: relative;
+		border: 2px solid blue;
+
+		&::before {
+			content: 'Scope';
+
+			position: absolute;
+			inset-block-start: 0;
+			inset-inline-start: 0.5rem;
+
+			font-size: 1.2rem;
+			font-weight: 700;
+			color: blue;
+		}
+	}
+
+	[data-toc-index]:not(#important) {
+		counter-increment: index;
+
+		&::before {
+			content: counter(index);
+
+			position: absolute;
+			z-index: 2;
+			inset-block: anchor(var(--current) start) anchor(var(--current) end);
+			inset-inline: calc(anchor(var(--current) end) - 2.25rem) anchor(var(--current) end);
+
+			display: grid;
+			place-items: center;
+
+			font-size: 0.6rem;
+			font-weight: 700;
+			color: black;
+
+			background-color: rgb(0 255 255);
+		}
+
+		&::after {
+			pointer-events: none;
+
+			z-index: 9999;
+			inset-inline: anchor(var(--current) start) anchor(var(--current) end);
+
+			width: unset;
+			border-block: 2px solid rgb(0 255 255);
+		}
+
+		&:hover::after {
+			background-color: rgb(0 255 255 / 20%);
+		}
+	}
+
+	[data-toc-link]:not(#important) {
+		counter-increment: index;
+
+		&::before {
+			content: counter(index);
+
+			display: inline-grid;
+			place-items: center;
+
+			width: 1.5em;
+			height: 1.5em;
+			margin-inline-end: 0.25rem;
+			border-radius: 50%;
+
+			font-size: 0.6em;
+			font-weight: 700;
+			line-height: 1;
+			color: black;
+
+			background-color: rgb(0 255 255);
+		}
+	}
+}

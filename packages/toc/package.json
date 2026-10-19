@@ -23,8 +23,7 @@
 			"import": "./src/lib/vite/index.js"
 		},
 		"./styles.css": "./src/lib/styles/index.css",
-		"./styles/anchor.css": "./src/lib/styles/anchor.css",
-		"./styles/track.css": "./src/lib/styles/track.css"
+		"./styles/*.css": "./src/lib/styles/*.css"
 	},
 	"typesVersions": {
 		"*": {
