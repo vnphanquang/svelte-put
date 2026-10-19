@@ -90,7 +90,7 @@ export default config;
 
 ...and set up \`@svelte-put/toc/vite\` instead:
 
-~~~typescript #title="vite.config.ts" src="fs:../3-compile-time/includes/examples/vite-config.ts"
+~~~typescript #title="vite.config.ts" src="fs:../4-compile-time/includes/examples/vite-config.ts"
 
 ~~~
 

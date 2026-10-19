@@ -65,7 +65,7 @@ Say i have the following static content that i want to index for a table-of-cont
 
 First, set up the vite plugin:
 
-~~~typescript #title="vite.config.ts" src="fs:../3-compile-time/includes/examples/vite-config.ts"
+~~~typescript #title="vite.config.ts" src="fs:../4-compile-time/includes/examples/vite-config.ts"
 
 ~~~
 

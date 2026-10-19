@@ -22,7 +22,8 @@ happens during compile-time:
 <h2>Svelte is cool</h2>
 <!-- ... other indexable content... -->
 
-Use {toc.items} for rendering table-of-contents <!-- [!code ++] -->
+<!-- [!code ++:2] -->
+Use {toc.items} for rendering table-of-contents, or pass to Toc instance for further enhancement
 ~~~
 
 The intermediate Svelte code looks something like:
@@ -47,8 +48,6 @@ The intermediate Svelte code looks something like:
 
 <h2 id="svelte-is-cool">Svelte is cool</h2>
 <!-- ... other indexable content... -->
-
-Use {toc.items} for rendering table-of-contents
 ~~~
 
 That means:
@@ -217,7 +216,6 @@ toc({
 				tabindex: '-1',
 				'toc-data-anchor': '',
 			}),
-			href: (slug) => \`#\${slug}\`,
 		},
 	},
 });

@@ -2,7 +2,7 @@
 <script>
 	// [!code ++:3]
 	import { Toc } from '@svelte-put/toc';
-	import '@svelte-put/toc/style.css';
+	import '@svelte-put/toc/styles.css';
 	const toc = new Toc();
 </script>
 
@@ -17,7 +17,7 @@
         {#each toc.items.values() as item (item.id)}
           <li>
             <a {...toc.enhance.link(item)}>
-              {...item.text}
+              {item.text}
             </a>
           </li>
         {/each}
