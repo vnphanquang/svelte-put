@@ -90,7 +90,7 @@
 					</p>
 					<ol>
 						{#each toc.items.values() as item (item.id)}
-							{const level = item.tag[1]}
+							{let level = $derived(item.tag[1])}
 							<li>
 								<a
 									class="c-link-lazy leading-double block w-full overflow-hidden text-ellipsis whitespace-nowrap"
