@@ -35,7 +35,10 @@ contains the indexable content:
 	const toc = new Toc();
 </script>
 
-<!-- ---cut--- --><main {...toc.runtime.index()}><!-- indexable content --></main>
+<!-- ---cut--- -->
+<main {...toc.runtime.index()}>
+	indexable content, e.g. your blog post, article, documentation, etc. goes here
+</main>
 ~~~
 
 This will:
@@ -71,14 +74,12 @@ content, skip runtime parsing, i.e. \`toc.runtime.index()\` to save resources:
 ~~~svelte
 <main {...toc.runtime.index()}> <!-- [!code --] -->
 <main> <!-- [!code ++] -->
-<!-- content to index -->
-</main>
 ~~~
 
 ## Manual Data
 
 [Prefilling compile-time data](#prefilling-compile-time-data) works because the \`Toc\` constructor
-accepts an \`items\`, which \`compileToc()\` will provide. Using the same API also allows custom
+accepts an \`items\` option, which \`compileToc()\` will provide. Using the same API also allows custom
 data:
 
 ~~~typescript #typehint

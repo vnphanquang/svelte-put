@@ -3,7 +3,7 @@
 
 	<section>
 		<h2>Table of Contents</h2>
-		<!-- [!code info:2] -->
+		<!-- [!code info:1] -->
 		<!-- to be implemented -->
 	</section>
 

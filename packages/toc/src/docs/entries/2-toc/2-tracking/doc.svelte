@@ -9,6 +9,20 @@
 	});
 </script>
 
+<script lang="ts">
+	import trackDebugUrl from '@svelte-put/toc/styles/track-debug.css?url';
+	let trackDebug = $state(false);
+	function toggleTrackDebug() {
+		trackDebug = !trackDebug;
+	}
+</script>
+
+<svelte:head>
+	{#if trackDebug}
+		<link rel="stylesheet" href={trackDebugUrl} />
+	{/if}
+</svelte:head>
+
 {markdown`
 A common UX enhancement is to track the "active" content and highlight the corresponding entry in
 Table-of-Contents. Historically this has been Javascript-dependent using various strategies, namely
@@ -76,7 +90,7 @@ Next, enhance the entries of Table-of-Contents with \`.enhance.link()\`:
 </main>
 ~~~
 
-Lastly, import the necessary CSS:
+Lastly, make sure the necessary CSS is imported (see [Styling]):
 
 ~~~svelte
 <script>
@@ -91,7 +105,7 @@ necessary [attributes](#attributes) and CSS variables to be picked up by \`style
 
 The library assumes your [indexable content][indexing] is "flat": one section comes after another,
 as one would expect in a typical article / blog post. On the contrary, non-flat content is one that
-contains at least two sections that live in two completely separate subtree.
+contains at least two sections that live in two completely separate subtrees.
 
 In case this assumption isn't true for your use case. Turn off \`.track.flat\`:
 
@@ -105,7 +119,7 @@ const toc = new Toc({
 });
 ~~~
 
-When \`.track.flat\` is \`true\`, however, tracking is more accurate. So keep it on when possible.
+When \`.track.flat\` is \`true\`, however, tracking is **more accurate**. So keep it on when possible.
 
 > [!INFO] \`$class=" i-[ph--lightbulb]"\`
 > Alternatively, keep \`.track.flat\` on but filter out special content that isn't in the normal flow
@@ -145,7 +159,7 @@ Since tracking is CSS-only, if you want to turn it off, simply omit the CSS impo
 
 See [Styling] for a more thorough explanation on this matter.
 
-## CSS Variables
+## CSS Customisation
 
 ### View Timeline Inset
 
@@ -188,14 +202,14 @@ const toc = new Toc({
 });
 ~~~
 
-An example would be the demo from "[Skip Tracking For Certain Content](#skip-tracking-for-certain-content)"
-where a separate \`Toc\` instance is used for the demo which lives in the same page that is
+An example would be the example from "[Skip Tracking For Certain Content](#skip-tracking-for-certain-content)"
+where a separate \`Toc\` instance is used for the embedded demo which lives in the same page that is
 indexed by another \`Toc\` instance.
 
 > [!SIDENOTE]
 > Conflict happens because stylesheet relies on
 > [view-timeline-name](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/view-timeline-name),
-> which are set via CSS variable as \`toc-{number}\` where \`{number}\` is the position of the
+> which are set via a CSS variable as \`toc-{number}\` where \`{number}\` is the position of the
 > indexed element within a Toc instance. This can be worked around by generating unique IDs,
 > e.g. [crypto.randomUUID](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID).
 > I have deliberately opted to not do so in order to keep the markup cleaner, as the scenario of
@@ -228,20 +242,38 @@ other solutions often suffer from the same problems, but worth mentioning anyway
    styling such as
    [scroll-margin](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/scroll-margin).
 2. Later indexed elements may never be considered "in view" if it does not cross the view timeline
-   inset threshold (see [View Timeline Inset](#view-timeline-inset)). This typically happens when
-   there is no other content on the page after the last indexed content section, and the content
-   section itself is not long enough to cover 80% of the viewport height.
+   inset threshold. This typically happens when there is no other content on the page after the last
+   indexed content section, and the content section itself is not long enough to cover N% of the
+   viewport height, where N is the value of \`--toc-timeline-inset\` as explained in
+   [View Timeline Inset](#view-timeline-inset).
 
-It may be helpful to turn on debug CSS to visualise better how content is tracked:
+See [Styling > Debug][styling.debug] for more information. I personally think, however, that these
+are more inconveniences than they are significant usability issues and thus can be traded off in favor
+for a Javascript-free approach.
+
+## Debug
+
+There is a helpful stylesheet for debugging this feature:
 
 ~~~javascript
 import '@svelte-put/toc/styles/track-debug.css';
 ~~~
+`}
 
-See [Styling > Debug][styling.debug] for more information.
+<div class="flex items-start gap-4">
+	<p>
+		If you encounter problems, try turning that on. You can also click the button on the right to
+		see what it looks like.
+	</p>
+	<button class="c-btn shrink-0 whitespace-nowrap" onclick={toggleTrackDebug}>
+		Toggle Debug
+	</button>
+</div>
 
-I personally think, however, that these inconvenience are worth trading off to avoid Javascript
-dependency.
+{markdown`
+> [!SIDENOTE]
+> Note that, the debug stylesheet depends on CSS variables being set at \`:root\`, so if your setup
+> implements otherwise, make sure to replicate that onto \`:root\`.
 
 [indexing]: ../toc
 [styling]: ../styling

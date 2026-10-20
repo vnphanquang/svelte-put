@@ -92,7 +92,7 @@ This is the text content of the inserted anchor tag, unless \`.anchor.position\`
 
 \`Toc\` will set some attributes on the inserted anchor element:
 
-- \`href\`: set to \`#\${item.id}\`, where item.id is the extracted id value or generated slug during
+- \`href\`: set to \`#<item.id>\`, where \`<item.id>\` is the extracted id value or generated slug during
   [indexing],
 - \`data-toc-anchor\`: set to \`.anchor.position\`,
 - \`aria-hidden="true"\` & \`tab-index="-1"\` if position is anything other than \`'wrap'\` or
@@ -152,6 +152,14 @@ new Toc({
 	},
 });
 ~~~
+
+In such case, reduce the styling import as well:
+
+~~~javascript
+import '@svelte-put/toc/styles/anchor.css'; // [!code --]
+~~~
+
+See [Styling] for a more thorough explanation on this matter.
 
 [indexing]: ../toc
 [styling]: ../styling

@@ -8,7 +8,7 @@
 </script>
 
 {markdown`
-Over the years, i struggled to find a table-of-contents solution that is convenient to set up
+Over the years, i struggled to find a Table-of-Contents solution that is convenient to set up
 without runtime penalty (JS dependency) or locked-in UI pattern. This library is my take; it is not
 perfect but has evolved throughout its versions to now be able to:
 
@@ -29,7 +29,7 @@ perfect but has evolved throughout its versions to now be able to:
 > 2. optionally perform an equivalence of steps 1-3 in compile-time, for dynamic runtime-only content.
 
 > [!INFO]
-> The table-of-contents on this very page is powered by \`@svelte-put/toc\`. Try [disabling
+> The Table-of-Contents on this very page is powered by \`@svelte-put/toc\`. Try [disabling
 > Javascript](https://developer.chrome.com/docs/devtools/javascript/disable) to see if it still works.
 
 ## Acknowledgement
@@ -57,15 +57,9 @@ If you are upgrading, make sure to head to [Migrations](../migrations) for more 
 
 ## Example Setup
 
-Say i have the following static content that i want to index for a table-of-contents:
+Say i have the following content that i want to index for a Table-of-Contents:
 
 ~~~html #title="content.svelte" src="fs:./includes/examples/input.svelte"
-
-~~~
-
-First, set up the vite plugin:
-
-~~~typescript #title="vite.config.ts" src="fs:../4-compile-time/includes/examples/vite-config.ts"
 
 ~~~
 
@@ -82,8 +76,7 @@ like this:
 
 ~~~
 
-In real-life context, however, it is rarely that simple. Please see the next pages for more details
-and recipes.
+Read on for more information, or see [Compile-time] if your content is completely static.
 
 [Svelte preprocessor]: https://svelte.dev/docs/svelte-compiler#preprocess
 [compile-time]: ../compile-time

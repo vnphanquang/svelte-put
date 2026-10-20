@@ -23,7 +23,7 @@ happens during compile-time:
 <!-- ... other indexable content... -->
 
 <!-- [!code ++:2] -->
-Use {toc.items} for rendering table-of-contents, or pass to Toc instance for further enhancement
+Use {toc.items} for rendering Table-of-Contents, or pass to Toc instance for further enhancement
 ~~~
 
 The intermediate Svelte code looks something like:
@@ -52,13 +52,8 @@ The intermediate Svelte code looks something like:
 
 That means:
 
-1. table-of-contents is readily available in the initial HTML (i.e. available for SSR),
+1. Table-of-Contents is readily available in the initial HTML (i.e. available for SSR),
 2. [runtime parsing can be turned off](#turning-off-runtime-parsing) if the content is completely static.
-
-> [!INFO]
-> The code example above supports type-hint, if a pointer device is available, try hovering on
-> relevant tokens to see more information. Similar patterns will be presented throughout the
-> documentation.
 
 ## Vite Plugin
 
@@ -71,8 +66,7 @@ for a unified experience.
 
 ## Using Bare Svelte Preprocessor
 
-If your setup doesn't allow Vite, however, you may import the preprocessor directly from
-\`@svelte-put/toc/preprocessor\`:
+If your setup doesn't allow Vite, however, you may use the preprocessor directly:
 
 ~~~javascript #title="svelte.config.js" #typehint
 import { toc } from '@svelte-put/toc/preprocessor'; // [!code ++]
@@ -92,7 +86,8 @@ export default {
 
 ## Usage with TOC
 
-The \`compile-time\` strategy is interoperable to the canonical \`Toc\` instance:
+Although it is completely fine to use the result of \`compileToc\` by itself, this compile-time
+strategy is also interoperable to the canonical [Toc instance][toc]:
 
 ~~~svelte
 <script>
@@ -101,13 +96,13 @@ The \`compile-time\` strategy is interoperable to the canonical \`Toc\` instance
 </script>
 ~~~
 
-This gives the best of both worlds: ready content at load, enhanced after hydration. See [TOC >
-Prefill Compile-Time Data](../toc#prefill-compile-time-data) for some more information.
+This gives the best of both worlds: ready content at load, enhanced during SSR and after hydration,
+enabling feature such as [Visibility Tracking][tracking] without much manual setup.
 
 ### Skipping Runtime Indexing
 
 If you can assert that your relevant content is completely static, e.g. there is no dynamically inserted
-content, skip runtime parsing, i.e. \`toc.index()\` to save resources:
+content, skip runtime parsing to save resources:
 
 ~~~svelte
 <section {...toc.index()}> <!-- [!code --] -->
@@ -134,17 +129,13 @@ import { toc } from '@svelte-put/toc/preprocessor';
 toc({/* ... */});
 ~~~
 
-To avoid being verbose, utilise language server when possible during development. The following
-sections list some prominent options.
+A lot of options are shared between the preprocessor and \`Toc\` instance. To avoid being verbose,
+utilise language server when possible during development. The following sections list only some
+options that are unique to compile-time.
 
-### Index Options
+### Matching Tags
 
-The \`processor.index\` options instruct how to find and process matching elements that are
-considered entries to the final table-of-contents. They are typically heading elements.
-
-#### Matching Tags
-
-The processing can be filtered based on element tags. The default is shown below:
+Indexing can be filtered based on element tags. The default is shown below:
 
 ~~~typescript #typehint
 import { toc } from '@svelte-put/toc/vite';
@@ -157,78 +148,18 @@ toc({
 });
 ~~~
 
-#### ID Attribute and Slug Resolution
+> [!SIDENOTE]
+> \`.index.tags\` is the equivalence of \`.index.selector\` in the parameters to [Toc instance][toc]
+> constructor.
 
-When a tag is matched, the processor will look for the attribute whose name specified in
-\`.preprocssor.idAttribute\`. If present, that will be taken as the slug. Otherwise, a slug will
-be generated based on the text content. The default options are shown below:
+### CompileToc
 
-~~~typescript #typehint
-import { toc } from '@svelte-put/toc/vite';
-toc({
-	preprocessor: {
-		index: {
-			idAttribute: 'id',
-			slug: ({ generated, nodeText, slugger }) => generated,
-		},
-	},
-});
-~~~
+Some behavior of \`compileToc\` can be customised via \`.compileToc.*\` options.
 
-#### Attributes
-
-Additional attributes may be added to the indexed element. For example:
-
-~~~typescript #typehint
-import { toc } from '@svelte-put/toc/vite';
-toc({
-	preprocessor: {
-		index: {
-			attributes: ({ item, items, defaults }) => {
-				return {
-					...defaults, // contains the id attribute
-				};
-			},
-		},
-	},
-});
-~~~
-
-See [Recipes > No-JS Visibility Tracking](../recipes#no-js-visibility-tracking) on how this can be
-helpful.
-
-### Anchor Injection
-
-Customisation to how anchor tag is inserted can be provided via the \`.preprocessor.anchor\` option.
-Typically, this supports a pattern similar to one seen in Github README, i.e. a clickable \`#\` link
-on hover at headings. The default options are shown below:
-
-~~~typescript #typehint
-import { toc } from '@svelte-put/toc/vite';
-toc({
-	preprocessor: {
-		anchor: {
-			enabled: true,
-			position: 'prepend',
-			content: '#',
-			attributes: () => ({
-				'aria-hidden': 'true',
-				tabindex: '-1',
-				'toc-data-anchor': '',
-			}),
-		},
-	},
-});
-~~~
-
-Attributes can be added to the anchor element, with the same API as discussed in [Index >
-Attributes](#attributes).
-
-### Import Source
+#### Import Source
 
 The preprocessor needs to parse the exact location where \`compileToc\` is imported and used. If you
-are using an alias for the package or proxying via another one, specify
-\`.preprocessor.importSource\`, e.g.:
+are using an alias for the package or proxying via another one, specify \`.compileToc.importSource\`, e.g.:
 
 ~~~typescript #typehint
 import { toc } from '@svelte-put/toc/vite';
@@ -241,7 +172,7 @@ toc({
 });
 ~~~
 
-### Automatic Declaration
+#### Automatic Declaration
 
 Imagine a blog post setup where you have 100+ content-specific files, manually declaring \`compileToc\`
 every time can be repetitive:
@@ -279,9 +210,9 @@ script](https://svelte.dev/docs/svelte/svelte-files#script-module), since it is 
 
 > [!INFO] \`$class=" i-[ph--lightbulb]"\`
 > See [Recipes > Collecting Compile-time TOC with Vite's Glob
-> Imports ](../recipes#collecting-compile-time-toc-with-vites-glob-imports) for an example on how this can be
+> Import ](../recipes#collecting-compile-time-toc-with-vites-glob-import) for an example on how this can be
 > useful in practice.
 
-[runtime]: ../runtime
+[tracking]: ../toc/tracking
 [toc]: ../toc
 `}
