@@ -28,7 +28,7 @@
 		"access": "public"
 	},
 	"files": [
-		"src",
+		"src/lib",
 		"types"
 	],
 	"scripts": {
