@@ -18,6 +18,12 @@ pre-commit:
             stage_fixed: true
             glob: 'internals/docpage/**/*.{js,ts,svelte}'
 
+          - name: '@svelte-put/clickoutside'
+            root: packages/clickoutside
+            run: pnpm eslint --fix {staged_files}
+            stage_fixed: true
+            glob: 'packages/clickoutside/**/*.{js,ts,svelte}'
+
           - name: '@svelte-put/preprocess-external-link'
             root: packages/preprocess-external-link
             run: pnpm eslint --fix {staged_files}
