@@ -9,15 +9,15 @@
 
 	export interface DocumentationProps {
 		slug: string;
-		loadDocPage: Loaders['loadDocPage'];
-		links: Awaited<ReturnType<Loaders['loadDocPageLinks']>>;
+		loaders: Loaders;
 	}
 </script>
 
 <script lang="ts">
-	let { slug, loadDocPage, links }: DocumentationProps = $props();
+	let { slug, loaders }: DocumentationProps = $props();
 
-	let doc = $derived(await loadDocPage({ slug }));
+	let doc = $derived(await loaders.loadDocPage({ slug }));
+	let links = $derived(await loaders.loadDocPageLinks());
 
 	// svelte-ignore state_referenced_locally
 	if (!doc) error(400, 'No documentation page with this path!'); // for SSR

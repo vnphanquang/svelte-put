@@ -16,9 +16,11 @@ export interface LinkGroup {
 	pages: LinkPage[];
 }
 
+export type PageLinks = Array<LinkPage | LinkGroup>;
+
 export interface Loaders {
 	loadDocPage: (input: { slug: string }) => Promise<DocPage | null>;
-	loadDocPageLinks: () => Promise<Array<LinkPage | LinkGroup>>;
+	loadDocPageLinks: () => Promise<PageLinks>;
 }
 
 export function createLoaders(
