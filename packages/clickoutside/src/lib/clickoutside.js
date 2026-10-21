@@ -95,7 +95,7 @@ export function clickoutside(node, param = { enabled: true }) {
 export function resolveConfig(param = {}) {
 	return {
 		enabled: param.enabled ?? true,
-		nodeForEvent: param.limit?.parent ?? document,
+		nodeForEvent: param.limit?.parent ?? document.documentElement,
 		eventType: param.event ?? 'click',
 		options: typeof param.options === 'boolean' ? { capture: param.options } : param.options,
 	};
