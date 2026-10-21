@@ -25,11 +25,11 @@ export interface Loaders {
 
 export function createLoaders(
 	pkg: string,
-	...modules: [
+	modules: [
 		Record<string, () => Promise<Component>>,
 		Record<string, () => Promise<PerDefinedDocPageMetadata>>,
 		Record<string, () => Promise<CompileTimeToc>>,
-	]
+	],
 ): Loaders {
 	const mapping = collectDocPages(...modules);
 
@@ -58,14 +58,14 @@ export function createLoaders(
 					const { title } = await mapping[previousSlug]!.metadata();
 					merged.nav.previous = {
 						title,
-						href: `../${previousSlug}`,
+						slug: previousSlug,
 					};
 				}
 				if (nextSlug !== null) {
 					const { title } = await mapping[nextSlug]!.metadata();
 					merged.nav.next = {
 						title,
-						href: `../${nextSlug}`,
+						slug: nextSlug,
 					};
 				}
 			}

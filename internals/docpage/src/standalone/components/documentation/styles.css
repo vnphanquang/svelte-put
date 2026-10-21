@@ -2,6 +2,7 @@
 @import '@svelte-put/toc/styles.css' layer(markdown);
 
 @source './**/*.{ts,js,svelte}';
+@source '../../../components/**/*.{ts,js,svelte}';
 
 @layer makdown {
 	[data-toc-scope] {

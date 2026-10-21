@@ -1,19 +1,22 @@
 import type { CompileTimeToc } from '@svelte-put/toc';
 import type { Component } from 'svelte';
 
+export interface RelativeDocPageNav {
+	previous?: {
+		title: string;
+		slug: string;
+	};
+	next?: {
+		title: string;
+		slug: string;
+	};
+}
+
 export interface DocPage {
 	content: Component;
 	metadata: DocPageMetadata;
-	nav: {
+	nav: RelativeDocPageNav & {
 		toc: CompileTimeToc;
-		previous?: {
-			href: string;
-			title: string;
-		};
-		next?: {
-			href: string;
-			title: string;
-		};
 	};
 	contentEditUrl: string;
 }
