@@ -98,7 +98,7 @@
 		"vite": ">=8.0.0"
 	},
 	"peerDependenciesMeta": {
-		"svelte": {
+		"vite": {
 			"optional": true
 		}
 	}
