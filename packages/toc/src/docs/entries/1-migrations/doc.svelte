@@ -73,7 +73,7 @@ making the markup readily available without the need for hydration:
 
 ### @svelte-put/preprocess-auto-slug
 
-It was recommended before to use [@svelte-put/preprocess-auto-slug](https://svelte-put.vnphanquang.com/docs/preprocess-auto-slug) in conjunction with this library to set up heading slug automatically.
+It was recommended before to use [@svelte-put/preprocess-auto-slug](https://svelte-put.vnphanquang.com/packages/preprocess-auto-slug) in conjunction with this library to set up heading slug automatically.
 \`@svelte-put/preprocess-auto-slug\` has been merged into the [compile-time Vite plugin][compile-time]
 for a unified experience. Remove it from your config...
 

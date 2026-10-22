@@ -82,4 +82,4 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 
 [npmx]: https://npmx.dev/package/@svelte-put/toc
 [bundlephobia]: https://bundlephobia.com/package/@svelte-put/toc
-[docs]: https://svelte-put.vnphanquang.com/docs/toc
+[docs]: https://svelte-put.vnphanquang.com/packages/toc

@@ -91,4 +91,4 @@ export default defineConfig({
 
 [npmx]: https://npmx.dev/package/@svelte-put/external-link
 [bundlephobia]: https://bundlephobia.com/package/@svelte-put/external-link
-[docs]: https://svelte-put.vnphanquang.com/docs/external-link
+[docs]: https://svelte-put.vnphanquang.com/packages/external-link

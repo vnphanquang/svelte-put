@@ -118,4 +118,4 @@ export default defineConfig({
 
 [npmx]: https://npmx.dev/package/@svelte-put/inline-svg
 [bundlephobia]: https://bundlephobia.com/package/@svelte-put/inline-svg
-[docs]: https://svelte-put.vnphanquang.com/docs/inline-svg
+[docs]: https://svelte-put.vnphanquang.com/packages/inline-svg
