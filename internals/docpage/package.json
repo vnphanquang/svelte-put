@@ -7,6 +7,10 @@
 			"svelte": "./src/index.ts",
 			"import": "./src/index.ts"
 		},
+		"./components": {
+			"svelte": "./src/components/index.ts",
+			"import": "./src/components/index.ts"
+		},
 		"./standalone": {
 			"svelte": "./src/standalone/index.ts",
 			"import": "./src/standalone/index.ts"

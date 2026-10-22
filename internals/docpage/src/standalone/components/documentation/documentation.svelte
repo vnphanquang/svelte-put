@@ -19,7 +19,7 @@
 	let { slug, loaders }: DocumentationProps = $props();
 
 	let doc = $derived(await loaders.loadDocPage({ slug }));
-	let links = $derived(await loaders.loadDocPageLinks());
+	let Content = $derived(await loaders.loadDocPageContent({ slug }));
 
 	// svelte-ignore state_referenced_locally
 	if (!doc) error(400, 'No documentation page with this path!'); // for SSR
@@ -32,10 +32,12 @@
 
 <div class="page max-w-pad grid flex-1" {...toc.enhance.scope()}>
 	<div class="nav">
-		<PageNav {slug} {links} />
+		<PageNav {slug} package={await loaders.loadDocPageLinks()} />
 		<TableOfContents {toc} />
 	</div>
-	<DocContent {doc} />
+	<DocContent {doc}>
+		<Content />
+	</DocContent>
 </div>
 
 <style>

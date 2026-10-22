@@ -3,33 +3,33 @@
 
 	export interface PageNavProps {
 		slug: string;
-		links: PageLinks;
+		site?: PageLinks;
+		package?: PageLinks;
+		active?: (page: LinkPage) => boolean;
 	}
 </script>
 
 <script lang="ts">
-	let { slug, links }: PageNavProps = $props();
+	let { slug, site, package: pkg, active = ({ id }) => id === slug }: PageNavProps = $props();
 </script>
 
 {#snippet pageLink(page: LinkPage)}
 	<li>
 		<a
 			class="c-link-lazy leading-double block w-full overflow-hidden text-ellipsis whitespace-nowrap"
-			href="../{page.slug}"
-			{...page.slug === slug && { 'aria-current': true }}
+			href={page.href}
+			{...active(page) && { 'aria-current': true }}
 		>
 			{page.title}
 		</a>
 	</li>
 {/snippet}
 
-<button class="c-btn c-btn--icon text-sm" popovertarget="pages">
-	<i class="i i-[ph--list] h-5 w-5"></i>
-	<span id="pages-label">Pages</span>
-</button>
-<div popover id="pages">
-	<nav class="space-y-4" aria-labelledby="pages-label">
-		<p class="text-stroke-200 max-desktop:hidden text-sm uppercase">Pages</p>
+{#snippet links(links: PageLinks, title?: string)}
+	<section class="space-y-4">
+		{#if title}
+			<p class="text-lg font-bold">{title}</p>
+		{/if}
 		<ol>
 			{#each links as link, i (link.type + i)}
 				{#if link.type === 'page'}
@@ -40,7 +40,7 @@
 							<p class="font-bold uppercase">{link.title}</p>
 						{/if}
 						<ol>
-							{#each link.pages as page (page.slug)}
+							{#each link.pages as page (page.id)}
 								{@render pageLink(page)}
 							{/each}
 						</ol>
@@ -48,6 +48,21 @@
 				{/if}
 			{/each}
 		</ol>
+	</section>
+{/snippet}
+
+<button class="c-btn c-btn--icon text-sm" popovertarget="pages">
+	<i class="i i-[ph--list] h-5 w-5"></i>
+	<span id="pages-label">Pages</span>
+</button>
+<div popover id="pages">
+	<nav class="space-y-4 divide-y-2 divide-current" aria-labelledby="pages-label">
+		{#if site}
+			{@render links(site)}
+		{/if}
+		{#if pkg}
+			{@render links(pkg, 'In this Package')}
+		{/if}
 	</nav>
 </div>
 
@@ -136,7 +151,14 @@
 		}
 	}
 
-	.page-group + .page-group {
+	.page-group + .page-group,
+	.page-group:first-child {
+		padding-block-start: 0;
 		border-block-start: 0;
+	}
+
+	.page-group:last-child {
+		padding-block-end: 0;
+		border-block-end: 0;
 	}
 </style>

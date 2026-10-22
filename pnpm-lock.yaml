@@ -374,6 +374,12 @@ importers:
 
   sites/docs:
     devDependencies:
+      '@svelte-put/clickoutside':
+        specifier: workspace:*
+        version: link:../../packages/clickoutside
+      '@svelte-put/inline-svg':
+        specifier: workspace:*
+        version: link:../../packages/inline-svg
       '@svelte-put/preprocess-external-link':
         specifier: workspace:*
         version: link:../../packages/preprocess-external-link

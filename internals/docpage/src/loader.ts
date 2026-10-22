@@ -7,7 +7,8 @@ import type { DocPage, PerDefinedDocPageMetadata } from './definition';
 export interface LinkPage {
 	type: 'page';
 	title: string;
-	slug: string;
+	id: string;
+	href: string;
 }
 
 export interface LinkGroup {
@@ -19,38 +20,45 @@ export interface LinkGroup {
 export type PageLinks = Array<LinkPage | LinkGroup>;
 
 export interface Loaders {
-	loadDocPage: (input: { slug: string }) => Promise<DocPage | null>;
-	loadDocPageLinks: () => Promise<PageLinks>;
+	loadDocPage: (input: { slug: string; root?: string }) => Promise<DocPage | null>;
+	loadDocPageContent: (input: { slug: string }) => Promise<Component | null>;
+	loadDocPageLinks: (options?: { root?: string }) => Promise<PageLinks>;
 }
 
 export function createLoaders(
-	pkg: string,
 	modules: [
 		Record<string, () => Promise<Component>>,
 		Record<string, () => Promise<PerDefinedDocPageMetadata>>,
 		Record<string, () => Promise<CompileTimeToc>>,
 	],
+	options?: {
+		/** doc page for a specific package? used to create content-edit url  */
+		package?: string;
+	},
 ): Loaders {
 	const mapping = collectDocPages(...modules);
 
 	return {
+		async loadDocPageContent(input) {
+			const { slug } = input;
+			const collected = mapping[slug];
+			if (!collected) return null;
+			return collected.content();
+		},
 		async loadDocPage(input) {
 			const { slug } = input;
 			const collected = mapping[slug];
 			if (!collected) return null;
-			const [content, metadata, toc] = await Promise.all([
-				collected.content(),
-				collected.metadata(),
-				collected.toc(),
-			]);
+			const [metadata, toc] = await Promise.all([collected.metadata(), collected.toc()]);
 			const merged: DocPage = {
-				content,
 				metadata: {
 					...metadata,
 					slug,
 				},
 				nav: { toc },
-				contentEditUrl: `https://github.com/vnphanquang/svelte-put/edit/${import.meta.env.GIT_REF}/packages/${pkg}/src/docs/${collected.path}`,
+				contentEditUrl: options?.package
+					? `https://github.com/vnphanquang/svelte-put/edit/${import.meta.env.GIT_REF}/packages/${options.package}/src/docs/${collected.path}`
+					: `https://github.com/vnphanquang/svelte-put/edit/${import.meta.env.GIT_REF}/sites/docs/src/data/docs/${collected.path}`,
 			};
 			const { previousSlug, nextSlug } = collected;
 			if (previousSlug !== null || nextSlug !== null) {
@@ -59,6 +67,7 @@ export function createLoaders(
 					merged.nav.previous = {
 						title,
 						slug: previousSlug,
+						href: `${input.root ?? '/'}${previousSlug}`,
 					};
 				}
 				if (nextSlug !== null) {
@@ -66,12 +75,13 @@ export function createLoaders(
 					merged.nav.next = {
 						title,
 						slug: nextSlug,
+						href: `${input.root ?? '/'}${nextSlug}`,
 					};
 				}
 			}
 			return merged;
 		},
-		async loadDocPageLinks() {
+		async loadDocPageLinks(options) {
 			const groupMap: Record<string, LinkGroup> = {};
 			const entries: Array<LinkGroup | LinkPage> = [];
 
@@ -85,7 +95,12 @@ export function createLoaders(
 				const page = pages[i];
 				const { title, group: groupTitle, slug } = page;
 
-				const link: LinkPage = { type: 'page', title, slug };
+				const link: LinkPage = {
+					type: 'page',
+					title,
+					id: slug,
+					href: `${options?.root ?? '/'}${slug}`,
+				};
 				if (groupTitle) {
 					if (!groupMap[groupTitle]) {
 						const group: LinkGroup = {

@@ -14,17 +14,12 @@ export interface DocPageResolver {
 }
 
 function getSlugFromPath(path: string): string {
-	const segments = path.split('/');
-	let finalSegment = segments.at(-2)!;
-	if (finalSegment.startsWith('0-')) {
-		finalSegment = '';
-	} else {
-		finalSegment = finalSegment.replace(/^\d+-/, '');
-	}
-	return [
-		...segments.slice(2, -2).map((s) => s.replace(/^\d+-/, '')),
-		...(finalSegment ? [finalSegment] : []),
-	].join('/');
+	return path
+		.split('/')
+		.map((s) => (s.startsWith('0-') ? '' : s.replace(/^\d+-/, '')))
+		.filter(Boolean)
+		.slice(2, -1)
+		.join('/');
 }
 
 export function collectDocPages(

@@ -1,9 +1,16 @@
 <script lang="ts">
 	import { Markdown } from '@vnphanquang/markdown/svelte';
+	import type { Snippet } from 'svelte';
 
 	import type { DocPage } from '../../definition';
 
-	let { doc }: { doc: DocPage } = $props();
+	let {
+		doc,
+		children,
+	}: {
+		doc: DocPage;
+		children?: Snippet;
+	} = $props();
 </script>
 
 <main class="@container">
@@ -11,7 +18,7 @@
 		<section class="md flex-1">
 			<Markdown>
 				<h1>{doc.metadata.title}</h1>
-				<doc.content />
+				{@render children?.()}
 			</Markdown>
 		</section>
 	{/key}
@@ -27,7 +34,7 @@
 				'border border-current py-3 gap-1 px-4 flex flex-col hover:border-primary transition-colors w-full max-w-100 flex-1 min-w-50'}
 			<nav class="tablet:gap-10 flex flex-wrap gap-4">
 				{#if doc.nav.previous}
-					<a class={commonClasses} href="/{doc.nav.previous.slug}">
+					<a class={commonClasses} href={doc.nav.previous.href}>
 						<span class="text-stroke-200 text-sm"> Previous page </span>
 						<span class="text-primary">
 							{doc.nav.previous.title}
@@ -35,7 +42,7 @@
 					</a>
 				{/if}
 				{#if doc.nav.next}
-					<a class={[commonClasses, 'ms-auto items-end']} href="/{doc.nav.next.slug}">
+					<a class={[commonClasses, 'ms-auto items-end']} href={doc.nav.next.href}>
 						<span class="text-stroke-200 text-sm"> Next page </span>
 						<span class="text-primary">
 							{doc.nav.next.title}
