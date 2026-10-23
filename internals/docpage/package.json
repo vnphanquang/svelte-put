@@ -28,7 +28,7 @@
 		"@svelte-put/toc": "workspace:*",
 		"@sveltejs/adapter-auto": "^8.0.0",
 		"@sveltejs/enhanced-img": "^1.0.0",
-		"@sveltejs/kit": "^3.0.1",
+		"@sveltejs/kit": "^3.1.0",
 		"@sveltejs/vite-plugin-svelte": "^7.3.1",
 		"node-addon-api": "^8.9.2",
 		"node-gyp": "^13.1.0",

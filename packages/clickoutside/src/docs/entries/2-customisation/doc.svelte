@@ -8,7 +8,7 @@
 </script>
 
 {markdown`
-The \`clickoutside\` Svelte action takes several options that can be helpful to customise to your
+The \`clickoutside\` [Svelte action] takes several options that can be helpful to customise to your
 exact use case. Here are the defaults:
 
 ~~~svelte #typehint
@@ -98,5 +98,6 @@ For example, if the \`mousedown\` event is used:
 <button onmousedown={(e) => e.stopPropagation()}>Click me</button>
 ~~~
 
+[Svelte action]: https://svelte.dev/docs/svelte/svelte-action
 [CustomEvent]: https://developer.mozilla.org/en-US/docs/Web/API/CustomEventj
 `}

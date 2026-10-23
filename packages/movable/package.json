@@ -1,0 +1,60 @@
+{
+	"name": "@svelte-put/movable",
+	"version": "4.1.0",
+	"description": "Action to move node on mousedown & mousemove",
+	"main": "src/lib/index.js",
+	"module": "src/lib/index.js",
+	"types": "types/index.d.ts",
+	"type": "module",
+	"sideEffects": false,
+	"exports": {
+		".": {
+			"types": "./types/index.d.ts",
+			"default": "./src/lib/index.js"
+		}
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"files": [
+		"src/lib",
+		"types"
+	],
+	"scripts": {
+		"lint": "run-p lint:*",
+		"lint:es": "svelte-kit sync && eslint .",
+		"lint:knip": "pnpm knip --directory ../../ --workspace @svelte-put/toc",
+		"format": "prettier --write --ignore-path=../../.prettierignore --config=../../prettier.config.js .",
+		"build": "svelte-kit sync && dts-buddy --write && publint",
+		"dev": "vite dev"
+	},
+	"keywords": [
+		"svelte",
+		"action",
+		"drag",
+		"move",
+		"movable",
+		"modal",
+		"dialog",
+		"draggable",
+		"mousedown"
+	],
+	"author": {
+		"email": "vnphanquang@gmail.com",
+		"name": "Quang Phan",
+		"url": "https://github.com/vnphanquang"
+	},
+	"license": "MIT",
+	"homepage": "https://svelte-put.vnphanquang.com/packages/movable",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/vnphanquang/svelte-put.git",
+		"directory": "packages/movable"
+	},
+	"bugs": {
+		"url": "https://github.com/vnphanquang/svelte-put/issues"
+	},
+	"peerDependencies": {
+		"svelte": ">=5.0.0"
+	}
+}
