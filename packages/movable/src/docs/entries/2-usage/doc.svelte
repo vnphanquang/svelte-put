@@ -140,7 +140,7 @@ Setting \`.limit.delta.x\` or \`.limit.delta.y\` to \`0\` effectively disables m
 <ExampleLimitAxis />
 
 {markdown`
-## Custom Handle
+## Explicit Handle
 
 A "handle" is an HTMLElement on which \`movable\` will listen for pointer events to initiate and
 map movement to the target node.
@@ -186,7 +186,7 @@ within the movable element.
 
 {markdown`
 > [!INFO]
-> Prefer [custom handle](#custom-handle) when possible for better predictability.
+> Prefer [explicit handle](#explicit-handle) when possible for better predictability.
 
 ## Disabling Cursor Handling
 
