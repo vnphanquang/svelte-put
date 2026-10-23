@@ -18,7 +18,7 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 
 ## Quick Start
 
-```html
+```svelte
 <script lang="ts">
 	import { clickoutside } from '@svelte-put/clickoutside';
 
@@ -27,7 +27,7 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 	}
 </script>
 
-<div use:clickoutside onclickoutside="{doSomething}" />
+<div use:clickoutside onclickoutside={doSomething} />
 ```
 
 ## [Changelog][github.changelog]

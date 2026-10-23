@@ -23,9 +23,9 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 
 ### Runtime - Dymamic SVGs - Svelte Action
 
-```html
+```svelte
 <script>
-  import { inlineSvg } from '@svelte-put/inline-svg';
+	import { inlineSvg } from '@svelte-put/inline-svg';
 </script>
 
 <svg use:inlineSvg={'https://example.com/icon.svg'}></svg>
