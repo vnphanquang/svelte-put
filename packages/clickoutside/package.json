@@ -23,7 +23,7 @@
 	"scripts": {
 		"lint": "run-p lint:*",
 		"lint:es": "svelte-kit sync && eslint .",
-		"lint:knip": "pnpm knip --directory ../../ --workspace @svelte-put/toc",
+		"lint:knip": "pnpm knip --directory ../../ --workspace @svelte-put/clickoutside",
 		"format": "prettier --write --ignore-path=../../.prettierignore --config=../../prettier.config.js .",
 		"build": "svelte-kit sync && dts-buddy --write && publint",
 		"dev": "vite dev"
