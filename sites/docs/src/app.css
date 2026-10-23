@@ -12,3 +12,4 @@
 }
 
 @source '../../../internals/docpage/**/*.{ts,js,svelte}';
+@source '../../../packages/**/*.{ts,js,svelte}';
