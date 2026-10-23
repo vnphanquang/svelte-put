@@ -4,7 +4,7 @@ export default defineConfig({
 	workspaces: {
 		'.': {
 			ignoreBinaries: ['lefthook'],
-			ignoreDependencies: ['@changesets/cli', '@vnphanquang/markdown', '@vnphanquang/gach'],
+			ignoreDependencies: ['@changesets/cli'],
 		},
 		'internals/docpage': {
 			svelte: true,
@@ -31,8 +31,8 @@ export default defineConfig({
 		},
 		'sites/*': {
 			sveltekit: true,
-			entry: ['src/env.ts'],
-			ignoreDependencies: ['tailwindcss', 'node-addon-api', 'node-gyp'],
+			entry: ['src/env.ts', 'src/params.ts'],
+			ignoreDependencies: ['tailwindcss', 'node-addon-api', 'node-gyp', '@svelte-put/*'],
 		},
 	},
 });

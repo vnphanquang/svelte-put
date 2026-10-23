@@ -1,8 +1,8 @@
 import { type LinkGroup, type Loaders } from '@internals/docpage';
 
-export const loaders = import.meta.glob<Loaders>('../../../../packages/*/src/docs/index.ts');
+const loaders = import.meta.glob<Loaders>('../../../../packages/*/src/docs/index.ts');
 
-export const packages = Object.keys(loaders).map((p) => p.split('/')[5]);
+const packages = Object.keys(loaders).map((p) => p.split('/')[5]);
 
 export async function getLoadersByPackage(pkg: string): Promise<Loaders | null> {
 	const path = `../../../../packages/${pkg}/src/docs/index.ts`;
