@@ -24,17 +24,23 @@ pre-commit:
             stage_fixed: true
             glob: 'packages/clickoutside/**/*.{js,ts,svelte}'
 
-          - name: '@svelte-put/preprocess-external-link'
-            root: packages/preprocess-external-link
-            run: pnpm eslint --fix {staged_files}
-            stage_fixed: true
-            glob: 'packages/preprocess-external-link/**/*.{js,ts,svelte}'
-
           - name: '@svelte-put/inline-svg'
             root: packages/inline-svg
             run: pnpm eslint --fix {staged_files}
             stage_fixed: true
             glob: 'packages/inline-svg/**/*.{js,ts,svelte}'
+
+          - name: '@svelte-put/movable'
+            root: packages/movable
+            run: pnpm eslint --fix {staged_files}
+            stage_fixed: true
+            glob: 'packages/movable/**/*.{js,ts,svelte}'
+
+          - name: '@svelte-put/preprocess-external-link'
+            root: packages/preprocess-external-link
+            run: pnpm eslint --fix {staged_files}
+            stage_fixed: true
+            glob: 'packages/preprocess-external-link/**/*.{js,ts,svelte}'
 
           - name: '@svelte-put/toc'
             root: packages/toc
