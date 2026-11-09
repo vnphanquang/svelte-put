@@ -42,9 +42,9 @@ Svelte snippets, respectively:
 > </QR>
 > <!-- [!code ++:7] -->
 > <QR>
-> 	{#snippet svg({ attributes, html })}
+> 	{#snippet svg({ attributes, innerHTML })}
 > 		<svg {...attributes}>
-> 			{@html html}
+> 			{@html innerHTML}
 > 		</svg>
 > 	{/snippet}
 > </QR>
@@ -56,17 +56,13 @@ Svelte snippets, respectively:
 > </script>
 >
 > <!-- [!code --:5] -->
-> <QR let:attributes let:innerHTML>
-> 	<svg {...attributes}>
-> 		{@html innerHTML}
-> 	</svg>
+> <QR let:src>
+> 	<img {src} alt="qr" />
 > </QR>
 > <!-- [!code ++:7] -->
 > <QR>
-> 	{#snippet img({ attributes, html })}
-> 		<svg {...attributes}>
-> 			{@html html}
-> 		</svg>
+> 	{#snippet img({ src })}
+> 		<img {src} alt="qr" />
 > 	{/snippet}
 > </QR>
 > ~~~

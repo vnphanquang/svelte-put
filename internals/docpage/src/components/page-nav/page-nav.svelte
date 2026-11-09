@@ -18,6 +18,7 @@
 		<a
 			class="c-link-lazy leading-double block w-full overflow-hidden text-ellipsis whitespace-nowrap"
 			href={page.href}
+			title={page.title}
 			{...active(page) && { 'aria-current': true }}
 		>
 			{page.title}
