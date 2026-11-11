@@ -54,6 +54,12 @@ pre-commit:
             stage_fixed: true
             glob: 'packages/toc/**/*.{js,ts,svelte}'
 
+          - name: '@svelte-put/qr'
+            root: packages/qr
+            run: pnpm eslint --fix {staged_files}
+            stage_fixed: true
+            glob: 'packages/qr/**/*.{js,ts,svelte}'
+
           - name: docs
             root: sites/docs
             run: pnpm eslint --fix {staged_files}
