@@ -26,8 +26,8 @@
 	</li>
 {/snippet}
 
-{#snippet links(links: PageLinks, title?: string)}
-	<section class="space-y-4">
+{#snippet links(links: PageLinks, title?: string, cls?: string)}
+	<section class={['space-y-4', cls]}>
 		{#if title}
 			<p class="text-lg font-bold">{title}</p>
 		{/if}
@@ -57,12 +57,12 @@
 	<span id="pages-label">Pages</span>
 </button>
 <div popover id="pages">
-	<nav class="space-y-4 divide-y-2 divide-current" aria-labelledby="pages-label">
+	<nav class="divide-y-2 divide-current" aria-labelledby="pages-label">
 		{#if site}
 			{@render links(site)}
 		{/if}
 		{#if pkg}
-			{@render links(pkg, 'In this Package')}
+			{@render links(pkg, 'In this Package', 'bg-fill-100 px-4 py-3')}
 		{/if}
 	</nav>
 </div>
