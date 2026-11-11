@@ -30,6 +30,12 @@ pre-commit:
             stage_fixed: true
             glob: 'packages/copy/**/*.{js,ts,svelte}'
 
+          - name: '@svelte-put/dragscroll'
+            root: packages/dragscroll
+            run: pnpm eslint --fix {staged_files}
+            stage_fixed: true
+            glob: 'packages/dragscroll/**/*.{js,ts,svelte}'
+
           - name: '@svelte-put/inline-svg'
             root: packages/inline-svg
             run: pnpm eslint --fix {staged_files}
