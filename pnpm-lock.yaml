@@ -407,6 +407,12 @@ importers:
       '@svelte-put/clickoutside':
         specifier: workspace:*
         version: link:../../packages/clickoutside
+      '@svelte-put/copy':
+        specifier: workspace:*
+        version: link:../../packages/copy
+      '@svelte-put/dragscroll':
+        specifier: workspace:*
+        version: link:../../packages/dragscroll
       '@svelte-put/inline-svg':
         specifier: workspace:*
         version: link:../../packages/inline-svg
@@ -416,6 +422,9 @@ importers:
       '@svelte-put/preprocess-external-link':
         specifier: workspace:*
         version: link:../../packages/preprocess-external-link
+      '@svelte-put/qr':
+        specifier: workspace:*
+        version: link:../../packages/qr
       '@svelte-put/toc':
         specifier: workspace:*
         version: link:../../packages/toc
