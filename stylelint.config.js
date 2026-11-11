@@ -32,6 +32,18 @@ export default {
 				],
 			},
 		},
+		{
+			files: ['internals/docpage/src/standalone/components/documentation/styles.css'],
+			rules: {
+				'at-rule-no-unknown': [
+					true,
+					{
+						ignoreAtRules: ['utility', 'source'],
+					},
+				],
+				'no-invalid-position-declaration': null,
+			},
+		},
 	],
 	ignoreFiles: ['**/app.html'],
 };

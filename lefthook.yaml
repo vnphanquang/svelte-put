@@ -24,6 +24,12 @@ pre-commit:
             stage_fixed: true
             glob: 'packages/clickoutside/**/*.{js,ts,svelte}'
 
+          - name: '@svelte-put/copy'
+            root: packages/copy
+            run: pnpm eslint --fix {staged_files}
+            stage_fixed: true
+            glob: 'packages/copy/**/*.{js,ts,svelte}'
+
           - name: '@svelte-put/inline-svg'
             root: packages/inline-svg
             run: pnpm eslint --fix {staged_files}

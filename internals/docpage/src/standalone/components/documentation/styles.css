@@ -9,3 +9,20 @@
 		--toc-active-color: var(--color-link);
 	}
 }
+
+@utility c-num {
+	@layer components {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+
+		width: 1.75em;
+		border-radius: var(--radius-full);
+
+		font-size: 0.75rem;
+		line-height: 1.75em;
+		color: var(--color-primary-stroke-50);
+
+		background-color: var(--color-primary-fill-50);
+	}
+}

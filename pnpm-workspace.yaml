@@ -20,6 +20,6 @@ minimumReleaseAgeExclude:
   - 'svelte'
   - 'vite'
   - 'prettier-plugin-embed'
-overrides:
-  '@vnphanquang/gach': link:../vnphanquang/packages/gach
-  '@vnphanquang/markdown': link:../vnphanquang/packages/markdown
+# overrides:
+#   '@vnphanquang/gach': link:../vnphanquang/packages/gach
+#   '@vnphanquang/markdown': link:../vnphanquang/packages/markdown
