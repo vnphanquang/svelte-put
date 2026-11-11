@@ -42,6 +42,12 @@ pre-commit:
             stage_fixed: true
             glob: 'packages/inline-svg/**/*.{js,ts,svelte}'
 
+          - name: '@svelte-put/intersect'
+            root: packages/intersect
+            run: pnpm eslint --fix {staged_files}
+            stage_fixed: true
+            glob: 'packages/intersect/**/*.{js,ts,svelte}'
+
           - name: '@svelte-put/movable'
             root: packages/movable
             run: pnpm eslint --fix {staged_files}

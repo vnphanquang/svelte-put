@@ -35,6 +35,7 @@
 		"@svelte-put/copy": "workspace:*",
 		"@svelte-put/dragscroll": "workspace:*",
 		"@svelte-put/inline-svg": "workspace:*",
+		"@svelte-put/intersect": "workspace:*",
 		"@svelte-put/movable": "workspace:*",
 		"@svelte-put/qr": "workspace:*",
 		"@svelte-put/preprocess-external-link": "workspace:*",
