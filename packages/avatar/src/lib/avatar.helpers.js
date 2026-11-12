@@ -1,6 +1,6 @@
-import md5 from 'md5';
-
 /** @import { GravatarOptions, UIAvatarOptions } from './types.public' */
+
+import { sha256 } from 'js-sha256';
 
 /**
  * Builds a {@link https://ui-avatars.com | UIAvatar } url
@@ -38,7 +38,7 @@ export function gravatar(input) {
 	} else {
 		({ email, ...options } = input);
 	}
-	const hash = md5(email.trim().toLowerCase());
+	const hash = sha256(email.trim().toLowerCase());
 
 	let output = `https://www.gravatar.com/avatar/${hash}?`;
 	for (const [parameter, value] of Object.entries(options)) {
