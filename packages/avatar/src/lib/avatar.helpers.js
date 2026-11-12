@@ -8,8 +8,8 @@ import { sha256 } from 'js-sha256';
  * @returns {string} the constructed UIAvatar URL
  */
 export function uiAvatar(input) {
-	// eslint-disable-next-line no-useless-assignment
-	let output = '';
+	/** @type {string} */
+	let output;
 	if (typeof input === 'string') {
 		output = `https://ui-avatars.com/api/?name=${input}`;
 	} else {
@@ -29,8 +29,8 @@ export function uiAvatar(input) {
  * @returns {string} the constructed Gravatar URL
  */
 export function gravatar(input) {
-	// eslint-disable-next-line no-useless-assignment
-	let email = '';
+	/** @type {string} */
+	let email;
 	/** @type {Omit<GravatarOptions, 'email'>} */
 	let options = {};
 	if (typeof input === 'string') {

@@ -469,13 +469,10 @@ export function normalizeDelta(delta) {
  */
 function extractUnit(text, axis = undefined) {
 	/** @type {SpacingUnit} */
-	/* eslint-disable-next-line no-useless-assignment */
-	let unit = 'px';
+	let unit;
 	if (text === '0') {
-		/* eslint-disable-next-line no-useless-assignment */
 		unit = 'px';
-	}
-	if (text.slice(-1) === '%') {
+	} else if (text.slice(-1) === '%') {
 		unit = '%';
 	} else if (text.slice(-2) === 'px') {
 		unit = 'px';
