@@ -31,6 +31,7 @@
 		"format": "prettier --write --ignore-path=../../.prettierignore --config=../../prettier.config.js ."
 	},
 	"devDependencies": {
+		"@svelte-put/avatar": "workspace:*",
 		"@svelte-put/clickoutside": "workspace:*",
 		"@svelte-put/copy": "workspace:*",
 		"@svelte-put/dragscroll": "workspace:*",

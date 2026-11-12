@@ -22,6 +22,17 @@ export default {
 	},
 	overrides: [
 		{
+			files: ['**/*.svelte'],
+			rules: {
+				'selector-pseudo-class-no-unknown': [
+					true,
+					{
+						ignorePseudoClasses: ['global'],
+					},
+				],
+			},
+		},
+		{
 			files: ['packages/**/*.css'],
 			rules: {
 				'at-rule-no-unknown': [

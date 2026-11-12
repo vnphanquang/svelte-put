@@ -48,6 +48,7 @@
 		--px: 1rem;
 
 		grid-template-columns: 1fr;
+		grid-template-rows: auto 1fr;
 
 		@media (--desktop) {
 			--pad-max-width: 90rem;
@@ -56,6 +57,7 @@
 
 			grid-template-areas: 'pages doc toc';
 			grid-template-columns: auto 1fr auto;
+			grid-template-rows: 1fr;
 		}
 
 		@media (--widescreen) {
