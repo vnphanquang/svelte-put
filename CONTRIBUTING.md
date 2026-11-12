@@ -73,6 +73,7 @@ remove them accordingly:
 - source code at `packages/<package-name>`,
 - dependency declaration at [sites/docs/package.json](./sites/docs/package.json),
 - dedicated eslint pre-commit hook at [lefthook.yaml](./lefthook.yaml),
+- `package` field in argument to \`createLoaders\` at \`packages/<package-name>/src/docs/index.ts\`
 - possibly dedicated config at [knip.config.js](./knip.config.js).
 
 ## Code standard
