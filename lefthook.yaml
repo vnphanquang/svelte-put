@@ -66,6 +66,12 @@ pre-commit:
             stage_fixed: true
             glob: 'packages/preprocess-external-link/**/*.{js,ts,svelte}'
 
+          - name: '@svelte-put/swipeable'
+            root: packages/swipeable
+            run: pnpm eslint --fix {staged_files}
+            stage_fixed: true
+            glob: 'packages/swipeable/**/*.{js,ts,svelte}'
+
           - name: '@svelte-put/toc'
             root: packages/toc
             run: pnpm eslint --fix {staged_files}

@@ -40,6 +40,7 @@
 		"@svelte-put/movable": "workspace:*",
 		"@svelte-put/qr": "workspace:*",
 		"@svelte-put/preprocess-external-link": "workspace:*",
+		"@svelte-put/swipeable": "workspace:*",
 		"@svelte-put/toc": "workspace:*",
 		"@sveltejs/adapter-cloudflare": "^8.0.1",
 		"@sveltejs/enhanced-img": "^1.0.0",
