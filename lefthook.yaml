@@ -90,6 +90,12 @@ pre-commit:
             stage_fixed: true
             glob: 'packages/qr/**/*.{js,ts,svelte}'
 
+          - name: '@svelte-put/shortcut'
+            root: packages/shortcut
+            run: pnpm eslint --fix {staged_files}
+            stage_fixed: true
+            glob: 'packages/shortcut/**/*.{js,ts,svelte}'
+
           - name: docs
             root: sites/docs
             run: pnpm eslint --fix {staged_files}
