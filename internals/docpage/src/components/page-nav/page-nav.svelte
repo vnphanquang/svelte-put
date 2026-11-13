@@ -36,7 +36,7 @@
 				{#if link.type === 'page'}
 					{@render pageLink(link)}
 				{:else}
-					<li class="border-y-stroke-200 page-group my-4 space-y-2 border-y py-4">
+					<li class="border-y-stroke-200 page-group space-y-2 border-y">
 						{#if link.title}
 							<p class="font-bold uppercase">{link.title}</p>
 						{/if}
@@ -57,12 +57,16 @@
 	<span id="pages-label">Pages</span>
 </button>
 <div popover id="pages">
-	<nav class="divide-y-2 divide-current" aria-labelledby="pages-label">
+	<nav aria-labelledby="pages-label">
 		{#if site}
 			{@render links(site)}
 		{/if}
 		{#if pkg}
-			{@render links(pkg, 'In this Package', 'bg-fill-100 px-4 py-3')}
+			{@render links(
+				pkg,
+				'In this Package',
+				'bg-fill-100 px-4 py-3 mbs-4 border-bs border-current',
+			)}
 		{/if}
 	</nav>
 </div>
@@ -152,6 +156,11 @@
 		}
 	}
 
+	.page-group {
+		margin-block: 1rem;
+		padding-block: 1rem;
+	}
+
 	.page-group + .page-group,
 	.page-group:first-child {
 		padding-block-start: 0;
@@ -159,6 +168,7 @@
 	}
 
 	.page-group:last-child {
+		margin-block-end: 0;
 		padding-block-end: 0;
 		border-block-end: 0;
 	}
