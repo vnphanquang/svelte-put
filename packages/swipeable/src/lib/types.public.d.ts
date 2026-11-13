@@ -91,7 +91,6 @@ export interface SwipeEndEventDetail extends SwipeStartEventDetail {
 	/** whether the swipe action passes the threshold, or is a flick */
 	passThreshold: boolean;
 }
-
 export interface SwipeableAttributes {
 	onswipestart?: (event: CustomEvent<SwipeStartEventDetail>) => void;
 	onswipeend?: (event: CustomEvent<SwipeEndEventDetail>) => void;
