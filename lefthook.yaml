@@ -96,6 +96,12 @@ pre-commit:
             stage_fixed: true
             glob: 'sites/docs/**/*.{js,ts,svelte}'
 
+          - name: docs
+            root: sites/docs
+            run: pnpm eslint --fix {staged_files}
+            stage_fixed: true
+            glob: 'sites/docs/**/*.{js,ts,svelte}'
+
           - name: catchall
             run: pnpm eslint --fix {staged_files}
             stage_fixed: true

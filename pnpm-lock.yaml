@@ -409,6 +409,12 @@ importers:
         specifier: '>=5.0.0'
         version: 5.57.2(@typescript-eslint/types@8.71.1)
 
+  packages/resize:
+    dependencies:
+      svelte:
+        specifier: '>=5.0.0'
+        version: 5.57.2(@typescript-eslint/types@8.71.1)
+
   packages/swipeable:
     dependencies:
       svelte:
@@ -469,6 +475,9 @@ importers:
       '@svelte-put/qr':
         specifier: workspace:*
         version: link:../../packages/qr
+      '@svelte-put/resize':
+        specifier: workspace:*
+        version: link:../../packages/resize
       '@svelte-put/swipeable':
         specifier: workspace:*
         version: link:../../packages/swipeable
