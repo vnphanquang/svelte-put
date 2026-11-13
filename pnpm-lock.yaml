@@ -373,6 +373,12 @@ importers:
         specifier: '>=5.0.0'
         version: 5.57.2(@typescript-eslint/types@8.71.1)
 
+  packages/lockscroll:
+    dependencies:
+      svelte:
+        specifier: '>=5.0.0'
+        version: 5.57.2(@typescript-eslint/types@8.71.1)
+
   packages/movable:
     dependencies:
       svelte:
@@ -451,6 +457,9 @@ importers:
       '@svelte-put/intersect':
         specifier: workspace:*
         version: link:../../packages/intersect
+      '@svelte-put/lockscroll':
+        specifier: workspace:*
+        version: link:../../packages/lockscroll
       '@svelte-put/movable':
         specifier: workspace:*
         version: link:../../packages/movable

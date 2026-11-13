@@ -54,6 +54,12 @@ pre-commit:
             stage_fixed: true
             glob: 'packages/intersect/**/*.{js,ts,svelte}'
 
+          - name: '@svelte-put/lockscroll'
+            root: packages/lockscroll
+            run: pnpm eslint --fix {staged_files}
+            stage_fixed: true
+            glob: 'packages/lockscroll/**/*.{js,ts,svelte}'
+
           - name: '@svelte-put/movable'
             root: packages/movable
             run: pnpm eslint --fix {staged_files}
