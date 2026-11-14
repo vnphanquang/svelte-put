@@ -33,6 +33,7 @@
 	"devDependencies": {
 		"@svelte-put/avatar": "workspace:*",
 		"@svelte-put/clickoutside": "workspace:*",
+		"@svelte-put/cloudflare-turnstile": "workspace:*",
 		"@svelte-put/copy": "workspace:*",
 		"@svelte-put/dragscroll": "workspace:*",
 		"@svelte-put/inline-svg": "workspace:*",

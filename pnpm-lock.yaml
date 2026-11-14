@@ -324,6 +324,12 @@ importers:
         specifier: '>=5.0.0'
         version: 5.57.2(@typescript-eslint/types@8.71.1)
 
+  packages/cloudflare-turnstile:
+    dependencies:
+      svelte:
+        specifier: '>=5.0.0'
+        version: 5.57.2(@typescript-eslint/types@8.71.1)
+
   packages/copy:
     dependencies:
       svelte:
@@ -457,6 +463,9 @@ importers:
       '@svelte-put/clickoutside':
         specifier: workspace:*
         version: link:../../packages/clickoutside
+      '@svelte-put/cloudflare-turnstile':
+        specifier: workspace:*
+        version: link:../../packages/cloudflare-turnstile
       '@svelte-put/copy':
         specifier: workspace:*
         version: link:../../packages/copy

@@ -55,6 +55,18 @@ export default {
 				'no-invalid-position-declaration': null,
 			},
 		},
+		{
+			files: ['packages/cloudflare-turnstile/src/lib/tailwind.css'],
+			rules: {
+				'nesting-selector-no-missing-scoping-root': null,
+				'at-rule-no-unknown': [
+					true,
+					{
+						ignoreAtRules: ['utility'],
+					},
+				],
+			},
+		},
 	],
 	ignoreFiles: ['**/app.html'],
 };
