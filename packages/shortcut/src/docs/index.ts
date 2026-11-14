@@ -10,7 +10,7 @@ const { loadDocPage, loadDocPageLinks, loadDocPageContent } = createLoaders(
 		import.meta.glob<PerDefinedDocPageMetadata>('./entries/**/doc.svelte', { import: 'metadata' }),
 		import.meta.glob<CompileTimeToc>('./entries/**/doc.svelte', { import: 'toc' }),
 	],
-	{ package: 'copy' },
+	{ package: 'shortcut' },
 );
 
 export { loadDocPage, loadDocPageContent, loadDocPageLinks };
