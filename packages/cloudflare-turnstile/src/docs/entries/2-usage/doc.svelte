@@ -120,12 +120,48 @@ The \`turnstile\` object has the following interface:
 
 ~~~
 
+## Form Integration
+
+When possible, set up [form
+integration](https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/widget-configurations/#form-integration)
+by turning on the \`response-field\` and \`response-field-name\`:
+
+~~~svelte
+<div
+	use:turnstile
+	turnstile-sitekey="1x00000000000000000000AA"
+	turnstile-response-field-name="turnstile"
+	turnstile-response-field
+></div>
+~~~
+
+When using SvelteKit's [form action] or the [form remote function] strategies, the turnstile token
+will then be available via the \`turnstile\` field (or whatever setafrom
+\`turnstile-response-field-name\`).
+
 ## Backend Validation
 
-Comming soon...
+An experimental helper is available for quick setup on the server side:
+
+~~~typescript #typehint #title="some-backend-service.ts"
+import { validate } from '@svelte-put/cloudflare-turnstile/server';
+
+validate({ token: 'got from client', secret: 'via some env' });
+~~~
+
+The above code often lives in a \`+page.server.ts\` if integrated [form action], or a \`*.remote.ts\`
+if integrated with the [form remote function].
+
+Additional configurations are possible in the input object; here is its interface for reference:
+
+~~~typescript src="fs:../../../lib/server/types.public.d.ts#L4-L29"
+
+~~~
 
 [SvelteKit]: https://kit.svelte.dev/
 [CustomEvent]: https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent
 [Cloudflare Turnstile]: https://developers.cloudflare.com/turnstile/
 [turnstile.client.configuration]: https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/widget-configurations/#complete-configuration-reference
+[form action]: https://svelte.dev/docs/kit/form-actions
+[form remote function]: https://svelte.dev/docs/kit/remote-functions#form
 `}
