@@ -1,7 +1,7 @@
 /* eslint-disable jsdoc/reject-any-type, svelte/prefer-svelte-reactivity */
 import { tick } from 'svelte';
 
-/** @import { Component } from 'svelte' */
+/** @import { Component, ComponentProps } from 'svelte' */
 /**
  * @import {
  *  StackItemInstanceConfig,
@@ -11,7 +11,8 @@ import { tick } from 'svelte';
 /**
  * @import {
  *  ComponentResolved,
- *  StackItemResolveListener
+ *  StackItemRender,
+ *  StackItemResolveListener,
  * } from './types.public';
  */
 
@@ -24,6 +25,8 @@ export class StackItem {
 	state = $state('idle');
 	/** @type {StackItemInstanceConfig<string, UserComponent>} */
 	config;
+	/** @type {StackItemRender<UserComponent>} */
+	render;
 
 	#internals = {
 		msToTimeout: 0,
@@ -45,6 +48,14 @@ export class StackItem {
 	constructor(config) {
 		this.config = config;
 		this.#internals.msToTimeout = config.timeout;
+		this.render = {
+			component: this.config.component,
+			props: () =>
+				/** @type {ComponentProps<UserComponent>} */ ({
+					...this.config.props,
+					item: this,
+				}),
+		};
 
 		this.resolution = new Promise((resolve) => {
 			this.#internals.resolve = resolve;

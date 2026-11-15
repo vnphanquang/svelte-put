@@ -22,3 +22,8 @@ export type StackItemResolveListener<Resolved> = (event: {
 	 */
 	cancel: () => void;
 }) => void | Promise<void> | PromiseLike<void>;
+
+export interface StackItemRender<UserComponent extends Component<any>> {
+	component: UserComponent;
+	props: () => ComponentProps<UserComponent>;
+}

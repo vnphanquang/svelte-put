@@ -16,6 +16,20 @@ export class StackItem<
 	 * by timing out or via the .resolve method
 	 */
 	resolution: Promise<Resolved | undefined>;
+	/**
+	 * necessary pieces to render the item into the markup
+	 *
+	 * ~~~svelte
+	 * <ul>
+	 *   {#each statck.items as item (item.config.id)}
+	 *     <li>
+	 *       <item.render.component {...item.render.props()} />
+	 *     </li>
+	 *   {/each}
+	 * </ul>
+	 * ~~~
+	 */
+	render: StackItemRender<UserComponent>;
 
 	constructor(config: StackItemInstanceConfig<string, UserComponent>);
 

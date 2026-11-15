@@ -35,6 +35,10 @@ export class Stack {
 		timeout: 0,
 	});
 
+	/**
+	 * @deprecated
+	 * Use \`StackItem.render\` instead. Refer to documentation for more information.
+	 */
 	actions = {
 		/**
 		 * @param {HTMLElement} node

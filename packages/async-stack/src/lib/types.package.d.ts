@@ -78,10 +78,18 @@ export type StackItemPopVerboseInput<UserComponent extends Component<any>> = {
 	resolved?: ComponentResolved<UserComponent>;
 };
 
+/**
+ * @deprecated
+ * use \`StackItem.render\` instead
+ */
 export interface StackItemRenderActionAttributes {
 	onstackitemmount?: (event: CustomEvent<{ item: StackItem<any> }>) => void;
 	onstackitemunmount?: (event: CustomEvent<{ item: StackItem<any> }>) => void;
 }
+/**
+ * @deprecated
+ * use \`StackItem.render\` instead
+ */
 export type StackItemRenderActionReturn = ActionReturn<
 	StackItem<any>,
 	StackItemRenderActionAttributes
