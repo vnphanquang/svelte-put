@@ -306,6 +306,15 @@ importers:
 
   internals/testing: {}
 
+  packages/async-stack:
+    dependencies:
+      defu:
+        specifier: ^6.1.7
+        version: 6.1.7
+      svelte:
+        specifier: '>=5.0.0'
+        version: 5.57.2(@typescript-eslint/types@8.71.1)
+
   packages/avatar:
     dependencies:
       '@types/md5':
@@ -457,6 +466,9 @@ importers:
 
   sites/docs:
     devDependencies:
+      '@svelte-put/async-stack':
+        specifier: workspace:*
+        version: link:../../packages/async-stack
       '@svelte-put/avatar':
         specifier: workspace:*
         version: link:../../packages/avatar
@@ -1952,6 +1964,9 @@ packages:
   define-properties@1.2.1:
     resolution: {integrity: sha512-8QmQKqEASLd5nx0U1B1okLElbUuuttJ/AnYmRXbbbGDWh6uS208EjD4Xqq/I9wK7u0v6O08XhTWnt5XtEbR6Dg==}
     engines: {node: '>= 0.4'}
+
+  defu@6.1.7:
+    resolution: {integrity: sha512-7z22QmUWiQ/2d0KkdYmANbRUVABpZ9SNYyH5vx6PZ+nE5bcC0l7uFvEfHlyld/HcGBFTL536ClDt3DEcSlEJAQ==}
 
   dequal@2.0.3:
     resolution: {integrity: sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==}
@@ -5024,6 +5039,8 @@ snapshots:
       define-data-property: 1.1.4
       has-property-descriptors: 1.0.2
       object-keys: 1.1.1
+
+  defu@6.1.7: {}
 
   dequal@2.0.3: {}
 
