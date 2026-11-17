@@ -12,7 +12,7 @@ import { Stack } from './stack.svelte.js';
 /**
  * @template {Record<string, Component<any>>} [VariantMap={}]
  */
-export class StackBuilder {
+class StackBuilder {
 	/** @type {Record<string, StackItemVariantConfig<string, Component<any>>>} */
 	#variantConfigMap = {};
 

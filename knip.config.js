@@ -4,7 +4,7 @@ export default defineConfig({
 	workspaces: {
 		'.': {
 			ignoreBinaries: ['lefthook'],
-			ignoreDependencies: ['@changesets/cli'],
+			ignoreDependencies: ['@changesets/cli', '@vnphanquang/gach', '@vnphanquang/markdown'],
 		},
 		'internals/docpage': {
 			svelte: true,
