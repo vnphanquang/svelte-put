@@ -26,8 +26,8 @@
 		"@sveltejs/kit": "^3.1.0",
 		"@sveltejs/load-config": "^0.2.3",
 		"@types/node": "24.19.0",
-		"@vitest/coverage-v8": "^5.0.5",
-		"@vitest/ui": "^5.0.5",
+		"@vitest/coverage-v8": "^5.1.0",
+		"@vitest/ui": "^5.1.0",
 		"@vnphanquang/eslint-config": "^5.0.1",
 		"@vnphanquang/gach": "^1.2.0",
 		"@vnphanquang/markdown": "^1.2.0",
@@ -49,8 +49,8 @@
 		"svelte": "^5.57.2",
 		"svelte-check": "^4.7.7",
 		"typescript": "^6.0.3",
-		"vite": "^8.3.5",
-		"vitest": "^5.0.5"
+		"vite": "^8.3.8",
+		"vitest": "^5.1.0"
 	},
 	"devEngines": {
 		"runtime": {
