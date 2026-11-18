@@ -11,6 +11,12 @@
 
 <script lang="ts">
 	let { slug, site, package: pkg, active = ({ id }) => id === slug }: PageNavProps = $props();
+
+	let popover: HTMLElement;
+
+	function handleClickLink() {
+		popover?.hidePopover();
+	}
 </script>
 
 {#snippet pageLink(page: LinkPage)}
@@ -19,6 +25,7 @@
 			class="c-link-lazy leading-double block w-full overflow-hidden text-ellipsis whitespace-nowrap"
 			href={page.href}
 			title={page.title}
+			onclick={handleClickLink}
 			{...active(page) && { 'aria-current': true }}
 		>
 			{page.title}
@@ -56,7 +63,7 @@
 	<i class="i i-[ph--list] h-5 w-5"></i>
 	<span id="pages-label">Pages</span>
 </button>
-<div popover id="pages">
+<div popover id="pages" bind:this={popover}>
 	<nav aria-labelledby="pages-label">
 		{#if site}
 			{@render links(site)}
