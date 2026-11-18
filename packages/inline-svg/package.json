@@ -79,7 +79,7 @@
 	"devDependencies": {
 		"@types/lodash.debounce": "^4.0.9",
 		"@types/svg-parser": "^2.0.6",
-		"svelte": "^5.57.2"
+		"svelte": "^5.57.3"
 	},
 	"dependencies": {
 		"hast-util-to-html": "^9.0.5",
