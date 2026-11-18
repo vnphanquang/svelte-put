@@ -1,7 +1,7 @@
 {
 	"name": "@svelte-put/swipeable",
 	"version": "1.2.0",
-	"description": "utilities for setting up swipe gestures in Svelte land",
+	"description": "set up swipe gestures",
 	"main": "src/lib/index.js",
 	"module": "src/lib/index.js",
 	"types": "types/index.d.ts",

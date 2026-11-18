@@ -1,7 +1,7 @@
 {
 	"name": "@svelte-put/avatar",
 	"version": "4.0.0",
-	"description": "utilities for copying text to clipboard in Svelte land",
+	"description": "build user profile images aka avatars",
 	"main": "src/lib/index.js",
 	"module": "src/lib/index.js",
 	"types": "types/index.d.ts",

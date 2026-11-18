@@ -1,7 +1,7 @@
 {
 	"name": "@svelte-put/cloudflare-turnstile",
 	"version": "1.2.0",
-	"description": "utilities for setting up Cloudflare turnstile in Svelte land",
+	"description": "set up Cloudflare Turnstile",
 	"main": "src/lib/index.js",
 	"module": "src/lib/index.js",
 	"types": "types/index.d.ts",

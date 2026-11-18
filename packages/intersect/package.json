@@ -1,7 +1,7 @@
 {
 	"name": "@svelte-put/intersect",
 	"version": "4.0.0",
-	"description": "wrapper for IntersectionObserver in Svelte land",
+	"description": "set up IntersectionObserver for an element",
 	"main": "src/lib/index.js",
 	"module": "src/lib/index.js",
 	"types": "types/index.d.ts",

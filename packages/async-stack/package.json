@@ -1,7 +1,7 @@
 {
 	"name": "@svelte-put/async-stack",
 	"version": "1.5.3",
-	"description": "type-safe and headless builder for async component stack & portaling in Svelte land",
+	"description": "build type-safe and async component stack",
 	"main": "src/lib/index.js",
 	"module": "src/lib/index.js",
 	"types": "types/index.d.ts",

@@ -27,6 +27,7 @@
 		--px: 1rem;
 
 		grid-template-columns: 1fr;
+		grid-template-rows: auto 1fr;
 
 		@media (--desktop) {
 			--pad-max-width: 90rem;

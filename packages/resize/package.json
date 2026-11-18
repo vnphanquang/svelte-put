@@ -1,7 +1,7 @@
 {
 	"name": "@svelte-put/resize",
 	"version": "4.0.0",
-	"description": "wrapper for ResizeObserver in Svelte land",
+	"description": "set up ResizeObserver for an element",
 	"main": "src/lib/index.js",
 	"module": "src/lib/index.js",
 	"types": "types/index.d.ts",

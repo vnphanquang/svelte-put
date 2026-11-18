@@ -1,7 +1,7 @@
 {
 	"name": "@svelte-put/shortcut",
 	"version": "4.2.0",
-	"description": "utilities for managing keyboard shortcuts in Svelte land",
+	"description": "manage keyboard shortcuts",
 	"main": "src/lib/index.js",
 	"module": "src/lib/index.js",
 	"types": "types/index.d.ts",

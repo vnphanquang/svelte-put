@@ -1,7 +1,7 @@
 {
 	"name": "@svelte-put/dragscroll",
 	"version": "4.0.0",
-	"description": "utilities for setting up drag-to-scroll pointer behavior in Svelte land",
+	"description": "set up drag-to-scroll pointer behavior",
 	"main": "src/lib/index.js",
 	"module": "src/lib/index.js",
 	"types": "types/index.d.ts",
