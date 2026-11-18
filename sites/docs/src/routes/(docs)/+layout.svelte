@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { PageNav, TableOfContents } from '@internals/docpage/components';
 	import { Toc } from '@svelte-put/toc';
+	import { ColorSchemeSwitch } from '@vnphanquang/gach/components';
+
+	import { packages } from '#data/loader';
 
 	import type { LayoutProps } from './$types';
 
@@ -11,9 +14,43 @@
 	let toc = $derived(new Toc({ ...doc.nav.toc }));
 </script>
 
-<div class="page max-w-pad grid flex-1" {...toc.enhance.scope()}>
+<header class="z-header h-header bg-fill-100 fixed inset-x-0 inset-bs-0 border-be border-current">
+	<nav class="max-w-pad flex h-full items-center gap-2">
+		<a class="me-4 flex items-center gap-2" href="/">
+			<img src="/favicon.svg" width="32" height="32" alt="" />
+			<span class="font-fingerpaint text-gradient-brand text-sm font-bold">svelte-put</span>
+		</a>
+
+		<a class="c-link-lazy p-2" href="/overview"> Overview </a>
+
+		<div>
+			<button class="c-dropdown" popovertarget="packages">
+				Packages
+				<i class="i i-[ph--caret-down]"></i>
+			</button>
+			<aside id="packages" popover>
+				<ul>
+					{#each packages as pkg (pkg)}
+						<li>
+							<a href="/packages/{pkg}">{pkg}</a>
+						</li>
+					{/each}
+				</ul>
+			</aside>
+		</div>
+
+		<ColorSchemeSwitch class="ms-auto" />
+
+		<a class="c-link-icon p-2" href="https://github.com/vnphanquang/svelte-put">
+			<i class="i i-[simple-icons--github] h-6 w-6"></i>
+			<span class="sr-only">Github</span>
+		</a>
+	</nav>
+</header>
+
+<div class="page max-w-pad pbs-header grid flex-1" {...toc.enhance.scope()}>
 	<div class="nav">
-		<PageNav {slug} active={({ id }) => slug === id || id === `package.${params.pkg}`} {...links} />
+		<PageNav {slug} {links} title={params.pkg} />
 		<TableOfContents {toc} />
 	</div>
 	{@render children()}

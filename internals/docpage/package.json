@@ -21,7 +21,8 @@
 		"./eslint": {
 			"types": "./src/eslint/index.d.ts",
 			"import": "./src/eslint/index.js"
-		}
+		},
+		"./styles.css": "./src/styles.css"
 	},
 	"devDependencies": {
 		"@svelte-put/preprocess-external-link": "workspace:*",

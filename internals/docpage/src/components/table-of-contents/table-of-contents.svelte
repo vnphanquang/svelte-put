@@ -113,7 +113,7 @@
 
 		@media (--desktop) {
 			position: sticky;
-			inset-block-start: 0;
+			inset-block-start: var(--header-height, 0);
 
 			width: var(--width);
 			height: fit-content;

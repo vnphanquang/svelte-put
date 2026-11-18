@@ -3,14 +3,14 @@
 
 	export interface PageNavProps {
 		slug: string;
-		site?: PageLinks;
-		package?: PageLinks;
+		links: PageLinks;
+		title?: string;
 		active?: (page: LinkPage) => boolean;
 	}
 </script>
 
 <script lang="ts">
-	let { slug, site, package: pkg, active = ({ id }) => id === slug }: PageNavProps = $props();
+	let { slug, links: pageLinks, title, active = ({ id }) => id === slug }: PageNavProps = $props();
 
 	let popover: HTMLElement;
 
@@ -33,13 +33,17 @@
 	</li>
 {/snippet}
 
-{#snippet links(links: PageLinks, title?: string, cls?: string)}
-	<section class={['space-y-4', cls]}>
+<button class="c-btn c-btn--icon text-sm" popovertarget="pages">
+	<i class="i i-[ph--list] h-5 w-5"></i>
+	<span id="pages-label">Pages</span>
+</button>
+<div popover id="pages" bind:this={popover}>
+	<nav class="space-y-4" aria-labelledby="pages-label">
 		{#if title}
 			<p class="text-lg font-bold">{title}</p>
 		{/if}
 		<ol>
-			{#each links as link, i (link.type + i)}
+			{#each pageLinks as link, i (link.type + i)}
 				{#if link.type === 'page'}
 					{@render pageLink(link)}
 				{:else}
@@ -56,25 +60,6 @@
 				{/if}
 			{/each}
 		</ol>
-	</section>
-{/snippet}
-
-<button class="c-btn c-btn--icon text-sm" popovertarget="pages">
-	<i class="i i-[ph--list] h-5 w-5"></i>
-	<span id="pages-label">Pages</span>
-</button>
-<div popover id="pages" bind:this={popover}>
-	<nav aria-labelledby="pages-label">
-		{#if site}
-			{@render links(site)}
-		{/if}
-		{#if pkg}
-			{@render links(
-				pkg,
-				'In this Package',
-				'bg-fill-100 px-4 py-3 mbs-4 border-bs border-current',
-			)}
-		{/if}
 	</nav>
 </div>
 
@@ -150,7 +135,7 @@
 
 		@media (--desktop) {
 			position: sticky;
-			inset-block-start: 0;
+			inset-block-start: var(--header-height, 0);
 
 			height: fit-content;
 			max-height: 100dvh;

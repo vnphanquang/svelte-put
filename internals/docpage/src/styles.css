@@ -1,0 +1,105 @@
+@import '@vnphanquang/gach/styles';
+@import '@svelte-put/toc/styles.css' layer(markdown);
+
+@utility c-num {
+	@layer components {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+
+		width: 1.75em;
+		border-radius: var(--radius-full);
+
+		font-size: 0.75rem;
+		line-height: 1.75em;
+		color: var(--color-primary-stroke-50);
+
+		background-color: var(--color-primary-fill-50);
+	}
+}
+
+@utility text-gradient-brand {
+	width: 100%;
+	color: transparent;
+	background-image: linear-gradient(to right, var(--color-svelte), #42b883);
+	background-clip: text;
+}
+
+@utility c-dropdown {
+	cursor: pointer;
+
+	anchor-name: --dropdown;
+
+	display: flex;
+	gap: 0.25rem;
+	align-items: center;
+
+	padding: 0.5rem;
+
+	line-height: 1;
+
+	transition-timing-function: ease-in;
+	transition-duration: 200ms;
+	transition-property: color;
+
+	&:hover {
+		color: var(--color-link);
+		transition-timing-function: ease-out;
+		transition-duration: 120ms;
+	}
+
+	& > i {
+		transition: rotate 200ms ease-in;
+	}
+
+	&:has(+ [popover]:popover-open) > i {
+		rotate: 180deg;
+		transition-timing-function: ease-out;
+		transition-duration: 120ms;
+	}
+
+	& + [popover] {
+		inset-block-start: anchor(--dropdown end);
+		inset-inline-start: anchor(--dropdown start);
+
+		overflow: auto;
+
+		max-height: 80dvh;
+		margin: 0;
+		padding-block: 0.5rem;
+		border: 1px solid currentcolor;
+
+		background-color: var(--color-fill-50);
+
+		& li > :is(a, button) {
+			cursor: pointer;
+
+			display: block;
+
+			width: 100%;
+			padding: 0.5rem 1rem;
+
+			transition-timing-function: ease-in;
+			transition-duration: 200ms;
+			transition-property: color, background-color;
+
+			&:hover {
+				color: var(--color-primary);
+				background-color: var(--color-fill-100);
+				transition-timing-function: ease-out;
+				transition-duration: 120ms;
+			}
+
+			&:active {
+				background-color: var(--color-fill-200);
+				transition-duration: 0ms;
+			}
+		}
+	}
+}
+
+@layer makdown {
+	[data-toc-scope] {
+		--toc-active-color: var(--color-link);
+	}
+}

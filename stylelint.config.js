@@ -49,10 +49,22 @@ export default {
 				'at-rule-no-unknown': [
 					true,
 					{
+						ignoreAtRules: ['source'],
+					},
+				],
+			},
+		},
+		{
+			files: ['internals/docpage/src/styles.css'],
+			rules: {
+				'at-rule-no-unknown': [
+					true,
+					{
 						ignoreAtRules: ['utility', 'source'],
 					},
 				],
 				'no-invalid-position-declaration': null,
+				'nesting-selector-no-missing-scoping-root': null,
 			},
 		},
 		{

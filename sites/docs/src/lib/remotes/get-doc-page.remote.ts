@@ -18,9 +18,7 @@ export const getDocPage = query(GetDocPageSchema, async ({ slug, pkg }) => {
 		}
 		return {
 			doc,
-			links: {
-				site: [...siteLinks, packageLinkGroup],
-			},
+			links: [...siteLinks, packageLinkGroup],
 		};
 	}
 
@@ -29,10 +27,9 @@ export const getDocPage = query(GetDocPageSchema, async ({ slug, pkg }) => {
 		error(404, `No package named ${pkg}`);
 	}
 	const root = `/packages/${pkg}/`;
-	const [doc, packageLinks, siteLinks] = await Promise.all([
+	const [doc, packageLinks] = await Promise.all([
 		loaders.loadDocPage({ slug, root }),
 		loaders.loadDocPageLinks({ root }),
-		loadDocPageLinks(),
 	]);
 
 	if (!doc) {
@@ -41,9 +38,6 @@ export const getDocPage = query(GetDocPageSchema, async ({ slug, pkg }) => {
 
 	return {
 		doc,
-		links: {
-			site: [...siteLinks, packageLinkGroup],
-			package: packageLinks,
-		},
+		links: packageLinks,
 	};
 });

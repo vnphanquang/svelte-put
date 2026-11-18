@@ -27,9 +27,9 @@ their corresponding documentation for more information.
 <table>
 	<thead>
 		<tr>
-			<th scope="col">Package</th>
-			<th scope="col">Version</th>
-			<th scope="col">Description</th>
+			<th class="text-start" scope="col">Package</th>
+			<th class="text-start" scope="col">Version</th>
+			<th class="text-start" scope="col">Description</th>
 		</tr>
 	</thead>
 	<tbody>

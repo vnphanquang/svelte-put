@@ -32,7 +32,7 @@
 
 <div class="page max-w-pad grid flex-1" {...toc.enhance.scope()}>
 	<div class="nav">
-		<PageNav {slug} package={await loaders.loadDocPageLinks()} />
+		<PageNav {slug} links={await loaders.loadDocPageLinks()} />
 		<TableOfContents {toc} />
 	</div>
 	<DocContent {doc}>
