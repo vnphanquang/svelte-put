@@ -6,12 +6,15 @@ import adapter from '@sveltejs/adapter-auto';
 import { enhancedImages } from '@sveltejs/enhanced-img';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { gach } from '@vnphanquang/gach/vite';
+import { myBad } from 'my-bad/vite';
 import { defineConfig } from 'vite';
 import { qrcode } from 'vite-plugin-qrcode';
 
 export default defineConfig({
+	devtools: true,
 	server: { port: 4545 },
 	plugins: [
+		myBad(),
 		qrcode(),
 		gach({ markdown: true }),
 		enhancedImages(),

@@ -6,6 +6,7 @@ import adapter from '@sveltejs/adapter-cloudflare';
 import { enhancedImages } from '@sveltejs/enhanced-img';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { gach } from '@vnphanquang/gach/vite';
+import { myBad } from 'my-bad/vite';
 import { defineConfig } from 'vite';
 import { qrcode } from 'vite-plugin-qrcode';
 
@@ -14,8 +15,10 @@ import pkg from './package.json' with { type: 'json' };
 const commitHash = child_process.execSync('git rev-parse --short HEAD').toString().trim();
 
 export default defineConfig({
+	devtools: true,
 	server: { port: 4545 },
 	plugins: [
+		myBad(),
 		qrcode(),
 		gach({ markdown: true }),
 		enhancedImages(),
