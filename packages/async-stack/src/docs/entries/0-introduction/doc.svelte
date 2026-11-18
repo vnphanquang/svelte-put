@@ -10,12 +10,29 @@
 {markdown`
 \`@svelte-put/async-stack\` is no more than a
 [stack](<https://en.wikipedia.org/wiki/Stack_(abstract_data_type)>) structure that sits between your
-component library and application, providing type-safe push&pop mechanism to mount/unmount
-components from anywhere to a centralized DOM parent element.
+component library and application, providing type-safe mechanism to render components from anywhere
+to a centralised DOM parent element.
 
-~~~svelte src="fs:./includes/examples/intro.svelte"
+![The minimal role of async-stack: managing just the async operations of forwarding
+components to where they should render.](./includes/images/intro.png)
 
+The original use case for this package was to facillitate a centralised strategy for in-app push
+notification and dialogs / modals, specifically one that requires an async workflow:
+
+~~~typescript
+function do_business() {
+	// do some stuff ...
+
+	const pushed = noti.push('info');
+	const { confirmed } = await pushed.resolution;
+	if (confirmed) {
+		// then do more stuff
+	}
+}
 ~~~
+
+> [!INFO]
+> Throughout this documentation, examples will be in the form of rendering notifications.
 
 Read on for more examples and guidelines.
 

@@ -7,7 +7,7 @@ export const configs = /** @satisfies {import('eslint/config').ConfigObject[]} *
 			'import-x/no-duplicates': 'off',
 		},
 	},
-	globalIgnores(['**/examples/*.{svelte,js,ts}']),
+	globalIgnores(['**/examples/**/*.{svelte,js,ts}']),
 	{
 		files: ['**/docs/**/doc.svelte'],
 		rules: {
