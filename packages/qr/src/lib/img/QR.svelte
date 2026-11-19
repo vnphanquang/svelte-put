@@ -43,15 +43,20 @@
 		/** @type {string | undefined}*/
 		let logoData = undefined;
 		if (logo?.startsWith('http')) {
-			logoData = await toDataURL(logo);
-			onqrlogofetch?.(logo);
+			try {
+				logoData = await toDataURL(logo);
+				onqrlogofetch?.(logo);
+			} catch {
+				// fetch may be blocked (CORS/CSP); pass the original URL through
+				// so createQrPngDataUrl can try a CORS-enabled image load instead
+			}
 		}
 		return await createQrPngDataUrl({
 			...config,
 			backgroundFill,
 			width: parseInt(rest.width),
 			height: parseInt(rest.height),
-			logo: logoData,
+			logo: logoData ?? logo,
 		});
 	});
 

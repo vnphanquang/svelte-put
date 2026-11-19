@@ -29,7 +29,10 @@ export function qr(node, param) {
 	async function init() {
 		let logo = param.logo;
 		if (logo?.startsWith('http')) {
-			logo = await toDataURL(logo);
+			// fetching may be blocked (CORS/CSP); fall back to the original URL,
+			// which createQrPngDataUrl can still try via a CORS-enabled image load
+			const fetched = await toDataURL(logo).catch(() => undefined);
+			logo = fetched ?? logo;
 		}
 
 		/** @type {import('./types.public').ImgQRParameter} */

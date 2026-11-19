@@ -71,6 +71,26 @@ export function calculateLogoSize(logoSize, logoRatio) {
 }
 
 /**
+ * compute the logo rectangle in SVG viewBox units. Shared by the SVG renderer
+ * and the PNG renderer so both place the logo at exactly the same spot.
+ * @package
+ * @param {number} count
+ * @param {number} size
+ * @param {number} logoRatio
+ * @returns {import('./types.private').SizeAttributes & { x: number, y: number }}
+ */
+export function calculateLogoPlacement(count, size, logoRatio) {
+	const safelyRemovableSize = Math.floor(count * Math.sqrt(0.1));
+	const { width, height } = calculateLogoSize(safelyRemovableSize * 0.8, logoRatio);
+	return {
+		width,
+		height,
+		x: (size - width + 1) / 2,
+		y: (size - height + 1) / 2,
+	};
+}
+
+/**
  * @package
  * @param {number} col
  * @param {number} row

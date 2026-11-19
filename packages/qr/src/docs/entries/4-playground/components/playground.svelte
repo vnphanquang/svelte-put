@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { onMount, tick } from 'svelte';
+	import { tick } from 'svelte';
 
+	import { browser } from '$app/env';
 	import type { QRConfig } from '@svelte-put/qr';
 	import { createQrPngDataUrl, createQrSvgDataUrl } from '@svelte-put/qr';
 	import QR from '@svelte-put/qr/svg/QR.svelte';
@@ -30,6 +31,7 @@
 	let moduleFill: QRConfig['moduleFill'] = $state(DEFAULT_CONFIG.moduleFill);
 	let anchorInnerFill: QRConfig['anchorInnerFill'] = $state(DEFAULT_CONFIG.moduleFill);
 	let anchorOuterFill: QRConfig['anchorOuterFill'] = $state(DEFAULT_CONFIG.anchorOuterFill);
+	let backgroundFill: string = $state('#fff');
 
 	let useDefaultModuleFill = $state(true);
 	let useDefaultAnchorInnerFill = $state(true);
@@ -151,11 +153,10 @@
 		onchange?.(config);
 	}
 
-	let png = $derived('');
+	let png: Promise<string> | null = $derived(
+		browser ? createQrPngDataUrl({ ...config, width: 500, height: 500, backgroundFill }) : null,
+	);
 	let svg = $derived(createQrSvgDataUrl(config));
-	onMount(async () => {
-		png = await createQrPngDataUrl({ ...config, width: 500, height: 500 });
-	});
 </script>
 
 <form class="not-md gap-4 space-y-4" onchange={handleChange}>
@@ -205,13 +206,17 @@
 					{correction}
 				/>
 				<div class="flex justify-end gap-2 text-sm">
+					{#if png}
+						{#await png then href}
+							<a class="c-btn c-btn--outlined px-2 py-1" {href} download="qr.png">
+								<i class="i i-[ph--download]"></i>
+								PNG
+							</a>
+						{/await}
+					{/if}
 					<a class="c-btn c-btn--outlined px-2 py-1" href={svg} download="qr.svg">
 						<i class="i i-[ph--download]"></i>
 						SVG
-					</a>
-					<a class="c-btn c-btn--outlined px-2 py-1" href={png} download="qr.png">
-						<i class="i i-[ph--download]"></i>
-						PNG
 					</a>
 				</div>
 				{#snippet failed(e)}
@@ -353,6 +358,17 @@
 					id="anchor-outer-fill"
 					bind:value={anchorOuterFill}
 					disabled={useDefaultAnchorOuterFill}
+				/>
+			</div>
+
+			<div class="space-y-2">
+				<label for="anchor-inner-fill">Background Fill (only visible in downloaded PNG): </label>
+				<input
+					class="c-color-input w-full"
+					type="color"
+					name="background-fillr-fill"
+					id="background-fillr-fill"
+					bind:value={backgroundFill}
 				/>
 			</div>
 		</div>

@@ -3,7 +3,7 @@ import { qr as createQr } from 'headless-qr';
 import {
 	ANCHOR_SIZE,
 	DEFAULT_PNG_FILLS,
-	calculateLogoSize,
+	calculateLogoPlacement,
 	isAnchor,
 	isLogo,
 	resolveConfig,
@@ -13,9 +13,10 @@ import {
  * create SVG parts that make up a QR. You should typically use {@link createQrSvgString} instead
  * @param {import('./types.public').QRConfig} config
  * @param {import('./types.public').QRCode} [qr]
+ * @param {{ includeLogoImage?: boolean }} [options] - set `includeLogoImage` to false to keep the logo's cutout while omitting the `<image>` element (used internally when drawing the logo directly onto a canvas)
  * @returns {import('./types.public').QRSVGParts}
  */
-export function createQrSvgParts(config, qr) {
+export function createQrSvgParts(config, qr, options = {}) {
 	const {
 		data,
 		margin,
@@ -79,11 +80,8 @@ export function createQrSvgParts(config, qr) {
 
 	/** ---- LOGO ---- */
 	let logoSvg = '';
-	if (logo) {
-		const safelyRemovableSize = Math.floor(count * Math.sqrt(0.1));
-		const { width, height } = calculateLogoSize(safelyRemovableSize * 0.8, logoRatio);
-		const x = (size - width + 1) / 2;
-		const y = (size - height + 1) / 2;
+	if (logo && options.includeLogoImage !== false) {
+		const { width, height, x, y } = calculateLogoPlacement(count, size, logoRatio);
 		logoSvg = `<image width="${width}" height="${height}" x="${x}" y="${y}" href="${logo}" class="logo" />`;
 	}
 
@@ -100,19 +98,28 @@ export function createQrSvgParts(config, qr) {
 }
 
 /**
+ * @param {import('./types.public').QRSVGParts} parts
+ * @param {Partial<import('./types.private').SizeAttributes>} [sizeAttributes]
+ * @returns {string}
+ */
+function stringifyQrSvg(parts, sizeAttributes = {}) {
+	const { anchors, attributes, logo, modules } = parts;
+	/** @type {typeof attributes & Partial<import('./types.private').SizeAttributes>} */
+	const rAttributes = { ...attributes };
+	if (sizeAttributes.width) rAttributes.width = sizeAttributes.width;
+	if (sizeAttributes.height) rAttributes.height = sizeAttributes.height;
+	return `<svg ${Object.entries(rAttributes)
+		.map(([name, value]) => `${name}="${value}"`)
+		.join(' ')}>${anchors} ${modules} ${logo}</svg>`;
+}
+
+/**
  * create QR as an SVG string
  * @param {import('./types.public').QRConfig & Partial<import('./types.private').SizeAttributes>} config
  * @returns {string}
  */
 export function createQrSvgString(config) {
-	const { anchors, attributes, logo, modules } = createQrSvgParts(config);
-	/** @type {typeof attributes & Partial<import('./types.private').SizeAttributes>} */
-	const rAttributes = { ...attributes };
-	if (config.width) rAttributes.width = config.width;
-	if (config.height) rAttributes.height = config.height;
-	return `<svg ${Object.entries(rAttributes)
-		.map(([name, value]) => `${name}="${value}"`)
-		.join(' ')}>${anchors} ${modules} ${logo}</svg>`;
+	return stringifyQrSvg(createQrSvgParts(config), config);
 }
 
 /**
@@ -126,6 +133,38 @@ export function createQrSvgDataUrl(config) {
 	const b64start = `data:image/svg+xml;base64,`;
 	const image64 = b64start + svg64;
 	return image64;
+}
+
+/**
+ * @param {string} src
+ * @param {boolean} [crossOrigin] - request CORS mode so the canvas stays untainted
+ * @returns {Promise<HTMLImageElement>}
+ */
+function loadImage(src, crossOrigin = false) {
+	return new Promise((resolve, reject) => {
+		const img = new Image();
+		if (crossOrigin) img.crossOrigin = 'anonymous';
+		img.addEventListener('load', () => resolve(img), { once: true });
+		img.addEventListener('error', () => reject(new Error(`Failed to load image: ${src}`)), {
+			once: true,
+		});
+		img.src = src;
+	});
+}
+
+/**
+ * Cross-origin images loaded without CORS taint the canvas, which makes
+ * `toDataURL()` throw. Data/blob URLs and same-origin URLs need no special handling.
+ * @param {string} src
+ * @returns {boolean}
+ */
+function isCrossOrigin(src) {
+	if (src.startsWith('data:') || src.startsWith('blob:')) return false;
+	try {
+		return new URL(src, document.baseURI).origin !== document.location.origin;
+	} catch {
+		return false;
+	}
 }
 
 /**
@@ -147,7 +186,15 @@ export async function createQrPngDataUrl(config) {
 		width,
 		height,
 	};
-	const base64 = createQrSvgDataUrl(rConfig);
+
+	const resolvedConfig = resolveConfig(rConfig);
+	// create the QR once and reuse it for both the SVG and the logo placement
+	const qr = createQr(resolvedConfig.data, {
+		version: resolvedConfig.version,
+		correction: resolvedConfig.correction,
+	});
+	const parts = createQrSvgParts(rConfig, qr, { includeLogoImage: false });
+	const svgDataUrl = `data:image/svg+xml;base64,${btoa(stringifyQrSvg(parts, rConfig))}`;
 
 	const canvas = document.createElement('canvas');
 	canvas.width = width;
@@ -156,29 +203,48 @@ export async function createQrPngDataUrl(config) {
 	if (!ctx) {
 		throw new Error('Cannot get 2d context from canvas');
 	}
-	/** @type {(value: string) => void} */
-	let _resolve;
-	/** @type {Promise<string>} */
-	const promise = new Promise((resolve) => {
-		_resolve = resolve;
-	});
 
-	const img = new Image(width, height);
-	img.addEventListener('load', () => {
-		// background
-		if (rConfig.backgroundFill) ctx.fillStyle = rConfig.backgroundFill;
-		ctx.fillRect(0, 0, canvas.width, canvas.height);
+	// start both loads before drawing; nothing is rasterized until every image
+	// it depends on is ready. A cross-origin logo that refuses CORS is skipped,
+	// so the QR is still exported instead of failing with a tainted canvas.
+	const [qrImage, logoImage] = await Promise.all([
+		loadImage(svgDataUrl),
+		rConfig.logo
+			? loadImage(rConfig.logo, isCrossOrigin(rConfig.logo)).catch(() => undefined)
+			: Promise.resolve(undefined),
+	]);
 
-		// draw QR
-		ctx.drawImage(img, 0, 0);
+	// background
+	if (rConfig.backgroundFill) ctx.fillStyle = rConfig.backgroundFill;
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-		const pngDataUrl = canvas.toDataURL('image/png');
-		img.remove();
-		_resolve(pngDataUrl);
-	});
-	img.src = base64;
+	// draw QR (the logo area is left empty by createQrSvgParts)
+	ctx.drawImage(qrImage, 0, 0, width, height);
 
-	return promise;
+	// draw the logo last, at the same position/size used by the SVG renderer
+	if (logoImage) {
+		const count = qr.length;
+		const size = count + resolvedConfig.margin * 2;
+		const {
+			x,
+			y,
+			width: logoWidth,
+			height: logoHeight,
+		} = calculateLogoPlacement(count, size, resolvedConfig.logoRatio);
+		// mirror the SVG's default `preserveAspectRatio="xMidYMid meet"` transform
+		const scale = Math.min(width, height) / size;
+		const offsetX = (width - size * scale) / 2;
+		const offsetY = (height - size * scale) / 2;
+		ctx.drawImage(
+			logoImage,
+			offsetX + x * scale,
+			offsetY + y * scale,
+			logoWidth * scale,
+			logoHeight * scale,
+		);
+	}
+
+	return canvas.toDataURL('image/png');
 }
 
 export * from './types.public.js';
