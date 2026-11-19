@@ -1,12 +1,12 @@
-<div align="center">
-
 # `@svelte-put/copy`
 
-[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia] [![docs.badge]][docs]
+[![Read documentation][docs.badge]][docs]
+[![Open on npmx.dev][npmx.version]][npmx]
+[![Open on npmx.dev][npmx.vulnerabilities]][npmx]
+[![Open on npmx.dev][npmx.size]][npmx]
+[![See license][npmx.license]][license]
 
 Utilities for copying text to clipboard in Svelte land
-
-</div>
 
 ## `svelte-put`
 
@@ -36,13 +36,15 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
 [github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/copy/CHANGELOG.md
-[github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
+[license]: https://github.com/vnphanquang/svelte-put/blob/main/LICENSE
 
-<!-- heading badge -->
+<!-- others -->
 
-[npm.badge]: https://img.shields.io/npm/v/@svelte-put/copy
-[npm]: https://www.npmjs.com/package/@svelte-put/copy
-[bundlephobia.badge]: https://img.shields.io/bundlephobia/minzip/@svelte-put/copy?label=minzipped
-[bundlephobia]: https://bundlephobia.com/package/@svelte-put/copy
+[npmx]: https://npmx.dev/package/@svelte-put/copy
+[npmx.version]: https://npmx.dev/api/registry/badge/version/@svelte-put/copy
+[npmx.vulnerabilities]: https://npmx.dev/api/registry/badge/vulnerabilities/@svelte-put/copy
+[npmx.bundlephobia]: https://npmx.dev/api/registry/badge/size/@svelte-put/copy
+[npmx.license]: https://npmx.dev/api/registry/badge/license/@svelte-put/copy
+[npmx.size]: https://npmx.dev/api/registry/badge/size/@svelte-put/copy
 [docs]: https://svelte-put.vnphanquang.com/packages/copy
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue

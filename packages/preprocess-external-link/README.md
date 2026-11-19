@@ -1,9 +1,9 @@
-# `@svelte-put/external-link`
+# `@svelte-put/preprocess-external-link`
 
 [![Read documentation][docs.badge]][docs]
 [![Open on npmx.dev][npmx.version]][npmx]
 [![Open on npmx.dev][npmx.vulnerabilities]][npmx]
-[![See on bundlephobia][npmx.bundlephobia]][bundlephobia]
+[![Open on npmx.dev][npmx.size]][npmx]
 [![See license][npmx.license]][license]
 
 Vite plugin / Svelte preprocessor to add appropriate attributes to external links at compile-time.
@@ -76,19 +76,16 @@ export default defineConfig({
 <!-- github specifics -->
 
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
-[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/external-link/CHANGELOG.md
+[github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocess-external-link/CHANGELOG.md
 [license]: https://github.com/vnphanquang/svelte-put/blob/main/LICENSE
-
-<!-- heading badges -->
-
-[npmx.version]: https://npmx.dev/api/registry/badge/version/@svelte-put/external-link
-[npmx.vulnerabilities]: https://npmx.dev/api/registry/badge/vulnerabilities/@svelte-put/external-link
-[npmx.bundlephobia]: https://npmx.dev/api/registry/badge/size/@svelte-put/external-link
-[npmx.license]: https://npmx.dev/api/registry/badge/license/@svelte-put/external-link
-[docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue
 
 <!-- others -->
 
-[npmx]: https://npmx.dev/package/@svelte-put/external-link
-[bundlephobia]: https://bundlephobia.com/package/@svelte-put/external-link
-[docs]: https://svelte-put.vnphanquang.com/packages/external-link
+[npmx]: https://npmx.dev/package/@svelte-put/preprocess-external-link
+[npmx.version]: https://npmx.dev/api/registry/badge/version/@svelte-put/preprocess-external-link
+[npmx.vulnerabilities]: https://npmx.dev/api/registry/badge/vulnerabilities/@svelte-put/preprocess-external-link
+[npmx.bundlephobia]: https://npmx.dev/api/registry/badge/size/@svelte-put/preprocess-external-link
+[npmx.license]: https://npmx.dev/api/registry/badge/license/@svelte-put/preprocess-external-link
+[npmx.size]: https://npmx.dev/api/registry/badge/size/@svelte-put/preprocess-external-link
+[docs]: https://svelte-put.vnphanquang.com/packages/preprocess-external-link
+[docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue

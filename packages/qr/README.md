@@ -1,12 +1,12 @@
-<div align="center">
-
 # `@svelte-put/qr`
 
-[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia] [![docs.badge]][docs]
+[![Read documentation][docs.badge]][docs]
+[![Open on npmx.dev][npmx.version]][npmx]
+[![Open on npmx.dev][npmx.vulnerabilities]][npmx]
+[![Open on npmx.dev][npmx.size]][npmx]
+[![See license][npmx.license]][license]
 
 Render QR as `img` or `svg`, optionally with logo
-
-</div>
 
 ## `svelte-put`
 
@@ -30,8 +30,8 @@ Given the following:
 	import { qr as svgQR } from '@svelte-put/qr/svg';
 	import SvgQR from '@svelte-put/qr/svg/QR.svelte';
 
-	const data = 'https://svelte-put.vnphanquang.com/docs/qr';
-	const logo = 'https://svelte-put.vnphanquang.com/images/svelte-put-logo.svg';
+	const data = 'https://svelte.dev';
+	const logo = 'https://svelte.dev/favicon.png';
 </script>
 
 <!-- svg using component -->
@@ -49,7 +49,7 @@ Given the following:
 
 The rendered QR will be similar to this:
 
-<img src="https://raw.githubusercontent.com/vnphanquang/svelte-put/main/packages/qr/static/qr.svg" width="410" height="410" alt="qr">
+<img src="https://raw.githubusercontent.com/vnphanquang/svelte-put/main/packages/qr/static/qr.png" width="250" height="250" alt="qr">
 
 ## [Changelog][github.changelog]
 
@@ -57,13 +57,15 @@ The rendered QR will be similar to this:
 
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
 [github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/qr/CHANGELOG.md
-[github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
+[license]: https://github.com/vnphanquang/svelte-put/blob/main/LICENSE
 
-<!-- heading badge -->
+<!-- others -->
 
-[npm.badge]: https://img.shields.io/npm/v/@svelte-put/qr
-[npm]: https://www.npmjs.com/package/@svelte-put/qr
-[bundlephobia.badge]: https://img.shields.io/bundlephobia/minzip/@svelte-put/qr?label=minzipped
-[bundlephobia]: https://bundlephobia.com/package/@svelte-put/qr
+[npmx]: https://npmx.dev/package/@svelte-put/qr
+[npmx.version]: https://npmx.dev/api/registry/badge/version/@svelte-put/qr
+[npmx.vulnerabilities]: https://npmx.dev/api/registry/badge/vulnerabilities/@svelte-put/qr
+[npmx.bundlephobia]: https://npmx.dev/api/registry/badge/size/@svelte-put/qr
+[npmx.license]: https://npmx.dev/api/registry/badge/license/@svelte-put/qr
+[npmx.size]: https://npmx.dev/api/registry/badge/size/@svelte-put/qr
 [docs]: https://svelte-put.vnphanquang.com/packages/qr
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue

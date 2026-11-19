@@ -1,12 +1,12 @@
-<div align="center">
-
 # `@svelte-put/clickoutside`
 
-[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia] [![docs.badge]][docs]
+[![Read documentation][docs.badge]][docs]
+[![Open on npmx.dev][npmx.version]][npmx]
+[![Open on npmx.dev][npmx.vulnerabilities]][npmx]
+[![Open on npmx.dev][npmx.size]][npmx]
+[![See license][npmx.license]][license]
 
 Svelte action `use:clickoutside` - event for clicking outside a node
-
-</div>
 
 ## `svelte-put`
 
@@ -36,13 +36,15 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
 [github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/clickoutside/CHANGELOG.md
-[github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
+[license]: https://github.com/vnphanquang/svelte-put/blob/main/LICENSE
 
-<!-- heading badge -->
+<!-- others -->
 
-[npm.badge]: https://img.shields.io/npm/v/@svelte-put/clickoutside
-[npm]: https://www.npmjs.com/package/@svelte-put/clickoutside
-[bundlephobia.badge]: https://img.shields.io/bundlephobia/minzip/@svelte-put/clickoutside?label=minzipped
-[bundlephobia]: https://bundlephobia.com/package/@svelte-put/clickoutside
+[npmx]: https://npmx.dev/package/@svelte-put/clickoutside
+[npmx.version]: https://npmx.dev/api/registry/badge/version/@svelte-put/clickoutside
+[npmx.vulnerabilities]: https://npmx.dev/api/registry/badge/vulnerabilities/@svelte-put/clickoutside
+[npmx.bundlephobia]: https://npmx.dev/api/registry/badge/size/@svelte-put/clickoutside
+[npmx.license]: https://npmx.dev/api/registry/badge/license/@svelte-put/clickoutside
+[npmx.size]: https://npmx.dev/api/registry/badge/size/@svelte-put/clickoutside
 [docs]: https://svelte-put.vnphanquang.com/packages/clickoutside
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue

@@ -1,12 +1,12 @@
-<div align="center">
-
 # `@svelte-put/async-stack`
 
-[![npm.badge]][npm] [![bundlephobia.badge]][bundlephobia] [![docs.badge]][docs]
+[![Read documentation][docs.badge]][docs]
+[![Open on npmx.dev][npmx.version]][npmx]
+[![Open on npmx.dev][npmx.vulnerabilities]][npmx]
+[![Open on npmx.dev][npmx.size]][npmx]
+[![See license][npmx.license]][license]
 
 Type-safe and headless async builder for async component stack (notification and modal/dialog systems, for example)
-
-</div>
 
 ## `svelte-put`
 
@@ -77,13 +77,15 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 
 [github.monorepo]: https://github.com/vnphanquang/svelte-put
 [github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/async-stack/CHANGELOG.md
-[github.issues]: https://github.com/vnphanquang/svelte-put/issues?q=
+[license]: https://github.com/vnphanquang/svelte-put/blob/main/LICENSE
 
-<!-- heading badge -->
+<!-- others -->
 
-[npm.badge]: https://img.shields.io/npm/v/@svelte-put/async-stack
-[npm]: https://www.npmjs.com/package/@svelte-put/async-stack
-[bundlephobia.badge]: https://img.shields.io/bundlephobia/minzip/@svelte-put/async-stack?label=minzipped
-[bundlephobia]: https://bundlephobia.com/package/@svelte-put/async-stack
+[npmx]: https://npmx.dev/package/@svelte-put/async-stack
+[npmx.version]: https://npmx.dev/api/registry/badge/version/@svelte-put/async-stack
+[npmx.vulnerabilities]: https://npmx.dev/api/registry/badge/vulnerabilities/@svelte-put/async-stack
+[npmx.bundlephobia]: https://npmx.dev/api/registry/badge/size/@svelte-put/async-stack
+[npmx.license]: https://npmx.dev/api/registry/badge/license/@svelte-put/async-stack
+[npmx.size]: https://npmx.dev/api/registry/badge/size/@svelte-put/async-stack
 [docs]: https://svelte-put.vnphanquang.com/packages/async-stack
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue

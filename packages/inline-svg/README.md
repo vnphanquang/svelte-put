@@ -3,7 +3,7 @@
 [![Read documentation][docs.badge]][docs]
 [![Open on npmx.dev][npmx.version]][npmx]
 [![Open on npmx.dev][npmx.vulnerabilities]][npmx]
-[![See on bundlephobia][npmx.bundlephobia]][bundlephobia]
+[![Open on npmx.dev][npmx.size]][npmx]
 [![See license][npmx.license]][license]
 
 Strategies to inline SVGs in Svelte land. Features include:
@@ -106,16 +106,13 @@ export default defineConfig({
 [github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/inline-svg/CHANGELOG.md
 [license]: https://github.com/vnphanquang/svelte-put/blob/main/LICENSE
 
-<!-- heading badges -->
+<!-- others -->
 
+[npmx]: https://npmx.dev/package/@svelte-put/inline-svg
 [npmx.version]: https://npmx.dev/api/registry/badge/version/@svelte-put/inline-svg
 [npmx.vulnerabilities]: https://npmx.dev/api/registry/badge/vulnerabilities/@svelte-put/inline-svg
 [npmx.bundlephobia]: https://npmx.dev/api/registry/badge/size/@svelte-put/inline-svg
 [npmx.license]: https://npmx.dev/api/registry/badge/license/@svelte-put/inline-svg
-[docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue
-
-<!-- others -->
-
-[npmx]: https://npmx.dev/package/@svelte-put/inline-svg
-[bundlephobia]: https://bundlephobia.com/package/@svelte-put/inline-svg
+[npmx.size]: https://npmx.dev/api/registry/badge/size/@svelte-put/inline-svg
 [docs]: https://svelte-put.vnphanquang.com/packages/inline-svg
+[docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue

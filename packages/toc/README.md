@@ -3,7 +3,7 @@
 [![Read documentation][docs.badge]][docs]
 [![Open on npmx.dev][npmx.version]][npmx]
 [![Open on npmx.dev][npmx.vulnerabilities]][npmx]
-[![See on bundlephobia][npmx.bundlephobia]][bundlephobia]
+[![Open on npmx.dev][npmx.size]][npmx]
 [![See license][npmx.license]][license]
 
 Strategies for building Table-of-Contents in Svelte land. Features include:
@@ -77,6 +77,6 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 [npmx.vulnerabilities]: https://npmx.dev/api/registry/badge/vulnerabilities/@svelte-put/toc
 [npmx.bundlephobia]: https://npmx.dev/api/registry/badge/size/@svelte-put/toc
 [npmx.license]: https://npmx.dev/api/registry/badge/license/@svelte-put/toc
-[bundlephobia]: https://bundlephobia.com/package/@svelte-put/toc
+[npmx.size]: https://npmx.dev/api/registry/badge/size/@svelte-put/toc
 [docs]: https://svelte-put.vnphanquang.com/packages/toc
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue
