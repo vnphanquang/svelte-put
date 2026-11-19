@@ -70,16 +70,13 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 [github.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/toc/CHANGELOG.md
 [license]: https://github.com/vnphanquang/svelte-put/blob/main/LICENSE
 
-<!-- heading badges -->
+<!-- others -->
 
+[npmx]: https://npmx.dev/package/@svelte-put/toc
 [npmx.version]: https://npmx.dev/api/registry/badge/version/@svelte-put/toc
 [npmx.vulnerabilities]: https://npmx.dev/api/registry/badge/vulnerabilities/@svelte-put/toc
 [npmx.bundlephobia]: https://npmx.dev/api/registry/badge/size/@svelte-put/toc
 [npmx.license]: https://npmx.dev/api/registry/badge/license/@svelte-put/toc
-[docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue
-
-<!-- others -->
-
-[npmx]: https://npmx.dev/package/@svelte-put/toc
 [bundlephobia]: https://bundlephobia.com/package/@svelte-put/toc
 [docs]: https://svelte-put.vnphanquang.com/packages/toc
+[docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue
