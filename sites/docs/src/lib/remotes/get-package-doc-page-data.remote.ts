@@ -2,7 +2,7 @@ import { error } from '@sveltejs/kit';
 import * as v from 'valibot';
 
 import { getLoadersByPackage, getOgImageUrlByPackage } from '#data/loader';
-import { prerender } from '$app/server';
+import { query } from '$app/server';
 
 import { getPackageManifest } from './get-package-manifest.remote';
 
@@ -11,32 +11,29 @@ const GetPackageDocPageDataSchema = v.object({
 	pkg: v.string(),
 });
 
-export const getPackageDocPageData = prerender(
-	GetPackageDocPageDataSchema,
-	async ({ slug, pkg }) => {
-		const [loaders, og, manifest] = await Promise.all([
-			getLoadersByPackage(pkg),
-			getOgImageUrlByPackage(pkg),
-			getPackageManifest(pkg),
-		]);
-		if (!loaders) {
-			error(404, `No package named ${pkg}`);
-		}
-		const root = `/packages/${pkg}/`;
-		const [doc, packageLinks] = await Promise.all([
-			loaders.loadDocPage({ slug, root }),
-			loaders.loadDocPageLinks({ root }),
-		]);
+export const getPackageDocPageData = query(GetPackageDocPageDataSchema, async ({ slug, pkg }) => {
+	const [loaders, og, manifest] = await Promise.all([
+		getLoadersByPackage(pkg),
+		getOgImageUrlByPackage(pkg),
+		getPackageManifest(pkg),
+	]);
+	if (!loaders) {
+		error(404, `No package named ${pkg}`);
+	}
+	const root = `/packages/${pkg}/`;
+	const [doc, packageLinks] = await Promise.all([
+		loaders.loadDocPage({ slug, root }),
+		loaders.loadDocPageLinks({ root }),
+	]);
 
-		if (!doc) {
-			error(404, `No page with slug ${slug}`);
-		}
+	if (!doc) {
+		error(404, `No page with slug ${slug}`);
+	}
 
-		return {
-			doc,
-			links: packageLinks,
-			og,
-			manifest,
-		};
-	},
-);
+	return {
+		doc,
+		links: packageLinks,
+		og,
+		manifest,
+	};
+});
