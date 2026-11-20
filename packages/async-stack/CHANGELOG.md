@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.6.0
+
+### Minor Changes
+
+- [`53ba033`](https://github.com/vnphanquang/svelte-put/commit/53ba03399c7b00042240d560752ca8523121bf6b) Thanks [@vnphanquang](https://github.com/vnphanquang)! - deprecate \`stack.actions.render\` in favor for \`item.render\`
+
+### Patch Changes
+
+- [`d0bb212`](https://github.com/vnphanquang/svelte-put/commit/d0bb212d44da23ee952fbefc1c066b22c7b4f72c) Thanks [@vnphanquang](https://github.com/vnphanquang)! - dev quality-of-life maintenance update: rewrite docs, update manifest
+
 ## 1.5.3
 
 ### Patch Changes

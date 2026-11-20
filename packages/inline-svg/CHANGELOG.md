@@ -1,5 +1,23 @@
 # Changelog
 
+## 5.0.0
+
+### Major Changes
+
+- [`ad05aff`](https://github.com/vnphanquang/svelte-put/commit/ad05affbda7a259a3b10226fc90070326cafa3d9) Thanks [@vnphanquang](https://github.com/vnphanquang)! - [breaking] drop `api.sveltePreprocess` in vite plugin in favor for `transform` hook
+
+### Patch Changes
+
+- [`0bb3d94`](https://github.com/vnphanquang/svelte-put/commit/0bb3d9414e0f9ff404678bbb224e90266b6ca107) Thanks [@vnphanquang](https://github.com/vnphanquang)! - bump `hast-util-to-html` patch version
+
+- [`1b39c89`](https://github.com/vnphanquang/svelte-put/commit/1b39c896defd5b3fda317aa90a71678a90b00772) Thanks [@vnphanquang](https://github.com/vnphanquang)! - bump minor for \`magic-string\`
+
+- [`f0a804f`](https://github.com/vnphanquang/svelte-put/commit/f0a804faa9bdae81fae185ef7aac7bac9dde012e) Thanks [@vnphanquang](https://github.com/vnphanquang)! - update link to new doc page
+
+- [`d0bb212`](https://github.com/vnphanquang/svelte-put/commit/d0bb212d44da23ee952fbefc1c066b22c7b4f72c) Thanks [@vnphanquang](https://github.com/vnphanquang)! - dev quality-of-life maintenance update: rewrite docs, update manifest
+
+- [`1a6657b`](https://github.com/vnphanquang/svelte-put/commit/1a6657b55d16c50a6ae47892e9c01fad6fced4ad) Thanks [@vnphanquang](https://github.com/vnphanquang)! - don't publish documentation artifacts (`src/routes` & `src/docs`)
+
 ## 5.0.0-next.0
 
 ### Major Changes

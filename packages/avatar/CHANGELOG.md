@@ -1,5 +1,17 @@
 # Changelog
 
+## 4.1.0
+
+### Minor Changes
+
+- [`a190326`](https://github.com/vnphanquang/svelte-put/commit/a190326a7fc24bc00b20c87041209089ab20d776) Thanks [@vnphanquang](https://github.com/vnphanquang)! - use sha256 for gravatar
+
+### Patch Changes
+
+- [`08d309f`](https://github.com/vnphanquang/svelte-put/commit/08d309faf66118e34892b62a40cd97a46e44ea4a) Thanks [@vnphanquang](https://github.com/vnphanquang)! - bump `js-sha256` dependency
+
+- [`d0bb212`](https://github.com/vnphanquang/svelte-put/commit/d0bb212d44da23ee952fbefc1c066b22c7b4f72c) Thanks [@vnphanquang](https://github.com/vnphanquang)! - dev quality-of-life maintenance update: rewrite docs, update manifest
+
 ## 4.0.0
 
 ### Major Changes

@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.1.1
+
+### Patch Changes
+
+- [`403de96`](https://github.com/vnphanquang/svelte-put/commit/403de96428523621229b15d15c9df045a19242d1) Thanks [@vnphanquang](https://github.com/vnphanquang)! - references to new docs site
+
+- [`d0bb212`](https://github.com/vnphanquang/svelte-put/commit/d0bb212d44da23ee952fbefc1c066b22c7b4f72c) Thanks [@vnphanquang](https://github.com/vnphanquang)! - dev quality-of-life maintenance update: rewrite docs, update manifest
+
 ## 4.1.0
 
 ### Minor Changes
