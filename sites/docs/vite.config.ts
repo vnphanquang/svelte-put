@@ -15,7 +15,7 @@ import pkg from './package.json' with { type: 'json' };
 const commitHash = child_process.execSync('git rev-parse --short HEAD').toString().trim();
 
 export default defineConfig({
-	devtools: true,
+	// devtools: true, // FIMXE: causing build to hang, re-enable later once resolved
 	server: { port: 4545 },
 	plugins: [
 		myBad(),
