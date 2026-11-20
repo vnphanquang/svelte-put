@@ -28,8 +28,8 @@
 		"@types/node": "24.19.0",
 		"@vitejs/devtools": "^0.8.3",
 		"@vitejs/devtools-vite": "^0.8.3",
-		"@vitest/coverage-v8": "^5.1.0",
-		"@vitest/ui": "^5.1.0",
+		"@vitest/coverage-v8": "^5.1.1",
+		"@vitest/ui": "^5.1.1",
 		"@vnphanquang/eslint-config": "^5.0.1",
 		"@vnphanquang/gach": "^1.2.0",
 		"@vnphanquang/markdown": "^1.2.0",
@@ -53,7 +53,7 @@
 		"svelte-check": "^4.7.8",
 		"typescript": "^6.0.3",
 		"vite": "^8.3.8",
-		"vitest": "^5.1.0"
+		"vitest": "^5.1.1"
 	},
 	"devEngines": {
 		"runtime": {
