@@ -14,8 +14,8 @@ import pkg from './package.json' with { type: 'json' };
 
 const commitHash = child_process.execSync('git rev-parse --short HEAD').toString().trim();
 
-export default defineConfig({
-	// devtools: true, // FIMXE: causing build to hang, re-enable later once resolved
+export default defineConfig(({ mode }) => ({
+	devtools: mode === 'development',
 	server: { port: 4545 },
 	plugins: [
 		myBad(),
@@ -27,6 +27,11 @@ export default defineConfig({
 			version: {
 				name: `${pkg.version} (#${commitHash})@${Date.now()}`,
 			},
+			...(mode === 'production' && {
+				paths: {
+					base: '/projects/svelte-put',
+				},
+			}),
 			compilerOptions: {
 				modernAst: true,
 				experimental: {
@@ -53,4 +58,4 @@ export default defineConfig({
 			},
 		}),
 	],
-});
+}));
