@@ -2,8 +2,6 @@ import { type PerDefinedDocPageMetadata, createLoaders } from '@internals/docpag
 import type { CompileTimeToc } from '@svelte-put/toc';
 import type { Component } from 'svelte';
 
-import manifest from '../../../package.json' with { type: 'json' };
-
 const { loadDocPage, loadDocPageLinks, loadDocPageContent } = createLoaders([
 	import.meta.glob<Component>('./entries/**/doc.svelte', {
 		import: 'default',
@@ -12,4 +10,4 @@ const { loadDocPage, loadDocPageLinks, loadDocPageContent } = createLoaders([
 	import.meta.glob<CompileTimeToc>('./entries/**/doc.svelte', { import: 'toc' }),
 ]);
 
-export { loadDocPage, loadDocPageContent, loadDocPageLinks, manifest };
+export { loadDocPage, loadDocPageContent, loadDocPageLinks };

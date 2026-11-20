@@ -1,6 +1,10 @@
 import { defineConfig } from 'knip/config';
 
 export default defineConfig({
+	ignoreIssues: {
+		'packages/*/tsconfig.json': ['unlisted'],
+		'sites/*/tsconfig.json': ['unlisted'],
+	},
 	workspaces: {
 		'.': {
 			ignoreBinaries: ['lefthook'],

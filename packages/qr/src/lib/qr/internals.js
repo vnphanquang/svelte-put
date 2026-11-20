@@ -57,7 +57,7 @@ export function isLogo(col, row, count) {
  * @param {number} logoRatio
  * @returns {import('./types.private').SizeAttributes}
  */
-export function calculateLogoSize(logoSize, logoRatio) {
+function calculateLogoSize(logoSize, logoRatio) {
 	if (logoRatio >= 1) {
 		return {
 			width: logoSize,
