@@ -6,7 +6,7 @@
 
 Useful svelte stuff to put in your projects
 
-![svelte-put](https://github.com/vnphanquang/svelte-put/blob/main/sites/docs/src/lib/assets/images/og/svelte-put.jpg)
+![svelte-put](https://github.com/vnphanquang/svelte-put/blob/main/sites/docs/src/lib/assets/images/og.jpg)
 
 </div>
 

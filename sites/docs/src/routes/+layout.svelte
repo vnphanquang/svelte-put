@@ -3,7 +3,7 @@
 	import { CommonLayout } from '@vnphanquang/gach/layouts';
 	import { onMount } from 'svelte';
 
-	import ogImage from '#lib/assets/images/og/svelte-put.jpg?url';
+	import ogImage from '#lib/assets/images/og.jpg?url';
 	import { version } from '$app/env';
 	import { UMAMI_SCRIPT_URL, UMAMI_WEBSITE_ID } from '$app/env/public';
 	import { COOKIE_NAME_COLOR_SCHEME } from '$app/env/public';

@@ -1,3 +1,9 @@
+<script>
+	import { PageMetadata } from '@vnphanquang/gach/metadata';
+</script>
+
+<PageMetadata />
+
 <main class="flex h-dvh flex-col items-center justify-center gap-10">
 	<div class="flex items-end gap-6">
 		<img src="/favicon.svg" width="96" height="96" alt="" />

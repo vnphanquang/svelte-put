@@ -25,6 +25,12 @@ export interface Loaders {
 	loadDocPageLinks: (options?: { root?: string }) => Promise<PageLinks>;
 }
 
+export interface Manifest {
+	name: string;
+	description: string;
+	version: string;
+}
+
 export function createLoaders(
 	modules: [
 		Record<string, () => Promise<Component>>,

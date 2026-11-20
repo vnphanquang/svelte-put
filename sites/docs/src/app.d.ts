@@ -1,8 +1,7 @@
 /// <reference types="umami-browser" />
 /// <reference types="vite/client" />
 
-import type { PageLinks } from '@internals/docpage';
-import type { CompileTimeToc } from '@svelte-put/toc';
+import type { DocPage, PageLinks } from '@internals/docpage';
 import type { ColorScheme } from '@vnphanquang/gach/constants';
 
 declare global {
@@ -16,9 +15,8 @@ declare global {
 			colorScheme: ColorScheme;
 		}
 		interface PageData {
-			slug?: string;
 			links?: PageLinks;
-			compiledToc?: CompileTimeToc;
+			doc?: DocPage;
 		}
 		// interface PageState {}
 		// interface Platform {}

@@ -4,14 +4,17 @@
 	import { ColorSchemeSwitch } from '@vnphanquang/gach/components';
 
 	import { packages } from '#data/loader';
+	import { page } from '$app/state';
 
 	import type { LayoutProps } from './$types';
 
-	let { children, params, data }: LayoutProps = $props();
+	let { children, params }: LayoutProps = $props();
 
 	let slug = $derived(params.slug ?? '');
-	let { doc, links } = $derived(data);
-	let toc = $derived(new Toc({ ...doc.nav.toc }));
+	let links = $derived(page.data.links);
+	let toc = $derived(page.data.doc ? new Toc({ ...page.data.doc.nav.toc }) : null);
+
+	let popover_packages: HTMLElement;
 </script>
 
 <header class="z-header h-header bg-fill-100 fixed inset-x-0 inset-bs-0 border-be border-current">
@@ -28,11 +31,11 @@
 				Packages
 				<i class="i i-[ph--caret-down]"></i>
 			</button>
-			<aside id="packages" popover>
+			<aside id="packages" popover bind:this={popover_packages}>
 				<ul>
 					{#each packages as pkg (pkg)}
 						<li>
-							<a href="/packages/{pkg}">{pkg}</a>
+							<a href="/packages/{pkg}" onclick={() => popover_packages?.hidePopover()}>{pkg}</a>
 						</li>
 					{/each}
 				</ul>
@@ -48,10 +51,14 @@
 	</nav>
 </header>
 
-<div class="page max-w-pad pbs-header grid flex-1" {...toc.enhance.scope()}>
+<div class="page max-w-pad pbs-header grid flex-1" {...toc?.enhance.scope()}>
 	<div class="nav">
-		<PageNav {slug} {links} title={params.pkg} />
-		<TableOfContents {toc} />
+		{#if links}
+			<PageNav {slug} {links} title={params.pkg} />
+		{/if}
+		{#if toc}
+			<TableOfContents {toc} />
+		{/if}
 	</div>
 	{@render children()}
 </div>

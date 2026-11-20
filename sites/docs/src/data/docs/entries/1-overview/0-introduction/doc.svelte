@@ -9,9 +9,9 @@
 </script>
 
 <script lang="ts">
-	import { getPackages } from '#lib/remotes';
+	import { getAllPackageManifest } from '#lib/remotes';
 
-	let packages = await getPackages();
+	let packages = await getAllPackageManifest();
 </script>
 
 {markdown`
