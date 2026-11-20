@@ -32,6 +32,7 @@
 		"types"
 	],
 	"scripts": {
+		"sync": "svelte-kit sync",
 		"lint": "run-p lint:*",
 		"lint:es": "svelte-kit sync && eslint .",
 		"lint:style": "stylelint '**/*.{svelte,css}'",

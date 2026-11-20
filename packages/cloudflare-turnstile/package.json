@@ -35,6 +35,7 @@
 		"types"
 	],
 	"scripts": {
+		"sync": "svelte-kit sync",
 		"lint": "run-p lint:*",
 		"lint:es": "svelte-kit sync && eslint .",
 		"lint:knip": "pnpm knip --directory ../../ --workspace @svelte-put/cloudflare-turnstile",
