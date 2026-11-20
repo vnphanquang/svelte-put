@@ -5,8 +5,16 @@ import { loadDocPage, loadDocPageLinks } from '#data/docs';
 import { packageLinkGroup } from '#data/loader';
 import { query } from '$app/server';
 
-export const getDocPageData = query(v.string(), async (slug) => {
-	const [doc, siteLinks] = await Promise.all([loadDocPage({ slug }), loadDocPageLinks()]);
+const GetDocPageData = v.object({
+	slug: v.string(),
+	root: v.string(),
+});
+
+export const getDocPageData = query(GetDocPageData, async ({ slug, root }) => {
+	const [doc, siteLinks] = await Promise.all([
+		loadDocPage({ slug, root }),
+		loadDocPageLinks({ root }),
+	]);
 	if (!doc) {
 		error(404, `No page with slug ${slug}`);
 	}

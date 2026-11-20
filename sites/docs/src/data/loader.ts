@@ -1,5 +1,7 @@
 import type { LinkGroup, Loaders, Manifest } from '@internals/docpage';
 
+import { resolve } from '$app/paths';
+
 const docs = import.meta.glob<Loaders>('../../../../packages/*/src/docs/index.ts');
 const ogs = import.meta.glob<string>('../../../../packages/*/src/docs/og.jpg', {
 	query: 'url',
@@ -36,6 +38,6 @@ export const packageLinkGroup: LinkGroup = {
 		type: 'page',
 		title: pkg,
 		id: `package.${pkg}`,
-		href: `/packages/${pkg}`,
+		href: resolve('/(docs)/packages/[pkg=pkg]/[...slug]', { pkg, slug: '' }),
 	})),
 };

@@ -4,6 +4,7 @@
 	import { ColorSchemeSwitch } from '@vnphanquang/gach/components';
 
 	import { packages } from '#data/loader';
+	import { asset, resolve } from '$app/paths';
 	import { page } from '$app/state';
 
 	import type { LayoutProps } from './$types';
@@ -19,12 +20,14 @@
 
 <header class="z-header h-header bg-fill-100 fixed inset-x-0 inset-bs-0 border-be border-current">
 	<nav class="max-w-pad flex h-full items-center gap-2">
-		<a class="me-4 flex items-center gap-2" href="/">
-			<img src="/favicon.svg" width="32" height="32" alt="" />
+		<a class="me-4 flex items-center gap-2" href={resolve('/')}>
+			<img src={asset('favicon.svg')} width="32" height="32" alt="" />
 			<span class="font-fingerpaint text-gradient-brand text-sm font-bold">svelte-put</span>
 		</a>
 
-		<a class="c-link-lazy p-2" href="/overview"> Overview </a>
+		<a class="c-link-lazy p-2" href={resolve('/(docs)/[...slug]', { slug: 'overview' })}>
+			Overview
+		</a>
 
 		<div>
 			<button class="c-dropdown" popovertarget="packages">
@@ -35,7 +38,12 @@
 				<ul>
 					{#each packages as pkg (pkg)}
 						<li>
-							<a href="/packages/{pkg}" onclick={() => popover_packages?.hidePopover()}>{pkg}</a>
+							<a
+								href={resolve('/(docs)/packages/[pkg=pkg]/[...slug]', { pkg, slug: '' })}
+								onclick={() => popover_packages?.hidePopover()}
+							>
+								{pkg}
+							</a>
 						</li>
 					{/each}
 				</ul>

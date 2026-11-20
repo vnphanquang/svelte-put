@@ -1,7 +1,11 @@
 import { getPackageDocPageData } from '#lib/remotes';
+import { resolve } from '$app/paths';
 
-import type { PageServerLoad } from './$types';
+import type { LayoutServerLoad } from './$types';
 
-export const load: PageServerLoad = async ({ params }) => {
-	return await getPackageDocPageData(params);
+export const load: LayoutServerLoad = async ({ params }) => {
+	return await getPackageDocPageData({
+		...params,
+		root: resolve('/(docs)/packages/[pkg=pkg]/[...slug]', { pkg: params.pkg, slug: '' }) + '/',
+	});
 };

@@ -2,5 +2,8 @@
 	"$schema": "./node_modules/wrangler/config-schema.json",
 	"name": "svelte-put",
 	"account_id": "691bd78232f3bf301e232bd774b7f0b8",
-	"routes": [{ "pattern": "vnphanquang.com/projects/svelte-put*", "zone_name": "vnphanquang.com" }]
+	"routes": [
+		{ "pattern": "vnphanquang.com/projects/svelte-put*", "zone_name": "vnphanquang.com" },
+		{ "pattern": "vnphanquang.com/projects/svelte-put", "zone_name": "vnphanquang.com" }
+	]
 }
