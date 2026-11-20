@@ -42,5 +42,5 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 [npmx.bundlephobia]: https://npmx.dev/api/registry/badge/size/@svelte-put/movable
 [npmx.license]: https://npmx.dev/api/registry/badge/license/@svelte-put/movable
 [npmx.size]: https://npmx.dev/api/registry/badge/size/@svelte-put/movable
-[docs]: https://svelte-put.vnphanquang.com/packages/movable
+[docs]: https://vnphanquang.com/projects/svelte-put/packages/movable
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue

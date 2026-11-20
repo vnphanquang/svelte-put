@@ -77,7 +77,7 @@
 		"url": "https://github.com/vnphanquang"
 	},
 	"license": "MIT",
-	"homepage": "https://svelte-put.vnphanquang.com/packages/qr",
+	"homepage": "https://vnphanquang.com/projects/svelte-put/packages/qr",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/vnphanquang/svelte-put.git",

@@ -56,7 +56,7 @@ See [CONTRIBUTING][github.contributing] for guidelines.
 <!-- async-stack -->
 
 [async-stack]: https://github.com/vnphanquang/svelte-put/tree/main/packages/async-stack
-[async-stack.docs]: https://svelte-put.vnphanquang.com/docs/async-stack
+[async-stack.docs]: https://vnphanquang.com/projects/svelte-put/packages/async-stack
 [async-stack.npmx]: https://npmx.dev/package/@svelte-put/async-stack
 [async-stack.npmx.version]: https://npmx.dev/api/registry/badge/version/@svelte-put/async-stack
 [async-stack.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/async-stack/CHANGELOG.md
@@ -64,7 +64,7 @@ See [CONTRIBUTING][github.contributing] for guidelines.
 <!-- avatar -->
 
 [avatar]: https://github.com/vnphanquang/svelte-put/tree/main/packages/avatar
-[avatar.docs]: https://svelte-put.vnphanquang.com/docs/avatar
+[avatar.docs]: https://vnphanquang.com/projects/svelte-put/packages/avatar
 [avatar.npmx]: https://npmx.dev/package/@svelte-put/avatar
 [avatar.npmx.version]: https://npmx.dev/api/registry/badge/version/@svelte-put/avatar
 [avatar.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/avatar/CHANGELOG.md
@@ -72,7 +72,7 @@ See [CONTRIBUTING][github.contributing] for guidelines.
 <!-- clickoutside -->
 
 [clickoutside]: https://github.com/vnphanquang/svelte-put/tree/main/packages/clickoutside
-[clickoutside.docs]: https://svelte-put.vnphanquang.com/docs/clickoutside
+[clickoutside.docs]: https://vnphanquang.com/projects/svelte-put/packages/clickoutside
 [clickoutside.npmx]: https://npmx.dev/package/@svelte-put/clickoutside
 [clickoutside.npmx.version]: https://npmx.dev/api/registry/badge/version/@svelte-put/clickoutside
 [clickoutside.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/clickoutside/CHANGELOG.md
@@ -80,7 +80,7 @@ See [CONTRIBUTING][github.contributing] for guidelines.
 <!-- cloudflare-turnstile -->
 
 [cloudflare-turnstile]: https://github.com/vnphanquang/svelte-put/tree/main/packages/cloudflare-turnstile
-[cloudflare-turnstile.docs]: https://svelte-put.vnphanquang.com/docs/cloudflare-turnstile
+[cloudflare-turnstile.docs]: https://vnphanquang.com/projects/svelte-put/packages/cloudflare-turnstile
 [cloudflare-turnstile.npmx]: https://npmx.dev/package/@svelte-put/cloudflare-turnstile
 [cloudflare-turnstile.npmx.version]: https://npmx.dev/api/registry/badge/version/@svelte-put/cloudflare-turnstile
 [cloudflare-turnstile.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/cloudflare-turnstile/CHANGELOG.md
@@ -88,7 +88,7 @@ See [CONTRIBUTING][github.contributing] for guidelines.
 <!-- copy -->
 
 [copy]: https://github.com/vnphanquang/svelte-put/tree/main/packages/copy
-[copy.docs]: https://svelte-put.vnphanquang.com/docs/copy
+[copy.docs]: https://vnphanquang.com/projects/svelte-put/packages/copy
 [copy.npmx]: https://npmx.dev/package/@svelte-put/copy
 [copy.npmx.version]: https://npmx.dev/api/registry/badge/version/@svelte-put/copy
 [copy.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/copy/CHANGELOG.md
@@ -96,7 +96,7 @@ See [CONTRIBUTING][github.contributing] for guidelines.
 <!-- dragscroll -->
 
 [dragscroll]: https://github.com/vnphanquang/svelte-put/tree/main/packages/dragscroll
-[dragscroll.docs]: https://svelte-put.vnphanquang.com/docs/dragscroll
+[dragscroll.docs]: https://vnphanquang.com/projects/svelte-put/packages/dragscroll
 [dragscroll.npmx]: https://npmx.dev/package/@svelte-put/dragscroll
 [dragscroll.npmx.version]: https://npmx.dev/api/registry/badge/version/@svelte-put/dragscroll
 [dragscroll.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/dragscroll/CHANGELOG.md
@@ -104,7 +104,7 @@ See [CONTRIBUTING][github.contributing] for guidelines.
 <!-- intersect -->
 
 [intersect]: https://github.com/vnphanquang/svelte-put/tree/main/packages/intersect
-[intersect.docs]: https://svelte-put.vnphanquang.com/docs/intersect
+[intersect.docs]: https://vnphanquang.com/projects/svelte-put/packages/intersect
 [intersect.npmx]: https://npmx.dev/package/@svelte-put/intersect
 [intersect.npmx.version]: https://npmx.dev/api/registry/badge/version/@svelte-put/intersect
 [intersect.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/intersect/CHANGELOG.md
@@ -112,7 +112,7 @@ See [CONTRIBUTING][github.contributing] for guidelines.
 <!-- inline-svg -->
 
 [inline-svg]: https://github.com/vnphanquang/svelte-put/tree/main/packages/inline-svg
-[inline-svg.docs]: https://svelte-put.vnphanquang.com/docs/inline-svg
+[inline-svg.docs]: https://vnphanquang.com/projects/svelte-put/packages/inline-svg
 [inline-svg.npmx]: https://npmx.dev/package/@svelte-put/inline-svg
 [inline-svg.npmx.version]: https://npmx.dev/api/registry/badge/version/@svelte-put/inline-svg
 [inline-svg.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/inline-svg/CHANGELOG.md
@@ -120,7 +120,7 @@ See [CONTRIBUTING][github.contributing] for guidelines.
 <!-- lockscroll -->
 
 [lockscroll]: https://github.com/vnphanquang/svelte-put/tree/main/packages/lockscroll
-[lockscroll.docs]: https://svelte-put.vnphanquang.com/docs/lockscroll
+[lockscroll.docs]: https://vnphanquang.com/projects/svelte-put/packages/lockscroll
 [lockscroll.npmx]: https://npmx.dev/package/@svelte-put/lockscroll
 [lockscroll.npmx.version]: https://npmx.dev/api/registry/badge/version/@svelte-put/lockscroll
 [lockscroll.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/lockscroll/CHANGELOG.md
@@ -128,7 +128,7 @@ See [CONTRIBUTING][github.contributing] for guidelines.
 <!-- movable -->
 
 [movable]: https://github.com/vnphanquang/svelte-put/tree/main/packages/movable
-[movable.docs]: https://svelte-put.vnphanquang.com/docs/movable
+[movable.docs]: https://vnphanquang.com/projects/svelte-put/packages/movable
 [movable.npmx]: https://npmx.dev/package/@svelte-put/movable
 [movable.npmx.version]: https://npmx.dev/api/registry/badge/version/@svelte-put/movable
 [movable.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/movable/CHANGELOG.md
@@ -136,7 +136,7 @@ See [CONTRIBUTING][github.contributing] for guidelines.
 <!-- preprocess-external-link -->
 
 [preprocess-external-link]: https://github.com/vnphanquang/svelte-put/tree/main/packages/preprocess-external-link
-[preprocess-external-link.docs]: https://svelte-put.vnphanquang.com/docs/preprocess-external-link
+[preprocess-external-link.docs]: https://vnphanquang.com/projects/svelte-put/packages/preprocess-external-link
 [preprocess-external-link.npmx]: https://npmx.dev/package/@svelte-put/preprocess-external-link
 [preprocess-external-link.npmx.version]: https://npmx.dev/api/registry/badge/version/@svelte-put/preprocess-external-link
 [preprocess-external-link.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/preprocess-external-link/CHANGELOG.md
@@ -144,7 +144,7 @@ See [CONTRIBUTING][github.contributing] for guidelines.
 <!-- qr -->
 
 [qr]: https://github.com/vnphanquang/svelte-put/tree/main/packages/qr
-[qr.docs]: https://svelte-put.vnphanquang.com/docs/qr
+[qr.docs]: https://vnphanquang.com/projects/svelte-put/packages/qr
 [qr.npmx]: https://npmx.dev/package/@svelte-put/qr
 [qr.npmx.version]: https://npmx.dev/api/registry/badge/version/@svelte-put/qr
 [qr.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/qr/CHANGELOG.md
@@ -152,7 +152,7 @@ See [CONTRIBUTING][github.contributing] for guidelines.
 <!-- resize -->
 
 [resize]: https://github.com/vnphanquang/svelte-put/tree/main/packages/resize
-[resize.docs]: https://svelte-put.vnphanquang.com/docs/resize
+[resize.docs]: https://vnphanquang.com/projects/svelte-put/packages/resize
 [resize.npmx]: https://npmx.dev/package/@svelte-put/resize
 [resize.npmx.version]: https://npmx.dev/api/registry/badge/version/@svelte-put/resize
 [resize.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/resize/CHANGELOG.md
@@ -160,7 +160,7 @@ See [CONTRIBUTING][github.contributing] for guidelines.
 <!-- shortcut -->
 
 [shortcut]: https://github.com/vnphanquang/svelte-put/tree/main/packages/shortcut
-[shortcut.docs]: https://svelte-put.vnphanquang.com/docs/shortcut
+[shortcut.docs]: https://vnphanquang.com/projects/svelte-put/packages/shortcut
 [shortcut.npmx]: https://npmx.dev/package/@svelte-put/shortcut
 [shortcut.npmx.version]: https://npmx.dev/api/registry/badge/version/@svelte-put/shortcut
 [shortcut.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/shortcut/CHANGELOG.md
@@ -168,7 +168,7 @@ See [CONTRIBUTING][github.contributing] for guidelines.
 <!-- swipeable -->
 
 [swipeable]: https://github.com/vnphanquang/svelte-put/tree/main/packages/swipeable
-[swipeable.docs]: https://svelte-put.vnphanquang.com/docs/swipeable
+[swipeable.docs]: https://vnphanquang.com/projects/svelte-put/packages/swipeable
 [swipeable.npmx]: https://npmx.dev/package/@svelte-put/swipeable
 [swipeable.npmx.version]: https://npmx.dev/api/registry/badge/version/@svelte-put/swipeable
 [swipeable.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/swipeable/CHANGELOG.md
@@ -176,7 +176,7 @@ See [CONTRIBUTING][github.contributing] for guidelines.
 <!-- toc -->
 
 [toc]: https://github.com/vnphanquang/svelte-put/tree/main/packages/toc
-[toc.docs]: https://svelte-put.vnphanquang.com/docs/toc
+[toc.docs]: https://vnphanquang.com/projects/svelte-put/packages/toc
 [toc.npmx]: https://npmx.dev/package/@svelte-put/toc
 [toc.npmx.version]: https://npmx.dev/api/registry/badge/version/@svelte-put/toc
 [toc.changelog]: https://github.com/vnphanquang/svelte-put/blob/main/packages/toc/CHANGELOG.md
@@ -188,7 +188,7 @@ See [CONTRIBUTING][github.contributing] for guidelines.
 
 <!-- misc -->
 
-[docs]: https://svelte-put.vnphanquang.com
+[docs]: https://vnphanquang.com/projects/svelte-put
 [Cloudflare Turnstile]: https://developers.cloudflare.com/turnstile/
 [IntersectionObserver]: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
 [ResizeObserver]: https://developer.mozilla.org/en-US/docs/Web/API/Resize_Observer_API

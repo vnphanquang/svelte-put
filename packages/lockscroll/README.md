@@ -46,5 +46,5 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 [npmx.bundlephobia]: https://npmx.dev/api/registry/badge/size/@svelte-put/lockscroll
 [npmx.license]: https://npmx.dev/api/registry/badge/license/@svelte-put/lockscroll
 [npmx.size]: https://npmx.dev/api/registry/badge/size/@svelte-put/lockscroll
-[docs]: https://svelte-put.vnphanquang.com/packages/lockscroll
+[docs]: https://vnphanquang.com/projects/svelte-put/packages/lockscroll
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue

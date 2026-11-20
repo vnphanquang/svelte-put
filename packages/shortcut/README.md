@@ -56,5 +56,5 @@ more, refer to its [readme][github.monorepo].
 [npmx.bundlephobia]: https://npmx.dev/api/registry/badge/size/@svelte-put/shortcut
 [npmx.license]: https://npmx.dev/api/registry/badge/license/@svelte-put/shortcut
 [npmx.size]: https://npmx.dev/api/registry/badge/size/@svelte-put/shortcut
-[docs]: https://svelte-put.vnphanquang.com/packages/shortcut
+[docs]: https://vnphanquang.com/projects/svelte-put/packages/shortcut
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue

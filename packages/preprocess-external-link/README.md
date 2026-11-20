@@ -87,5 +87,5 @@ export default defineConfig({
 [npmx.bundlephobia]: https://npmx.dev/api/registry/badge/size/@svelte-put/preprocess-external-link
 [npmx.license]: https://npmx.dev/api/registry/badge/license/@svelte-put/preprocess-external-link
 [npmx.size]: https://npmx.dev/api/registry/badge/size/@svelte-put/preprocess-external-link
-[docs]: https://svelte-put.vnphanquang.com/packages/preprocess-external-link
+[docs]: https://vnphanquang.com/projects/svelte-put/packages/preprocess-external-link
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue

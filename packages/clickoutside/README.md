@@ -46,5 +46,5 @@ This package is part of the [@svelte-put][github.monorepo] family. For contribut
 [npmx.bundlephobia]: https://npmx.dev/api/registry/badge/size/@svelte-put/clickoutside
 [npmx.license]: https://npmx.dev/api/registry/badge/license/@svelte-put/clickoutside
 [npmx.size]: https://npmx.dev/api/registry/badge/size/@svelte-put/clickoutside
-[docs]: https://svelte-put.vnphanquang.com/packages/clickoutside
+[docs]: https://vnphanquang.com/projects/svelte-put/packages/clickoutside
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue

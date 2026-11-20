@@ -67,5 +67,5 @@ The rendered QR will be similar to this:
 [npmx.bundlephobia]: https://npmx.dev/api/registry/badge/size/@svelte-put/qr
 [npmx.license]: https://npmx.dev/api/registry/badge/license/@svelte-put/qr
 [npmx.size]: https://npmx.dev/api/registry/badge/size/@svelte-put/qr
-[docs]: https://svelte-put.vnphanquang.com/packages/qr
+[docs]: https://vnphanquang.com/projects/svelte-put/packages/qr
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue

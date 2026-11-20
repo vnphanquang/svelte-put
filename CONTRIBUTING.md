@@ -44,7 +44,7 @@ pnpm boot
 This is a monorepo managed with [pnpm] workspace with the following high-level structure:
 
 - `packages/*`: core `svelte-put/*` packages,
-- `sites/docs`: documentation site live at [svelte-put.vnphanquang.com](https://svelte-put.vnphanquang.com),
+- `sites/docs`: documentation site live at [vnphanquang.com/projects/svelte-put](https://vnphanquang.com/projects/svelte-put),
 - `internals/*`: private helpers.
 
 See [package.json at root directory](package.json) and in each package for available npm scripts. To

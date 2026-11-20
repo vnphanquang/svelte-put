@@ -114,5 +114,5 @@ export default defineConfig({
 [npmx.bundlephobia]: https://npmx.dev/api/registry/badge/size/@svelte-put/inline-svg
 [npmx.license]: https://npmx.dev/api/registry/badge/license/@svelte-put/inline-svg
 [npmx.size]: https://npmx.dev/api/registry/badge/size/@svelte-put/inline-svg
-[docs]: https://svelte-put.vnphanquang.com/packages/inline-svg
+[docs]: https://vnphanquang.com/projects/svelte-put/packages/inline-svg
 [docs.badge]: https://img.shields.io/badge/-Docs%20Site-blue
