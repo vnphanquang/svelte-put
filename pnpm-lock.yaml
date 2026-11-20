@@ -369,8 +369,8 @@ importers:
         specifier: ^4.0.8
         version: 4.0.8
       magic-string:
-        specifier: ^1.4.3
-        version: 1.4.3
+        specifier: ^1.4.5
+        version: 1.4.5
       svg-parser:
         specifier: ^2.1.0
         version: 2.1.0
@@ -412,8 +412,8 @@ importers:
   packages/preprocess-external-link:
     dependencies:
       magic-string:
-        specifier: ^1.4.3
-        version: 1.4.3
+        specifier: ^1.4.5
+        version: 1.4.5
       svelte:
         specifier: '>=5.0.0'
         version: 5.57.3(@typescript-eslint/types@8.71.1)
@@ -457,8 +457,8 @@ importers:
         specifier: ^2.0.0
         version: 2.0.0
       magic-string:
-        specifier: ^1.4.3
-        version: 1.4.3
+        specifier: ^1.4.5
+        version: 1.4.5
       vite:
         specifier: '>=8.0.0'
         version: 8.3.8(@types/node@24.19.0)(@vitejs/devtools@0.8.3)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.1)

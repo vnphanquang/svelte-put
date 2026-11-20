@@ -74,7 +74,7 @@
 		}
 	},
 	"dependencies": {
-		"magic-string": "^1.4.3",
+		"magic-string": "^1.4.5",
 		"zimmerframe": "^1.1.5"
 	}
 }
