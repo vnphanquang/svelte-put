@@ -184,8 +184,8 @@ importers:
         specifier: workspace:*
         version: link:packages/toc
       '@sveltejs/kit':
-        specifier: ^3.3.1
-        version: 3.3.1(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.71.1))(vite@8.3.8))(svelte@5.57.3(@typescript-eslint/types@8.71.1))(typescript@6.0.3)(vite@8.3.8)
+        specifier: ^3.4.0
+        version: 3.4.0(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.58.0(@typescript-eslint/types@8.71.1))(vite@8.3.8))(svelte@5.58.0(@typescript-eslint/types@8.71.1))(typescript@6.0.3)(vite@8.3.8)
       '@sveltejs/load-config':
         specifier: ^0.2.3
         version: 0.2.3
@@ -221,7 +221,7 @@ importers:
         version: 10.15.0(jiti@2.7.0)(supports-color@10.2.2)
       eslint-plugin-svelte:
         specifier: ^3.24.1
-        version: 3.24.1(eslint@10.15.0(jiti@2.7.0)(supports-color@10.2.2))(svelte@5.57.3(@typescript-eslint/types@8.71.1))
+        version: 3.24.1(eslint@10.15.0(jiti@2.7.0)(supports-color@10.2.2))(svelte@5.58.0(@typescript-eslint/types@8.71.1))
       knip:
         specifier: ^6.46.1
         version: 6.46.1
@@ -241,11 +241,11 @@ importers:
         specifier: ^0.8.2
         version: 0.8.2
       prettier-plugin-svelte:
-        specifier: ^4.1.1
-        version: 4.1.1(prettier@3.10.1)(svelte@5.57.3(@typescript-eslint/types@8.71.1))
+        specifier: ^4.2.0
+        version: 4.2.0(prettier@3.10.1)(svelte@5.58.0(@typescript-eslint/types@8.71.1))
       prettier-plugin-tailwindcss:
         specifier: ^0.8.1
-        version: 0.8.1(prettier-plugin-svelte@4.1.1(prettier@3.10.1)(svelte@5.57.3(@typescript-eslint/types@8.71.1)))(prettier@3.10.1)
+        version: 0.8.1(prettier-plugin-svelte@4.2.0(prettier@3.10.1)(svelte@5.58.0(@typescript-eslint/types@8.71.1)))(prettier@3.10.1)
       publint:
         specifier: ^0.3.25
         version: 0.3.25
@@ -265,11 +265,11 @@ importers:
         specifier: ^41.0.0
         version: 41.0.0(stylelint@18.0.0)
       svelte:
-        specifier: ^5.57.3
-        version: 5.57.3(@typescript-eslint/types@8.71.1)
+        specifier: ^5.58.0
+        version: 5.58.0(@typescript-eslint/types@8.71.1)
       svelte-check:
         specifier: ^4.7.8
-        version: 4.7.8(picomatch@4.0.7)(svelte@5.57.3(@typescript-eslint/types@8.71.1))(typescript@6.0.3)
+        version: 4.7.8(picomatch@4.0.7)(svelte@5.58.0(@typescript-eslint/types@8.71.1))(typescript@6.0.3)
       typescript:
         specifier: ^6.0.3
         version: 6.0.3
@@ -289,17 +289,17 @@ importers:
         specifier: workspace:*
         version: link:../../packages/toc
       '@sveltejs/adapter-auto':
-        specifier: ^8.0.1
-        version: 8.0.1(@sveltejs/kit@3.3.1(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.71.1))(vite@8.3.8))(svelte@5.57.3(@typescript-eslint/types@8.71.1))(typescript@6.0.3)(vite@8.3.8))
+        specifier: ^9.0.0
+        version: 9.0.0(@sveltejs/kit@3.4.0(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.58.0(@typescript-eslint/types@8.71.1))(vite@8.3.8))(svelte@5.58.0(@typescript-eslint/types@8.71.1))(typescript@6.0.3)(vite@8.3.8))
       '@sveltejs/enhanced-img':
         specifier: ^1.0.1
-        version: 1.0.1(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.71.1))(vite@8.3.8))(@types/node@24.19.0)(svelte@5.57.3(@typescript-eslint/types@8.71.1))(vite@8.3.8)
+        version: 1.0.1(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.58.0(@typescript-eslint/types@8.71.1))(vite@8.3.8))(@types/node@24.19.0)(svelte@5.58.0(@typescript-eslint/types@8.71.1))(vite@8.3.8)
       '@sveltejs/kit':
-        specifier: ^3.3.1
-        version: 3.3.1(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.71.1))(vite@8.3.8))(svelte@5.57.3(@typescript-eslint/types@8.71.1))(typescript@6.0.3)(vite@8.3.8)
+        specifier: ^3.4.0
+        version: 3.4.0(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.58.0(@typescript-eslint/types@8.71.1))(vite@8.3.8))(svelte@5.58.0(@typescript-eslint/types@8.71.1))(typescript@6.0.3)(vite@8.3.8)
       '@sveltejs/vite-plugin-svelte':
         specifier: ^7.3.1
-        version: 7.3.1(svelte@5.57.3(@typescript-eslint/types@8.71.1))(vite@8.3.8)
+        version: 7.3.1(svelte@5.58.0(@typescript-eslint/types@8.71.1))(vite@8.3.8)
       node-addon-api:
         specifier: ^8.9.2
         version: 8.9.2
@@ -322,7 +322,7 @@ importers:
         version: 6.1.7
       svelte:
         specifier: '>=5.0.0'
-        version: 5.57.3(@typescript-eslint/types@8.71.1)
+        version: 5.58.0(@typescript-eslint/types@8.71.1)
 
   packages/avatar:
     dependencies:
@@ -334,31 +334,31 @@ importers:
         version: 1.1.0
       svelte:
         specifier: '>=5.0.0'
-        version: 5.57.3(@typescript-eslint/types@8.71.1)
+        version: 5.58.0(@typescript-eslint/types@8.71.1)
 
   packages/clickoutside:
     dependencies:
       svelte:
         specifier: '>=5.0.0'
-        version: 5.57.3(@typescript-eslint/types@8.71.1)
+        version: 5.58.0(@typescript-eslint/types@8.71.1)
 
   packages/cloudflare-turnstile:
     dependencies:
       svelte:
         specifier: '>=5.0.0'
-        version: 5.57.3(@typescript-eslint/types@8.71.1)
+        version: 5.58.0(@typescript-eslint/types@8.71.1)
 
   packages/copy:
     dependencies:
       svelte:
         specifier: '>=5.0.0'
-        version: 5.57.3(@typescript-eslint/types@8.71.1)
+        version: 5.58.0(@typescript-eslint/types@8.71.1)
 
   packages/dragscroll:
     dependencies:
       svelte:
         specifier: '>=5.0.0'
-        version: 5.57.3(@typescript-eslint/types@8.71.1)
+        version: 5.58.0(@typescript-eslint/types@8.71.1)
 
   packages/inline-svg:
     dependencies:
@@ -388,26 +388,26 @@ importers:
         specifier: ^2.0.6
         version: 2.0.6
       svelte:
-        specifier: ^5.57.3
-        version: 5.57.3(@typescript-eslint/types@8.71.1)
+        specifier: ^5.58.0
+        version: 5.58.0(@typescript-eslint/types@8.71.1)
 
   packages/intersect:
     dependencies:
       svelte:
         specifier: '>=5.0.0'
-        version: 5.57.3(@typescript-eslint/types@8.71.1)
+        version: 5.58.0(@typescript-eslint/types@8.71.1)
 
   packages/lockscroll:
     dependencies:
       svelte:
         specifier: '>=5.0.0'
-        version: 5.57.3(@typescript-eslint/types@8.71.1)
+        version: 5.58.0(@typescript-eslint/types@8.71.1)
 
   packages/movable:
     dependencies:
       svelte:
         specifier: '>=5.0.0'
-        version: 5.57.3(@typescript-eslint/types@8.71.1)
+        version: 5.58.0(@typescript-eslint/types@8.71.1)
 
   packages/preprocess-external-link:
     dependencies:
@@ -416,7 +416,7 @@ importers:
         version: 1.4.5
       svelte:
         specifier: '>=5.0.0'
-        version: 5.57.3(@typescript-eslint/types@8.71.1)
+        version: 5.58.0(@typescript-eslint/types@8.71.1)
       vite:
         specifier: '>=8.0.0'
         version: 8.3.8(@types/node@24.19.0)(@vitejs/devtools@0.8.3)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.1)
@@ -431,25 +431,25 @@ importers:
         version: 1.0.3
       svelte:
         specifier: '>=5.0.0'
-        version: 5.57.3(@typescript-eslint/types@8.71.1)
+        version: 5.58.0(@typescript-eslint/types@8.71.1)
 
   packages/resize:
     dependencies:
       svelte:
         specifier: '>=5.0.0'
-        version: 5.57.3(@typescript-eslint/types@8.71.1)
+        version: 5.58.0(@typescript-eslint/types@8.71.1)
 
   packages/shortcut:
     dependencies:
       svelte:
         specifier: '>=5.0.0'
-        version: 5.57.3(@typescript-eslint/types@8.71.1)
+        version: 5.58.0(@typescript-eslint/types@8.71.1)
 
   packages/swipeable:
     dependencies:
       svelte:
         specifier: '>=5.0.0'
-        version: 5.57.3(@typescript-eslint/types@8.71.1)
+        version: 5.58.0(@typescript-eslint/types@8.71.1)
 
   packages/toc:
     dependencies:
@@ -470,8 +470,8 @@ importers:
         specifier: ^1.0.9
         version: 1.0.10
       svelte:
-        specifier: ^5.57.3
-        version: 5.57.3(@typescript-eslint/types@8.71.1)
+        specifier: ^5.58.0
+        version: 5.58.0(@typescript-eslint/types@8.71.1)
 
   sites/docs:
     devDependencies:
@@ -524,17 +524,17 @@ importers:
         specifier: workspace:*
         version: link:../../packages/toc
       '@sveltejs/adapter-cloudflare':
-        specifier: ^8.0.3
-        version: 8.0.3(@sveltejs/kit@3.3.1(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.71.1))(vite@8.3.8))(svelte@5.57.3(@typescript-eslint/types@8.71.1))(typescript@6.0.3)(vite@8.3.8))(@types/node@24.19.0)(vite@8.3.8)(workerd@1.20261116.1)(wrangler@4.163.0(@types/node@24.19.0))
+        specifier: ^9.0.0
+        version: 9.0.0(@sveltejs/kit@3.4.0(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.58.0(@typescript-eslint/types@8.71.1))(vite@8.3.8))(svelte@5.58.0(@typescript-eslint/types@8.71.1))(typescript@6.0.3)(vite@8.3.8))(@types/node@24.19.0)(vite@8.3.8)(workerd@1.20261116.1)(wrangler@4.163.0(@types/node@24.19.0))
       '@sveltejs/enhanced-img':
         specifier: ^1.0.1
-        version: 1.0.1(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.71.1))(vite@8.3.8))(@types/node@24.19.0)(svelte@5.57.3(@typescript-eslint/types@8.71.1))(vite@8.3.8)
+        version: 1.0.1(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.58.0(@typescript-eslint/types@8.71.1))(vite@8.3.8))(@types/node@24.19.0)(svelte@5.58.0(@typescript-eslint/types@8.71.1))(vite@8.3.8)
       '@sveltejs/kit':
-        specifier: ^3.3.1
-        version: 3.3.1(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.71.1))(vite@8.3.8))(svelte@5.57.3(@typescript-eslint/types@8.71.1))(typescript@6.0.3)(vite@8.3.8)
+        specifier: ^3.4.0
+        version: 3.4.0(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.58.0(@typescript-eslint/types@8.71.1))(vite@8.3.8))(svelte@5.58.0(@typescript-eslint/types@8.71.1))(typescript@6.0.3)(vite@8.3.8)
       '@sveltejs/vite-plugin-svelte':
         specifier: ^7.3.1
-        version: 7.3.1(svelte@5.57.3(@typescript-eslint/types@8.71.1))(vite@8.3.8)
+        version: 7.3.1(svelte@5.58.0(@typescript-eslint/types@8.71.1))(vite@8.3.8)
       '@types/umami-browser':
         specifier: ^2.18.1
         version: 2.18.1
@@ -1742,16 +1742,16 @@ packages:
     peerDependencies:
       acorn: ^8.9.0
 
-  '@sveltejs/adapter-auto@8.0.1':
-    resolution: {integrity: sha512-JXpRDJy/HxzhZsGS68C/SZ8BlndsfcGf/0X73WB05DAQJMR4Vi6k0hBYT+ZPgPxU4L0+G+irAHPN05YNCCGszA==}
+  '@sveltejs/adapter-auto@9.0.0':
+    resolution: {integrity: sha512-AV89HWxrAWoT6/TmuALWcLookGPmIsv1mDIxKORRvf0fjHWr9qX753FU/xPFh9fsmF84abrvK79Czr5HmIIPhw==}
     peerDependencies:
       '@sveltejs/kit': ^3.0.0-next.0
 
-  '@sveltejs/adapter-cloudflare@8.0.3':
-    resolution: {integrity: sha512-aACeHU6O4D0d48cojp61kTUaMX8oe1oTNO1acfxbL/uxENwLldUnTQbTgXvIKQjybMPotAkm3878rEhdkZc00w==}
+  '@sveltejs/adapter-cloudflare@9.0.0':
+    resolution: {integrity: sha512-IwC2E7RFVh7ngv+M/3L0m3NDtOQMsm6YvDm1lQKSstJLznFnzVG3sjK6jq7/DLgRSRO9NebiFwqa97uCSTDGkg==}
     peerDependencies:
       '@sveltejs/kit': ^3.0.0-next.0
-      wrangler: ^4.118.0
+      wrangler: ^4.162.0
 
   '@sveltejs/enhanced-img@1.0.1':
     resolution: {integrity: sha512-BWCjkVq+uUQlNDu5+ZOPaSoH45Tlt4dD/G+7eXxi3TVLYx0+q1T+4BtKQrZfU5ry1mCtcyamI7EN0ekZp9C3mA==}
@@ -1761,8 +1761,8 @@ packages:
       svelte: ^5.0.0
       vite: '>=8.0.12'
 
-  '@sveltejs/kit@3.3.1':
-    resolution: {integrity: sha512-v5wOLFONn9kSQNIatFRMAz8MsrC5gkOHNlsQjzno9Eq9o9qOiNsWFYOSLAyGo17IZSlKlU6EkvS2bZC9VrWSdg==}
+  '@sveltejs/kit@3.4.0':
+    resolution: {integrity: sha512-0GBSN4rR/IptM40J5knl2lU/BFTP4U5mF+dXBE5VyHuBI5+bf/Zs3YzrAVKrqidZ9CRj9NUaHb0rxzFNkfUw6g==}
     engines: {node: '>=22.17'}
     hasBin: true
     peerDependencies:
@@ -2318,8 +2318,8 @@ packages:
     resolution: {integrity: sha512-Ap6G0WQwcU/LHsvLwON1fAQX9Zp0A2Y6Y/cJBl9r/JbW90Zyg4/zbG6zzKa2OTALELarYHmKu0GhpM5EO+7T0g==}
     engines: {node: '>=0.10'}
 
-  esrap@2.4.0:
-    resolution: {integrity: sha512-CQPcneEHw/czj32uwQC52nYnax8H4SXt25FCM+LIwGZ49cMIxpOj3bP8wmzcI+Z0HIy5KkClaPhRLfCySzwHPA==}
+  esrap@2.4.2:
+    resolution: {integrity: sha512-WpVZsWnSheHBy+fGrO/0duwnbe6ODZH1QyBbjupreSCJGojaBWRncrq+HVeIJ8eHQjEwSJg9hC4yPJyNVOrpqg==}
     peerDependencies:
       '@typescript-eslint/types': ^8.2.0
     peerDependenciesMeta:
@@ -3324,8 +3324,8 @@ packages:
   prettier-plugin-embed@0.8.2:
     resolution: {integrity: sha512-ctzFzw8PWLgv5umnSbaouB+/qTZkR/tyjZX26LsDlTGdmu9CCh4idMOJJt9dv/8clDfuFD9p2Y3AUQ8iWHNUJA==}
 
-  prettier-plugin-svelte@4.1.1:
-    resolution: {integrity: sha512-wXvbXMjSvb4C9ENWTHXyd+ihakKCsJ6rJhLP6/8HFNj4GkZr48jqL9PoKsl2sk7SyCZRTnJ7O2TTowUpOxP/KA==}
+  prettier-plugin-svelte@4.2.0:
+    resolution: {integrity: sha512-VgUFSR6+7/KLloVSIgKMwY/9OFxaixY/xsOBUCP95ZKaxSa6JBtLKzq6L1L/Tw6Jc1C7K+op7D1Yu5qD+YdPHA==}
     engines: {node: '>=20'}
     peerDependencies:
       prettier: ^3.0.0
@@ -3701,8 +3701,8 @@ packages:
       svelte:
         optional: true
 
-  svelte@5.57.3:
-    resolution: {integrity: sha512-5mAftM3SoDV9X0zdF386F9p2pv8iKOwi/KfBS1XnBAkVCKFzVOLHUoa8iGWAt4buoicLmyWVRpuuD5wplXOQsg==}
+  svelte@5.58.0:
+    resolution: {integrity: sha512-rOMKTD9WP2C6ahWDmntey4p+JqUxtup1w9G3KdVuTbNGHi5u97iMw0CIc8a+F5rZtiH7x98kVniDlBRRR5e98w==}
     engines: {node: '>=18'}
 
   svg-parser@2.1.0:
@@ -4988,15 +4988,15 @@ snapshots:
     dependencies:
       acorn: 8.19.0
 
-  '@sveltejs/adapter-auto@8.0.1(@sveltejs/kit@3.3.1(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.71.1))(vite@8.3.8))(svelte@5.57.3(@typescript-eslint/types@8.71.1))(typescript@6.0.3)(vite@8.3.8))':
+  '@sveltejs/adapter-auto@9.0.0(@sveltejs/kit@3.4.0(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.58.0(@typescript-eslint/types@8.71.1))(vite@8.3.8))(svelte@5.58.0(@typescript-eslint/types@8.71.1))(typescript@6.0.3)(vite@8.3.8))':
     dependencies:
-      '@sveltejs/kit': 3.3.1(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.71.1))(vite@8.3.8))(svelte@5.57.3(@typescript-eslint/types@8.71.1))(typescript@6.0.3)(vite@8.3.8)
+      '@sveltejs/kit': 3.4.0(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.58.0(@typescript-eslint/types@8.71.1))(vite@8.3.8))(svelte@5.58.0(@typescript-eslint/types@8.71.1))(typescript@6.0.3)(vite@8.3.8)
 
-  '@sveltejs/adapter-cloudflare@8.0.3(@sveltejs/kit@3.3.1(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.71.1))(vite@8.3.8))(svelte@5.57.3(@typescript-eslint/types@8.71.1))(typescript@6.0.3)(vite@8.3.8))(@types/node@24.19.0)(vite@8.3.8)(workerd@1.20261116.1)(wrangler@4.163.0(@types/node@24.19.0))':
+  '@sveltejs/adapter-cloudflare@9.0.0(@sveltejs/kit@3.4.0(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.58.0(@typescript-eslint/types@8.71.1))(vite@8.3.8))(svelte@5.58.0(@typescript-eslint/types@8.71.1))(typescript@6.0.3)(vite@8.3.8))(@types/node@24.19.0)(vite@8.3.8)(workerd@1.20261116.1)(wrangler@4.163.0(@types/node@24.19.0))':
     dependencies:
       '@cloudflare/vite-plugin': 1.69.1(@types/node@24.19.0)(vite@8.3.8)(workerd@1.20261116.1)(wrangler@4.163.0(@types/node@24.19.0))
       '@rolldown/pluginutils': 1.0.1
-      '@sveltejs/kit': 3.3.1(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.71.1))(vite@8.3.8))(svelte@5.57.3(@typescript-eslint/types@8.71.1))(typescript@6.0.3)(vite@8.3.8)
+      '@sveltejs/kit': 3.4.0(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.58.0(@typescript-eslint/types@8.71.1))(vite@8.3.8))(svelte@5.58.0(@typescript-eslint/types@8.71.1))(typescript@6.0.3)(vite@8.3.8)
       wrangler: 4.163.0(@types/node@24.19.0)
     transitivePeerDependencies:
       - '@types/node'
@@ -5006,12 +5006,12 @@ snapshots:
       - vite
       - workerd
 
-  '@sveltejs/enhanced-img@1.0.1(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.71.1))(vite@8.3.8))(@types/node@24.19.0)(svelte@5.57.3(@typescript-eslint/types@8.71.1))(vite@8.3.8)':
+  '@sveltejs/enhanced-img@1.0.1(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.58.0(@typescript-eslint/types@8.71.1))(vite@8.3.8))(@types/node@24.19.0)(svelte@5.58.0(@typescript-eslint/types@8.71.1))(vite@8.3.8)':
     dependencies:
-      '@sveltejs/vite-plugin-svelte': 7.3.1(svelte@5.57.3(@typescript-eslint/types@8.71.1))(vite@8.3.8)
+      '@sveltejs/vite-plugin-svelte': 7.3.1(svelte@5.58.0(@typescript-eslint/types@8.71.1))(vite@8.3.8)
       magic-string: 1.4.3
       sharp: 0.35.5(@types/node@24.19.0)
-      svelte: 5.57.3(@typescript-eslint/types@8.71.1)
+      svelte: 5.58.0(@typescript-eslint/types@8.71.1)
       vite: 8.3.8(@types/node@24.19.0)(@vitejs/devtools@0.8.3)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.1)
       vite-imagetools: 12.0.1(@types/node@24.19.0)(vite@8.3.8)
       zimmerframe: 1.1.5
@@ -5019,31 +5019,31 @@ snapshots:
       - '@types/node'
       - rollup
 
-  '@sveltejs/kit@3.3.1(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.71.1))(vite@8.3.8))(svelte@5.57.3(@typescript-eslint/types@8.71.1))(typescript@6.0.3)(vite@8.3.8)':
+  '@sveltejs/kit@3.4.0(@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.58.0(@typescript-eslint/types@8.71.1))(vite@8.3.8))(svelte@5.58.0(@typescript-eslint/types@8.71.1))(typescript@6.0.3)(vite@8.3.8)':
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
       '@rolldown/pluginutils': 1.0.1
       '@standard-schema/spec': 1.1.0
-      '@sveltejs/vite-plugin-svelte': 7.3.1(svelte@5.57.3(@typescript-eslint/types@8.71.1))(vite@8.3.8)
+      '@sveltejs/vite-plugin-svelte': 7.3.1(svelte@5.58.0(@typescript-eslint/types@8.71.1))(vite@8.3.8)
       cookie: 2.0.1
       devalue: 5.9.4
       esm-env: 1.2.2
-      magic-string: 1.4.3
+      magic-string: 1.4.5
       mrmime: 2.0.1
       sirv: 3.0.2
-      svelte: 5.57.3(@typescript-eslint/types@8.71.1)
+      svelte: 5.58.0(@typescript-eslint/types@8.71.1)
       vite: 8.3.8(@types/node@24.19.0)(@vitejs/devtools@0.8.3)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.1)
     optionalDependencies:
       typescript: 6.0.3
 
   '@sveltejs/load-config@0.2.3': {}
 
-  '@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.57.3(@typescript-eslint/types@8.71.1))(vite@8.3.8)':
+  '@sveltejs/vite-plugin-svelte@7.3.1(svelte@5.58.0(@typescript-eslint/types@8.71.1))(vite@8.3.8)':
     dependencies:
       deepmerge: 4.3.1
-      magic-string: 1.4.3
+      magic-string: 1.4.5
       obug: 2.2.1
-      svelte: 5.57.3(@typescript-eslint/types@8.71.1)
+      svelte: 5.58.0(@typescript-eslint/types@8.71.1)
       vite: 8.3.8(@types/node@24.19.0)(@vitejs/devtools@0.8.3)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.1)
       vitefu: 1.1.3(vite@8.3.8)
 
@@ -5626,7 +5626,7 @@ snapshots:
 
   escape-string-regexp@4.0.0: {}
 
-  eslint-plugin-svelte@3.24.1(eslint@10.15.0(jiti@2.7.0)(supports-color@10.2.2))(svelte@5.57.3(@typescript-eslint/types@8.71.1)):
+  eslint-plugin-svelte@3.24.1(eslint@10.15.0(jiti@2.7.0)(supports-color@10.2.2))(svelte@5.58.0(@typescript-eslint/types@8.71.1)):
     dependencies:
       '@eslint-community/eslint-utils': 4.10.1(eslint@10.15.0(jiti@2.7.0)(supports-color@10.2.2))
       '@jridgewell/sourcemap-codec': 1.6.0
@@ -5638,9 +5638,9 @@ snapshots:
       postcss-load-config: 3.1.4(postcss@8.5.31)
       postcss-safe-parser: 7.1.0(postcss@8.5.31)
       semver: 7.8.5
-      svelte-eslint-parser: 1.10.1(svelte@5.57.3(@typescript-eslint/types@8.71.1))
+      svelte-eslint-parser: 1.10.1(svelte@5.58.0(@typescript-eslint/types@8.71.1))
     optionalDependencies:
-      svelte: 5.57.3(@typescript-eslint/types@8.71.1)
+      svelte: 5.58.0(@typescript-eslint/types@8.71.1)
     transitivePeerDependencies:
       - ts-node
 
@@ -5717,7 +5717,7 @@ snapshots:
     dependencies:
       estraverse: 5.3.0
 
-  esrap@2.4.0(@typescript-eslint/types@8.71.1):
+  esrap@2.4.2(@typescript-eslint/types@8.71.1):
     dependencies:
       '@jridgewell/sourcemap-codec': 1.6.0
     optionalDependencies:
@@ -6621,16 +6621,16 @@ snapshots:
       '@types/estree': 1.0.10
       tiny-jsonc: 1.0.2
 
-  prettier-plugin-svelte@4.1.1(prettier@3.10.1)(svelte@5.57.3(@typescript-eslint/types@8.71.1)):
+  prettier-plugin-svelte@4.2.0(prettier@3.10.1)(svelte@5.58.0(@typescript-eslint/types@8.71.1)):
     dependencies:
       prettier: 3.10.1
-      svelte: 5.57.3(@typescript-eslint/types@8.71.1)
+      svelte: 5.58.0(@typescript-eslint/types@8.71.1)
 
-  prettier-plugin-tailwindcss@0.8.1(prettier-plugin-svelte@4.1.1(prettier@3.10.1)(svelte@5.57.3(@typescript-eslint/types@8.71.1)))(prettier@3.10.1):
+  prettier-plugin-tailwindcss@0.8.1(prettier-plugin-svelte@4.2.0(prettier@3.10.1)(svelte@5.58.0(@typescript-eslint/types@8.71.1)))(prettier@3.10.1):
     dependencies:
       prettier: 3.10.1
     optionalDependencies:
-      prettier-plugin-svelte: 4.1.1(prettier@3.10.1)(svelte@5.57.3(@typescript-eslint/types@8.71.1))
+      prettier-plugin-svelte: 4.2.0(prettier@3.10.1)(svelte@5.58.0(@typescript-eslint/types@8.71.1))
 
   prettier@3.10.1: {}
 
@@ -7005,7 +7005,7 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  svelte-check@4.7.8(picomatch@4.0.7)(svelte@5.57.3(@typescript-eslint/types@8.71.1))(typescript@6.0.3):
+  svelte-check@4.7.8(picomatch@4.0.7)(svelte@5.58.0(@typescript-eslint/types@8.71.1))(typescript@6.0.3):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
       '@sveltejs/load-config': 0.2.3
@@ -7013,12 +7013,12 @@ snapshots:
       fdir: 6.5.0(picomatch@4.0.7)
       picocolors: 1.1.1
       sade: 1.8.1
-      svelte: 5.57.3(@typescript-eslint/types@8.71.1)
+      svelte: 5.58.0(@typescript-eslint/types@8.71.1)
       typescript: 6.0.3
     transitivePeerDependencies:
       - picomatch
 
-  svelte-eslint-parser@1.10.1(svelte@5.57.3(@typescript-eslint/types@8.71.1)):
+  svelte-eslint-parser@1.10.1(svelte@5.58.0(@typescript-eslint/types@8.71.1)):
     dependencies:
       eslint-scope: 8.4.0
       eslint-visitor-keys: 4.2.1
@@ -7028,9 +7028,9 @@ snapshots:
       postcss-selector-parser: 7.1.6
       semver: 7.8.5
     optionalDependencies:
-      svelte: 5.57.3(@typescript-eslint/types@8.71.1)
+      svelte: 5.58.0(@typescript-eslint/types@8.71.1)
 
-  svelte@5.57.3(@typescript-eslint/types@8.71.1):
+  svelte@5.58.0(@typescript-eslint/types@8.71.1):
     dependencies:
       '@jridgewell/remapping': 2.3.5
       '@jridgewell/sourcemap-codec': 1.6.0
@@ -7042,7 +7042,7 @@ snapshots:
       clsx: 2.1.1
       devalue: 5.9.4
       esm-env: 1.2.2
-      esrap: 2.4.0(@typescript-eslint/types@8.71.1)
+      esrap: 2.4.2(@typescript-eslint/types@8.71.1)
       is-reference: 3.0.3
       locate-character: 3.0.0
       magic-string: 0.30.21
