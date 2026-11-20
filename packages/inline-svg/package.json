@@ -82,7 +82,7 @@
 		"svelte": "^5.57.3"
 	},
 	"dependencies": {
-		"hast-util-to-html": "^9.0.5",
+		"hast-util-to-html": "^9.0.7",
 		"lodash.debounce": "^4.0.8",
 		"magic-string": "^1.4.3",
 		"svg-parser": "^2.1.0",
