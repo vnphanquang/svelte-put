@@ -2,6 +2,8 @@
 	import { defineDocPageMetadata } from '@internals/docpage';
 	import { markdown } from '@vnphanquang/markdown/svelte';
 
+	import { resolve } from '$app/paths';
+
 	export const metadata = defineDocPageMetadata({
 		group: 'Overview',
 		title: 'Introduction',
@@ -34,11 +36,12 @@ their corresponding documentation for more information.
 	</thead>
 	<tbody>
 		{#each packages as pkg (pkg.name)}
+			{let name = pkg.name.replace('@svelte-put/', '')}
 			<tr>
 				<td>
 					<a
 						class="c-link whitespace-nowrap"
-						href="/packages/{pkg.name.replace('@svelte-put/', '')}"
+						href={resolve('/(docs)/packages/[pkg=pkg]/[...slug]', { pkg: name, slug: '' })}
 					>
 						{pkg.name}
 					</a>
