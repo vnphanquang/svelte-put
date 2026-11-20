@@ -36,7 +36,10 @@ their corresponding documentation for more information.
 		{#each packages as pkg (pkg.name)}
 			<tr>
 				<td>
-					<a class="c-link whitespace-nowrap" href="/packages/{pkg.name}">
+					<a
+						class="c-link whitespace-nowrap"
+						href="/packages/{pkg.name.replace('@svelte-put/', '')}"
+					>
 						{pkg.name}
 					</a>
 				</td>
