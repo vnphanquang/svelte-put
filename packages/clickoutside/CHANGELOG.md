@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.0.1
+
+### Patch Changes
+
+- [`f0a804f`](https://github.com/vnphanquang/svelte-put/commit/f0a804faa9bdae81fae185ef7aac7bac9dde012e) Thanks [@vnphanquang](https://github.com/vnphanquang)! - update link to new doc page
+
+- [`d0bb212`](https://github.com/vnphanquang/svelte-put/commit/d0bb212d44da23ee952fbefc1c066b22c7b4f72c) Thanks [@vnphanquang](https://github.com/vnphanquang)! - dev quality-of-life maintenance update: rewrite docs, update manifest
+
 ## 4.0.0
 
 ### Major Changes

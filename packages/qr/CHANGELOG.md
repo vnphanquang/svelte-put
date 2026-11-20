@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.1.4
+
+### Patch Changes
+
+- [`d0bb212`](https://github.com/vnphanquang/svelte-put/commit/d0bb212d44da23ee952fbefc1c066b22c7b4f72c) Thanks [@vnphanquang](https://github.com/vnphanquang)! - dev quality-of-life maintenance update: rewrite docs, update manifest
+
+- [`42603bc`](https://github.com/vnphanquang/svelte-put/commit/42603bc464d0a5381654b02731a950699d7bad32) Thanks [@vnphanquang](https://github.com/vnphanquang)! - draw QR modules and logo separately in `createQrPngDataUrl` to avoid race condition (empty logo when exported)
+
 ## 2.1.3
 
 ### Patch Changes

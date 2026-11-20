@@ -1,6 +1,6 @@
 {
 	"name": "@svelte-put/shortcut",
-	"version": "4.2.0",
+	"version": "4.2.1",
 	"description": "manage keyboard shortcuts",
 	"main": "src/lib/index.js",
 	"module": "src/lib/index.js",

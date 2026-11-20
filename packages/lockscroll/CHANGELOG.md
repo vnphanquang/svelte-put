@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.2
+
+### Patch Changes
+
+- [`d0bb212`](https://github.com/vnphanquang/svelte-put/commit/d0bb212d44da23ee952fbefc1c066b22c7b4f72c) Thanks [@vnphanquang](https://github.com/vnphanquang)! - dev quality-of-life maintenance update: rewrite docs, update manifest
+
 ## 2.0.1
 
 ### Patch Changes
