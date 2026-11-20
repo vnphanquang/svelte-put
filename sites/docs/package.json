@@ -22,8 +22,10 @@
 	"scripts": {
 		"boot:env": "shx cp .env.example .env",
 		"dev": "vite dev",
+		"dev:wrangler": "wrangler dev --port 4545",
 		"build": "vite build",
 		"preview": "vite preview",
+		"deploy": "wrangler deploy",
 		"lint": "run-p lint:*",
 		"lint:es": "svelte-kit sync && eslint .",
 		"lint:svelte": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -56,6 +58,7 @@
 		"node-gyp": "^13.1.0",
 		"tailwindcss": "^4.3.3",
 		"valibot": "^1.5.0",
-		"vite-plugin-qrcode": "^0.4.1"
+		"vite-plugin-qrcode": "^0.4.1",
+		"wrangler": "^4.165.0"
 	}
 }
