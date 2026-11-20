@@ -330,8 +330,8 @@ importers:
         specifier: ^2.3.5
         version: 2.3.6
       js-sha256:
-        specifier: ^1.0.0
-        version: 1.0.0
+        specifier: ^1.1.0
+        version: 1.1.0
       svelte:
         specifier: '>=5.0.0'
         version: 5.57.3(@typescript-eslint/types@8.71.1)
@@ -2732,8 +2732,8 @@ packages:
   jose@6.2.17:
     resolution: {integrity: sha512-wOuK9V1yujQFH5S0ZWmLcDZN7+IKh9bUCC2ZPCf2HDlol3WWHy+PPyNjEI75FXRLMp3vDKQcupP59xhVU95hcg==}
 
-  js-sha256@1.0.0:
-    resolution: {integrity: sha512-Bqxf6ENUzYIMzuELCmRNrJOVbjKH1oMgbfYJBKVr/W1Xf9fazpahqCbb24v1pR7XV1isuqhM+w9KWpK7zCyUQw==}
+  js-sha256@1.1.0:
+    resolution: {integrity: sha512-1RbCPZbbTi4BuTGrbREOz/AvAuLFcKowsALy9LhBrRMmlTMiNSwA1MwcqYbCFfVg6rvbFwJ/qqJlw8aBz3S9oA==}
 
   js-tokens@10.0.0:
     resolution: {integrity: sha512-lM/UBzQmfJRo9ABXbPWemivdCW8V2G8FHaHdypQaIy523snUjog0W71ayWXTjiR+ixeMyVHN2XcpnTd/liPg/Q==}
@@ -6120,7 +6120,7 @@ snapshots:
 
   jose@6.2.17: {}
 
-  js-sha256@1.0.0: {}
+  js-sha256@1.1.0: {}
 
   js-tokens@10.0.0: {}
 
