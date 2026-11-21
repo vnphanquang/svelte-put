@@ -23,7 +23,7 @@ decisions:
 
 Because of the philosophies above, you will find that the majority of packages rely primarily on...
 
-- [Vite plugin][vite.plugin] and [preprocessor][svelte.preprocess],
+- [Vite plugin][vite.plugin] and [preprocessor][svelte.preprocess] for compile-time / build-time abstraction,
 - [action][svelte.action] and [attachment][svelte.attachment] for runtime abstraction
 
 ...to encapsulate only the necessary logics and leave the UI to be defined by users.
@@ -32,7 +32,7 @@ The trade-off, however, is that sometimes it takes verbose setup to achieve a de
 as in the case of [async-stack](/packages/async-stack) or [toc](/packages/toc)). In my own work,
 this has encouraged me to "own" my code and get familiar with pieces of the package; if issues or
 customisation demand arises, I will likely be more capable of providing solutions than say if I were
-to use a highly abstract prebuilt component.
+to use a prebuilt component library.
 
 [svelte.action]: https://svelte.dev/docs/svelte-action
 [svelte.attachment]: https://svelte.dev/docs/svelte/@attach
