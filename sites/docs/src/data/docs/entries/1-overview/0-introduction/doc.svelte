@@ -46,7 +46,7 @@ their corresponding documentation for more information.
 						{pkg.name}
 					</a>
 				</td>
-				<td>{pkg.version}</td>
+				<td class="tabular-nums">{pkg.version}</td>
 				<td>{pkg.description}</td>
 			</tr>
 		{/each}
