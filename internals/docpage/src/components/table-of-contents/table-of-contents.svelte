@@ -66,7 +66,7 @@
 		--pie: 0.2rem;
 
 		position: fixed;
-		inset-block-start: calc(var(--bs) + var(--pie));
+		inset-block-start: calc(var(--bs) + var(--pie) + var(--header-height, 0));
 		transform: translateX(var(--x));
 
 		min-width: 18rem;

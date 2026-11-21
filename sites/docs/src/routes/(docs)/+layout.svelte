@@ -22,7 +22,7 @@
 	<nav class="max-w-pad flex h-full items-center gap-2">
 		<a class="me-4 flex items-center gap-2" href={resolve('/')}>
 			<img src={asset('favicon.svg')} width="32" height="32" alt="" />
-			<span class="font-fingerpaint text-gradient-brand text-sm font-bold">svelte-put</span>
+			<span class="max-tablet:hidden font-fingerpaint text-gradient-brand text-sm font-bold">svelte-put</span>
 		</a>
 
 		<a class="c-link-lazy p-2" href={resolve('/(docs)/[...slug]', { slug: 'overview' })}>
@@ -65,7 +65,26 @@
 			<PageNav {slug} {links} title={params.pkg} />
 		{/if}
 		{#if toc}
-			<TableOfContents {toc} />
+			<div class="side max-desktop:contents widescreen:w-64 w-48">
+				<TableOfContents {toc} />
+				<article class="border-fill-200 max-desktop:hidden space-y-2 border p-4">
+					<p><strong>Are you based in Vienam?</strong></p>
+					<div class="flex items-start gap-2">
+						<img
+							class="h-10 w-10"
+							src="https://sveltevietnam.dev/favicon.svg"
+							width="40"
+							height="40"
+							alt=""
+						/>
+						<p>
+							Join the
+							<a class="c-link" href="https://sveltevietnam.dev"> Svelte Vietnam </a>
+							community!
+						</p>
+					</div>
+				</article>
+			</div>
 		{/if}
 	</div>
 	{@render children()}
@@ -99,7 +118,7 @@
 	.nav {
 		position: sticky;
 		z-index: var(--z-index-header);
-		inset-block-start: 0;
+		inset-block-start: var(--header-height, 0);
 
 		display: flex;
 		justify-content: space-between;
