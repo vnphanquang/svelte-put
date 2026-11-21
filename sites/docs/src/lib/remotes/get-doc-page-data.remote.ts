@@ -18,8 +18,11 @@ export const getDocPageData = query(GetDocPageData, async ({ slug, root }) => {
 	if (!doc) {
 		error(404, `No page with slug ${slug}`);
 	}
+
+	const deprecated = siteLinks.find((l) => l.type === 'group' && l.title === 'Deprecated');
+	const topLevel = siteLinks.filter((l) => !(l.type === 'group' && l.title === 'Deprecated'));
 	return {
 		doc,
-		links: [...siteLinks, packageLinkGroup],
+		links: [...topLevel, packageLinkGroup, deprecated],
 	};
 });

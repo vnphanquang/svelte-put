@@ -138,7 +138,7 @@
 			inset-block-start: var(--header-height, 0);
 
 			height: fit-content;
-			max-height: 100dvh;
+			max-height: calc(100dvh - var(--header-height, 0));
 			padding-block: var(--py);
 			padding-inline-end: var(--px);
 		}
