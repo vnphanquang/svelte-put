@@ -63,7 +63,7 @@ Say i have the following content that i want to index for a Table-of-Contents:
 
 ~~~
 
-Next, set up the \`Toc\` instance:
+Let's set up a \`Toc\` instance:
 
 ~~~svelte #title="content.svelte" src="fs:./includes/examples/setup.svelte"
 

@@ -30,15 +30,8 @@ Table-of-Contents. Historically this has been Javascript-dependent using various
 [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver).
 
 \`@svelte-put/toc\` v7 proposes a strategy to support this pattern without Javascript, using the
-[CSS scroll-driven animations][scroll] API, specifically [View Timeline][view-timeline].
-
-> [!INFO]
-> At the time of this writing, the proposed strategy requires features that are supported
-> by modern browsers [except for Firefox](https://caniuse.com/?search=animation-timeline)
-> (currently available in nightly build) and Firefox Android. I suspect however, that
-> they will land soon.
->
-> The library will progressively enhance and will not break even in unsupported browsers.
+[CSS scroll-driven animations][scroll] API, specifically [View Timeline][view-timeline], which, at
+the time of this writing, has hit baseline across modern browsers.
 
 ## Setup
 
@@ -90,7 +83,8 @@ Next, enhance the entries of Table-of-Contents with \`.enhance.link()\`:
 </main>
 ~~~
 
-Lastly, make sure the necessary CSS is imported (see [Styling]):
+Lastly, make sure the necessary CSS is declared. The library provides some sensibile defaults via
+(see more at [Styling]):
 
 ~~~svelte
 <script>

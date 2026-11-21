@@ -13,18 +13,20 @@
 Version 7 is a complete re-imagine of the library, keeping the "headless" motivation in mind, but
 strive to:
 
-1. reduce as much runtime overhead as possible,
-2. utilise platform baseline when possible,
-3. reduce manual setup as much as possible.
+1. reduce runtime overhead, e.g. visibility-tracking logics,
+2. reduce manual setup,
+3. utilise more platform baseline features.
 
-As such, while I tried to keep as much backward compatibility as possible, there have been a lot of
-breaking changes. My apologies!
+While I tried to keep as much backward compatibility as possible, there have been a lot of breaking
+changes. My apologies!
 
-### Svelte Action -> Attachment
+### Svelte Action -> Attachment & Attribute Mapping
 
 Previously, runtime enhancements relied on [Svelte action]. In version 7, [Svelte attachment] - a
-newer semantic - has been employed for a smoother experience. Spread \`...toc.enhance\` instead
-of \`use:toc.actions\`:
+newer semantic - has been employed for a smoother experience:
+
+- replace \`use:toc.actions.root\` with \`...toc.runtime.index()\`,
+- replace \`use:toc.actions.link\` with \`...toc.enhance.link(item)\`.
 
 ~~~svelte src="fs:./includes/examples/v7-action-to-attachment.svelte"
 
@@ -32,7 +34,7 @@ of \`use:toc.actions\`:
 
 With the new [compile-time] strategy, the \`enhance.\` API supports some SSR enhancements too.
 
-### Custom Events -> Callback Parameters
+### No Custom Events
 
 Previously, event listeners can be added for \`tocinit\` and \`tocchange\` on \`root\`:
 
@@ -40,12 +42,8 @@ Previously, event listeners can be added for \`tocinit\` and \`tocchange\` on \`
 <main use:toc.actions.root ontocinit={handleTocInit} ontocchange={handleTocChange}> <!-- [!code --] -->
 ~~~
 
-As we are moving away from [Svelte action], however, these custom events can now handled via
-callbacks to the enhance attachment:
-
-~~~svelte
-<main {...toc.enhance.root({ onInit, onChange })}> <!-- [!code ++] -->
-~~~
+These events were intended primarily for visibility-tracking feature, which is now JS-free. As such,
+in v7, they have been removed.
 
 ### Mandatory Link Text Content
 
@@ -55,7 +53,7 @@ explicitly, i.e.
 
 ~~~svelte $class=" no-line-number"
 <a {...toc.enhance.link(item)}>
-{...item.text}  <!-- [!code ++] -->
+	{...item.text}  <!-- [!code ++] -->
 </a>
 ~~~
 
@@ -96,11 +94,11 @@ export default config;
 
 ~~~
 
-### Default matching tags
+### Default Matching Tags
 
-In version 7, \`h1\` has been dropped from the default matching tags. The default is now: \`['h2', 'h3', 'h4', 'h5', 'h6']\`.
-
-Also, \`tags\` is now a nested option under \`index\`:
+In version 7, \`h1\` has been dropped from the default matching tags. The default is now: \`['h2',
+'h3', 'h4', 'h5', 'h6']\`. The \`tags\` option is nested option under \`index\`. See [Indexing >
+Matching Tags](../compile-time#matching-tags).
 
 ### Default Anchor Position
 
@@ -118,7 +116,11 @@ strategy, which wraps all content of the matching tag. For example:
 
 In my experience, this has been the best strategy for UX so far.
 
-### \`TocInit\` is not \`TocOptions\`
+### Tracking is now CSS-only
+
+The new [Visibility Tracking](../toc/tracking) mechanism replaces the previously
+Javascript-dependent API. Please check out the dedicated doc page for more information. Previously,
+some data attributes were exposed to support said legacy implementation. They are now also removed.
 
 ## Migrating to v6 (Svelte 5 in Runes mode)
 

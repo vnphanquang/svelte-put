@@ -4,7 +4,7 @@
 </script>
 
 <main use:toc.actions.root>  <!-- [!code --] -->
-<main {...toc.enhance.root()}>  <!-- [!code ++] -->
+<main {...toc.runtime.index()}>  <!-- [!code ++] -->
   <h1>Page Heading</h1>
 
   <section>
