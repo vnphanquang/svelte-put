@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { PageNav, TableOfContents } from '@internals/docpage/components';
+	import { DocLayout } from '@internals/docpage/components';
 	import { Toc } from '@svelte-put/toc';
 	import { ColorSchemeSwitch } from '@vnphanquang/gach/components';
 
@@ -18,19 +18,26 @@
 	let popover_packages: HTMLElement;
 </script>
 
-<header class="z-header h-header bg-fill-100 fixed inset-x-0 inset-bs-0 border-be border-current">
-	<nav class="max-w-pad flex h-full items-center gap-2">
-		<a class="me-4 flex items-center gap-2" href={resolve('/')}>
-			<img src={asset('favicon.svg')} width="32" height="32" alt="" />
-			<span class="font-fingerpaint text-gradient-brand text-sm font-bold">svelte-put</span>
+<header
+	class="z-header h-header bg-fill-50 border-fill-200 max-w-pad max-desktop:border-be fixed inset-x-0"
+>
+	<nav class="desktop:border-be border-fill-200 inset-bs-0 flex h-full items-center gap-2">
+		<a class="me-4 flex shrink-0 items-center gap-2" href={resolve('/')}>
+			<img class="h-8 w-8" src={asset('favicon.svg')} width="32" height="32" alt="" />
+			<span class="font-fingerpaint text-gradient-brand mobile:hidden text-sm font-bold">
+				svelte-put
+			</span>
 		</a>
 
-		<a class="c-link-lazy p-2" href={resolve('/(docs)/[...slug]', { slug: 'overview' })}>
+		<a
+			class="c-link-lazy mobile:text-sm p-2"
+			href={resolve('/(docs)/[...slug]', { slug: 'overview' })}
+		>
 			Overview
 		</a>
 
 		<div>
-			<button class="c-dropdown" popovertarget="packages">
+			<button class="c-dropdown mobile:text-sm" popovertarget="packages">
 				Packages
 				<i class="i i-[ph--caret-down]"></i>
 			</button>
@@ -59,59 +66,12 @@
 	</nav>
 </header>
 
-<div class="page max-w-pad pbs-header grid flex-1" {...toc?.enhance.scope()}>
-	<div class="nav">
-		{#if links}
-			<PageNav {slug} {links} title={params.pkg} />
-		{/if}
-		{#if toc}
-			<TableOfContents {toc} />
-		{/if}
-	</div>
+<DocLayout {slug} inter={{ links, title: params.pkg }} intra={{ toc }}>
 	{@render children()}
-</div>
+</DocLayout>
 
-<style>
-	@import '@vnphanquang/gach/styles/custom-medias';
-
-	.page {
-		--py: 2.5rem;
-		--px: 1rem;
-
-		grid-template-columns: 1fr;
-		grid-template-rows: auto 1fr;
-
-		@media (--desktop) {
-			--pad-max-width: 90rem;
-			--pad-min-padding-x: 2.5rem;
-			--pb: 5rem;
-
-			grid-template-areas: 'pages doc toc';
-			grid-template-columns: auto 1fr auto;
-		}
-
-		@media (--widescreen) {
-			--pad-max-width: 90rem;
-			--pad-min-padding-x: 5rem;
-		}
-	}
-
-	.nav {
-		position: sticky;
-		z-index: var(--z-index-header);
-		inset-block-start: 0;
-
-		display: flex;
-		justify-content: space-between;
-
-		margin-inline: calc(var(--pad-padding-x) * -1);
-		padding-inline: calc(var(--pad-padding-x));
-		border-block-end: 1px solid var(--color-fill-200);
-
-		background-color: var(--color-fill-100);
-
-		@media (--desktop) {
-			display: contents;
-		}
-	}
-</style>
+<footer class="max-w-pad">
+	<div class="border-fill-200 text-stroke-200 border-bs-2 pbs-6 pbe-10 text-right text-sm">
+		<p>svelte-put - a collection of utilities for Svelte land - MIT License</p>
+	</div>
+</footer>

@@ -1,5 +1,20 @@
 @import '@vnphanquang/gach/styles';
 @import '@svelte-put/toc/styles.css' layer(markdown);
+@import '@vnphanquang/gach/styles/custom-medias';
+
+@layer base {
+	:root {
+		@media (--desktop) {
+			--pad-max-width: 90rem;
+			--pad-min-padding-x: 2.5rem;
+		}
+
+		@media (--widescreen) {
+			--pad-max-width: 92rem;
+			--pad-min-padding-x: 4rem;
+		}
+	}
+}
 
 @utility c-num {
 	@layer components {
