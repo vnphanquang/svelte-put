@@ -221,7 +221,7 @@ importers:
         specifier: ^3.24.1
         version: 3.24.1(eslint@10.15.0(jiti@2.7.0)(supports-color@10.2.2))(svelte@5.58.0(@typescript-eslint/types@8.71.1))
       knip:
-        specifier: ^6.46.1
+        specifier: ^6.47.0
         version: 6.47.0
       my-bad:
         specifier: ^1.2.0
