@@ -5,6 +5,7 @@ import { toc } from '@svelte-put/toc/vite';
 import adapter from '@sveltejs/adapter-cloudflare';
 import { enhancedImages } from '@sveltejs/enhanced-img';
 import { sveltekit } from '@sveltejs/kit/vite';
+import { svelteDevtools } from '@sveltejs/vite-devtools-svelte';
 import { gach } from '@vnphanquang/gach/vite';
 import { myBad } from 'my-bad/vite';
 import { defineConfig } from 'vite';
@@ -15,9 +16,10 @@ import pkg from './package.json' with { type: 'json' };
 const commitHash = child_process.execSync('git rev-parse --short HEAD').toString().trim();
 
 export default defineConfig(({ mode }) => ({
-	devtools: mode === 'development',
+	devtools: { apply: 'serve' },
 	server: { port: 4545 },
 	plugins: [
+		svelteDevtools(),
 		myBad(),
 		qrcode(),
 		gach({ markdown: true }),
@@ -40,12 +42,6 @@ export default defineConfig(({ mode }) => ({
 			},
 			experimental: {
 				remoteFunctions: true,
-			},
-			inspector: {
-				toggleKeyCombo: 'alt-shift',
-				holdMode: true,
-				showToggleButton: 'always',
-				toggleButtonPos: 'bottom-left',
 			},
 		}),
 		externalLink(),
