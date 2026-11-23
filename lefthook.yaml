@@ -134,3 +134,6 @@ pre-commit:
       stage_fixed: true
       exclude:
         - pnpm-lock.yaml
+    - name: 4_knip
+      run: pnpm knip
+      glob: '**/*.{js,ts,json,svelte,css,html}'
