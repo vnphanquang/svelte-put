@@ -1,6 +1,6 @@
 <script>
   import { Toc } from '@svelte-put/toc';
-  const toc = new Toc({ observe: true });
+  const toc = new Toc();
 </script>
 
 <main use:toc.actions.root>  <!-- [!code --] -->
