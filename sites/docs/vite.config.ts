@@ -44,7 +44,7 @@ export default defineConfig(({ mode }) => ({
 				remoteFunctions: true,
 			},
 		}),
-		externalLink(),
+		externalLink(['vnphanquang.com']),
 		toc({
 			include: /doc\.svelte$/,
 			preprocessor: {
