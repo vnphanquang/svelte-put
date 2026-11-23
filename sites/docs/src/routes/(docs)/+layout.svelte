@@ -71,7 +71,17 @@
 </DocLayout>
 
 <footer class="max-w-pad">
-	<div class="border-fill-200 text-stroke-200 border-bs-2 pbs-6 pbe-10 text-right text-sm">
+	<div
+		class="border-fill-200 text-stroke-200 flex flex-wrap justify-between gap-1 border-bs-2 pbs-6
+		pbe-10 text-sm"
+	>
 		<p>svelte-put - a collection of utilities for Svelte land - MIT License</p>
+		<p>
+			built by <a class="c-link" href="https://vnphanquang.com">vnphanquang</a> and
+			<a class="c-link" href="https://github.com/vnphanquang/svelte-put/graphs/contributors">
+				friends
+			</a>
+			- no ai
+		</p>
 	</div>
 </footer>
