@@ -3,6 +3,8 @@ import * as v from 'valibot';
 
 import { dev } from '$app/env';
 
+const UmamiScriptRootSchema = v.pipe(v.string(), v.url());
+
 export const variables = defineEnvVars({
 	COOKIE_NAME_COLOR_SCHEME: {
 		public: true,
@@ -10,11 +12,11 @@ export const variables = defineEnvVars({
 		schema: v.optional(v.string(), 'color-scheme'),
 		description: 'cookie name to store color-scheme user preference',
 	},
-	UMAMI_SCRIPT_URL: {
+	UMAMI_SCRIPT_ROOT: {
 		public: true,
 		static: true,
-		schema: dev ? v.optional(v.string()) : v.string(),
-		description: 'umami client script, leave blank to skip umami',
+		schema: dev ? v.optional(UmamiScriptRootSchema) : UmamiScriptRootSchema,
+		description: 'umami client script root url, leave blank to skip umami',
 	},
 	UMAMI_WEBSITE_ID: {
 		public: true,

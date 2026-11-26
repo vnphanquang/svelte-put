@@ -8,50 +8,61 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { svelteDevtools } from '@sveltejs/vite-devtools-svelte';
 import { gach } from '@vnphanquang/gach/vite';
 import { myBad } from 'my-bad/vite';
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import { qrcode } from 'vite-plugin-qrcode';
 
 import pkg from './package.json' with { type: 'json' };
 
 const commitHash = child_process.execSync('git rev-parse --short HEAD').toString().trim();
 
-export default defineConfig(({ mode }) => ({
-	devtools: { apply: 'serve' },
-	server: { port: 4545 },
-	plugins: [
-		svelteDevtools(),
-		myBad(),
-		qrcode(),
-		gach({ markdown: true }),
-		enhancedImages(),
-		sveltekit({
-			adapter: adapter(),
-			version: {
-				name: `${pkg.version} (#${commitHash})@${Date.now()}`,
-			},
-			...(mode === 'production' && {
-				paths: {
-					base: '/projects/svelte-put',
+export default defineConfig(({ mode }) => {
+	const env = loadEnv(mode, process.cwd(), 'UMAMI_SCRIPT_ROOT');
+	return {
+		devtools: { apply: 'serve' },
+		server: { port: 4545 },
+		plugins: [
+			svelteDevtools(),
+			myBad(),
+			qrcode(),
+			gach({ markdown: true }),
+			enhancedImages(),
+			sveltekit({
+				adapter: adapter(),
+				version: {
+					name: `${pkg.version} (#${commitHash})@${Date.now()}`,
+				},
+				...(mode === 'production' && {
+					paths: {
+						base: '/projects/svelte-put',
+					},
+				}),
+				compilerOptions: {
+					modernAst: true,
+					experimental: {
+						async: true,
+					},
+				},
+				experimental: {
+					remoteFunctions: true,
+				},
+				csp: {
+					directives: {
+						'frame-ancestors': ['self', env.UMAMI_SCRIPT_ROOT].filter(Boolean) as [
+							'self',
+							`${string}.${string}`,
+						],
+					},
 				},
 			}),
-			compilerOptions: {
-				modernAst: true,
-				experimental: {
-					async: true,
+			externalLink(['vnphanquang.com']),
+			toc({
+				include: /doc\.svelte$/,
+				preprocessor: {
+					compileToc: {
+						autoDeclare: true,
+					},
 				},
-			},
-			experimental: {
-				remoteFunctions: true,
-			},
-		}),
-		externalLink(['vnphanquang.com']),
-		toc({
-			include: /doc\.svelte$/,
-			preprocessor: {
-				compileToc: {
-					autoDeclare: true,
-				},
-			},
-		}),
-	],
-}));
+			}),
+		],
+	};
+});
