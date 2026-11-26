@@ -11,6 +11,7 @@ const GetDocPageData = v.object({
 });
 
 export const getDocPageData = query(GetDocPageData, async ({ slug, root }) => {
+	if (slug.endsWith('/')) slug = slug.slice(0, -1);
 	const [doc, siteLinks] = await Promise.all([
 		loadDocPage({ slug, root }),
 		loadDocPageLinks({ root }),
@@ -23,6 +24,6 @@ export const getDocPageData = query(GetDocPageData, async ({ slug, root }) => {
 	const topLevel = siteLinks.filter((l) => !(l.type === 'group' && l.title === 'Deprecated'));
 	return {
 		doc,
-		links: [...topLevel, packageLinkGroup, deprecated],
+		links: [...topLevel, packageLinkGroup, deprecated].filter((d) => !!d),
 	};
 });

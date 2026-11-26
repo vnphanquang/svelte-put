@@ -53,7 +53,7 @@ The intermediate Svelte code looks something like:
 That means:
 
 1. Table-of-Contents is readily available in the initial HTML (i.e. available for SSR),
-2. [runtime parsing can be turned off](#turning-off-runtime-parsing) if the content is completely static.
+2. [runtime parsing can be turned off](#skipping-runtime-indexing) if the content is completely static.
 
 ## Vite Plugin
 

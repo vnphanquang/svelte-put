@@ -11,7 +11,7 @@
 		/** start sidebar, render links to other pages */
 		inter: {
 			title?: string;
-			links: PageLinks;
+			links?: PageLinks;
 		};
 		/** end sidebar, render links & info within this page */
 		intra: {

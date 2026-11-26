@@ -12,7 +12,7 @@ Over the years, i struggled to find a Table-of-Contents solution that is conveni
 without runtime penalty (JS dependency) or locked-in UI pattern. This library is my take; it is not
 perfect but has evolved throughout its versions to now be able to:
 
-- At [compile time][compile-time] (optionally, recommended for static content):
+- At [compile-time] (optionally, recommended for static content):
 
 > [!STEPLIST]
 >
@@ -53,7 +53,7 @@ declarative, component-oriented solution, check out [janosh/svelte-toc](https://
 > yarn add -D @svelte-put/toc
 > ~~~
 
-If you are upgrading, make sure to head to [Migrations](../migrations) for more detailed guides.
+If you are upgrading, make sure to head to [Migrations] for more detailed guides.
 
 ## Example Setup
 
@@ -76,10 +76,10 @@ like this:
 
 ~~~
 
-Read on for more information, or see [Compile-time] if your content is completely static.
+Read on for more information, or see if your content is completely static.
 
 [Svelte preprocessor]: https://svelte.dev/docs/svelte-compiler#preprocess
-[compile-time]: ../compile-time
-[runtime]: ../runtime
+[compile-time]: ./compile-time
+[migrations]: ./migrations
 [View Timeline]: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/view-timeline
 `}

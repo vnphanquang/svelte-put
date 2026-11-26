@@ -15,6 +15,7 @@ const GetPackageDocPageDataSchema = v.object({
 export const getPackageDocPageData = query(
 	GetPackageDocPageDataSchema,
 	async ({ slug, pkg, root }) => {
+		if (slug.endsWith('/')) slug = slug.slice(0, -1);
 		const [loaders, og, manifest] = await Promise.all([
 			getLoadersByPackage(pkg),
 			getOgImageUrlByPackage(pkg),
@@ -23,8 +24,8 @@ export const getPackageDocPageData = query(
 		if (!loaders) {
 			error(404, `No package named ${pkg}`);
 		}
-		// const root = resolve('/(docs)/packages/[pkg=pkg]/[...slug]', { pkg, slug: '' })
-		const [doc, packageLinks] = await Promise.all([
+
+		const [doc, links] = await Promise.all([
 			loaders.loadDocPage({ slug, root }),
 			loaders.loadDocPageLinks({ root }),
 		]);
@@ -35,7 +36,7 @@ export const getPackageDocPageData = query(
 
 		return {
 			doc,
-			links: packageLinks,
+			links,
 			og,
 			manifest,
 		};

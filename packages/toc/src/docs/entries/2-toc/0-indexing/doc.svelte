@@ -216,7 +216,7 @@ const toc = new Toc({
 });
 ~~~
 
-[styling]: ../styling
-[compile-time]: ../compile-time
+[styling]: ./styling
+[compile-time]: ./compile-time
 [tracking]: ./tracking
 `}
