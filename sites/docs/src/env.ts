@@ -3,7 +3,11 @@ import * as v from 'valibot';
 
 import { dev } from '$app/env';
 
-const UmamiScriptRootSchema = v.pipe(v.string(), v.url());
+const UmamiScriptRootSchema = v.pipe(
+	v.string(),
+	v.url(),
+	v.transform((u) => (u.endsWith('/') ? u.slice(0, -1) : u)), // trim trailing slash
+);
 
 export const variables = defineEnvVars({
 	COOKIE_NAME_COLOR_SCHEME: {
