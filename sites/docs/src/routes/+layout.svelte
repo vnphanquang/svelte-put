@@ -46,6 +46,7 @@
 			defer
 			src="{UMAMI_SCRIPT_ROOT}/script.js"
 			data-website-id={UMAMI_WEBSITE_ID}
+			data-performance="true"
 		></script>
 		<script defer src="{UMAMI_SCRIPT_ROOT}/recorder.js" data-website-id={UMAMI_WEBSITE_ID}></script>
 	{/if}
